@@ -66,7 +66,7 @@ const MainIndex = () => {
               </p>
             </div>
             <div className={cls(['row'])}>
-              <p className={cls(['text-xl', 'w-full', 'p-5'])}>
+              <p className={cls(['text-sm', 'w-full', 'p-5', 'md:text-xl'])}>
                 {`I'am ♂️ Maurizio Tolomeo 😉, alias 🇲🇴🇷🇮🇸. I am a Junior web
                       Develeoper and i work as a Frontend Dev in `}
                 <a
