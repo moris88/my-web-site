@@ -67,3 +67,11 @@
 .cssbuttons:active {
     transform: scale(0.95);
 }
+
+@media only screen and (max-width: 600px) {
+    .cssbuttonsdisabled, .cssbuttons {
+        font-weight: 100;
+        font-size: 8px;
+        letter-spacing: 0;
+    }
+}

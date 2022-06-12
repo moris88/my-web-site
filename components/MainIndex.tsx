@@ -85,7 +85,7 @@ const MainIndex = () => {
         </div>
         <div
           className={cls([
-            'row',
+            'flex',
             'justify-center',
             'items-center',
             'pt-5',
@@ -96,7 +96,7 @@ const MainIndex = () => {
           <Button name="download IT cv" onClick={onCVHandler} />
           <Button className={cls(['mx-3'])} name="download EN cv" disabled />
         </div>
-        <div className={cls(['row', 'justify-center', 'items-center'])}>
+        <div className={cls(['flex', 'justify-center', 'items-center'])}>
           <a href={linkGitHub} target={'_blank'} rel="noreferrer">
             <i className={cls(['fa fa-github fa-2x', 'icona'])}></i>
           </a>
