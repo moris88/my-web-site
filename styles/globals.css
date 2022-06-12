@@ -8,8 +8,81 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  height: 100vh;
+  background-image: url('/website-background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
   box-sizing: border-box;
+  color: white;
+}
+
+.component {
+  @apply container mx-auto
+}
+
+.col {
+  @apply flex flex-col
+}
+
+.row {
+  @apply flex md:flex-row flex-col
+}
+
+.lineaTop {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 1rem;
+  border-top: solid 1px #262626;
+}
+
+.lineaBottom {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-bottom: 1rem;
+  border-bottom: solid 1px #262626;
+}
+
+@media only screen and (max-width: 600px) {
+  .lineaTop,.lineaBottom {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.link {
+  color: #4a00e0;
+  font-weight: 600;
+}
+
+.link:hover {
+  color: #8e2de2;
+  cursor:pointer;
+}
+
+.icona {
+  color: #4a00e0;
+  cursor: pointer;
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
+.icona:hover {
+  color: #8e2de2;
+}
+
+
+footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
