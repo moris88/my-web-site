@@ -1,6 +1,6 @@
 import React from 'react'
 import cls from 'classnames'
-import style from './button.module.css'
+import style from './Button.module.css'
 
 interface ButtonProps {
   className?: string
