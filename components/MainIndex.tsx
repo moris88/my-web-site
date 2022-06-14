@@ -19,7 +19,7 @@ const linkGitHub = 'https://github.com/moris88'
 
 const MainIndex = () => {
   const onCVHandler = () => {
-    saveAs('/', 'cv.docx')
+    saveAs('./', 'cv.pdf')
   }
   return (
     <div className={cls(['component', 'flex', 'flex-col', 'jusify-center'])}>
