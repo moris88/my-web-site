@@ -24,7 +24,7 @@ const MainIndex = () => {
     const host = process.env.NEXT_PUBLIC_HOST
       ? `${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}`
       : 'https://mauriziotolomeo.vercel.app'
-    saveAs(`${host}/cv_${lang}.pdf`, `cv_${lang}.pdf`)
+    saveAs(`${host}/`, `cv_${lang}.pdf`)
   }
   return (
     <div
