@@ -10,6 +10,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@material-tailwind/react": "^1.0.4",
     "classnames": "^2.3.1",
     "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
