@@ -1,0 +1,33 @@
+.textGradient {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.containerTitle {
+    transition: all 1s;
+    transform: skewX(-10deg);
+}
+
+.containerTitle:hover {
+    cursor: pointer;
+    transform: skewX(10deg);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .containerTitle {
+      transform: skewX(0);
+    }
+
+    .title {
+      font-size:large;
+    }
+}

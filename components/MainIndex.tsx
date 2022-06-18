@@ -1,9 +1,9 @@
 import React from 'react'
 import cls from 'classnames'
 import Button from '../components/MiniComponents/Button'
-import ThreeBox from '../components/AnimatedComponents/ThreeBox'
-import { saveAs } from 'file-saver'
 import 'font-awesome/css/font-awesome.min.css'
+import saveAs from 'file-saver'
+// import style from './MainIndex.module.css'
 
 const glass = [
   'bg-white',
@@ -17,12 +17,25 @@ const linkTwitter = 'https://twitter.com/moris_tolomeo'
 const linkLinkedin = 'https://www.linkedin.com/in/maurizio-tolomeo/'
 const linkGitHub = 'https://github.com/moris88'
 
+type LANG = 'it' | 'en'
+
 const MainIndex = () => {
-  const onCVHandler = () => {
-    saveAs('/', 'cv.docx')
+  const onCVHandler = (lang: LANG) => {
+    const host = process.env.NEXT_PUBLIC_HOST
+      ? `${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}`
+      : 'https://mauriziotolomeo.vercel.app'
+    saveAs(`${host}/cv_${lang}.pdf`, `cv_${lang}.pdf`)
   }
   return (
-    <div className={cls(['component', 'flex', 'flex-col', 'jusify-center'])}>
+    <div
+      className={cls([
+        'component',
+        'flex',
+        'flex-col',
+        'jusify-center',
+        'pt-5',
+      ])}
+    >
       <div className={cls([...glass])}>
         <div
           className={cls([
@@ -34,7 +47,18 @@ const MainIndex = () => {
             'lineaBottom',
           ])}
         >
-          <ThreeBox />
+          <div className={cls(['row'])}>
+            <h2
+              className={cls([
+                'text-xl',
+                'text-black',
+                'font-extrabold',
+                'p-5',
+              ])}
+            >
+              My Description
+            </h2>
+          </div>
         </div>
         <div
           className={cls([
@@ -53,18 +77,6 @@ const MainIndex = () => {
             />
           </div>
           <div className={cls(['col', 'md:w-2/3', 'w-full'])}>
-            <div className={cls(['row'])}>
-              <p
-                className={cls([
-                  'text-xl',
-                  'text-black',
-                  'font-extrabold',
-                  'p-5',
-                ])}
-              >
-                My Description:
-              </p>
-            </div>
             <div className={cls(['row'])}>
               <p className={cls(['text-sm', 'w-full', 'p-5', 'md:text-xl'])}>
                 {`I'am ♂️ Maurizio Tolomeo 😉, alias MORIS. I am a Junior web
@@ -93,7 +105,7 @@ const MainIndex = () => {
             'lineaTop',
           ])}
         >
-          <Button name="download IT cv" onClick={onCVHandler} />
+          <Button name="download IT cv" onClick={() => onCVHandler('it')} />
           <Button className={cls(['mx-3'])} name="download EN cv" disabled />
         </div>
         <div className={cls(['flex', 'justify-center', 'items-center'])}>

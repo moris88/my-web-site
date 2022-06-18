@@ -1,21 +1,12 @@
-.textGradient {
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+.link {
+    color: #4a00e0;
+    font-weight: 600;
+    transition: all 1s;
 }
 
-.title {
-    text-align: center;
-    margin-bottom: 5rem;
-    font-size: xx-large;
-    font-weight: 900;
+.link:hover {
+    color: white;
+    padding: 1rem;
+    background-color: #4a00e0;
+    cursor:pointer;
 }
-
-@media only screen and (max-width: 600px) {
-    .title {
-      margin-bottom: 1rem;
-      font-size:large;
-    }
-}
-  
