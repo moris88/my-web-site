@@ -5,7 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { HOST, PORT } = process.env
+  const { HOST } = process.env
+
   const {
     query: { lang },
   } = req
@@ -14,13 +15,15 @@ export default async function handler(
       throw new Error('Invalid query params')
     }
 
+    console.log('CIAO')
     if (lang === 'IT' || lang === 'EN') {
       const hostname =
-        HOST && PORT
-          ? `http://${HOST}:${PORT}`
+        HOST
+          ? HOST
           : 'https://mauriziotolomeo.vercel.app'
       await fetch(`${hostname}/cv_${lang.toLowerCase().trim()}.pdf`)
         .then(async (rispostaServer) => {
+          console.log(rispostaServer);
           if (rispostaServer.status === 200) {
             const resBlob = await rispostaServer.blob()
             const resBufferArray = await resBlob.arrayBuffer()

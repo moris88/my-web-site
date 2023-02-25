@@ -4,10 +4,10 @@ import cls from 'classnames'
 
 const Footer = () => {
   return (
-    <footer>
-      <small className={cls([style.textGradient, style.copyright])}>
-        Copyright© 2022
-      </small>
+    <footer className="w-full absolute bottom-2">
+      <div className={cls([style.textGradient, style.copyright])}>
+        Copyright© 2023
+      </div>
     </footer>
   )
 }
