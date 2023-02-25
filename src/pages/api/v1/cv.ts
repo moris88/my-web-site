@@ -5,8 +5,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { HOST } = process.env
-
   const {
     query: { lang },
   } = req
@@ -15,9 +13,8 @@ export default async function handler(
       throw new Error('invalid query params')
     }
 
-    console.log('CIAO')
     if (lang === 'IT' || lang === 'EN') {
-      await fetch(`${HOST}/cv_${lang.toLowerCase().trim()}.pdf`)
+      await fetch(`${process.env.NEXT_PUBLIC_HOST}/cv_${lang.toLowerCase().trim()}.pdf`)
         .then(async (rispostaServer) => {
           if (rispostaServer.status === 200) {
             const resBlob = await rispostaServer.blob()
