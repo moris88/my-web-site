@@ -12,18 +12,13 @@ export default async function handler(
   } = req
   try {
     if (!lang || typeof lang !== 'string') {
-      throw new Error('Invalid query params')
+      throw new Error('invalid query params')
     }
 
     console.log('CIAO')
     if (lang === 'IT' || lang === 'EN') {
-      const hostname =
-        HOST
-          ? HOST
-          : 'https://mauriziotolomeo.vercel.app'
-      await fetch(`${hostname}/cv_${lang.toLowerCase().trim()}.pdf`)
+      await fetch(`${HOST}/cv_${lang.toLowerCase().trim()}.pdf`)
         .then(async (rispostaServer) => {
-          console.log(rispostaServer);
           if (rispostaServer.status === 200) {
             const resBlob = await rispostaServer.blob()
             const resBufferArray = await resBlob.arrayBuffer()
@@ -36,18 +31,19 @@ export default async function handler(
             res.write(resBuffer, 'binary')
             res.end()
           } else
-            return res.status(400).json({
-              error: 'error file',
+            return res.status(rispostaServer.status).json({
+              message: 'ERROR',
+              error: 'status error file',
               response: rispostaServer.statusText,
             })
         })
         .catch((error) => {
-          return res.status(400).json({ error: 'error file', response: error })
+          return res.status(404).json({ message: 'ERROR', error: 'error file', response: error })
         })
     } else {
-      return res.status(400).json({ error: 'no lang support', response: '' })
+      return res.status(404).json({ message: 'ERROR', error: 'no lang param', response: '' })
     }
   } catch (error) {
-    return res.status(400).json({ error: 'bad request', response: '' })
+    return res.status(500).json({ message: 'ERROR', error: 'bad request', response: error })
   }
 }

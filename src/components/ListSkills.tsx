@@ -3,15 +3,14 @@ import cls from 'classnames'
 import Button from './MiniComponents/Button'
 import LogoBtn from './MiniComponents/LogoBtn'
 import { linkGitHub, linkLinkedin, linkTwitter } from '../utils/metadata'
-import { Accordion, Tooltip } from 'flowbite-react'
+import { Tooltip } from 'flowbite-react'
 import Link from 'next/link'
 
 const ListSkills = () => {
   const [show, setShow] = React.useState<boolean>(true)
   const [skills, SetSkills] = React.useState<Object>({})
   const onClickhandler = React.useCallback(async () => {
-    const host = process.env.NEXT_PUBLIC_HOST
-    SetSkills(await fetch(`${host}/api/v1/skills`)
+    SetSkills(await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/v1/skills`)
       .then((request) => {
         if (request.status !== 200) {
           alert(`Error! ${request.statusText}`)

@@ -13,8 +13,7 @@ type LangType = 'IT' | 'EN'
 
 const MainIndex = () => {
   const onLangClickhandler = React.useCallback(async (lang: LangType) => {
-    const host = process.env.NEXT_PUBLIC_HOST
-    const request = await fetch(`${host}/api/v1/cv?lang=${lang}`)
+    const request = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/v1/cv?lang=${lang}`)
     if (request.status === 200) {
       const fileBlob = await request.blob()
       saveAs(fileBlob, 'cv_maurizio.tolomeo.pdf')
