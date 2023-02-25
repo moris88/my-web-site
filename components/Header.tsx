@@ -20,10 +20,14 @@ const Header = () => {
         'justify-center',
         'items-center',
         'mb-5',
+        'gap-1'
       ])}
     >
       <Link href={'/'}>
         <a className={cls([style.link])}>home</a>
+      </Link>
+      <Link href={'/skills'}>
+        <a className={cls([style.link])}>skills</a>
       </Link>
     </header>
   )

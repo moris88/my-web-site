@@ -118,17 +118,6 @@ const MainIndex = () => {
             </div>
           </div>
         </div>
-        {/* <div
-          className={cls([
-            'component',
-            'flex',
-            'flex-col',
-            'jusify-center',
-            'pt-5',
-          ])}
-        >
-          <ListSkills />
-        </div> */}
         <div
           className={cls([
             'flex',

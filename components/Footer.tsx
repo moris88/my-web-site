@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer>
       <small className={cls([style.textGradient, style.copyright])}>
-        Copyright© 2022
+        Copyright© 2023
       </small>
     </footer>
   )
