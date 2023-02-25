@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
-import MainIndex from '../components/MainIndex'
 import Title from '../components/Title/Title'
+import dynamic from 'next/dynamic'
 
 const Home: NextPage = () => {
+  const MainIndex = dynamic(() => import('../components/MainIndex'), { ssr: false })
   return (
     <>
-      <Title text={'Jr. Web Developer MAURIZIO TOLOMEO'} />
+      <Title text={'My Description'} />
       <MainIndex />
     </>
   )

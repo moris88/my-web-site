@@ -1,0 +1,11 @@
+.textGradient {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.copyright {
+    @apply flex w-full items-center justify-center font-bold;
+}
