@@ -76,3 +76,7 @@ body {
 .icona:hover {
   color: #8e2de2;
 }
+
+.glass {
+  @apply bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg;
+}

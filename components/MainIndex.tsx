@@ -4,21 +4,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import Button from './MiniComponents/Button'
 import { saveAs } from 'file-saver'
 import LogoBtn from './MiniComponents/LogoBtn'
-import { Tooltip } from '@material-tailwind/react'
-// import ListSkills from './ListSkills'
-// import style from './MainIndex.module.css'
-
-const glass = [
-  'bg-white',
-  'bg-opacity-20',
-  'backdrop-blur-lg',
-  'rounded',
-  'drop-shadow-lg',
-]
-
-const linkTwitter = 'https://twitter.com/moris_tolomeo'
-const linkLinkedin = 'https://www.linkedin.com/in/maurizio-tolomeo/'
-const linkGitHub = 'https://github.com/moris88'
+import { linkGitHub, linkLinkedin, linkTwitter } from '../utils/metadata'
+import { Tooltip } from 'flowbite-react'
 
 type LangType = 'IT' | 'EN'
 
@@ -45,7 +32,7 @@ const MainIndex = () => {
         'pt-5',
       ])}
     >
-      <div className={cls([...glass])}>
+      <div className="glass">
         <div
           className={cls([
             'row',
@@ -78,7 +65,7 @@ const MainIndex = () => {
           ])}
         >
           <div className={cls(['col'])}>
-            <Tooltip className={cls(['p-5'])} content="Hi, nice to meet you!">
+            <Tooltip content="Hi, nice to meet you!" animation="duration-1000">
               <img
                 className={cls(['w-32', 'rounded-lg', 'shadow-lg'])}
                 src="/avatar.png"
@@ -92,8 +79,7 @@ const MainIndex = () => {
               <p className={cls(['text-sm', 'w-full', 'p-5', 'md:text-xl'])}>
                 {`I'am ♂️ Maurizio Tolomeo 😉, alias`}
                 <Tooltip
-                  className={cls(['p-5'])}
-                  placement={'bottom-end'}
+                  animation="duration-1000"
                   content="For friends I am MORIS!"
                 >
                   <span className={cls(['link'])}>{' MORIS. '}</span>

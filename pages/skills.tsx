@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import MainIndex from '../components/MainIndex'
-import Title from '../components/Title'
+import Title from '../components/Title/Title'
 import cls from 'classnames'
 import ListSkills from '../components/ListSkills'
 

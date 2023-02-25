@@ -23,12 +23,8 @@ const Header = () => {
         'gap-1'
       ])}
     >
-      <Link href={'/'}>
-        <a className={cls([style.link])}>home</a>
-      </Link>
-      <Link href={'/skills'}>
-        <a className={cls([style.link])}>skills</a>
-      </Link>
+      <Link href={'/'} className={cls([style.link])}>home</Link>
+      <Link href={'/skills'} className={cls([style.link])}>skills</Link>
     </header>
   )
 }
