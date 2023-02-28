@@ -118,15 +118,15 @@ const MainIndex = () => {
             'lineaTop',
           ])}
         >
-          <Button
+          {/* <Button
             name="download IT cv"
             onClick={() => onLangClickhandler('IT')}
             icon={<LogoBtn />}
-          />
+          /> */}
           <Tooltip content="Work in progress!" animation="duration-1000">
             <Button
               className={cls(['mx-3'])}
-              name="download EN cv"
+              name="my contacts"
               disabled
               icon={<LogoBtn />}
             />

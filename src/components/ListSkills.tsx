@@ -82,11 +82,13 @@ const ListSkills = () => {
             'lineaTop',
           ])}
         >
-          <Button
-            name="Show My Skills"
-            onClick={() => onClickhandler()}
-            icon={<LogoBtn />}
-          />
+          <Tooltip content="Work in progress!" animation="duration-1000">
+            <Button
+              name="Show My Skills"
+              onClick={() => onClickhandler()}
+              icon={<LogoBtn />}
+            />
+          </Tooltip>
         </div>
         <div className={cls(['flex', 'justify-center', 'items-center'])}>
           <Link href={linkGitHub} target={'_blank'} rel="noreferrer">
