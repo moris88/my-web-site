@@ -90,6 +90,7 @@ body {
 }
 
 body {
+  display: relative;
   background-image: url('/background-image.png');
   background-position: center;
   background-repeat: repeat;
@@ -155,8 +156,8 @@ a {
   transition: all 1s;
   color: #4a00e0;
   cursor: pointer;
-  min-width: 3rem;
-  min-height: 3rem;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .icona:hover {

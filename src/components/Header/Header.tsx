@@ -18,6 +18,7 @@ const Header = () => {
     >
       <Link href={'/'} className={cls([style.link])}>home</Link>
       <Link href={'/skills'} className={cls([style.link])}>skills</Link>
+      <Link href={'/contacts'} className={cls([style.link])}>contacts</Link>
     </header>
   )
 }

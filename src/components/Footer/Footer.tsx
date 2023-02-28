@@ -4,7 +4,7 @@ import cls from 'classnames'
 
 const Footer = () => {
   return (
-    <footer className="w-full absolute bottom-2">
+    <footer className={style.myfooter}>
       <div className={cls([style.textGradient, style.copyright])}>
         Copyright© 2023
       </div>

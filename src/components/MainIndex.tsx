@@ -3,24 +3,12 @@ import React from 'react'
 import cls from 'classnames'
 import 'font-awesome/css/font-awesome.min.css'
 import Button from './MiniComponents/Button'
-import { saveAs } from 'file-saver'
 import LogoBtn from './MiniComponents/LogoBtn'
-import { linkGitHub, linkLinkedin, linkTwitter } from '../utils/metadata'
 import { Tooltip } from 'flowbite-react'
 import Link from 'next/link'
-
-type LangType = 'IT' | 'EN'
+import Links from './Links/Links'
 
 const MainIndex = () => {
-  const onLangClickhandler = React.useCallback(async (lang: LangType) => {
-    const request = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/v1/cv?lang=${lang}`)
-    if (request.status === 200) {
-      const fileBlob = await request.blob()
-      saveAs(fileBlob, 'cv_maurizio.tolomeo.pdf')
-    } else {
-      alert(`Download Error! ${request.statusText}`)
-    }
-  }, [])
   return (
     <div
       className={cls([
@@ -118,31 +106,14 @@ const MainIndex = () => {
             'lineaTop',
           ])}
         >
-          {/* <Button
-            name="download IT cv"
-            onClick={() => onLangClickhandler('IT')}
+          <Button
+            className={cls(['mx-3'])}
+            name="my contacts"
+            onClick={() => window.location.href = `/contacts`}
             icon={<LogoBtn />}
-          /> */}
-          <Tooltip content="Work in progress!" animation="duration-1000">
-            <Button
-              className={cls(['mx-3'])}
-              name="my contacts"
-              disabled
-              icon={<LogoBtn />}
-            />
-          </Tooltip>
+          />
         </div>
-        <div className={cls(['flex', 'justify-center', 'items-center'])}>
-          <Link href={linkGitHub} target={'_blank'} rel="noreferrer">
-            <i className={cls(['fa fa-github fa-2x', 'icona'])}></i>
-          </Link>
-          <Link href={linkTwitter} target={'_blank'} rel="noreferrer">
-            <i className={cls(['fa fa-twitter fa-2x', 'icona'])}></i>
-          </Link>
-          <Link href={linkLinkedin} target={'_blank'} rel="noreferrer">
-            <i className={cls(['fa fa-linkedin fa-2x', 'icona'])}></i>
-          </Link>
-        </div>
+        <Links />
       </div>
     </div>
   )
