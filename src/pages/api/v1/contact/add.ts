@@ -26,10 +26,10 @@ export default async function handler(
       if (!data.text || typeof data.text !== 'string') {
         return res.status(400).json({ message: 'ERROR', error: 'invalid data' })
       }
-      const db = JSON.parse(fs.readFileSync('./db/data.json', 'utf8'))
+      const db = JSON.parse(fs.readFileSync('./data/db.json', 'utf8'))
       db.data.push(data)
       console.log(data)
-      fs.writeFileSync('./db/data.json', JSON.stringify(db), {
+      fs.writeFileSync('./data/db.json', JSON.stringify(db), {
         encoding: 'utf8',
         flag: 'w',
       })

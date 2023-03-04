@@ -24,7 +24,7 @@ const MyForm = (props: MyFormProps) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const body = JSON.stringify({ data })
     console.log(body)
-    fetch('/api/v1/contact', {
+    fetch('/api/v1/contact/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body,
