@@ -24,7 +24,7 @@ const MyHeader = () => {
             alt="Moris Logo"
           />
         </Tooltip>
-        <span className="self-center whitespace-nowrap text-xl font-semibold text-black italic hover:text-2xl transition-all cursor-pointer hover:text-[#081fb6]">
+        <span className="self-center whitespace-nowrap text-xl font-semibold text-black dark:text-white italic hover:text-2xl transition-all cursor-pointer hover:text-[#081fb6]">
           <Link href={'/'}>Maurizio Tolomeo</Link>
         </span>
       </Navbar.Brand>
