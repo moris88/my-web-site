@@ -1,0 +1,4 @@
+.container {
+    @apply relative;
+    min-height: 85vh;
+}
