@@ -19,7 +19,7 @@ interface IFormInput {
 const MyForm = (props: MyFormProps) => {
   const { register, handleSubmit, reset } = useForm<IFormInput>()
   const [show, setShow] = React.useState<boolean>(false)
-  const [message, setMessage] = React.useState<string>('')
+  const [message, setMessage] = React.useState<string>('Loading...')
   const [type, setType] = React.useState<'info' | 'error'>('info')
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const body = JSON.stringify({ data })
