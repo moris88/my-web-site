@@ -10,6 +10,8 @@ export default async function handler(
     if (!skills) throw new Error('skills not found')
     return res.status(200).json({ message: 'OK', response: skills })
   } catch (error) {
-    return res.status(500).json({ message: 'ERROR', error: 'bad request', response: error})
+    return res
+      .status(500)
+      .json({ message: 'ERROR', error: 'bad request', response: error })
   }
 }

@@ -1,5 +1,5 @@
-import { createStore } from "jotai";
-import { theme } from "./atoms";
+import { createStore } from 'jotai'
+import { theme } from './atoms'
 
 export const myStore = createStore()
 

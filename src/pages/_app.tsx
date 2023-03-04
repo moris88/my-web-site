@@ -7,8 +7,12 @@ import { Provider } from 'jotai'
 import { myStore } from '@/store/store'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const Footer = dynamic(() => import('../components/MyFooter/MyFooter'), { ssr: false })
-  const Header = dynamic(() => import('../components/MyHeader/MyHeader'), { ssr: false })
+  const Footer = dynamic(() => import('../components/MyFooter/MyFooter'), {
+    ssr: false,
+  })
+  const Header = dynamic(() => import('../components/MyHeader/MyHeader'), {
+    ssr: false,
+  })
 
   return (
     <>

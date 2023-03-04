@@ -2,8 +2,12 @@ import React from 'react'
 import style from './MyFooter.module.css'
 import cls from 'classnames'
 import { Footer } from 'flowbite-react'
-import { linkGitHub, linkLinkedin, linkTelegram, linkTwitter } from '@/utils/metadata'
-
+import {
+  linkGitHub,
+  linkLinkedin,
+  linkTelegram,
+  linkTwitter,
+} from '@/utils/metadata'
 
 const MyFooter = () => {
   const getYear = () => {
@@ -12,11 +16,7 @@ const MyFooter = () => {
   }
   return (
     <Footer className={style.container}>
-      <Footer.Copyright
-        href="/"
-        by="Moris™"
-        year={getYear()}
-      />
+      <Footer.Copyright href="/" by="Moris™" year={getYear()} />
       <Footer.LinkGroup>
         <Footer.Link className="mr-2" href={linkGitHub}>
           <i className={cls(['fa fa-github fa-2x', style.icon])}></i>

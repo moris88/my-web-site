@@ -11,4 +11,4 @@ export const myInfo = `I'am ♂️ Maurizio Tolomeo 😉, alias MORIS. I am a Ju
 export const skills = {
   frontend: {},
   backend: {},
-};
+}

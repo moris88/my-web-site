@@ -1,15 +1,16 @@
 import type { NextPage } from 'next'
-import cls from 'classnames'
 import dynamic from 'next/dynamic'
 
 const Blog: NextPage = () => {
-    const MyMain = dynamic(() => import('../components/MyMain/MyMain'), { ssr: false })
+  const MyMain = dynamic(() => import('../components/MyMain/MyMain'), {
+    ssr: false,
+  })
 
-    return (
-        <MyMain>
-            <p className="text-center pt-10">coming soon...</p>
-        </MyMain>
-    )
+  return (
+    <MyMain>
+      <p className="text-center pt-10">coming soon...</p>
+    </MyMain>
+  )
 }
 
 export default Blog

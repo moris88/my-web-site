@@ -1,23 +1,13 @@
 import React from 'react'
 import style from './MyHeader.module.css'
-import cls from 'classnames'
 import { Navbar, Tooltip } from 'flowbite-react'
 import Link from 'next/link'
 
 const MyHeader = () => {
   return (
-    <Navbar
-      className={style.container}
-      fluid={true}
-      rounded={true}
-    >
-      <Navbar.Brand
-        to="/navbars"
-      >
-        <Tooltip
-          content="Nice to meet you!"
-          placement="right"
-        >
+    <Navbar className={style.container} fluid={true} rounded={true}>
+      <Navbar.Brand to="/navbars">
+        <Tooltip content="Nice to meet you!" placement="right">
           <img
             src="./avatar.png"
             className="mr-3 h-6 sm:h-9 rounded-lg"
@@ -30,19 +20,13 @@ const MyHeader = () => {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link
-          href="/"
-        >
+        <Navbar.Link href="/">
           <span className={style.icon}>Home</span>
         </Navbar.Link>
-        <Navbar.Link
-          href="/skills"
-        >
+        <Navbar.Link href="/skills">
           <span className={style.icon}>Skills</span>
         </Navbar.Link>
-        <Navbar.Link
-          href="/blog"
-        >
+        <Navbar.Link href="/blog">
           <span className={style.icon}>Blog</span>
         </Navbar.Link>
         <Navbar.Link href="/contact">
