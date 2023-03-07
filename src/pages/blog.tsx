@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 
-const Skills: NextPage = () => {
+const Blog: NextPage = () => {
   const MyMain = dynamic(() => import('../components/MyMain/MyMain'), {
     ssr: false,
   })
@@ -13,4 +13,4 @@ const Skills: NextPage = () => {
   )
 }
 
-export default Skills
+export default Blog

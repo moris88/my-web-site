@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "unused-imports",
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": 2,
+    "unused-imports/no-unused-imports-ts": "error",
+    "react/jsx-key": "off",
+    "no-console": 1
+  }
 }

@@ -14,7 +14,9 @@ export default async function handler(
     }
 
     if (lang === 'IT' || lang === 'EN') {
-      await fetch(`${process.env.NEXT_PUBLIC_HOST}/cv_${lang.toLowerCase().trim()}.pdf`)
+      await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}/cv_${lang.toLowerCase().trim()}.pdf`
+      )
         .then(async (rispostaServer) => {
           if (rispostaServer.status === 200) {
             const resBlob = await rispostaServer.blob()
@@ -35,12 +37,18 @@ export default async function handler(
             })
         })
         .catch((error) => {
-          return res.status(404).json({ message: 'ERROR', error: 'error file', response: error })
+          return res
+            .status(404)
+            .json({ message: 'ERROR', error: 'error file', response: error })
         })
     } else {
-      return res.status(404).json({ message: 'ERROR', error: 'no lang param', response: '' })
+      return res
+        .status(404)
+        .json({ message: 'ERROR', error: 'no lang param', response: '' })
     }
   } catch (error) {
-    return res.status(500).json({ message: 'ERROR', error: 'bad request', response: error })
+    return res
+      .status(500)
+      .json({ message: 'ERROR', error: 'bad request', response: error })
   }
 }
