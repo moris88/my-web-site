@@ -33,7 +33,12 @@ export default async function handler(
         db = JSON.parse(fs.readFileSync('./data/db.json', 'utf8'))
       db.data.push(data)
       console.log(data)
-      fs.mkdir('./data', { recursive: true })
+      fs.mkdir('./data', { recursive: true }, (err) => {
+        if (err) {
+          return console.error(err)
+        }
+        console.log('Directory created successfully!')
+      })
       fs.writeFileSync('./data/db.json', JSON.stringify(db), {
         encoding: 'utf8',
         flag: 'w',
