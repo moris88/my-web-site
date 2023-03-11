@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './MyHeader.module.css'
 import { Navbar, Tooltip } from 'flowbite-react'
-import Link from 'next/link'
 
 const MyHeader = () => {
   return (
@@ -15,7 +14,7 @@ const MyHeader = () => {
           />
         </Tooltip>
         <span className="self-center whitespace-nowrap text-xl font-semibold text-black dark:text-white italic hover:text-2xl transition-all cursor-pointer hover:text-[#081fb6]">
-          <Link href={'/'}>Maurizio Tolomeo</Link>
+          <a href={'/'}>Maurizio Tolomeo</a>
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />

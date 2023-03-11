@@ -7,7 +7,7 @@ import {
   linkLinkedin,
   linkTelegram,
   linkTwitter,
-} from '@/utils/metadata'
+} from '../../utils/metadata'
 
 const MyFooter = () => {
   const getYear = () => {
