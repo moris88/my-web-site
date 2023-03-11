@@ -1,19 +1,19 @@
 {
     "rewrites": [
         {
-            "source": "/",
+            "source": "/(.*)",
             "destination": "/"
         },
         {
-            "source": "/contact",
+            "source": "/contact(.*)",
             "destination": "/contact"
         },
         {
-            "source": "/skills",
+            "source": "/skills(.*)",
             "destination": "/skills"
         },
         {
-            "source": "/blog",
+            "source": "/blog(.*)",
             "destination": "/blog"
         }
     ]
