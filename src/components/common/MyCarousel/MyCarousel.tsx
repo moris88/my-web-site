@@ -2,7 +2,7 @@ import { Carousel } from 'flowbite-react'
 import React from 'react'
 import cls from 'classnames'
 
-interface MyCarouselProps {
+export interface MyCarouselProps {
   className?: string
 }
 

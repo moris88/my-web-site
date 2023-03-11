@@ -1,6 +1,5 @@
 import { createStore } from 'jotai'
-import { theme } from './atoms'
+import { themeAtom } from './atoms'
 
 export const myStore = createStore()
-
-myStore.set(theme, 'light') //default value
+myStore.set(themeAtom, 'light')

@@ -24,7 +24,7 @@ const MyForm = (props: MyFormProps) => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     const body = JSON.stringify({ data })
     console.log(body)
-    fetch('/api/v1/contact/add', {
+    fetch('/api/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body,
@@ -42,6 +42,7 @@ const MyForm = (props: MyFormProps) => {
       })
       .catch((err) => {
         console.error(err)
+        alert('work in progress!!!')
       })
     setShow(true)
   }
@@ -114,8 +115,8 @@ const MyForm = (props: MyFormProps) => {
           shadow={true}
         />
       </div>
-      <div>
-        <Button type="submit">Send</Button>
+      <div className="mb-20">
+        <Button type="submit" disabled>Send</Button>
       </div>
     </form>
   )
