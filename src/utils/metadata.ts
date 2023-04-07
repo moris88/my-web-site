@@ -2,6 +2,7 @@ export const linkTwitter = 'https://twitter.com/moris_tolomeo'
 export const linkLinkedin = 'https://www.linkedin.com/in/maurizio-tolomeo/'
 export const linkGitHub = 'https://github.com/moris88'
 export const linkTelegram = 'https://t.me/moris_tolomeo'
+export const linkForm = 'https://forms.office.com/r/jUHaR0gVF0'
 
 export const myEmail = 'maurizio.tolomeo@outlook.it'
 
