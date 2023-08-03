@@ -6,7 +6,6 @@ import {
   linkGitHub,
   linkLinkedin,
   linkTelegram,
-  linkTwitter,
 } from '../../utils/metadata'
 
 const MyFooter = () => {
