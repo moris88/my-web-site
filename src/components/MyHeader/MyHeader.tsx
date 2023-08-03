@@ -22,12 +22,12 @@ const MyHeader = () => {
         <Navbar.Link href="/">
           <span className={style.icon}>Home</span>
         </Navbar.Link>
-        <Navbar.Link href="/skills">
+        {/* <Navbar.Link href="/skills">
           <span className={style.icon}>Skills</span>
         </Navbar.Link>
         <Navbar.Link href="/blog">
           <span className={style.icon}>Blog</span>
-        </Navbar.Link>
+        </Navbar.Link> */}
         <Navbar.Link href="/contact">
           <span className={style.icon}>Contact</span>
         </Navbar.Link>

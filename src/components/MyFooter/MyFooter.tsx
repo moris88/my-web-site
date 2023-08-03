@@ -24,9 +24,6 @@ const MyFooter = () => {
         <Footer.Link className="mr-2" href={linkLinkedin}>
           <i className={cls(['fa fa-linkedin fa-2x', style.icon])}></i>
         </Footer.Link>
-        <Footer.Link className="mr-2" href={linkTwitter}>
-          <i className={cls(['fa fa-twitter fa-2x', style.icon])}></i>
-        </Footer.Link>
         <Footer.Link className="mr-2" href={linkTelegram}>
           <i className={cls(['fa fa-telegram fa-2x', style.icon])}></i>
         </Footer.Link>
