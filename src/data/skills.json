@@ -1,0 +1,7 @@
+{
+    "skills": {
+        "languages": ["JavaScript", "TypeScript", "Python", "Java", "C++", "C#", "SQL", "PHP"],
+        "frontend": ["Angular", "React", "HTML", "CSS", "MaterialUI", "Bootstrap", "Flowbite", "TailwindCSS", "Next.js", "Vite.js"],
+        "backend": ["Node.js", "Express.js", "MongoDB", "MySQL", "PostgreSQL", "GraphQL", "Laravel"]
+    }
+}
