@@ -21,11 +21,17 @@ body {
   #title {
     max-height: 150px;
   }
+  .item {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 550px) {
   #title {
     max-height: 100px;
+  }
+  .item {
+    font-size: 6px;
   }
 }
 

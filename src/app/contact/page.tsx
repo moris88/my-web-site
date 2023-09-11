@@ -75,7 +75,7 @@ export default function Contact() {
           </div>
           <div className="flex justify-center items-center mt-5">
             <Button
-              title="Curriculum Vitae"
+              title="My C.V."
               onClick={() => route.push(data?.contact?.curriculum)}
             />
           </div>

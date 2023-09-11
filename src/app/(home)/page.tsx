@@ -15,40 +15,45 @@ export default function Home() {
       <div className="flex flex-col gap-1 p-1">
         <div className="rounded-lg h-96" id="title"></div>
         <div className="flex gap-2 p-5 justify-center items-center">
-          <Link
-            href="/skills"
-            className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
-          >
-            <TypeAnimation
-              sequence={['my Skills', 1000]}
-              wrapper="p"
-              speed={99}
-              style={{ fontSize: '3em' }}
-            />
-          </Link>
-          <Link
-            href="/blog"
-            className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
-          >
-            <TypeAnimation
-              sequence={['my Blog', 1000]}
-              wrapper="p"
-              speed={1}
-              style={{ fontSize: '3em' }}
-            />
-          </Link>
-          <Link
-            href="/contact"
-            className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
-          >
-            <TypeAnimation
-              sequence={['my Contacts', 1000]}
-              wrapper="p"
-              cursor={false}
-              speed={99}
-              style={{ fontSize: '3em' }}
-            />
-          </Link>
+          <div className="item">
+            <Link
+              href="/skills"
+              className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
+            >
+              <TypeAnimation
+                sequence={['my Skills', 1000]}
+                wrapper="p"
+                speed={99}
+                style={{ fontSize: '3em' }}
+              />
+            </Link>
+          </div>
+          <div className="item">
+            <Link
+              href="/blog"
+              className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
+            >
+              <TypeAnimation
+                sequence={['my Blog', 1000]}
+                wrapper="p"
+                speed={1}
+                style={{ fontSize: '3em' }}
+              />
+            </Link>
+          </div>
+          <div className="item">
+            <Link
+              href="/contact"
+              className="hover:text-gray-400 text-white transition-all ease-in-out duration-300"
+            >
+              <TypeAnimation
+                sequence={['my Contacts', 1000]}
+                wrapper="p"
+                speed={99}
+                style={{ fontSize: '3em' }}
+              />
+            </Link>
+          </div>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-1 md:py-12 p-1">
           <div className="w-1/3 flex justify-center items-center">
