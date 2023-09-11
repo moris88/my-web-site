@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: #1b1a19;
+  color: white;
+  box-sizing: border-box;
+}
+
+#title {
+  background-image: url('/cover.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  #title {
+    max-height: 150px;
+  }
+  .item {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #title {
+    max-height: 100px;
+  }
+  .item {
+    font-size: 6px;
+  }
+}
+
+.blur {
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+}
