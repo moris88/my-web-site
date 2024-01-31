@@ -4,8 +4,7 @@
 
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background: #1b1a19;
-  color: white;
+  @apply bg-[#1b1a19] text-white relative; 
   box-sizing: border-box;
 }
 
@@ -31,13 +30,7 @@ body {
     max-height: 100px;
   }
   .item {
-    font-size: 6px;
+    font-size: 12px;
   }
 }
 
-.blur {
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-}
