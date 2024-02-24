@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Spinner } from 'flowbite-react'
 
 interface HomePageProps {
   data?: {
@@ -10,16 +11,16 @@ interface HomePageProps {
   }
 }
 
-const HomePage = ({ data }: HomePageProps) => {
+function HomePage({ data }: HomePageProps) {
   return (
-    <section className="p-5 min-h-screen">
+    <section className="p-5">
       <div className="flex flex-col gap-1 p-1">
-        <div className="rounded-lg h-96" id="title"></div>
-        <div className="flex gap-2 p-5 justify-center items-center">
+        <div className="h-96 rounded-lg" id="title"></div>
+        <div className="flex items-center justify-center gap-2 p-5">
           <div className="item h-5">
             <Link
+              className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/skills"
-              className="hover:text-xl text-white transition-all ease-in-out duration-300"
             >
               my Skills
             </Link>
@@ -27,8 +28,8 @@ const HomePage = ({ data }: HomePageProps) => {
           -
           <div className="item h-5">
             <Link
+              className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/blog"
-              className="hover:text-xl text-white transition-all ease-in-out duration-300"
             >
               my Blog
             </Link>
@@ -36,24 +37,28 @@ const HomePage = ({ data }: HomePageProps) => {
           -
           <div className="item h-5">
             <Link
+              className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/contact"
-              className="hover:text-xl text-white transition-all ease-in-out duration-300"
             >
               my Contacts
             </Link>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row md:justify-between justify-center items-center gap-1 md:py-12 p-1">
-          <div className="w-1/3 flex justify-center items-center">
-            <Image
-              className="rounded-full"
-              src="/avatar.png"
-              alt="avatar"
-              width={150}
-              height={150}
-            />
+        <div className="flex flex-col items-center justify-center gap-1 p-1 md:flex-row md:justify-between md:py-12">
+          <div className="flex w-1/3 items-center justify-center">
+            <React.Suspense
+              fallback={<Spinner aria-label="spinner" color="info" />}
+            >
+              <Image
+                alt="avatar"
+                className="rounded-full"
+                height={150}
+                src="/avatar.png"
+                width={150}
+              />
+            </React.Suspense>
           </div>
-          <p className="md:p-5 p-1 w-2/3 select-none rounded-lg bg-slate-600">
+          <p className="w-2/3 select-none rounded-lg bg-slate-600 p-1 md:p-5">
             {data?.info ?? ''}
           </p>
         </div>

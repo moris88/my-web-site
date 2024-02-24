@@ -1,7 +1,6 @@
-import 'font-awesome/css/font-awesome.min.css'
-import React from 'react'
-import { twMerge } from 'tailwind-merge'
 import Link from 'next/link'
+import { twMerge } from 'tailwind-merge'
+import 'font-awesome/css/font-awesome.min.css'
 
 interface MyFooterProps {
   data: {
@@ -13,13 +12,13 @@ interface MyFooterProps {
   }
 }
 
-const MyFooter = ({ data }: MyFooterProps) => {
+function MyFooter({ data }: MyFooterProps) {
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
   }
   return (
-    <div className="sticky bottom-0 flex justify-between items-center rounded-lg p-5 bg-slate-800 select-none">
+    <div className="fixed bottom-0 flex w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
       <div className="flex">
         <span className="text-gray-400">©</span>
         <span className="text-gray-400">{getYear()}</span>

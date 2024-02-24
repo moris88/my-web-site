@@ -1,5 +1,5 @@
 import HomePage from '@/components/Home'
-import { getInfo, getLinks } from '@/data/data'
+import { getInfo } from '@/data/data'
 
 export default async function Home() {
   const info = await getInfo()

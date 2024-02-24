@@ -1,11 +1,10 @@
 'use client'
 
-import { on } from 'events'
-import { Button, Label, TextInput, Textarea } from 'flowbite-react'
-import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Button, Label, Textarea, TextInput } from 'flowbite-react'
 
 interface FormEmailProps {
+  onClose: () => void
   onSuccess: () => void
   onError: (message: string) => void
 }
@@ -16,7 +15,7 @@ interface FormData {
   message: string
 }
 
-const FormEmail = ({ onSuccess, onError }: FormEmailProps) => {
+function FormEmail({ onSuccess, onError, onClose }: FormEmailProps) {
   const {
     register,
     handleSubmit,
@@ -40,29 +39,28 @@ const FormEmail = ({ onSuccess, onError }: FormEmailProps) => {
   })
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full flex-col gap-4">
-      <h3 className="text-3xl font-bold text-white">Contact Me</h3>
-      <Label className="text-white" htmlFor="name">
+    <form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
+      <Label className="text-black" htmlFor="name">
         Name
       </Label>
       <TextInput
-        type="text"
         id="name"
         placeholder="Enter your name"
+        type="text"
         {...register('name', { required: 'Name is required' })}
       />
-      <p className="text-red-500 font-bold">{errors.name?.message}</p>
-      <Label className="text-white" htmlFor="email">
+      <p className="font-bold text-red-500">{errors.name?.message}</p>
+      <Label className="text-black" htmlFor="email">
         Email
       </Label>
       <TextInput
-        type="email"
         id="email"
         placeholder="Enter your email"
+        type="email"
         {...register('email', { required: 'Email is required' })}
       />
-      <p className="text-red-500 font-bold">{errors.email?.message}</p>
-      <Label className="text-white" htmlFor="message">
+      <p className="font-bold text-red-500">{errors.email?.message}</p>
+      <Label className="text-black" htmlFor="message">
         Your Message
       </Label>
       <Textarea
@@ -71,10 +69,13 @@ const FormEmail = ({ onSuccess, onError }: FormEmailProps) => {
         rows={4}
         {...register('message', { required: 'Message is required' })}
       />
-      <p className="text-red-500 font-bold">{errors.message?.message}</p>
-      <div className="flex justify-center">
+      <p className="font-bold text-red-500">{errors.message?.message}</p>
+      <div className="flex justify-center gap-4">
+        <Button color="gray" type="button" onClick={() => onClose()}>
+          Done
+        </Button>
         <Button color="blue" type="submit">
-          Submit
+          Send
         </Button>
       </div>
     </form>

@@ -1,13 +1,14 @@
 'use client'
 
 import React from 'react'
-import Blur from '@/components/Blur'
-import moment from 'moment'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { CakeIcon } from '@heroicons/react/24/outline'
+import { Button, Modal } from 'flowbite-react'
+import moment from 'moment'
+import Blur from '@/components/Blur'
 import { Contact } from '@/utils/types'
 import FormEmail from './FormEmail'
-import { Button } from 'flowbite-react'
 
 interface MyInfoProps {
   data?: {
@@ -15,16 +16,18 @@ interface MyInfoProps {
   }
 }
 
-const MyInfo = ({ data }: MyInfoProps) => {
+function MyInfo({ data }: MyInfoProps) {
   const route = useRouter()
-  const [showForm, setShowForm] = React.useState<boolean>(true)
+  const [showEmailForm, setShowEmailForm] = React.useState<boolean>(true)
+  const [showForm, setShowForm] = React.useState<boolean>(false)
+  const [success, setSuccess] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string | null>(null)
   return (
-    <section className="p-5 min-h-screen">
+    <section className="p-5">
       {data?.contact && (
         <>
-          <div className="flex flex-col justify-center items-center rounded-lg p-5 !bg-slate-400">
-            <h3 className="border-b border-gray-800 w-full text-center mb-5 select-none">
+          <div className="flex flex-col items-center justify-center rounded-lg !bg-slate-400 p-5">
+            <h3 className="mb-5 w-full select-none border-b border-gray-800 text-center">
               <b>Contact</b>
             </h3>
             <p className="select-none">
@@ -37,8 +40,11 @@ const MyInfo = ({ data }: MyInfoProps) => {
               <b>Age</b>: {data?.contact?.age ?? ''}
             </p>
             <p className="select-none">
-              <b>Birth Date</b>:{' '}
-              {moment(data?.contact?.birthDate ?? '').format('DD/MM/YYYY')}
+              <span className="flex items-center gap-1">
+                <CakeIcon className="h-5 w-5" />
+                <b>Birth Date</b>:{' '}
+                {moment(data?.contact?.birthDate ?? '').format('DD/MM/YYYY')}
+              </span>
             </p>
             <p className="select-none">
               <b>Nazionality</b>: {data?.contact?.nazionality ?? ''}
@@ -50,7 +56,10 @@ const MyInfo = ({ data }: MyInfoProps) => {
               <b>Company</b>: {data?.contact?.company ?? ''}
             </p>
             <p className="select-none">
-              <b>Email</b>: {data?.contact?.email ?? ''}
+              <b>Email</b>:{' '}
+              <a href={`mailto:${data?.contact?.email ?? ''}`}>
+                {data?.contact?.email ?? ''}
+              </a>
             </p>
             <p className="select-none">
               <b>Phone</b>: <Blur text={data?.contact?.phone} />
@@ -65,46 +74,69 @@ const MyInfo = ({ data }: MyInfoProps) => {
               </Link>
             </p>
           </div>
-          <div className="flex justify-center items-center mt-5">
+          <div className="mt-5 flex items-center justify-center">
             <Button
               color="blue"
               onClick={() => route.push(data?.contact?.curriculum)}
             >
-              My C.V. on Linkedin
+              C.V. on Linkedin
             </Button>
           </div>
-          <div className="flex justify-center items-center mt-5">
+          <div className="mt-5 flex items-center justify-center">
+            {showEmailForm && (
+              <Button
+                color="blue"
+                onClick={() => {
+                  setShowForm(true)
+                  setShowEmailForm(false)
+                }}
+              >
+                Send a message
+              </Button>
+            )}
             {showForm && (
-              <FormEmail
-                onSuccess={() => setShowForm(false)}
-                onError={(m) => {
-                  setError(m)
+              <Modal
+                show={showForm}
+                onClose={() => {
+                  setShowEmailForm(true)
                   setShowForm(false)
                 }}
-              />
+              >
+                <Modal.Header>Send a message</Modal.Header>
+                <Modal.Body>
+                  <FormEmail
+                    onClose={() => {
+                      setShowEmailForm(true)
+                      setShowForm(false)
+                    }}
+                    onError={(m) => {
+                      setError(m)
+                      setSuccess(false)
+                      setShowEmailForm(false)
+                      setShowForm(false)
+                    }}
+                    onSuccess={() => {
+                      setSuccess(true)
+                      setShowEmailForm(false)
+                      setShowForm(false)
+                    }}
+                  />
+                </Modal.Body>
+              </Modal>
             )}
-            {!showForm && !error && (
-              <p className="text-3xl text-center text-white select-none">
+            {success && !error && (
+              <p className="select-none text-center text-3xl text-white">
                 Thank you for your message!!!
               </p>
             )}
-            {!showForm && error && (
-              <p className="text-3xl text-center text-white select-none">
+            {!success && error && (
+              <p className="select-none text-center text-3xl text-white">
                 {error}
               </p>
             )}
           </div>
         </>
       )}
-      <div
-        className="badge-base LI-profile-badge"
-        data-locale="it_IT"
-        data-size="medium"
-        data-theme="dark"
-        data-type="VERTICAL"
-        data-vanity="maurizio-tolomeo"
-        data-version="v1"
-      ></div>
     </section>
   )
 }

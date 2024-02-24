@@ -1,5 +1,4 @@
 import { Card } from 'flowbite-react'
-import React from 'react'
 
 interface MyCardProps {
   title: string
@@ -7,11 +6,11 @@ interface MyCardProps {
   link?: string
 }
 
-const MyCard = ({ title, description, link }: MyCardProps) => {
+function MyCard({ title, description, link }: MyCardProps) {
   return (
     <Card
+      className="max-w-sm shadow-md shadow-white transition-all duration-100 ease-in-out hover:scale-105"
       href={link || ''}
-      className="max-w-sm hover:scale-105 shadow-md shadow-white transition-all ease-in-out duration-100"
     >
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {title}

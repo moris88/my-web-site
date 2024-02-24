@@ -4,7 +4,7 @@
             {
                 "title": "JavaScript",
                 "level": 9,
-                "link": "https://ecma-international.org/publications-and-standards/standards/"
+                "link": "https://moris88.github.io/formazione-javascript/"
             },
             {
                 "title": "TypeScript",
@@ -13,8 +13,8 @@
             },
             {
                 "title": "Python",
-                "level": 4,
-                "link": "https://www.python.org/"
+                "level": 6,
+                "link": "https://moris88.github.io/formazione-python/"
             },
             {
                 "title": "Java",
@@ -33,7 +33,7 @@
             },
             {
                 "title": "C#",
-                "level": 5,
+                "level": 6,
                 "link": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction"
             },
             {
@@ -129,12 +129,12 @@
             },
             {
                 "title": "Django",
-                "level": 4,
+                "level": 6,
                 "link": "https://www.djangoproject.com/"
             },
             {
                 "title": "Spring",
-                "level": 4,
+                "level": 6,
                 "link": "https://spring.io/"
             }
         ],
@@ -178,7 +178,7 @@
             },
             {
                 "title": "Figma",
-                "level": 6,
+                "level": 7,
                 "link": "https://www.figma.com/"
             }
         ],
