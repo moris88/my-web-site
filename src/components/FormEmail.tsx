@@ -1,7 +1,8 @@
 'use client'
 
+import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Button, Label, Textarea, TextInput } from 'flowbite-react'
+import { Button, Label, Spinner, Textarea, TextInput } from 'flowbite-react'
 
 interface FormEmailProps {
   onClose: () => void
@@ -16,6 +17,7 @@ interface FormData {
 }
 
 function FormEmail({ onSuccess, onError, onClose }: FormEmailProps) {
+  const [loading, setLoading] = React.useState<boolean>(false)
   const {
     register,
     handleSubmit,
@@ -23,20 +25,30 @@ function FormEmail({ onSuccess, onError, onClose }: FormEmailProps) {
   } = useForm<FormData>()
 
   const onSubmit = handleSubmit((data) => {
+    setLoading(true)
     fetch('/api/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.status === 200) {
-        onSuccess()
-      } else {
-        onError('Something went wrong')
-      }
     })
+      .then((res) => {
+        if (res.status === 200) {
+          onSuccess()
+        } else {
+          onError('Something went wrong')
+        }
+      })
+      .catch((err) => {
+        onError(err)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   })
+
+  if (loading) return <Spinner aria-label="spinner" color="info" />
 
   return (
     <form className="flex w-full flex-col gap-4" onSubmit={onSubmit}>
