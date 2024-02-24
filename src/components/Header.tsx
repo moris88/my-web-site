@@ -1,19 +1,33 @@
 'use client'
 
-import React from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-const Header = () => {
+function isActive(currentPath: string, path: string): boolean {
+  if (currentPath === '/' && path === '/') return true
+  else if (path === '/' && currentPath !== '/') return false
+  else return currentPath.startsWith(path)
+}
+
+function Header() {
+  const pathname = usePathname()
+  const links = [
+    { name: 'Home', path: '/' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
+  ]
+
   return (
-    <div className="sticky top-0 m-1 z-50 select-none flex flex-col md:flex-row md:justify-evenly justify-center items-center rounded-lg py-5 bg-slate-800">
-      <div className="flex justify-center items-center gap-2">
+    <div className="sticky top-0 z-50 m-1 flex select-none flex-col items-center justify-center rounded-lg bg-slate-800 py-5 md:flex-row md:justify-evenly">
+      <div className="flex items-center justify-center gap-2">
         <Image
-          className="rounded-full"
-          src="/avatar.png"
           alt="avatar"
-          width={30}
+          className="rounded-full"
           height={30}
+          src="/avatar.png"
+          width={30}
         />
         <Link href="/">
           <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
@@ -22,26 +36,15 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex gap-2">
-        <Link href="/">
-          <span className="hover:text-gray-400 text-white transition-all ease-in-out duration-300">
-            Home
-          </span>
-        </Link>
-        <Link href="/skills">
-          <span className="hover:text-gray-400 text-white transition-all ease-in-out duration-300">
-            Skills
-          </span>
-        </Link>
-        <Link href="/blog">
-          <span className="hover:text-gray-400 text-white transition-all ease-in-out duration-300">
-            Blog
-          </span>
-        </Link>
-        <Link href="/contact">
-          <span className="hover:text-gray-400 text-white transition-all ease-in-out duration-300">
-            Contact
-          </span>
-        </Link>
+        {links.map(({ name, path }) => (
+          <Link key={name} href={path}>
+            <span
+              className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+            >
+              {name}
+            </span>
+          </Link>
+        ))}
       </div>
     </div>
   )
