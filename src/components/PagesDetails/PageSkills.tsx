@@ -24,7 +24,7 @@ export default function PageSkills({ skills }: SkillsProps) {
                 return (
                   <Card
                     key={`my-card-${skill.title}`}
-                    className="max-w-sm shadow-md shadow-white transition-all duration-100 ease-in-out hover:scale-105"
+                    className="max-w-sm bg-slate-300 shadow-md shadow-slate-300 transition-all duration-100 ease-in-out hover:scale-105"
                     href={skill.link || ''}
                   >
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

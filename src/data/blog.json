@@ -2,6 +2,7 @@
     "blog": {
         "articles": [
             {
+                "id": 1,
                 "title": "My first blog post",
                 "content": "Hi this is my space to share my ideas with the world, soon I will share articles about the world of programming",
                 "date": "2024-02-25T11:47:00Z"
