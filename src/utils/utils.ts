@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 export function isActive(currentPath: string, path: string): boolean {
   if (currentPath === '/' && path === '/') return true
   else if (path === '/' && currentPath !== '/') return false
@@ -31,4 +33,14 @@ export function getLevel(level: number, type: 'soft' | 'hard'): string {
     default:
       return 'Unknown'
   }
+}
+
+export function truncateString(string: string, length: number): string {
+  if (string.length > length) return `${string.substring(0, length)}...`
+  return string
+}
+
+export function formatDate(date?: string): string {
+  if (!date) return ''
+  return `Inserito il ${moment(date).format('DD/MM/YYYY')} alle ${moment(date).format('HH:mm')}`
 }

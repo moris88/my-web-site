@@ -1,3 +1,7 @@
+import PageBlog from '@/components/PagesDetails/PageBlog'
+import { getBlog } from '@/lib/request'
+
 export default async function Blog() {
-  return <section className="p-5">work in progress...</section>
+  const blog = await getBlog()
+  return <PageBlog blog={blog} />
 }
