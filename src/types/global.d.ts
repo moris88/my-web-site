@@ -1,3 +1,15 @@
+export interface Info {
+  description: string
+}
+
+export interface Links {
+  [key: string]: string
+  github: string
+  linkedin: string
+  twitter: string
+  email: string
+}
+
 export interface Contact {
   firstName: string
   lastName: string
@@ -14,6 +26,7 @@ export interface Contact {
 }
 
 export interface Skills {
+  [key: string]: any
   languages: Skill[]
   frontends: Skill[]
   frameworks_frontend: Skill[]
@@ -25,6 +38,11 @@ export interface Skills {
 
 export interface Skill {
   title: string
-  level?: number
-  link?: string
+  values: SkillElement[]
+}
+
+export interface SkillElement {
+  title: string
+  level: number
+  link: string
 }

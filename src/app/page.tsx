@@ -1,7 +1,7 @@
-import HomePage from '@/components/Home'
-import { getInfo } from '@/data/data'
+import PageHome from '@/components/PagesDetails/PageHome'
+import { getInfo } from '@/lib/request'
 
 export default async function Home() {
   const info = await getInfo()
-  return <HomePage data={info} />
+  return <PageHome info={info} />
 }

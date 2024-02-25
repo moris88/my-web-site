@@ -1,224 +1,245 @@
 {
     "skills": {
-        "languages": [
-            {
-                "title": "JavaScript",
-                "level": 9,
-                "link": "https://moris88.github.io/formazione-javascript/"
-            },
-            {
-                "title": "TypeScript",
-                "level": 8,
-                "link": "https://www.typescriptlang.org/"
-            },
-            {
-                "title": "Python",
-                "level": 6,
-                "link": "https://moris88.github.io/formazione-python/"
-            },
-            {
-                "title": "Java",
-                "level": 7,
-                "link": "https://www.oracle.com/java/"
-            },
-            {
-                "title": "C",
-                "level": 6,
-                "link": "https://www.iso.org/standard/"
-            },
-            {
-                "title": "C++",
-                "level": 6,
-                "link": "https://isocpp.org/"
-            },
-            {
-                "title": "C#",
-                "level": 6,
-                "link": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction"
-            },
-            {
-                "title": "SQL",
-                "level": 8,
-                "link": "https://www.mysql.com/"
-            },
-            {
-                "title": "PHP",
-                "level": 8,
-                "link": "https://www.php.net/"
-            }
-        ],
-        "frontends": [
-            {
-                "title": "HTML",
-                "level": 9,
-                "link": "https://developer.mozilla.org/en-US/docs/Learn/HTML"
-            },
-            {
-                "title": "CSS",
-                "level": 9,
-                "link": "https://developer.mozilla.org/en-US/docs/Learn/CSS"
-            },
-            {
-                "title": "MaterialUI",
-                "level": 9,
-                "link": "https://mui.com/material-ui/"
-            },
-            {
-                "title": "Bootstrap",
-                "level": 9,
-                "link": "https://getbootstrap.com/"
-            },
-            {
-                "title": "Flowbite",
-                "level": 9,
-                "link": "https://flowbite.com/"
-            },
-            {
-                "title": "TailwindCSS",
-                "level": 9,
-                "link": "https://tailwindcss.com/"
-            }
-        ],
-        "frameworks_frontend": [
-            {
-                "title": "Angular",
-                "level": 6,
-                "link": "https://angular.io/"
-            },
-            {
-                "title": "React",
-                "level": 8,
-                "link": "https://react.dev/"
-            },
-            {
-                "title": "Next.js",
-                "level": 7,
-                "link": "https://nextjs.org/"
-            },
-            {
-                "title": "Vite.js",
-                "level": 8,
-                "link": "https://vitejs.dev/"
-            },
-            {
-                "title": "Astro.js",
-                "level": 6,
-                "link": "https://astro.build/"
-            },
-            {
-                "title": "Solid.js",
-                "level": 7,
-                "link": "https://www.solidjs.com/"
-            }
-        ],
-        "frameworks_backend": [
-            {
-                "title": "Node.js",
-                "level": 8,
-                "link": "https://nodejs.org/en"
-            },
-            {
-                "title": "Express.js",
-                "level": 8,
-                "link": "https://expressjs.com/"
-            },
-            {
-                "title": "Laravel",
-                "level": 7,
-                "link": "https://laravel.com/"
-            },
-            {
-                "title": "Django",
-                "level": 6,
-                "link": "https://www.djangoproject.com/"
-            },
-            {
-                "title": "Spring",
-                "level": 6,
-                "link": "https://spring.io/"
-            }
-        ],
-        "backends": [
-            {
-                "title": "MongoDB",
-                "level": 8,
-                "link": "https://www.mongodb.com/"
-            },
-            {
-                "title": "MySQL",
-                "level": 8,
-                "link": "https://www.mysql.com/"
-            },
-            {
-                "title": "PostgreSQL",
-                "level": 8,
-                "link": "https://www.postgresql.org/"
-            },
-            {
-                "title": "GraphQL",
-                "level": 8,
-                "link": "https://graphql.org/"
-            }
-        ],
-        "tools": [
-            {
-                "title": "VSCode",
-                "level": 9,
-                "link": "https://code.visualstudio.com/"
-            },
-            {
-                "title": "Git",
-                "level": 8,
-                "link": "https://git-scm.com/"
-            },
-            {
-                "title": "GitHub",
-                "level": 8,
-                "link": "https://github.com/"
-            },
-            {
-                "title": "Figma",
-                "level": 7,
-                "link": "https://www.figma.com/"
-            }
-        ],
-        "soft": [
-            {
-                "title": "Responsibility",
-                "level": 8
-            },
-            {
-                "title": "Dedication",
-                "level": 8
-            },
-            {
-                "title": "Curiosity",
-                "level": 7
-            },
-            {
-                "title": "Self-discipline",
-                "level": 6
-            },
-            {
-                "title": "Self-confidence",
-                "level": 6
-            },
-            {
-                "title": "Critical spirit",
-                "level": 6
-            },
-            {
-                "title": "Team work ability",
-                "level": 8
-            },
-            {
-                "title": "Problem solving",
-                "level": 9
-            },
-            {
-                "title": "Resistance to stress",
-                "level": 9
-            }
-        ]
+        "languages": {
+            "title": "Languages",
+            "values": [
+                {
+                    "title": "JavaScript",
+                    "level": 9,
+                    "link": "https://moris88.github.io/formazione-javascript/"
+                },
+                {
+                    "title": "TypeScript",
+                    "level": 8,
+                    "link": "https://www.typescriptlang.org/"
+                },
+                {
+                    "title": "Python",
+                    "level": 6,
+                    "link": "https://moris88.github.io/formazione-python/"
+                },
+                {
+                    "title": "Java",
+                    "level": 7,
+                    "link": "https://www.oracle.com/java/"
+                },
+                {
+                    "title": "C",
+                    "level": 6,
+                    "link": "https://www.iso.org/standard/"
+                },
+                {
+                    "title": "C++",
+                    "level": 6,
+                    "link": "https://isocpp.org/"
+                },
+                {
+                    "title": "C#",
+                    "level": 6,
+                    "link": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction"
+                },
+                {
+                    "title": "SQL",
+                    "level": 8,
+                    "link": "https://www.mysql.com/"
+                },
+                {
+                    "title": "PHP",
+                    "level": 8,
+                    "link": "https://www.php.net/"
+                }
+            ]
+        },
+        "frontends": {
+            "title": "Frontend",
+            "values": [
+                {
+                    "title": "HTML",
+                    "level": 9,
+                    "link": "https://developer.mozilla.org/en-US/docs/Learn/HTML"
+                },
+                {
+                    "title": "CSS",
+                    "level": 9,
+                    "link": "https://developer.mozilla.org/en-US/docs/Learn/CSS"
+                },
+                {
+                    "title": "MaterialUI",
+                    "level": 9,
+                    "link": "https://mui.com/material-ui/"
+                },
+                {
+                    "title": "Bootstrap",
+                    "level": 9,
+                    "link": "https://getbootstrap.com/"
+                },
+                {
+                    "title": "Flowbite",
+                    "level": 9,
+                    "link": "https://flowbite.com/"
+                },
+                {
+                    "title": "TailwindCSS",
+                    "level": 9,
+                    "link": "https://tailwindcss.com/"
+                }
+            ]
+        },
+        "frameworks_frontend": {
+            "title": "Frontend Frameworks",
+            "values": [
+                {
+                    "title": "Angular",
+                    "level": 6,
+                    "link": "https://angular.io/"
+                },
+                {
+                    "title": "React",
+                    "level": 8,
+                    "link": "https://react.dev/"
+                },
+                {
+                    "title": "Next.js",
+                    "level": 7,
+                    "link": "https://nextjs.org/"
+                },
+                {
+                    "title": "Vite.js",
+                    "level": 8,
+                    "link": "https://vitejs.dev/"
+                },
+                {
+                    "title": "Astro.js",
+                    "level": 6,
+                    "link": "https://astro.build/"
+                },
+                {
+                    "title": "Solid.js",
+                    "level": 7,
+                    "link": "https://www.solidjs.com/"
+                }
+            ]
+        },
+        "frameworks_backend": {
+            "title": "Backend Frameworks",
+            "values": [
+                {
+                    "title": "Node.js",
+                    "level": 8,
+                    "link": "https://nodejs.org/en"
+                },
+                {
+                    "title": "Express.js",
+                    "level": 8,
+                    "link": "https://expressjs.com/"
+                },
+                {
+                    "title": "Laravel",
+                    "level": 7,
+                    "link": "https://laravel.com/"
+                },
+                {
+                    "title": "Django",
+                    "level": 6,
+                    "link": "https://www.djangoproject.com/"
+                },
+                {
+                    "title": "Spring",
+                    "level": 6,
+                    "link": "https://spring.io/"
+                }
+            ]
+        },
+        "backends": {
+            "title": "Backends",
+            "values": [
+                {
+                    "title": "MongoDB",
+                    "level": 8,
+                    "link": "https://www.mongodb.com/"
+                },
+                {
+                    "title": "MySQL",
+                    "level": 8,
+                    "link": "https://www.mysql.com/"
+                },
+                {
+                    "title": "PostgreSQL",
+                    "level": 8,
+                    "link": "https://www.postgresql.org/"
+                },
+                {
+                    "title": "GraphQL",
+                    "level": 8,
+                    "link": "https://graphql.org/"
+                }
+            ]
+        },
+        "tools": {
+            "title": "Tools",
+            "values": [
+                {
+                    "title": "VSCode",
+                    "level": 9,
+                    "link": "https://code.visualstudio.com/"
+                },
+                {
+                    "title": "Git",
+                    "level": 8,
+                    "link": "https://git-scm.com/"
+                },
+                {
+                    "title": "GitHub",
+                    "level": 8,
+                    "link": "https://github.com/"
+                },
+                {
+                    "title": "Figma",
+                    "level": 7,
+                    "link": "https://www.figma.com/"
+                }
+            ]
+        },
+        "soft": {
+            "title": "Soft Skills",
+            "values": [
+                {
+                    "title": "Responsibility",
+                    "level": 8
+                },
+                {
+                    "title": "Dedication",
+                    "level": 8
+                },
+                {
+                    "title": "Curiosity",
+                    "level": 7
+                },
+                {
+                    "title": "Self-discipline",
+                    "level": 6
+                },
+                {
+                    "title": "Self-confidence",
+                    "level": 6
+                },
+                {
+                    "title": "Critical spirit",
+                    "level": 6
+                },
+                {
+                    "title": "Team work ability",
+                    "level": 8
+                },
+                {
+                    "title": "Problem solving",
+                    "level": 9
+                },
+                {
+                    "title": "Resistance to stress",
+                    "level": 9
+                }
+            ]
+        }
     }
 }

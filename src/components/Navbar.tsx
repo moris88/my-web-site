@@ -3,14 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { isActive } from '@/utils/utils'
 
-function isActive(currentPath: string, path: string): boolean {
-  if (currentPath === '/' && path === '/') return true
-  else if (path === '/' && currentPath !== '/') return false
-  else return currentPath.startsWith(path)
-}
-
-function Header() {
+function Navbar() {
   const pathname = usePathname()
   const links = [
     { name: 'Home', path: '/' },
@@ -50,4 +45,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Navbar

@@ -1,12 +1,7 @@
-'use server'
-
-import MyInfo from '@/components/MyInfo'
-import { getContact } from '@/data/data'
-import { Contact } from '@/utils/types'
+import PageInfo from '@/components/PagesDetails/PageInfo'
+import { getContact } from '@/lib/request'
 
 export default async function ContactPage() {
-  const contact = await getContact().then((data) => {
-    return data as unknown as { contact: Contact }
-  })
-  return <MyInfo data={contact} />
+  const contact = await getContact()
+  return <PageInfo contact={contact} />
 }

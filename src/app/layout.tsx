@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import { getLinks } from '@/data/data'
+import Header from '@/components/Navbar'
+import { getLinks } from '@/lib/request'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +23,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
-        <Footer data={links} />
+        <Footer links={links} />
       </body>
     </html>
   )

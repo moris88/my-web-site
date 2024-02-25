@@ -4,14 +4,13 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Spinner } from 'flowbite-react'
+import { Info } from '@/types/global'
 
-interface HomePageProps {
-  data?: {
-    info: string
-  }
+interface PageHomeProps {
+  info: Info
 }
 
-function HomePage({ data }: HomePageProps) {
+export default function PageHome({ info }: PageHomeProps) {
   return (
     <section className="p-5">
       <div className="flex flex-col gap-1 p-1">
@@ -59,12 +58,10 @@ function HomePage({ data }: HomePageProps) {
             </React.Suspense>
           </div>
           <p className="w-2/3 select-none rounded-lg bg-slate-600 p-1 md:p-5">
-            {data?.info ?? ''}
+            {info?.description ?? ''}
           </p>
         </div>
       </div>
     </section>
   )
 }
-
-export default HomePage

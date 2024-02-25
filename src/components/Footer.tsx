@@ -1,18 +1,13 @@
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
+import { Links } from '@/types/global'
 import 'font-awesome/css/font-awesome.min.css'
 
 interface MyFooterProps {
-  data: {
-    links: {
-      github: string
-      linkedin: string
-      telegram: string
-    }
-  }
+  links: Links
 }
 
-function MyFooter({ data }: MyFooterProps) {
+function MyFooter({ links }: MyFooterProps) {
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -25,7 +20,7 @@ function MyFooter({ data }: MyFooterProps) {
         <span className="text-gray-400">{'-Moris™'}</span>
       </div>
       <div className="">
-        <Link className="mr-2" href={data?.links?.github ?? ''}>
+        <Link className="mr-2" href={links?.github ?? ''}>
           <i
             className={twMerge(
               'fa fa-github fa-2x',
@@ -33,7 +28,7 @@ function MyFooter({ data }: MyFooterProps) {
             )}
           ></i>
         </Link>
-        <Link className="mr-2" href={data?.links?.linkedin ?? ''}>
+        <Link className="mr-2" href={links?.linkedin ?? ''}>
           <i
             className={twMerge(
               'fa fa-linkedin fa-2x',
@@ -41,7 +36,7 @@ function MyFooter({ data }: MyFooterProps) {
             )}
           ></i>
         </Link>
-        <Link className="mr-2" href={data?.links?.telegram ?? ''}>
+        <Link className="mr-2" href={links?.telegram ?? ''}>
           <i
             className={twMerge(
               'fa fa-telegram fa-2x',
