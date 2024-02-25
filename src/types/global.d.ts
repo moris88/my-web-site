@@ -46,3 +46,17 @@ export interface SkillElement {
   level: number
   link: string
 }
+
+export interface Blog {
+  [key: string]: any
+  articles: Article[]
+}
+
+export interface Article {
+  title: string
+  subtitle?: string
+  content: string
+  date: string
+  link?: string
+  image?: string
+}
