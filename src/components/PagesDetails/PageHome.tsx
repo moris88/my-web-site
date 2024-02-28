@@ -43,7 +43,7 @@ export default function PageHome({ info }: PageHomeProps) {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-1 p-1 md:flex-row md:justify-between md:py-12">
+        <div className="mb-12 flex flex-col items-center justify-center gap-1 p-1 md:flex-row md:justify-between md:py-12">
           <div className="flex w-1/3 items-center justify-center">
             <React.Suspense
               fallback={<Spinner aria-label="spinner" color="info" />}

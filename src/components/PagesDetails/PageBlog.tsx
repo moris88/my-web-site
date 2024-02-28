@@ -1,12 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { Button, Modal } from 'flowbite-react'
 import { Article, Blog } from '@/types/global'
-import { formatDate } from '@/utils/utils'
-import CardBlog from '../CardBlog'
+import SectionCard from '../SectionCard'
 
 interface PageBlogProps {
   blog: Blog
@@ -24,34 +21,7 @@ function PageBlog({ blog }: PageBlogProps) {
       >
         <Modal.Header>{article?.title}</Modal.Header>
         <Modal.Body>
-          <div className="flex items-center justify-between gap-4">
-            <div className={article?.image ? 'w-3/12' : 'w-0'}>
-              {article?.image ? (
-                <Image
-                  alt={article.title}
-                  height={250}
-                  src={article.image}
-                  width={250}
-                />
-              ) : (
-                <div className="bg-slate-400"></div>
-              )}
-            </div>
-            <div className={article?.image ? 'w-9/12' : 'w-full'}>
-              {article?.subtitle && (
-                <h4 className="select-none text-lg font-bold">
-                  {article?.subtitle}
-                </h4>
-              )}
-              <p className="select-none italic text-black">
-                {article?.content}
-              </p>
-              {article?.link && <Link href={article?.link}>Link</Link>}
-              <small className="select-none text-black">
-                {formatDate(article?.date)}
-              </small>
-            </div>
-          </div>
+          {article && <SectionCard.CardBlogComplete article={article} />}
         </Modal.Body>
         <Modal.Footer>
           <Button color="blue" onClick={() => setArticle(null)}>
@@ -60,19 +30,15 @@ function PageBlog({ blog }: PageBlogProps) {
         </Modal.Footer>
       </Modal>
       {blog &&
-        blog.articles.map((article) => (
-          <CardBlog
-            key={article.id}
-            content={article.content}
-            date={article.date}
-            id={article.id}
-            image={article.image}
-            link={article.link}
-            subtitle={article.subtitle}
-            title={article.title}
-            onClick={(a) => setArticle(a)}
-          />
-        ))}
+        blog.articles
+          .sort((a: Article, b: Article) => a.id - b.id)
+          .map((article) => (
+            <SectionCard.CardBlog
+              key={article.id}
+              article={article}
+              onClick={(a) => setArticle(a)}
+            />
+          ))}
     </section>
   )
 }

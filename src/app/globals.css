@@ -9,11 +9,12 @@ body {
 }
 
 #title {
+  @apply bg-right bg-cover bg-repeat max-w-full;
   background-image: url('/cover.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right;
-  max-width: 100%;
+}
+
+.item {
+  @apply flex items-center gap-2;
 }
 
 @media screen and (max-width: 768px) {

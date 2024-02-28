@@ -4,8 +4,16 @@
             {
                 "id": 1,
                 "title": "My first blog post",
-                "content": "Hi this is my space to share my ideas with the world, soon I will share articles about the world of programming",
+                "content": "Hi, I'm Maurizio, and I'm a programmer, this is my space to share my ideas with the world, soon I will share articles regarding the world of programming, stay around.",
                 "date": "2024-02-25T11:47:00Z"
+            },
+            {
+                "id": 2,
+                "title": "Python training",
+                "content": "Hi, starting today there is a space available where you can learn to program with the most used language in the world: Python. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this language. Good study!",
+                "date": "2024-02-28T20:29:00Z",
+                "image": "/Python-Logo.png",
+                "link": "https://moris88.github.io/formazione-python/"
             }
         ]
     }

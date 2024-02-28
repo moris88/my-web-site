@@ -42,5 +42,5 @@ export function truncateString(string: string, length: number): string {
 
 export function formatDate(date?: string): string {
   if (!date) return ''
-  return `Inserito il ${moment(date).format('DD/MM/YYYY')} alle ${moment(date).format('HH:mm')}`
+  return `Posted on ${moment(date).format('DD/MM/YYYY')} at ${moment(date).format('HH:mm')}`
 }
