@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: '20'
       - name: 'Installazione dipendenze'
-        run: npm install
+        run: yarn install
       - name: 'Check qualità codice'
-        run: npm run lint
+        run: yarn lint
       - name: 'Build test'
-        run: npm run build
+        run: yarn build
