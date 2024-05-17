@@ -1,4 +1,4 @@
-name: 'Qualità del codice e Build'
+name: 'Qualità e Build del codice'
 
 on:
   push:
@@ -9,9 +9,9 @@ on:
       - '!main'
 
 jobs:
-  build:
+  eslint:
     runs-on: ubuntu-latest
-    name: Qualità del codice e Build
+    name: Eslint
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
@@ -22,5 +22,17 @@ jobs:
         run: yarn install
       - name: 'Check qualità codice'
         run: yarn lint
+  build:
+    needs: eslint
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      - name: 'Installazione dipendenze'
+        run: yarn install
       - name: 'Build test'
         run: yarn build
