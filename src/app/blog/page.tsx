@@ -1,7 +1,9 @@
 import PageBlog from '@/components/PagesDetails/PageBlog'
 import { getBlog } from '@/lib/request'
+import { getDictionary } from '../dictionaries'
 
 export default async function Blog() {
   const blog = await getBlog()
-  return <PageBlog blog={blog} />
+  const dict = await getDictionary()
+  return <PageBlog blog={blog} dict={dict} />
 }

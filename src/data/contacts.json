@@ -1,0 +1,26 @@
+{
+    "contacts": {
+        "it": {
+            "firstName": "Maurizio",
+            "lastName": "Tolomeo",
+            "birthDate": "1988-05-10",
+            "nazionality": "Italiano",
+            "job": "Programmatore Web",
+            "company": "CRMPartners S.R.L.",
+            "email": "maurizio.tolomeo@outlook.it",
+            "website": "https://www.mauriziotolomeo.it",
+            "curriculum": "https://www.linkedin.com/in/maurizio-tolomeo"
+        },
+        "en": {
+            "firstName": "Maurizio",
+            "lastName": "Tolomeo",
+            "birthDate": "1988-05-10",
+            "nazionality": "Italian",
+            "job": "Full Stack Developer",
+            "company": "CRMPartners S.R.L.",
+            "email": "maurizio.tolomeo@outlook.it",
+            "website": "https://www.mauriziotolomeo.it",
+            "curriculum": "https://www.linkedin.com/in/maurizio-tolomeo"
+        }
+    }
+}

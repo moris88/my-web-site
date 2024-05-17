@@ -5,13 +5,17 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { isActive } from '@/utils/utils'
 
-function Navbar() {
+interface NavbarProps {
+  dict: any
+}
+
+function Navbar({ dict }: NavbarProps) {
   const pathname = usePathname()
   const links = [
-    { name: 'Home', path: '/' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: dict.navbar.home, path: '/' },
+    { name: dict.navbar.skills, path: '/skills' },
+    { name: dict.navbar.blog, path: '/blog' },
+    { name: dict.navbar.contacts, path: '/contacts' },
   ]
 
   return (

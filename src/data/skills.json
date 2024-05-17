@@ -1,67 +1,54 @@
 {
     "skills": {
         "languages": {
-            "title": "Languages",
             "values": [
                 {
                     "title": "JavaScript",
-                    "level": 9,
-                    "link": "https://moris88.github.io/formazione-javascript/"
+                    "level": 9
                 },
                 {
                     "title": "TypeScript",
-                    "level": 8,
-                    "link": "https://www.typescriptlang.org/"
+                    "level": 8
                 },
                 {
                     "title": "Python",
-                    "level": 6,
-                    "link": "https://moris88.github.io/formazione-python/"
+                    "level": 6
                 },
                 {
                     "title": "Java",
-                    "level": 7,
-                    "link": "https://www.oracle.com/java/"
+                    "level": 7
                 },
                 {
                     "title": "C",
-                    "level": 6,
-                    "link": "https://www.iso.org/standard/"
+                    "level": 6
                 },
                 {
                     "title": "C++",
-                    "level": 6,
-                    "link": "https://isocpp.org/"
+                    "level": 6
                 },
                 {
                     "title": "C#",
-                    "level": 6,
-                    "link": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction"
+                    "level": 6
                 },
                 {
                     "title": "SQL",
-                    "level": 8,
-                    "link": "https://www.mysql.com/"
+                    "level": 8
                 },
                 {
                     "title": "PHP",
-                    "level": 8,
-                    "link": "https://www.php.net/"
+                    "level": 8
                 }
             ]
         },
         "frontends": {
-            "title": "Frontend",
             "values": [
                 {
                     "title": "HTML",
-                    "level": 9,
-                    "link": "https://developer.mozilla.org/en-US/docs/Learn/HTML"
+                    "level": 9
                 },
                 {
                     "title": "CSS",
-                    "level": 9,
-                    "link": "https://developer.mozilla.org/en-US/docs/Learn/CSS"
+                    "level": 9
                 },
                 {
                     "title": "MaterialUI",
@@ -86,7 +73,6 @@
             ]
         },
         "frameworks_frontend": {
-            "title": "Frontend Frameworks",
             "values": [
                 {
                     "title": "Angular",
@@ -121,7 +107,6 @@
             ]
         },
         "frameworks_backend": {
-            "title": "Backend Frameworks",
             "values": [
                 {
                     "title": "Node.js",
@@ -151,7 +136,6 @@
             ]
         },
         "backends": {
-            "title": "Backends",
             "values": [
                 {
                     "title": "MongoDB",
@@ -176,7 +160,6 @@
             ]
         },
         "tools": {
-            "title": "Tools",
             "values": [
                 {
                     "title": "VSCode",
@@ -201,7 +184,6 @@
             ]
         },
         "soft": {
-            "title": "Soft Skills",
             "values": [
                 {
                     "title": "Responsibility",

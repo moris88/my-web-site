@@ -8,9 +8,11 @@ import { Info } from '@/types/global'
 
 interface PageHomeProps {
   info: Info
+  dict: any
 }
 
-export default function PageHome({ info }: PageHomeProps) {
+export default function PageHome({ info, dict }: PageHomeProps) {
+  console.log(dict)
   return (
     <section className="p-5">
       <div className="flex flex-col gap-1 p-1">
@@ -21,7 +23,7 @@ export default function PageHome({ info }: PageHomeProps) {
               className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/skills"
             >
-              my Skills
+              {dict.home.links.skills}
             </Link>
           </div>
           -
@@ -30,7 +32,7 @@ export default function PageHome({ info }: PageHomeProps) {
               className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/blog"
             >
-              my Blog
+              {dict.home.links.blog}
             </Link>
           </div>
           -
@@ -39,7 +41,7 @@ export default function PageHome({ info }: PageHomeProps) {
               className="text-white transition-all duration-300 ease-in-out hover:text-xl"
               href="/contact"
             >
-              my Contacts
+              {dict.home.links.contacts}
             </Link>
           </div>
         </div>
@@ -58,7 +60,8 @@ export default function PageHome({ info }: PageHomeProps) {
             </React.Suspense>
           </div>
           <p className="w-2/3 select-none rounded-lg bg-slate-600 p-1 md:p-5">
-            {info?.description ?? ''}
+            {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ??
+              ''}
           </p>
         </div>
       </div>

@@ -17,10 +17,11 @@ import FormContact from '@/components/Forms/FormContact'
 import { Contact } from '@/types/global'
 
 interface PageInfoProps {
-  contact: Contact
+  contacts: Contact
+  dict: any
 }
 
-export default function PageInfo({ contact }: PageInfoProps) {
+export default function PageInfo({ contacts, dict }: PageInfoProps) {
   const route = useRouter()
   const [show, setShow] = React.useState<{
     form: boolean
@@ -36,61 +37,62 @@ export default function PageInfo({ contact }: PageInfoProps) {
   const [error, setError] = React.useState<string | null>(null)
   return (
     <section className="p-5">
-      {contact && (
+      {contacts && (
         <>
           <div className="flex flex-col items-center justify-center rounded-lg !bg-slate-400 p-5">
             <h3 className="mb-5 w-full select-none border-b border-gray-600 pb-2 text-center">
               <span className="flex items-center justify-center gap-1">
                 <UserIcon className="h-5 w-5" />
-                <b>Contact</b>
+                <b>{dict.contacts.title}</b>
               </span>
             </h3>
             <p className="select-none">
-              <b>First Name</b>: {contact?.firstName ?? ''}
+              <b>{dict.contacts.firstName}</b>: {contacts?.firstName ?? ''}
             </p>
             <p className="select-none">
-              <b>Last Name</b>: {contact?.lastName ?? ''}
+              <b>{dict.contacts.lastName}</b>: {contacts?.lastName ?? ''}
             </p>
             <p className="select-none">
-              <b>Age</b>: {moment().diff(contact?.birthDate, 'years') ?? ''}
+              <b>{dict.contacts.age}</b>:{' '}
+              {moment().diff(contacts?.birthDate, 'years') ?? ''}
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">
                 <CakeIcon className="h-5 w-5" />
-                <b>Birth Date</b>:{' '}
-                {moment(contact?.birthDate ?? '').format('DD/MM/YYYY')}
+                <b>{dict.contacts.birthDate}</b>:{' '}
+                {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
               </span>
             </p>
             <p className="select-none">
-              <b>Nazionality</b>: {contact?.nazionality ?? ''}
+              <b>{dict.contacts.nazionality}</b>: {contacts?.nazionality ?? ''}
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">
                 <BriefcaseIcon className="h-5 w-5" />
-                <b>Job</b>: {contact?.job ?? ''}
+                <b>{dict.contacts.job}</b>: {contacts?.job ?? ''}
               </span>
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">
                 <BuildingOfficeIcon className="h-5 w-5" />
-                <b>Company</b>: {contact?.company ?? ''}
+                <b>{dict.contacts.company}</b>: {contacts?.company ?? ''}
               </span>
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">
                 <EnvelopeIcon className="h-5 w-5" />
-                <b>Email</b>:{' '}
-                <a href={`mailto:${contact?.email ?? ''}`}>
-                  {contact?.email ?? ''}
+                <b>{dict.contacts.email}</b>:{' '}
+                <a href={`mailto:${contacts?.email ?? ''}`}>
+                  {contacts?.email ?? ''}
                 </a>
               </span>
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">
                 <GlobeEuropeAfricaIcon className="h-5 w-5" />
-                <b>Website</b>:{' '}
-                <Link href="https://mauriziotolomeo.it">
-                  {contact?.website ?? ''}
+                <b>{dict.contacts.website}</b>:{' '}
+                <Link href={contacts?.website || '#'}>
+                  {contacts?.website ?? ''}
                 </Link>
               </span>
             </p>
@@ -98,9 +100,9 @@ export default function PageInfo({ contact }: PageInfoProps) {
           <div className="mt-5 flex items-center justify-center">
             <Button
               color="blue"
-              onClick={() => route.push(contact?.curriculum)}
+              onClick={() => route.push(contacts?.curriculum)}
             >
-              C.V. on Linkedin
+              {dict.contacts.buttons.downloadCurriculum}
             </Button>
           </div>
           <div className="mt-5 flex items-center justify-center">
@@ -116,7 +118,7 @@ export default function PageInfo({ contact }: PageInfoProps) {
                   })
                 }}
               >
-                Send a message
+                {dict.contacts.buttons.sendEmail}
               </Button>
             )}
             {show.form && (
@@ -131,7 +133,7 @@ export default function PageInfo({ contact }: PageInfoProps) {
                   })
                 }}
               >
-                <Modal.Header>Send a message</Modal.Header>
+                <Modal.Header>{dict.contacts.modal.title}</Modal.Header>
                 <Modal.Body>
                   <FormContact
                     onClose={() => {
@@ -165,7 +167,7 @@ export default function PageInfo({ contact }: PageInfoProps) {
             )}
             {show.success && (
               <p className="select-none text-center text-3xl text-white">
-                Thank you for your message!!!
+                {dict.contacts.modal.message}
               </p>
             )}
             {show.error && error && (
