@@ -56,7 +56,7 @@ function CardBlog({
   )
 }
 
-function CardBlogComplete({ article, dict }: { article: Article, dict: any }) {
+function CardBlogComplete({ article, dict }: { article: Article; dict: any }) {
   return (
     <div className="flex items-center justify-between gap-4">
       <div className={article?.image ? 'w-3/12' : 'w-0'}>

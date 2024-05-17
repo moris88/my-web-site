@@ -22,7 +22,9 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
   }
   return (
     <section className="mb-20 flex flex-col justify-center px-24">
-      <h1 className="my-5 text-center text-3xl font-bold">{dict.skills.title}</h1>
+      <h1 className="my-5 text-center text-3xl font-bold">
+        {dict.skills.title}
+      </h1>
       {skills &&
         Object.keys(skills).map((key, i) => (
           <React.Fragment key={`skill-${skills[key].title}`}>

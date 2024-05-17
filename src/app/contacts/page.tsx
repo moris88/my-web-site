@@ -5,5 +5,10 @@ import { getDictionary } from '../dictionaries'
 export default async function ContactPage() {
   const contacts = await getContacts()
   const dict = await getDictionary()
-  return <PageInfo contacts={dict.language === 'Italiano' ? contacts.it : contacts.en } dict={dict} />
+  return (
+    <PageInfo
+      contacts={dict.language === 'Italiano' ? contacts.it : contacts.en}
+      dict={dict}
+    />
+  )
 }

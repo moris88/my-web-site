@@ -53,7 +53,8 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               <b>{dict.contacts.lastName}</b>: {contacts?.lastName ?? ''}
             </p>
             <p className="select-none">
-              <b>{dict.contacts.age}</b>: {moment().diff(contacts?.birthDate, 'years') ?? ''}
+              <b>{dict.contacts.age}</b>:{' '}
+              {moment().diff(contacts?.birthDate, 'years') ?? ''}
             </p>
             <p className="select-none">
               <span className="flex items-center gap-1">

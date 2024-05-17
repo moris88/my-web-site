@@ -51,9 +51,9 @@ const dictionary = {
       posted: 'Pubblicato il',
       buttons: {
         close: 'Chiudi',
-      }
+      },
     },
-  }
+  },
 }
 
 export default dictionary

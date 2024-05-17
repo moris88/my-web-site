@@ -51,9 +51,9 @@ const dictionary = {
       posted: 'Posted on',
       buttons: {
         close: 'Close',
-      }
+      },
     },
-  }
+  },
 }
 
 export default dictionary

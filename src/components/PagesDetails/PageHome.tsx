@@ -60,7 +60,8 @@ export default function PageHome({ info, dict }: PageHomeProps) {
             </React.Suspense>
           </div>
           <p className="w-2/3 select-none rounded-lg bg-slate-600 p-1 md:p-5">
-            {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ?? ''}
+            {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ??
+              ''}
           </p>
         </div>
       </div>

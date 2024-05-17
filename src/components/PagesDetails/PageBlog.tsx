@@ -22,7 +22,9 @@ function PageBlog({ blog, dict }: PageBlogProps) {
       >
         <Modal.Header>{article?.title}</Modal.Header>
         <Modal.Body>
-          {article && <SectionCard.CardBlogComplete article={article} dict={dict} />}
+          {article && (
+            <SectionCard.CardBlogComplete article={article} dict={dict} />
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button color="blue" onClick={() => setArticle(null)}>
