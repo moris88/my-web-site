@@ -45,7 +45,7 @@ const dictionary = {
         value: 'Email',
         label: 'Email',
         placeholder: 'Inserisci la tua email',
-        required: 'L\'email è obbligatoria',
+        required: "L'email è obbligatoria",
       },
       message: {
         value: 'Messaggio',

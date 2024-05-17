@@ -6,7 +6,11 @@ export function isActive(currentPath: string, path: string): boolean {
   else return currentPath.startsWith(path)
 }
 
-export function getLevel(level: number, type: 'soft' | 'hard', dict: any): string {
+export function getLevel(
+  level: number,
+  type: 'soft' | 'hard',
+  dict: any
+): string {
   if (type === 'soft') {
     switch (level) {
       case 6:

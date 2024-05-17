@@ -73,7 +73,11 @@ export default function FormContact({
         type="text"
         {...register('name', { required: true })}
       />
-      {errors?.name && <p className="font-bold text-red-500">{dict.contacts.form.name.required}</p>}
+      {errors?.name && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.name.required}
+        </p>
+      )}
       <Label className="text-black" htmlFor="email">
         {dict.contacts.form.email.label}
         <span className="text-red-500">*</span>
@@ -84,7 +88,11 @@ export default function FormContact({
         type="email"
         {...register('email', { required: true })}
       />
-      {errors?.email && <p className="font-bold text-red-500">{dict.contacts.form.email.required}</p>}
+      {errors?.email && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.email.required}
+        </p>
+      )}
       <Label className="text-black" htmlFor="message">
         {dict.contacts.form.message.label}
         <span className="text-red-500">*</span>
@@ -95,7 +103,11 @@ export default function FormContact({
         rows={4}
         {...register('message', { required: true })}
       />
-      {errors?.message && <p className="font-bold text-red-500">{dict.contacts.form.message.required}</p>}
+      {errors?.message && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.message.required}
+        </p>
+      )}
       <div className="flex justify-center gap-4">
         <Button color="gray" type="button" onClick={() => onClose()}>
           {dict.contacts.form.buttons.done}
