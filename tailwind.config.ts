@@ -1,16 +1,23 @@
-import type { Config } from 'tailwindcss'
-import flowbite from 'flowbite-react/tailwind'
+/** @type {import('tailwindcss').Config} */
 
-const config: Config = {
+const { nextui } = require('@nextui-org/react')
+
+module.exports = {
   content: [
-    flowbite.content(),
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      primary: {
+        DEFAULT: '#05ffff',
+      },
+    },
+  },
+  darkMode: 'class',
   plugins: [
-    flowbite.plugin(),
-  ]
+    nextui(),
+  ],
 }
-export default config

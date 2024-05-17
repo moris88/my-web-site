@@ -41,7 +41,13 @@ export interface Skills {
   backends: Skill[]
   frameworks_backend: Skill[]
   tools: Skill[]
-  soft: Skill[]
+  soft: {
+    title: {
+      it: string
+      en: string
+    }
+    values: SkillElement[]
+  }
 }
 
 export interface Skill {
@@ -73,4 +79,7 @@ export interface Article {
   date: string
   link?: string
   image?: string
+}
+
+export interface Portfolio {
 }

@@ -2,15 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  @apply bg-[#1b1a19] text-white relative h-auto; 
-  box-sizing: border-box;
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-#div-screen {
-  @apply bg-right bg-cover bg-repeat max-w-full;
-  background-image: url('/cover.webp');
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 .item {
@@ -18,18 +32,12 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  #title {
-    max-height: 150px;
-  }
   .item {
     font-size: 10px;
   }
 }
 
 @media screen and (max-width: 550px) {
-  #title {
-    max-height: 100px;
-  }
   .item {
     font-size: 12px;
   }

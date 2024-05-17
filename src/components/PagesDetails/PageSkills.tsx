@@ -1,9 +1,13 @@
 'use client'
 
 import React from 'react'
-import { Card } from 'flowbite-react'
+
+import { Card, CardHeader, CardBody } from "@nextui-org/card"
+import { Tabs, Tab } from "@nextui-org/tabs"
+import { Accordion, AccordionItem } from "@nextui-org/accordion"
 import { SkillElement, Skills } from '@/types/global'
 import { getLevel } from '@/utils/utils'
+import { motion } from "framer-motion"
 
 interface SkillsProps {
   skills: Skills
@@ -11,6 +15,10 @@ interface SkillsProps {
 }
 
 export default function PageSkills({ skills, dict }: SkillsProps) {
+
+  const hardSkills = Object.keys(skills).filter((key) => key !== 'soft')
+  const softSkills = Object.keys(skills).filter((key) => key === 'soft')
+
   const mappa = {
     0: dict.skills.languages,
     1: dict.skills.frontends,
@@ -18,37 +26,85 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
     3: dict.skills.backends,
     4: dict.skills.frameworks_backend,
     5: dict.skills.tools,
-    6: dict.skills.soft,
   }
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.8
+      }
+    }
+  }
+
   return (
-    <section className="mb-20 flex flex-col justify-center px-24">
+    <section className="mb-20 flex flex-col justify-center md:p-14 p-2">
       <h1 className="my-5 text-center text-3xl font-bold">
         {dict.skills.title}
       </h1>
-      {skills &&
-        Object.keys(skills).map((key, i) => (
-          <React.Fragment key={`skill-${skills[key].title}`}>
-            <h2 className="my-5 text-center text-xl font-bold">
-              {mappa[i as keyof typeof mappa]}
-            </h2>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-              {skills[key].values.map((skill: SkillElement) => {
-                return (
-                  <Card
-                    key={`my-card-${skill.title}`}
-                    className="max-w-sm bg-slate-300 shadow-md shadow-slate-300 transition-all duration-100 ease-in-out hover:scale-105"
-                    href={skill.link || ''}
-                  >
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {skill.title}
-                    </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
-                  </Card>
-                )
-              })}
-            </div>
-          </React.Fragment>
-        ))}
+      <div className="block">
+        <Tabs aria-label="Options" className="flex justify-center items-center">
+          <Tab key="hard" title="Hard Skills">
+            <motion.div
+              className="w-full"
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              {hardSkills && hardSkills.map((key, i) => (
+                <Accordion variant="splitted" key={`skill-${skills[key].title}`} className="!p-0">
+                  <AccordionItem key={i} aria-label={mappa[i as keyof typeof mappa]} title={mappa[i as keyof typeof mappa]}>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      {skills[key].values.map((skill: SkillElement) => {
+                        return (
+                          <Card key={`my-card-${skill.title}`} className="max-w-sm bg-slate-700 shadow-md shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105">
+                            <CardHeader className="flex gap-3">
+                              <h5 className="text-2xl font-bold tracking-tight text-gray-300">
+                                {skill.title}
+                              </h5>
+                            </CardHeader>
+                            <CardBody>
+                              <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                            </CardBody>
+                          </Card>
+                        )
+                      })}
+                    </div>
+                  </AccordionItem>
+                </Accordion>
+              ))}
+            </motion.div>
+          </Tab>
+          <Tab key="soft" title="Soft Skills">
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+            >
+              {softSkills && softSkills.map((key) => (
+                <div key={`skill-${skills[key].title}`} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {skills[key].values.map((skill: SkillElement) => {
+                    const title = (skill.title as any)[dict.language === 'Italiano' ? 'it' : 'en']
+                    return (
+                      <Card key={`my-card-${skill.title}`} className="max-w-sm bg-slate-700 shadow-md shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105">
+                        <CardHeader className="flex gap-3">
+                          <h5 className="text-2xl font-bold tracking-tight text-gray-300">
+                            {title}
+                          </h5>
+                        </CardHeader>
+                        <CardBody>
+                          <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                        </CardBody>
+                      </Card>
+                    )
+                  })}
+                </div>
+              ))}
+            </motion.div>
+          </Tab>
+        </Tabs>
+      </div>
     </section>
   )
 }

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { LinkIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import { Article } from '@/types/global'
 import { formatDate, truncateString } from '@/utils/utils'
+import { Divider } from "@nextui-org/divider"
 
 interface CardBlogProps {
   article: Article
@@ -31,7 +32,7 @@ function CardBlog({
   }
   return (
     <article
-      className="w-full cursor-pointer rounded-lg bg-slate-300 p-4 text-black shadow-lg shadow-slate-300 transition-all duration-100 ease-in-out hover:-translate-y-2"
+      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black shadow-lg shadow-slate-500 transition-all duration-100 ease-in-out hover:-translate-y-2"
       onClick={handleOnClick}
     >
       <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
@@ -45,11 +46,12 @@ function CardBlog({
           )}
         </div>
         <div className="w-9/12">
-          <h2 className="select-none text-xl font-bold">{title}</h2>
-          <p className="select-none border-b text-lg italic">
+          <h2 className="select-none text-xl font-bold text-gray-300">{title}</h2>
+          <p className="select-none text-lg italic text-gray-400 min-h-32">
             {truncateString(content, 100)}
           </p>
-          <small className="select-none">{formatDate(dict, date)}</small>
+          <Divider className="my-4" />
+          <small className="select-none text-gray-500">{formatDate(dict, date)}</small>
         </div>
       </div>
     </article>
@@ -74,18 +76,19 @@ function CardBlogComplete({ article, dict }: { article: Article; dict: any }) {
       </div>
       <div className={article?.image ? 'w-9/12' : 'w-full'}>
         {article?.subtitle && (
-          <h4 className="select-none text-lg font-bold">{article?.subtitle}</h4>
+          <h4 className="select-none text-lg font-bold text-gray-400">{article?.subtitle}</h4>
         )}
-        <p className="select-none italic text-black">{article?.content}</p>
+        <p className="select-none italic text-gray-400">{article?.content}</p>
+        <Divider className="my-4" />
         {article?.link && (
           <Link
-            className="my-4 flex items-center gap-2 border-t border-gray-200 text-black hover:text-blue-800"
+            className="my-4 flex items-center gap-2 text-gray-400 hover:text-blue-800"
             href={article?.link}
           >
             <LinkIcon className="h-5 w-5" /> {dict.blog.card.readMore}...
           </Link>
         )}
-        <small className="select-none text-black">
+        <small className="select-none text-gray-400">
           {formatDate(dict, article?.date)}
         </small>
       </div>

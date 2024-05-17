@@ -1,7 +1,8 @@
-import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
 import { Links } from '@/types/global'
-import 'font-awesome/css/font-awesome.min.css'
+import { Link } from "@nextui-org/link"
+import Linkedin from './icons/Linkedin'
+import Github from './icons/Github'
+import Telegram from './icons/Telegram'
 
 interface MyFooterProps {
   links: Links
@@ -13,36 +14,21 @@ function MyFooter({ links }: MyFooterProps) {
     return today.getFullYear()
   }
   return (
-    <div className="fixed bottom-0 flex w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
+    <div className="fixed bottom-0 z-50 flex w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
       <div className="flex">
         <span className="text-gray-400">©</span>
         <span className="text-gray-400">{getYear()}</span>
         <span className="text-gray-400">{'-Moris™'}</span>
       </div>
-      <div className="">
-        <Link className="mr-2" href={links?.github ?? ''}>
-          <i
-            className={twMerge(
-              'fa fa-github fa-2x',
-              'hover:text-gray-400 text-white transition-all ease-in-out duration-300'
-            )}
-          ></i>
+      <div className="flex items-center gap-4">
+        <Link  href={links?.github ?? ''}>
+          <Github className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
         </Link>
-        <Link className="mr-2" href={links?.linkedin ?? ''}>
-          <i
-            className={twMerge(
-              'fa fa-linkedin fa-2x',
-              'hover:text-gray-400 text-white transition-all ease-in-out duration-300'
-            )}
-          ></i>
+        <Link href={links?.linkedin ?? ''}>
+          <Linkedin className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
         </Link>
-        <Link className="mr-2" href={links?.telegram ?? ''}>
-          <i
-            className={twMerge(
-              'fa fa-telegram fa-2x',
-              'hover:text-gray-400 text-white transition-all ease-in-out duration-300'
-            )}
-          ></i>
+        <Link href={links?.telegram ?? ''}>
+          <Telegram className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
         </Link>
       </div>
     </div>

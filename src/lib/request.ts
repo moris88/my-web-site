@@ -5,7 +5,8 @@ import jsonContacts from '@/data/contacts.json'
 import jsonInfo from '@/data/info.json'
 import jsonLinks from '@/data/links.json'
 import jsonSkills from '@/data/skills.json'
-import { Blog, Contacts, Info, Links, Skills } from '@/types/global.d'
+import jsonPortfolio from '@/data/portfolio.json'
+import { Blog, Contacts, Info, Links, Portfolio, Skills } from '@/types/global.d'
 
 export async function getLinks() {
   return jsonLinks.links as unknown as Links
@@ -25,4 +26,12 @@ export async function getSkills() {
 
 export async function getBlog() {
   return jsonBlog.blog as unknown as Blog
+}
+
+export async function getPortfolio() {
+  return jsonBlog.blog as unknown as Blog
+}
+
+export async function getDictionary() {
+  return jsonPortfolio.portfolio as unknown as Portfolio
 }

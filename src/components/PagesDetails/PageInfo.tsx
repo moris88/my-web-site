@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
   BriefcaseIcon,
@@ -11,10 +10,14 @@ import {
   GlobeEuropeAfricaIcon,
   UserIcon,
 } from '@heroicons/react/24/outline'
-import { Button, Modal } from 'flowbite-react'
+import { Button } from "@nextui-org/button";
 import moment from 'moment'
 import FormContact from '@/components/Forms/FormContact'
 import { Contact } from '@/types/global'
+import { Modal, ModalContent, ModalHeader, ModalBody } from "@nextui-org/modal"
+import { Card, CardHeader, CardBody } from "@nextui-org/card"
+import { Divider } from "@nextui-org/divider"
+import { Link } from "@nextui-org/link"
 
 interface PageInfoProps {
   contacts: Contact
@@ -35,135 +38,142 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
     error: false,
   })
   const [error, setError] = React.useState<string | null>(null)
+
+  const handleClickClose = () => {
+    setShow({
+      form: false,
+      button: true,
+      success: false,
+      error: false,
+    })
+  }
   return (
-    <section className="p-5">
+    <section className="lg:p-5 p-0">
       {contacts && (
         <>
-          <div className="flex flex-col items-center justify-center rounded-lg !bg-slate-400 p-5">
-            <h3 className="mb-5 w-full select-none border-b border-gray-600 pb-2 text-center">
-              <span className="flex items-center justify-center gap-1">
-                <UserIcon className="h-5 w-5" />
-                <b>{dict.contacts.title}</b>
-              </span>
-            </h3>
-            <p className="select-none">
-              <b>{dict.contacts.firstName}</b>: {contacts?.firstName ?? ''}
-            </p>
-            <p className="select-none">
-              <b>{dict.contacts.lastName}</b>: {contacts?.lastName ?? ''}
-            </p>
-            <p className="select-none">
-              <b>{dict.contacts.age}</b>:{' '}
-              {moment().diff(contacts?.birthDate, 'years') ?? ''}
-            </p>
-            <p className="select-none">
-              <span className="flex items-center gap-1">
-                <CakeIcon className="h-5 w-5" />
-                <b>{dict.contacts.birthDate}</b>:{' '}
-                {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
-              </span>
-            </p>
-            <p className="select-none">
-              <b>{dict.contacts.nazionality}</b>: {contacts?.nazionality ?? ''}
-            </p>
-            <p className="select-none">
-              <span className="flex items-center gap-1">
-                <BriefcaseIcon className="h-5 w-5" />
-                <b>{dict.contacts.job}</b>: {contacts?.job ?? ''}
-              </span>
-            </p>
-            <p className="select-none">
-              <span className="flex items-center gap-1">
-                <BuildingOfficeIcon className="h-5 w-5" />
-                <b>{dict.contacts.company}</b>: {contacts?.company ?? ''}
-              </span>
-            </p>
-            <p className="select-none">
-              <span className="flex items-center gap-1">
-                <EnvelopeIcon className="h-5 w-5" />
-                <b>{dict.contacts.email}</b>:{' '}
-                <a href={`mailto:${contacts?.email ?? ''}`}>
-                  {contacts?.email ?? ''}
-                </a>
-              </span>
-            </p>
-            <p className="select-none">
-              <span className="flex items-center gap-1">
-                <GlobeEuropeAfricaIcon className="h-5 w-5" />
-                <b>{dict.contacts.website}</b>:{' '}
-                <Link href={contacts?.website || '#'}>
-                  {contacts?.website ?? ''}
-                </Link>
-              </span>
-            </p>
+          <div className="flex flex-col items-center justify-center">
+            <Card className="md:max-w-[500px] w-full">
+              <CardHeader className="flex gap-3">
+                <h3 className="w-full select-none text-center">
+                  <span className="flex items-center justify-center gap-1">
+                    <UserIcon className="h-5 w-5" />
+                    <b>{dict.contacts.title}</b>
+                  </span>
+                </h3>
+              </CardHeader>
+              <Divider className="my-2" />
+              <CardBody>
+                <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
+                  <div><b>{dict.contacts.firstName}</b></div>
+                  <div>{contacts?.firstName ?? ''}</div>
+                  <div><b>{dict.contacts.lastName}</b></div>
+                  <div>{contacts?.lastName ?? ''}</div>
+                  <div><b>{dict.contacts.age}</b></div>
+                  <div>{moment().diff(contacts?.birthDate, 'years') ?? ''}</div>
+                  <div>
+                    <span className="flex items-center gap-1">
+                      <b>{dict.contacts.birthDate}</b>
+                      <CakeIcon className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <div>{moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}</div>
+                  <div><b>{dict.contacts.nazionality}</b></div>
+                  <div>{contacts?.nazionality ?? ''}</div>
+                  <div>
+                    <span className="flex items-center gap-1">
+                      <b>{dict.contacts.job}</b>
+                      <BriefcaseIcon className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <div>{contacts?.job ?? ''}</div>
+                  <div>
+                    <span className="flex items-center gap-1">
+                      <b>{dict.contacts.company}</b>
+                      <BuildingOfficeIcon className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <div>{contacts?.company ?? ''}</div>
+                  <div>
+                    <span className="flex items-center gap-1">
+                      <b>{dict.contacts.email}</b>
+                      <EnvelopeIcon className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <div>
+                    <Link href={`mailto:${contacts?.email ?? ''}`}>
+                      {contacts?.email ?? ''}
+                    </Link>
+                  </div>
+                  <div>
+                    <span className="flex items-center gap-1">
+                      <b>{dict.contacts.website}</b>
+                      <GlobeEuropeAfricaIcon className="h-5 w-5" />
+                    </span>
+                  </div>
+                  <div>
+                    <Link href={contacts?.website || '#'}>
+                      {contacts?.website ?? ''}
+                    </Link>
+                  </div>
+                </div>
+              </CardBody>
+            </Card>
           </div>
           <div className="mt-5 flex items-center justify-center">
-            <Button
-              color="blue"
-              onClick={() => route.push(contacts?.curriculum)}
-            >
+            <Button color="primary" variant="flat" onClick={() => route.push(contacts?.curriculum)}>
               {dict.contacts.buttons.downloadCurriculum}
             </Button>
           </div>
-          <div className="mt-5 flex items-center justify-center">
+          <div className="mt-5 mb-52 flex items-center justify-center">
             {show.button && (
-              <Button
-                color="blue"
-                onClick={() => {
-                  setShow({
-                    form: true,
-                    button: false,
-                    success: false,
-                    error: false,
-                  })
-                }}
-              >
+              <Button color="primary" variant="flat" onClick={() => {
+                setShow({
+                  form: true,
+                  button: false,
+                  success: false,
+                  error: false,
+                })
+              }}>
                 {dict.contacts.buttons.sendEmail}
               </Button>
             )}
             {show.form && (
               <Modal
-                show={show.form}
-                onClose={() => {
-                  setShow({
-                    form: false,
-                    button: true,
-                    success: false,
-                    error: false,
-                  })
-                }}
+                size="md"
+                isOpen={show.form}
+                onClose={handleClickClose}
+                isDismissable={false}
               >
-                <Modal.Header>{dict.contacts.modal.title}</Modal.Header>
-                <Modal.Body>
-                  <FormContact
-                    dict={dict}
-                    onClose={() => {
-                      setShow({
-                        form: false,
-                        button: true,
-                        success: false,
-                        error: false,
-                      })
-                    }}
-                    onError={(m) => {
-                      setError(m)
-                      setShow({
-                        form: false,
-                        button: true,
-                        success: false,
-                        error: true,
-                      })
-                    }}
-                    onSuccess={() => {
-                      setShow({
-                        form: false,
-                        button: false,
-                        success: true,
-                        error: false,
-                      })
-                    }}
-                  />
-                </Modal.Body>
+                <ModalContent>
+                  {(onClose) => (
+                    <>
+                      <ModalHeader className="flex flex-col gap-1">{dict.contacts.modal.title}</ModalHeader>
+                      <ModalBody>
+                        <FormContact
+                          dict={dict}
+                          onClose={onClose}
+                          onError={(m) => {
+                            setError(m)
+                            setShow({
+                              form: false,
+                              button: true,
+                              success: false,
+                              error: true,
+                            })
+                          }}
+                          onSuccess={() => {
+                            setShow({
+                              form: false,
+                              button: false,
+                              success: true,
+                              error: false,
+                            })
+                          }}
+                        />
+                      </ModalBody>
+                    </>
+                  )}
+                </ModalContent>
               </Modal>
             )}
             {show.success && (
