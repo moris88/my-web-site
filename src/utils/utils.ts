@@ -40,7 +40,7 @@ export function truncateString(string: string, length: number): string {
   return string
 }
 
-export function formatDate(date?: string): string {
+export function formatDate(dict: any, date?: string): string {
   if (!date) return ''
-  return `Posted on ${moment(date).format('DD/MM/YYYY')} at ${moment(date).format('HH:mm')}`
+  return `${dict.blog.card.posted} ${moment(date).format('DD/MM/YYYY')} at ${moment(date).format('HH:mm')}`
 }

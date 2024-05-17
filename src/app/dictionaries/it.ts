@@ -35,6 +35,25 @@ const dictionary = {
       message: 'Grazie per il tuo messaggio!!!',
     },
   },
+  skills: {
+    title: 'Le mie Competenze',
+    languages: 'Linguaggi',
+    frontends: 'Frontend',
+    frameworks_frontend: 'Frameworks Frontend',
+    backends: 'Backend',
+    frameworks_backend: 'Frameworks Backend',
+    tools: 'Strumenti',
+    soft: 'Soft',
+  },
+  blog: {
+    card: {
+      readMore: 'Leggi di più',
+      posted: 'Pubblicato il',
+      buttons: {
+        close: 'Chiudi',
+      }
+    },
+  }
 }
 
 export default dictionary

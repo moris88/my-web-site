@@ -56,8 +56,13 @@ export interface SkillElement {
 }
 
 export interface Blog {
-  [key: string]: any
-  articles: Article[]
+  [key: string]: { articles: Article[] }
+  it: {
+    articles: Article[]
+  }
+  en: {
+    articles: Article[]
+  }
 }
 
 export interface Article {
