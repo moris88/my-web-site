@@ -186,39 +186,66 @@
         "soft": {
             "values": [
                 {
-                    "title": "Responsibility",
+                    "title": {
+                        "it": "Responsabilità",
+                        "en": "Responsibility"
+                    },
                     "level": 8
                 },
                 {
-                    "title": "Dedication",
+                    "title": {
+                        "it": "Dedizione",
+                        "en": "Dedication"
+                    },
                     "level": 8
                 },
                 {
-                    "title": "Curiosity",
+                    "title": {
+                        "it": "Curiosità",
+                        "en": "Curiosity"
+                    },
                     "level": 7
                 },
                 {
-                    "title": "Self-discipline",
+                    "title": {
+                        "it": "Autodisciplina",
+                        "en": "Self-discipline"
+                    },
                     "level": 6
                 },
                 {
-                    "title": "Self-confidence",
+                    "title": {
+                        "it": "Fiducia in se stessi",
+                        "en": "Self-confidence"
+                    },
                     "level": 6
                 },
                 {
-                    "title": "Critical spirit",
+                    "title": {
+                        "it": "Spirito critico",
+                        "en": "Critical spirit"
+                    },
                     "level": 6
                 },
                 {
-                    "title": "Team work ability",
+                    "title": {
+                        "it": "Capacità di lavoro di squadra",
+                        "en": "Team work ability"
+                    },
                     "level": 8
                 },
                 {
-                    "title": "Problem solving",
+                    "title": {
+                        "it": "Risoluzione dei problemi",
+                        "en": "Problem solving"
+                    },
                     "level": 9
                 },
                 {
-                    "title": "Resistance to stress",
+                    "title": {
+                        "it": "Resristenza allo stress",
+                        "en": "Resistance to stress"
+                    },
                     "level": 9
                 }
             ]

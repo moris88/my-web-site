@@ -5,6 +5,7 @@ const dictionary = {
     blog: 'Blog',
     skills: 'Skills',
     contacts: 'Contacts',
+    portfolio: 'Portfolio',
   },
   home: {
     links: {
@@ -12,6 +13,8 @@ const dictionary = {
       blog: 'my blog',
       contact: 'my contacts',
     },
+    message:
+      "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
   },
   contacts: {
     title: 'Contacts',
@@ -89,6 +92,7 @@ const dictionary = {
       },
     },
   },
+  portfolio: {},
 }
 
 export default dictionary

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Footer from '@/components/Footer'
-import Header from '@/components/Navbar'
+import { twMerge } from 'tailwind-merge'
+import Providers from '@/components/Providers'
 import { getLinks } from '@/lib/request'
-import './globals.css'
 import { getDictionary } from './dictionaries'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,10 +22,15 @@ export default async function RootLayout({
   const links = await getLinks()
   return (
     <html lang="it">
-      <body className={inter.className}>
-        <Header dict={dict} />
-        {children}
-        <Footer links={links} />
+      <body
+        className={twMerge(
+          inter.className,
+          'dark box-border bg-[#1b1a19] min-h-screen pb-24',
+        )}
+      >
+        <Providers dict={dict} links={links}>
+          {children}
+        </Providers>
       </body>
     </html>
   )

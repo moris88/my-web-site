@@ -9,7 +9,7 @@ export function isActive(currentPath: string, path: string): boolean {
 export function getLevel(
   level: number,
   type: 'soft' | 'hard',
-  dict: any
+  dict: any,
 ): string {
   if (type === 'soft') {
     switch (level) {

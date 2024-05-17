@@ -5,5 +5,5 @@ import { getDictionary } from '../dictionaries'
 export default async function SkillsPage() {
   const skills = await getSkills()
   const dict = await getDictionary()
-  return <PageSkills skills={skills} dict={dict} />
+  return <PageSkills dict={dict} skills={skills} />
 }

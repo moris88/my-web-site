@@ -2,7 +2,9 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button, Label, Spinner, Textarea, TextInput } from 'flowbite-react'
+import { Button } from '@nextui-org/button'
+import { Input, Textarea } from '@nextui-org/input'
+import { Spinner } from '@nextui-org/spinner'
 
 interface FormContactProps {
   dict: any
@@ -30,8 +32,6 @@ export default function FormContact({
     formState: { errors },
   } = useForm<FormData>()
 
-  console.log(dict, errors)
-
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setLoading(true)
     fetch('/api/email', {
@@ -56,19 +56,16 @@ export default function FormContact({
       })
   }
 
-  if (loading) return <Spinner aria-label="spinner" color="info" />
+  if (loading) return <Spinner size="lg" />
 
   return (
     <form
       className="flex w-full flex-col gap-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Label className="text-black" htmlFor="name">
-        {dict.contacts.form.name.label}
-        <span className="text-red-500">*</span>
-      </Label>
-      <TextInput
+      <Input
         id="name"
+        label={dict.contacts.form.name.label}
         placeholder={dict.contacts.form.name.placeholder}
         type="text"
         {...register('name', { required: true })}
@@ -78,12 +75,9 @@ export default function FormContact({
           {dict.contacts.form.name.required}
         </p>
       )}
-      <Label className="text-black" htmlFor="email">
-        {dict.contacts.form.email.label}
-        <span className="text-red-500">*</span>
-      </Label>
-      <TextInput
+      <Input
         id="email"
+        label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
         {...register('email', { required: true })}
@@ -93,12 +87,9 @@ export default function FormContact({
           {dict.contacts.form.email.required}
         </p>
       )}
-      <Label className="text-black" htmlFor="message">
-        {dict.contacts.form.message.label}
-        <span className="text-red-500">*</span>
-      </Label>
       <Textarea
         id="message"
+        label={dict.contacts.form.message.label}
         placeholder={dict.contacts.form.message.placeholder}
         rows={4}
         {...register('message', { required: true })}
@@ -109,10 +100,15 @@ export default function FormContact({
         </p>
       )}
       <div className="flex justify-center gap-4">
-        <Button color="gray" type="button" onClick={() => onClose()}>
+        <Button
+          color="primary"
+          type="button"
+          variant="light"
+          onClick={() => onClose()}
+        >
           {dict.contacts.form.buttons.done}
         </Button>
-        <Button color="blue" type="submit">
+        <Button color="primary" type="submit" variant="flat">
           {dict.contacts.form.buttons.send}
         </Button>
       </div>
