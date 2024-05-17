@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button, Label, Spinner, Textarea, TextInput } from 'flowbite-react'
 
 interface FormContactProps {
+  dict: any
   onClose: () => void
   onSuccess: () => void
   onError: (message: string) => void
@@ -17,6 +18,7 @@ interface FormData {
 }
 
 export default function FormContact({
+  dict,
   onSuccess,
   onError,
   onClose,
@@ -27,6 +29,8 @@ export default function FormContact({
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>()
+
+  console.log(dict, errors)
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setLoading(true)
@@ -60,41 +64,56 @@ export default function FormContact({
       onSubmit={handleSubmit(onSubmit)}
     >
       <Label className="text-black" htmlFor="name">
-        Name
+        {dict.contacts.form.name.label}
+        <span className="text-red-500">*</span>
       </Label>
       <TextInput
         id="name"
-        placeholder="Enter your name"
+        placeholder={dict.contacts.form.name.placeholder}
         type="text"
-        {...register('name', { required: 'Name is required' })}
+        {...register('name', { required: true })}
       />
-      <p className="font-bold text-red-500">{errors.name?.message}</p>
+      {errors?.name && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.name.required}
+        </p>
+      )}
       <Label className="text-black" htmlFor="email">
-        Email
+        {dict.contacts.form.email.label}
+        <span className="text-red-500">*</span>
       </Label>
       <TextInput
         id="email"
-        placeholder="Enter your email"
+        placeholder={dict.contacts.form.email.placeholder}
         type="email"
-        {...register('email', { required: 'Email is required' })}
+        {...register('email', { required: true })}
       />
-      <p className="font-bold text-red-500">{errors.email?.message}</p>
+      {errors?.email && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.email.required}
+        </p>
+      )}
       <Label className="text-black" htmlFor="message">
-        Your Message
+        {dict.contacts.form.message.label}
+        <span className="text-red-500">*</span>
       </Label>
       <Textarea
         id="message"
-        placeholder="Enter your message..."
+        placeholder={dict.contacts.form.message.placeholder}
         rows={4}
-        {...register('message', { required: 'Message is required' })}
+        {...register('message', { required: true })}
       />
-      <p className="font-bold text-red-500">{errors.message?.message}</p>
+      {errors?.message && (
+        <p className="font-bold text-red-500">
+          {dict.contacts.form.message.required}
+        </p>
+      )}
       <div className="flex justify-center gap-4">
         <Button color="gray" type="button" onClick={() => onClose()}>
-          Done
+          {dict.contacts.form.buttons.done}
         </Button>
         <Button color="blue" type="submit">
-          Send
+          {dict.contacts.form.buttons.send}
         </Button>
       </div>
     </form>

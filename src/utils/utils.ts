@@ -6,32 +6,36 @@ export function isActive(currentPath: string, path: string): boolean {
   else return currentPath.startsWith(path)
 }
 
-export function getLevel(level: number, type: 'soft' | 'hard'): string {
+export function getLevel(
+  level: number,
+  type: 'soft' | 'hard',
+  dict: any
+): string {
   if (type === 'soft') {
     switch (level) {
       case 6:
-        return 'Adequate'
+        return dict.skills.card.adequate
       case 7:
       case 8:
-        return 'Good'
+        return dict.skills.card.good
       case 9:
       case 10:
-        return 'Optimal'
+        return dict.skills.card.optimal
       default:
-        return 'Bad'
+        return dict.skills.card.bad
     }
   }
   switch (level) {
     case 6:
-      return 'Basic'
+      return dict.skills.card.basic
     case 7:
     case 8:
-      return 'Intermediate'
+      return dict.skills.card.intermediate
     case 9:
     case 10:
-      return 'Advanced'
+      return dict.skills.card.advanced
     default:
-      return 'Unknown'
+      return dict.skills.card.unknown
   }
 }
 

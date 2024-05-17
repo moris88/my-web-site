@@ -136,6 +136,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                 <Modal.Header>{dict.contacts.modal.title}</Modal.Header>
                 <Modal.Body>
                   <FormContact
+                    dict={dict}
                     onClose={() => {
                       setShow({
                         form: false,
