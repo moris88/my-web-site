@@ -9,11 +9,13 @@ import { formatDate, truncateString } from '@/utils/utils'
 interface CardBlogProps {
   article: Article
   onClick?: (article: Article) => void
+  dict: any
 }
 
 function CardBlog({
   article: { id, image, title, date, content, subtitle, link },
   onClick,
+  dict,
 }: CardBlogProps) {
   const handleOnClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault()
@@ -47,14 +49,14 @@ function CardBlog({
           <p className="select-none border-b text-lg italic">
             {truncateString(content, 100)}
           </p>
-          <small className="select-none">{formatDate(date)}</small>
+          <small className="select-none">{formatDate(dict, date)}</small>
         </div>
       </div>
     </article>
   )
 }
 
-function CardBlogComplete({ article }: { article: Article }) {
+function CardBlogComplete({ article, dict }: { article: Article; dict: any }) {
   return (
     <div className="flex items-center justify-between gap-4">
       <div className={article?.image ? 'w-3/12' : 'w-0'}>
@@ -80,11 +82,11 @@ function CardBlogComplete({ article }: { article: Article }) {
             className="my-4 flex items-center gap-2 border-t border-gray-200 text-black hover:text-blue-800"
             href={article?.link}
           >
-            <LinkIcon className="h-5 w-5" /> Learn more...
+            <LinkIcon className="h-5 w-5" /> {dict.blog.card.readMore}...
           </Link>
         )}
         <small className="select-none text-black">
-          {formatDate(article?.date)}
+          {formatDate(dict, article?.date)}
         </small>
       </div>
     </div>

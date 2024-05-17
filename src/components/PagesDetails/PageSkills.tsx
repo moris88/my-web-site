@@ -7,17 +7,29 @@ import { getLevel } from '@/utils/utils'
 
 interface SkillsProps {
   skills: Skills
+  dict: any
 }
 
-export default function PageSkills({ skills }: SkillsProps) {
+export default function PageSkills({ skills, dict }: SkillsProps) {
+  const mappa = {
+    0: dict.skills.languages,
+    1: dict.skills.frontends,
+    2: dict.skills.frameworks_frontend,
+    3: dict.skills.backends,
+    4: dict.skills.frameworks_backend,
+    5: dict.skills.tools,
+    6: dict.skills.soft,
+  }
   return (
     <section className="mb-20 flex flex-col justify-center px-24">
-      <h1 className="my-5 text-center text-3xl font-bold">My Skills</h1>
+      <h1 className="my-5 text-center text-3xl font-bold">
+        {dict.skills.title}
+      </h1>
       {skills &&
-        Object.keys(skills).map((key) => (
+        Object.keys(skills).map((key, i) => (
           <React.Fragment key={`skill-${skills[key].title}`}>
             <h2 className="my-5 text-center text-xl font-bold">
-              {skills[key].title}
+              {mappa[i as keyof typeof mappa]}
             </h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
               {skills[key].values.map((skill: SkillElement) => {
