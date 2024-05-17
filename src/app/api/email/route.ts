@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       `Email: ${email}\nName: ${name}\nMessage: ${message}`,
       {
         access: 'public',
-      }
+      },
     )
     log(blob)
     return NextResponse.json({ status: 200 })
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     error(err)
     return NextResponse.json(
       { error: 'Internal Server Error' },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

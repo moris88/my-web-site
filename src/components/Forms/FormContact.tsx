@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Input, Textarea } from "@nextui-org/input"
-import { Button } from "@nextui-org/button"
-import { Spinner } from "@nextui-org/spinner"
+import { Button } from '@nextui-org/button'
+import { Input, Textarea } from '@nextui-org/input'
+import { Spinner } from '@nextui-org/spinner'
 
 interface FormContactProps {
   dict: any
@@ -64,8 +64,8 @@ export default function FormContact({
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input
-        label={dict.contacts.form.name.label}
         id="name"
+        label={dict.contacts.form.name.label}
         placeholder={dict.contacts.form.name.placeholder}
         type="text"
         {...register('name', { required: true })}
@@ -75,9 +75,9 @@ export default function FormContact({
           {dict.contacts.form.name.required}
         </p>
       )}
-      <Input 
-        label={dict.contacts.form.email.label}
+      <Input
         id="email"
+        label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
         {...register('email', { required: true })}
@@ -88,8 +88,8 @@ export default function FormContact({
         </p>
       )}
       <Textarea
-        label={dict.contacts.form.message.label}
         id="message"
+        label={dict.contacts.form.message.label}
         placeholder={dict.contacts.form.message.placeholder}
         rows={4}
         {...register('message', { required: true })}
@@ -100,12 +100,17 @@ export default function FormContact({
         </p>
       )}
       <div className="flex justify-center gap-4">
-        <Button color="primary" variant="light" onClick={() => onClose()} type="button">
+        <Button
+          color="primary"
+          type="button"
+          variant="light"
+          onClick={() => onClose()}
+        >
           {dict.contacts.form.buttons.done}
         </Button>
-        <Button color="primary" variant="flat" type="submit">
+        <Button color="primary" type="submit" variant="flat">
           {dict.contacts.form.buttons.send}
-        </Button>  
+        </Button>
       </div>
     </form>
   )

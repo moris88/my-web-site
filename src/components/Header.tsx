@@ -1,11 +1,15 @@
 'use client'
 
-
 import { usePathname } from 'next/navigation'
+import { Image } from '@nextui-org/image'
+import { Link } from '@nextui-org/link'
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from '@nextui-org/navbar'
 import { isActive } from '@/utils/utils'
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/navbar"
-import { Image } from "@nextui-org/image"
-import { Link } from "@nextui-org/link"
 
 interface NavbarProps {
   dict: any
@@ -22,14 +26,14 @@ function Header({ dict }: NavbarProps) {
   ]
 
   return (
-    <Navbar position='sticky' isBlurred className="bg-slate-800 !rounded-lg">
+    <Navbar isBlurred className="!rounded-lg bg-slate-800" position="sticky">
       <NavbarBrand>
         <div className="flex items-center justify-center gap-2">
           <Image
             alt="avatar"
-            shadow='lg'
-            radius='lg'
             height={30}
+            radius="lg"
+            shadow="lg"
             src="/avatar.webp"
             width={30}
           />
@@ -40,7 +44,7 @@ function Header({ dict }: NavbarProps) {
           </Link>
         </div>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="hidden gap-4 sm:flex" justify="end">
         {links.map(({ name, path }, index) => (
           <NavbarItem key={`link-${name}-${index}`}>
             <Link href={path}>

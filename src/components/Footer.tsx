@@ -1,7 +1,7 @@
+import { Link } from '@nextui-org/link'
 import { Links } from '@/types/global'
-import { Link } from "@nextui-org/link"
-import Linkedin from './icons/Linkedin'
 import Github from './icons/Github'
+import Linkedin from './icons/Linkedin'
 import Telegram from './icons/Telegram'
 
 interface MyFooterProps {
@@ -21,14 +21,14 @@ function MyFooter({ links }: MyFooterProps) {
         <span className="text-gray-400">{'-Moris™'}</span>
       </div>
       <div className="flex items-center gap-4">
-        <Link  href={links?.github ?? ''}>
-          <Github className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
+        <Link href={links?.github ?? ''}>
+          <Github className="w-6 text-white transition-all duration-300 ease-in-out hover:text-gray-400" />
         </Link>
         <Link href={links?.linkedin ?? ''}>
-          <Linkedin className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
+          <Linkedin className="w-6 text-white transition-all duration-300 ease-in-out hover:text-gray-400" />
         </Link>
         <Link href={links?.telegram ?? ''}>
-          <Telegram className="w-6 hover:text-gray-400 text-white transition-all ease-in-out duration-300" />
+          <Telegram className="w-6 text-white transition-all duration-300 ease-in-out hover:text-gray-400" />
         </Link>
       </div>
     </div>

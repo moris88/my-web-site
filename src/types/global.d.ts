@@ -81,5 +81,4 @@ export interface Article {
   image?: string
 }
 
-export interface Portfolio {
-}
+export interface Portfolio {}

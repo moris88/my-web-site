@@ -4,9 +4,16 @@ import jsonBlog from '@/data/blog.json'
 import jsonContacts from '@/data/contacts.json'
 import jsonInfo from '@/data/info.json'
 import jsonLinks from '@/data/links.json'
-import jsonSkills from '@/data/skills.json'
 import jsonPortfolio from '@/data/portfolio.json'
-import { Blog, Contacts, Info, Links, Portfolio, Skills } from '@/types/global.d'
+import jsonSkills from '@/data/skills.json'
+import {
+  Blog,
+  Contacts,
+  Info,
+  Links,
+  Portfolio,
+  Skills,
+} from '@/types/global.d'
 
 export async function getLinks() {
   return jsonLinks.links as unknown as Links

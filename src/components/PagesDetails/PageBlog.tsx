@@ -1,8 +1,14 @@
 'use client'
 
 import React from 'react'
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal"
-import { Button } from "@nextui-org/button"
+import { Button } from '@nextui-org/button'
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from '@nextui-org/modal'
 import { Article, Blog } from '@/types/global'
 import SectionCard from '../SectionCard'
 
@@ -18,12 +24,19 @@ function PageBlog({ blog, dict }: PageBlogProps) {
     setArticle(null)
   }
   return (
-    <section className="my-20 grid grid-cols-1 gap-4 lg:p-14 p-0 md:grid-cols-2 xl:grid-cols-4">
-      <Modal size="3xl" isOpen={article !== null} onOpenChange={handleClickClose} isDismissable={false}>
+    <section className="my-20 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
+      <Modal
+        isDismissable={false}
+        isOpen={article !== null}
+        size="3xl"
+        onOpenChange={handleClickClose}
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">{article?.title}</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">
+                {article?.title}
+              </ModalHeader>
               <ModalBody>
                 {article && (
                   <SectionCard.CardBlogComplete article={article} dict={dict} />
@@ -43,9 +56,9 @@ function PageBlog({ blog, dict }: PageBlogProps) {
           .sort((a: Article, b: Article) => a.id - b.id)
           .map((article) => (
             <SectionCard.CardBlog
-              dict={dict}
               key={article.id}
               article={article}
+              dict={dict}
               onClick={(a) => setArticle(a)}
             />
           ))}
