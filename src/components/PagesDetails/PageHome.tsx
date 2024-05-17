@@ -39,7 +39,7 @@ export default function PageHome({ info, dict }: PageHomeProps) {
           <div className="item h-5">
             <Link
               className="text-white transition-all duration-300 ease-in-out hover:text-xl"
-              href="/contact"
+              href="/contacts"
             >
               {dict.home.links.contacts}
             </Link>
