@@ -42,7 +42,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                       {skill.title}
                     </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">{`${key === 'soft' ? 'Self Evaluation' : 'Level'}: ${key === 'soft' ? getLevel(skill.level, 'soft') : getLevel(skill.level, 'hard')}`}</p>
+                    <p className="font-normal text-gray-700 dark:text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
                   </Card>
                 )
               })}

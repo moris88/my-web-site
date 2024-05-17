@@ -34,6 +34,30 @@ const dictionary = {
       title: 'Invia un messaggio',
       message: 'Grazie per il tuo messaggio!!!',
     },
+    form: {
+      name: {
+        value: 'Nome',
+        label: 'Nome',
+        placeholder: 'Inserisci il tuo nome',
+        required: 'Il nome è obbligatorio',
+      },
+      email: {
+        value: 'Email',
+        label: 'Email',
+        placeholder: 'Inserisci la tua email',
+        required: 'L\'email è obbligatoria',
+      },
+      message: {
+        value: 'Messaggio',
+        label: 'Il tuo messaggio',
+        placeholder: 'Inserisci il tuo messaggio qui...',
+        required: 'Il messaggio è obbligatorio',
+      },
+      buttons: {
+        send: 'Invia',
+        done: 'Indietro',
+      },
+    },
   },
   skills: {
     title: 'Le mie Competenze',
@@ -44,6 +68,17 @@ const dictionary = {
     frameworks_backend: 'Frameworks Backend',
     tools: 'Strumenti',
     soft: 'Soft',
+    card: {
+      level: 'Levello',
+      adequate: 'Adeguato',
+      good: 'Buono',
+      optimal: 'Ottimale',
+      bad: 'Scarso',
+      basic: 'Base',
+      intermediate: 'Intermedio',
+      advanced: 'Avanzato',
+      unknown: 'Sconosciuto',
+    },
   },
   blog: {
     card: {
