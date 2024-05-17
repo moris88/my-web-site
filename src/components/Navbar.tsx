@@ -21,7 +21,7 @@ function Navbar() {
           alt="avatar"
           className="rounded-full"
           height={30}
-          src="/avatar.png"
+          src="/avatar.webp"
           width={30}
         />
         <Link href="/">
