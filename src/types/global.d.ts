@@ -1,5 +1,8 @@
 export interface Info {
-  description: string
+  description: {
+    it: string
+    en: string
+  }
 }
 
 export interface Links {
@@ -8,6 +11,11 @@ export interface Links {
   linkedin: string
   twitter: string
   email: string
+}
+
+export interface Contacts {
+  it: Contact
+  en: Contact
 }
 
 export interface Contact {
