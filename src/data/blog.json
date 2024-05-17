@@ -14,6 +14,14 @@
                 "date": "2024-02-28T20:29:00Z",
                 "image": "/Python-Logo.webp",
                 "link": "https://moris88.github.io/formazione-python/"
+            },
+            {
+                "id": 3,
+                "title": "Git training",
+                "content": "Hi, today I added a new repository where I explain the git software, the application for versioning your projects. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this application. Happy studying!",
+                "date": "2024-05-17T19:00:00Z",
+                "image": "/Git-Logo.webp",
+                "link": "https://moris88.github.io/formazione-git/"
             }
         ]
     }
