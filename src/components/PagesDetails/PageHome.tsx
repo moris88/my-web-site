@@ -14,7 +14,7 @@ export default function PageHome({ info }: PageHomeProps) {
   return (
     <section className="p-5">
       <div className="flex flex-col gap-1 p-1">
-        <div className="h-96 rounded-lg" id="title"></div>
+        <div className="h-96 rounded-lg" id="div-screen"></div>
         <div className="flex items-center justify-center gap-2 p-5">
           <div className="item h-5">
             <Link
@@ -52,7 +52,7 @@ export default function PageHome({ info }: PageHomeProps) {
                 alt="avatar"
                 className="rounded-full"
                 height={150}
-                src="/avatar.png"
+                src="/avatar.webp"
                 width={150}
               />
             </React.Suspense>

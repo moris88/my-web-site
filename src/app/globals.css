@@ -8,9 +8,9 @@ body {
   box-sizing: border-box;
 }
 
-#title {
+#div-screen {
   @apply bg-right bg-cover bg-repeat max-w-full;
-  background-image: url('/cover.png');
+  background-image: url('/cover.webp');
 }
 
 .item {
