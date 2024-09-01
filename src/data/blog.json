@@ -23,6 +23,14 @@
                     "date": "2024-05-17T19:00:00Z",
                     "image": "/Git-Logo.webp",
                     "link": "https://moris88.github.io/formazione-git/"
+                },
+                {
+                    "id": 4,
+                    "title": "Facebook profile",
+                    "content": "Hi, today I created a facebook page where I share my articles and my ideas, follow me to stay updated on the latest news in the world of programming.",
+                    "date": "2024-09-01T19:00:00Z",
+                    "image": "/avatar.webp",
+                    "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
                 }
             ]
         },
@@ -49,6 +57,14 @@
                     "date": "2024-05-17T19:00:00Z",
                     "image": "/Git-Logo.webp",
                     "link": "https://moris88.github.io/formazione-git/"
+                },
+                {
+                    "id": 4,
+                    "title": "Profilo Facebook",
+                    "content": "Ciao, oggi ho creato una pagina facebook dove condivido i miei articoli e le mie idee, seguimi per rimanere aggiornato sulle ultime novità del mondo della programmazione.",
+                    "date": "2024-09-01T19:00:00Z",
+                    "image": "/avatar.webp",
+                    "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
                 }
             ]
         }

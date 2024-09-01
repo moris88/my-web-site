@@ -31,7 +31,9 @@ const dictionary = {
     website: 'Sito web',
     buttons: {
       sendEmail: 'Invia un messaggio',
-      downloadCurriculum: 'C.V. di Linkedin',
+      linkedin: 'Linkedin',
+      facebook: 'Facebook',
+      github: 'Github',
     },
     modal: {
       title: 'Invia un messaggio',

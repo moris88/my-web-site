@@ -1,4 +1,4 @@
-import PageSkills from '@/components/PagesDetails/PageSkills'
+import { PageSkills } from '@/components/PagesDetails'
 import { getSkills } from '@/lib/request'
 import { getDictionary } from '../dictionaries'
 

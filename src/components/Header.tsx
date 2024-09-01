@@ -9,6 +9,7 @@ import {
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/navbar'
+import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { isActive } from '@/utils/utils'
 
 interface NavbarProps {
@@ -44,6 +45,22 @@ function Header({ dict }: NavbarProps) {
           </Link>
         </div>
       </NavbarBrand>
+      <NavbarContent className="sm:hidden" justify="end">
+        <NavbarMenuToggle />
+      </NavbarContent>
+      <NavbarMenu>
+        {links.map(({ name, path }, index) => (
+          <NavbarMenuItem key={`link-${name}-${index}`}>
+            <Link href={path}>
+              <span
+                className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+              >
+                {name}
+              </span>
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
       <NavbarContent className="hidden gap-4 sm:flex" justify="end">
         {links.map(({ name, path }, index) => (
           <NavbarItem key={`link-${name}-${index}`}>
