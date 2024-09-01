@@ -54,7 +54,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
       {contacts && (
         <>
           <div className="flex flex-col items-center justify-center">
-            <Card className="w-full md:max-w-[500px]">
+            <Card className="w-full bg-slate-700 p-4 md:max-w-xl">
               <CardHeader className="flex gap-3">
                 <h3 className="w-full select-none text-center">
                   <span className="flex items-center justify-center gap-1">
@@ -131,7 +131,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               </CardBody>
             </Card>
           </div>
-          <div className="mt-5 flex items-center justify-center gap-3 gap-y-1">
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 gap-y-1 md:flex-row">
             {listButtons.map((b) => (
               <Button
                 key={b}
