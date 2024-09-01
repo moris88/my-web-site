@@ -1,4 +1,4 @@
-import PageHome from '@/components/PagesDetails/PageHome'
+import { PageHome } from '@/components/PagesDetails'
 import { getInfo } from '@/lib/request'
 import { getDictionary } from './dictionaries'
 

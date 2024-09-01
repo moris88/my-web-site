@@ -1,4 +1,4 @@
-import PagePortfolio from '@/components/PagesDetails/PagePortfolio'
+import { PagePortfolio } from '@/components/PagesDetails'
 import { getPortfolio } from '@/lib/request'
 import { getDictionary } from '../dictionaries'
 

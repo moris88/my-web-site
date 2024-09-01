@@ -16,8 +16,10 @@ import { Divider } from '@nextui-org/divider'
 import { Link } from '@nextui-org/link'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import moment from 'moment'
-import FormContact from '@/components/Forms/FormContact'
+import { FormContact } from '@/components/Forms'
 import { Contact } from '@/types/global'
+
+const listButtons = ['linkedin', 'facebook', 'github']
 
 interface PageInfoProps {
   contacts: Contact
@@ -129,19 +131,22 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               </CardBody>
             </Card>
           </div>
-          <div className="mt-5 flex items-center justify-center">
-            <Button
-              color="primary"
-              variant="flat"
-              onClick={() => route.push(contacts?.curriculum)}
-            >
-              {dict.contacts.buttons.downloadCurriculum}
-            </Button>
+          <div className="mt-5 flex items-center justify-center gap-3 gap-y-1">
+            {listButtons.map((b) => (
+              <Button
+                key={b}
+                color="primary"
+                variant="flat"
+                onClick={() => route.push(contacts[b])}
+              >
+                {dict.contacts.buttons[b]}
+              </Button>
+            ))}
           </div>
           <div className="mb-52 mt-5 flex items-center justify-center">
             {show.button && (
               <Button
-                color="primary"
+                color="default"
                 variant="flat"
                 onClick={() => {
                   setShow({

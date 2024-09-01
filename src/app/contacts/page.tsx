@@ -1,4 +1,4 @@
-import PageInfo from '@/components/PagesDetails/PageInfo'
+import { PageInfo } from '@/components/PagesDetails'
 import { getContacts } from '@/lib/request'
 import { getDictionary } from '../dictionaries'
 

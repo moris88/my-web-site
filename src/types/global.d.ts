@@ -19,6 +19,7 @@ export interface Contacts {
 }
 
 export interface Contact {
+  [key: string]: string
   firstName: string
   lastName: string
   age: number
@@ -30,7 +31,9 @@ export interface Contact {
   phone: string
   address: string
   website: string
-  curriculum: string
+  linkedin: string
+  facebook: string
+  github: string
 }
 
 export interface Skills {
