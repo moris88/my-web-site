@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { LinkIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import { Divider } from '@nextui-org/divider'
 import { Article } from '@/types/global'
-import { formatDate, truncateString } from '@/utils/utils'
+import { formatDate } from '@/utils/utils'
 
 interface CardBlogProps {
   article: Article
@@ -49,8 +49,8 @@ function CardBlog({
           <h2 className="select-none text-xl font-bold text-gray-300">
             {title}
           </h2>
-          <p className="min-h-32 select-none text-lg italic text-gray-400">
-            {truncateString(content, 100)}
+          <p className="line-clamp-2 select-none text-lg italic text-gray-400">
+            {content}
           </p>
           <Divider className="my-4" />
           <small className="select-none text-gray-500">
@@ -69,7 +69,6 @@ function CardBlogComplete({ article, dict }: { article: Article; dict: any }) {
         {article?.image ? (
           <Image
             alt={article.title}
-            className=""
             height={250}
             src={article.image}
             width={250}

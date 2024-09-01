@@ -53,15 +53,15 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                 hardSkills.map((key, i) => (
                   <Accordion
                     key={`skill-${skills[key].title}`}
-                    className="!p-0"
                     variant="splitted"
                   >
                     <AccordionItem
                       key={i}
                       aria-label={mappa[i as keyof typeof mappa]}
+                      className="my-2 !bg-slate-500"
                       title={mappa[i as keyof typeof mappa]}
                     >
-                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                      <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
                         {skills[key].values.map((skill: SkillElement) => {
                           return (
                             <Card

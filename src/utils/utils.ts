@@ -39,11 +39,6 @@ export function getLevel(
   }
 }
 
-export function truncateString(string: string, length: number): string {
-  if (string.length > length) return `${string.substring(0, length)}...`
-  return string
-}
-
 export function formatDate(dict: any, date?: string): string {
   if (!date) return ''
   return `${dict.blog.card.posted} ${moment(date).format('DD/MM/YYYY')} at ${moment(date).format('HH:mm')}`
