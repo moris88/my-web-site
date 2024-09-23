@@ -1,5 +1,5 @@
-import LoadingScreen from '@/components/LoadingScreen'
+import { LoadingScreen } from '@/components'
 
-export default function DefaultLoading() {
+export default function Loading() {
   return <LoadingScreen />
 }

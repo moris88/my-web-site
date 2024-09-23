@@ -1,7 +1,7 @@
 import { Link } from '@nextui-org/link'
 import { Icon } from '@/components'
 import { Links } from '@/types'
-import { listButtons } from '@/utils'
+import { generateUniqueId, listButtons } from '@/utils'
 
 interface MyFooterProps {
   links: Links
@@ -20,12 +20,12 @@ function MyFooter({ links }: MyFooterProps) {
         <span className="text-gray-400">{'-Moris™'}</span>
         &nbsp;
         <Link href="/cookies">
-          <span className="font-semibold text-gray-400">Cookies policy</span>
+          <span className="font-semibold text-gray-400">Cookies Policy</span>
         </Link>
       </div>
       <div className="flex items-center gap-4">
         {listButtons.map((button) => (
-          <Link key={button.name} href={links[button.name]}>
+          <Link key={generateUniqueId()} href={links[button.name]}>
             <Icon
               className="w-6 text-white transition-all duration-300 ease-in-out hover:text-gray-400"
               labelIcon={button.name}

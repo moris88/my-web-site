@@ -1,12 +1,13 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Tab, Tabs } from '@nextui-org/tabs'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
-import { SkillElement, Skills } from '@/types'
-import { getLevel } from '@/utils'
+import { Skill, Skills } from '@/types'
+import { generateUniqueId, getLevel } from '@/utils'
 
 interface SkillsProps {
   skills: Skills
@@ -14,6 +15,7 @@ interface SkillsProps {
 }
 
 export default function PageSkills({ skills, dict }: SkillsProps) {
+  const route = useRouter()
   const hardSkills = Object.keys(skills).filter((key) => key !== 'soft')
   const softSkills = Object.keys(skills).filter((key) => key === 'soft')
 
@@ -51,33 +53,35 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
               variants={container}
             >
               {hardSkills &&
-                hardSkills.map((key, i) => (
-                  <Accordion
-                    key={`skill-${skills[key].title}`}
-                    variant="splitted"
-                  >
+                hardSkills.map((key, index) => (
+                  <Accordion key={generateUniqueId()} variant="splitted">
                     <AccordionItem
-                      key={i}
-                      aria-label={mappa[i as keyof typeof mappa]}
+                      key={generateUniqueId()}
+                      aria-label={mappa[index as keyof typeof mappa]}
                       className="my-2 !bg-slate-600"
-                      title={mappa[i as keyof typeof mappa]}
+                      title={mappa[index as keyof typeof mappa]}
                     >
                       <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
-                        {skills[key].values.map((skill: SkillElement) => {
+                        {skills[key].map((skill: Skill) => {
                           return (
-                            <Card
-                              key={`my-card-${skill.title}`}
-                              className="max-w-sm bg-slate-700 hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
+                            <button
+                              key={generateUniqueId()}
+                              disabled={skill === undefined}
+                              onClick={() => {
+                                if (skill.link) route.push(skill.link)
+                              }}
                             >
-                              <CardHeader className="flex gap-3">
-                                <h5 className="text-2xl font-bold tracking-tight text-gray-300">
-                                  {skill.title}
-                                </h5>
-                              </CardHeader>
-                              <CardBody>
-                                <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
-                              </CardBody>
-                            </Card>
+                              <Card className="max-w-sm bg-slate-700 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500">
+                                <CardHeader className="flex gap-3">
+                                  <h5 className="text-2xl font-bold tracking-tight text-gray-300">
+                                    {skill.title as string}
+                                  </h5>
+                                </CardHeader>
+                                <CardBody>
+                                  <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                                </CardBody>
+                              </Card>
+                            </button>
                           )
                         })}
                       </div>
@@ -91,17 +95,17 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
               {softSkills &&
                 softSkills.map((key) => (
                   <div
-                    key={`skill-${skills[key].title}`}
+                    key={generateUniqueId()}
                     className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
                   >
-                    {skills[key].values.map((skill: SkillElement) => {
+                    {skills[key].map((skill: Skill) => {
                       const title = (skill.title as any)[
                         dict.language === 'Italiano' ? 'it' : 'en'
                       ]
                       return (
                         <Card
-                          key={`my-card-${skill.title}`}
-                          className="max-w-sm bg-slate-700 hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
+                          key={generateUniqueId()}
+                          className="max-w-sm bg-slate-700 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500"
                         >
                           <CardHeader className="flex gap-3">
                             <h5 className="text-2xl font-bold tracking-tight text-gray-300">

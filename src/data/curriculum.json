@@ -1,0 +1,94 @@
+{
+    "it": {
+        "experiences": [
+            {
+                "company": "CRMPartners S.R.L.",
+                "role": "Web Developer",
+                "start": "27/12/2021",
+                "end": null,
+                "description": "tailwind,docker,aws,scss,agile,redux",
+                "link": "https://www.crmpartners.it/"
+            },
+            {
+                "company": "CRMPartners S.R.L.",
+                "role": "Web Developer",
+                "start": "17/05/2021",
+                "end": "24/12/2021",
+                "description": "Stack: deluge,java,react; Piattaforme: zoho,freshworks,zendesk",
+                "link": "https://www.crmpartners.it/"
+            }
+        ],
+        "education": [
+            {
+                "institution": "Epicode School",
+                "role": "student,ambassador",
+                "start": "18/01/2021",
+                "end": "16/04/2021",
+                "description": "Stack: javascript,typescript,angular,php,laravel,html,css,bootstrap",
+                "link": "https://epicode.com/"
+            },
+            {
+                "institution": "Università degli Studi di Bari",
+                "role": "student",
+                "start": "01/10/2013",
+                "end": "01/12/2017",
+                "description": "Facoltà di informatica; Stack: java, c, c++, sql, linux; Esami: reti, algoritmi, analisi matematica, calcolo numerico, database, programmazione, metodi avanzati di programmazione, linguaggi di programmazione, ingegneria del software, matematica discreta, sistemi operativi, architettura degli elaboratori",
+                "link": "https://epicode.com/"
+            },
+            {
+                "institution": "Istituto Tecnico Industriale Statale \"E. Amaldi\"",
+                "role": "student",
+                "start": "01/09/2003",
+                "end": "31/07/2007",
+                "description": "Indirizzo informatico/elettronica/telecomunicazione; Stack: pascal, c; Materie Principali: elettronica, elettrotecnica, informatica, telecomunicazioni, sistemi elettronici, sistemi informatici, sistemi di telecomunicazione, Statistica e Probabilità",
+                "link": null
+            }
+        ]
+    },
+    "en": {
+        "experience": [
+            {
+                "company": "CRMPartners S.R.L.",
+                "role": "Web Developer",
+                "start": "27/12/2021",
+                "end": null,
+                "description": "tailwind,docker,aws,scss,agile,redux",
+                "link": "https://www.crmpartners.it/"
+            },
+            {
+                "company": "CRMPartners S.R.L.",
+                "role": "Web Developer",
+                "start": "17/05/2021",
+                "end": "24/12/2021",
+                "description": "Stack: deluge,java,react; Platforms: zoho,freshworks,zendesk",
+                "link": "https://www.crmpartners.it/"
+            }
+        ],
+        "education": [
+            {
+                "institution": "Epicode School",
+                "role": "student,ambassador",
+                "start": "18/01/2021",
+                "end": "16/04/2021",
+                "description": "Stack: javascript,typescript,angular,php,laravel,html,css,bootstrap",
+                "link": "https://epicode.com/"
+            },
+            {
+                "institution": "University of Bari",
+                "role": "student",
+                "start": "01/10/2013",
+                "end": "01/12/2017",
+                "description": "Faculty of computer science; Stack: java, c, c++, sql, linux; Exams: networks, algorithms, mathematical analysis, numerical calculation, database, programming, advanced programming methods, programming languages, software engineering, discrete mathematics, operating systems, computer architecture",
+                "link": "https://epicode.com/"
+            },
+            {
+                "institution": "Istituto Tecnico Industriale Statale \"E. Amaldi\"",
+                "role": "student",
+                "start": "01/09/2003",
+                "end": "31/07/2007",
+                "description": "Computer/electronics/telecommunications address; Stack: pascal, c; Main Subjects: electronics, electrical engineering, computer science, telecommunications, electronic systems, computer systems, telecommunication systems, Statistics and Probability",
+                "link": null
+            }
+        ]
+    }
+}

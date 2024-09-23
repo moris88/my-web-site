@@ -1,254 +1,248 @@
 {
-    "skills": {
-        "languages": {
-            "values": [
-                {
-                    "title": "JavaScript",
-                    "level": 9
-                },
-                {
-                    "title": "TypeScript",
-                    "level": 8
-                },
-                {
-                    "title": "Python",
-                    "level": 6
-                },
-                {
-                    "title": "Java",
-                    "level": 7
-                },
-                {
-                    "title": "C",
-                    "level": 6
-                },
-                {
-                    "title": "C++",
-                    "level": 6
-                },
-                {
-                    "title": "C#",
-                    "level": 6
-                },
-                {
-                    "title": "SQL",
-                    "level": 8
-                },
-                {
-                    "title": "PHP",
-                    "level": 8
-                }
-            ]
+    "languages": [
+        {
+            "title": "JavaScript",
+            "level": 9
         },
-        "frontends": {
-            "values": [
-                {
-                    "title": "HTML",
-                    "level": 9
-                },
-                {
-                    "title": "CSS",
-                    "level": 9
-                },
-                {
-                    "title": "MaterialUI",
-                    "level": 9,
-                    "link": "https://mui.com/material-ui/"
-                },
-                {
-                    "title": "Bootstrap",
-                    "level": 9,
-                    "link": "https://getbootstrap.com/"
-                },
-                {
-                    "title": "Flowbite",
-                    "level": 9,
-                    "link": "https://flowbite.com/"
-                },
-                {
-                    "title": "TailwindCSS",
-                    "level": 9,
-                    "link": "https://tailwindcss.com/"
-                }
-            ]
+        {
+            "title": "TypeScript",
+            "level": 8
         },
-        "frameworks_frontend": {
-            "values": [
-                {
-                    "title": "Angular",
-                    "level": 6,
-                    "link": "https://angular.io/"
-                },
-                {
-                    "title": "React",
-                    "level": 8,
-                    "link": "https://react.dev/"
-                },
-                {
-                    "title": "Next.js",
-                    "level": 7,
-                    "link": "https://nextjs.org/"
-                },
-                {
-                    "title": "Vite.js",
-                    "level": 8,
-                    "link": "https://vitejs.dev/"
-                },
-                {
-                    "title": "Astro.js",
-                    "level": 6,
-                    "link": "https://astro.build/"
-                },
-                {
-                    "title": "Solid.js",
-                    "level": 7,
-                    "link": "https://www.solidjs.com/"
-                }
-            ]
+        {
+            "title": "Python",
+            "level": 6
         },
-        "frameworks_backend": {
-            "values": [
-                {
-                    "title": "Node.js",
-                    "level": 8,
-                    "link": "https://nodejs.org/en"
-                },
-                {
-                    "title": "Express.js",
-                    "level": 8,
-                    "link": "https://expressjs.com/"
-                },
-                {
-                    "title": "Laravel",
-                    "level": 7,
-                    "link": "https://laravel.com/"
-                },
-                {
-                    "title": "Django",
-                    "level": 6,
-                    "link": "https://www.djangoproject.com/"
-                },
-                {
-                    "title": "Spring",
-                    "level": 6,
-                    "link": "https://spring.io/"
-                }
-            ]
+        {
+            "title": "Java",
+            "level": 7
         },
-        "backends": {
-            "values": [
-                {
-                    "title": "MongoDB",
-                    "level": 8,
-                    "link": "https://www.mongodb.com/"
-                },
-                {
-                    "title": "MySQL",
-                    "level": 8,
-                    "link": "https://www.mysql.com/"
-                },
-                {
-                    "title": "PostgreSQL",
-                    "level": 8,
-                    "link": "https://www.postgresql.org/"
-                },
-                {
-                    "title": "GraphQL",
-                    "level": 8,
-                    "link": "https://graphql.org/"
-                }
-            ]
+        {
+            "title": "C",
+            "level": 6
         },
-        "tools": {
-            "values": [
-                {
-                    "title": "VSCode",
-                    "level": 9,
-                    "link": "https://code.visualstudio.com/"
-                },
-                {
-                    "title": "Git",
-                    "level": 8,
-                    "link": "https://git-scm.com/"
-                },
-                {
-                    "title": "GitHub",
-                    "level": 8,
-                    "link": "https://github.com/"
-                },
-                {
-                    "title": "Figma",
-                    "level": 7,
-                    "link": "https://www.figma.com/"
-                }
-            ]
+        {
+            "title": "C++",
+            "level": 6
         },
-        "soft": {
-            "values": [
-                {
-                    "title": {
-                        "it": "Responsabilità",
-                        "en": "Responsibility"
-                    },
-                    "level": 8
-                },
-                {
-                    "title": {
-                        "it": "Dedizione",
-                        "en": "Dedication"
-                    },
-                    "level": 8
-                },
-                {
-                    "title": {
-                        "it": "Curiosità",
-                        "en": "Curiosity"
-                    },
-                    "level": 7
-                },
-                {
-                    "title": {
-                        "it": "Autodisciplina",
-                        "en": "Self-discipline"
-                    },
-                    "level": 6
-                },
-                {
-                    "title": {
-                        "it": "Fiducia in se stessi",
-                        "en": "Self-confidence"
-                    },
-                    "level": 6
-                },
-                {
-                    "title": {
-                        "it": "Spirito critico",
-                        "en": "Critical spirit"
-                    },
-                    "level": 6
-                },
-                {
-                    "title": {
-                        "it": "Capacità di lavoro di squadra",
-                        "en": "Team work ability"
-                    },
-                    "level": 8
-                },
-                {
-                    "title": {
-                        "it": "Risoluzione dei problemi",
-                        "en": "Problem solving"
-                    },
-                    "level": 9
-                },
-                {
-                    "title": {
-                        "it": "Resristenza allo stress",
-                        "en": "Resistance to stress"
-                    },
-                    "level": 9
-                }
-            ]
+        {
+            "title": "C#",
+            "level": 6
+        },
+        {
+            "title": "SQL",
+            "level": 8
+        },
+        {
+            "title": "PHP",
+            "level": 8
         }
-    }
+    ],
+    "frontends": [
+        {
+            "title": "HTML",
+            "level": 9
+        },
+        {
+            "title": "CSS",
+            "level": 9
+        },
+        {
+            "title": "MaterialUI",
+            "level": 9,
+            "link": "https://mui.com/material-ui/"
+        },
+        {
+            "title": "Bootstrap",
+            "level": 9,
+            "link": "https://getbootstrap.com/"
+        },
+        {
+            "title": "Flowbite",
+            "level": 9,
+            "link": "https://flowbite.com/"
+        },
+        {
+            "title": "NextUI",
+            "level": 9,
+            "link": "https://nextui.org/"
+        },
+        {
+            "title": "ShadcnUI",
+            "level": 9,
+            "link": "https://ui.shadcn.com/"
+        },
+        {
+            "title": "TailwindCSS",
+            "level": 9,
+            "link": "https://tailwindcss.com/"
+        }
+    ],
+    "frameworks_frontend": [
+        {
+            "title": "Angular",
+            "level": 6,
+            "link": "https://angular.io/"
+        },
+        {
+            "title": "React",
+            "level": 8,
+            "link": "https://react.dev/"
+        },
+        {
+            "title": "Next.js",
+            "level": 7,
+            "link": "https://nextjs.org/"
+        },
+        {
+            "title": "Vite.js",
+            "level": 8,
+            "link": "https://vitejs.dev/"
+        },
+        {
+            "title": "Astro.js",
+            "level": 6,
+            "link": "https://astro.build/"
+        },
+        {
+            "title": "Solid.js",
+            "level": 7,
+            "link": "https://www.solidjs.com/"
+        }
+    ],
+    "frameworks_backend": [
+        {
+            "title": "Node.js",
+            "level": 8,
+            "link": "https://nodejs.org/en"
+        },
+        {
+            "title": "Express.js",
+            "level": 8,
+            "link": "https://expressjs.com/"
+        },
+        {
+            "title": "Laravel",
+            "level": 7,
+            "link": "https://laravel.com/"
+        },
+        {
+            "title": "Django",
+            "level": 6,
+            "link": "https://www.djangoproject.com/"
+        },
+        {
+            "title": "Spring",
+            "level": 6,
+            "link": "https://spring.io/"
+        }
+    ],
+    "backends": [
+        {
+            "title": "MongoDB",
+            "level": 8,
+            "link": "https://www.mongodb.com/"
+        },
+        {
+            "title": "MySQL",
+            "level": 8,
+            "link": "https://www.mysql.com/"
+        },
+        {
+            "title": "PostgreSQL",
+            "level": 8,
+            "link": "https://www.postgresql.org/"
+        },
+        {
+            "title": "GraphQL",
+            "level": 8,
+            "link": "https://graphql.org/"
+        }
+    ],
+    "tools": [
+        {
+            "title": "VSCode",
+            "level": 9,
+            "link": "https://code.visualstudio.com/"
+        },
+        {
+            "title": "Git",
+            "level": 8,
+            "link": "https://git-scm.com/"
+        },
+        {
+            "title": "GitHub",
+            "level": 8,
+            "link": "https://github.com/"
+        },
+        {
+            "title": "Figma",
+            "level": 7,
+            "link": "https://www.figma.com/"
+        }
+    ],
+    "soft": [
+        {
+            "title": {
+                "it": "Responsabilità",
+                "en": "Responsibility"
+            },
+            "level": 8
+        },
+        {
+            "title": {
+                "it": "Dedizione",
+                "en": "Dedication"
+            },
+            "level": 8
+        },
+        {
+            "title": {
+                "it": "Curiosità",
+                "en": "Curiosity"
+            },
+            "level": 7
+        },
+        {
+            "title": {
+                "it": "Autodisciplina",
+                "en": "Self-discipline"
+            },
+            "level": 6
+        },
+        {
+            "title": {
+                "it": "Fiducia in se stessi",
+                "en": "Self-confidence"
+            },
+            "level": 6
+        },
+        {
+            "title": {
+                "it": "Spirito critico",
+                "en": "Critical spirit"
+            },
+            "level": 6
+        },
+        {
+            "title": {
+                "it": "Capacità di lavoro di squadra",
+                "en": "Team work ability"
+            },
+            "level": 8
+        },
+        {
+            "title": {
+                "it": "Risoluzione dei problemi",
+                "en": "Problem solving"
+            },
+            "level": 9
+        },
+        {
+            "title": {
+                "it": "Resistenza allo stress",
+                "en": "Resistance to stress"
+            },
+            "level": 9
+        }
+    ]
 }

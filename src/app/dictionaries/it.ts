@@ -5,7 +5,8 @@ const dictionary = {
     blog: 'Blog',
     skills: 'Competenze',
     contacts: 'Contatti',
-    portfolio: 'Portfolio',
+    application: 'App',
+    curriculum: 'Curriculum',
   },
   home: {
     links: {
@@ -125,7 +126,21 @@ const dictionary = {
       "I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l'app Telegram. Tali dati non verranno archiviati su server esterni o locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Ci impegniamo a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.",
     title: 'Informativa sulla privacy',
   },
-  portfolio: {},
+  curriculum: {
+    title: 'Curriculum Vitae',
+    education: 'Istruzione',
+    experiences: 'Esperienze',
+    download: 'Scarica CV',
+  },
+  application: {
+    title: 'Applicazione',
+    description:
+      'Visita il mio sito in pochi secondi, senza bisogno del browser e ottimizzato per lo smartphone.',
+    privacy: '',
+    requirements: 'Requisiti',
+    compatibility: 'Android 8 o superiore',
+    download: 'Scarica App',
+  },
 }
 
 export default dictionary

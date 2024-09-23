@@ -73,9 +73,9 @@ function ModalMessage({ dict }: ModalMessageProps) {
                   <p>
                     {dict.contacts.modal.content}&nbsp;
                     <Link href="/privacy">
-                      <span className="whitespace-nowrap font-semibold text-white">
+                      <i className="whitespace-nowrap font-semibold text-white">
                         {'Privacy Policy'}
-                      </span>
+                      </i>
                     </Link>
                   </p>
                   <FormContact

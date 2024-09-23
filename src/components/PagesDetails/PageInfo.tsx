@@ -10,7 +10,7 @@ import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { ButtonsGroupSocial, ModalMessage, StoreLink } from '@/components'
 import { Contact } from '@/types'
-import { listButtons } from '@/utils'
+import { generateUniqueId, listButtons } from '@/utils'
 
 interface PageInfoProps {
   contacts: Contact
@@ -90,23 +90,23 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
             </span>
           </h3>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 gap-y-1 md:flex-row">
-            {listTitleButtons.map((b) => (
+            {listTitleButtons.map((button) => (
               <Button
-                key={b}
+                key={generateUniqueId()}
                 color="primary"
                 variant="flat"
                 onClick={() =>
                   setStoreLink({
-                    link: contacts[b],
+                    link: contacts[button],
                     label: dict.contacts.buttons[
-                      b as keyof typeof dict.contacts.buttons
+                      button as keyof typeof dict.contacts.buttons
                     ] as string,
                   })
                 }
               >
                 {
                   dict.contacts.buttons[
-                    b as keyof typeof dict.contacts.buttons
+                    button as keyof typeof dict.contacts.buttons
                   ] as string
                 }
               </Button>

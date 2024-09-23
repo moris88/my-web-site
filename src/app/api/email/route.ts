@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { sendMessage } from '@/utils/telegram'
+import { sendMessage } from '@/utils'
 
 const { log, error } = console
 

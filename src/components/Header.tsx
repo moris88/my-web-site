@@ -11,7 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import { isActive } from '@/utils'
+import { generateUniqueId, isActive } from '@/utils'
 
 interface NavbarProps {
   dict: Dictionary
@@ -21,8 +21,9 @@ function Header({ dict }: NavbarProps) {
   const pathname = usePathname()
   const links = [
     { name: dict.navbar.home, path: '/' },
+    { name: dict.navbar.curriculum, path: '/curriculum' },
     { name: dict.navbar.skills, path: '/skills' },
-    { name: dict.navbar.portfolio, path: '/portfolio' },
+    { name: dict.navbar.application, path: '/application' },
     { name: dict.navbar.blog, path: '/blog' },
     { name: dict.navbar.contacts, path: '/contacts' },
   ]
@@ -50,8 +51,8 @@ function Header({ dict }: NavbarProps) {
         <NavbarMenuToggle />
       </NavbarContent>
       <NavbarMenu>
-        {links.map(({ name, path }, index) => (
-          <NavbarMenuItem key={`link-${name}-${index}`}>
+        {links.map(({ name, path }) => (
+          <NavbarMenuItem key={generateUniqueId()}>
             <Link href={path}>
               <span
                 className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}
@@ -63,8 +64,8 @@ function Header({ dict }: NavbarProps) {
         ))}
       </NavbarMenu>
       <NavbarContent className="hidden gap-4 sm:flex" justify="end">
-        {links.map(({ name, path }, index) => (
-          <NavbarItem key={`link-${name}-${index}`}>
+        {links.map(({ name, path }) => (
+          <NavbarItem key={generateUniqueId()}>
             <Link href={path}>
               <span
                 className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}

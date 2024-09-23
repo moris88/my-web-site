@@ -3,14 +3,8 @@ import { getContacts } from '@/lib/request'
 import { getDictionary } from '../dictionaries'
 
 export default async function ContactPage() {
-  const contacts = await getContacts()
   const dict = await getDictionary()
-  return (
-    <div className="container">
-      <PageInfo
-        contacts={dict.language === 'Italiano' ? contacts.it : contacts.en}
-        dict={dict}
-      />
-    </div>
-  )
+  const language = dict.language === 'Italiano' ? 'it' : 'en'
+  const contacts = await getContacts(language)
+  return <PageInfo contacts={contacts} dict={dict} />
 }

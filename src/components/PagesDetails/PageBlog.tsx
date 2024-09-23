@@ -13,6 +13,7 @@ import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { SectionCard } from '@/components'
 import { Article, Blog } from '@/types'
+import { generateUniqueId } from '@/utils'
 
 interface PageBlogProps {
   blog: Blog
@@ -26,7 +27,7 @@ function PageBlog({ blog, dict }: PageBlogProps) {
     setArticle(null)
   }
   return (
-    <section className="my-20 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
+    <div className="my-20 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
       <Modal
         isDismissable={false}
         isOpen={article !== null}
@@ -54,17 +55,17 @@ function PageBlog({ blog, dict }: PageBlogProps) {
         </ModalContent>
       </Modal>
       {blog &&
-        blog[dict.language === 'Italiano' ? 'it' : 'en'].articles
+        blog.articles
           .sort((a: Article, b: Article) => moment(b.date).diff(moment(a.date)))
           .map((article) => (
             <SectionCard.CardBlog
-              key={article.id}
+              key={generateUniqueId()}
               article={article}
               dict={dict}
               onClick={(a) => setArticle(a)}
             />
           ))}
-    </section>
+    </div>
   )
 }
 

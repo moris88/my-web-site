@@ -1,72 +1,70 @@
 {
-    "blog": {
-        "en": {
-            "articles": [
-                {
-                    "id": 1,
-                    "title": "My first blog post",
-                    "content": "Hi, I'm Maurizio, and I'm a programmer, this is my space to share my ideas with the world, soon I will share articles regarding the world of programming, stay around.",
-                    "date": "2024-02-25T11:47:00Z"
-                },
-                {
-                    "id": 2,
-                    "title": "Python training",
-                    "content": "Hi, starting today there is a space available where you can learn to program with the most used language in the world: Python. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this language. Good study!",
-                    "date": "2024-02-28T20:29:00Z",
-                    "image": "/Python-Logo.webp",
-                    "link": "https://moris88.github.io/formazione-python/"
-                },
-                {
-                    "id": 3,
-                    "title": "Git training",
-                    "content": "Hi, today I added a new repository where I explain the git software, the application for versioning your projects. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this application. Happy studying!",
-                    "date": "2024-05-17T19:00:00Z",
-                    "image": "/Git-Logo.webp",
-                    "link": "https://moris88.github.io/formazione-git/"
-                },
-                {
-                    "id": 4,
-                    "title": "Facebook profile",
-                    "content": "Hi, today I created a facebook page where I share my articles and my ideas, follow me to stay updated on the latest news in the world of programming.",
-                    "date": "2024-09-01T19:00:00Z",
-                    "image": "/avatar.webp",
-                    "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
-                }
-            ]
-        },
-        "it": {
-            "articles": [
-                {
-                    "id": 1,
-                    "title": "Il mio primo post del blog",
-                    "content": "Ciao, sono Maurizio, e sono un programmatore, questo è il mio spazio per condividere le mie idee con il mondo, presto condividerò articoli riguardanti il mondo della programmazione, rimani in giro.",
-                    "date": "2024-02-25T11:47:00Z"
-                },
-                {
-                    "id": 2,
-                    "title": "Formazione Python",
-                    "content": "Ciao, a partire da oggi è disponibile uno spazio dove potrai imparare a programmare con il linguaggio più utilizzato al mondo: Python. Ho creato un repository su github con alcune lezioni che spiegano passo dopo passo come imparare i fondamenti di questo linguaggio. Buono studio!",
-                    "date": "2024-02-28T20:29:00Z",
-                    "image": "/Python-Logo.webp",
-                    "link": "https://moris88.github.io/formazione-python/"
-                },
-                {
-                    "id": 3,
-                    "title": "Formazione Git",
-                    "content": "Ciao, oggi ho aggiunto un nuovo repository dove spiego il software git, l'applicazione per il versionamento dei tuoi progetti. Ho creato un repository su github con alcune lezioni che spiegano passo dopo passo come imparare i fondamenti di questa applicazione. Buono studio!",
-                    "date": "2024-05-17T19:00:00Z",
-                    "image": "/Git-Logo.webp",
-                    "link": "https://moris88.github.io/formazione-git/"
-                },
-                {
-                    "id": 4,
-                    "title": "Profilo Facebook",
-                    "content": "Ciao, oggi ho creato una pagina facebook dove condivido i miei articoli e le mie idee, seguimi per rimanere aggiornato sulle ultime novità del mondo della programmazione.",
-                    "date": "2024-09-01T19:00:00Z",
-                    "image": "/avatar.webp",
-                    "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
-                }
-            ]
-        }
+    "en": {
+        "articles": [
+            {
+                "id": 1,
+                "title": "My first blog post",
+                "content": "Hi, I'm Maurizio, and I'm a programmer, this is my space to share my ideas with the world, soon I will share articles regarding the world of programming, stay around.",
+                "date": "2024-02-25T11:47:00Z"
+            },
+            {
+                "id": 2,
+                "title": "Python training",
+                "content": "Hi, starting today there is a space available where you can learn to program with the most used language in the world: Python. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this language. Good study!",
+                "date": "2024-02-28T20:29:00Z",
+                "image": "/Python-Logo.webp",
+                "link": "https://moris88.github.io/formazione-python/"
+            },
+            {
+                "id": 3,
+                "title": "Git training",
+                "content": "Hi, today I added a new repository where I explain the git software, the application for versioning your projects. I created a repository on github with some lessons that explain step by step how to learn the fundamentals of this application. Happy studying!",
+                "date": "2024-05-17T19:00:00Z",
+                "image": "/Git-Logo.webp",
+                "link": "https://moris88.github.io/formazione-git/"
+            },
+            {
+                "id": 4,
+                "title": "Facebook profile",
+                "content": "Hi, today I created a facebook page where I share my articles and my ideas, follow me to stay updated on the latest news in the world of programming.",
+                "date": "2024-09-01T19:00:00Z",
+                "image": "/avatar.webp",
+                "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
+            }
+        ]
+    },
+    "it": {
+        "articles": [
+            {
+                "id": 1,
+                "title": "Il mio primo post del blog",
+                "content": "Ciao, sono Maurizio, e sono un programmatore, questo è il mio spazio per condividere le mie idee con il mondo, presto condividerò articoli riguardanti il mondo della programmazione, rimani in giro.",
+                "date": "2024-02-25T11:47:00Z"
+            },
+            {
+                "id": 2,
+                "title": "Formazione Python",
+                "content": "Ciao, a partire da oggi è disponibile uno spazio dove potrai imparare a programmare con il linguaggio più utilizzato al mondo: Python. Ho creato un repository su github con alcune lezioni che spiegano passo dopo passo come imparare i fondamenti di questo linguaggio. Buono studio!",
+                "date": "2024-02-28T20:29:00Z",
+                "image": "/Python-Logo.webp",
+                "link": "https://moris88.github.io/formazione-python/"
+            },
+            {
+                "id": 3,
+                "title": "Formazione Git",
+                "content": "Ciao, oggi ho aggiunto un nuovo repository dove spiego il software git, l'applicazione per il versionamento dei tuoi progetti. Ho creato un repository su github con alcune lezioni che spiegano passo dopo passo come imparare i fondamenti di questa applicazione. Buono studio!",
+                "date": "2024-05-17T19:00:00Z",
+                "image": "/Git-Logo.webp",
+                "link": "https://moris88.github.io/formazione-git/"
+            },
+            {
+                "id": 4,
+                "title": "Profilo Facebook",
+                "content": "Ciao, oggi ho creato una pagina facebook dove condivido i miei articoli e le mie idee, seguimi per rimanere aggiornato sulle ultime novità del mondo della programmazione.",
+                "date": "2024-09-01T19:00:00Z",
+                "image": "/avatar.webp",
+                "link": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
+            }
+        ]
     }
 }

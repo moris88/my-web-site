@@ -1,28 +1,26 @@
 {
-    "contacts": {
-        "it": {
-            "firstName": "Maurizio",
-            "lastName": "Tolomeo",
-            "birthDate": "1988-05-10",
-            "nazionality": "Italiano",
-            "job": "Programmatore Web",
-            "email": "maurizio.tolomeo@outlook.it",
-            "website": "https://www.mauriziotolomeo.it",
-            "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
-            "github": "https://github.com/moris88",
-            "facebook": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
-        },
-        "en": {
-            "firstName": "Maurizio",
-            "lastName": "Tolomeo",
-            "birthDate": "1988-05-10",
-            "nazionality": "Italian",
-            "job": "Full Stack Developer",
-            "email": "maurizio.tolomeo@outlook.it",
-            "website": "https://www.mauriziotolomeo.it",
-            "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
-            "github": "https://github.com/moris88",
-            "facebook": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
-        }
+    "it": {
+        "firstName": "Maurizio",
+        "lastName": "Tolomeo",
+        "birthDate": "1988-05-10",
+        "nazionality": "Italiano",
+        "job": "Programmatore Web",
+        "email": "maurizio.tolomeo@outlook.it",
+        "website": "https://www.mauriziotolomeo.it",
+        "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
+        "github": "https://github.com/moris88",
+        "facebook": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
+    },
+    "en": {
+        "firstName": "Maurizio",
+        "lastName": "Tolomeo",
+        "birthDate": "1988-05-10",
+        "nazionality": "Italian",
+        "job": "Full Stack Developer",
+        "email": "maurizio.tolomeo@outlook.it",
+        "website": "https://www.mauriziotolomeo.it",
+        "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
+        "github": "https://github.com/moris88",
+        "facebook": "https://www.facebook.com/share/jpv814g88SKrSWwN/?mibextid=qi2Omg"
     }
 }

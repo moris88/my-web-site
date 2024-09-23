@@ -3,11 +3,8 @@ import { getBlog } from '@/lib/request'
 import { getDictionary } from '../dictionaries'
 
 export default async function Blog() {
-  const blog = await getBlog()
   const dict = await getDictionary()
-  return (
-    <div className="container">
-      <PageBlog blog={blog} dict={dict} />
-    </div>
-  )
+  const language = dict.language === 'Italiano' ? 'it' : 'en'
+  const blog = await getBlog(language)
+  return <PageBlog blog={blog} dict={dict} />
 }

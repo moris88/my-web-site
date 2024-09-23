@@ -1,3 +1,5 @@
+export type Language = 'it' | 'en'
+
 export interface Info {
   name: string
   job: string
@@ -10,13 +12,8 @@ export interface Info {
 export interface Links extends Record<string, string> {
   github: string
   linkedin: string
-  twitter: string
+  facebook: string
   email: string
-}
-
-export interface Contacts {
-  it: Contact
-  en: Contact
 }
 
 export interface Contact extends Record<string, any> {
@@ -36,40 +33,24 @@ export interface Contact extends Record<string, any> {
   github: string
 }
 
-export interface Skills extends Record<string, any> {
+export interface Skills extends Record<string, Skill[]> {
   languages: Skill[]
   frontends: Skill[]
   frameworks_frontend: Skill[]
   backends: Skill[]
   frameworks_backend: Skill[]
   tools: Skill[]
-  soft: {
-    title: {
-      it: string
-      en: string
-    }
-    values: SkillElement[]
-  }
+  soft: Skill[]
 }
 
 export interface Skill {
-  title: string
-  values: SkillElement[]
-}
-
-export interface SkillElement {
-  title: string
+  title: string | { it: string; en: string }
   level: number
-  link: string
+  link?: string
 }
 
 export interface Blog {
-  it: {
-    articles: Article[]
-  }
-  en: {
-    articles: Article[]
-  }
+  articles: Article[]
 }
 
 export interface Article {
@@ -82,4 +63,25 @@ export interface Article {
   image?: string
 }
 
-export interface Portfolio {}
+export interface Curriculum {
+  education: Education[]
+  experiences: Experience[]
+}
+
+export interface Education {
+  institution: string
+  role: string
+  start: string
+  end: string | null
+  description: string
+  link: string | null
+}
+
+export interface Experience {
+  company: string
+  role: string
+  start: string
+  end: string | null
+  description: string
+  link: string | null
+}

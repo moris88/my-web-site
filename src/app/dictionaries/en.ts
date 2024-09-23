@@ -5,7 +5,8 @@ const dictionary = {
     blog: 'Blog',
     skills: 'Skills',
     contacts: 'Contacts',
-    portfolio: 'Portfolio',
+    application: 'App',
+    curriculum: 'Curriculum',
   },
   home: {
     links: {
@@ -123,10 +124,23 @@ const dictionary = {
   privacy: {
     content:
       'The data transmitted through this website is treated with the utmost confidentiality and security, in compliance with the applicable data protection regulations. The information provided, including email, name, username, and message content, will be automatically forwarded to my mobile device via the Telegram app. Such data will not be stored on external or local servers, but will only reside on my personal device. The collected data will be used solely for the purpose of responding to your inquiries and will never be shared with third parties, unless required by law. Furthermore, within 30 days of sending the message, the data will be permanently and irreversibly deleted, without any possibility of recovery, through an automatic process. We are committed to ensuring that your data is handled securely and responsibly. Should you need further details or have any questions regarding the management of your data, please do not hesitate to contact me.',
-
     title: 'Data Protection Notice',
   },
-  portfolio: {},
+  curriculum: {
+    title: 'Curriculum Vitae',
+    education: 'Education',
+    experiences: 'Experience',
+    download: 'Download CV',
+  },
+  application: {
+    title: 'My App',
+    description:
+      'Visit my site in seconds, without the need for a browser and optimized for smartphones.',
+    privacy: '',
+    requirements: 'Requirements',
+    compatibility: 'Android 8.0 or higher',
+    download: 'Download App',
+  },
 }
 
 export default dictionary

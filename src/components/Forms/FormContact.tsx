@@ -37,7 +37,7 @@ export default function FormContact({
   const onSubmit: SubmitHandler<FormData> = (data) => {
     if (!data.message || !data.name) onError('Name and message are required')
     setLoading(true)
-    fetch('/api/email', {
+    fetch('/api/sendMessage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

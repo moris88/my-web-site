@@ -2,43 +2,40 @@
 
 import jsonBlog from '@/data/blog.json'
 import jsonContacts from '@/data/contacts.json'
+import jsonCurriculum from '@/data/curriculum.json'
 import jsonInfo from '@/data/info.json'
 import jsonLinks from '@/data/links.json'
-import jsonPortfolio from '@/data/portfolio.json'
 import jsonSkills from '@/data/skills.json'
 import {
   Blog,
-  Contacts,
+  Contact,
+  Curriculum,
   Info,
+  Language,
   Links,
-  Portfolio,
   Skills,
-} from '@/types/global.d'
+} from '@/types'
 
 export async function getLinks() {
-  return jsonLinks.links as unknown as Links
+  return jsonLinks as Links
 }
 
 export async function getInfo() {
-  return jsonInfo as unknown as Info
+  return jsonInfo as Info
 }
 
-export async function getContacts() {
-  return jsonContacts.contacts as unknown as Contacts
+export async function getContacts(language: Language) {
+  return jsonContacts[language] as Contact
 }
 
 export async function getSkills() {
-  return jsonSkills.skills as unknown as Skills
+  return jsonSkills as Skills
 }
 
-export async function getBlog() {
-  return jsonBlog.blog as unknown as Blog
+export async function getBlog(language: Language) {
+  return jsonBlog[language] as Blog
 }
 
-export async function getPortfolio() {
-  return jsonBlog.blog as unknown as Blog
-}
-
-export async function getDictionary() {
-  return jsonPortfolio.portfolio as unknown as Portfolio
+export async function getCV(language: Language) {
+  return jsonCurriculum[language] as Curriculum
 }
