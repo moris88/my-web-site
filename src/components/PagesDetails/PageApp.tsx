@@ -1,8 +1,8 @@
 'use client'
 
+import { Image } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components'
-import { Image } from '@nextui-org/react'
 
 interface PageCVProps {
   dict: Dictionary
@@ -11,8 +11,10 @@ interface PageCVProps {
 function PageApp({ dict }: PageCVProps) {
   return (
     <SectionHero title={dict.application.title}>
-      <p className="text-center text-base lg:text-xl">{dict.application.description}</p>
-      <div className="flex items-center justify-center p-4 md:p-0 gap-4">
+      <p className="text-center text-base lg:text-xl">
+        {dict.application.description}
+      </p>
+      <div className="flex items-center justify-center gap-4 p-4 md:p-0">
         <Image
           alt="screen_app"
           className="rounded-lg"

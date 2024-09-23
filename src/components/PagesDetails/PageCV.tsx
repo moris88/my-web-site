@@ -15,7 +15,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
   return (
     <SectionHero title={dict.curriculum.title}>
       <p className="text-base lg:text-xl">{dict.curriculum.experiences}</p>
-      <ul className='cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5'>
+      <ul className="cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
         {curriculum.experiences.map((exp) => (
           <li key={generateUniqueId()}>
             <p>
@@ -30,7 +30,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
         ))}
       </ul>
       <p className="text-base lg:text-xl">{dict.curriculum.education}</p>
-      <ul className='cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5'>
+      <ul className="cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
         {curriculum.education.map((exp) => (
           <li key={generateUniqueId()}>
             <p>
