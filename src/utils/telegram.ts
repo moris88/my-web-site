@@ -1,4 +1,4 @@
-// Funzione per inviare il messaggio
+'only server'
 export async function sendMessage({
   token,
   chatId,

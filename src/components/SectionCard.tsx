@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { LinkIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import { Divider } from '@nextui-org/divider'
 import { Dictionary } from '@/app/dictionaries'
-import { Article } from '@/types/global'
-import { formatDate } from '@/utils/utils'
+import { Article } from '@/types'
+import { formatDate } from '@/utils'
 
 interface CardBlogProps {
   article: Article

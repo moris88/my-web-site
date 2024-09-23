@@ -1,23 +1,16 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
-import {
-  EnvelopeIcon,
-  IdentificationIcon,
-  UserIcon,
-} from '@heroicons/react/24/outline'
+import { IdentificationIcon, UserIcon } from '@heroicons/react/24/outline'
 import { Button } from '@nextui-org/button'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Divider } from '@nextui-org/divider'
 import { Link } from '@nextui-org/link'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { FormContact } from '@/components/Forms'
-import { Contact } from '@/types/global'
-
-const listButtons = ['linkedin', 'facebook', 'github']
+import { ButtonsGroupSocial, ModalMessage, StoreLink } from '@/components'
+import { Contact } from '@/types'
+import { listButtons } from '@/utils'
 
 interface PageInfoProps {
   contacts: Contact
@@ -25,32 +18,8 @@ interface PageInfoProps {
 }
 
 export default function PageInfo({ contacts, dict }: PageInfoProps) {
-  const route = useRouter()
-  const [storeLink, setStoreLink] = React.useState<{
-    link: string
-    label: string
-  } | null>(null)
-  const [show, setShow] = React.useState<{
-    form: boolean
-    button: boolean
-    success: boolean
-    error: boolean
-  }>({
-    form: false,
-    button: true,
-    success: false,
-    error: false,
-  })
-  const [error, setError] = React.useState<string | null>(null)
-
-  const handleClickClose = () => {
-    setShow({
-      form: false,
-      button: true,
-      success: false,
-      error: false,
-    })
-  }
+  const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
+  const listTitleButtons = listButtons.map((b) => b.name)
   return (
     <section className="p-0 lg:p-5">
       {contacts && (
@@ -121,7 +90,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
             </span>
           </h3>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 gap-y-1 md:flex-row">
-            {listButtons.map((b) => (
+            {listTitleButtons.map((b) => (
               <Button
                 key={b}
                 color="primary"
@@ -133,7 +102,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                       b as keyof typeof dict.contacts.buttons
                     ] as string,
                   })
-                } //route.push(contacts[b])}
+                }
               >
                 {
                   dict.contacts.buttons[
@@ -145,109 +114,12 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
           </div>
           <p className="py-5 text-center">---</p>
           <div className="flex items-center justify-center">
-            {show.button && (
-              <Button
-                className="flex gap-2"
-                color="default"
-                variant="flat"
-                onClick={() => {
-                  setShow({
-                    form: true,
-                    button: false,
-                    success: false,
-                    error: false,
-                  })
-                }}
-              >
-                {dict.contacts.buttons.sendEmail}
-                <EnvelopeIcon className="h-5 w-5" />
-              </Button>
-            )}
-            {storeLink && (
-              <Modal
-                isDismissable={false}
-                isOpen={storeLink !== null}
-                size="md"
-                onClose={() => setStoreLink(null)}
-              >
-                <ModalContent>
-                  {() => (
-                    <>
-                      <ModalHeader className="flex flex-col gap-1">
-                        {storeLink.label}
-                      </ModalHeader>
-                      <ModalBody>
-                        {
-                          dict.contacts.buttons.storeLink.content[
-                            storeLink.label.toLowerCase() as keyof typeof dict.contacts.buttons.storeLink.content
-                          ]
-                        }
-                        <Button
-                          className="flex gap-2"
-                          color="default"
-                          variant="flat"
-                          onClick={() => route.push(storeLink.link)}
-                        >
-                          {dict.contacts.buttons.storeLink.button}
-                        </Button>
-                      </ModalBody>
-                    </>
-                  )}
-                </ModalContent>
-              </Modal>
-            )}
-            {show.form && (
-              <Modal
-                isDismissable={false}
-                isOpen={show.form}
-                size="md"
-                onClose={handleClickClose}
-              >
-                <ModalContent>
-                  {(onClose) => (
-                    <>
-                      <ModalHeader className="flex flex-col gap-1">
-                        {dict.contacts.modal.title}
-                      </ModalHeader>
-                      <ModalBody>
-                        <p>{dict.contacts.modal.content}</p>
-                        <FormContact
-                          dict={dict}
-                          onClose={onClose}
-                          onError={(m) => {
-                            setError(m)
-                            setShow({
-                              form: false,
-                              button: true,
-                              success: false,
-                              error: true,
-                            })
-                          }}
-                          onSuccess={() => {
-                            setShow({
-                              form: false,
-                              button: false,
-                              success: true,
-                              error: false,
-                            })
-                          }}
-                        />
-                      </ModalBody>
-                    </>
-                  )}
-                </ModalContent>
-              </Modal>
-            )}
-            {show.success && (
-              <p className="select-none text-center text-3xl text-white">
-                {dict.contacts.modal.message}
-              </p>
-            )}
-            {show.error && error && (
-              <p className="select-none text-center text-3xl text-white">
-                {error}
-              </p>
-            )}
+            <ButtonsGroupSocial
+              dict={dict}
+              setStoreLink={setStoreLink}
+              storeLink={storeLink}
+            />
+            <ModalMessage dict={dict} />
           </div>
         </>
       )}

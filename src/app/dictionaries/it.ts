@@ -51,7 +51,8 @@ const dictionary = {
     modal: {
       title: 'Invia un messaggio',
       content:
-        'Qui puoi mandarmi un messaggio e mi arriverà direttamente su Telegram. Puoi lasciare il tuo username (con il prefisso @) e ti risponderò immediatamente! Altrimenti via email appena possibile!',
+        "Il tuo messaggio arriverà direttamente sul mio cellulare sull'app di Telegram. Puoi lasciarmi il tuo username e ti risponderò immediatamente, altrimenti via email appena possibile!",
+      privacy: 'Leggi la privacy',
       message: 'Grazie per il tuo messaggio!!!',
     },
     form: {
@@ -114,8 +115,16 @@ const dictionary = {
       },
     },
   },
-  cookies:
-    'Questo sito non ha cookie o tecnologie per tracciare nessuno! Naviga in tutta libertà nel sito!',
+  cookies: {
+    content:
+      'Questo sito non utilizza cookie o altre tecnologie di tracciamento per raccogliere informazioni sugli utenti. La tua navigazione è completamente libera e non monitorata. Nessun dato personale o comportamento di navigazione viene registrato o analizzato per finalità di marketing, profilazione o statistiche. Naviga con tranquillità, sapendo che non vengono installati cookie di prima o terza parte durante la tua visita, né vengono utilizzati strumenti di tracciamento che potrebbero compromettere la tua privacy o raccogliere informazioni sulle tue preferenze online. Per qualsiasi domanda o chiarimento riguardo alla gestione della privacy, sentiti libero di contattarci.',
+    title: 'Informativa sui cookie',
+  },
+  privacy: {
+    content:
+      "I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l'app Telegram. Tali dati non verranno archiviati su server esterni o locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Ci impegniamo a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.",
+    title: 'Informativa sulla privacy',
+  },
   portfolio: {},
 }
 

@@ -5,8 +5,8 @@ import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Tab, Tabs } from '@nextui-org/tabs'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
-import { SkillElement, Skills } from '@/types/global'
-import { getLevel } from '@/utils/utils'
+import { SkillElement, Skills } from '@/types'
+import { getLevel } from '@/utils'
 
 interface SkillsProps {
   skills: Skills
@@ -59,7 +59,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                     <AccordionItem
                       key={i}
                       aria-label={mappa[i as keyof typeof mappa]}
-                      className="my-2 !bg-slate-500"
+                      className="my-2 !bg-slate-600"
                       title={mappa[i as keyof typeof mappa]}
                     >
                       <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -67,7 +67,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                           return (
                             <Card
                               key={`my-card-${skill.title}`}
-                              className="max-w-sm bg-slate-700 shadow-md shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
+                              className="max-w-sm bg-slate-700 hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
                             >
                               <CardHeader className="flex gap-3">
                                 <h5 className="text-2xl font-bold tracking-tight text-gray-300">
@@ -101,7 +101,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                       return (
                         <Card
                           key={`my-card-${skill.title}`}
-                          className="max-w-sm bg-slate-700 shadow-md shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
+                          className="max-w-sm bg-slate-700 hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:scale-105"
                         >
                           <CardHeader className="flex gap-3">
                             <h5 className="text-2xl font-bold tracking-tight text-gray-300">

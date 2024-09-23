@@ -11,7 +11,7 @@ import {
 } from '@nextui-org/navbar'
 import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import { isActive } from '@/utils/utils'
+import { isActive } from '@/utils'
 
 interface NavbarProps {
   dict: Dictionary

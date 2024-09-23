@@ -51,7 +51,8 @@ const dictionary = {
     modal: {
       title: 'Send a message',
       content:
-        'Here you can send me a message and it will arrive directly on Telegram. You can leave your username (with the @ prefix) and I will reply immediately! Otherwise via email as soon as possible!',
+        "Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I'll reply immediately, otherwise via email as soon as possible!",
+      privacy: 'Read the privacy',
       message: 'Thank you for your message!!!',
     },
     form: {
@@ -114,8 +115,17 @@ const dictionary = {
       },
     },
   },
-  cookies:
-    'This site has no cookies or any technology to trace anyone! Browse freely on the site!',
+  cookies: {
+    content:
+      'This website does not use cookies or other tracking technologies to collect information about users. Your browsing is completely unrestricted and not monitored. No personal data or browsing behavior is recorded or analyzed for marketing, profiling, or statistical purposes. Browse with peace of mind, knowing that no first-party or third-party cookies are installed during your visit, nor are any tracking tools used that could compromise your privacy or collect information about your online preferences. For any questions or clarification regarding privacy management, feel free to contact us.',
+    title: 'Cookie Policy',
+  },
+  privacy: {
+    content:
+      'The data transmitted through this website is treated with the utmost confidentiality and security, in compliance with the applicable data protection regulations. The information provided, including email, name, username, and message content, will be automatically forwarded to my mobile device via the Telegram app. Such data will not be stored on external or local servers, but will only reside on my personal device. The collected data will be used solely for the purpose of responding to your inquiries and will never be shared with third parties, unless required by law. Furthermore, within 30 days of sending the message, the data will be permanently and irreversibly deleted, without any possibility of recovery, through an automatic process. We are committed to ensuring that your data is handled securely and responsibly. Should you need further details or have any questions regarding the management of your data, please do not hesitate to contact me.',
+
+    title: 'Data Protection Notice',
+  },
   portfolio: {},
 }
 

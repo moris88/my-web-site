@@ -1,7 +1,7 @@
 'use client'
 
 import { Dictionary } from '@/app/dictionaries'
-import { Portfolio } from '@/types/global'
+import { Portfolio } from '@/types'
 
 interface PageBlogProps {
   portfolio: Portfolio

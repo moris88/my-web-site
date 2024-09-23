@@ -1,7 +1,7 @@
 import { Link } from '@nextui-org/link'
-import { Icon } from '@/components/icons'
-import { Links } from '@/types/global'
-import { listButtons } from '@/utils/utils'
+import { Icon } from '@/components'
+import { Links } from '@/types'
+import { listButtons } from '@/utils'
 
 interface MyFooterProps {
   links: Links

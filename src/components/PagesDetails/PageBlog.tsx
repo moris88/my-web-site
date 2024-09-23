@@ -11,8 +11,8 @@ import {
 } from '@nextui-org/modal'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { Article, Blog } from '@/types/global'
-import SectionCard from '../SectionCard'
+import { SectionCard } from '@/components'
+import { Article, Blog } from '@/types'
 
 interface PageBlogProps {
   blog: Blog

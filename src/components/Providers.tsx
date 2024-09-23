@@ -2,9 +2,8 @@
 
 import { NextUIProvider } from '@nextui-org/system'
 import { Dictionary } from '@/app/dictionaries'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import { Links } from '@/types/global'
+import { Footer, Header } from '@/components'
+import { Links } from '@/types'
 
 interface ProvidersProps {
   children: React.ReactNode
