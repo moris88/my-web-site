@@ -41,7 +41,7 @@ function Header({ dict }: NavbarProps) {
             width={30}
           />
           <Link href="/">
-            <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
+            <span className="self-center whitespace-nowrap text-base font-semibold text-white md:text-xl">
               Maurizio Tolomeo
             </span>
           </Link>
@@ -52,7 +52,10 @@ function Header({ dict }: NavbarProps) {
       </NavbarContent>
       <NavbarMenu>
         {links.map(({ name, path }) => (
-          <NavbarMenuItem key={generateUniqueId()}>
+          <NavbarMenuItem
+            key={generateUniqueId()}
+            className="flex w-full items-center justify-center"
+          >
             <Link href={path}>
               <span
                 className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}

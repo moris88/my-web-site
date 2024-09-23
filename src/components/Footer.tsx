@@ -14,13 +14,15 @@ function MyFooter({ links }: MyFooterProps) {
   }
   return (
     <div className="fixed bottom-0 z-50 flex w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap text-sm lg:text-base">
         <span className="text-gray-400">©</span>
         <span className="text-gray-400">{getYear()}</span>
         <span className="text-gray-400">{'-Moris™'}</span>
         &nbsp;
         <Link href="/cookies">
-          <span className="font-semibold text-gray-400">Cookies Policy</span>
+          <span className="text-sm font-semibold text-gray-400 lg:text-base">
+            Cookies Policy
+          </span>
         </Link>
       </div>
       <div className="flex items-center gap-4">

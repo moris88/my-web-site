@@ -17,12 +17,15 @@ function PageCV({ curriculum, dict }: PageCVProps) {
       <p className="text-base lg:text-xl">{dict.curriculum.experiences}</p>
       <ul className="cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
         {curriculum.experiences.map((exp) => (
-          <li key={generateUniqueId()}>
+          <li
+            key={generateUniqueId()}
+            className="lg:test-base text-wrap text-sm"
+          >
             <p>
               <b>
                 <Link href={exp.link ?? ''}>{exp.company}</Link>
               </b>{' '}
-              <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'})
+              <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
             </p>
             <p>description: {exp.description}</p>
             <br />
@@ -32,12 +35,15 @@ function PageCV({ curriculum, dict }: PageCVProps) {
       <p className="text-base lg:text-xl">{dict.curriculum.education}</p>
       <ul className="cursor-pointer rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
         {curriculum.education.map((exp) => (
-          <li key={generateUniqueId()}>
+          <li
+            key={generateUniqueId()}
+            className="lg:test-base text-wrap text-sm"
+          >
             <p>
               <b>
                 <Link href={exp.link ?? ''}>{exp.institution}</Link>
               </b>{' '}
-              <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'})
+              <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
             </p>
             <p>description: {exp.description}</p>
             <br />

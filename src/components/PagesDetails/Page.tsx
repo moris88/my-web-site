@@ -11,7 +11,7 @@ interface PageCookiesProps {
 function Page({ dict, page }: PageCookiesProps) {
   return (
     <SectionHero subtitle={dict[page].content} title={dict[page].title}>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-2">
         <ModalMessage dict={dict} />
       </div>
     </SectionHero>

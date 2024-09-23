@@ -6,7 +6,7 @@
                 "role": "Web Developer",
                 "start": "27/12/2021",
                 "end": null,
-                "description": "tailwind,docker,aws,scss,agile,redux",
+                "description": "tailwind, docker, aws, scss, agile, redux",
                 "link": "https://www.crmpartners.it/"
             },
             {
@@ -14,7 +14,7 @@
                 "role": "Web Developer",
                 "start": "17/05/2021",
                 "end": "24/12/2021",
-                "description": "Stack: deluge,java,react; Piattaforme: zoho,freshworks,zendesk",
+                "description": "Stack: deluge, java, react; Piattaforme: zoho, freshworks, zendesk",
                 "link": "https://www.crmpartners.it/"
             }
         ],
@@ -24,7 +24,7 @@
                 "role": "student,ambassador",
                 "start": "18/01/2021",
                 "end": "16/04/2021",
-                "description": "Stack: javascript,typescript,angular,php,laravel,html,css,bootstrap",
+                "description": "Stack: javascript, typescript, angular, php, laravel, html, css, bootstrap",
                 "link": "https://epicode.com/"
             },
             {
@@ -40,7 +40,7 @@
                 "role": "student",
                 "start": "01/09/2003",
                 "end": "31/07/2007",
-                "description": "Indirizzo informatico/elettronica/telecomunicazione; Stack: pascal, c; Materie Principali: elettronica, elettrotecnica, informatica, telecomunicazioni, sistemi elettronici, sistemi informatici, sistemi di telecomunicazione, Statistica e Probabilità",
+                "description": "Indirizzo informatico / elettronica / telecomunicazione; Stack: pascal, c; Materie Principali: elettronica, elettrotecnica, informatica, telecomunicazioni, sistemi elettronici, sistemi informatici, sistemi di telecomunicazione, Statistica e Probabilità",
                 "link": null
             }
         ]
@@ -52,7 +52,7 @@
                 "role": "Web Developer",
                 "start": "27/12/2021",
                 "end": null,
-                "description": "tailwind,docker,aws,scss,agile,redux",
+                "description": "tailwind, docker, aws, scss, agile, redux",
                 "link": "https://www.crmpartners.it/"
             },
             {
@@ -60,7 +60,7 @@
                 "role": "Web Developer",
                 "start": "17/05/2021",
                 "end": "24/12/2021",
-                "description": "Stack: deluge,java,react; Platforms: zoho,freshworks,zendesk",
+                "description": "Stack: deluge, java, react; Platforms: zoho, freshworks, zendesk",
                 "link": "https://www.crmpartners.it/"
             }
         ],
@@ -70,7 +70,7 @@
                 "role": "student,ambassador",
                 "start": "18/01/2021",
                 "end": "16/04/2021",
-                "description": "Stack: javascript,typescript,angular,php,laravel,html,css,bootstrap",
+                "description": "Stack: javascript, typescript, angular, php, laravel, html, css, bootstrap",
                 "link": "https://epicode.com/"
             },
             {
@@ -86,7 +86,7 @@
                 "role": "student",
                 "start": "01/09/2003",
                 "end": "31/07/2007",
-                "description": "Computer/electronics/telecommunications address; Stack: pascal, c; Main Subjects: electronics, electrical engineering, computer science, telecommunications, electronic systems, computer systems, telecommunication systems, Statistics and Probability",
+                "description": "Computer / electronics / telecommunications address; Stack: pascal, c; Main Subjects: electronics, electrical engineering, computer science, telecommunications, electronic systems, computer systems, telecommunication systems, Statistics and Probability",
                 "link": null
             }
         ]

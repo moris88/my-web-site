@@ -27,7 +27,7 @@ function PageBlog({ blog, dict }: PageBlogProps) {
     setArticle(null)
   }
   return (
-    <div className="my-20 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
+    <div className="container grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
       <Modal
         isDismissable={false}
         isOpen={article !== null}

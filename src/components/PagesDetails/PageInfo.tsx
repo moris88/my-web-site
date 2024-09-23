@@ -21,7 +21,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
   const listTitleButtons = listButtons.map((b) => b.name)
   return (
-    <section className="p-0 lg:p-5">
+    <section className="container">
       {contacts && (
         <>
           <div className="flex flex-col items-center justify-center">

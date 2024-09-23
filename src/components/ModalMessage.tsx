@@ -28,6 +28,18 @@ function ModalMessage({ dict }: ModalMessageProps) {
     error: false,
   })
   const [error, setError] = React.useState<string | null>(null)
+  React.useEffect(() => {
+    if (show.success) {
+      setTimeout(() => {
+        setShow({
+          form: false,
+          button: true,
+          success: false,
+          error: false,
+        })
+      }, 5000)
+    }
+  }, [show.success])
   const handleClickClose = () => {
     setShow({
       form: false,
@@ -85,7 +97,7 @@ function ModalMessage({ dict }: ModalMessageProps) {
                       setError(m)
                       setShow({
                         form: false,
-                        button: true,
+                        button: false,
                         success: false,
                         error: true,
                       })
@@ -106,12 +118,14 @@ function ModalMessage({ dict }: ModalMessageProps) {
         </Modal>
       )}
       {show.success && (
-        <p className="select-none text-center text-3xl text-white">
+        <p className="select-none text-center text-3xl text-green-600">
           {dict.contacts.modal.message}
         </p>
       )}
       {show.error && error && (
-        <p className="select-none text-center text-3xl text-white">{error}</p>
+        <p className="select-none text-center text-3xl text-red-500">
+          Error: {error}
+        </p>
       )}
     </>
   )
