@@ -1,7 +1,10 @@
 'use client'
 
 import React from 'react'
-import { Modal, ModalBody, ModalContent } from '@nextui-org/modal'
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
+import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
+import { Checkbox } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components'
@@ -13,6 +16,8 @@ interface PageCVProps {
 
 function PageApp({ dict }: PageCVProps) {
   const [selectedImage, setSelectedImage] = React.useState<string | null>(null)
+  const [accept, setAccept] = React.useState<boolean>(false)
+  const [showDownload, setShowDownload] = React.useState<boolean>(false)
   const handleClickOpen = (image: string) => {
     setSelectedImage(image)
   }
@@ -66,11 +71,63 @@ function PageApp({ dict }: PageCVProps) {
       <p className="text-center">
         <b>{dict.application.requirements}:</b> {dict.application.compatibility}
       </p>
-      <p className="text-center">{dict.application.privacy}</p>
       <div className="flex items-center justify-center">
-        <DownloadFile pathFile="/mauriziotolomeo.apk">
+        <Button
+          className="flex gap-2"
+          color="default"
+          variant="flat"
+          onClick={() => setShowDownload(true)}
+        >
           {dict.application.download}
-        </DownloadFile>
+          <ArrowDownTrayIcon className="h-5 w-5" />
+        </Button>
+        {showDownload && (
+          <Modal
+            isDismissable={false}
+            isOpen={showDownload}
+            size="md"
+            onClose={() => setShowDownload(false)}
+          >
+            <ModalContent>
+              {() => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">
+                    {dict.application.download}
+                  </ModalHeader>
+                  <ModalBody>
+                    <div className="flex w-full items-center justify-center">
+                      <p>{dict.application.terms}</p>
+                    </div>
+                    <div className="flex w-full items-center justify-center">
+                      <Checkbox
+                        defaultSelected={accept}
+                        onChange={(e) => setAccept(e.currentTarget.checked)}
+                      >
+                        {'Accept terms'}
+                      </Checkbox>
+                    </div>
+                    <div className="flex w-full items-center justify-center gap-2">
+                      <Button
+                        className="flex gap-2"
+                        color="default"
+                        variant="flat"
+                        onClick={() => setShowDownload(false)}
+                      >
+                        {dict.application.cancel}
+                      </Button>
+                      <DownloadFile
+                        disabled={!accept}
+                        pathFile="/mauriziotolomeo.apk"
+                      >
+                        {dict.application.download}
+                      </DownloadFile>
+                    </div>
+                  </ModalBody>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+        )}
       </div>
     </SectionHero>
   )

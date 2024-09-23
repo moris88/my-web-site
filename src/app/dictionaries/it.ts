@@ -118,12 +118,12 @@ const dictionary = {
   },
   cookies: {
     content:
-      'Questo sito non utilizza cookie o altre tecnologie di tracciamento per raccogliere informazioni sugli utenti. La tua navigazione è completamente libera e non monitorata. Nessun dato personale o comportamento di navigazione viene registrato o analizzato per finalità di marketing, profilazione o statistiche. Naviga con tranquillità, sapendo che non vengono installati cookie di prima o terza parte durante la tua visita, né vengono utilizzati strumenti di tracciamento che potrebbero compromettere la tua privacy o raccogliere informazioni sulle tue preferenze online. Per qualsiasi domanda o chiarimento riguardo alla gestione della privacy, sentiti libero di contattarci.',
+      'Questo sito non utilizza cookie o altre tecnologie di tracciamento per raccogliere informazioni sugli utenti. La tua navigazione è completamente libera e non monitorata. Nessun dato personale o comportamento di navigazione viene registrato o analizzato per finalità di marketing, profilazione o statistiche. Naviga con tranquillità, sapendo che non vengono installati cookie di prima o terza parte durante la tua visita, né vengono utilizzati strumenti di tracciamento che potrebbero compromettere la tua privacy o raccogliere informazioni sulle tue preferenze online. Per qualsiasi domanda o chiarimento riguardo alla gestione della privacy, sentiti libero di contattarmi.',
     title: 'Informativa sui cookie',
   },
   privacy: {
     content:
-      "I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l'app Telegram. Tali dati non verranno archiviati su server esterni o locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Ci impegniamo a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.",
+      "I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l'app Telegram attraverso API. Tali dati non verranno archiviati su server locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Mi impegno a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.",
     title: 'Informativa sulla privacy',
   },
   curriculum: {
@@ -131,12 +131,17 @@ const dictionary = {
     education: 'Istruzione',
     experiences: 'Esperienze',
     download: 'Scarica CV',
+    terms:
+      "Spuntando la checkbox in basso, l'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all'art. 13 del D.Lgs. 196/2003 e all'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali. Non puoi utilizzare i dati per scopi commerciali o illegali. Tutti i contenuti, inclusi testi, immagini e loghi, sono protetti da diritti d'autore e non possono essere riprodotti senza il mio consenso. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.",
+    cancel: 'Annulla',
   },
   application: {
     title: 'Applicazione',
     description:
       'Visita il mio sito in pochi secondi, senza bisogno del browser e ottimizzato per lo smartphone.',
-    privacy: '',
+    terms:
+      "Utilizzando questa app, l'utente accetta i seguenti termini e condizioni. Se non accetti questi termini, ti prego di non utilizzare l'app. L'app è fornita esclusivamente per uso personale. Non puoi utilizzare l’app per scopi commerciali o illegali, né tentare di interferire con le sue funzionalità o sicurezza. Tutti i contenuti dell'app, inclusi testi, immagini, loghi e software, sono protetti da diritti d'autore e non possono essere riprodotti senza il mio consenso. Non sono responsabile per eventuali danni diretti o indiretti derivanti dall’uso dell’app. L’uso dell’app è a tuo rischio esclusivo. Mi riservo il diritto di modificare, sospendere o interrompere temporaneamente o permanentemente l'app o alcune sue funzioni senza preavviso. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite l’app, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.",
+    cancel: 'Annulla',
     requirements: 'Requisiti',
     compatibility: 'Android 8 o superiore',
     download: 'Scarica App',

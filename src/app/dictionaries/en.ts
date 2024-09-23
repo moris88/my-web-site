@@ -118,12 +118,12 @@ const dictionary = {
   },
   cookies: {
     content:
-      'This website does not use cookies or other tracking technologies to collect information about users. Your browsing is completely unrestricted and not monitored. No personal data or browsing behavior is recorded or analyzed for marketing, profiling, or statistical purposes. Browse with peace of mind, knowing that no first-party or third-party cookies are installed during your visit, nor are any tracking tools used that could compromise your privacy or collect information about your online preferences. For any questions or clarification regarding privacy management, feel free to contact us.',
+      'This website does not use cookies or other tracking technologies to collect information about users. Your browsing is completely unrestricted and not monitored. No personal data or browsing behavior is recorded or analyzed for marketing, profiling, or statistical purposes. Browse with peace of mind, knowing that no first-party or third-party cookies are installed during your visit, nor are any tracking tools used that could compromise your privacy or collect information about your online preferences. For any questions or clarification regarding privacy management, feel free to contact me.',
     title: 'Cookie Policy',
   },
   privacy: {
     content:
-      'The data transmitted through this website is treated with the utmost confidentiality and security, in compliance with the applicable data protection regulations. The information provided, including email, name, username, and message content, will be automatically forwarded to my mobile device via the Telegram app. Such data will not be stored on external or local servers, but will only reside on my personal device. The collected data will be used solely for the purpose of responding to your inquiries and will never be shared with third parties, unless required by law. Furthermore, within 30 days of sending the message, the data will be permanently and irreversibly deleted, without any possibility of recovery, through an automatic process. We are committed to ensuring that your data is handled securely and responsibly. Should you need further details or have any questions regarding the management of your data, please do not hesitate to contact me.',
+      'The data transmitted through this website is treated with the utmost confidentiality and security, in compliance with the applicable data protection regulations. The information provided, including email, name, username, and message content, will be automatically forwarded to my mobile device via the Telegram app. Such data will not be stored on local servers, but will only reside on my personal device. The collected data will be used solely for the purpose of responding to your inquiries and will never be shared with third parties, unless required by law. Furthermore, within 30 days of sending the message, the data will be permanently and irreversibly deleted, without any possibility of recovery, through an automatic process. We are committed to ensuring that your data is handled securely and responsibly. Should you need further details or have any questions regarding the management of your data, please do not hesitate to contact me.',
     title: 'Data Protection Notice',
   },
   curriculum: {
@@ -131,12 +131,17 @@ const dictionary = {
     education: 'Education',
     experiences: 'Experience',
     download: 'Download CV',
+    terms:
+      'By checking the checkbox below, you agree to the following terms and conditions. The pdf is provided for personal use only. I authorize the processing of personal data contained in this curriculum vitae in accordance with art. 13 of Legislative Decree 196/2003 and art. 13 of the European Regulation UE 2016/679 on the protection of natural persons with regard to the processing of personal data. You may not use the data for commercial or illegal purposes. All content, including text, images and logos, is protected by copyright and may not be reproduced without my consent. You undertake not to disclose confidential information that you may obtain through this pdf, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
+    cancel: 'Cancel',
   },
   application: {
     title: 'My App',
     description:
       'Visit my site in seconds, without the need for a browser and optimized for smartphones.',
-    privacy: '',
+    terms:
+      'By using this app, you agree to the following terms and conditions. If you do not agree to these terms, please do not use the app.\nThe app is provided for your personal use only. You may not use the app for any commercial or illegal purposes, nor attempt to interfere with its functionality or security. All content in the app, including text, images, logos and software, is protected by copyright and may not be reproduced without my consent. I am not responsible for any direct or indirect damages arising from the use of the app. Use of the app is at your sole risk. I reserve the right to modify, suspend or discontinue temporarily or permanently the app or any of its features without notice. You undertake not to disclose any confidential information that you may obtain through the app, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
+    cancel: 'Cancel',
     requirements: 'Requirements',
     compatibility: 'Android 8.0 or higher',
     download: 'Download App',
