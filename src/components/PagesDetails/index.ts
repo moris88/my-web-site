@@ -1,5 +1,4 @@
 export { default as PageBlog } from './PageBlog'
-export { default as PageHome } from './PageHome'
 export { default as PageInfo } from './PageInfo'
 export { default as PagePortfolio } from './PagePortfolio'
 export { default as PageSkills } from './PageSkills'

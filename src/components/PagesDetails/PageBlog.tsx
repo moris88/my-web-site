@@ -9,12 +9,14 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@nextui-org/modal'
+import moment from 'moment'
+import { Dictionary } from '@/app/dictionaries'
 import { Article, Blog } from '@/types/global'
 import SectionCard from '../SectionCard'
 
 interface PageBlogProps {
   blog: Blog
-  dict: any
+  dict: Dictionary
 }
 
 function PageBlog({ blog, dict }: PageBlogProps) {
@@ -53,7 +55,7 @@ function PageBlog({ blog, dict }: PageBlogProps) {
       </Modal>
       {blog &&
         blog[dict.language === 'Italiano' ? 'it' : 'en'].articles
-          .sort((a: Article, b: Article) => a.id - b.id)
+          .sort((a: Article, b: Article) => moment(b.date).diff(moment(a.date)))
           .map((article) => (
             <SectionCard.CardBlog
               key={article.id}

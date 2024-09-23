@@ -4,13 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LinkIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import { Divider } from '@nextui-org/divider'
+import { Dictionary } from '@/app/dictionaries'
 import { Article } from '@/types/global'
 import { formatDate } from '@/utils/utils'
 
 interface CardBlogProps {
   article: Article
-  onClick?: (article: Article) => void
-  dict: any
+  onClick?: (_article: Article) => void
+  dict: Dictionary
 }
 
 function CardBlog({
@@ -32,7 +33,7 @@ function CardBlog({
   }
   return (
     <article
-      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black shadow-lg shadow-slate-500 transition-all duration-100 ease-in-out hover:-translate-y-2"
+      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:-translate-y-2"
       onClick={handleOnClick}
     >
       <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">

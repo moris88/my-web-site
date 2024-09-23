@@ -3,12 +3,9 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import {
-  BriefcaseIcon,
-  BuildingOfficeIcon,
-  CakeIcon,
   EnvelopeIcon,
-  GlobeEuropeAfricaIcon,
   UserIcon,
+  IdentificationIcon
 } from '@heroicons/react/24/outline'
 import { Button } from '@nextui-org/button'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
@@ -16,6 +13,7 @@ import { Divider } from '@nextui-org/divider'
 import { Link } from '@nextui-org/link'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import moment from 'moment'
+import { Dictionary } from '@/app/dictionaries'
 import { FormContact } from '@/components/Forms'
 import { Contact } from '@/types/global'
 
@@ -23,11 +21,15 @@ const listButtons = ['linkedin', 'facebook', 'github']
 
 interface PageInfoProps {
   contacts: Contact
-  dict: any
+  dict: Dictionary
 }
 
 export default function PageInfo({ contacts, dict }: PageInfoProps) {
   const route = useRouter()
+  const [storeLink, setStoreLink] = React.useState<{
+    link: string
+    label: string
+  } | null>(null)
   const [show, setShow] = React.useState<{
     form: boolean
     button: boolean
@@ -79,10 +81,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                   </div>
                   <div>{moment().diff(contacts?.birthDate, 'years') ?? ''}</div>
                   <div>
-                    <span className="flex items-center gap-1">
-                      <b>{dict.contacts.birthDate}</b>
-                      <CakeIcon className="h-5 w-5" />
-                    </span>
+                    <b>{dict.contacts.birthDate}</b>
                   </div>
                   <div>
                     {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
@@ -92,24 +91,11 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                   </div>
                   <div>{contacts?.nazionality ?? ''}</div>
                   <div>
-                    <span className="flex items-center gap-1">
-                      <b>{dict.contacts.job}</b>
-                      <BriefcaseIcon className="h-5 w-5" />
-                    </span>
+                    <b>{dict.contacts.job}</b>
                   </div>
                   <div>{contacts?.job ?? ''}</div>
                   <div>
-                    <span className="flex items-center gap-1">
-                      <b>{dict.contacts.company}</b>
-                      <BuildingOfficeIcon className="h-5 w-5" />
-                    </span>
-                  </div>
-                  <div>{contacts?.company ?? ''}</div>
-                  <div>
-                    <span className="flex items-center gap-1">
-                      <b>{dict.contacts.email}</b>
-                      <EnvelopeIcon className="h-5 w-5" />
-                    </span>
+                    <b>{dict.contacts.email}</b>
                   </div>
                   <div>
                     <Link href={`mailto:${contacts?.email ?? ''}`}>
@@ -117,35 +103,40 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                     </Link>
                   </div>
                   <div>
-                    <span className="flex items-center gap-1">
-                      <b>{dict.contacts.website}</b>
-                      <GlobeEuropeAfricaIcon className="h-5 w-5" />
-                    </span>
+                    <b>{dict.contacts.website}</b>
                   </div>
                   <div>
                     <Link href={contacts?.website || '#'}>
-                      {contacts?.website ?? ''}
+                      {contacts?.website?.replace('https://www.', '') ?? ''}
                     </Link>
                   </div>
                 </div>
               </CardBody>
             </Card>
           </div>
+          <h3 className="w-full select-none text-center mt-5">
+            <span className="flex items-center justify-center gap-1">
+              <IdentificationIcon className="h-5 w-5" />
+              <b>{dict.contacts.social}</b>
+            </span>
+          </h3>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 gap-y-1 md:flex-row">
             {listButtons.map((b) => (
               <Button
                 key={b}
                 color="primary"
                 variant="flat"
-                onClick={() => route.push(contacts[b])}
+                onClick={() => setStoreLink({ link: contacts[b], label: (dict.contacts.buttons[b as keyof typeof dict.contacts.buttons]) as string })} //route.push(contacts[b])}
               >
-                {dict.contacts.buttons[b]}
+                {dict.contacts.buttons[b as keyof typeof dict.contacts.buttons] as string}
               </Button>
             ))}
           </div>
-          <div className="mb-52 mt-5 flex items-center justify-center">
+          <p className="py-5 text-center">---</p>
+          <div className="flex items-center justify-center">
             {show.button && (
               <Button
+                className="flex gap-2"
                 color="default"
                 variant="flat"
                 onClick={() => {
@@ -158,7 +149,37 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                 }}
               >
                 {dict.contacts.buttons.sendEmail}
+                <EnvelopeIcon className="h-5 w-5" />
               </Button>
+            )}
+            {storeLink && (
+              <Modal
+                isDismissable={false}
+                isOpen={storeLink !== null}
+                size="md"
+                onClose={() => setStoreLink(null)}
+              >
+                <ModalContent>
+                  {(onClose) => (
+                    <>
+                      <ModalHeader className="flex flex-col gap-1">
+                        {storeLink.label}
+                      </ModalHeader>
+                      <ModalBody>
+                        {dict.contacts.buttons.storeLink.content[(storeLink.label.toLowerCase()) as keyof typeof dict.contacts.buttons.storeLink.content]}
+                        <Button
+                          className="flex gap-2"
+                          color="default"
+                          variant="flat"
+                          onClick={() => route.push(storeLink.link)}
+                        >
+                          {dict.contacts.buttons.storeLink.button}
+                        </Button>
+                      </ModalBody>
+                    </>
+                  )}
+                </ModalContent>
+              </Modal>
             )}
             {show.form && (
               <Modal
@@ -174,6 +195,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                         {dict.contacts.modal.title}
                       </ModalHeader>
                       <ModalBody>
+                        <p>{dict.contacts.modal.content}</p>
                         <FormContact
                           dict={dict}
                           onClose={onClose}

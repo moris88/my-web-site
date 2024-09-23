@@ -4,12 +4,13 @@ import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Tab, Tabs } from '@nextui-org/tabs'
 import { motion } from 'framer-motion'
+import { Dictionary } from '@/app/dictionaries'
 import { SkillElement, Skills } from '@/types/global'
 import { getLevel } from '@/utils/utils'
 
 interface SkillsProps {
   skills: Skills
-  dict: any
+  dict: Dictionary
 }
 
 export default function PageSkills({ skills, dict }: SkillsProps) {

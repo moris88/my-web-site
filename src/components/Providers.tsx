@@ -1,13 +1,15 @@
 'use client'
 
 import { NextUIProvider } from '@nextui-org/system'
+import { Dictionary } from '@/app/dictionaries'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import { Links } from '@/types/global'
 
 interface ProvidersProps {
   children: React.ReactNode
-  dict: any
-  links: any
+  dict: Dictionary
+  links: Links
 }
 
 export default function Providers({ children, dict, links }: ProvidersProps) {

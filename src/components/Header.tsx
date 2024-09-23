@@ -10,10 +10,11 @@ import {
   NavbarItem,
 } from '@nextui-org/navbar'
 import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
+import { Dictionary } from '@/app/dictionaries'
 import { isActive } from '@/utils/utils'
 
 interface NavbarProps {
-  dict: any
+  dict: Dictionary
 }
 
 function Header({ dict }: NavbarProps) {

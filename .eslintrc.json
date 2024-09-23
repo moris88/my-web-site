@@ -58,6 +58,7 @@
     "tailwindcss/no-arbitrary-value": "warn",
     "tailwindcss/enforces-shorthand": "off",
     "tailwindcss/no-contradicting-classname": "error",
+    "tailwindcss/no-custom-classname": "off",
     // react
     "react/destructuring-assignment": [
       "error",

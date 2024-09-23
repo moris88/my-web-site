@@ -5,17 +5,19 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '@nextui-org/button'
 import { Input, Textarea } from '@nextui-org/input'
 import { Spinner } from '@nextui-org/spinner'
+import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {
-  dict: any
+  dict: Dictionary
   onClose: () => void
   onSuccess: () => void
-  onError: (message: string) => void
+  onError: (_message: string) => void
 }
 
 interface FormData {
   name: string
   email: string
+  username: string
   message: string
 }
 
@@ -33,6 +35,7 @@ export default function FormContact({
   } = useForm<FormData>()
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
+    if (!data.message || !data.name) onError('Name and message are required')
     setLoading(true)
     fetch('/api/email', {
       method: 'POST',
@@ -56,7 +59,7 @@ export default function FormContact({
       })
   }
 
-  if (loading) return <Spinner size="lg" />
+  if (loading) return <p>{dict.contacts.form.loading}...<Spinner size="sm" /></p>
 
   return (
     <form
@@ -76,17 +79,19 @@ export default function FormContact({
         </p>
       )}
       <Input
+        id="username"
+        label={dict.contacts.form.username.label}
+        placeholder={dict.contacts.form.username.placeholder}
+        type="text"
+        {...register('username', { required: false })}
+      />
+      <Input
         id="email"
         label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
-        {...register('email', { required: true })}
+        {...register('email', { required: false })}
       />
-      {errors?.email && (
-        <p className="font-bold text-red-500">
-          {dict.contacts.form.email.required}
-        </p>
-      )}
       <Textarea
         id="message"
         label={dict.contacts.form.message.label}

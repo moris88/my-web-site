@@ -5,5 +5,9 @@ import { getDictionary } from '../dictionaries'
 export default async function Blog() {
   const blog = await getBlog()
   const dict = await getDictionary()
-  return <PageBlog blog={blog} dict={dict} />
+  return (
+    <div className="container">
+      <PageBlog blog={blog} dict={dict} />
+    </div>
+  )
 }

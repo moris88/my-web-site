@@ -1,12 +1,13 @@
 export interface Info {
+  name: string
+  job: string
   description: {
     it: string
     en: string
   }
 }
 
-export interface Links {
-  [key: string]: string
+export interface Links extends Record<string, string> {
   github: string
   linkedin: string
   twitter: string
@@ -18,8 +19,7 @@ export interface Contacts {
   en: Contact
 }
 
-export interface Contact {
-  [key: string]: string
+export interface Contact extends Record<string, any> {
   firstName: string
   lastName: string
   age: number
@@ -36,8 +36,7 @@ export interface Contact {
   github: string
 }
 
-export interface Skills {
-  [key: string]: any
+export interface Skills extends Record<string, any> {
   languages: Skill[]
   frontends: Skill[]
   frameworks_frontend: Skill[]
@@ -65,7 +64,6 @@ export interface SkillElement {
 }
 
 export interface Blog {
-  [key: string]: { articles: Article[] }
   it: {
     articles: Article[]
   }

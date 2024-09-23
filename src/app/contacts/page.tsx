@@ -6,9 +6,11 @@ export default async function ContactPage() {
   const contacts = await getContacts()
   const dict = await getDictionary()
   return (
-    <PageInfo
-      contacts={dict.language === 'Italiano' ? contacts.it : contacts.en}
-      dict={dict}
-    />
+    <div className="container">
+      <PageInfo
+        contacts={dict.language === 'Italiano' ? contacts.it : contacts.en}
+        dict={dict}
+      />
+    </div>
   )
 }

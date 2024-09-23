@@ -11,53 +11,73 @@ const dictionary = {
     links: {
       skills: 'my skills',
       blog: 'my blog',
-      contact: 'my contacts',
+      portfolio: 'my portfolio',
+      contacts: 'my contacts',
     },
+    title: 'Who am I and what do I do?',
     message:
       "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
   },
   contacts: {
-    title: 'Contacts',
+    title: 'Information',
     firstName: 'First Name',
     lastName: 'Last Name',
     age: 'Age',
     birthDate: 'Birth Date',
     nazionality: 'Nazionality',
     job: 'Job',
-    company: 'Company',
     email: 'Email',
     phone: 'Phone',
     address: 'Address',
     website: 'Website',
+    social: 'My contacts',
     buttons: {
       sendEmail: 'Send a message',
       linkedin: 'Linkedin',
       facebook: 'Facebook',
       github: 'Github',
+      storeLink: {
+        button: 'Go',
+        content: {
+          linkedin:
+            'You will be redirected to Linkedin on my public profile. You can send me a message only if you are in my network, so you have to ask for the connection.',
+          facebook:
+            'You will be redirected to Facebook on my public profile. You can send me a message also through the "Whatsapp" button but you have to have an active account.',
+          github:
+            'You will be redirected to Github on my public profile. You cannot send me a message but you can view my public repositories and click on "Follow".',
+        },
+      },
     },
     modal: {
       title: 'Send a message',
+      content:
+        'Here you can send me a message and it will arrive directly on Telegram. You can leave your username (with the @ prefix) and I will reply immediately! Otherwise via email as soon as possible!',
       message: 'Thank you for your message!!!',
     },
     form: {
       name: {
         value: 'Name',
         label: 'Name',
-        placeholder: 'Insert your name',
-        requere: 'Name is required',
+        placeholder: 'Insert your name (required)',
+        required: 'Name is required',
       },
       email: {
         value: 'Email',
         label: 'Email',
-        placeholder: 'Insert your email',
-        required: 'Email is required',
+        placeholder: 'Insert your email (optional)',
+      },
+      username: {
+        value: 'Username',
+        label: 'Username',
+        placeholder: 'Insert your Telegram username (optional)',
       },
       message: {
         value: 'Message',
         label: 'Your Message',
-        placeholder: 'Insert your message here...',
+        placeholder: 'Insert your message here... (required)',
         required: 'Message is required',
       },
+      loading: 'Sending...',
       buttons: {
         send: 'Send',
         done: 'Done',
@@ -94,6 +114,8 @@ const dictionary = {
       },
     },
   },
+  cookies:
+    'This site has no cookies or any technology to trace anyone! Browse freely on the site!',
   portfolio: {},
 }
 

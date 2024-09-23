@@ -1,10 +1,11 @@
 'use client'
 
+import { Dictionary } from '@/app/dictionaries'
 import { Portfolio } from '@/types/global'
 
 interface PageBlogProps {
   portfolio: Portfolio
-  dict: any
+  dict: Dictionary
 }
 
 function PagePortfolio({ portfolio, dict }: PageBlogProps) {
@@ -12,7 +13,7 @@ function PagePortfolio({ portfolio, dict }: PageBlogProps) {
 
   return (
     <section className="my-20 grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
-      working in progress...
+      <p className="text-center">working in progress...</p>
     </section>
   )
 }
