@@ -33,7 +33,7 @@ function CardBlog({
   }
   return (
     <article
-      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black hover:shadow-lg hover:shadow-slate-500 transition-all duration-100 ease-in-out hover:-translate-y-2"
+      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black transition-all duration-100 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-slate-500"
       onClick={handleOnClick}
     >
       <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">

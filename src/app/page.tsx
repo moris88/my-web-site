@@ -1,4 +1,4 @@
-import { Image, Link } from '@nextui-org/react'
+import { Image } from '@nextui-org/react'
 import { Tooltip } from '@nextui-org/tooltip'
 import { getInfo } from '@/lib'
 import { getDictionary } from './dictionaries'
@@ -24,12 +24,12 @@ export default async function Home() {
             />
           </Tooltip>
         </div>
-        <h1 className="text-lg md:text-3xl select-none">{info.name}</h1>
-        <h2 className="text-base md:text-2xl select-none">{info.job}</h2>
+        <h1 className="select-none text-lg md:text-3xl">{info.name}</h1>
+        <h2 className="select-none text-base md:text-2xl">{info.job}</h2>
         <p>---</p>
         <p>{dict.home.title}</p>
         <div className="max-w-full lg:max-w-[50%]">
-          <p className="col-span-3 select-none rounded-lg bg-slate-600 p-1 md:p-5 hover:shadow-lg hover:shadow-slate-500">
+          <p className="col-span-3 select-none rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
             {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ??
               ''}
           </p>

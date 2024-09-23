@@ -39,15 +39,19 @@ const dictionary = {
       storeLink: {
         button: 'Vai',
         content: {
-          linkedin: 'Verrai reindirizzato su Linkedin sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei nella mia rete, quindi dovrai chiedere la connessione.',
-          facebook: 'Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio anche tramite il pulsante "Whatsapp" ma dovrai avere un account attivo.',
-          github: 'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
+          linkedin:
+            'Verrai reindirizzato su Linkedin sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei nella mia rete, quindi dovrai chiedere la connessione.',
+          facebook:
+            'Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio anche tramite il pulsante "Whatsapp" ma dovrai avere un account attivo.',
+          github:
+            'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
         },
       },
     },
     modal: {
       title: 'Invia un messaggio',
-      content: 'Qui puoi mandarmi un messaggio e mi arriverà direttamente su Telegram. Puoi lasciare il tuo username (con il prefisso @) e ti risponderò immediatamente! Altrimenti via email appena possibile!',
+      content:
+        'Qui puoi mandarmi un messaggio e mi arriverà direttamente su Telegram. Puoi lasciare il tuo username (con il prefisso @) e ti risponderò immediatamente! Altrimenti via email appena possibile!',
       message: 'Grazie per il tuo messaggio!!!',
     },
     form: {

@@ -4,8 +4,8 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import {
   EnvelopeIcon,
+  IdentificationIcon,
   UserIcon,
-  IdentificationIcon
 } from '@heroicons/react/24/outline'
 import { Button } from '@nextui-org/button'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
@@ -114,7 +114,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               </CardBody>
             </Card>
           </div>
-          <h3 className="w-full select-none text-center mt-5">
+          <h3 className="mt-5 w-full select-none text-center">
             <span className="flex items-center justify-center gap-1">
               <IdentificationIcon className="h-5 w-5" />
               <b>{dict.contacts.social}</b>
@@ -126,9 +126,20 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                 key={b}
                 color="primary"
                 variant="flat"
-                onClick={() => setStoreLink({ link: contacts[b], label: (dict.contacts.buttons[b as keyof typeof dict.contacts.buttons]) as string })} //route.push(contacts[b])}
+                onClick={() =>
+                  setStoreLink({
+                    link: contacts[b],
+                    label: dict.contacts.buttons[
+                      b as keyof typeof dict.contacts.buttons
+                    ] as string,
+                  })
+                } //route.push(contacts[b])}
               >
-                {dict.contacts.buttons[b as keyof typeof dict.contacts.buttons] as string}
+                {
+                  dict.contacts.buttons[
+                    b as keyof typeof dict.contacts.buttons
+                  ] as string
+                }
               </Button>
             ))}
           </div>
@@ -160,13 +171,17 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                 onClose={() => setStoreLink(null)}
               >
                 <ModalContent>
-                  {(onClose) => (
+                  {() => (
                     <>
                       <ModalHeader className="flex flex-col gap-1">
                         {storeLink.label}
                       </ModalHeader>
                       <ModalBody>
-                        {dict.contacts.buttons.storeLink.content[(storeLink.label.toLowerCase()) as keyof typeof dict.contacts.buttons.storeLink.content]}
+                        {
+                          dict.contacts.buttons.storeLink.content[
+                            storeLink.label.toLowerCase() as keyof typeof dict.contacts.buttons.storeLink.content
+                          ]
+                        }
                         <Button
                           className="flex gap-2"
                           color="default"

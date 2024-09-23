@@ -59,7 +59,13 @@ export default function FormContact({
       })
   }
 
-  if (loading) return <p>{dict.contacts.form.loading}...<Spinner size="sm" /></p>
+  if (loading)
+    return (
+      <p>
+        {dict.contacts.form.loading}...
+        <Spinner size="sm" />
+      </p>
+    )
 
   return (
     <form
