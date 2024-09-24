@@ -13,6 +13,10 @@
             "level": 6
         },
         {
+            "title": "Rust",
+            "level": 6
+        },
+        {
             "title": "Java",
             "level": 7
         },
@@ -35,9 +39,7 @@
         {
             "title": "PHP",
             "level": 8
-        }
-    ],
-    "frontends": [
+        },
         {
             "title": "HTML",
             "level": 9
@@ -45,7 +47,9 @@
         {
             "title": "CSS",
             "level": 9
-        },
+        }
+    ],
+    "frontends": [
         {
             "title": "MaterialUI",
             "level": 9,
@@ -85,17 +89,17 @@
         },
         {
             "title": "React",
-            "level": 8,
+            "level": 9,
             "link": "https://react.dev/"
         },
         {
             "title": "Next.js",
-            "level": 7,
+            "level": 8,
             "link": "https://nextjs.org/"
         },
         {
             "title": "Vite.js",
-            "level": 8,
+            "level": 9,
             "link": "https://vitejs.dev/"
         },
         {
@@ -122,7 +126,7 @@
         },
         {
             "title": "Laravel",
-            "level": 7,
+            "level": 6,
             "link": "https://laravel.com/"
         },
         {
@@ -136,7 +140,7 @@
             "link": "https://spring.io/"
         }
     ],
-    "backends": [
+    "database": [
         {
             "title": "MongoDB",
             "level": 8,
@@ -144,7 +148,7 @@
         },
         {
             "title": "MySQL",
-            "level": 8,
+            "level": 9,
             "link": "https://www.mysql.com/"
         },
         {
@@ -180,11 +184,48 @@
             "link": "https://www.figma.com/"
         }
     ],
+    "platforms": [
+        {
+            "title": "Zoho",
+            "level": 8,
+            "link": "https://www.zoho.com/it/"
+        },
+        {
+            "title": "Freshworks",
+            "level": 8,
+            "link": "https://www.freshworks.com/"
+        },
+        {
+            "title": "Zendesk",
+            "level": 8,
+            "link": "https://www.zendesk.com/it/"
+        },
+        {
+            "title": "Google Cloud",
+            "level": 6,
+            "link": "https://cloud.google.com/"
+        },
+        {
+            "title": "AWS",
+            "level": 7,
+            "link": "https://aws.amazon.com/"
+        },
+        {
+            "title": "Strapi",
+            "level": 7,
+            "link": "https://strapi.io/"
+        }
+
+    ],
     "soft": [
         {
             "title": {
                 "it": "Responsabilità",
                 "en": "Responsibility"
+            },
+            "description": {
+                "it": "Essere responsabile significa essere affidabile, onesto e rispettoso. Significa fare ciò che si dice e dire ciò che si fa. Significa assumersi la responsabilità delle proprie azioni e delle conseguenze che ne derivano.",
+                "en": "Being responsible means being reliable, honest and respectful. It means doing what you say and saying what you do. It means taking responsibility for your actions and the consequences that result."
             },
             "level": 8
         },
@@ -193,12 +234,20 @@
                 "it": "Dedizione",
                 "en": "Dedication"
             },
+            "description": {
+                "it": "La dedizione è la capacità di dedicarsi completamente a ciò che si fa. Significa essere disposti a fare sacrifici e a lavorare sodo per raggiungere i propri obiettivi.",
+                "en": "Dedication is the ability to fully dedicate oneself to what one does. It means being willing to make sacrifices and work hard to achieve one's goals."
+            },
             "level": 8
         },
         {
             "title": {
                 "it": "Curiosità",
                 "en": "Curiosity"
+            },
+            "description": {
+                "it": "La curiosità è la voglia di imparare e scoprire cose nuove. È la capacità di porsi domande e cercare risposte. È la spinta a esplorare il mondo e a cercare nuove esperienze.",
+                "en": "Curiosity is the desire to learn and discover new things. It is the ability to ask questions and seek answers. It is the drive to explore the world and seek new experiences."
             },
             "level": 7
         },
@@ -207,12 +256,20 @@
                 "it": "Autodisciplina",
                 "en": "Self-discipline"
             },
+            "description": {
+                "it": "L'autodisciplina è la capacità di controllare i propri impulsi e di fare ciò che è necessario anche quando non si ha voglia di farlo. È la capacità di mantenere la concentrazione e la determinazione anche di fronte alle difficoltà.",
+                "en": "Self-discipline is the ability to control one's impulses and do what is necessary even when one does not feel like doing it. It is the ability to maintain focus and determination even in the face of difficulties."
+            },
             "level": 6
         },
         {
             "title": {
                 "it": "Fiducia in se stessi",
                 "en": "Self-confidence"
+            },
+            "description": {
+                "it": "La fiducia in se stessi è la consapevolezza delle proprie capacità e del proprio valore. È la capacità di credere in se stessi e nelle proprie capacità anche di fronte alle critiche e alle difficoltà.",
+                "en": "Self-confidence is the awareness of one's own abilities and worth. It is the ability to believe in oneself and in one's abilities even in the face of criticism and difficulties."
             },
             "level": 6
         },
@@ -221,12 +278,20 @@
                 "it": "Spirito critico",
                 "en": "Critical spirit"
             },
+            "description": {
+                "it": "Lo spirito critico è la capacità di valutare in modo obiettivo le informazioni e le situazioni. È la capacità di analizzare i fatti in modo razionale e di prendere decisioni informate.",
+                "en": "Critical spirit is the ability to objectively evaluate information and situations. It is the ability to analyze facts rationally and make informed decisions."
+            },
             "level": 6
         },
         {
             "title": {
                 "it": "Capacità di lavoro di squadra",
                 "en": "Team work ability"
+            },
+            "description": {
+                "it": "La capacità di lavoro di squadra è la capacità di lavorare efficacemente con gli altri per raggiungere un obiettivo comune. È la capacità di ascoltare gli altri, di condividere le proprie idee e di collaborare per trovare soluzioni condivise.",
+                "en": "Team work ability is the ability to work effectively with others to achieve a common goal. It is the ability to listen to others, share one's ideas and collaborate to find shared solutions."
             },
             "level": 8
         },
@@ -235,12 +300,20 @@
                 "it": "Risoluzione dei problemi",
                 "en": "Problem solving"
             },
+            "description": {
+                "it": "La risoluzione dei problemi è la capacità di affrontare le difficoltà in modo creativo e razionale. È la capacità di individuare le cause dei problemi, di analizzarle e di trovare soluzioni efficaci.",
+                "en": "Problem solving is the ability to face difficulties in a creative and rational way. It is the ability to identify the causes of problems, analyze them and find effective solutions."
+            },
             "level": 9
         },
         {
             "title": {
                 "it": "Resistenza allo stress",
                 "en": "Resistance to stress"
+            },
+            "description": {
+                "it": "La resistenza allo stress è la capacità di mantenere la calma e la concentrazione anche di fronte a situazioni difficili e stressanti. È la capacità di gestire le emozioni e di trovare soluzioni efficaci anche sotto pressione.",
+                "en": "Resistance to stress is the ability to remain calm and focused even in difficult and stressful situations. It is the ability to manage emotions and find effective solutions even under pressure."
             },
             "level": 9
         }

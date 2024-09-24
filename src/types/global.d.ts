@@ -37,14 +37,16 @@ export interface Skills extends Record<string, Skill[]> {
   languages: Skill[]
   frontends: Skill[]
   frameworks_frontend: Skill[]
-  backends: Skill[]
+  database: Skill[]
   frameworks_backend: Skill[]
   tools: Skill[]
+  platforms: Skill[]
   soft: Skill[]
 }
 
 export interface Skill {
   title: string | { it: string; en: string }
+  description?: { it: string; en: string }
   level: number
   link?: string
 }

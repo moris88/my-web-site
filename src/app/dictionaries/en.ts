@@ -91,9 +91,10 @@ const dictionary = {
     languages: 'Languages',
     frontends: 'Frontends',
     frameworks_frontend: 'Frameworks Frontend',
-    backends: 'Backends',
+    database: 'Database',
     frameworks_backend: 'Frameworks Backend',
     tools: 'Tools',
+    platforms: 'Platforms',
     soft: 'Soft',
     card: {
       level: 'Level',
