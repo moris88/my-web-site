@@ -1,6 +1,6 @@
 import { PageCV } from '@/components'
 import { getCV } from '@/lib'
-import { getDictionary } from '../dictionaries'
+import { getDictionary } from '../../dictionaries'
 
 export default async function SkillsPage() {
   const dict = await getDictionary()

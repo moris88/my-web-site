@@ -7,6 +7,7 @@ const dictionary = {
     contacts: 'Contacts',
     application: 'App',
     curriculum: 'Curriculum',
+    theme: 'Theme',
   },
   home: {
     links: {

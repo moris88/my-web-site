@@ -1,4 +1,5 @@
 import moment from 'moment'
+import { Theme } from '@/types'
 
 export function isActive(currentPath: string, path: string): boolean {
   if (currentPath === '/' && path === '/') return true
@@ -53,4 +54,10 @@ export function generateUniqueId() {
 
   // Combina il timestamp e la stringa casuale per creare un ID unico
   return `${timestamp}-${randomString}`
+}
+
+export function setThemeDocument(theme: Theme) {
+  window.localStorage.setItem('theme', theme)
+  if (theme === 'dark') document.documentElement.classList.add('dark')
+  else document.documentElement.classList.remove('dark')
 }
