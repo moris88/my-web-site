@@ -25,7 +25,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
       {contacts && (
         <>
           <div className="flex flex-col items-center justify-center">
-            <Card className="w-full bg-slate-700 p-4 md:max-w-xl">
+            <Card className="w-full bg-gray-200 p-4 dark:bg-slate-700 md:max-w-xl">
               <CardHeader className="flex gap-3">
                 <h3 className="w-full select-none text-center">
                   <span className="flex items-center justify-center gap-1">

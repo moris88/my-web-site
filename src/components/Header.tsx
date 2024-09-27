@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { Image } from '@nextui-org/image'
 import { Link } from '@nextui-org/link'
 import {
@@ -9,8 +10,14 @@ import {
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/navbar'
-import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
+import {
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Switch,
+} from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
+import useTheme from '@/hooks/useTheme'
 import { generateUniqueId, isActive } from '@/utils'
 
 interface NavbarProps {
@@ -19,6 +26,7 @@ interface NavbarProps {
 
 function Header({ dict }: NavbarProps) {
   const pathname = usePathname()
+  const { theme, setTheme } = useTheme()
   const links = [
     { name: dict.navbar.home, path: '/' },
     { name: dict.navbar.curriculum, path: '/curriculum' },
@@ -29,7 +37,11 @@ function Header({ dict }: NavbarProps) {
   ]
 
   return (
-    <Navbar isBlurred className="!rounded-lg bg-slate-800" position="sticky">
+    <Navbar
+      isBlurred
+      className="!rounded-lg bg-gray-300 dark:bg-slate-800"
+      position="sticky"
+    >
       <NavbarBrand>
         <div className="flex items-center justify-center gap-2">
           <Image
@@ -41,13 +53,13 @@ function Header({ dict }: NavbarProps) {
             width={30}
           />
           <Link href="/">
-            <span className="self-center whitespace-nowrap text-base font-semibold text-white md:text-xl">
+            <span className="self-center whitespace-nowrap text-base font-semibold text-black dark:text-white md:text-xl">
               Maurizio Tolomeo
             </span>
           </Link>
         </div>
       </NavbarBrand>
-      <NavbarContent className="sm:hidden" justify="end">
+      <NavbarContent className="md:hidden" justify="end">
         <NavbarMenuToggle />
       </NavbarContent>
       <NavbarMenu>
@@ -58,20 +70,34 @@ function Header({ dict }: NavbarProps) {
           >
             <Link href={path}>
               <span
-                className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
               >
                 {name}
               </span>
             </Link>
           </NavbarMenuItem>
         ))}
+        <div className="flex w-full justify-center">
+          <Switch
+            color="primary"
+            defaultSelected={theme === 'light'}
+            endContent={<MoonIcon />}
+            size="sm"
+            startContent={<SunIcon />}
+            onChange={(e) => {
+              setTheme(e.target.checked ? 'light' : 'dark')
+            }}
+          >
+            Dark Mode
+          </Switch>
+        </div>
       </NavbarMenu>
-      <NavbarContent className="hidden gap-4 sm:flex" justify="end">
+      <NavbarContent className="hidden gap-4 md:flex" justify="end">
         {links.map(({ name, path }) => (
           <NavbarItem key={generateUniqueId()}>
             <Link href={path}>
               <span
-                className={`${isActive(pathname, path) ? 'border-b text-gray-400' : 'text-white hover:border-b hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                className={`${isActive(pathname, path) ? 'border-b border-b-blue-600 text-blue-600 dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-blue-600 hover:text-blue-600 dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
               >
                 {name}
               </span>
@@ -79,6 +105,17 @@ function Header({ dict }: NavbarProps) {
           </NavbarItem>
         ))}
       </NavbarContent>
+      <Switch
+        className="hidden md:flex"
+        color="primary"
+        defaultSelected={theme === 'light'}
+        endContent={<MoonIcon />}
+        size="sm"
+        startContent={<SunIcon />}
+        onChange={(e) => {
+          setTheme(e.target.checked ? 'light' : 'dark')
+        }}
+      ></Switch>
     </Navbar>
   )
 }

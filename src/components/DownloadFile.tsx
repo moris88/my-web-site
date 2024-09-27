@@ -14,7 +14,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
     <Link download href={pathFile}>
       <Button
         className={`flex gap-2 ${disabled ? 'cursor-not-allowed' : ''}`}
-        color="secondary"
+        color="primary"
         disabled={disabled}
         variant="flat"
       >

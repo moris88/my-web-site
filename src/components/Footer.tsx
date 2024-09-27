@@ -13,14 +13,14 @@ function MyFooter({ links }: MyFooterProps) {
     return today.getFullYear()
   }
   return (
-    <div className="fixed bottom-0 z-50 flex w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
+    <footer className="fixed bottom-0 z-50 flex w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
       <div className="flex flex-wrap text-sm lg:text-base">
-        <span className="text-gray-400">©</span>
-        <span className="text-gray-400">{getYear()}</span>
-        <span className="text-gray-400">{'-Moris™'}</span>
+        <span className="dark:text-gray-400">©</span>
+        <span className="dark:text-gray-400">{getYear()}</span>
+        <span className="dark:text-gray-400">{'-Moris™'}</span>
         &nbsp;
         <Link href="/cookies">
-          <span className="text-sm font-semibold text-gray-400 lg:text-base">
+          <span className="text-sm font-semibold text-black hover:text-blue-600 dark:text-gray-400 lg:text-base">
             Cookies Policy
           </span>
         </Link>
@@ -29,14 +29,14 @@ function MyFooter({ links }: MyFooterProps) {
         {listButtons.map((button) => (
           <Link key={generateUniqueId()} href={links[button.name]}>
             <Icon
-              className="w-6 text-white transition-all duration-300 ease-in-out hover:text-gray-400"
+              className="w-6 text-black transition-all duration-300 ease-in-out hover:text-blue-600 dark:text-white dark:hover:text-gray-400"
               labelIcon={button.name}
               pathD={button.pathD}
             />
           </Link>
         ))}
       </div>
-    </div>
+    </footer>
   )
 }
 

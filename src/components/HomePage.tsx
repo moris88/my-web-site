@@ -16,7 +16,7 @@ function HomePage({ dict, info }: HomePageProps) {
       <div className="my-10 flex flex-col items-center justify-center gap-2">
         <div className="flex items-center justify-center p-4 md:p-0">
           <Tooltip
-            color={'secondary'}
+            color="primary"
             content={dict.home.message}
             placement="bottom"
           >
@@ -34,7 +34,7 @@ function HomePage({ dict, info }: HomePageProps) {
         <p>---</p>
         <p>{dict.home.title}</p>
         <div className="max-w-full cursor-pointer lg:max-w-[60%]">
-          <p className="col-span-3 select-none rounded-lg bg-slate-600 p-1 hover:shadow-lg hover:shadow-slate-500 md:p-5">
+          <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
             {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ??
               ''}
           </p>

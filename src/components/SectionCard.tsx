@@ -33,7 +33,7 @@ function CardBlog({
   }
   return (
     <article
-      className="w-full cursor-pointer rounded-lg bg-slate-700 p-4 text-black transition-all duration-100 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-slate-500"
+      className="w-full cursor-pointer rounded-lg bg-gray-200 p-4 text-black transition-all duration-100 ease-in-out hover:-translate-y-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700"
       onClick={handleOnClick}
     >
       <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
@@ -47,7 +47,7 @@ function CardBlog({
           )}
         </div>
         <div className="w-9/12">
-          <h2 className="select-none text-xl font-bold text-gray-300">
+          <h2 className="select-none text-xl font-bold text-black dark:text-gray-300">
             {title}
           </h2>
           <p className="line-clamp-2 select-none text-lg italic text-gray-400">

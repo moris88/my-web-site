@@ -99,7 +99,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                     <AccordionItem
                       key={generateUniqueId()}
                       aria-label={mappa[index as keyof typeof mappa]}
-                      className="my-2 !bg-slate-600"
+                      className="my-2 !bg-gray-200 dark:!bg-slate-600"
                       title={mappa[index as keyof typeof mappa]}
                     >
                       <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -112,9 +112,9 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                                 if (skill.link) route.push(skill.link)
                               }}
                             >
-                              <Card className="max-w-sm bg-slate-700 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500">
+                              <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                 <CardHeader className="flex gap-3">
-                                  <p className="text-lg font-bold tracking-tight text-gray-300 lg:text-2xl">
+                                  <p className="text-lg font-bold tracking-tight text-black dark:text-gray-300 lg:text-2xl">
                                     {skill.title as string}
                                   </p>
                                 </CardHeader>
@@ -145,9 +145,9 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                           key={generateUniqueId()}
                           onClick={() => handleClickOpen(skill)}
                         >
-                          <Card className="max-w-sm cursor-pointer bg-slate-700 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500">
+                          <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                             <CardHeader className="flex gap-3">
-                              <p className="text-lg font-bold tracking-tight text-gray-300 lg:text-2xl">
+                              <p className="text-lg font-bold tracking-tight text-black dark:text-gray-300 lg:text-2xl">
                                 {typeof skill.title === 'string'
                                   ? skill.title
                                   : skill.title[language]}

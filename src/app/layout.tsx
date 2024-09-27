@@ -25,7 +25,7 @@ export default async function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          'dark box-border bg-[#1b1a19] min-h-screen pb-24',
+          'box-border bg-white dark:bg-[#1b1a19] min-h-screen pb-24',
         )}
       >
         <Providers dict={dict} links={links}>
