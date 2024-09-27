@@ -112,9 +112,9 @@ export default function FormContact({
       )}
       <div className="flex justify-center gap-4">
         <Button
-          color="primary"
+          color="default"
           type="button"
-          variant="light"
+          variant="flat"
           onClick={() => onClose()}
         >
           {dict.contacts.form.buttons.done}
