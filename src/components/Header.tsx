@@ -70,7 +70,7 @@ function Header({ dict }: NavbarProps) {
             </Link>
           </NavbarMenuItem>
         ))}
-        <div className="flex w-full justify-center mt-8">
+        <div className="mt-8 flex w-full justify-center">
           <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
         </div>
       </NavbarMenu>

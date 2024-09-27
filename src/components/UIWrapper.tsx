@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { NextUIProvider } from '@nextui-org/system'
-import { createStore, Provider, useAtomValue } from 'jotai'
+import { createStore, Provider } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
 import { Footer, Header } from '@/components'
@@ -28,7 +28,7 @@ export default function UIWrapper({ children, dict, links }: UIWrapperProps) {
       if (theme) setThemeDocument(theme)
       return
     }
-  }, [setInizializate])
+  }, [inizializate])
 
   if (!inizializate) return <></>
 
