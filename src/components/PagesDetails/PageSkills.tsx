@@ -137,7 +137,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                 softSkills.map((key) => (
                   <div
                     key={generateUniqueId()}
-                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                   >
                     {skills[key].map((skill: Skill) => {
                       return (
@@ -147,7 +147,7 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
                         >
                           <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                             <CardHeader className="flex gap-3">
-                              <p className="text-lg font-bold tracking-tight text-black dark:text-gray-300 lg:text-2xl">
+                              <p className="text-base font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl">
                                 {typeof skill.title === 'string'
                                   ? skill.title
                                   : skill.title[language]}

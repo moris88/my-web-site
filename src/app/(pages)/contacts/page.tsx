@@ -1,6 +1,6 @@
 import { PageInfo } from '@/components/PagesDetails'
 import { getContacts } from '@/lib/request'
-import { getDictionary } from '../dictionaries'
+import { getDictionary } from '../../dictionaries'
 
 export default async function ContactPage() {
   const dict = await getDictionary()

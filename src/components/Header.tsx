@@ -1,7 +1,6 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import { Image } from '@nextui-org/image'
 import { Link } from '@nextui-org/link'
 import {
@@ -10,15 +9,10 @@ import {
   NavbarContent,
   NavbarItem,
 } from '@nextui-org/navbar'
-import {
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-  Switch,
-} from '@nextui-org/react'
+import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import useTheme from '@/hooks/useTheme'
 import { generateUniqueId, isActive } from '@/utils'
+import ToogleTheme from './ToogleTheme'
 
 interface NavbarProps {
   dict: Dictionary
@@ -26,7 +20,6 @@ interface NavbarProps {
 
 function Header({ dict }: NavbarProps) {
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
   const links = [
     { name: dict.navbar.home, path: '/' },
     { name: dict.navbar.curriculum, path: '/curriculum' },
@@ -77,19 +70,8 @@ function Header({ dict }: NavbarProps) {
             </Link>
           </NavbarMenuItem>
         ))}
-        <div className="flex w-full justify-center">
-          <Switch
-            color="primary"
-            defaultSelected={theme === 'light'}
-            endContent={<MoonIcon />}
-            size="sm"
-            startContent={<SunIcon />}
-            onChange={(e) => {
-              setTheme(e.target.checked ? 'light' : 'dark')
-            }}
-          >
-            Dark Mode
-          </Switch>
+        <div className="mt-8 flex w-full justify-center">
+          <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
         </div>
       </NavbarMenu>
       <NavbarContent className="hidden gap-4 md:flex" justify="end">
@@ -105,17 +87,9 @@ function Header({ dict }: NavbarProps) {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <Switch
-        className="hidden md:flex"
-        color="primary"
-        defaultSelected={theme === 'light'}
-        endContent={<MoonIcon />}
-        size="sm"
-        startContent={<SunIcon />}
-        onChange={(e) => {
-          setTheme(e.target.checked ? 'light' : 'dark')
-        }}
-      ></Switch>
+      <div className="hidden md:flex">
+        <ToogleTheme />
+      </div>
     </Navbar>
   )
 }

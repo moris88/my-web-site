@@ -179,9 +179,19 @@
             "link": "https://github.com/"
         },
         {
+            "title": "Strapi",
+            "level": 7,
+            "link": "https://strapi.io/"
+        },
+        {
             "title": "Figma",
             "level": 7,
             "link": "https://www.figma.com/"
+        },
+        {
+            "title": "AWS",
+            "level": 7,
+            "link": "https://aws.amazon.com/"
         }
     ],
     "platforms": [
@@ -204,18 +214,7 @@
             "title": "Google Cloud",
             "level": 6,
             "link": "https://cloud.google.com/"
-        },
-        {
-            "title": "AWS",
-            "level": 7,
-            "link": "https://aws.amazon.com/"
-        },
-        {
-            "title": "Strapi",
-            "level": 7,
-            "link": "https://strapi.io/"
         }
-
     ],
     "soft": [
         {

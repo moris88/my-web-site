@@ -1,4 +1,5 @@
 export type Language = 'it' | 'en'
+export type Theme = 'light' | 'dark'
 
 export interface Info {
   name: string
