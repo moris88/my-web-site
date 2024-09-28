@@ -1,9 +1,10 @@
 export interface Todo {
   id: string
-  text: string
+  title: string
+  description: string
   completed: boolean
-  createdAt: Date
-  updatedAt: Date | null
-  completedAt: Date | null
-  dueDate: Date | null
+  createdAt: string
+  updatedAt: string | null
+  completedAt: string | null
+  dueDate: string | null
 }

@@ -1,7 +1,19 @@
 'use client'
 
 import React from 'react'
-import { Button, ButtonGroup, Checkbox, Input } from '@nextui-org/react'
+import {
+  getLocalTimeZone,
+  parseAbsoluteToLocal,
+  today,
+} from '@internationalized/date'
+import {
+  Button,
+  ButtonGroup,
+  Checkbox,
+  DatePicker,
+  Input,
+  Textarea,
+} from '@nextui-org/react'
 import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
@@ -16,9 +28,23 @@ interface TodoItemProps {
 function TodoItem({ todo, dict }: TodoItemProps) {
   const [todos, setTodos] = useAtom(todoListAtom)
   const [isEditing, setIsEditing] = React.useState(false)
-  const [editText, setEditText] = React.useState(todo.text)
+  const [editTitle, setEditTitle] = React.useState(todo.title)
+  const [editDescription, setEditDescription] = React.useState(todo.description)
   const [showDeleteModal, setShowDeleteModal] = React.useState(false)
   const [showEditModal, setShowEditModal] = React.useState(false)
+
+  const minValue = today(getLocalTimeZone()) as any
+  const [editDueDate, setEditDueDate] = React.useState<string | null>(
+    todo.dueDate ?? null,
+  )
+
+  const valueDueDate = React.useMemo(() => {
+    if (editDueDate) {
+      const parseDate = parseAbsoluteToLocal(editDueDate)
+      return parseDate
+    }
+    return undefined
+  }, [editDueDate])
 
   const toggleTodo = () => {
     const updatedTodos = todos.map((t) =>
@@ -26,8 +52,8 @@ function TodoItem({ todo, dict }: TodoItemProps) {
         ? {
             ...t,
             completed: !t.completed,
-            completedAt: !t.completed ? new Date() : null,
-            updatedAt: new Date(),
+            completedAt: !t.completed ? new Date().toISOString() : null,
+            updatedAt: new Date().toISOString(),
           }
         : t,
     )
@@ -52,7 +78,15 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const confirmUpdateTodo = () => {
     const updatedTodos = todos.map((t) =>
-      t.id === todo.id ? { ...t, text: editText, updatedAt: new Date() } : t,
+      t.id === todo.id
+        ? {
+            ...t,
+            dueDate: editDueDate ? editDueDate.toString() : null,
+            title: editTitle,
+            description: editDescription,
+            updatedAt: new Date().toISOString(),
+          }
+        : t,
     )
     setTodos(updatedTodos)
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
@@ -60,22 +94,56 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     setShowEditModal(false)
   }
 
+  const handleSetDueDate = (value: any) => {
+    setEditDueDate(value.toDate())
+  }
+
   return (
     <div className="flex w-full flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between">
       {isEditing ? (
-        <div className="flex items-center gap-2">
-          <Input
+        <div className="flex w-full flex-col gap-y-4">
+          <div className="flex w-full flex-col items-center gap-4 md:flex-row">
+            <Input
+              className="w-full"
+              label={dict.todolist.editTask.title}
+              value={editTitle}
+              onChange={(e) => setEditTitle(e.target.value)}
+            />
+            <DatePicker
+              showMonthAndYearPickers
+              className="w-full"
+              granularity="minute"
+              label={dict.todolist.addTask.due_date}
+              minValue={minValue}
+              value={valueDueDate as any}
+              onChange={handleSetDueDate}
+            />
+            <ButtonGroup>
+              <Button size="lg" onClick={() => setIsEditing(false)}>
+                {dict.todolist.editTask.cancel}
+              </Button>
+              <Button color="warning" size="lg" onClick={updateTodo}>
+                {dict.todolist.editTask.submit}
+              </Button>
+            </ButtonGroup>
+          </div>
+          <Textarea
             className="w-full"
-            value={editText}
-            onChange={(e) => setEditText(e.target.value)}
+            label={dict.todolist.addTask.label}
+            maxRows={10}
+            minRows={5}
+            size="lg"
+            value={editDescription}
+            onChange={(e) => setEditDescription(e.target.value)}
           />
-          <Button onClick={updateTodo}>{dict.todolist.editTask.submit}</Button>
         </div>
       ) : (
         <>
           <Checkbox isSelected={todo.completed} onChange={toggleTodo}>
-            <span className={todo.completed ? 'line-through' : ''}>
-              {todo.text}
+            <span
+              className={`font-bold ${todo.completed ? 'line-through' : ''}`}
+            >
+              {todo.title}
             </span>
           </Checkbox>
           <ButtonGroup>
