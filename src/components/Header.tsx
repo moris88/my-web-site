@@ -26,6 +26,7 @@ function Header({ dict }: NavbarProps) {
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.application, path: '/application' },
     { name: dict.navbar.blog, path: '/blog' },
+    { name: dict.navbar.todolist, path: '/todolist' },
     { name: dict.navbar.contacts, path: '/contacts' },
   ]
 
