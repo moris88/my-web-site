@@ -53,7 +53,7 @@ function Header({ dict }: NavbarProps) {
           </Link>
         </div>
       </NavbarBrand>
-      <NavbarContent className="md:hidden" justify="end">
+      <NavbarContent className="lg:hidden" justify="end">
         <NavbarMenuToggle />
       </NavbarContent>
       <NavbarMenu>
@@ -75,7 +75,7 @@ function Header({ dict }: NavbarProps) {
           <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
         </div>
       </NavbarMenu>
-      <NavbarContent className="hidden gap-4 md:flex" justify="end">
+      <NavbarContent className="hidden gap-4 lg:flex" justify="end">
         {links.map(({ name, path }) => (
           <NavbarItem key={generateUniqueId()}>
             <Link href={path}>
@@ -88,7 +88,7 @@ function Header({ dict }: NavbarProps) {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <div className="hidden md:flex">
+      <div className="hidden lg:flex">
         <ToogleTheme />
       </div>
     </Navbar>
