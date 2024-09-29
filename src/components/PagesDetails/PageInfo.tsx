@@ -2,13 +2,18 @@
 
 import React from 'react'
 import { IdentificationIcon, UserIcon } from '@heroicons/react/24/outline'
-import { Button } from '@nextui-org/button'
-import { Card, CardBody, CardHeader } from '@nextui-org/card'
-import { Divider } from '@nextui-org/divider'
 import { Link } from '@nextui-org/link'
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+} from '@nextui-org/react'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { ButtonsGroupSocial, ModalMessage, StoreLink } from '@/components'
+import { ButtonsGroupSocial, Icon, ModalMessage, StoreLink } from '@/components'
 import { Contact } from '@/types'
 import { generateUniqueId, listButtons } from '@/utils'
 
@@ -19,13 +24,12 @@ interface PageInfoProps {
 
 export default function PageInfo({ contacts, dict }: PageInfoProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
-  const listTitleButtons = listButtons.map((b) => b.name)
   return (
     <section className="container">
       {contacts && (
         <>
           <div className="flex flex-col items-center justify-center">
-            <Card className="w-full bg-gray-200 p-4 dark:bg-slate-700 md:max-w-xl">
+            <Card className="w-full bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 md:max-w-xl">
               <CardHeader className="flex gap-3">
                 <h3 className="w-full select-none text-center">
                   <span className="flex items-center justify-center gap-1">
@@ -89,28 +93,37 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               <b>{dict.contacts.social}</b>
             </span>
           </h3>
-          <div className="mt-5 flex flex-col items-center justify-center gap-3 gap-y-1 md:flex-row">
-            {listTitleButtons.map((button) => (
-              <Button
-                key={generateUniqueId()}
-                color="primary"
-                variant="flat"
-                onClick={() =>
-                  setStoreLink({
-                    link: contacts[button],
-                    label: dict.contacts.buttons[
-                      button as keyof typeof dict.contacts.buttons
-                    ] as string,
-                  })
-                }
-              >
-                {
-                  dict.contacts.buttons[
-                    button as keyof typeof dict.contacts.buttons
-                  ] as string
-                }
-              </Button>
-            ))}
+          <div className="mt-5 flex w-full justify-center">
+            <ButtonGroup>
+              {listButtons.map((button) => (
+                <Button
+                  key={generateUniqueId()}
+                  color="primary"
+                  variant="flat"
+                  onClick={() =>
+                    setStoreLink({
+                      link: contacts[button.name],
+                      label: dict.contacts.buttons[
+                        button.name as keyof typeof dict.contacts.buttons
+                      ] as string,
+                    })
+                  }
+                >
+                  <span className="flex items-center gap-2">
+                    <Icon
+                      className="w-6"
+                      labelIcon={button.name}
+                      pathD={button.pathD}
+                    />
+                    {
+                      dict.contacts.buttons[
+                        button.name as keyof typeof dict.contacts.buttons
+                      ] as string
+                    }
+                  </span>
+                </Button>
+              ))}
+            </ButtonGroup>
           </div>
           <p className="py-5 text-center">---</p>
           <div className="flex items-center justify-center">

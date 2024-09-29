@@ -38,7 +38,7 @@ function HomePage({ dict, info }: HomePageProps) {
         <h2 className="select-none text-base md:text-2xl">{info.job}</h2>
         <p>---</p>
         <p>{dict.home.title}</p>
-        <div className="max-w-full cursor-pointer lg:max-w-[60%]">
+        <div className="max-w-full lg:max-w-[60%]">
           <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
             {info?.description?.[dict.language === 'Italiano' ? 'it' : 'en'] ??
               ''}
