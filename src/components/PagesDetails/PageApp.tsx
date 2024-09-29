@@ -1,9 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
-import { Checkbox } from '@nextui-org/react'
+import { Checkbox, Skeleton } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
@@ -31,15 +31,19 @@ function PageApp({ dict }: PageCVProps) {
       </p>
       <div className="flex items-center justify-center gap-4 p-4 md:p-0">
         {listImagesApp.map((image) => (
-          <Image
+          <Suspense
             key={image}
-            alt={`${image}`}
-            className="cursor-pointer rounded-lg"
-            height={150}
-            src={`/${image}.webp`}
-            width={150}
-            onClick={() => handleClickOpen(image)}
-          />
+            fallback={<Skeleton className="h-24 rounded-lg" />}
+          >
+            <Image
+              alt={`${image}`}
+              className="cursor-pointer rounded-lg"
+              height={150}
+              src={`/${image}.webp`}
+              width={150}
+              onClick={() => handleClickOpen(image)}
+            />
+          </Suspense>
         ))}
         {selectedImage && (
           <Modal

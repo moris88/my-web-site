@@ -11,10 +11,18 @@ interface DownloadFileProps {
 
 function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
   return (
-    <Link download href={pathFile}>
-      {!disabled && (
+    <>
+      {!disabled ? (
+        <Link download href={pathFile}>
+          <Button className="flex gap-2" color="primary" variant="flat">
+            {children ?? 'Download'}
+            <ArrowDownTrayIcon className="h-5 w-5" />
+          </Button>
+        </Link>
+      ) : (
         <Button
-          className={`flex gap-2 ${disabled ? 'cursor-not-allowed' : ''}`}
+          isDisabled
+          className="flex cursor-not-allowed gap-2"
           color="primary"
           variant="flat"
         >
@@ -22,7 +30,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
           <ArrowDownTrayIcon className="h-5 w-5" />
         </Button>
       )}
-    </Link>
+    </>
   )
 }
 

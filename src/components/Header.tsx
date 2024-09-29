@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { usePathname } from 'next/navigation'
 import { Image } from '@nextui-org/image'
 import { Link } from '@nextui-org/link'
@@ -8,8 +9,11 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from '@nextui-org/navbar'
-import { NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Skeleton,
+} from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
@@ -38,14 +42,18 @@ function Header({ dict }: NavbarProps) {
     >
       <NavbarBrand>
         <div className="flex items-center justify-center gap-2">
-          <Image
-            alt="avatar"
-            height={30}
-            radius="lg"
-            shadow="lg"
-            src="/avatar.webp"
-            width={30}
-          />
+          <Suspense
+            fallback={<Skeleton className="flex h-7 w-7 rounded-full" />}
+          >
+            <Image
+              alt="avatar"
+              height={30}
+              radius="lg"
+              shadow="lg"
+              src="/avatar.webp"
+              width={30}
+            />
+          </Suspense>
           <Link href="/">
             <span className="self-center whitespace-nowrap text-base font-semibold text-black dark:text-white md:text-xl">
               Maurizio Tolomeo

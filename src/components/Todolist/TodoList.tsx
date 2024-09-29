@@ -125,7 +125,7 @@ function TodoList({ dict }: TodoListProps) {
                 <p className="italic">{todo.description}</p>
               )}
               <div>
-                {todo.dueDate && (
+                {todo.dueDate && !todo.completed && (
                   <Chip
                     color={isTaskOverdue(todo.dueDate) ? 'danger' : 'success'}
                     size="sm"
@@ -137,7 +137,7 @@ function TodoList({ dict }: TodoListProps) {
                   </Chip>
                 )}
               </div>
-              <small className="flex flex-col items-center md:flex-row">
+              <small className="flex flex-col items-start md:flex-row md:items-center">
                 {todo.createdAt && (
                   <span>
                     {dict.todolist.listitem.createdAt}:{' '}

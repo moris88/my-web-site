@@ -1,7 +1,8 @@
 'use client'
 
+import { Suspense } from 'react'
 import { Image } from '@nextui-org/react'
-import { Tooltip } from '@nextui-org/tooltip'
+import { Skeleton, Tooltip } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Info } from '@/types'
 
@@ -20,13 +21,17 @@ function HomePage({ dict, info }: HomePageProps) {
             content={dict.home.message}
             placement="bottom"
           >
-            <Image
-              alt="avatar"
-              className="rounded-full"
-              height={150}
-              src="/avatar.webp"
-              width={150}
-            />
+            <Suspense
+              fallback={<Skeleton className="flex h-36 w-36 rounded-full" />}
+            >
+              <Image
+                alt="avatar"
+                className="rounded-full"
+                height={150}
+                src="/avatar.webp"
+                width={150}
+              />
+            </Suspense>
           </Tooltip>
         </div>
         <h1 className="select-none text-lg md:text-3xl">{info.name}</h1>

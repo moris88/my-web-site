@@ -40,11 +40,16 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const valueDueDate = React.useMemo(() => {
     if (editDueDate) {
+      console.log('editDueDate', editDueDate)
+      debugger
       const parseDate = parseAbsoluteToLocal(editDueDate)
       return parseDate
     }
     return undefined
   }, [editDueDate])
+
+  console.log('valueDueDate', valueDueDate)
+  console.log('editDueDate', editDueDate)
 
   const toggleTodo = () => {
     const updatedTodos = todos.map((t) =>
@@ -95,7 +100,8 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   }
 
   const handleSetDueDate = (value: any) => {
-    setEditDueDate(value.toDate())
+    console.log('value', value.toDate().toISOString())
+    setEditDueDate(value.toDate().toISOString())
   }
 
   return (
