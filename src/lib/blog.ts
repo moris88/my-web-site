@@ -143,7 +143,10 @@ export async function createArticle(
       link: linkEN,
       date,
     }
-    const response = await fetch(FILE_PATH, {
+    const pathfile = DEVELOPMENT
+      ? `${FILE_PATH}${STORE_FILE_NAME_TEST}`
+      : `${FILE_PATH}${STORE_FILE_NAME}`
+    const response = await fetch(pathfile, {
       method: 'GET',
       cache: 'no-cache',
     })
