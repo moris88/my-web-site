@@ -1,6 +1,8 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { twMerge } from 'tailwind-merge'
 import { UIWrapper } from '@/components'
 import { getLinks } from '@/lib/request'
@@ -24,6 +26,12 @@ export default async function RootLayout({
 
   return (
     <html lang="it">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content={String(metadata.description ?? '')} name="description" />
+        <title>{String(metadata.title ?? '')}</title>
+      </head>
       <body
         className={twMerge(
           inter.className,
@@ -32,6 +40,8 @@ export default async function RootLayout({
       >
         <UIWrapper dict={dict} links={links}>
           {children}
+          <SpeedInsights />
+          <Analytics />
         </UIWrapper>
       </body>
     </html>

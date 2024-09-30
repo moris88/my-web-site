@@ -1,71 +1,41 @@
 'use client'
 
-import React from 'react'
-import { Button } from '@nextui-org/button'
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from '@nextui-org/modal'
-import moment from 'moment'
+import Link from 'next/link'
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { Button } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import { SectionCard } from '@/components'
-import { Article, Blog } from '@/types'
-import { generateUniqueId } from '@/utils'
+import { SectionHero } from '@/components'
+import { Article } from '@/types'
+import { formatDate } from '@/utils'
 
 interface PageBlogProps {
-  blog: Blog
   dict: Dictionary
+  article: Article
 }
 
-function PageBlog({ blog, dict }: PageBlogProps) {
-  const [article, setArticle] = React.useState<Article | null>(null)
-
-  const handleClickClose = () => {
-    setArticle(null)
-  }
+function PageBlog({ dict, article }: PageBlogProps) {
   return (
-    <div className="container grid grid-cols-1 gap-4 p-0 md:grid-cols-2 lg:p-14 xl:grid-cols-4">
-      <Modal
-        isDismissable={false}
-        isOpen={article !== null}
-        size="3xl"
-        onOpenChange={handleClickClose}
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                {article?.title}
-              </ModalHeader>
-              <ModalBody>
-                {article && (
-                  <SectionCard.CardBlogComplete article={article} dict={dict} />
-                )}
-              </ModalBody>
-              <ModalFooter>
-                <Button color="primary" variant="flat" onPress={onClose}>
-                  {dict.blog.card.buttons.close}
-                </Button>
-              </ModalFooter>
-            </>
+    <>
+      {article && (
+        <SectionHero subtitle={article.content} title={article.title}>
+          <small>{`${dict.blog.article.postedAt} ${formatDate(article.date)}`}</small>
+          {article.link && (
+            <Link
+              className="italic decoration-black hover:underline dark:decoration-white"
+              href={article.link}
+            >
+              {dict.blog.article.link}
+            </Link>
           )}
-        </ModalContent>
-      </Modal>
-      {blog &&
-        blog.articles
-          .sort((a: Article, b: Article) => moment(b.date).diff(moment(a.date)))
-          .map((article) => (
-            <SectionCard.CardBlog
-              key={generateUniqueId()}
-              article={article}
-              dict={dict}
-              onClick={(a) => setArticle(a)}
-            />
-          ))}
-    </div>
+          <Link href={'/blog'}>
+            <Button className="flex gap-2" color="primary" variant="flat">
+              <ArrowLeftIcon className="h-5 w-5" />
+              {dict.blog.article.buttons.back}
+            </Button>
+          </Link>
+        </SectionHero>
+      )}
+    </>
   )
 }
 

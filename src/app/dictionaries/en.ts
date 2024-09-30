@@ -71,6 +71,66 @@ const dictionary = {
     message:
       "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
   },
+  dashboard: {
+    form: {
+      title: 'Add a new article',
+      it: {
+        title: {
+          label: 'Titolo IT',
+          required: 'Il Titolo è obbligatorio',
+          placeholder: "Inserisci il titolo dell'articolo in Italiano",
+        },
+        content: {
+          label: 'Contenuto IT',
+          required: 'Il contenuto è obbligatorio',
+          placeholder: "Inserisci il contenuto dell'articolo in Italiano",
+        },
+      },
+      en: {
+        title: {
+          label: 'Titolo EN',
+          required: 'Il Titolo è obbligatorio',
+          placeholder: "Inserisci il titolo dell'articolo in Inglese",
+        },
+        content: {
+          label: 'Contenuto EN',
+          required: 'Il contenuto è obbligatorio',
+          placeholder: "Inserisci il contenuto dell'articolo in Inglese",
+        },
+      },
+      link: {
+        label: 'Link',
+        placeholder: 'Inserisci un link',
+      },
+      loading: 'Submitting...',
+      buttons: {
+        submit: 'Send',
+      },
+    },
+  },
+  login: {
+    form: {
+      title: 'Access to Reserved Area',
+      login: 'Login',
+      logout: 'Logout',
+      username: {
+        value: 'Username',
+        label: 'Username',
+        required: 'Username is required',
+        placeholder: 'Insert your username',
+      },
+      password: {
+        value: 'Password',
+        label: 'Password',
+        required: 'Password is required',
+        placeholder: 'Insert your password',
+      },
+      loading: 'Login in progress...',
+      buttons: {
+        submit: 'Login',
+      },
+    },
+  },
   contacts: {
     title: 'Information',
     firstName: 'First Name',
@@ -112,23 +172,23 @@ const dictionary = {
       name: {
         value: 'Name',
         label: 'Name',
-        placeholder: 'Insert your name (required)',
+        placeholder: 'Insert your name',
         required: 'Name is required',
       },
       email: {
         value: 'Email',
         label: 'Email',
-        placeholder: 'Insert your email (optional)',
+        placeholder: 'Insert your email',
       },
       username: {
         value: 'Username',
         label: 'Username',
-        placeholder: 'Insert your Telegram username (optional)',
+        placeholder: 'Insert your Telegram username',
       },
       message: {
         value: 'Message',
         label: 'Your Message',
-        placeholder: 'Insert your message here... (required)',
+        placeholder: 'Insert your message here...',
         required: 'Message is required',
       },
       loading: 'Sending...',
@@ -161,12 +221,19 @@ const dictionary = {
     },
   },
   blog: {
+    title: 'My Blog',
     card: {
-      readMore: 'Read more',
-      posted: 'Posted on',
+      postedAt: 'Posted at',
+    },
+    article: {
+      link: 'Source link',
+      postedAt: 'Posted at',
       buttons: {
-        close: 'Close',
+        back: 'Back',
       },
+    },
+    buttons: {
+      create: 'Create Article',
     },
   },
   cookies: {

@@ -1,10 +1,11 @@
 'use client'
 
-import { Suspense } from 'react'
-import { usePathname } from 'next/navigation'
+import React, { Suspense } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { Image } from '@nextui-org/image'
 import { Link } from '@nextui-org/link'
 import {
+  Button,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -14,7 +15,10 @@ import {
   NavbarMenuToggle,
   Skeleton,
 } from '@nextui-org/react'
+import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
+import { isLoginAtom } from '@/atoms'
+import { logout } from '@/lib'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
 
@@ -23,7 +27,9 @@ interface NavbarProps {
 }
 
 function Header({ dict }: NavbarProps) {
+  const [isAuth, setIsAuth] = useAtom(isLoginAtom)
   const pathname = usePathname()
+  const route = useRouter()
   const links = [
     { name: dict.navbar.home, path: '/' },
     { name: dict.navbar.curriculum, path: '/curriculum' },
@@ -33,6 +39,23 @@ function Header({ dict }: NavbarProps) {
     { name: dict.navbar.todolist, path: '/todolist' },
     { name: dict.navbar.contacts, path: '/contacts' },
   ]
+
+  React.useEffect(() => {
+    const cookies = document.cookie
+      .split(';')
+      .find((row) => row.trim().startsWith(`auth_jwt=`))
+
+    const cookie_value = cookies ? cookies.split('=')[1] : null
+    cookie_value ? setIsAuth(true) : setIsAuth(false)
+  }, [setIsAuth])
+
+  const handleClickLogout = () => {
+    logout()
+    setTimeout(() => {
+      setIsAuth(false)
+    }, 500)
+    route.push('/')
+  }
 
   return (
     <Navbar
@@ -71,15 +94,28 @@ function Header({ dict }: NavbarProps) {
             className="flex w-full items-center justify-center"
           >
             <Link href={path}>
-              <span
+              <div
                 className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
               >
                 {name}
-              </span>
+              </div>
             </Link>
           </NavbarMenuItem>
         ))}
-        <div className="mt-8 flex w-full justify-center">
+        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center">
+          {isAuth ? (
+            <Button color="primary" variant="ghost" onClick={handleClickLogout}>
+              {dict.login.form.logout}
+            </Button>
+          ) : (
+            <Link href="/login">
+              <Button color="primary" variant="flat">
+                {dict.login.form.login}
+              </Button>
+            </Link>
+          )}
+        </NavbarMenuItem>
+        <div className="flex w-full justify-center">
           <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
         </div>
       </NavbarMenu>
@@ -95,6 +131,17 @@ function Header({ dict }: NavbarProps) {
             </Link>
           </NavbarItem>
         ))}
+        {isAuth ? (
+          <Button color="primary" variant="ghost" onClick={handleClickLogout}>
+            {dict.login.form.logout}
+          </Button>
+        ) : (
+          <Link href="/login">
+            <Button color="primary" variant="flat">
+              {dict.login.form.login}
+            </Button>
+          </Link>
+        )}
       </NavbarContent>
       <div className="hidden lg:flex">
         <ToogleTheme />

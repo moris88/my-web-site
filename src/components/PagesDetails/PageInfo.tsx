@@ -44,20 +44,22 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                   <div>
                     <b>{dict.contacts.firstName}</b>
                   </div>
-                  <div>{contacts?.firstName ?? ''}</div>
+                  <div>
+                    <i>{contacts?.firstName ?? ''}</i>
+                  </div>
                   <div>
                     <b>{dict.contacts.lastName}</b>
                   </div>
-                  <div>{contacts?.lastName ?? ''}</div>
                   <div>
-                    <b>{dict.contacts.age}</b>
+                    <i>{contacts?.lastName ?? ''}</i>
                   </div>
-                  <div>{moment().diff(contacts?.birthDate, 'years') ?? ''}</div>
                   <div>
                     <b>{dict.contacts.birthDate}</b>
                   </div>
                   <div>
-                    {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
+                    <i>
+                      {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
+                    </i>
                   </div>
                   <div>
                     <b>{dict.contacts.nazionality}</b>
@@ -66,12 +68,17 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                   <div>
                     <b>{dict.contacts.job}</b>
                   </div>
-                  <div>{contacts?.job ?? ''}</div>
+                  <div>
+                    <i>{contacts?.job ?? ''}</i>
+                  </div>
                   <div>
                     <b>{dict.contacts.email}</b>
                   </div>
                   <div>
-                    <Link href={`mailto:${contacts?.email ?? ''}`}>
+                    <Link
+                      className="italic"
+                      href={`mailto:${contacts?.email ?? ''}`}
+                    >
                       {contacts?.email ?? ''}
                     </Link>
                   </div>
@@ -79,7 +86,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                     <b>{dict.contacts.website}</b>
                   </div>
                   <div>
-                    <Link href={contacts?.website || '#'}>
+                    <Link className="italic" href={contacts?.website || '#'}>
                       {contacts?.website?.replace('https://www.', '') ?? ''}
                     </Link>
                   </div>

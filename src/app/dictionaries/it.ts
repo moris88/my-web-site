@@ -71,6 +71,66 @@ const dictionary = {
     message:
       'Ciao, sono un fullstack developer, amo programmare e sono sempre alla ricerca di nuove sfide.',
   },
+  dashboard: {
+    form: {
+      title: 'Aggiungi un nuovo articolo',
+      it: {
+        title: {
+          label: 'Titolo IT',
+          required: 'Il Titolo è obbligatorio',
+          placeholder: "Inserisci il titolo dell'articolo in Italiano",
+        },
+        content: {
+          label: 'Contenuto IT',
+          required: 'Il contenuto è obbligatorio',
+          placeholder: "Inserisci il contenuto dell'articolo in Italiano",
+        },
+      },
+      en: {
+        title: {
+          label: 'Titolo EN',
+          required: 'Il Titolo è obbligatorio',
+          placeholder: "Inserisci il titolo dell'articolo in Inglese",
+        },
+        content: {
+          label: 'Contenuto EN',
+          required: 'Il contenuto è obbligatorio',
+          placeholder: "Inserisci il contenuto dell'articolo in Inglese",
+        },
+      },
+      link: {
+        label: 'Link',
+        placeholder: 'Inserisci un link',
+      },
+      loading: 'Invio in corso...',
+      buttons: {
+        submit: 'Invia',
+      },
+    },
+  },
+  login: {
+    form: {
+      title: 'Accesso Area Riservata',
+      login: 'Login',
+      logout: 'Logout',
+      username: {
+        value: 'Username',
+        label: 'Username',
+        required: 'Lo username è obbligatorio',
+        placeholder: 'Inserisci il tuo username',
+      },
+      password: {
+        value: 'Password',
+        label: 'Password',
+        required: 'La password è obbligatorio',
+        placeholder: 'Inserisci la tua password',
+      },
+      loading: 'Login in corso...',
+      buttons: {
+        submit: 'Accesso',
+      },
+    },
+  },
   contacts: {
     title: 'Informazioni',
     firstName: 'Nome',
@@ -112,23 +172,23 @@ const dictionary = {
       name: {
         value: 'Nome',
         label: 'Nome',
-        placeholder: 'Inserisci il tuo nome (obbligatorio)',
+        placeholder: 'Inserisci il tuo nome',
         required: 'Il nome è obbligatorio',
       },
       email: {
         value: 'Email',
         label: 'Email',
-        placeholder: 'Inserisci la tua email (facoltativo)',
+        placeholder: 'Inserisci la tua email',
       },
       username: {
         value: 'Username',
         label: 'Username',
-        placeholder: 'Inserisci il tuo username di Telegram (facoltativo)',
+        placeholder: 'Inserisci il tuo username di Telegram',
       },
       message: {
         value: 'Messaggio',
         label: 'Il tuo messaggio',
-        placeholder: 'Inserisci il tuo messaggio qui... (obbligatorio)',
+        placeholder: 'Inserisci il tuo messaggio qui...',
         required: 'Il messaggio è obbligatorio',
       },
       loading: 'Invio in corso...',
@@ -161,12 +221,19 @@ const dictionary = {
     },
   },
   blog: {
+    title: 'Il mio Blog',
     card: {
-      readMore: 'Leggi di più',
-      posted: 'Pubblicato il',
+      postedAt: 'Pubblicato il',
+    },
+    article: {
+      link: 'Link alla fonte',
+      postedAt: 'Pubblicato il',
       buttons: {
-        close: 'Chiudi',
+        back: 'Indietro',
       },
+    },
+    buttons: {
+      create: 'Crea un nuovo articolo',
     },
   },
   cookies: {
