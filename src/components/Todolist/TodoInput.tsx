@@ -36,6 +36,7 @@ function TodoInput({ dict }: TodoInputProps) {
       updatedAt: null,
       completedAt: null,
       dueDate: dueDate ? dueDate.toDate().toISOString() : null,
+      notify: false,
     }
     setTodos([...todos, newTodo])
     localStorage.setItem('todos', JSON.stringify([...todos, newTodo]))

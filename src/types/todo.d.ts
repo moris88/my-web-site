@@ -7,4 +7,5 @@ export interface Todo {
   updatedAt: string | null
   completedAt: string | null
   dueDate: string | null
+  notify: boolean
 }
