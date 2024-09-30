@@ -12,7 +12,7 @@ function SectionHero({ title, subtitle, children, content }: SectionHeroProps) {
     <section className="container flex flex-col gap-10 p-20">
       <h2 className="text-center text-lg lg:text-3xl">{title}</h2>
       {subtitle && (
-        <p className="text-center">
+        <p>
           <i>{subtitle}</i>
         </p>
       )}

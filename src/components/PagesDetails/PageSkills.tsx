@@ -9,15 +9,16 @@ import { Skeleton } from '@nextui-org/react'
 import { Tab, Tabs } from '@nextui-org/tabs'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
-import { Skill, Skills } from '@/types'
+import { Language, Skill, Skills } from '@/types'
 import { generateUniqueId, getLevel } from '@/utils'
 
 interface SkillsProps {
   skills: Skills
   dict: Dictionary
+  language: Language
 }
 
-export default function PageSkills({ skills, dict }: SkillsProps) {
+export default function PageSkills({ skills, language, dict }: SkillsProps) {
   const route = useRouter()
   const [skill, setSkill] = React.useState<{
     title: string
@@ -26,7 +27,6 @@ export default function PageSkills({ skills, dict }: SkillsProps) {
   const [isLoaded, setIsLoaded] = React.useState(false)
   const hardSkills = Object.keys(skills).filter((key) => key !== 'soft')
   const softSkills = Object.keys(skills).filter((key) => key === 'soft')
-  const language = dict.language === 'Italiano' ? 'it' : 'en'
 
   React.useEffect(() => {
     if (skills && Object.keys(skills).length > 0) setIsLoaded(true)

@@ -73,6 +73,7 @@ export default function FormContact({
       onSubmit={handleSubmit(onSubmit)}
     >
       <Input
+        isRequired
         id="name"
         label={dict.contacts.form.name.label}
         placeholder={dict.contacts.form.name.placeholder}
@@ -99,6 +100,7 @@ export default function FormContact({
         {...register('email', { required: false })}
       />
       <Textarea
+        isRequired
         id="message"
         label={dict.contacts.form.message.label}
         placeholder={dict.contacts.form.message.placeholder}

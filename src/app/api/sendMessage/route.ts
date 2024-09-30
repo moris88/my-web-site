@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import { sendMessage } from '@/utils'
 
-const { log, error } = console
-
 // recupera env TOKEN_TELEGRAM di next
 const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
 
@@ -25,13 +23,13 @@ export async function POST(request: Request) {
         chatId: CHAT_ID_TELEGRAM,
         message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email ?? 'Not provided'}\nUsername: ${username ?? 'Not provided'}`,
       })
-      log(response)
+      console.log(response)
     } else {
       throw new Error('Telegram token and chat id are required')
     }
     return NextResponse.json({ status: 200 })
   } catch (err) {
-    error(err)
+    console.error(err)
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 },

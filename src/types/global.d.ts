@@ -52,18 +52,21 @@ export interface Skill {
   link?: string
 }
 
-export interface Blog {
+export interface Err {
+  error: string
+  message: string
+}
+
+export interface Blog extends Partial<Err> {
   articles: Article[]
 }
 
 export interface Article {
-  id: number
+  id: string
   title: string
-  subtitle?: string
   content: string
   date: string
   link?: string
-  image?: string
 }
 
 export interface Curriculum {
