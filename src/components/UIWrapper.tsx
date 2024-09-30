@@ -23,9 +23,10 @@ export default function UIWrapper({ children, dict, links }: UIWrapperProps) {
   React.useEffect(() => {
     if (!inizializate) {
       const theme = window.localStorage.getItem('theme') as Theme
-      atomStore.set(themeAtom, theme)
+      if (!theme) window.localStorage.setItem('theme', 'light')
+      atomStore.set(themeAtom, theme || 'light')
+      setThemeDocument(theme || 'light')
       setInizializate(true)
-      if (theme) setThemeDocument(theme)
       return
     }
   }, [inizializate])

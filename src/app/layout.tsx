@@ -29,7 +29,8 @@ export default async function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>{'Maurizio Tolomeo'}</title>
+        <meta content={String(metadata.description ?? '')} name="description" />
+        <title>{String(metadata.title ?? '')}</title>
       </head>
       <body
         className={twMerge(
