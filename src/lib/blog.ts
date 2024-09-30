@@ -168,8 +168,8 @@ export async function createArticle(
     /**
      * @site https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
      */
-    const pathFile = DEVELOPMENT ? STORE_FILE_NAME_TEST : STORE_FILE_NAME
-    const blob = await put(pathFile ?? '', JSON.stringify(fileContent), {
+    const pathFileBlob = DEVELOPMENT ? STORE_FILE_NAME_TEST : STORE_FILE_NAME
+    const blob = await put(pathFileBlob ?? '', JSON.stringify(fileContent), {
       access: 'public',
       addRandomSuffix: false,
     })
