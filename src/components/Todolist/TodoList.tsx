@@ -13,6 +13,7 @@ import { useAtom } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
+import useNotificationRequest from '@/hooks/useNotificationRequest'
 import TodoItem from './TodoItem'
 
 function Separated() {
@@ -33,6 +34,28 @@ function TodoList({ dict }: TodoListProps) {
   const [todos, setTodos] = useAtom(todoListAtom)
   const [filter, setFilter] = React.useState('1')
   const [showDangerZone, setShowDangerZone] = React.useState(false)
+  const { notifyUser } = useNotificationRequest()
+
+  // Notifica all'utente quando un task è scaduto
+  React.useEffect(() => {
+    todos.forEach((todo) => {
+      if (!todo.dueDate) {
+        return
+      }
+      const dueDate = new Date(todo.dueDate)
+      if (!todo.completed && dueDate < new Date() && !todo.notify) {
+        notifyUser(`Task Scaduto`, `Il task "${todo.title}" è scaduto.`)
+      }
+      const newTodos = todos.map((t) => {
+        if (t.id === todo.id) {
+          return { ...t, notify: true }
+        }
+        return t
+      })
+      setTodos(newTodos)
+      localStorage.setItem('todos', JSON.stringify(newTodos))
+    })
+  }, [notifyUser, setTodos, todos])
 
   // Recupero dei task da localStorage quando la pagina si carica
   React.useEffect(() => {
