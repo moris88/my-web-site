@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { ArrowsPointingInIcon } from '@heroicons/react/24/outline'
 import {
   Button,
   ButtonGroup,
@@ -13,7 +14,7 @@ import { useAtom } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
-import useNotificationRequest from '@/hooks/useNotificationRequest'
+import { useNotificationRequest } from '@/hooks'
 import TodoItem from './TodoItem'
 
 function Separated() {
@@ -141,25 +142,14 @@ function TodoList({ dict }: TodoListProps) {
           .map((todo) => (
             <div
               key={todo.id}
-              className="rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5"
+              className="rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5"
             >
               <TodoItem dict={dict} todo={todo} />
               {todo.description !== '' && (
-                <p className="italic">{todo.description}</p>
+                <p className="italic py-2">
+                  {dict.todolist.addTask.label}: {todo.description}
+                </p>
               )}
-              <div>
-                {todo.dueDate && !todo.completed && (
-                  <Chip
-                    color={isTaskOverdue(todo.dueDate) ? 'danger' : 'success'}
-                    size="sm"
-                  >
-                    {isTaskOverdue(todo.dueDate)
-                      ? dict.todolist.listitem.expired
-                      : dict.todolist.listitem.dueDateAt}
-                    : {moment(todo.dueDate).format('DD/MM/YYYY HH:mm')}
-                  </Chip>
-                )}
-              </div>
               <small className="flex flex-col items-start md:flex-row md:items-center">
                 {todo.createdAt && (
                   <span>
@@ -183,20 +173,40 @@ function TodoList({ dict }: TodoListProps) {
                     </Chip>
                   </span>
                 )}
+                {todo.dueDate && !todo.completed && (
+                  <span>
+                    <Separated />
+                    <Chip
+                      color={isTaskOverdue(todo.dueDate) ? 'danger' : 'success'}
+                      size="sm"
+                    >
+                      {isTaskOverdue(todo.dueDate)
+                        ? dict.todolist.listitem.expired
+                        : dict.todolist.listitem.dueDateAt}
+                      : {moment(todo.dueDate).format('DD/MM/YYYY HH:mm')}
+                    </Chip>
+                  </span>
+                )}
               </small>
             </div>
           ))
       )}
       {todos.length > 0 && (
         <>
-          <Switch
-            size="sm"
-            onChange={(e) => setShowDangerZone(e.target.checked)}
-          >
-            Danger Zone
-          </Switch>
+          {!showDangerZone && (
+            <Switch
+              size="sm"
+              onChange={(e) => setShowDangerZone(e.target.checked)}
+            >
+              Danger Zone
+            </Switch>
+          )}
           {showDangerZone && (
-            <div>
+            <div className="relative rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+              <ArrowsPointingInIcon
+                className="absolute right-1 top-1 h-5 w-5 cursor-pointer"
+                onClick={() => setShowDangerZone(false)}
+              />
               <div className="hidden w-full items-center justify-center md:flex">
                 <ButtonGroup>
                   <Button color="danger" size="lg" onClick={clearCompleted}>

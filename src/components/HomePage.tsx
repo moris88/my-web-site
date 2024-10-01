@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense } from 'react'
-import { Image } from '@nextui-org/react'
+import { Divider, Image } from '@nextui-org/react'
 import { Skeleton, Tooltip } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Info } from '@/types'
@@ -36,7 +36,9 @@ function HomePage({ dict, info }: HomePageProps) {
         </div>
         <h1 className="select-none text-lg md:text-3xl">{info.name}</h1>
         <h2 className="select-none text-base md:text-2xl">{info.job}</h2>
-        <p>---</p>
+        <div className="flex w-full justify-center">
+          <Divider className="my-5 max-w-10" />
+        </div>
         <p>{dict.home.title}</p>
         <div className="max-w-full lg:max-w-[60%]">
           <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
 import {
   getLocalTimeZone,
   parseAbsoluteToLocal,
@@ -153,10 +154,16 @@ function TodoItem({ todo, dict }: TodoItemProps) {
               size="sm"
               onClick={() => setIsEditing(true)}
             >
-              {dict.todolist.listitem.edit}
+              <PencilIcon className="h-3 w-3" />
+              <span className="hidden md:inline">
+                {dict.todolist.listitem.edit}
+              </span>
             </Button>
             <Button color="danger" size="sm" onClick={removeTodo}>
-              {dict.todolist.listitem.delete}
+              <TrashIcon className="h-3 w-3" />
+              <span className="hidden md:inline">
+                {dict.todolist.listitem.delete}
+              </span>
             </Button>
           </ButtonGroup>
         </>

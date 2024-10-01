@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
-import { Checkbox } from '@nextui-org/react'
+import { Checkbox, Divider } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components'
@@ -28,31 +28,45 @@ function PageCV({ curriculum, dict }: PageCVProps) {
             key={generateUniqueId()}
             className="lg:test-base text-wrap text-sm"
           >
-            <p>
+            <p className="flex select-none flex-col md:flex-row">
               <b>
-                <Link href={exp.link ?? ''}>{exp.company}</Link>
+                <Link
+                  className={
+                    exp.link ? 'hover:underline' : 'cursor-not-allowed'
+                  }
+                  href={exp.link ?? ''}
+                >
+                  {exp.company}
+                </Link>
               </b>{' '}
               <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
             </p>
-            <p>description: {exp.description}</p>
+            <p className="select-none">description: {exp.description}</p>
             <br />
           </li>
         ))}
       </ul>
       <p className="text-base lg:text-xl">{dict.curriculum.education}</p>
-      <ul className="cursor-pointer rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+      <ul className="rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
         {curriculum.education.map((exp) => (
           <li
             key={generateUniqueId()}
             className="lg:test-base text-wrap text-sm"
           >
-            <p>
+            <p className="flex select-none flex-col md:flex-row">
               <b>
-                <Link href={exp.link ?? ''}>{exp.institution}</Link>
+                <Link
+                  className={
+                    exp.link ? 'hover:underline' : 'cursor-not-allowed'
+                  }
+                  href={exp.link ?? ''}
+                >
+                  {exp.institution}
+                </Link>
               </b>{' '}
               <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
             </p>
-            <p>description: {exp.description}</p>
+            <p className="select-none">description: {exp.description}</p>
             <br />
           </li>
         ))}
@@ -77,9 +91,8 @@ function PageCV({ curriculum, dict }: PageCVProps) {
             <ModalContent>
               {() => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    {dict.curriculum.download}
-                  </ModalHeader>
+                  <ModalHeader>{dict.curriculum.download}</ModalHeader>
+                  <Divider className="mb-3" />
                   <ModalBody>
                     <div className="flex w-full items-center justify-center">
                       <p>{dict.curriculum.terms}</p>

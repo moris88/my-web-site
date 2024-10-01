@@ -5,6 +5,7 @@ import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
+import { Divider } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { FormContact } from '@/components'
 
@@ -78,9 +79,8 @@ function ModalMessage({ dict }: ModalMessageProps) {
           <ModalContent>
             {(onClose) => (
               <>
-                <ModalHeader className="flex flex-col gap-1">
-                  {dict.contacts.modal.title}
-                </ModalHeader>
+                <ModalHeader>{dict.contacts.modal.title}</ModalHeader>
+                <Divider className="mb-3" />
                 <ModalBody>
                   <p>
                     {dict.contacts.modal.content}&nbsp;

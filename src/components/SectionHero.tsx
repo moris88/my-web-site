@@ -9,7 +9,7 @@ interface SectionHeroProps {
 
 function SectionHero({ title, subtitle, children, content }: SectionHeroProps) {
   return (
-    <section className="container flex flex-col gap-10 p-20">
+    <section className="container flex flex-col gap-10">
       <h2 className="text-center text-lg lg:text-3xl">{title}</h2>
       {subtitle && (
         <p>

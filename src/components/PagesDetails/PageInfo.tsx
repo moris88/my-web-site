@@ -132,7 +132,9 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               ))}
             </ButtonGroup>
           </div>
-          <p className="py-5 text-center">---</p>
+          <div className="flex w-full justify-center">
+            <Divider className="my-10 max-w-10" />
+          </div>
           <div className="flex items-center justify-center">
             <ButtonsGroupSocial
               dict={dict}

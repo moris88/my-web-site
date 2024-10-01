@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
-import { Checkbox, Skeleton } from '@nextui-org/react'
+import { Checkbox, Divider, Skeleton } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
@@ -95,9 +95,8 @@ function PageApp({ dict }: PageCVProps) {
             <ModalContent>
               {() => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    {dict.application.download}
-                  </ModalHeader>
+                  <ModalHeader>{dict.application.download}</ModalHeader>
+                  <Divider className="mb-3" />
                   <ModalBody>
                     <div className="flex w-full items-center justify-center">
                       <p>{dict.application.terms}</p>
