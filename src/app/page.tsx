@@ -5,5 +5,6 @@ import { getDictionary } from './dictionaries'
 export default async function Home() {
   const dict = await getDictionary()
   const info = await getInfo()
-  return <HomePage dict={dict} info={info} />
+  const language = dict.language === 'Italiano' ? 'it' : 'en'
+  return <HomePage dict={dict} language={language} info={info} />
 }
