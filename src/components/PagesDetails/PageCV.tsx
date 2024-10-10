@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
+import { HiArrowDownTray } from 'react-icons/hi2'
 import Link from 'next/link'
-import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import { Checkbox, Divider } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
@@ -79,7 +79,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           onClick={() => setShowDownload(true)}
         >
           {dict.curriculum.download}
-          <ArrowDownTrayIcon className="h-5 w-5" />
+          <HiArrowDownTray className="h-5 w-5" />
         </Button>
         {showDownload && (
           <Modal

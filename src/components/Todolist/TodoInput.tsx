@@ -1,13 +1,22 @@
 'use client'
 
 import React from 'react'
+import { HiFlag, HiMiniPlus, HiOutlineFlag } from 'react-icons/hi2'
 import { getLocalTimeZone, today, ZonedDateTime } from '@internationalized/date'
-import { Button, DatePicker, Input, Switch, Textarea } from '@nextui-org/react'
+import {
+  Button,
+  DatePicker,
+  Input,
+  Select,
+  SelectItem,
+  Switch,
+  Textarea,
+} from '@nextui-org/react'
 import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
-import { Todo } from '@/types'
-import { generateUniqueId } from '@/utils'
+import { Priority, Todo } from '@/types'
+import { generateUniqueId, priorityItems } from '@/utils'
 import ConfirmModal from './ConfirmModal'
 
 interface TodoInputProps {
@@ -17,8 +26,10 @@ interface TodoInputProps {
 function TodoInput({ dict }: TodoInputProps) {
   const [title, setTitle] = React.useState<string>('')
   const [description, setDescription] = React.useState<string>('')
+  const [priority, setPriority] = React.useState<Priority>('medium')
   const [todos, setTodos] = useAtom(todoListAtom)
   const [dueDate, setDueDate] = React.useState<ZonedDateTime | null>(null)
+  const [showInput, setShowInput] = React.useState(true)
   const [showAdd, setShowAdd] = React.useState(false)
   const [showError, setShowError] = React.useState(false)
   const [required, setRequired] = React.useState(false)
@@ -37,6 +48,7 @@ function TodoInput({ dict }: TodoInputProps) {
       completedAt: null,
       dueDate: dueDate ? dueDate.toDate().toISOString() : null,
       notify: false,
+      priority,
     }
     setTodos([...todos, newTodo])
     localStorage.setItem('todos', JSON.stringify([...todos, newTodo]))
@@ -58,51 +70,103 @@ function TodoInput({ dict }: TodoInputProps) {
     setDueDate(date)
   }
 
+  const handlePriorityChange = (value: string) => {
+    const mappaPriority: Record<string, string> = {
+      '0': 'urgent',
+      '1': 'high',
+      '2': 'medium',
+      '3': 'low',
+    }
+    setPriority(mappaPriority[value] as Priority)
+  }
+
   return (
     <div className="flex w-full flex-col items-center gap-y-4">
-      <div className="flex w-full flex-col items-center gap-4 md:flex-row">
-        <Input
-          isRequired
-          className="w-full"
-          label={dict.todolist.addTask.name}
-          placeholder={dict.todolist.addTask.placeholder}
-          value={title}
-          onChange={(e) => {
-            setRequired(true)
-            setTitle(e.target.value)
-          }}
-        />
-        <DatePicker
-          showMonthAndYearPickers
-          className="w-full"
-          granularity="minute"
-          label={dict.todolist.addTask.due_date}
-          minValue={minValue}
-          value={dueDate as any}
-          onChange={handleSetDueDate}
-        />
-        <Switch
-          size="sm"
-          onChange={(e) => setShowDescription(e.target.checked)}
-        >
-          {dict.todolist.addTask.label}
-        </Switch>
-        <Button color="success" size="lg" onClick={confirmAddTodo}>
-          {dict.todolist.addTask.submit}
-        </Button>
-      </div>
-      {showDescription && (
-        <Textarea
-          className="w-full"
-          label={dict.todolist.addTask.description}
-          maxRows={10}
-          minRows={5}
-          size="sm"
-          value={description}
-          onChange={(e) => {
-            setDescription(e.target.value)
-          }}
-        />
+      <Switch
+        className="inline lg:hidden"
+        size="sm"
+        onChange={(e) => setShowInput(e.target.checked)}
+      >
+        {'Hidden add todo input'}
+      </Switch>
+      {showInput && (
+        <>
+          <div className="flex w-full flex-col items-center gap-4 lg:flex-row">
+            <Input
+              isRequired
+              className="w-full"
+              label={dict.todolist.addTask.name}
+              placeholder={dict.todolist.addTask.placeholder}
+              value={title}
+              onChange={(e) => {
+                setRequired(true)
+                setTitle(e.target.value)
+              }}
+            />
+            <DatePicker
+              showMonthAndYearPickers
+              className="w-full"
+              granularity="minute"
+              label={dict.todolist.addTask.due_date}
+              minValue={minValue}
+              value={dueDate as any}
+              onChange={handleSetDueDate}
+            />
+            <Select
+              defaultSelectedKeys={priorityItems.indexOf(priority).toString()}
+              label={dict.todolist.listitem.priority.label}
+              onChange={(e) => handlePriorityChange(e.target.value)}
+            >
+              {priorityItems.map((item, index) => {
+                const flagIcon: Record<number, React.ReactNode> = {
+                  3: <HiFlag className="h-3 w-3 text-green-600" />,
+                  2: <HiOutlineFlag className="h-3 w-3" />,
+                  1: <HiFlag className="h-3 w-3 text-yellow-600" />,
+                  0: <HiFlag className="h-3 w-3 text-red-600" />,
+                }
+                return (
+                  <SelectItem key={index} startContent={flagIcon[index]}>
+                    {
+                      dict.todolist.listitem.priority.items[
+                        item as keyof typeof dict.todolist.listitem.priority.items
+                      ]
+                    }
+                  </SelectItem>
+                )
+              })}
+            </Select>
+            <Switch
+              size="sm"
+              onChange={(e) => setShowDescription(e.target.checked)}
+            >
+              {dict.todolist.addTask.label}
+            </Switch>
+            <Button
+              className="flex gap-1 min-w-36"
+              color="success"
+              size="lg"
+              onClick={confirmAddTodo}
+            >
+              <HiMiniPlus className="h-6 w-6" />
+              <span className="hidden md:inline">
+                {dict.todolist.addTask.submit}
+              </span>
+            </Button>
+          </div>
+          {showDescription && (
+            <Textarea
+              className="w-full"
+              label={dict.todolist.addTask.description}
+              maxRows={10}
+              minRows={5}
+              size="sm"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value)
+              }}
+            />
+          )}
+        </>
       )}
       {showAdd && (
         <ConfirmModal

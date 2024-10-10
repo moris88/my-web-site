@@ -1,7 +1,7 @@
 'use client'
 
+import { HiArrowLeft } from 'react-icons/hi2'
 import Link from 'next/link'
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import { Button } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { SectionHero } from '@/components'
@@ -29,7 +29,7 @@ function PageBlog({ dict, article }: PageBlogProps) {
           )}
           <Link href={'/blog'}>
             <Button className="flex gap-2" color="primary" variant="flat">
-              <ArrowLeftIcon className="h-5 w-5" />
+              <HiArrowLeft className="h-5 w-5" />
               {dict.blog.article.buttons.back}
             </Button>
           </Link>

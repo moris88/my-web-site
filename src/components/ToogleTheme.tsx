@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import { HiMiniMoon, HiMiniSun } from 'react-icons/hi2'
 import { Switch } from '@nextui-org/react'
 import { useStore } from 'jotai'
 import { themeAtom } from '@/atoms'
@@ -16,9 +16,9 @@ function ToogleTheme({ children }: ToogleThemeProps) {
     <Switch
       color="primary"
       defaultSelected={theme === 'light'}
-      endContent={<SunIcon />}
+      endContent={<HiMiniSun />}
       size="sm"
-      startContent={<MoonIcon />}
+      startContent={<HiMiniMoon />}
       onChange={(e) => {
         const myTheme: Theme = e.target.checked ? 'light' : 'dark'
         atomStore.set(themeAtom, myTheme)

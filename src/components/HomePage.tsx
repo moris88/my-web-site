@@ -56,9 +56,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
         <div className="flex w-full justify-center">
           <Divider className="my-5 max-w-10" />
         </div>
-        <p>{dict.home.title}</p>
+        <p className="italic">{dict.home.title}</p>
         <div className="max-w-full lg:max-w-[60%]">
-          <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+          <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
             {info?.description?.[language] ?? ''}
           </p>
         </div>

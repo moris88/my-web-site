@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ArrowsPointingInIcon } from '@heroicons/react/24/outline'
+import { HiArrowsPointingIn } from 'react-icons/hi2'
 import {
   Button,
   ButtonGroup,
@@ -39,23 +39,26 @@ function TodoList({ dict }: TodoListProps) {
 
   // Notifica all'utente quando un task è scaduto
   React.useEffect(() => {
-    todos.forEach((todo) => {
+    const newTodos = todos.map((todo) => {
       if (!todo.dueDate) {
-        return
+        return todo // Se non c'è una data di scadenza, non modificare l'oggetto
       }
+
       const dueDate = new Date(todo.dueDate)
+
       if (!todo.completed && dueDate < new Date() && !todo.notify) {
         notifyUser(`Task Scaduto`, `Il task "${todo.title}" è scaduto.`)
+        return { ...todo, notify: true } // Solo in questo caso modifichiamo il todo
       }
-      const newTodos = todos.map((t) => {
-        if (t.id === todo.id) {
-          return { ...t, notify: true }
-        }
-        return t
-      })
+
+      return todo // Se non è necessario modificare, restituiamo il todo così com'è
+    })
+    const isDifferent = JSON.stringify(newTodos) !== JSON.stringify(todos)
+
+    if (isDifferent) {
       setTodos(newTodos)
       localStorage.setItem('todos', JSON.stringify(newTodos))
-    })
+    }
   }, [notifyUser, setTodos, todos])
 
   // Recupero dei task da localStorage quando la pagina si carica
@@ -139,14 +142,21 @@ function TodoList({ dict }: TodoListProps) {
             }
             return true
           })
+          .sort((a, b) => {
+            if (a.completed && !b.completed) return 1
+            if (!a.completed && b.completed) return -1
+            if (isTaskOverdue(a.dueDate) && !isTaskOverdue(b.dueDate)) return -1
+            if (!isTaskOverdue(a.dueDate) && isTaskOverdue(b.dueDate)) return 1
+            return 0
+          })
           .map((todo) => (
             <div
               key={todo.id}
-              className="rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5"
+              className={`rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5`}
             >
               <TodoItem dict={dict} todo={todo} />
               {todo.description !== '' && (
-                <p className="italic py-2">
+                <p className="py-2 italic">
                   {dict.todolist.addTask.label}: {todo.description}
                 </p>
               )}
@@ -167,7 +177,7 @@ function TodoList({ dict }: TodoListProps) {
                 {todo.completed && (
                   <span>
                     <Separated />
-                    <Chip color="warning" size="sm">
+                    <Chip color="success" size="sm">
                       {dict.todolist.listitem.completedAt}:{' '}
                       {moment(todo.completedAt).format('DD/MM/YYYY HH:mm')}
                     </Chip>
@@ -177,7 +187,7 @@ function TodoList({ dict }: TodoListProps) {
                   <span>
                     <Separated />
                     <Chip
-                      color={isTaskOverdue(todo.dueDate) ? 'danger' : 'success'}
+                      color={isTaskOverdue(todo.dueDate) ? 'danger' : 'warning'}
                       size="sm"
                     >
                       {isTaskOverdue(todo.dueDate)
@@ -202,11 +212,14 @@ function TodoList({ dict }: TodoListProps) {
             </Switch>
           )}
           {showDangerZone && (
-            <div className="relative rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-              <ArrowsPointingInIcon
-                className="absolute right-1 top-1 h-5 w-5 cursor-pointer"
+            <div className="relative rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5">
+              <HiArrowsPointingIn
+                className="absolute right-1 top-1 h-5 w-5 cursor-pointer dark:text-black"
                 onClick={() => setShowDangerZone(false)}
               />
+              <p className="absolute left-1 top-1 hidden dark:text-black lg:inline">
+                Danger Zone
+              </p>
               <div className="hidden w-full items-center justify-center md:flex">
                 <ButtonGroup>
                   <Button color="danger" size="lg" onClick={clearCompleted}>
