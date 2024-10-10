@@ -1,7 +1,12 @@
 'use client'
 
 import React from 'react'
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline'
+import {
+  HiFlag,
+  HiMiniTrash,
+  HiOutlineFlag,
+  HiOutlinePencilSquare,
+} from 'react-icons/hi2'
 import {
   getLocalTimeZone,
   parseAbsoluteToLocal,
@@ -13,12 +18,15 @@ import {
   Checkbox,
   DatePicker,
   Input,
+  Select,
+  SelectItem,
   Textarea,
 } from '@nextui-org/react'
 import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
-import { Todo } from '@/types'
+import { Priority, Todo } from '@/types'
+import { priorityItems } from '@/utils'
 import ConfirmModal from './ConfirmModal'
 
 interface TodoItemProps {
@@ -31,6 +39,9 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   const [isEditing, setIsEditing] = React.useState(false)
   const [editTitle, setEditTitle] = React.useState(todo.title)
   const [editDescription, setEditDescription] = React.useState(todo.description)
+  const [editPriority, setEditPriority] = React.useState<Priority>(
+    todo.priority,
+  )
   const [showDeleteModal, setShowDeleteModal] = React.useState(false)
   const [showEditModal, setShowEditModal] = React.useState(false)
 
@@ -85,6 +96,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
             dueDate: editDueDate ? editDueDate.toString() : null,
             title: editTitle,
             description: editDescription,
+            priority: editPriority,
             updatedAt: new Date().toISOString(),
           }
         : t,
@@ -97,6 +109,23 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const handleSetDueDate = (value: any) => {
     setEditDueDate(value.toDate().toISOString())
+  }
+
+  const flagIcon: Record<string, React.ReactNode> = {
+    low: <HiFlag className="h-3 w-3 text-green-600" />,
+    medium: <HiOutlineFlag className="h-3 w-3" />,
+    high: <HiFlag className="h-3 w-3 text-yellow-600" />,
+    urgent: <HiFlag className="h-3 w-3 text-red-600" />,
+  }
+
+  const handlePriorityChange = (value: string) => {
+    const mappaPriority: Record<string, string> = {
+      '0': 'urgent',
+      '1': 'high',
+      '2': 'medium',
+      '3': 'low',
+    }
+    setEditPriority(mappaPriority[value] as Priority)
   }
 
   return (
@@ -119,6 +148,31 @@ function TodoItem({ todo, dict }: TodoItemProps) {
               value={valueDueDate as any}
               onChange={handleSetDueDate}
             />
+            <Select
+              defaultSelectedKeys={priorityItems
+                .indexOf(editPriority)
+                .toString()}
+              label={dict.todolist.listitem.priority.label}
+              onChange={(e) => handlePriorityChange(e.target.value)}
+            >
+              {priorityItems.map((item, index) => {
+                const flagIcon: Record<number, React.ReactNode> = {
+                  3: <HiFlag className="h-3 w-3 text-green-600" />,
+                  2: <HiOutlineFlag className="h-3 w-3" />,
+                  1: <HiFlag className="h-3 w-3 text-yellow-600" />,
+                  0: <HiFlag className="h-3 w-3 text-red-600" />,
+                }
+                return (
+                  <SelectItem key={index} startContent={flagIcon[index]}>
+                    {
+                      dict.todolist.listitem.priority.items[
+                        item as keyof typeof dict.todolist.listitem.priority.items
+                      ]
+                    }
+                  </SelectItem>
+                )
+              })}
+            </Select>
             <ButtonGroup>
               <Button size="lg" onClick={() => setIsEditing(false)}>
                 {dict.todolist.editTask.cancel}
@@ -142,9 +196,9 @@ function TodoItem({ todo, dict }: TodoItemProps) {
         <>
           <Checkbox isSelected={todo.completed} onChange={toggleTodo}>
             <span
-              className={`font-bold ${todo.completed ? 'line-through' : ''}`}
+              className={`flex items-center gap-2 font-bold ${todo.completed ? 'line-through' : ''}`}
             >
-              {todo.title}
+              {flagIcon[todo.priority]} {todo.title}
             </span>
           </Checkbox>
           <ButtonGroup>
@@ -154,13 +208,13 @@ function TodoItem({ todo, dict }: TodoItemProps) {
               size="sm"
               onClick={() => setIsEditing(true)}
             >
-              <PencilIcon className="h-3 w-3" />
+              <HiOutlinePencilSquare className="h-3 w-3" />
               <span className="hidden md:inline">
                 {dict.todolist.listitem.edit}
               </span>
             </Button>
             <Button color="danger" size="sm" onClick={removeTodo}>
-              <TrashIcon className="h-3 w-3" />
+              <HiMiniTrash className="h-3 w-3" />
               <span className="hidden md:inline">
                 {dict.todolist.listitem.delete}
               </span>

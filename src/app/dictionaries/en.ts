@@ -1,7 +1,6 @@
 const dictionary = {
   language: 'English',
   navbar: {
-    home: 'Home',
     blog: 'Blog',
     skills: 'Skills',
     todolist: 'Todo',
@@ -9,6 +8,7 @@ const dictionary = {
     application: 'App',
     curriculum: 'Curriculum',
     theme: 'Theme',
+    more: 'More',
   },
   todolist: {
     listitem: {
@@ -21,6 +21,15 @@ const dictionary = {
       dueDateAt: 'Due date',
       expired: 'Expired',
       no_task: 'No tasks available',
+      priority: {
+        label: 'Select priority',
+        items: {
+          urgent: 'Urgent',
+          high: 'High',
+          medium: 'Medium',
+          low: 'Low',
+        },
+      },
       filter: {
         label: 'Filter by',
         all: 'All',

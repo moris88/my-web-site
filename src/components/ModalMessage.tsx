@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import { HiEnvelope } from 'react-icons/hi2'
 import { Button } from '@nextui-org/button'
 import { Link } from '@nextui-org/link'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
@@ -66,7 +66,7 @@ function ModalMessage({ dict }: ModalMessageProps) {
           }}
         >
           {dict.contacts.buttons.sendEmail}
-          <EnvelopeIcon className="h-5 w-5" />
+          <HiEnvelope className="h-5 w-5" />
         </Button>
       )}
       {show.form && (
@@ -85,7 +85,7 @@ function ModalMessage({ dict }: ModalMessageProps) {
                   <p>
                     {dict.contacts.modal.content}&nbsp;
                     <Link href="/privacy">
-                      <i className="whitespace-nowrap font-semibold text-white">
+                      <i className="whitespace-nowrap font-semibold dark:text-white">
                         {'Privacy Policy'}
                       </i>
                     </Link>

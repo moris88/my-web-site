@@ -56,66 +56,68 @@ export default function FormArticles({ dict }: FormArticlesProps) {
       className="flex w-full flex-col items-center justify-center gap-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex w-full flex-col gap-4">
-        <Input
-          isRequired
-          id="title"
-          label={dict.dashboard.form.it.title.label}
-          placeholder={dict.dashboard.form.it.title.placeholder}
-          type="text"
-          {...register('title_it', { required: true })}
-        />
-        {errors?.title_it && (
-          <p className="font-bold text-red-500">
-            {dict.dashboard.form.it.title.required}
-          </p>
-        )}
-        <Textarea
-          isRequired
-          id="content"
-          label={dict.dashboard.form.it.content.label}
-          maxRows={10}
-          minRows={10}
-          placeholder={dict.dashboard.form.it.content.placeholder}
-          type="text"
-          {...register('content_it', { required: false })}
-        />
-        {errors?.content_it && (
-          <p className="font-bold text-red-500">
-            {dict.dashboard.form.it.content.required}
-          </p>
-        )}
-      </div>
+      <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
+        <div className="flex w-full flex-col gap-4">
+          <Input
+            isRequired
+            id="title"
+            label={dict.dashboard.form.it.title.label}
+            placeholder={dict.dashboard.form.it.title.placeholder}
+            type="text"
+            {...register('title_it', { required: true })}
+          />
+          {errors?.title_it && (
+            <p className="font-bold text-red-500">
+              {dict.dashboard.form.it.title.required}
+            </p>
+          )}
+          <Textarea
+            isRequired
+            id="content"
+            label={dict.dashboard.form.it.content.label}
+            maxRows={10}
+            minRows={10}
+            placeholder={dict.dashboard.form.it.content.placeholder}
+            type="text"
+            {...register('content_it', { required: false })}
+          />
+          {errors?.content_it && (
+            <p className="font-bold text-red-500">
+              {dict.dashboard.form.it.content.required}
+            </p>
+          )}
+        </div>
 
-      <div className="flex w-full flex-col gap-4">
-        <Input
-          isRequired
-          id="title"
-          label={dict.dashboard.form.en.title.label}
-          placeholder={dict.dashboard.form.en.title.placeholder}
-          type="text"
-          {...register('title_en', { required: true })}
-        />
-        {errors?.title_en && (
-          <p className="font-bold text-red-500">
-            {dict.dashboard.form.en.title.required}
-          </p>
-        )}
-        <Textarea
-          isRequired
-          id="content"
-          label={dict.dashboard.form.en.content.label}
-          maxRows={10}
-          minRows={10}
-          placeholder={dict.dashboard.form.en.content.placeholder}
-          type="text"
-          {...register('content_en', { required: false })}
-        />
-        {errors?.content_en && (
-          <p className="font-bold text-red-500">
-            {dict.dashboard.form.en.content.required}
-          </p>
-        )}
+        <div className="flex w-full flex-col gap-4">
+          <Input
+            isRequired
+            id="title"
+            label={dict.dashboard.form.en.title.label}
+            placeholder={dict.dashboard.form.en.title.placeholder}
+            type="text"
+            {...register('title_en', { required: true })}
+          />
+          {errors?.title_en && (
+            <p className="font-bold text-red-500">
+              {dict.dashboard.form.en.title.required}
+            </p>
+          )}
+          <Textarea
+            isRequired
+            id="content"
+            label={dict.dashboard.form.en.content.label}
+            maxRows={10}
+            minRows={10}
+            placeholder={dict.dashboard.form.en.content.placeholder}
+            type="text"
+            {...register('content_en', { required: false })}
+          />
+          {errors?.content_en && (
+            <p className="font-bold text-red-500">
+              {dict.dashboard.form.en.content.required}
+            </p>
+          )}
+        </div>
       </div>
       <Input
         id="link"

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { Suspense } from 'react'
-import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
+import { HiArrowDownTray } from 'react-icons/hi2'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import { Checkbox, Divider, Skeleton } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
@@ -83,7 +83,7 @@ function PageApp({ dict }: PageCVProps) {
           onClick={() => setShowDownload(true)}
         >
           {dict.application.download}
-          <ArrowDownTrayIcon className="h-5 w-5" />
+          <HiArrowDownTray className="h-5 w-5" />
         </Button>
         {showDownload && (
           <Modal

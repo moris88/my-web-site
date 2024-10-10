@@ -1,11 +1,18 @@
 'use client'
 
 import React, { Suspense } from 'react'
+import { BsFillPhoneFill } from 'react-icons/bs'
+import { FaBloggerB, FaListAlt } from 'react-icons/fa'
+import { HiChevronDown } from 'react-icons/hi2'
 import { usePathname, useRouter } from 'next/navigation'
 import { Image } from '@nextui-org/image'
 import { Link } from '@nextui-org/link'
 import {
   Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -31,7 +38,6 @@ function Header({ dict }: NavbarProps) {
   const pathname = usePathname()
   const route = useRouter()
   const links = [
-    { name: dict.navbar.home, path: '/' },
     { name: dict.navbar.curriculum, path: '/curriculum' },
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.application, path: '/application' },
@@ -39,6 +45,13 @@ function Header({ dict }: NavbarProps) {
     { name: dict.navbar.todolist, path: '/todolist' },
     { name: dict.navbar.contacts, path: '/contacts' },
   ]
+
+  const icons: Record<string, React.ReactNode> = {
+    chevron: <HiChevronDown size={16} />,
+    '/application': <BsFillPhoneFill size={16} />,
+    '/todolist': <FaListAlt size={16} />,
+    '/blog': <FaBloggerB size={16} />,
+  }
 
   React.useEffect(() => {
     const cookies = document.cookie
@@ -120,17 +133,59 @@ function Header({ dict }: NavbarProps) {
         </div>
       </NavbarMenu>
       <NavbarContent className="hidden gap-4 lg:flex" justify="end">
-        {links.map(({ name, path }) => (
-          <NavbarItem key={generateUniqueId()}>
-            <Link href={path}>
-              <span
-                className={`${isActive(pathname, path) ? 'border-b border-b-blue-600 text-blue-600 dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-blue-600 hover:text-blue-600 dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+        {links
+          .filter(
+            (link) =>
+              link.path !== '/application' &&
+              link.path !== '/todolist' &&
+              link.path !== '/blog',
+          )
+          .map(({ name, path }) => (
+            <NavbarItem key={generateUniqueId()}>
+              <Link href={path}>
+                <span
+                  className={`${isActive(pathname, path) ? 'border-b border-b-blue-600 text-blue-600 dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-blue-600 hover:text-blue-600 dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                >
+                  {name}
+                </span>
+              </Link>
+            </NavbarItem>
+          ))}
+        <Dropdown>
+          <NavbarItem>
+            <DropdownTrigger>
+              <Button
+                disableRipple
+                className="bg-transparent p-0 text-base"
+                endContent={icons.chevron}
               >
-                {name}
-              </span>
-            </Link>
+                {dict.navbar.more}
+              </Button>
+            </DropdownTrigger>
           </NavbarItem>
-        ))}
+          <DropdownMenu
+            itemClasses={{
+              base: 'gap-4',
+            }}
+          >
+            {links
+              .filter(
+                (link) =>
+                  link.path === '/application' ||
+                  link.path === '/todolist' ||
+                  link.path === '/blog',
+              )
+              .map(({ name, path }) => (
+                <DropdownItem
+                  key={generateUniqueId()}
+                  startContent={icons[path]}
+                  onClick={() => route.push(path)}
+                >
+                  <span className="text-black dark:text-white">{name}</span>
+                </DropdownItem>
+              ))}
+          </DropdownMenu>
+        </Dropdown>
         {isAuth ? (
           <Button color="primary" variant="ghost" onClick={handleClickLogout}>
             {dict.login.form.logout}

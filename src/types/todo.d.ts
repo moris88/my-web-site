@@ -8,4 +8,7 @@ export interface Todo {
   completedAt: string | null
   dueDate: string | null
   notify: boolean
+  priority: Priority
 }
+
+export type Priority = 'low' | 'medium' | 'high' | 'urgent'

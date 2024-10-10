@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import { IdentificationIcon, UserIcon } from '@heroicons/react/24/outline'
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { HiIdentification, HiMiniUser } from 'react-icons/hi2'
 import { Link } from '@nextui-org/link'
 import {
   Button,
@@ -13,7 +14,7 @@ import {
 } from '@nextui-org/react'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { ButtonsGroupSocial, Icon, ModalMessage, StoreLink } from '@/components'
+import { ButtonsGroupSocial, ModalMessage, StoreLink } from '@/components'
 import { Contact } from '@/types'
 import { generateUniqueId, listButtons } from '@/utils'
 
@@ -33,7 +34,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
               <CardHeader className="flex gap-3">
                 <h3 className="w-full select-none text-center">
                   <span className="flex items-center justify-center gap-1">
-                    <UserIcon className="h-5 w-5" />
+                    <HiMiniUser className="h-5 w-5" />
                     <b>{dict.contacts.title}</b>
                   </span>
                 </h3>
@@ -96,7 +97,7 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
           </div>
           <h3 className="mt-5 w-full select-none text-center">
             <span className="flex items-center justify-center gap-1">
-              <IdentificationIcon className="h-5 w-5" />
+              <HiIdentification className="h-5 w-5" />
               <b>{dict.contacts.social}</b>
             </span>
           </h3>
@@ -117,11 +118,15 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
                   }
                 >
                   <span className="flex items-center gap-2">
-                    <Icon
-                      className="w-6"
-                      labelIcon={button.name}
-                      pathD={button.pathD}
-                    />
+                    {button.name === 'facebook' && (
+                      <FaFacebook className="h-6 w-6" />
+                    )}
+                    {button.name === 'github' && (
+                      <FaGithub className="h-6 w-6" />
+                    )}
+                    {button.name === 'linkedin' && (
+                      <FaLinkedin className="h-6 w-6" />
+                    )}
                     {
                       dict.contacts.buttons[
                         button.name as keyof typeof dict.contacts.buttons
