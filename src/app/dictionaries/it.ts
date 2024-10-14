@@ -38,9 +38,19 @@ const dictionary = {
         overdue: 'Scaduti',
         not_overdue: 'Non scaduti',
         buttons: {
-          clear_completed: 'Pulisci completati',
-          clear_expired: 'Rimuovi compiti scaduti',
-          clear_all: 'Rimuovi tutti i compiti',
+          message: 'Che operazione vuoi fare?',
+          clear_completed: {
+            label: 'Pulisci completati',
+            message: 'Sei sicuro di voler eliminare i compiti completati?',
+          },
+          clear_expired: {
+            label: 'Rimuovi compiti scaduti',
+            message: 'Sei sicuro di voler eliminare i compiti scaduti?',
+          },
+          clear_all: {
+            label: 'Rimuovi tutti i compiti',
+            message: 'Sei sicuro di voler eliminare tutti i compiti?',
+          },
         },
       },
     },

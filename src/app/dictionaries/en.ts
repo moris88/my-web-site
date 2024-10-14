@@ -38,9 +38,19 @@ const dictionary = {
         overdue: 'Overdue',
         not_overdue: 'Not overdue',
         buttons: {
-          clear_completed: 'Clear completed',
-          clear_expired: 'Remove expired tasks',
-          clear_all: 'Remove all tasks',
+          message: 'What operation do you want to do?',
+          clear_completed: {
+            label: 'Clear completed tasks',
+            message: 'Are you sure you want to delete the completed tasks?',
+          },
+          clear_expired: {
+            label: 'Clear expired tasks',
+            message: 'Are you sure you want to delete the expired tasks?',
+          },
+          clear_all: {
+            label: 'Clear all tasks',
+            message: 'Are you sure you want to delete all tasks?',
+          },
         },
       },
     },

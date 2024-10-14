@@ -129,7 +129,10 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   }
 
   return (
-    <div className="flex w-full flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between">
+    <div
+      className="flex w-full cursor-pointer flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between"
+      onClick={toggleTodo}
+    >
       {isEditing ? (
         <div className="flex w-full flex-col gap-y-4">
           <div className="flex w-full flex-col items-center gap-4 md:flex-row">
@@ -198,7 +201,10 @@ function TodoItem({ todo, dict }: TodoItemProps) {
             <span
               className={`flex items-center gap-2 font-bold ${todo.completed ? 'line-through' : ''}`}
             >
-              {flagIcon[todo.priority]} {todo.title}
+              {flagIcon[todo.priority]}{' '}
+              <span className={todo.completed ? 'text-green-600' : ''}>
+                {todo.title}
+              </span>
             </span>
           </Checkbox>
           <ButtonGroup>

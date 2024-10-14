@@ -61,3 +61,8 @@ export function setThemeDocument(theme: Theme) {
   if (theme === 'dark') document.documentElement.classList.add('dark')
   else document.documentElement.classList.remove('dark')
 }
+
+export function isTaskOverdue(dueDate: string | null) {
+  if (!dueDate) return false
+  return moment().isAfter(dueDate)
+}

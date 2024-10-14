@@ -1,20 +1,14 @@
 'use client'
 
 import React from 'react'
-import { HiArrowsPointingIn } from 'react-icons/hi2'
-import {
-  Button,
-  ButtonGroup,
-  Chip,
-  Select,
-  SelectItem,
-  Switch,
-} from '@nextui-org/react'
+import { Chip, Select, SelectItem } from '@nextui-org/react'
 import { useAtom } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
 import { useNotificationRequest } from '@/hooks'
+import { isTaskOverdue } from '@/utils'
+import DangerZone from './DangerZone'
 import TodoItem from './TodoItem'
 
 function Separated() {
@@ -34,7 +28,6 @@ interface TodoListProps {
 function TodoList({ dict }: TodoListProps) {
   const [todos, setTodos] = useAtom(todoListAtom)
   const [filter, setFilter] = React.useState('1')
-  const [showDangerZone, setShowDangerZone] = React.useState(false)
   const { notifyUser } = useNotificationRequest()
 
   // Notifica all'utente quando un task è scaduto
@@ -68,28 +61,6 @@ function TodoList({ dict }: TodoListProps) {
       setTodos(JSON.parse(savedTodos))
     }
   }, [setTodos])
-
-  const isTaskOverdue = (dueDate: string | null) => {
-    if (!dueDate) return false
-    return moment().isAfter(dueDate)
-  }
-
-  const clearCompleted = () => {
-    const newTodos = todos.filter((todo) => !todo.completed)
-    setTodos(newTodos)
-    localStorage.setItem('todos', JSON.stringify(newTodos))
-  }
-
-  const clearExpired = () => {
-    const newTodos = todos.filter((todo) => !isTaskOverdue(todo.dueDate))
-    setTodos(newTodos)
-    localStorage.setItem('todos', JSON.stringify(newTodos))
-  }
-
-  const clearAll = () => {
-    setTodos([])
-    localStorage.removeItem('todos')
-  }
 
   return (
     <div className="mt-4 space-y-4">
@@ -202,51 +173,7 @@ function TodoList({ dict }: TodoListProps) {
           ))
       )}
       {todos.length > 0 && (
-        <>
-          {!showDangerZone && (
-            <Switch
-              size="sm"
-              onChange={(e) => setShowDangerZone(e.target.checked)}
-            >
-              Danger Zone
-            </Switch>
-          )}
-          {showDangerZone && (
-            <div className="relative rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5">
-              <HiArrowsPointingIn
-                className="absolute right-1 top-1 h-5 w-5 cursor-pointer dark:text-black"
-                onClick={() => setShowDangerZone(false)}
-              />
-              <p className="absolute left-1 top-1 hidden dark:text-black lg:inline">
-                Danger Zone
-              </p>
-              <div className="hidden w-full items-center justify-center md:flex">
-                <ButtonGroup>
-                  <Button color="danger" size="lg" onClick={clearCompleted}>
-                    {dict.todolist.listitem.filter.buttons.clear_completed}
-                  </Button>
-                  <Button color="danger" size="lg" onClick={clearExpired}>
-                    {dict.todolist.listitem.filter.buttons.clear_expired}
-                  </Button>
-                  <Button color="danger" size="lg" onClick={clearAll}>
-                    {dict.todolist.listitem.filter.buttons.clear_all}
-                  </Button>
-                </ButtonGroup>
-              </div>
-              <div className="flex w-full flex-col items-center justify-center gap-y-2 md:hidden">
-                <Button color="danger" size="sm" onClick={clearCompleted}>
-                  {dict.todolist.listitem.filter.buttons.clear_completed}
-                </Button>
-                <Button color="danger" size="sm" onClick={clearExpired}>
-                  {dict.todolist.listitem.filter.buttons.clear_expired}
-                </Button>
-                <Button color="danger" size="sm" onClick={clearAll}>
-                  {dict.todolist.listitem.filter.buttons.clear_all}
-                </Button>
-              </div>
-            </div>
-          )}
-        </>
+        <DangerZone dict={dict} setTodos={setTodos} todos={todos} />
       )}
     </div>
   )

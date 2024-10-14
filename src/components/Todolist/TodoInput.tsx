@@ -32,8 +32,8 @@ function TodoInput({ dict }: TodoInputProps) {
   const [showInput, setShowInput] = React.useState(true)
   const [showAdd, setShowAdd] = React.useState(false)
   const [showError, setShowError] = React.useState(false)
-  const [required, setRequired] = React.useState(false)
   const [showDescription, setShowDescription] = React.useState(false)
+  const [required, setRequired] = React.useState(false)
 
   const minValue = today(getLocalTimeZone()) as any
 
@@ -83,9 +83,10 @@ function TodoInput({ dict }: TodoInputProps) {
   return (
     <div className="flex w-full flex-col items-center gap-y-4">
       <Switch
-        className="inline lg:hidden"
+        checked={showInput}
+        className="flex items-center lg:hidden"
         size="sm"
-        onChange={(e) => setShowInput(e.target.checked)}
+        onChange={(e) => setShowInput(!e.target.checked)}
       >
         {'Hidden add todo input'}
       </Switch>
@@ -142,7 +143,7 @@ function TodoInput({ dict }: TodoInputProps) {
               {dict.todolist.addTask.label}
             </Switch>
             <Button
-              className="flex gap-1 min-w-36"
+              className="flex min-w-36 gap-1"
               color="success"
               size="lg"
               onClick={confirmAddTodo}
