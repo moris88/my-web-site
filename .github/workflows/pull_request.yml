@@ -65,6 +65,9 @@ jobs:
           done
           echo "ALL_REVIEWS=$ALL_REVIEWS" >> $GITHUB_ENV
 
+          # Debug print
+          echo "Debug: ALL_REVIEWS content:\n$ALL_REVIEWS"
+
       - name: Create PR comment with LLaMA review
         uses: peter-evans/create-or-update-comment@v4
         with:
