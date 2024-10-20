@@ -24,24 +24,27 @@ jobs:
         id: chatgpt-review
         run: |
           # Send the changed code files to ChatGPT API and capture the response
-          MODIFIED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }})
-          for file in $MODIFIED_FILES; do
+            BASE_COMMIT=${{ github.event.pull_request.base.sha }}
+            HEAD_COMMIT=${{ github.sha }}
+            MODIFIED_FILES=$(git diff --name-only $BASE_COMMIT $HEAD_COMMIT)
+
+            for file in $MODIFIED_FILES; do
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx ]]; then
-              echo "Reviewing $file"
-              FILE_CONTENT=$(cat $file)
-              REVIEW=$(curl -X POST "https://api.openai.com/v1/chat/completions" \
-              -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
-              -H "Content-Type: application/json" \
-              -d '{
+                echo "Reviewing $file"
+                FILE_CONTENT=$(cat "$file")
+                REVIEW=$(curl -X POST "https://api.openai.com/v1/chat/completions" \
+                -H "Authorization: Bearer ${{ secrets.OPENAI_API_KEY }}" \
+                -H "Content-Type: application/json" \
+                -d '{
                     "model": "gpt-4",
                     "messages": [
-                      {"role": "system", "content": "You are a helpful assistant reviewing code."},
-                      {"role": "user", "content": "Analyze this code for logic and syntax errors: '"$FILE_CONTENT"'"}
+                        {"role": "system", "content": "You are a helpful assistant reviewing code."},
+                        {"role": "user", "content": "Analyze this code for logic and syntax errors: '"$FILE_CONTENT"'"}
                     ]
-                  }')
-              echo "ChatGPT Review: $REVIEW"
+                    }')
+                echo "ChatGPT Review: $REVIEW"
             fi
-          done
+            done
 
       - name: Create PR comment with ChatGPT review
         uses: peter-evans/create-or-update-comment@v1
