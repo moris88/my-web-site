@@ -25,8 +25,7 @@ jobs:
       - name: Set the base and head commit
         id: set_commits
         run: |
-          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
-          BASE_COMMIT=$(git merge-base HEAD ${{ github.event.pull_request.base.ref }})
+          BASE_COMMIT=$(git merge-base HEAD ${{ github.event.pull_request.base.sha }})
           HEAD_COMMIT=${{ github.sha }}
           echo "BASE_COMMIT=$BASE_COMMIT" >> $GITHUB_ENV
           echo "HEAD_COMMIT=$HEAD_COMMIT" >> $GITHUB_ENV
