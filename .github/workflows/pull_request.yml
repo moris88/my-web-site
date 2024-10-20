@@ -13,6 +13,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Scarica tutta la cronologia git
+    
+      - name: Debugging information
+        run: |
+            echo "Pull request base: ${{ github.event.pull_request.base.ref }}"
+            git branch -a  # Elenca tutti i branch
+            git log --oneline  # Mostra i commit recenti
 
       - name: Set the base and head commit
         id: set_commits
