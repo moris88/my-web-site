@@ -14,14 +14,6 @@ jobs:
         with:
             fetch-depth: 0  # Scarica l'intera cronologia git
 
-      - name: Set up Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
       - name: Analyze code with LLaMA (Hugging Face)
         id: llama-review
         run: |
