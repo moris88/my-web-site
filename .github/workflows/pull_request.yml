@@ -12,24 +12,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-            fetch-depth: 0  # Scarica l'intera cronologia git
+          fetch-depth: 0  # Scarica tutta la cronologia git
+
+      - name: Set the base and head commit
+        id: set_commits
+        run: |
+          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+          BASE_COMMIT=$(git merge-base HEAD ${{ github.event.pull_request.base.ref }})
+          HEAD_COMMIT=${{ github.sha }}
+          echo "BASE_COMMIT=$BASE_COMMIT" >> $GITHUB_ENV
+          echo "HEAD_COMMIT=$HEAD_COMMIT" >> $GITHUB_ENV
+
+      - name: Get modified files
+        id: get_modified_files
+        run: |
+          MODIFIED_FILES=$(git diff --name-only $BASE_COMMIT $HEAD_COMMIT)
+          echo "MODIFIED_FILES=$MODIFIED_FILES" >> $GITHUB_ENV
 
       - name: Analyze code with LLaMA (Hugging Face)
         id: llama-review
         run: |
-          # Set the base and head commit
-          BASE_COMMIT=$(git merge-base HEAD ${{ github.event.pull_request.base.ref }})
-          HEAD_COMMIT=${{ github.sha }}
-          
-          # Get the modified files between the commits
-          MODIFIED_FILES=$(git diff --name-only $BASE_COMMIT $HEAD_COMMIT)
-
-          # Hugging Face API URL and token
           HF_API_URL="https://api-inference.huggingface.co/models/meta-llama/Llama-3.2-1B"
           HF_API_TOKEN="${{ secrets.HUGGINGFACE_API_TOKEN }}"
 
           # Loop through the modified files and send them to LLaMA for analysis
-          for file in $MODIFIED_FILES; do
+          IFS=',' read -r -a files <<< "$MODIFIED_FILES"
+          for file in "${files[@]}"; do
             if [[ $file == *.js || $file == *.ts || $file == *.jsx || $file == *.tsx ]]; then
               echo "Reviewing $file"
               FILE_CONTENT=$(cat "$file")
