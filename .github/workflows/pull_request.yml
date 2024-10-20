@@ -51,6 +51,9 @@ jobs:
               -H "Content-Type: application/json" \
               -d "$PAYLOAD")
 
+              # Debug print for the REVIEW response
+              echo "LLaMA API Response:\n$REVIEW"
+
               # Extract relevant information from the response
               LOGIC_ERRORS=$(echo "$REVIEW" | jq -r '.logic_errors // "No logic errors found."')
               POTENTIAL_ISSUES=$(echo "$REVIEW" | jq -r '.potential_issues // "No potential issues found."')
