@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+            fetch-depth: 0  # Scarica l'intera cronologia git
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
@@ -24,7 +26,7 @@ jobs:
         id: llama-review
         run: |
           # Set the base and head commit
-          BASE_COMMIT=${{ github.event.pull_request.base.sha }}
+          BASE_COMMIT=$(git merge-base HEAD ${{ github.event.pull_request.base.ref }})
           HEAD_COMMIT=${{ github.sha }}
           
           # Get the modified files between the commits
