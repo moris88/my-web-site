@@ -16,9 +16,11 @@ jobs:
     
       - name: Debugging information
         run: |
-            echo "Pull request base: ${{ github.event.pull_request.base.ref }}"
-            git branch -a  # Elenca tutti i branch
-            git log --oneline  # Mostra i commit recenti
+          echo "Pull request base: ${{ github.event.pull_request.base.ref }}"
+          echo "Current SHA: ${{ github.sha }}"
+          git branch -a  # Elenca tutti i branch
+          git log --oneline  # Mostra i commit recenti
+          git show-branch  # Mostra le branch attuali e il loro stato
 
       - name: Set the base and head commit
         id: set_commits
