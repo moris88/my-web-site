@@ -174,7 +174,7 @@ const dictionary = {
           linkedin:
             'Verrai reindirizzato su Linkedin sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei nella mia rete, quindi dovrai chiedere la connessione.',
           facebook:
-            'Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio anche tramite il pulsante "Whatsapp" ma dovrai avere un account attivo.',
+            "Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
           github:
             'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
         },
