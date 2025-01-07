@@ -7,5 +7,5 @@ export default async function ContactPage() {
   const language = dict.language === 'Italiano' ? 'it' : 'en'
   const contacts = await getContacts(language)
   const links = await getLinks()
-  return <PageInfo contacts={contacts} links={links} dict={dict} />
+  return <PageInfo contacts={contacts} dict={dict} links={links} />
 }
