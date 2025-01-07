@@ -98,11 +98,6 @@
             "link": "https://nextjs.org/"
         },
         {
-            "title": "Vite.js",
-            "level": 9,
-            "link": "https://vitejs.dev/"
-        },
-        {
             "title": "Astro.js",
             "level": 6,
             "link": "https://astro.build/"
@@ -192,6 +187,11 @@
             "title": "AWS",
             "level": 7,
             "link": "https://aws.amazon.com/"
+        },
+        {
+            "title": "Vite.js",
+            "level": 9,
+            "link": "https://vitejs.dev/"
         }
     ],
     "platforms": [

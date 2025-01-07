@@ -7,7 +7,7 @@ import { useAtomValue } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { isLoginAtom } from '@/atoms'
-import { CardBlog, SectionHero } from '@/components'
+import { CardBlog, SectionHero } from '@/components/UI'
 import { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
 

@@ -7,7 +7,7 @@ import { Checkbox, Divider, Skeleton } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import { DownloadFile, SectionHero } from '@/components'
+import { DownloadFile, SectionHero } from '@/components/UI'
 import { listImagesApp } from '@/utils'
 
 interface PageCVProps {

@@ -1,6 +1,17 @@
-{
-    "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo/",
-    "github": "https://github.com/moris88",
-    "facebook": "https://www.facebook.com/mauriziotolomeo88",
-    "email": "maurizio.tolomeo@outlook.it"
-}
+[
+    {
+        "label": "Linkedin",
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/maurizio-tolomeo/"
+    },
+    {
+        "label": "Github",
+        "name": "github",
+        "url": "https://github.com/moris88"
+    },
+    {
+        "label": "Facebook",
+        "name": "facebook",
+        "url": "https://www.facebook.com/mauriziotolomeo88"
+    }
+]

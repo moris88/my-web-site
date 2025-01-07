@@ -9,10 +9,6 @@ import { Divider } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
 import { FormContact } from '@/components'
 
-export interface StoreLink {
-  link: string
-  label: string
-}
 interface ModalMessageProps {
   dict: Dictionary
 }

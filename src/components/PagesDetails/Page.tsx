@@ -1,7 +1,7 @@
 'use client'
 
 import { Dictionary } from '@/app/dictionaries'
-import { ModalMessage, SectionHero } from '@/components'
+import { ModalMessage, SectionHero } from '@/components/UI'
 
 interface PageCookiesProps {
   dict: Dictionary

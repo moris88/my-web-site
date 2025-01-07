@@ -1,4 +1,4 @@
-import { HomePage } from '@/components'
+import { HomePage } from '@/components/UI'
 import { getInfo } from '@/lib'
 import { getDictionary } from './dictionaries'
 

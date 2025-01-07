@@ -14,16 +14,17 @@ import {
 } from '@nextui-org/react'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { ButtonsGroupSocial, ModalMessage, StoreLink } from '@/components'
-import { Contact } from '@/types'
-import { generateUniqueId, listButtons } from '@/utils'
+import { ButtonsGroupSocial, ModalMessage } from '@/components/UI'
+import { Contact, StoreLink } from '@/types'
+import { generateUniqueId } from '@/utils'
 
 interface PageInfoProps {
   contacts: Contact
+  links: StoreLink[]
   dict: Dictionary
 }
 
-export default function PageInfo({ contacts, dict }: PageInfoProps) {
+export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
   return (
     <section className="container">
@@ -103,33 +104,31 @@ export default function PageInfo({ contacts, dict }: PageInfoProps) {
           </h3>
           <div className="mt-5 flex w-full justify-center">
             <ButtonGroup>
-              {listButtons.map((button) => (
+              {contacts.links.map((button) => (
                 <Button
                   key={generateUniqueId()}
                   color="primary"
                   variant="flat"
-                  onClick={() =>
-                    setStoreLink({
-                      link: contacts[button.name],
-                      label: dict.contacts.buttons[
-                        button.name as keyof typeof dict.contacts.buttons
-                      ] as string,
-                    })
-                  }
+                  onClick={() => {
+                    const storeLink = links.filter(
+                      (link) => link.name === button,
+                    )[0]
+                    if (storeLink) setStoreLink(storeLink)
+                  }}
                 >
                   <span className="flex items-center gap-2">
-                    {button.name === 'facebook' && (
+                    {button.toLowerCase() === 'facebook' && (
                       <FaFacebook className="h-6 w-6" />
                     )}
-                    {button.name === 'github' && (
+                    {button.toLowerCase() === 'github' && (
                       <FaGithub className="h-6 w-6" />
                     )}
-                    {button.name === 'linkedin' && (
+                    {button.toLowerCase() === 'linkedin' && (
                       <FaLinkedin className="h-6 w-6" />
                     )}
                     {
                       dict.contacts.buttons[
-                        button.name as keyof typeof dict.contacts.buttons
+                        button as keyof typeof dict.contacts.buttons
                       ] as string
                     }
                   </span>

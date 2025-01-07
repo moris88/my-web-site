@@ -6,7 +6,7 @@
                 "role": "Web Developer",
                 "start": "27/12/2021",
                 "end": null,
-                "description": "tailwind, docker, aws, scss, agile, redux",
+                "description": "Stack: tailwind, docker, aws, scss, redux",
                 "link": "https://www.crmpartners.it/"
             },
             {
@@ -32,7 +32,7 @@
                 "role": "student",
                 "start": "01/10/2013",
                 "end": "01/12/2017",
-                "description": "Facoltà di informatica; Stack: java, c, c++, sql, linux; Esami: reti, algoritmi, analisi matematica, calcolo numerico, database, programmazione, metodi avanzati di programmazione, linguaggi di programmazione, ingegneria del software, matematica discreta, sistemi operativi, architettura degli elaboratori",
+                "description": "Facoltà di informatica; Stack: java, c, c++, sql, linux; Esami superati: reti, algoritmi, analisi matematica, calcolo numerico, database, programmazione, metodi avanzati di programmazione, linguaggi di programmazione, ingegneria del software, matematica discreta, sistemi operativi, architettura degli elaboratori",
                 "link": "https://epicode.com/"
             },
             {

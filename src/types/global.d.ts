@@ -10,11 +10,10 @@ export interface Info {
   }
 }
 
-export interface Links extends Record<string, string> {
-  github: string
-  linkedin: string
-  facebook: string
-  email: string
+export interface StoreLink {
+  label: string
+  name: string
+  url: string
 }
 
 export interface Contact extends Record<string, any> {
@@ -29,9 +28,7 @@ export interface Contact extends Record<string, any> {
   phone: string
   address: string
   website: string
-  linkedin: string
-  facebook: string
-  github: string
+  links: string[]
 }
 
 export interface Skills extends Record<string, Skill[]> {

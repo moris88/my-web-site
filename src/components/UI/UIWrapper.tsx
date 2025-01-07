@@ -5,7 +5,7 @@ import { NextUIProvider } from '@nextui-org/system'
 import { createStore, Provider } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
-import { Footer, Header } from '@/components'
+import { Footer, Header } from '@/components/UI'
 import { Links, Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
 

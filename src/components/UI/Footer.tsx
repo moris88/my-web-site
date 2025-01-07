@@ -1,10 +1,10 @@
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Link } from '@nextui-org/link'
-import { Links } from '@/types'
-import { generateUniqueId, listButtons } from '@/utils'
+import { StoreLink } from '@/types'
+import { generateUniqueId } from '@/utils'
 
 interface MyFooterProps {
-  links: Links
+  links: StoreLink[]
 }
 
 function MyFooter({ links }: MyFooterProps) {
@@ -26,15 +26,15 @@ function MyFooter({ links }: MyFooterProps) {
         </Link>
       </div>
       <div className="flex items-center gap-4">
-        {listButtons.map((button) => (
-          <Link key={generateUniqueId()} href={links[button.name]}>
-            {button.name === 'facebook' && (
+        {links.map((link) => (
+          <Link key={generateUniqueId()} href={link.url}>
+            {link.name === 'facebook' && (
               <FaFacebook className="h-6 w-6 text-black dark:text-white" />
             )}
-            {button.name === 'github' && (
+            {link.name === 'github' && (
               <FaGithub className="h-6 w-6 text-black dark:text-white" />
             )}
-            {button.name === 'linkedin' && (
+            {link.name === 'linkedin' && (
               <FaLinkedin className="h-6 w-6 text-black dark:text-white" />
             )}
           </Link>

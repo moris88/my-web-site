@@ -7,9 +7,11 @@
         "job": "Programmatore Web",
         "email": "maurizio.tolomeo@outlook.it",
         "website": "https://www.mauriziotolomeo.it",
-        "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
-        "github": "https://github.com/moris88",
-        "facebook": "https://www.facebook.com/mauriziotolomeo88"
+        "links": [
+            "linkedin",
+            "github",
+            "facebook"
+        ]
     },
     "en": {
         "firstName": "Maurizio",
@@ -19,8 +21,10 @@
         "job": "Full Stack Developer",
         "email": "maurizio.tolomeo@outlook.it",
         "website": "https://www.mauriziotolomeo.it",
-        "linkedin": "https://www.linkedin.com/in/maurizio-tolomeo",
-        "github": "https://github.com/moris88",
-        "facebook": "https://www.facebook.com/mauriziotolomeo88"
+        "links": [
+            "linkedin",
+            "github",
+            "facebook"
+        ]
     }
 }

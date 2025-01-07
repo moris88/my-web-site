@@ -7,7 +7,7 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import { Checkbox, Divider } from '@nextui-org/react'
 import { Button } from '@nextui-org/react'
 import { Dictionary } from '@/app/dictionaries'
-import { DownloadFile, SectionHero } from '@/components'
+import { DownloadFile, SectionHero } from '@/components/UI'
 import { Curriculum } from '@/types'
 import { generateUniqueId } from '@/utils'
 
