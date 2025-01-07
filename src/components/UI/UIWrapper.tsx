@@ -6,7 +6,7 @@ import { createStore, Provider } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
 import { Footer, Header } from '@/components/UI'
-import { Links, Theme } from '@/types'
+import { StoreLink, Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
 
 const atomStore = createStore()
@@ -14,7 +14,7 @@ const atomStore = createStore()
 interface UIWrapperProps {
   children: React.ReactNode
   dict: Dictionary
-  links: Links
+  links: StoreLink[]
 }
 
 export default function UIWrapper({ children, dict, links }: UIWrapperProps) {
