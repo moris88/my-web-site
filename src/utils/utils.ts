@@ -66,3 +66,8 @@ export function isTaskOverdue(dueDate: string | null) {
   if (!dueDate) return false
   return moment().isAfter(dueDate)
 }
+
+export function addAtSymbol(str: string | null, symbol: string): string {
+  if (!str) return 'Not provided'
+  return str.startsWith(symbol) ? str : `${symbol}${str}`
+}

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { sendMessage } from '@/utils'
+import { addAtSymbol, sendMessage } from '@/utils'
 
 // recupera env TOKEN_TELEGRAM di next
 const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
@@ -7,9 +7,9 @@ const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const email = body.email || null
+    const email = body.email || 'Not provided'
     const message = body.message || null
-    const username = body.username || null
+    const username = addAtSymbol(body.username || null, '@')
     const name = body.name || null
     if (!message || !name) {
       return NextResponse.json(
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
       const response = await sendMessage({
         token: TOKEN_TELEGRAM,
         chatId: CHAT_ID_TELEGRAM,
-        message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email ?? 'Not provided'}\nUsername: ${username ?? 'Not provided'}`,
+        message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email}\nUsername: ${username}`,
       })
       console.log(response)
     } else {
