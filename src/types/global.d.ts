@@ -88,3 +88,19 @@ export interface Experience {
   description: string
   link: string | null
 }
+
+export interface History {
+  title: {
+    it: string
+    en: string
+  }
+  it: {
+    title: string | null
+    description: string
+  }[]
+  en: {
+    title: string | null
+    description: string
+  }[]
+  lastUpdate: string
+}

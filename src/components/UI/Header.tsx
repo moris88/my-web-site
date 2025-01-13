@@ -39,6 +39,7 @@ function Header({ dict }: NavbarProps) {
   const route = useRouter()
   const links = [
     { name: dict.navbar.curriculum, path: '/curriculum' },
+    { name: dict.navbar.experience, path: '/experience' },
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.application, path: '/application' },
     { name: dict.navbar.blog, path: '/blog' },
