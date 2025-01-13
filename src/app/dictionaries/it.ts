@@ -2,6 +2,7 @@ const dictionary = {
   language: 'Italiano',
   navbar: {
     blog: 'Blog',
+    experience: 'Esperienze',
     skills: 'Competenze',
     todolist: 'Compiti',
     contacts: 'Contatti',
