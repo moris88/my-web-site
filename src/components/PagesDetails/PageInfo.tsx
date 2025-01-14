@@ -27,16 +27,30 @@ interface PageInfoProps {
 
 export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
+  const iconMap: Record<string, JSX.Element> = {
+    facebook: <FaFacebook className="h-6 w-6" />,
+    github: <FaGithub className="h-6 w-6" />,
+    linkedin: <FaLinkedin className="h-6 w-6" />,
+  }
+
+  const linkMap = links.reduce(
+    (acc, link) => {
+      acc[link.name.toLowerCase()] = link
+      return acc
+    },
+    {} as Record<string, (typeof links)[0]>,
+  )
+
   return (
-    <section className="container">
+    <section className="container py-4">
       {contacts && (
         <>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-4 xl:flex-row">
             <motion.div
-              animate={{ opacity: 1, translateY: 0 }}
-              initial={{ opacity: 0, translateY: -50 }}
+              animate={{ opacity: 1, translateX: 0 }}
+              initial={{ opacity: 0, translateX: -50 }}
               transition={{
-                duration: 1,
+                duration: 2,
               }}
             >
               <Card className="w-full bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 md:max-w-xl">
@@ -51,66 +65,80 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                 <Divider className="my-2" />
                 <CardBody>
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                      <b>{dict.contacts.firstName}</b>
-                    </div>
-                    <div>
-                      <i>{contacts?.firstName ?? ''}</i>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.lastName}</b>
-                    </div>
-                    <div>
-                      <i>{contacts?.lastName ?? ''}</i>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.birthDate}</b>
-                    </div>
-                    <div>
-                      <i>
-                        {moment(contacts?.birthDate ?? '').format('DD/MM/YYYY')}
-                      </i>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.nazionality}</b>
-                    </div>
-                    <div>
-                      <i>{contacts?.nazionality ?? ''}</i>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.job}</b>
-                    </div>
-                    <div>
-                      <i>{contacts?.job ?? ''}</i>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.email}</b>
-                    </div>
-                    <div>
-                      <Link
-                        className="italic"
-                        href={`mailto:${contacts?.email ?? ''}`}
-                      >
-                        {contacts?.email ?? ''}
-                      </Link>
-                    </div>
-                    <div>
-                      <b>{dict.contacts.website}</b>
-                    </div>
-                    <div>
-                      <Link className="italic" href={contacts?.website || '#'}>
-                        {contacts?.website?.replace('https://www.', '') ?? ''}
-                      </Link>
-                    </div>
+                    <>
+                      {[
+                        {
+                          label: dict.contacts.firstName,
+                          value: contacts?.firstName ?? '',
+                        },
+                        {
+                          label: dict.contacts.lastName,
+                          value: contacts?.lastName ?? '',
+                        },
+                        {
+                          label: dict.contacts.birthDate,
+                          value: moment(contacts?.birthDate ?? '').format(
+                            'DD/MM/YYYY',
+                          ),
+                        },
+                        {
+                          label: dict.contacts.nazionality,
+                          value: contacts?.nazionality ?? '',
+                        },
+                        {
+                          label: dict.contacts.job,
+                          value: contacts?.job ?? '',
+                        },
+                        {
+                          label: dict.contacts.specialization,
+                          value: contacts?.specialization ?? '',
+                        },
+                        {
+                          label: dict.contacts.email,
+                          value: (
+                            <Link href={`mailto:${contacts?.email ?? ''}`}>
+                              {contacts?.email ?? ''}
+                            </Link>
+                          ),
+                        },
+                        {
+                          label: dict.contacts.website,
+                          value: (
+                            <Link href={contacts?.website || '#'}>
+                              {contacts?.website?.replace('https://www.', '') ??
+                                ''}
+                            </Link>
+                          ),
+                        },
+                      ].map(({ label, value }) => (
+                        <React.Fragment key={generateUniqueId()}>
+                          <div>
+                            <b>{label}</b>
+                          </div>
+                          <div>
+                            <i>{value}</i>
+                          </div>
+                        </React.Fragment>
+                      ))}
+                    </>
                   </div>
                 </CardBody>
               </Card>
             </motion.div>
+            <motion.div
+              animate={{ opacity: 1, translateX: 0 }}
+              initial={{ opacity: 0, translateX: 50 }}
+              transition={{
+                duration: 2,
+              }}
+            >
+              <ModalMessage dict={dict} modal={false} />
+            </motion.div>
           </div>
           <motion.div
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1, translateY: 0 }}
             className="flex flex-col gap-4 px-0 lg:px-10"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, translateY: 50 }}
             transition={{
               duration: 2,
             }}
@@ -123,40 +151,28 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
             </h3>
             <div className="mt-5 flex w-full justify-center">
               <ButtonGroup>
-                {contacts.links.map((button) => (
-                  <Button
-                    key={generateUniqueId()}
-                    color="primary"
-                    variant="flat"
-                    onClick={() => {
-                      const storeLink = links.filter(
-                        (link) => link.name === button,
-                      )[0]
-                      if (storeLink) setStoreLink(storeLink)
-                    }}
-                  >
-                    <span className="flex items-center gap-2">
-                      {button.toLowerCase() === 'facebook' && (
-                        <FaFacebook className="h-6 w-6" />
-                      )}
-                      {button.toLowerCase() === 'github' && (
-                        <FaGithub className="h-6 w-6" />
-                      )}
-                      {button.toLowerCase() === 'linkedin' && (
-                        <FaLinkedin className="h-6 w-6" />
-                      )}
-                      {
-                        dict.contacts.buttons[
-                          button as keyof typeof dict.contacts.buttons
-                        ] as string
-                      }
-                    </span>
-                  </Button>
-                ))}
+                {contacts.links.map((button) => {
+                  const buttonLower = button.toLowerCase()
+                  const storeLink = linkMap[buttonLower]
+                  return (
+                    <Button
+                      key={buttonLower}
+                      color="primary"
+                      variant="flat"
+                      onClick={() => storeLink && setStoreLink(storeLink)}
+                    >
+                      <span className="flex items-center gap-2">
+                        {iconMap[buttonLower]}
+                        {
+                          dict.contacts.buttons[
+                            button as keyof typeof dict.contacts.buttons
+                          ] as string
+                        }
+                      </span>
+                    </Button>
+                  )
+                })}
               </ButtonGroup>
-            </div>
-            <div className="flex w-full justify-center">
-              <Divider className="my-10 max-w-10" />
             </div>
             <div className="flex items-center justify-center">
               <ButtonsGroupSocial
@@ -164,7 +180,6 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                 setStoreLink={setStoreLink}
                 storeLink={storeLink}
               />
-              <ModalMessage dict={dict} modal={false} />
             </div>
           </motion.div>
         </>

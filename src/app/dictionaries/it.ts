@@ -159,6 +159,7 @@ const dictionary = {
     birthDate: 'Data di nascita',
     nazionality: 'Nazionalità',
     job: 'Lavoro',
+    specialization: 'Specializzazione',
     email: 'Email',
     phone: 'Telefono',
     address: 'Indirizzo',

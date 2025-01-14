@@ -103,8 +103,8 @@ export default function FormContact({
         isRequired
         id="message"
         label={dict.contacts.form.message.label}
+        minRows={4}
         placeholder={dict.contacts.form.message.placeholder}
-        rows={4}
         {...register('message', { required: true })}
       />
       {errors?.message && (
