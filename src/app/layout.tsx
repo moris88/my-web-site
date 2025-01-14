@@ -9,7 +9,8 @@ import { getLinks } from '@/lib/request'
 import { getDictionary } from './dictionaries'
 import './globals.css'
 
-const inter = Inter({ subsets: [`latin`] })
+// eslint-disable-next-line quotes
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: `Maurizio Tolomeo`,
