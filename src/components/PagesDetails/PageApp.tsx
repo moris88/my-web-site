@@ -106,7 +106,7 @@ function PageApp({ dict }: PageCVProps) {
                         defaultSelected={accept}
                         onChange={(e) => setAccept(e.currentTarget.checked)}
                       >
-                        {`Accept terms`}
+                        {'Accept terms'}
                       </Checkbox>
                     </div>
                     <div className="flex w-full items-center justify-center gap-2">

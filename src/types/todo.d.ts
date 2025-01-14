@@ -11,4 +11,4 @@ export interface Todo {
   priority: Priority
 }
 
-export type Priority = `low` | `medium` | `high` | `urgent`
+export type Priority = 'low' | 'medium' | 'high' | 'urgent'

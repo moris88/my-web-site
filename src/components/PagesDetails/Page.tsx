@@ -5,7 +5,7 @@ import { ModalMessage, SectionHero } from '@/components/UI'
 
 interface PageCookiesProps {
   dict: Dictionary
-  page: `cookies` | `privacy`
+  page: 'cookies' | 'privacy'
 }
 
 function Page({ dict, page }: PageCookiesProps) {

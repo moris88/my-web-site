@@ -17,8 +17,8 @@ interface ConfirmModalProps {
   buttonCancel?: string
   onConfirm?: () => void
   onCancel?: () => void
-  colorConfirm?: `primary` | `success` | `warning` | `danger` | `secondary`
-  colorCancel?: `primary` | `success` | `warning` | `danger` | `secondary`
+  colorConfirm?: 'primary' | 'success' | 'warning' | 'danger' | 'secondary'
+  colorCancel?: 'primary' | 'success' | 'warning' | 'danger' | 'secondary'
 }
 
 function ConfirmModal({
@@ -41,13 +41,13 @@ function ConfirmModal({
         </ModalBody>
         <ModalFooter>
           {onCancel && (
-            <Button color={colorCancel ?? `default`} onClick={onCancel}>
-              {buttonCancel ?? `Cancel`}
+            <Button color={colorCancel ?? 'default'} onClick={onCancel}>
+              {buttonCancel ?? 'Cancel'}
             </Button>
           )}
           {onConfirm && (
-            <Button color={colorConfirm ?? `default`} onClick={onConfirm}>
-              {buttonConfirm ?? `Confirm`}
+            <Button color={colorConfirm ?? 'default'} onClick={onConfirm}>
+              {buttonConfirm ?? 'Confirm'}
             </Button>
           )}
         </ModalFooter>

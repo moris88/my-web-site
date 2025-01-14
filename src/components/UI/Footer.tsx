@@ -17,7 +17,7 @@ function MyFooter({ links }: MyFooterProps) {
       <div className="flex flex-wrap text-sm lg:text-base">
         <span className="dark:text-gray-400">©</span>
         <span className="dark:text-gray-400">{getYear()}</span>
-        <span className="dark:text-gray-400">{`-Moris™`}</span>
+        <span className="dark:text-gray-400">{'-Moris™'}</span>
         &nbsp;
         <Link href="/cookies">
           <span className="text-sm font-semibold text-black hover:text-blue-600 dark:text-gray-400 lg:text-base">
@@ -28,13 +28,13 @@ function MyFooter({ links }: MyFooterProps) {
       <div className="flex items-center gap-4">
         {links.map((link) => (
           <Link key={generateUniqueId()} href={link.url}>
-            {link.name === `facebook` && (
+            {link.name === 'facebook' && (
               <FaFacebook className="h-6 w-6 text-black dark:text-white" />
             )}
-            {link.name === `github` && (
+            {link.name === 'github' && (
               <FaGithub className="h-6 w-6 text-black dark:text-white" />
             )}
-            {link.name === `linkedin` && (
+            {link.name === 'linkedin' && (
               <FaLinkedin className="h-6 w-6 text-black dark:text-white" />
             )}
           </Link>

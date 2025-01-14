@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   try {
     // check if COOKIE_VALUE is defined
     if (!COOKIE_VALUE) {
-      throw new Error(`COOKIE_VALUE is not defined`)
+      throw new Error('COOKIE_VALUE is not defined')
     }
     const body = await request.json()
     const username = body.username || null
@@ -16,14 +16,14 @@ export async function POST(request: Request) {
     // check username and password
     if (!username || !password) {
       return NextResponse.json(
-        { error: `username and password are required` },
+        { error: 'username and password are required' },
         { status: 404 },
       )
     }
     // check username and password
     if (username !== ADMIN_USER || password !== ADMIN_PSW) {
       return NextResponse.json(
-        { error: `username or password is incorrect` },
+        { error: 'username or password is incorrect' },
         { status: 404 },
       )
     }
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   } catch (err) {
     error(err)
     return NextResponse.json(
-      { error: `Internal Server Error` },
+      { error: 'Internal Server Error' },
       { status: 500 },
     )
   }

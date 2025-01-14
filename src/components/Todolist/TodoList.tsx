@@ -15,7 +15,7 @@ function Separated() {
   return (
     <span className="hidden md:inline">
       &nbsp;
-      {`-`}
+      {'-'}
       &nbsp;
     </span>
   )
@@ -27,7 +27,7 @@ interface TodoListProps {
 
 function TodoList({ dict }: TodoListProps) {
   const [todos, setTodos] = useAtom(todoListAtom)
-  const [filter, setFilter] = React.useState(`1`)
+  const [filter, setFilter] = React.useState('1')
   const { notifyUser } = useNotificationRequest()
 
   // Notifica all'utente quando un task è scaduto
@@ -40,7 +40,7 @@ function TodoList({ dict }: TodoListProps) {
       const dueDate = new Date(todo.dueDate)
 
       if (!todo.completed && dueDate < new Date() && !todo.notify) {
-        notifyUser(`Task Scaduto`, `Il task "${todo.title}" è scaduto.`)
+        notifyUser('Task Scaduto', `Il task "${todo.title}" è scaduto.`)
         return { ...todo, notify: true } // Solo in questo caso modifichiamo il todo
       }
 
@@ -50,13 +50,13 @@ function TodoList({ dict }: TodoListProps) {
 
     if (isDifferent) {
       setTodos(newTodos)
-      localStorage.setItem(`todos`, JSON.stringify(newTodos))
+      localStorage.setItem('todos', JSON.stringify(newTodos))
     }
   }, [notifyUser, setTodos, todos])
 
   // Recupero dei task da localStorage quando la pagina si carica
   React.useEffect(() => {
-    const savedTodos = localStorage.getItem(`todos`)
+    const savedTodos = localStorage.getItem('todos')
     if (savedTodos) {
       setTodos(JSON.parse(savedTodos))
     }
@@ -75,11 +75,11 @@ function TodoList({ dict }: TodoListProps) {
           <Select
             defaultSelectedKeys={filter}
             items={[
-              { label: dict.todolist.listitem.filter.all, key: `1` },
-              { label: dict.todolist.listitem.filter.completed, key: `2` },
-              { label: dict.todolist.listitem.filter.uncompleted, key: `3` },
-              { label: dict.todolist.listitem.filter.overdue, key: `4` },
-              { label: dict.todolist.listitem.filter.not_overdue, key: `5` },
+              { label: dict.todolist.listitem.filter.all, key: '1' },
+              { label: dict.todolist.listitem.filter.completed, key: '2' },
+              { label: dict.todolist.listitem.filter.uncompleted, key: '3' },
+              { label: dict.todolist.listitem.filter.overdue, key: '4' },
+              { label: dict.todolist.listitem.filter.not_overdue, key: '5' },
             ]}
             label={dict.todolist.listitem.filter.label}
             onChange={(value) => setFilter(value.target.value)}
@@ -96,19 +96,19 @@ function TodoList({ dict }: TodoListProps) {
         todos
           .filter((todo) => {
             // Filtro per task completati
-            if (filter === `2`) {
+            if (filter === '2') {
               return todo.completed
             }
             // Filtro per task da completare
-            if (filter === `3`) {
+            if (filter === '3') {
               return !todo.completed
             }
             // Filtro per task scaduti
-            if (filter === `4`) {
+            if (filter === '4') {
               return isTaskOverdue(todo.dueDate)
             }
             // Filtro per task non scaduti
-            if (filter === `5`) {
+            if (filter === '5') {
               return !isTaskOverdue(todo.dueDate)
             }
             return true
@@ -123,10 +123,10 @@ function TodoList({ dict }: TodoListProps) {
           .map((todo) => (
             <div
               key={todo.id}
-              className={`rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5`}
+              className={'rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5'}
             >
               <TodoItem dict={dict} todo={todo} />
-              {todo.description !== `` && (
+              {todo.description !== '' && (
                 <p className="py-2 italic">
                   {dict.todolist.addTask.label}: {todo.description}
                 </p>
@@ -134,23 +134,23 @@ function TodoList({ dict }: TodoListProps) {
               <small className="flex flex-col items-start md:flex-row md:items-center">
                 {todo.createdAt && (
                   <span>
-                    {dict.todolist.listitem.createdAt}:{` `}
-                    {moment(todo.createdAt).format(`DD/MM/YYYY HH:mm`)}
+                    {dict.todolist.listitem.createdAt}:{' '}
+                    {moment(todo.createdAt).format('DD/MM/YYYY HH:mm')}
                   </span>
                 )}
                 {todo.updatedAt && (
                   <span>
                     <Separated />
-                    {dict.todolist.listitem.updatedAt}:{` `}
-                    {moment(todo.updatedAt).format(`DD/MM/YYYY HH:mm`)}
+                    {dict.todolist.listitem.updatedAt}:{' '}
+                    {moment(todo.updatedAt).format('DD/MM/YYYY HH:mm')}
                   </span>
                 )}
                 {todo.completed && (
                   <span>
                     <Separated />
                     <Chip color="success" size="sm">
-                      {dict.todolist.listitem.completedAt}:{` `}
-                      {moment(todo.completedAt).format(`DD/MM/YYYY HH:mm`)}
+                      {dict.todolist.listitem.completedAt}:{' '}
+                      {moment(todo.completedAt).format('DD/MM/YYYY HH:mm')}
                     </Chip>
                   </span>
                 )}
@@ -158,13 +158,13 @@ function TodoList({ dict }: TodoListProps) {
                   <span>
                     <Separated />
                     <Chip
-                      color={isTaskOverdue(todo.dueDate) ? `danger` : `warning`}
+                      color={isTaskOverdue(todo.dueDate) ? 'danger' : 'warning'}
                       size="sm"
                     >
                       {isTaskOverdue(todo.dueDate)
                         ? dict.todolist.listitem.expired
                         : dict.todolist.listitem.dueDateAt}
-                      : {moment(todo.dueDate).format(`DD/MM/YYYY HH:mm`)}
+                      : {moment(todo.dueDate).format('DD/MM/YYYY HH:mm')}
                     </Chip>
                   </span>
                 )}

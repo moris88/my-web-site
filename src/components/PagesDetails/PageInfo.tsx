@@ -69,44 +69,44 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                       {[
                         {
                           label: dict.contacts.firstName,
-                          value: contacts?.firstName ?? ``,
+                          value: contacts?.firstName ?? '',
                         },
                         {
                           label: dict.contacts.lastName,
-                          value: contacts?.lastName ?? ``,
+                          value: contacts?.lastName ?? '',
                         },
                         {
                           label: dict.contacts.birthDate,
-                          value: moment(contacts?.birthDate ?? ``).format(
-                            `DD/MM/YYYY`,
+                          value: moment(contacts?.birthDate ?? '').format(
+                            'DD/MM/YYYY',
                           ),
                         },
                         {
                           label: dict.contacts.nazionality,
-                          value: contacts?.nazionality ?? ``,
+                          value: contacts?.nazionality ?? '',
                         },
                         {
                           label: dict.contacts.job,
-                          value: contacts?.job ?? ``,
+                          value: contacts?.job ?? '',
                         },
                         {
                           label: dict.contacts.specialization,
-                          value: contacts?.specialization ?? ``,
+                          value: contacts?.specialization ?? '',
                         },
                         {
                           label: dict.contacts.email,
                           value: (
-                            <Link href={`mailto:${contacts?.email ?? ``}`}>
-                              {contacts?.email ?? ``}
+                            <Link href={`mailto:${contacts?.email ?? ''}`}>
+                              {contacts?.email ?? ''}
                             </Link>
                           ),
                         },
                         {
                           label: dict.contacts.website,
                           value: (
-                            <Link href={contacts?.website || `#`}>
-                              {contacts?.website?.replace(`https://www.`, ``) ??
-                                ``}
+                            <Link href={contacts?.website || '#'}>
+                              {contacts?.website?.replace('https://www.', '') ??
+                                ''}
                             </Link>
                           ),
                         },

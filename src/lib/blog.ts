@@ -11,18 +11,18 @@ const { error } = console
 export async function getArticles(language: Language): Promise<Blog> {
   try {
     if (!language) {
-      throw new Error(`Language not found`)
+      throw new Error('Language not found')
     }
     if (!FILE_PATH || !STORE_FILE_NAME) {
-      throw new Error(`Env File not found`)
+      throw new Error('Env File not found')
     }
 
     const pathfile = DEVELOPMENT
       ? `${FILE_PATH}${STORE_FILE_NAME_TEST}`
       : `${FILE_PATH}${STORE_FILE_NAME}`
     const response = await fetch(pathfile, {
-      method: `GET`,
-      cache: `no-cache`,
+      method: 'GET',
+      cache: 'no-cache',
     })
 
     // Verifica se la risposta è OK
@@ -39,7 +39,7 @@ export async function getArticles(language: Language): Promise<Blog> {
     error(err)
     return {
       articles: [],
-      error: `Internal Server Error`,
+      error: 'Internal Server Error',
       message: err as string,
     }
   }
@@ -51,21 +51,21 @@ export async function getArticle(
 ): Promise<Blog> {
   try {
     if (!id) {
-      throw new Error(`Article id not found`)
+      throw new Error('Article id not found')
     }
     if (!language) {
-      throw new Error(`Language not found`)
+      throw new Error('Language not found')
     }
     if (!FILE_PATH || !STORE_FILE_NAME) {
-      throw new Error(`Env File not found`)
+      throw new Error('Env File not found')
     }
 
     const pathfile = DEVELOPMENT
       ? `${FILE_PATH}${STORE_FILE_NAME_TEST}`
       : `${FILE_PATH}${STORE_FILE_NAME}`
     const response = await fetch(pathfile, {
-      method: `GET`,
-      cache: `no-cache`,
+      method: 'GET',
+      cache: 'no-cache',
     })
 
     // Verifica se la risposta è OK
@@ -77,10 +77,10 @@ export async function getArticle(
     const fileContent = await response.json()
 
     // Recupera l'articolo con l'id specificato
-    const articleIT: Article = fileContent[`it`].articles.find(
+    const articleIT: Article = fileContent['it'].articles.find(
       (article: Article) => article.id === id,
     )
-    const articleEN: Article = fileContent[`en`].articles.find(
+    const articleEN: Article = fileContent['en'].articles.find(
       (article: Article) => article.id === id,
     )
 
@@ -90,14 +90,14 @@ export async function getArticle(
     }
 
     // Restituisci il contenuto del file nella risposta
-    return language === `it`
+    return language === 'it'
       ? { articles: [articleIT] }
       : { articles: [articleEN] }
   } catch (err) {
     error(err)
     return {
       articles: [],
-      error: `Internal Server Error`,
+      error: 'Internal Server Error',
       message: err as string,
     }
   }
@@ -110,24 +110,24 @@ export async function createArticle(
 ): Promise<Partial<Err>> {
   try {
     if (!FILE_PATH || !STORE_FILE_NAME) {
-      throw new Error(`Env File not found`)
+      throw new Error('Env File not found')
     }
     if (!it || !en) {
-      throw new Error(`Italian and English content are required`)
+      throw new Error('Italian and English content are required')
     }
     const { title: titleIT, content: contentIT, link: linkIT } = it
     if (
       (!titleIT || !contentIT) &&
-      (typeof titleIT !== `string` || typeof contentIT !== `string`)
+      (typeof titleIT !== 'string' || typeof contentIT !== 'string')
     ) {
-      throw new Error(`Title and content are required`)
+      throw new Error('Title and content are required')
     }
     const { title: titleEN, content: contentEN, link: linkEN } = it
     if (
       (!titleEN || !contentEN) &&
-      (typeof titleEN !== `string` || typeof contentEN !== `string`)
+      (typeof titleEN !== 'string' || typeof contentEN !== 'string')
     ) {
-      throw new Error(`Title and content are required`)
+      throw new Error('Title and content are required')
     }
     const id = generateUniqueId()
     const newArticleIT = {
@@ -148,8 +148,8 @@ export async function createArticle(
       ? `${FILE_PATH}${STORE_FILE_NAME_TEST}`
       : `${FILE_PATH}${STORE_FILE_NAME}`
     const response = await fetch(pathfile, {
-      method: `GET`,
-      cache: `no-cache`,
+      method: 'GET',
+      cache: 'no-cache',
     })
 
     // Verifica se la risposta è OK
@@ -170,16 +170,16 @@ export async function createArticle(
      * @site https://vercel.com/docs/storage/vercel-blob/using-blob-sdk
      */
     const pathFileBlob = DEVELOPMENT ? STORE_FILE_NAME_TEST : STORE_FILE_NAME
-    const blob = await put(pathFileBlob ?? ``, JSON.stringify(fileContent), {
-      access: `public`,
+    const blob = await put(pathFileBlob ?? '', JSON.stringify(fileContent), {
+      access: 'public',
       addRandomSuffix: false,
     })
     if (!blob) {
-      throw new Error(`Error saving file`)
+      throw new Error('Error saving file')
     }
-    return { error: `Article created successfully` }
+    return { error: 'Article created successfully' }
   } catch (err) {
     error(err)
-    return { error: `Internal Server Error`, message: err as string }
+    return { error: 'Internal Server Error', message: err as string }
   }
 }

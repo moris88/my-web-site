@@ -2,17 +2,17 @@ import moment from 'moment'
 import { Theme } from '@/types'
 
 export function isActive(currentPath: string, path: string): boolean {
-  if (currentPath === `/` && path === `/`) return true
-  else if (path === `/` && currentPath !== `/`) return false
+  if (currentPath === '/' && path === '/') return true
+  else if (path === '/' && currentPath !== '/') return false
   else return currentPath.startsWith(path)
 }
 
 export function getLevel(
   level: number,
-  type: `soft` | `hard`,
+  type: 'soft' | 'hard',
   dict: any,
 ): string {
-  if (type === `soft`) {
+  if (type === 'soft') {
     switch (level) {
     case 6:
       return dict.skills.card.adequate
@@ -41,8 +41,8 @@ export function getLevel(
 }
 
 export function formatDate(date?: string): string {
-  if (!date) return ``
-  return `${moment(date).format(`DD/MM/YYYY`)} ${moment(date).format(`HH:mm`)}`
+  if (!date) return ''
+  return `${moment(date).format('DD/MM/YYYY')} ${moment(date).format('HH:mm')}`
 }
 
 export function generateUniqueId() {
@@ -57,9 +57,9 @@ export function generateUniqueId() {
 }
 
 export function setThemeDocument(theme: Theme) {
-  window.localStorage.setItem(`theme`, theme)
-  if (theme === `dark`) document.documentElement.classList.add(`dark`)
-  else document.documentElement.classList.remove(`dark`)
+  window.localStorage.setItem('theme', theme)
+  if (theme === 'dark') document.documentElement.classList.add('dark')
+  else document.documentElement.classList.remove('dark')
 }
 
 export function isTaskOverdue(dueDate: string | null) {
@@ -68,6 +68,6 @@ export function isTaskOverdue(dueDate: string | null) {
 }
 
 export function addAtSymbol(str: string | null, symbol: string): string {
-  if (!str) return `Not provided`
+  if (!str) return 'Not provided'
   return str.startsWith(symbol) ? str : `${symbol}${str}`
 }
