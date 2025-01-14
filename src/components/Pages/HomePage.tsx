@@ -3,10 +3,10 @@
 import React from 'react'
 import { Divider, Image } from '@nextui-org/react'
 import { Tooltip } from '@nextui-org/react'
-import * as motion from 'motion/react-client'
+import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'
-import TypingEffect from './TypingEffect'
+import TypingEffect from '../UI/TypingEffect'
 interface HomePageProps {
   dict: Dictionary
   info: Info

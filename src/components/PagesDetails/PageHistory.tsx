@@ -1,6 +1,6 @@
 'use client'
 
-import * as motion from 'motion/react-client'
+import { motion } from 'framer-motion'
 import { SectionHero } from '@/components/UI'
 import { History, Language } from '@/types'
 
