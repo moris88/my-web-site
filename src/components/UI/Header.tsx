@@ -57,10 +57,10 @@ function Header({ dict }: NavbarProps) {
   React.useEffect(() => {
     const cookies = document.cookie
       .split(';')
-      .find((row) => row.trim().startsWith(`auth_jwt=`))
+      .find((row) => row.trim().startsWith('auth_jwt='))
 
-    const cookie_value = cookies ? cookies.split('=')[1] : null
-    cookie_value ? setIsAuth(true) : setIsAuth(false)
+    const cookieValue = cookies ? cookies.split('=')[1] : null
+    setIsAuth(cookieValue ? true : false)
   }, [setIsAuth])
 
   const handleClickLogout = () => {

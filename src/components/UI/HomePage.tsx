@@ -1,13 +1,12 @@
 'use client'
 
-import { Suspense } from 'react'
 import React from 'react'
 import { Divider, Image } from '@nextui-org/react'
-import { Skeleton, Tooltip } from '@nextui-org/react'
+import { Tooltip } from '@nextui-org/react'
+import * as motion from 'motion/react-client'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'
 import TypingEffect from './TypingEffect'
-
 interface HomePageProps {
   dict: Dictionary
   info: Info
@@ -25,17 +24,22 @@ function HomePage({ dict, info, language }: HomePageProps) {
             content={dict.home.message}
             placement="bottom"
           >
-            <Suspense
-              fallback={<Skeleton className="flex h-36 w-36 rounded-full" />}
+            <motion.div
+              animate={{ translateY: 0, scale: 1, rotate: 0 }}
+              initial={{ translateY: -1000, scale: 0, rotate: 180 }}
+              transition={{
+                duration: 1,
+                scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+              }}
             >
               <Image
                 alt="avatar"
-                className="rounded-full"
+                className="block rounded-full"
                 height={150}
                 src="/avatar.webp"
                 width={150}
               />
-            </Suspense>
+            </motion.div>
           </Tooltip>
         </div>
         <TypingEffect
@@ -57,11 +61,21 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <Divider className="my-5 max-w-10" />
         </div>
         <p className="italic">{dict.home.title}</p>
-        <div className="max-w-full lg:max-w-[60%]">
-          <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-            {info?.description?.[language] ?? ''}
-          </p>
-        </div>
+        <motion.div
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-full lg:max-w-[60%]"
+          initial={{ opacity: 0, scale: 0 }}
+          transition={{
+            duration: 1,
+            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+          }}
+        >
+          <div className="flex w-full justify-center">
+            <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+              {info?.description?.[language] ?? ''}
+            </p>
+          </div>
+        </motion.div>
       </div>
     </div>
   )

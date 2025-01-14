@@ -135,15 +135,15 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
           }
           onConfirm={() => {
             switch (key) {
-              case 'completed':
-                clearCompleted()
-                break
-              case 'expired':
-                clearExpired()
-                break
-              case 'all':
-                clearAll()
-                break
+            case 'completed':
+              clearCompleted()
+              break
+            case 'expired':
+              clearExpired()
+              break
+            case 'all':
+              clearAll()
+              break
             }
             setShowDeleteModal({ ...showDeleteModal, [key]: false })
           }}

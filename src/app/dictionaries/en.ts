@@ -62,7 +62,7 @@ const dictionary = {
       label: 'Description',
       confirm: 'Do you confirm the addition of the task?',
       error: 'The task cannot be empty',
-      placeholder: "e.g. 'buy milk'",
+      placeholder: 'e.g. \'buy milk\'',
       submit: 'Add',
       cancel: 'Cancel',
       due_date: 'Due date',
@@ -89,7 +89,7 @@ const dictionary = {
     },
     title: 'Who am I and what do I do?',
     message:
-      "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
+      'Hi, i\'m a fullstack developer, i love coding and i\'m always looking for new challenges.',
   },
   dashboard: {
     form: {
@@ -98,24 +98,24 @@ const dictionary = {
         title: {
           label: 'Titolo IT',
           required: 'Il Titolo è obbligatorio',
-          placeholder: "Inserisci il titolo dell'articolo in Italiano",
+          placeholder: 'Inserisci il titolo dell\'articolo in Italiano',
         },
         content: {
           label: 'Contenuto IT',
           required: 'Il contenuto è obbligatorio',
-          placeholder: "Inserisci il contenuto dell'articolo in Italiano",
+          placeholder: 'Inserisci il contenuto dell\'articolo in Italiano',
         },
       },
       en: {
         title: {
           label: 'Titolo EN',
           required: 'Il Titolo è obbligatorio',
-          placeholder: "Inserisci il titolo dell'articolo in Inglese",
+          placeholder: 'Inserisci il titolo dell\'articolo in Inglese',
         },
         content: {
           label: 'Contenuto EN',
           required: 'Il contenuto è obbligatorio',
-          placeholder: "Inserisci il contenuto dell'articolo in Inglese",
+          placeholder: 'Inserisci il contenuto dell\'articolo in Inglese',
         },
       },
       link: {
@@ -159,6 +159,7 @@ const dictionary = {
     birthDate: 'Birth Date',
     nazionality: 'Nazionality',
     job: 'Job',
+    specialization: 'Specialization',
     email: 'Email',
     phone: 'Phone',
     address: 'Address',
@@ -184,7 +185,7 @@ const dictionary = {
     modal: {
       title: 'Send a message',
       content:
-        "Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I'll reply immediately, otherwise via email as soon as possible!",
+        'Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I\'ll reply immediately, otherwise via email as soon as possible!',
       privacy: 'Read the privacy',
       message: 'Thank you for your message!!!',
     },

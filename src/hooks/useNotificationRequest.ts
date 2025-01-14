@@ -1,13 +1,15 @@
 import { useEffect } from 'react'
 
+const { log } = console
+
 const useNotificationRequest = () => {
   useEffect(() => {
     if ('Notification' in window) {
       Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
-          console.log('Notification permission granted.')
+          log('Notification permission granted.')
         } else {
-          console.log('Notification permission denied.')
+          log('Notification permission denied.')
         }
       })
     }

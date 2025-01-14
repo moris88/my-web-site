@@ -6,6 +6,7 @@ import { generateUniqueId } from '@/utils'
 
 const { FILE_PATH, DEVELOPMENT, STORE_FILE_NAME, STORE_FILE_NAME_TEST } =
   process.env
+const { error } = console
 
 export async function getArticles(language: Language): Promise<Blog> {
   try {
@@ -35,7 +36,7 @@ export async function getArticles(language: Language): Promise<Blog> {
     // Restituisci il contenuto del file nella risposta
     return fileContent[language]
   } catch (err) {
-    console.error(err)
+    error(err)
     return {
       articles: [],
       error: 'Internal Server Error',
@@ -93,7 +94,7 @@ export async function getArticle(
       ? { articles: [articleIT] }
       : { articles: [articleEN] }
   } catch (err) {
-    console.error(err)
+    error(err)
     return {
       articles: [],
       error: 'Internal Server Error',
@@ -176,10 +177,9 @@ export async function createArticle(
     if (!blob) {
       throw new Error('Error saving file')
     }
-    console.log(blob)
     return { error: 'Article created successfully' }
   } catch (err) {
-    console.error(err)
+    error(err)
     return { error: 'Internal Server Error', message: err as string }
   }
 }

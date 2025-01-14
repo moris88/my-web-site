@@ -23,6 +23,7 @@ export interface Contact extends Record<string, any> {
   birthDate: string
   nazionality: string
   job: string
+  specialization: string
   company: string
   email: string
   phone: string

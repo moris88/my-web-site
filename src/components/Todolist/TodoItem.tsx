@@ -62,11 +62,11 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-            ...t,
-            completed: !t.completed,
-            completedAt: !t.completed ? new Date().toISOString() : null,
-            updatedAt: new Date().toISOString(),
-          }
+          ...t,
+          completed: !t.completed,
+          completedAt: !t.completed ? new Date().toISOString() : null,
+          updatedAt: new Date().toISOString(),
+        }
         : t,
     )
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
@@ -92,13 +92,13 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-            ...t,
-            dueDate: editDueDate ? editDueDate.toString() : null,
-            title: editTitle,
-            description: editDescription,
-            priority: editPriority,
-            updatedAt: new Date().toISOString(),
-          }
+          ...t,
+          dueDate: editDueDate ? editDueDate.toString() : null,
+          title: editTitle,
+          description: editDescription,
+          priority: editPriority,
+          updatedAt: new Date().toISOString(),
+        }
         : t,
     )
     setTodos(updatedTodos)
@@ -169,7 +169,8 @@ function TodoItem({ todo, dict }: TodoItemProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof typeof dict.todolist.listitem.priority.items
+                        item as keyof
+                        typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>

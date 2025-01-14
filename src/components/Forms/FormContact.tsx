@@ -9,7 +9,7 @@ import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {
   dict: Dictionary
-  onClose: () => void
+  onClose?: () => void
   onSuccess: () => void
   onError: (_message: string) => void
 }
@@ -103,8 +103,8 @@ export default function FormContact({
         isRequired
         id="message"
         label={dict.contacts.form.message.label}
+        minRows={4}
         placeholder={dict.contacts.form.message.placeholder}
-        rows={4}
         {...register('message', { required: true })}
       />
       {errors?.message && (
@@ -117,7 +117,7 @@ export default function FormContact({
           color="default"
           type="button"
           variant="flat"
-          onClick={() => onClose()}
+          onClick={() => onClose?.()}
         >
           {dict.contacts.form.buttons.done}
         </Button>
