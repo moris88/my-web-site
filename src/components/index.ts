@@ -1,5 +1,6 @@
 export * from './Forms'
 export * from './icons'
 export * from './PagesDetails'
+export * from './Pages'
 export * from './Todolist'
 export * from './UI'

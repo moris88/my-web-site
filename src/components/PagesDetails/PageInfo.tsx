@@ -13,7 +13,7 @@ import {
   Divider,
 } from '@nextui-org/react'
 import moment from 'moment'
-import * as motion from 'motion/react-client'
+import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { ButtonsGroupSocial, ModalMessage } from '@/components/UI'
 import { Contact, StoreLink } from '@/types'
