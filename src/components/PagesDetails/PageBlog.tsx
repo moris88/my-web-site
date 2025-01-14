@@ -27,7 +27,7 @@ function PageBlog({ dict, article }: PageBlogProps) {
               {dict.blog.article.link}
             </Link>
           )}
-          <Link href={'/blog'}>
+          <Link href={`/blog`}>
             <Button className="flex gap-2" color="primary" variant="flat">
               <HiArrowLeft className="h-5 w-5" />
               {dict.blog.article.buttons.back}

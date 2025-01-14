@@ -9,7 +9,7 @@ export default async function BlogPage({
   params: { id: string }
 }) {
   const dict = await getDictionary()
-  const language = dict.language === 'Italiano' ? 'it' : 'en'
+  const language = dict.language === `Italiano` ? `it` : `en`
   const response = await getArticle(id, language)
   if (response?.error) {
     return <ErrorPage error={response.message} />

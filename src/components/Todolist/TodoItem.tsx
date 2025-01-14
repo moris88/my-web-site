@@ -62,14 +62,14 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-            ...t,
-            completed: !t.completed,
-            completedAt: !t.completed ? new Date().toISOString() : null,
-            updatedAt: new Date().toISOString(),
-          }
+          ...t,
+          completed: !t.completed,
+          completedAt: !t.completed ? new Date().toISOString() : null,
+          updatedAt: new Date().toISOString(),
+        }
         : t,
     )
-    localStorage.setItem('todos', JSON.stringify(updatedTodos))
+    localStorage.setItem(`todos`, JSON.stringify(updatedTodos))
     setTodos(updatedTodos)
   }
 
@@ -79,7 +79,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const confirmRemoveTodo = () => {
     const updatedTodos = todos.filter((t) => t.id !== todo.id)
-    localStorage.setItem('todos', JSON.stringify(updatedTodos))
+    localStorage.setItem(`todos`, JSON.stringify(updatedTodos))
     setTodos(updatedTodos)
     setShowDeleteModal(false)
   }
@@ -92,17 +92,17 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-            ...t,
-            dueDate: editDueDate ? editDueDate.toString() : null,
-            title: editTitle,
-            description: editDescription,
-            priority: editPriority,
-            updatedAt: new Date().toISOString(),
-          }
+          ...t,
+          dueDate: editDueDate ? editDueDate.toString() : null,
+          title: editTitle,
+          description: editDescription,
+          priority: editPriority,
+          updatedAt: new Date().toISOString(),
+        }
         : t,
     )
     setTodos(updatedTodos)
-    localStorage.setItem('todos', JSON.stringify(updatedTodos))
+    localStorage.setItem(`todos`, JSON.stringify(updatedTodos))
     setIsEditing(false)
     setShowEditModal(false)
   }
@@ -120,10 +120,10 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const handlePriorityChange = (value: string) => {
     const mappaPriority: Record<string, string> = {
-      '0': 'urgent',
-      '1': 'high',
-      '2': 'medium',
-      '3': 'low',
+      '0': `urgent`,
+      '1': `high`,
+      '2': `medium`,
+      '3': `low`,
     }
     setEditPriority(mappaPriority[value] as Priority)
   }
@@ -169,7 +169,8 @@ function TodoItem({ todo, dict }: TodoItemProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof typeof dict.todolist.listitem.priority.items
+                        item as keyof
+                        typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>
@@ -199,10 +200,10 @@ function TodoItem({ todo, dict }: TodoItemProps) {
         <>
           <Checkbox isSelected={todo.completed} onChange={toggleTodo}>
             <span
-              className={`flex items-center gap-2 font-bold ${todo.completed ? 'line-through' : ''}`}
+              className={`flex items-center gap-2 font-bold ${todo.completed ? `line-through` : ``}`}
             >
-              {flagIcon[todo.priority]}{' '}
-              <span className={todo.completed ? 'text-green-600' : ''}>
+              {flagIcon[todo.priority]}{` `}
+              <span className={todo.completed ? `text-green-600` : ``}>
                 {todo.title}
               </span>
             </span>

@@ -46,19 +46,18 @@ export async function getHistory() {
 export const isAuthenticated = async () => {
   if (!COOKIE_VALUE) return false
   const cookieStore = cookies()
-  const cookie = cookieStore.get('auth_jwt')
-  const cookie_value = cookie?.value ?? null
-  return cookie_value === COOKIE_VALUE ? true : false
+  const cookie = cookieStore.get(`auth_jwt`)
+  const cookieValue = cookie?.value ?? null
+  return cookieValue === COOKIE_VALUE ? true : false
 }
 
 export const logout = async () => {
-  cookies().delete('auth_jwt')
+  cookies().delete(`auth_jwt`)
 }
 
 export const login = async (jwt: string) => {
-  debugger
-  cookies().set('auth_jwt', jwt, {
+  cookies().set(`auth_jwt`, jwt, {
     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-    path: '/',
+    path: `/`,
   })
 }

@@ -32,10 +32,10 @@ export default function FormLogin({ dict }: FormLoginProps) {
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setLoading(true)
-    fetch('/api/auth', {
-      method: 'POST',
+    fetch(`/api/auth`, {
+      method: `POST`,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': `application/json`,
       },
       body: JSON.stringify(data),
     })
@@ -43,7 +43,7 @@ export default function FormLogin({ dict }: FormLoginProps) {
       .then((res) => {
         if (res.status === 200) {
           setIsAuth(true)
-          route.push('/dashboard')
+          route.push(`/dashboard`)
         } else {
           setError(res.error)
         }
@@ -65,7 +65,7 @@ export default function FormLogin({ dict }: FormLoginProps) {
         label={dict.login.form.username.label}
         placeholder={dict.login.form.username.placeholder}
         type="text"
-        {...register('username', { required: true })}
+        {...register(`username`, { required: true })}
       />
       {errors?.username && (
         <p className="font-bold text-red-500">
@@ -78,7 +78,7 @@ export default function FormLogin({ dict }: FormLoginProps) {
         label={dict.login.form.password.label}
         placeholder={dict.login.form.password.placeholder}
         type="password"
-        {...register('password', { required: false })}
+        {...register(`password`, { required: false })}
       />
       {errors?.password && (
         <p className="font-bold text-red-500">

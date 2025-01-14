@@ -15,12 +15,12 @@ function ToogleTheme({ children }: ToogleThemeProps) {
   return (
     <Switch
       color="primary"
-      defaultSelected={theme === 'light'}
+      defaultSelected={theme === `light`}
       endContent={<HiMiniSun />}
       size="sm"
       startContent={<HiMiniMoon />}
       onChange={(e) => {
-        const myTheme: Theme = e.target.checked ? 'light' : 'dark'
+        const myTheme: Theme = e.target.checked ? `light` : `dark`
         atomStore.set(themeAtom, myTheme)
         setThemeDocument(myTheme)
       }}

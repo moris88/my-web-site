@@ -5,7 +5,7 @@ import { getDictionary } from '../../dictionaries'
 
 export default async function BlogsPage() {
   const dict = await getDictionary()
-  const language = dict.language === 'Italiano' ? 'it' : 'en'
+  const language = dict.language === `Italiano` ? `it` : `en`
   const response = await getArticles(language)
   if (response?.error) {
     return <ErrorPage error={response.message as string} />

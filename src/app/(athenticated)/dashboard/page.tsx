@@ -8,7 +8,7 @@ export default async function DashboardPage() {
   const dict = await getDictionary()
   const isAuth = await isAuthenticated()
   if (!isAuth) {
-    return redirect('/login')
+    return redirect(`/login`)
   }
   return (
     <SectionHero title={dict.dashboard.form.title}>

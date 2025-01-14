@@ -16,10 +16,10 @@ function TypingEffect({
   onEnd,
   skip,
 }: TypingEffectProps) {
-  const [displayedText, setDisplayedText] = React.useState('')
+  const [displayedText, setDisplayedText] = React.useState(``)
 
   React.useEffect(() => {
-    if (typeof children !== 'string') return
+    if (typeof children !== `string`) return
     if (skip) return
     let index = 0
     const interval = setInterval(() => {
@@ -36,8 +36,8 @@ function TypingEffect({
   }, [children, onEnd, skip, speed])
 
   return (
-    <p className={twMerge('font-mono text-xl', className)}>
-      {typeof children === 'string' ? displayedText.toUpperCase() : children}
+    <p className={twMerge(`font-mono text-xl`, className)}>
+      {typeof children === `string` ? displayedText.toUpperCase() : children}
       {!skip && <span className="animate-blink">|</span>}
     </p>
   )

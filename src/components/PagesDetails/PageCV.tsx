@@ -48,14 +48,14 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                 <b>
                   <Link
                     className={
-                      exp.link ? 'hover:underline' : 'cursor-not-allowed'
+                      exp.link ? `hover:underline` : `cursor-not-allowed`
                     }
-                    href={exp.link ?? ''}
+                    href={exp.link ?? ``}
                   >
                     {exp.company}
                   </Link>
-                </b>{' '}
-                <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
+                </b>{` `}
+                <i>{exp.role}</i> {exp.start} {`->`} {exp.end ?? `present`}
               </p>
               <p className="select-none">description: {exp.description}</p>
               <br />
@@ -89,14 +89,14 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                 <b>
                   <Link
                     className={
-                      exp.link ? 'hover:underline' : 'cursor-not-allowed'
+                      exp.link ? `hover:underline` : `cursor-not-allowed`
                     }
-                    href={exp.link ?? ''}
+                    href={exp.link ?? ``}
                   >
                     {exp.institution}
                   </Link>
-                </b>{' '}
-                <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
+                </b>{` `}
+                <i>{exp.role}</i> {exp.start} {`->`} {exp.end ?? `present`}
               </p>
               <p className="select-none">description: {exp.description}</p>
               <br />
@@ -142,7 +142,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                           defaultSelected={accept}
                           onChange={(e) => setAccept(e.currentTarget.checked)}
                         >
-                          {'Accept terms'}
+                          {`Accept terms`}
                         </Checkbox>
                       </div>
                       <div className="flex w-full items-center justify-center gap-2">

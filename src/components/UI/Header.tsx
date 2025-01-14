@@ -38,13 +38,13 @@ function Header({ dict }: NavbarProps) {
   const pathname = usePathname()
   const route = useRouter()
   const links = [
-    { name: dict.navbar.curriculum, path: '/curriculum' },
-    { name: dict.navbar.experience, path: '/experience' },
-    { name: dict.navbar.skills, path: '/skills' },
-    { name: dict.navbar.application, path: '/application' },
-    { name: dict.navbar.blog, path: '/blog' },
-    { name: dict.navbar.todolist, path: '/todolist' },
-    { name: dict.navbar.contacts, path: '/contacts' },
+    { name: dict.navbar.curriculum, path: `/curriculum` },
+    { name: dict.navbar.experience, path: `/experience` },
+    { name: dict.navbar.skills, path: `/skills` },
+    { name: dict.navbar.application, path: `/application` },
+    { name: dict.navbar.blog, path: `/blog` },
+    { name: dict.navbar.todolist, path: `/todolist` },
+    { name: dict.navbar.contacts, path: `/contacts` },
   ]
 
   const icons: Record<string, React.ReactNode> = {
@@ -56,11 +56,11 @@ function Header({ dict }: NavbarProps) {
 
   React.useEffect(() => {
     const cookies = document.cookie
-      .split(';')
+      .split(`;`)
       .find((row) => row.trim().startsWith(`auth_jwt=`))
 
-    const cookie_value = cookies ? cookies.split('=')[1] : null
-    cookie_value ? setIsAuth(true) : setIsAuth(false)
+    const cookieValue = cookies ? cookies.split(`=`)[1] : null
+    setIsAuth(cookieValue ? true : false)
   }, [setIsAuth])
 
   const handleClickLogout = () => {
@@ -68,7 +68,7 @@ function Header({ dict }: NavbarProps) {
     setTimeout(() => {
       setIsAuth(false)
     }, 500)
-    route.push('/')
+    route.push(`/`)
   }
 
   return (
@@ -109,7 +109,7 @@ function Header({ dict }: NavbarProps) {
           >
             <Link href={path}>
               <div
-                className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                className={`${isActive(pathname, path) ? `border-b text-blue-600 dark:text-gray-400` : `text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400`} transition-all duration-300 ease-in-out`}
               >
                 {name}
               </div>
@@ -137,15 +137,15 @@ function Header({ dict }: NavbarProps) {
         {links
           .filter(
             (link) =>
-              link.path !== '/application' &&
-              link.path !== '/todolist' &&
-              link.path !== '/blog',
+              link.path !== `/application` &&
+              link.path !== `/todolist` &&
+              link.path !== `/blog`,
           )
           .map(({ name, path }) => (
             <NavbarItem key={generateUniqueId()}>
               <Link href={path}>
                 <span
-                  className={`${isActive(pathname, path) ? 'border-b border-b-blue-600 text-blue-600 dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-blue-600 hover:text-blue-600 dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                  className={`${isActive(pathname, path) ? `border-b border-b-blue-600 text-blue-600 dark:border-b-gray-400 dark:text-gray-400` : `text-black hover:border-b hover:border-b-blue-600 hover:text-blue-600 dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400`} transition-all duration-300 ease-in-out`}
                 >
                   {name}
                 </span>
@@ -166,15 +166,15 @@ function Header({ dict }: NavbarProps) {
           </NavbarItem>
           <DropdownMenu
             itemClasses={{
-              base: 'gap-4',
+              base: `gap-4`,
             }}
           >
             {links
               .filter(
                 (link) =>
-                  link.path === '/application' ||
-                  link.path === '/todolist' ||
-                  link.path === '/blog',
+                  link.path === `/application` ||
+                  link.path === `/todolist` ||
+                  link.path === `/blog`,
               )
               .map(({ name, path }) => (
                 <DropdownItem

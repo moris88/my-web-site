@@ -15,7 +15,6 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
   const [startSubTitle, setStartSubtitle] = React.useState(true)
-  console.log('HomePage')
   return (
     <div className="container">
       <div className="my-10 flex flex-col items-center justify-center gap-2">
@@ -30,7 +29,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
               initial={{ translateY: -1000, scale: 0, rotate: 180 }}
               transition={{
                 duration: 1,
-                scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+                scale: { type: `spring`, visualDuration: 0.4, bounce: 0.5 },
               }}
             >
               <Image
@@ -68,12 +67,12 @@ function HomePage({ dict, info, language }: HomePageProps) {
           initial={{ opacity: 0, scale: 0 }}
           transition={{
             duration: 1,
-            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+            scale: { type: `spring`, visualDuration: 0.4, bounce: 0.5 },
           }}
         >
           <div className="flex w-full justify-center">
             <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-              {info?.description?.[language] ?? ''}
+              {info?.description?.[language] ?? ``}
             </p>
           </div>
         </motion.div>

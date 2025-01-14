@@ -12,9 +12,9 @@ export async function sendMessage({
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
       {
-        method: 'POST',
+        method: `POST`,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': `application/json`,
         },
         body: JSON.stringify({
           chat_id: chatId,
@@ -26,7 +26,7 @@ export async function sendMessage({
     const data = await response.json()
 
     if (data.ok) {
-      return 'Messaggio inviato con successo'
+      return `Messaggio inviato con successo`
     } else {
       return `Errore nell'invio del messaggio: ${data.description}`
     }

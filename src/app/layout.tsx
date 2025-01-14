@@ -9,11 +9,11 @@ import { getLinks } from '@/lib/request'
 import { getDictionary } from './dictionaries'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: [`latin`] })
 
 export const metadata: Metadata = {
-  title: 'Maurizio Tolomeo',
-  description: 'Web Developer',
+  title: `Maurizio Tolomeo`,
+  description: `Web Developer`,
 }
 
 export default async function RootLayout({
@@ -29,13 +29,13 @@ export default async function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content={String(metadata.description ?? '')} name="description" />
-        <title>{String(metadata.title ?? '')}</title>
+        <meta content={String(metadata.description ?? ``)} name="description" />
+        <title>{String(metadata.title ?? ``)}</title>
       </head>
       <body
         className={twMerge(
           inter.className,
-          'box-border bg-white dark:bg-[#1b1a19] min-h-screen pb-24',
+          `box-border bg-white dark:bg-[#1b1a19] min-h-screen pb-24`,
         )}
       >
         <UIWrapper dict={dict} links={links}>

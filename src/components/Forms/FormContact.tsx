@@ -35,12 +35,12 @@ export default function FormContact({
   } = useForm<FormData>()
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    if (!data.message || !data.name) onError('Name and message are required')
+    if (!data.message || !data.name) onError(`Name and message are required`)
     setLoading(true)
-    fetch('/api/sendMessage', {
-      method: 'POST',
+    fetch(`/api/sendMessage`, {
+      method: `POST`,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': `application/json`,
       },
       body: JSON.stringify(data),
     })
@@ -48,7 +48,7 @@ export default function FormContact({
         if (res.status === 200) {
           onSuccess()
         } else {
-          onError('Something went wrong')
+          onError(`Something went wrong`)
         }
       })
       .catch((err) => {
@@ -78,7 +78,7 @@ export default function FormContact({
         label={dict.contacts.form.name.label}
         placeholder={dict.contacts.form.name.placeholder}
         type="text"
-        {...register('name', { required: true })}
+        {...register(`name`, { required: true })}
       />
       {errors?.name && (
         <p className="font-bold text-red-500">
@@ -90,14 +90,14 @@ export default function FormContact({
         label={dict.contacts.form.username.label}
         placeholder={dict.contacts.form.username.placeholder}
         type="text"
-        {...register('username', { required: false })}
+        {...register(`username`, { required: false })}
       />
       <Input
         id="email"
         label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
-        {...register('email', { required: false })}
+        {...register(`email`, { required: false })}
       />
       <Textarea
         isRequired
@@ -105,7 +105,7 @@ export default function FormContact({
         label={dict.contacts.form.message.label}
         minRows={4}
         placeholder={dict.contacts.form.message.placeholder}
-        {...register('message', { required: true })}
+        {...register(`message`, { required: true })}
       />
       {errors?.message && (
         <p className="font-bold text-red-500">

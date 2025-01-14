@@ -24,9 +24,9 @@ interface TodoInputProps {
 }
 
 function TodoInput({ dict }: TodoInputProps) {
-  const [title, setTitle] = React.useState<string>('')
-  const [description, setDescription] = React.useState<string>('')
-  const [priority, setPriority] = React.useState<Priority>('medium')
+  const [title, setTitle] = React.useState<string>(``)
+  const [description, setDescription] = React.useState<string>(``)
+  const [priority, setPriority] = React.useState<Priority>(`medium`)
   const [todos, setTodos] = useAtom(todoListAtom)
   const [dueDate, setDueDate] = React.useState<ZonedDateTime | null>(null)
   const [showInput, setShowInput] = React.useState(true)
@@ -51,15 +51,15 @@ function TodoInput({ dict }: TodoInputProps) {
       priority,
     }
     setTodos([...todos, newTodo])
-    localStorage.setItem('todos', JSON.stringify([...todos, newTodo]))
-    setTitle('')
+    localStorage.setItem(`todos`, JSON.stringify([...todos, newTodo]))
+    setTitle(``)
     setDueDate(null)
     setRequired(false)
     setShowAdd(false)
   }
 
   const confirmAddTodo = () => {
-    if (!required && title.trim() === '') {
+    if (!required && title.trim() === ``) {
       setShowError(true)
       return
     }
@@ -72,10 +72,10 @@ function TodoInput({ dict }: TodoInputProps) {
 
   const handlePriorityChange = (value: string) => {
     const mappaPriority: Record<string, string> = {
-      '0': 'urgent',
-      '1': 'high',
-      '2': 'medium',
-      '3': 'low',
+      '0': `urgent`,
+      '1': `high`,
+      '2': `medium`,
+      '3': `low`,
     }
     setPriority(mappaPriority[value] as Priority)
   }
@@ -88,7 +88,7 @@ function TodoInput({ dict }: TodoInputProps) {
         size="sm"
         onChange={(e) => setShowInput(!e.target.checked)}
       >
-        {'Hidden add todo input'}
+        {`Hidden add todo input`}
       </Switch>
       {showInput && (
         <>
@@ -129,7 +129,8 @@ function TodoInput({ dict }: TodoInputProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof typeof dict.todolist.listitem.priority.items
+                        item as keyof
+                        typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>

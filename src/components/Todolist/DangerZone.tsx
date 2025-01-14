@@ -26,18 +26,18 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
   const clearCompleted = () => {
     const newTodos = todos.filter((todo) => !todo.completed)
     setTodos(newTodos)
-    localStorage.setItem('todos', JSON.stringify(newTodos))
+    localStorage.setItem(`todos`, JSON.stringify(newTodos))
   }
 
   const clearExpired = () => {
     const newTodos = todos.filter((todo) => !isTaskOverdue(todo.dueDate))
     setTodos(newTodos)
-    localStorage.setItem('todos', JSON.stringify(newTodos))
+    localStorage.setItem(`todos`, JSON.stringify(newTodos))
   }
 
   const clearAll = () => {
     setTodos([])
-    localStorage.removeItem('todos')
+    localStorage.removeItem(`todos`)
   }
 
   const handleDelete = (key: keyof typeof showDeleteModal) => {
@@ -45,22 +45,22 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
   }
 
   const buttons: {
-    key: 'completed' | 'expired' | 'all'
+    key: `completed` | `expired` | `all`
     text: string
     message: string
   }[] = [
     {
-      key: 'completed',
+      key: `completed`,
       text: dict.todolist.listitem.filter.buttons.clear_completed.label,
       message: dict.todolist.listitem.filter.buttons.clear_completed.message,
     },
     {
-      key: 'expired',
+      key: `expired`,
       text: dict.todolist.listitem.filter.buttons.clear_expired.label,
       message: dict.todolist.listitem.filter.buttons.clear_expired.message,
     },
     {
-      key: 'all',
+      key: `all`,
       text: dict.todolist.listitem.filter.buttons.clear_all.label,
       message: dict.todolist.listitem.filter.buttons.clear_all.message,
     },
@@ -69,7 +69,7 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
   return (
     <>
       <div
-        className={`relative ${showDangerZone ? 'rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5' : ''}`}
+        className={`relative ${showDangerZone ? `rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5` : ``}`}
       >
         <div className="absolute left-1 top-1 flex dark:text-black">
           <Switch
@@ -126,24 +126,24 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
           buttonConfirm={dict.todolist.deleteTask.delete}
           colorConfirm="danger"
           description={
-            buttons.find((button) => button.key === key)?.message ?? ''
+            buttons.find((button) => button.key === key)?.message ?? ``
           }
           isOpen={showDeleteModal[key as keyof typeof showDeleteModal]}
-          title={buttons.find((button) => button.key === key)?.text ?? ''}
+          title={buttons.find((button) => button.key === key)?.text ?? ``}
           onCancel={() =>
             setShowDeleteModal({ ...showDeleteModal, [key]: false })
           }
           onConfirm={() => {
             switch (key) {
-              case 'completed':
-                clearCompleted()
-                break
-              case 'expired':
-                clearExpired()
-                break
-              case 'all':
-                clearAll()
-                break
+            case `completed`:
+              clearCompleted()
+              break
+            case `expired`:
+              clearExpired()
+              break
+            case `all`:
+              clearAll()
+              break
             }
             setShowDeleteModal({ ...showDeleteModal, [key]: false })
           }}

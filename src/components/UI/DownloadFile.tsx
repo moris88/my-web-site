@@ -15,7 +15,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
       {!disabled ? (
         <Link download href={pathFile}>
           <Button className="flex gap-2" color="primary" variant="flat">
-            {children ?? 'Download'}
+            {children ?? `Download`}
             <HiArrowDownTray className="h-5 w-5" />
           </Button>
         </Link>
@@ -26,7 +26,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
           color="primary"
           variant="flat"
         >
-          {children ?? 'Download'}
+          {children ?? `Download`}
           <HiArrowDownTray className="h-5 w-5" />
         </Button>
       )}

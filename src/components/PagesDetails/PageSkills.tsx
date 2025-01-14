@@ -25,8 +25,8 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
     description: string
   } | null>(null)
   const [isLoaded, setIsLoaded] = React.useState(false)
-  const hardSkills = Object.keys(skills).filter((key) => key !== 'soft')
-  const softSkills = Object.keys(skills).filter((key) => key === 'soft')
+  const hardSkills = Object.keys(skills).filter((key) => key !== `soft`)
+  const softSkills = Object.keys(skills).filter((key) => key === `soft`)
 
   React.useEffect(() => {
     if (skills && Object.keys(skills).length > 0) setIsLoaded(true)
@@ -59,8 +59,8 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
   const handleClickOpen = (skill: Skill) => {
     setSkill({
       title:
-        typeof skill.title === 'string' ? skill.title : skill.title[language],
-      description: skill.description?.[language] ?? '',
+        typeof skill.title === `string` ? skill.title : skill.title[language],
+      description: skill.description?.[language] ?? ``,
     })
   }
 
@@ -129,7 +129,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                                     </p>
                                   </CardHeader>
                                   <CardBody>
-                                    <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                                    <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === `soft` ? getLevel(skill.level, `soft`, dict) : getLevel(skill.level, `hard`, dict)}`}</p>
                                   </CardBody>
                                 </Card>
                               </button>
@@ -158,13 +158,13 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                             <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                               <CardHeader className="flex gap-3">
                                 <p className="text-base font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl">
-                                  {typeof skill.title === 'string'
+                                  {typeof skill.title === `string`
                                     ? skill.title
                                     : skill.title[language]}
                                 </p>
                               </CardHeader>
                               <CardBody>
-                                <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                                <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === `soft` ? getLevel(skill.level, `soft`, dict) : getLevel(skill.level, `hard`, dict)}`}</p>
                               </CardBody>
                             </Card>
                           </button>

@@ -37,13 +37,13 @@ export default function FormArticles({ dict }: FormArticlesProps) {
     createArticle(
       { title: data.title_it, content: data.content_it, link: data.link },
       { title: data.title_en, content: data.content_en, link: data.link },
-      moment().format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'),
+      moment().format(`YYYY-MM-DD[T]HH:mm:ss.SSS[Z]`),
     )
       .then((res) => {
-        if (res.error !== 'Article created successfully') {
-          setError(res.message ?? 'Internal Server Error')
+        if (res.error !== `Article created successfully`) {
+          setError(res.message ?? `Internal Server Error`)
         } else {
-          route.push('/blog')
+          route.push(`/blog`)
         }
       })
       .finally(() => {
@@ -64,7 +64,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
             label={dict.dashboard.form.it.title.label}
             placeholder={dict.dashboard.form.it.title.placeholder}
             type="text"
-            {...register('title_it', { required: true })}
+            {...register(`title_it`, { required: true })}
           />
           {errors?.title_it && (
             <p className="font-bold text-red-500">
@@ -79,7 +79,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
             minRows={10}
             placeholder={dict.dashboard.form.it.content.placeholder}
             type="text"
-            {...register('content_it', { required: false })}
+            {...register(`content_it`, { required: false })}
           />
           {errors?.content_it && (
             <p className="font-bold text-red-500">
@@ -95,7 +95,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
             label={dict.dashboard.form.en.title.label}
             placeholder={dict.dashboard.form.en.title.placeholder}
             type="text"
-            {...register('title_en', { required: true })}
+            {...register(`title_en`, { required: true })}
           />
           {errors?.title_en && (
             <p className="font-bold text-red-500">
@@ -110,7 +110,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
             minRows={10}
             placeholder={dict.dashboard.form.en.content.placeholder}
             type="text"
-            {...register('content_en', { required: false })}
+            {...register(`content_en`, { required: false })}
           />
           {errors?.content_en && (
             <p className="font-bold text-red-500">
@@ -124,7 +124,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
         label="Link"
         placeholder="Enter article link"
         type="text"
-        {...register('link', { required: false })}
+        {...register(`link`, { required: false })}
       />
       {error && <p className="font-bold text-red-500">{error}</p>}
       <div className="flex justify-center gap-4">
