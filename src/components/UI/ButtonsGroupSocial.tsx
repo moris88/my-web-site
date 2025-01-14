@@ -37,7 +37,8 @@ function ButtonsGroupSocial({
                 <ModalBody>
                   {
                     dict.contacts.buttons.storeLink.content[
-                      storeLink.label.toLowerCase() as keyof typeof dict.contacts.buttons.storeLink.content
+                      storeLink.label.toLowerCase() as
+                      keyof typeof dict.contacts.buttons.storeLink.content
                     ]
                   }
                   <Button

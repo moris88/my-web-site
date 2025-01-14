@@ -15,7 +15,6 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
   const [startSubTitle, setStartSubtitle] = React.useState(true)
-  console.log('HomePage')
   return (
     <div className="container">
       <div className="my-10 flex flex-col items-center justify-center gap-2">

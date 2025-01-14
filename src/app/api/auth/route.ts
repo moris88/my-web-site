@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { login } from '@/lib'
 
 const { COOKIE_VALUE, ADMIN_USER, ADMIN_PSW } = process.env
+const { error } = console
 
 export async function POST(request: Request) {
   try {
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
     // return response
     return NextResponse.json({ status: 200 })
   } catch (err) {
-    console.error(err)
+    error(err)
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 },

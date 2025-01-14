@@ -129,7 +129,8 @@ function TodoInput({ dict }: TodoInputProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof typeof dict.todolist.listitem.priority.items
+                        item as keyof
+                        typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>

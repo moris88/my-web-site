@@ -3,6 +3,7 @@ import { addAtSymbol, sendMessage } from '@/utils'
 
 // recupera env TOKEN_TELEGRAM di next
 const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
+const { error } = console
 
 export async function POST(request: Request) {
   try {
@@ -18,18 +19,17 @@ export async function POST(request: Request) {
       )
     }
     if (TOKEN_TELEGRAM && CHAT_ID_TELEGRAM) {
-      const response = await sendMessage({
+      await sendMessage({
         token: TOKEN_TELEGRAM,
         chatId: CHAT_ID_TELEGRAM,
         message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email}\nUsername: ${username}`,
       })
-      console.log(response)
     } else {
       throw new Error('Telegram token and chat id are required')
     }
     return NextResponse.json({ status: 200 })
   } catch (err) {
-    console.error(err)
+    error(err)
     return NextResponse.json(
       { error: 'Internal Server Error' },
       { status: 500 },

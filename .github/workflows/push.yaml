@@ -2,11 +2,10 @@ name: 'Qualità e Build del codice'
 
 on:
   push:
-    branches: 
+    branches:  # Specifica che il workflow si attiva solo sui branch
+      - '**'   # Questo include tutti i branch, puoi specificare solo quelli che vuoi
+    tags-ignore:  # Evita l'attivazione su tag
       - '*'
-      - '*/*'
-      - '**'
-      - '!main'
 
 jobs:
   eslint:
@@ -36,3 +35,6 @@ jobs:
         run: yarn install
       - name: 'Build test'
         run: yarn build
+
+
+        name: Check Push

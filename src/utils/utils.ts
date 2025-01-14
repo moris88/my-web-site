@@ -14,29 +14,29 @@ export function getLevel(
 ): string {
   if (type === 'soft') {
     switch (level) {
-      case 6:
-        return dict.skills.card.adequate
-      case 7:
-      case 8:
-        return dict.skills.card.good
-      case 9:
-      case 10:
-        return dict.skills.card.optimal
-      default:
-        return dict.skills.card.bad
+    case 6:
+      return dict.skills.card.adequate
+    case 7:
+    case 8:
+      return dict.skills.card.good
+    case 9:
+    case 10:
+      return dict.skills.card.optimal
+    default:
+      return dict.skills.card.bad
     }
   }
   switch (level) {
-    case 6:
-      return dict.skills.card.basic
-    case 7:
-    case 8:
-      return dict.skills.card.intermediate
-    case 9:
-    case 10:
-      return dict.skills.card.advanced
-    default:
-      return dict.skills.card.unknown
+  case 6:
+    return dict.skills.card.basic
+  case 7:
+  case 8:
+    return dict.skills.card.intermediate
+  case 9:
+  case 10:
+    return dict.skills.card.advanced
+  default:
+    return dict.skills.card.unknown
   }
 }
 

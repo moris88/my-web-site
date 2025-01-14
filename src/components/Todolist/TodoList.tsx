@@ -40,7 +40,7 @@ function TodoList({ dict }: TodoListProps) {
       const dueDate = new Date(todo.dueDate)
 
       if (!todo.completed && dueDate < new Date() && !todo.notify) {
-        notifyUser(`Task Scaduto`, `Il task "${todo.title}" è scaduto.`)
+        notifyUser('Task Scaduto', `Il task "${todo.title}" è scaduto.`)
         return { ...todo, notify: true } // Solo in questo caso modifichiamo il todo
       }
 
@@ -123,7 +123,7 @@ function TodoList({ dict }: TodoListProps) {
           .map((todo) => (
             <div
               key={todo.id}
-              className={`rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5`}
+              className={'rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5'}
             >
               <TodoItem dict={dict} todo={todo} />
               {todo.description !== '' && (
