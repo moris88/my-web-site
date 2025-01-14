@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       primary: {
-        DEFAULT: '#05ffff',
+        DEFAULT: '#2563eb',
       },
     },
     keyframes: {
