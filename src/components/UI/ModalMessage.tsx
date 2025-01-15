@@ -69,6 +69,7 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
           <Divider className="my-2" />
           <FormContact
             dict={dict}
+            notDone={!modal}
             onError={(m) => {
               setError(m)
               setShow({
@@ -98,7 +99,7 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
           className="flex gap-2"
           color="default"
           variant="flat"
-          onClick={() => {
+          onPress={() => {
             setShow({
               form: true,
               button: false,
