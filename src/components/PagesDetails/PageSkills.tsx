@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
-import { Skeleton } from '@nextui-org/react'
 import { Tab, Tabs } from '@nextui-org/tabs'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
@@ -25,13 +24,8 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
     title: string
     description: string
   } | null>(null)
-  const [isLoaded, setIsLoaded] = React.useState(false)
   const hardSkills = Object.keys(skills).filter((key) => key !== 'soft')
   const softSkills = Object.keys(skills).filter((key) => key === 'soft')
-
-  React.useEffect(() => {
-    if (skills && Object.keys(skills).length > 0) setIsLoaded(true)
-  }, [skills])
 
   const mappa = {
     0: dict.skills.languages,
@@ -66,7 +60,10 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
   }
 
   const handleClickOpenLink = (link?: string) => {
-    if (!link) return
+    if (!link) {
+      console.warn('Attempted to open a link, but none was provided.')
+      return
+    }
     route.push(link)
   }
 
@@ -105,19 +102,18 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
             </ModalContent>
           </Modal>
         )}
-        <Skeleton className="h-full rounded-lg" isLoaded={isLoaded}>
-          <Tabs
-            aria-label="Options"
-            className="flex items-center justify-center"
-          >
-            <Tab key="hard" title="Hard Skills">
-              <motion.div
-                animate="show"
-                className="w-full"
-                initial="hidden"
-                variants={container}
-              >
-                {hardSkills &&
+        <Tabs
+          aria-label="Options"
+          className="flex items-center justify-center"
+        >
+          <Tab key="hard" title="Hard Skills">
+            <motion.div
+              animate="show"
+              className="w-full"
+              initial="hidden"
+              variants={container}
+            >
+              {hardSkills &&
                   hardSkills.map((key, index) => (
                     <Accordion key={generateUniqueId()} variant="splitted">
                       <AccordionItem
@@ -132,7 +128,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                               <button
                                 key={generateUniqueId()}
                                 disabled={!skill.link}
-                                onClick={() => handleClickOpenLink(skill?.link)}
+                                onClick={() => handleClickOpenLink(skill.link)}
                               >
                                 <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                   <CardHeader className="flex gap-3">
@@ -153,11 +149,11 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                       </AccordionItem>
                     </Accordion>
                   ))}
-              </motion.div>
-            </Tab>
-            <Tab key="soft" title="Soft Skills">
-              <motion.div animate="show" initial="hidden" variants={container}>
-                {softSkills &&
+            </motion.div>
+          </Tab>
+          <Tab key="soft" title="Soft Skills">
+            <motion.div animate="show" initial="hidden" variants={container}>
+              {softSkills &&
                   softSkills.map((key) => (
                     <div
                       key={generateUniqueId()}
@@ -188,10 +184,9 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                       })}
                     </div>
                   ))}
-              </motion.div>
-            </Tab>
-          </Tabs>
-        </Skeleton>
+            </motion.div>
+          </Tab>
+        </Tabs>
       </div>
     </section>
   )
