@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
@@ -11,7 +12,6 @@ import { Dictionary } from '@/app/dictionaries'
 import { Language, Skill, Skills } from '@/types'
 import { generateUniqueId, getLevel } from '@/utils'
 import Badge from '../UI/Badge'
-import Link from 'next/link'
 
 interface SkillsProps {
   skills: Skills
@@ -20,6 +20,7 @@ interface SkillsProps {
 }
 
 export default function PageSkills({ skills, language, dict }: SkillsProps) {
+  const route = useRouter()
   const [skill, setSkill] = React.useState<{
     title: string
     description: string
@@ -62,6 +63,11 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
         typeof skill.title === 'string' ? skill.title : skill.title[language],
       description: skill.description?.[language] ?? '',
     })
+  }
+
+  const handleClickOpenLink = (link?: string) => {
+    if (!link) return
+    route.push(link)
   }
 
   const mapColor: Record<number, 'green' | 'yellow' | 'orange' | 'red'> = {
@@ -123,10 +129,10 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                         <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
                           {skills[key].map((skill: Skill) => {
                             return (
-                              <Link
+                              <button
                                 key={generateUniqueId()}
-                                href={skill?.link ?? '#'}
-                                target='_blank'
+                                disabled={!skill.link}
+                                onClick={() => handleClickOpenLink(skill?.link)}
                               >
                                 <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                   <CardHeader className="flex gap-3">
@@ -140,7 +146,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                                     </Badge>
                                   </CardBody>
                                 </Card>
-                              </Link>
+                              </button>
                             )
                           })}
                         </div>
