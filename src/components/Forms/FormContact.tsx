@@ -9,6 +9,7 @@ import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {
   dict: Dictionary
+  notDone?: boolean
   onClose?: () => void
   onSuccess: () => void
   onError: (_message: string) => void
@@ -23,6 +24,7 @@ interface FormData {
 
 export default function FormContact({
   dict,
+  notDone = false,
   onSuccess,
   onError,
   onClose,
@@ -113,14 +115,14 @@ export default function FormContact({
         </p>
       )}
       <div className="flex justify-center gap-4">
-        <Button
+        {!notDone && (<Button
           color="default"
           type="button"
           variant="flat"
-          onClick={() => onClose?.()}
+          onPress={() => onClose?.()}
         >
           {dict.contacts.form.buttons.done}
-        </Button>
+        </Button>)}
         <Button color="primary" type="submit" variant="flat">
           {dict.contacts.form.buttons.send}
         </Button>

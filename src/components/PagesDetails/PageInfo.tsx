@@ -157,7 +157,7 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                                 key={buttonLower}
                                 color="primary"
                                 variant="flat"
-                                onClick={() => (
+                                onPress={() => (
                                   storeLink && setStoreLink(storeLink)
                                 )}
                               >
