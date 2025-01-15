@@ -42,23 +42,24 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
   )
 
   return (
-    <section className="container py-4">
+    <section className="container">
       {contacts && (
         <>
-          <div className="flex flex-col items-center justify-center gap-4 xl:flex-row">
+          <div className="w-full flex flex-col items-center justify-center gap-4 xl:flex-row">
             <motion.div
               animate={{ opacity: 1, translateX: 0 }}
               initial={{ opacity: 0, translateX: -50 }}
+              className='w-full lg:max-w-lg max-w-full'
               transition={{
                 duration: 2,
               }}
             >
-              <Card className="w-full bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 md:max-w-xl">
+              <Card className="w-full bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                 <CardHeader className="flex gap-3">
                   <h3 className="w-full select-none text-center">
                     <span className="flex items-center justify-center gap-1">
-                      <HiMiniUser className="h-5 w-5" />
-                      <b>{dict.contacts.title}</b>
+                      <HiIdentification className="h-5 w-5" />
+                      <b>{dict.contacts.social}</b>
                     </span>
                   </h3>
                 </CardHeader>
@@ -120,6 +121,55 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                           </div>
                         </React.Fragment>
                       ))}
+                      <Divider className="my-2 sm:col-span-2 col-span-1" />
+                      <div className="sm:col-span-2 col-span-1 flex w-full justify-center">
+                        <ButtonGroup className="sm:flex flex-row justify-center w-full hidden">
+                          {contacts.links.map((button) => {
+                            const buttonLower = button.toLowerCase()
+                            const storeLink = linkMap[buttonLower]
+                            return (
+                              <Button
+                                key={buttonLower}
+                                color="primary"
+                                variant="flat"
+                                onClick={() => storeLink && setStoreLink(storeLink)}
+                              >
+                                <span className="flex items-center gap-2">
+                                  {iconMap[buttonLower]}
+                                  {
+                                    dict.contacts.buttons[
+                                    button as keyof typeof dict.contacts.buttons
+                                    ] as string
+                                  }
+                                </span>
+                              </Button>
+                            )
+                          })}
+                        </ButtonGroup>
+                        <div className="sm:hidden w-full flex flex-col gap-2 justify-start">
+                          {contacts.links.map((button) => {
+                            const buttonLower = button.toLowerCase()
+                            const storeLink = linkMap[buttonLower]
+                            return (
+                              <Button
+                                key={buttonLower}
+                                color="primary"
+                                variant="flat"
+                                onClick={() => storeLink && setStoreLink(storeLink)}
+                              >
+                                <span className="flex items-center gap-2">
+                                  {iconMap[buttonLower]}
+                                  {
+                                    dict.contacts.buttons[
+                                    button as keyof typeof dict.contacts.buttons
+                                    ] as string
+                                  }
+                                </span>
+                              </Button>
+                            )
+                          })}
+                        </div>
+                      </div>
                     </>
                   </div>
                 </CardBody>
@@ -135,53 +185,13 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
               <ModalMessage dict={dict} modal={false} />
             </motion.div>
           </div>
-          <motion.div
-            animate={{ opacity: 1, translateY: 0 }}
-            className="flex flex-col gap-4 px-0 lg:px-10"
-            initial={{ opacity: 0, translateY: 50 }}
-            transition={{
-              duration: 2,
-            }}
-          >
-            <h3 className="mt-5 w-full select-none text-center">
-              <span className="flex items-center justify-center gap-1">
-                <HiIdentification className="h-5 w-5" />
-                <b>{dict.contacts.social}</b>
-              </span>
-            </h3>
-            <div className="mt-5 flex w-full justify-center">
-              <ButtonGroup>
-                {contacts.links.map((button) => {
-                  const buttonLower = button.toLowerCase()
-                  const storeLink = linkMap[buttonLower]
-                  return (
-                    <Button
-                      key={buttonLower}
-                      color="primary"
-                      variant="flat"
-                      onClick={() => storeLink && setStoreLink(storeLink)}
-                    >
-                      <span className="flex items-center gap-2">
-                        {iconMap[buttonLower]}
-                        {
-                          dict.contacts.buttons[
-                            button as keyof typeof dict.contacts.buttons
-                          ] as string
-                        }
-                      </span>
-                    </Button>
-                  )
-                })}
-              </ButtonGroup>
-            </div>
-            <div className="flex items-center justify-center">
-              <ButtonsGroupSocial
-                dict={dict}
-                setStoreLink={setStoreLink}
-                storeLink={storeLink}
-              />
-            </div>
-          </motion.div>
+          <div className="flex items-center justify-center">
+            <ButtonsGroupSocial
+              dict={dict}
+              setStoreLink={setStoreLink}
+              storeLink={storeLink}
+            />
+          </div>
         </>
       )}
     </section>

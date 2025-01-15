@@ -26,7 +26,7 @@ function PageBlogs({ dict, articles }: PageBlogsProps) {
 
   return (
     <SectionHero title={dict.blog.title}>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 p-2">
         {articles
           .sort((a: Article, b: Article) => moment(b.date).diff(moment(a.date)))
           .map((article) => (

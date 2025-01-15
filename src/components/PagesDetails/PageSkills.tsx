@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Card, CardBody, CardHeader } from '@nextui-org/card'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
@@ -11,6 +10,8 @@ import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Language, Skill, Skills } from '@/types'
 import { generateUniqueId, getLevel } from '@/utils'
+import Badge from '../UI/Badge'
+import Link from 'next/link'
 
 interface SkillsProps {
   skills: Skills
@@ -19,7 +20,6 @@ interface SkillsProps {
 }
 
 export default function PageSkills({ skills, language, dict }: SkillsProps) {
-  const route = useRouter()
   const [skill, setSkill] = React.useState<{
     title: string
     description: string
@@ -64,8 +64,16 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
     })
   }
 
+  const mapColor: Record<number, "green" | "yellow" | "orange" | "red"> = {
+    6: 'orange',
+    7: 'yellow',
+    8: 'yellow', 
+    9: 'green',
+    10: 'green',
+  }
+
   return (
-    <section className="mb-20 flex flex-col justify-center p-2 md:p-14">
+    <section className="flex flex-col justify-center px-2 md:px-14">
       <h1 className="my-5 text-center text-3xl font-bold">
         {dict.skills.title}
       </h1>
@@ -115,12 +123,10 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                         <div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
                           {skills[key].map((skill: Skill) => {
                             return (
-                              <button
-                                key={generateUniqueId()}
-                                disabled={skill === undefined}
-                                onClick={() => {
-                                  if (skill.link) route.push(skill.link)
-                                }}
+                              <Link
+                                key={generateUniqueId()} 
+                                href={skill.link ?? '#'}
+                                target='_blank'                                
                               >
                                 <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                   <CardHeader className="flex gap-3">
@@ -129,10 +135,12 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                                     </p>
                                   </CardHeader>
                                   <CardBody>
-                                    <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                                    <Badge color={mapColor[skill.level]} className="font-normal italic">
+                                      {`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}
+                                    </Badge>
                                   </CardBody>
                                 </Card>
-                              </button>
+                              </Link>
                             )
                           })}
                         </div>
@@ -147,7 +155,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                   softSkills.map((key) => (
                     <div
                       key={generateUniqueId()}
-                      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
                     >
                       {skills[key].map((skill: Skill) => {
                         return (
@@ -157,14 +165,16 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                           >
                             <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                               <CardHeader className="flex gap-3">
-                                <p className="text-base font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl">
+                                <p className="text-base text-start font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl line-clamp-1">
                                   {typeof skill.title === 'string'
                                     ? skill.title
                                     : skill.title[language]}
                                 </p>
                               </CardHeader>
                               <CardBody>
-                                <p className="font-normal text-gray-400">{`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}</p>
+                                <Badge color={mapColor[skill.level]} className="font-normal italic">
+                                  {`${dict.skills.card.level}: ${key === 'soft' ? getLevel(skill.level, 'soft', dict) : getLevel(skill.level, 'hard', dict)}`}
+                                </Badge>
                               </CardBody>
                             </Card>
                           </button>
