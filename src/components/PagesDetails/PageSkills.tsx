@@ -60,7 +60,10 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
   }
 
   const handleClickOpenLink = (link?: string) => {
-    if (!link) return
+    if (!link) {
+      console.warn('Attempted to open a link, but none was provided.');
+      return;
+    }
     route.push(link)
   }
 
@@ -125,7 +128,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                               <button
                                 key={generateUniqueId()}
                                 disabled={!skill.link}
-                                onClick={() => handleClickOpenLink(skill?.link)}
+                                onClick={() => handleClickOpenLink(skill.link)}
                               >
                                 <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                   <CardHeader className="flex gap-3">
