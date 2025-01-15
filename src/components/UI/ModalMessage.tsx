@@ -69,7 +69,7 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
           <Divider className="my-2" />
           <FormContact
             dict={dict}
-            notDone={modal === false}
+            notDone={!modal}
             onError={(m) => {
               setError(m)
               setShow({
