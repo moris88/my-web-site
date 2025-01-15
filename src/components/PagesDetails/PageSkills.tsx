@@ -64,10 +64,10 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
     })
   }
 
-  const mapColor: Record<number, "green" | "yellow" | "orange" | "red"> = {
+  const mapColor: Record<number, 'green' | 'yellow' | 'orange' | 'red'> = {
     6: 'orange',
     7: 'yellow',
-    8: 'yellow', 
+    8: 'yellow',
     9: 'green',
     10: 'green',
   }
@@ -124,9 +124,9 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                           {skills[key].map((skill: Skill) => {
                             return (
                               <Link
-                                key={generateUniqueId()} 
-                                href={skill.link ?? '#'}
-                                target='_blank'                                
+                                key={generateUniqueId()}
+                                href={skill?.link ?? '#'}
+                                target='_blank'
                               >
                                 <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                   <CardHeader className="flex gap-3">

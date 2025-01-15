@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { HiIdentification, HiMiniUser } from 'react-icons/hi2'
+import { HiIdentification } from 'react-icons/hi2'
 import { Link } from '@nextui-org/link'
 import {
   Button,
@@ -132,7 +132,9 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                                 key={buttonLower}
                                 color="primary"
                                 variant="flat"
-                                onClick={() => storeLink && setStoreLink(storeLink)}
+                                onClick={() => (
+                                  storeLink && setStoreLink(storeLink)
+                                )}
                               >
                                 <span className="flex items-center gap-2">
                                   {iconMap[buttonLower]}
@@ -155,7 +157,9 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                                 key={buttonLower}
                                 color="primary"
                                 variant="flat"
-                                onClick={() => storeLink && setStoreLink(storeLink)}
+                                onClick={() => (
+                                  storeLink && setStoreLink(storeLink)
+                                )}
                               >
                                 <span className="flex items-center gap-2">
                                   {iconMap[buttonLower]}
