@@ -16,7 +16,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - name: 'Installazione dipendenze'
         run: yarn install
       - name: 'Check qualità codice'
@@ -30,11 +30,8 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - name: 'Installazione dipendenze'
         run: yarn install
       - name: 'Build test'
         run: yarn build
-
-
-        name: Check Push

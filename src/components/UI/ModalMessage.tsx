@@ -49,13 +49,14 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
   }
   if (!modal) {
     return (
-      <div className="flex w-full flex-col items-center justify-center gap-2 rounded-xl bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 md:max-w-xl">
+      <div className="flex w-full flex-col items-center justify-center gap-2 rounded-xl bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 lg:max-w-lg max-w-full">
         <h3 className="mt-5 w-full select-none text-center">
           <span className="flex items-center justify-center gap-1">
             <RiMailSendFill className="h-5 w-5" />
             <b>{dict.contacts.modal.title}</b>
           </span>
         </h3>
+        <Divider className="my-2" />
         <div className="flex flex-col items-center justify-center gap-2">
           <p>
             {dict.contacts.modal.content}&nbsp;
@@ -65,6 +66,7 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
               </i>
             </Link>
           </p>
+          <Divider className="my-2" />
           <FormContact
             dict={dict}
             onError={(m) => {

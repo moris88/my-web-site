@@ -229,6 +229,24 @@ const dictionary = {
     tools: 'Tools',
     platforms: 'Platforms',
     soft: 'Soft',
+    legend: [
+      {
+        color: 'green',
+        label: 'Advanced/Optimal',
+      },
+      {
+        color: 'yellow',
+        label: 'Intermediate/Good',
+      },
+      {
+        color: 'orange',
+        label: 'Basic/Adequate',
+      },
+      {
+        color: 'red',
+        label: 'Unknown',
+      },
+    ],
     card: {
       level: 'Level',
       adequate: 'Adequate',
