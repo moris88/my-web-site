@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense } from 'react'
+import React, { ChangeEvent, Suspense } from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import { Checkbox, Divider, Skeleton } from '@nextui-org/react'
@@ -24,6 +24,11 @@ function PageApp({ dict }: PageCVProps) {
   const handleClickClose = () => {
     setSelectedImage(null)
   }
+  const handleCheckboxChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    setAccept(event.currentTarget.checked)
+  }
   return (
     <SectionHero title={dict.application.title}>
       <p className="text-center text-base lg:text-xl">
@@ -37,10 +42,8 @@ function PageApp({ dict }: PageCVProps) {
           >
             <Image
               alt={`${image}`}
-              className="cursor-pointer rounded-lg"
-              height={150}
+              className="cursor-pointer rounded-lg max-h-96 h-full max-w-32 w-full"
               src={`/${image}.webp`}
-              width={150}
               onClick={() => handleClickOpen(image)}
             />
           </Suspense>
@@ -53,21 +56,13 @@ function PageApp({ dict }: PageCVProps) {
             onClose={handleClickClose}
           >
             <ModalContent>
-              {() => (
-                <>
-                  <ModalBody>
-                    <div className="flex w-full items-center justify-center">
-                      <Image
-                        alt={selectedImage}
-                        className="rounded-lg"
-                        height={100}
-                        src={`/${selectedImage}.webp`}
-                        width={300}
-                      />
-                    </div>
-                  </ModalBody>
-                </>
-              )}
+              <ModalBody className='w-full flex items-center justify-center'>
+                <img
+                  alt={selectedImage}
+                  className="py-8 w-3/4 h-5/6 object-cover object-center"
+                  src={`/${selectedImage}.webp`}
+                />
+              </ModalBody>
             </ModalContent>
           </Modal>
         )}
@@ -80,7 +75,7 @@ function PageApp({ dict }: PageCVProps) {
           className="flex gap-2"
           color="default"
           variant="flat"
-          onClick={() => setShowDownload(true)}
+          onPress={() => setShowDownload(true)}
         >
           {dict.application.download}
           <HiArrowDownTray className="h-5 w-5" />
@@ -104,7 +99,7 @@ function PageApp({ dict }: PageCVProps) {
                     <div className="flex w-full items-center justify-center">
                       <Checkbox
                         defaultSelected={accept}
-                        onChange={(e) => setAccept(e.currentTarget.checked)}
+                        onChange={handleCheckboxChange}
                       >
                         {'Accept terms'}
                       </Checkbox>
@@ -114,7 +109,7 @@ function PageApp({ dict }: PageCVProps) {
                         className="flex gap-2"
                         color="default"
                         variant="flat"
-                        onClick={() => setShowDownload(false)}
+                        onPress={() => setShowDownload(false)}
                       >
                         {dict.application.cancel}
                       </Button>
