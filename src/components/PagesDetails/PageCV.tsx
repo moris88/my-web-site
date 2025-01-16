@@ -116,7 +116,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
             className="flex gap-2"
             color="default"
             variant="flat"
-            onClick={() => setShowDownload(true)}
+            onPress={() => setShowDownload(true)}
           >
             {dict.curriculum.download}
             <HiArrowDownTray className="h-5 w-5" />
@@ -150,7 +150,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                           className="flex gap-2"
                           color="default"
                           variant="flat"
-                          onClick={() => setShowDownload(false)}
+                          onPress={() => setShowDownload(false)}
                         >
                           {dict.curriculum.cancel}
                         </Button>

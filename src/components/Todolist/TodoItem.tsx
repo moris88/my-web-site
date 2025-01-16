@@ -178,10 +178,10 @@ function TodoItem({ todo, dict }: TodoItemProps) {
               })}
             </Select>
             <ButtonGroup>
-              <Button size="lg" onClick={() => setIsEditing(false)}>
+              <Button size="lg" onPress={() => setIsEditing(false)}>
                 {dict.todolist.editTask.cancel}
               </Button>
-              <Button color="warning" size="lg" onClick={updateTodo}>
+              <Button color="warning" size="lg" onPress={updateTodo}>
                 {dict.todolist.editTask.submit}
               </Button>
             </ButtonGroup>
@@ -213,14 +213,14 @@ function TodoItem({ todo, dict }: TodoItemProps) {
               color="primary"
               isDisabled={todo.completed}
               size="sm"
-              onClick={() => setIsEditing(true)}
+              onPress={() => setIsEditing(true)}
             >
               <HiOutlinePencilSquare className="h-3 w-3" />
               <span className="hidden md:inline">
                 {dict.todolist.listitem.edit}
               </span>
             </Button>
-            <Button color="danger" size="sm" onClick={removeTodo}>
+            <Button color="danger" size="sm" onPress={removeTodo}>
               <HiMiniTrash className="h-3 w-3" />
               <span className="hidden md:inline">
                 {dict.todolist.listitem.delete}

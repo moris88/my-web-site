@@ -147,7 +147,7 @@ function TodoInput({ dict }: TodoInputProps) {
               className="flex min-w-36 gap-1"
               color="success"
               size="lg"
-              onClick={confirmAddTodo}
+              onPress={confirmAddTodo}
             >
               <HiMiniPlus className="h-6 w-6" />
               <span className="hidden md:inline">

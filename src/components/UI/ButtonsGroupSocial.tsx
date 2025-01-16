@@ -45,7 +45,7 @@ function ButtonsGroupSocial({
                     className="flex gap-2"
                     color="default"
                     variant="flat"
-                    onClick={() => route.push(storeLink.url)}
+                    onPress={() => route.push(storeLink.url)}
                   >
                     {dict.contacts.buttons.storeLink.button}
                   </Button>

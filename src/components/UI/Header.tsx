@@ -118,7 +118,7 @@ function Header({ dict }: NavbarProps) {
         ))}
         <NavbarMenuItem className="mt-8 flex w-full items-center justify-center">
           {isAuth ? (
-            <Button color="primary" variant="ghost" onClick={handleClickLogout}>
+            <Button color="primary" variant="ghost" onPress={handleClickLogout}>
               {dict.login.form.logout}
             </Button>
           ) : (
@@ -180,7 +180,7 @@ function Header({ dict }: NavbarProps) {
                 <DropdownItem
                   key={generateUniqueId()}
                   startContent={icons[path]}
-                  onClick={() => route.push(path)}
+                  onPress={() => route.push(path)}
                 >
                   <span className="text-black dark:text-white">{name}</span>
                 </DropdownItem>
@@ -188,7 +188,7 @@ function Header({ dict }: NavbarProps) {
           </DropdownMenu>
         </Dropdown>
         {isAuth ? (
-          <Button color="primary" variant="ghost" onClick={handleClickLogout}>
+          <Button color="primary" variant="ghost" onPress={handleClickLogout}>
             {dict.login.form.logout}
           </Button>
         ) : (

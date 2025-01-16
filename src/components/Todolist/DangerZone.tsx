@@ -93,7 +93,7 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
                     key={button.key}
                     color="danger"
                     size="lg"
-                    onClick={() => handleDelete(button.key)}
+                    onPress={() => handleDelete(button.key)}
                   >
                     {button.text}
                   </Button>
@@ -109,7 +109,7 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
                   key={button.key}
                   color="danger"
                   size="sm"
-                  onClick={() => handleDelete(button.key)}
+                  onPress={() => handleDelete(button.key)}
                 >
                   {button.text}
                 </Button>

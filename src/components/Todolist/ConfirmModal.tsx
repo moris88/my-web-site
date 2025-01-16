@@ -41,12 +41,12 @@ function ConfirmModal({
         </ModalBody>
         <ModalFooter>
           {onCancel && (
-            <Button color={colorCancel ?? 'default'} onClick={onCancel}>
+            <Button color={colorCancel ?? 'default'} onPress={onCancel}>
               {buttonCancel ?? 'Cancel'}
             </Button>
           )}
           {onConfirm && (
-            <Button color={colorConfirm ?? 'default'} onClick={onConfirm}>
+            <Button color={colorConfirm ?? 'default'} onPress={onConfirm}>
               {buttonConfirm ?? 'Confirm'}
             </Button>
           )}
