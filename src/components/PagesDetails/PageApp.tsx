@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense } from 'react'
+import React, { ChangeEvent, Suspense } from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
 import { Checkbox, Divider, Skeleton } from '@nextui-org/react'
@@ -23,6 +23,11 @@ function PageApp({ dict }: PageCVProps) {
   }
   const handleClickClose = () => {
     setSelectedImage(null)
+  }
+  const handleCheckboxChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    setAccept(event.currentTarget.checked)
   }
   return (
     <SectionHero title={dict.application.title}>
@@ -94,7 +99,7 @@ function PageApp({ dict }: PageCVProps) {
                     <div className="flex w-full items-center justify-center">
                       <Checkbox
                         defaultSelected={accept}
-                        onChange={(e) => setAccept(e.currentTarget.checked)}
+                        onChange={handleCheckboxChange}
                       >
                         {'Accept terms'}
                       </Checkbox>
