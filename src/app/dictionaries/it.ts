@@ -248,7 +248,7 @@ const dictionary = {
       },
     ],
     card: {
-      level: 'Levello',
+      level: 'Livello',
       adequate: 'Adeguato',
       good: 'Buono',
       optimal: 'Ottimale',
