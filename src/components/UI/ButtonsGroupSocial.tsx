@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { Button } from '@nextui-org/button'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
+import { Button } from "@heroui/button"
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/modal"
 import { Dictionary } from '@/app/dictionaries'
 import { StoreLink } from '@/types'
 

@@ -3,7 +3,7 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
-import { Link } from '@nextui-org/link'
+import { Link } from "@heroui/link"
 import {
   Button,
   ButtonGroup,
@@ -11,7 +11,7 @@ import {
   CardBody,
   CardHeader,
   Divider,
-} from '@nextui-org/react'
+} from "@heroui/react"
 import moment from 'moment'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'

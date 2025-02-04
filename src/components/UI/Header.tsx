@@ -5,8 +5,8 @@ import { BsFillPhoneFill } from 'react-icons/bs'
 import { FaBloggerB, FaListAlt } from 'react-icons/fa'
 import { HiChevronDown } from 'react-icons/hi2'
 import { usePathname, useRouter } from 'next/navigation'
-import { Image } from '@nextui-org/image'
-import { Link } from '@nextui-org/link'
+import { Image } from "@heroui/image"
+import { Link } from "@heroui/link"
 import {
   Button,
   Dropdown,
@@ -21,7 +21,7 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Skeleton,
-} from '@nextui-org/react'
+} from "@heroui/react"
 import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { isLoginAtom } from '@/atoms'

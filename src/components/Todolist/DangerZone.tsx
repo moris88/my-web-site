@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonGroup, Switch } from '@nextui-org/react'
+import { Button, ButtonGroup, Switch } from "@heroui/react"
 import { Dictionary } from '@/app/dictionaries'
 import { Todo } from '@/types'
 import { isTaskOverdue } from '@/utils'

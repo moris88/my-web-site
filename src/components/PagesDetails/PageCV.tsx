@@ -3,9 +3,9 @@
 import React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import Link from 'next/link'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@nextui-org/modal'
-import { Checkbox, Divider } from '@nextui-org/react'
-import { Button } from '@nextui-org/react'
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/modal"
+import { Checkbox, Divider } from "@heroui/react"
+import { Button } from "@heroui/react"
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components/UI'
