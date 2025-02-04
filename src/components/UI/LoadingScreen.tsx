@@ -1,6 +1,6 @@
 'use client'
 
-import { Spinner } from "@heroui/spinner"
+import { Spinner } from '@heroui/spinner'
 
 export default function LoadingScreen() {
   return (

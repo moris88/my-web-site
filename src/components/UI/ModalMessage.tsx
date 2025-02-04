@@ -3,10 +3,10 @@
 import React from 'react'
 import { HiEnvelope } from 'react-icons/hi2'
 import { RiMailSendFill } from 'react-icons/ri'
-import { Button } from "@heroui/button"
-import { Link } from "@heroui/link"
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/modal"
-import { Divider } from "@heroui/react"
+import { Button } from '@heroui/button'
+import { Link } from '@heroui/link'
+import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
+import { Divider } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { FormContact } from '@/components'
 

@@ -11,7 +11,7 @@ import {
   SelectItem,
   Switch,
   Textarea,
-} from "@heroui/react"
+} from '@heroui/react'
 import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'

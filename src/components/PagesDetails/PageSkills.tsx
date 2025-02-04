@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { Accordion, AccordionItem } from "@heroui/accordion"
-import { Card, CardBody, CardHeader } from "@heroui/card"
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/modal"
-import { Tab, Tabs } from "@heroui/tabs"
+import { Accordion, AccordionItem } from '@heroui/accordion'
+import { Card, CardBody, CardHeader } from '@heroui/card'
+import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
+import { Tab, Tabs } from '@heroui/tabs'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Language, Skill, Skills } from '@/types'

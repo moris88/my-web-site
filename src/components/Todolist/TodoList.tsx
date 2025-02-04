@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Chip, Select, SelectItem } from "@heroui/react"
+import { Chip, Select, SelectItem } from '@heroui/react'
 import { useAtom } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'

@@ -3,9 +3,9 @@
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
-import { Button } from "@heroui/button"
-import { Input } from "@heroui/input"
-import { Textarea } from "@heroui/react"
+import { Button } from '@heroui/button'
+import { Input } from '@heroui/input'
+import { Textarea } from '@heroui/react'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { createArticle } from '@/lib'

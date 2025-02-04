@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button } from "@heroui/button"
-import { Input, Textarea } from "@heroui/input"
-import { Spinner } from "@heroui/spinner"
+import { Button } from '@heroui/button'
+import { Input, Textarea } from '@heroui/input'
+import { Spinner } from '@heroui/spinner'
 import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {

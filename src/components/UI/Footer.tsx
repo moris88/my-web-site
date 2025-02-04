@@ -1,5 +1,5 @@
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { Link } from "@heroui/link"
+import { Link } from '@heroui/link'
 import { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
 
