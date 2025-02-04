@@ -2,7 +2,7 @@
 
 import { HiArrowLeft } from 'react-icons/hi2'
 import Link from 'next/link'
-import { Button } from '@nextui-org/react'
+import { Button } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { SectionHero } from '@/components/UI'
 import { Article } from '@/types'

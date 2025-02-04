@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Divider, Image } from '@nextui-org/react'
-import { Tooltip } from '@nextui-org/react'
+import { Divider, Image } from '@heroui/react'
+import { Tooltip } from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'

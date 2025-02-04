@@ -1,6 +1,6 @@
 'use client'
 
-import { Divider } from '@nextui-org/divider'
+import { Divider } from '@heroui/divider'
 import { Dictionary } from '@/app/dictionaries'
 import { Article } from '@/types'
 import { formatDate } from '@/utils'

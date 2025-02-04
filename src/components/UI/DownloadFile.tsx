@@ -1,7 +1,7 @@
 import React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import Link from 'next/link'
-import { Button } from '@nextui-org/react'
+import { Button } from '@heroui/react'
 
 interface DownloadFileProps {
   pathFile: string

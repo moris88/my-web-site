@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { NextUIProvider } from '@nextui-org/system'
+import { HeroUIProvider } from '@heroui/system'
 import { createStore, Provider } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
@@ -35,11 +35,11 @@ export default function UIWrapper({ children, dict, links }: UIWrapperProps) {
 
   return (
     <Provider store={atomStore}>
-      <NextUIProvider>
+      <HeroUIProvider>
         <Header dict={dict} />
         {children}
         <Footer links={links} />
-      </NextUIProvider>
+      </HeroUIProvider>
     </Provider>
   )
 }
