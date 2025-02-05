@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'
 import TypingEffect from '../UI/TypingEffect'
+import parse from 'html-react-parser'
 interface HomePageProps {
   dict: Dictionary
   info: Info
@@ -72,7 +73,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
         >
           <div className="flex w-full justify-center">
             <p className="col-span-3 select-none rounded-lg bg-gray-200 p-1 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-              {info?.description?.[language] ?? ''}
+              {parse(info?.description?.[language] ?? '')}
             </p>
           </div>
         </motion.div>
