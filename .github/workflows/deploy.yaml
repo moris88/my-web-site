@@ -1,0 +1,32 @@
+name: "Deploy del codice"
+
+on:
+  push:
+    tags:
+      - "*" # Attiva il workflow su tutti i tag
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verifica branch di origine del tag
+        run: |
+          DEFAULT_BRANCH="main"
+          TAG_COMMIT_SHA=$(git rev-list -n 1 ${{ github.ref_name }})
+          BRANCH_NAME=$(git branch -r --contains $TAG_COMMIT_SHA | grep "origin/$DEFAULT_BRANCH" || true)
+
+          if [[ -z "$BRANCH_NAME" ]]; then
+            echo "❌ Il tag non è stato creato sul branch main. Interrompo il workflow."
+            exit 1
+          fi
+        shell: bash
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: "Installazione dipendenze"
+        run: yarn install
+      - name: "Deploy"
+        run: vercel --prod

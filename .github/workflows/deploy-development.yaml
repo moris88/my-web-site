@@ -1,0 +1,38 @@
+name: "Deploy su Development"
+
+on:
+  pull_request:
+    branches:
+      - "development"
+    types:
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy su Development
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: "Installazione dipendenze"
+        run: yarn install
+
+      - name: "Deploy su Vercel"
+        run: vercel > deployment-url.txt
+
+      - name: 'Leggere URL di Deployment'
+        id: read_url
+        run: echo "DEPLOY_URL=$(cat deployment-url.txt)" >> $GITHUB_ENV
+
+      - name: 'Commenta sulla Pull Request'
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ✅ **Deploy completato dopo il merge!**
+            🌍 [Visualizza qui](${{ env.DEPLOY_URL }})
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
