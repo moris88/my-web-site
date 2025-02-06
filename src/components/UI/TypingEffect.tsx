@@ -1,12 +1,25 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
+type TypeTypography = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
+
+interface TypographyProps {
+  type?: TypeTypography
+  children: React.ReactNode
+  className?: string
+}
+
+function GetTypography({ type = 'h1', className = '', children }: TypographyProps) {
+  return React.createElement(type, { className }, children)
+}
+
 interface TypingEffectProps {
   children: React.ReactNode
   className?: string
   speed?: number
   onEnd?: () => void
   skip?: boolean
+  type?: TypeTypography
 }
 
 function TypingEffect({
@@ -15,6 +28,7 @@ function TypingEffect({
   speed = 500,
   onEnd,
   skip,
+  type = 'h1'
 }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = React.useState('')
 
@@ -36,10 +50,15 @@ function TypingEffect({
   }, [children, onEnd, skip, speed])
 
   return (
-    <p className={twMerge('font-mono text-xl', className)}>
-      {typeof children === 'string' ? displayedText.toUpperCase() : children}
-      {!skip && <span className="animate-blink">|</span>}
-    </p>
+    <GetTypography
+      type={type}
+      className={twMerge('font-mono', className)}
+    >
+      <>
+        {typeof children === 'string' ? displayedText.toUpperCase() : children}
+        {!skip && <span className="animate-blink">|</span>}
+      </>
+    </GetTypography>
   )
 }
 

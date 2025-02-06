@@ -44,6 +44,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
           </Tooltip>
         </div>
         <TypingEffect
+          type='h1'
           className="select-none text-lg md:text-3xl"
           skip={!startSubTitle}
           speed={200}
@@ -52,6 +53,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
           {info.name}
         </TypingEffect>
         <TypingEffect
+          type='h2'
           className="select-none text-base md:text-2xl"
           skip={startSubTitle}
           speed={200}
