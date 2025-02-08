@@ -14,7 +14,6 @@ export default async function BlogPage({
     return res.data[0].id
   })
   const response = await getArticle(id, +languageId)
-  console.log(response)
   if (response?.error) {
     return <ErrorPage message={response.error.message} />
   }

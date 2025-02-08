@@ -33,6 +33,7 @@ export default function FormArticles({ dict }: FormArticlesProps) {
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setLoading(true)
+    // TODO implement createArticle with supabase
     // createArticle(
     //   { title: data.title_it, content: data.content_it, link: data.link },
     //   { title: data.title_en, content: data.content_en, link: data.link },

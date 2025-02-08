@@ -20,8 +20,6 @@ export async function POST(request: Request) {
     formData.append('email', username)
     formData.append('password', password)
     const response = await login(formData)
-    console.log('route auth', response)
-
     if (response?.error) {
       return NextResponse.json(
         { error: response.error.message },

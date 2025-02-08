@@ -1,6 +1,5 @@
 'use server'
 
-import { cookies } from 'next/headers'
 import jsonContacts from '@/data/contacts.json'
 import jsonCurriculum from '@/data/curriculum.json'
 import jsonHistory from '@/data/history.json'
