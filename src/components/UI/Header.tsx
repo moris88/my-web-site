@@ -57,7 +57,7 @@ function Header({ dict }: NavbarProps) {
   React.useEffect(() => {
     const cookies = document.cookie
       .split(';')
-      .find((row) => row.trim().startsWith('auth_jwt='))
+      .find((row) => row.trim().includes('auth-token='))
 
     const cookieValue = cookies ? cookies.split('=')[1] : null
     setIsAuth(cookieValue ? true : false)

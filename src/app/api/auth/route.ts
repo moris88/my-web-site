@@ -1,15 +1,10 @@
 import { NextResponse } from 'next/server'
-import { login } from '@/lib'
+import { login } from '@/lib/supabase'
 
-const { COOKIE_VALUE, ADMIN_USER, ADMIN_PSW } = process.env
 const { error } = console
 
 export async function POST(request: Request) {
   try {
-    // check if COOKIE_VALUE is defined
-    if (!COOKIE_VALUE) {
-      throw new Error('COOKIE_VALUE is not defined')
-    }
     const body = await request.json()
     const username = body.username || null
     const password = body.password || null
@@ -21,14 +16,19 @@ export async function POST(request: Request) {
       )
     }
     // check username and password
-    if (username !== ADMIN_USER || password !== ADMIN_PSW) {
+    const formData = new FormData()
+    formData.append('email', username)
+    formData.append('password', password)
+    const response = await login(formData)
+    console.log('route auth', response)
+
+    if (response?.error) {
       return NextResponse.json(
-        { error: 'username or password is incorrect' },
+        { error: response.error.message },
         { status: 404 },
       )
     }
-    // login
-    login(COOKIE_VALUE)
+
     // return response
     return NextResponse.json({ status: 200 })
   } catch (err) {

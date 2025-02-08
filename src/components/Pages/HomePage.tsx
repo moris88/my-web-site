@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Divider, Image } from '@heroui/react'
+import { Divider } from '@heroui/react'
 import { Tooltip } from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
@@ -33,7 +33,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
                 scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
               }}
             >
-              <Image
+              <img
                 alt="avatar"
                 className="block rounded-full"
                 height={150}
