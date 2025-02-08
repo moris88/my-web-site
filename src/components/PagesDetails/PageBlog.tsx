@@ -18,7 +18,7 @@ function PageBlog({ dict, article }: PageBlogProps) {
     <>
       {article && (
         <SectionHero subtitle={article.content} title={article.title}>
-          <small>{`${dict.blog.article.postedAt} ${formatDate(article.date)}`}</small>
+          <small>{`${dict.blog.article.postedAt} ${formatDate(article.created_at)}`}</small>
           {article.link && (
             <Link
               className="italic decoration-black hover:underline dark:decoration-white"

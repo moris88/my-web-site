@@ -8,7 +8,6 @@ import { Input } from '@heroui/input'
 import { Textarea } from '@heroui/react'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { createArticle } from '@/lib'
 
 interface FormArticlesProps {
   dict: Dictionary
@@ -34,21 +33,21 @@ export default function FormArticles({ dict }: FormArticlesProps) {
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     setLoading(true)
-    createArticle(
-      { title: data.title_it, content: data.content_it, link: data.link },
-      { title: data.title_en, content: data.content_en, link: data.link },
-      moment().format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'),
-    )
-      .then((res) => {
-        if (res.error !== 'Article created successfully') {
-          setError(res.message ?? 'Internal Server Error')
-        } else {
-          route.push('/blog')
-        }
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+    // createArticle(
+    //   { title: data.title_it, content: data.content_it, link: data.link },
+    //   { title: data.title_en, content: data.content_en, link: data.link },
+    //   moment().format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'),
+    // )
+    //   .then((res) => {
+    //     if (res.error !== 'Article created successfully') {
+    //       setError(res.message ?? 'Internal Server Error')
+    //     } else {
+    //       route.push('/blog')
+    //     }
+    //   })
+    //   .finally(() => {
+    //     setLoading(false)
+    //   })
   }
 
   return (

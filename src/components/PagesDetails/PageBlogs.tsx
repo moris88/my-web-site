@@ -28,7 +28,9 @@ function PageBlogs({ dict, articles }: PageBlogsProps) {
     <SectionHero title={dict.blog.title}>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 p-2">
         {articles
-          .sort((a: Article, b: Article) => moment(b.date).diff(moment(a.date)))
+          .sort((a: Article, b: Article) =>
+            moment(b.created_at).diff(moment(a.created_at))
+          )
           .map((article) => (
             <CardBlog
               key={generateUniqueId()}

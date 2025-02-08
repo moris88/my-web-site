@@ -12,7 +12,7 @@ interface CardBlogProps {
 }
 
 function CardBlog({
-  article: { id, title, date, content, link },
+  article: { id, title, created_at, updated_at, content, link, image },
   onClick,
   dict,
 }: CardBlogProps) {
@@ -21,9 +21,11 @@ function CardBlog({
     onClick?.({
       id,
       title,
-      date,
+      created_at,
       content,
       link,
+      updated_at,
+      image,
     })
   }
   return (
@@ -32,12 +34,22 @@ function CardBlog({
       onClick={handleOnClick}
     >
       <div className="flex min-h-20 flex-col items-start gap-y-2">
+        {image ? (
+          <img
+            alt={title}
+            className="object-cover w-full h-40 rounded-lg"
+            src={image}
+          />
+        ) : (
+          <div className="w-full h-40 bg-gray-300 rounded-lg" />
+        )}
         <h2 className="line-clamp-1 select-none text-xl font-bold text-black dark:text-gray-300">
           {title}
         </h2>
-        <Divider className="my-4" />
+        <p className="line-clamp-2 select-none text-md font-bold text-black dark:text-gray-300">{content}</p>
+        <Divider className="my-2" />
         <small className="select-none text-gray-500">
-          {`${dict.blog.card.postedAt} ${formatDate(date)}`}
+          {`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
         </small>
       </div>
     </article>

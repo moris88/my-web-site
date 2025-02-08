@@ -1,2 +1,2 @@
-export * from './blog'
+export * from './supabase'
 export * from './request'
