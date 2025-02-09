@@ -1,7 +1,6 @@
-import { ErrorPage } from '@/components'
-import { PageBlogs } from '@/components/PagesDetails'
+import { PageBlogs, ErrorPage } from '@/components'
 import { getDictionary } from '../../dictionaries'
-import { getLanguage, getArticles } from '@/lib/supabase'
+import { getLanguage, getArticles } from '@/lib'
 
 export default async function BlogsPage() {
   const dict = await getDictionary()

@@ -1,7 +1,6 @@
-import { ErrorPage } from '@/components'
-import { PageBlog } from '@/components/PagesDetails'
+import { PageBlog, ErrorPage } from '@/components'
 import { getDictionary } from '../../../dictionaries'
-import { getArticle, getLanguage } from '@/lib/supabase'
+import { getArticle, getLanguage } from '@/lib'
 
 export default async function BlogPage({
   params: { id },

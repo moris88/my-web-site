@@ -1,12 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Button } from '@heroui/react'
-import { useAtomValue } from 'jotai'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { isLoginAtom } from '@/atoms'
 import { CardBlog, SectionHero } from '@/components/UI'
 import { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
@@ -18,7 +14,6 @@ interface PageBlogsProps {
 
 function PageBlogs({ dict, articles }: PageBlogsProps) {
   const router = useRouter()
-  const isAuth = useAtomValue(isLoginAtom)
 
   const handleClickRow = (article: Article) => {
     router.push(`/blog/${article.id}`)
@@ -40,13 +35,6 @@ function PageBlogs({ dict, articles }: PageBlogsProps) {
             />
           ))}
       </div>
-      {isAuth && (
-        <div className="mt-8 flex justify-center">
-          <Link href="/dashboard">
-            <Button>{dict.blog.buttons.create}</Button>
-          </Link>
-        </div>
-      )}
     </SectionHero>
   )
 }

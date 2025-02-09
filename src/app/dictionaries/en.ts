@@ -6,10 +6,10 @@ const dictionary = {
     skills: 'Skills',
     todolist: 'Todo',
     contacts: 'Contacts',
-    application: 'App',
+    edit_blog: 'Edit Blog',
     curriculum: 'Curriculum',
+    profile: 'Profile',
     theme: 'Theme',
-    more: 'More',
   },
   todolist: {
     listitem: {
