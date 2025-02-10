@@ -44,7 +44,7 @@ export default function UIWrapper({
     <Provider store={atomStore}>
       <HeroUIProvider>
         <Header dict={dict} user={user} />
-        {children}
+        <div className="min-h-[86vh] lg:min-h-[84vh]">{children}</div>
         <Footer links={links} />
       </HeroUIProvider>
     </Provider>

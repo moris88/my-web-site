@@ -1,18 +1,24 @@
 import { PageBlog, ErrorPage } from '@/components'
 import { getDictionary } from '../../../dictionaries'
-import { getArticle, getLanguage } from '@/lib'
+import { getArticleWithLanguage, getLanguage, getArticle } from '@/lib'
 
 export default async function BlogPage({
   params: { id },
+  searchParams: { lang },
 }: {
-  params: { id: string }
+  params: { id: string },
+  searchParams: { lang: string }
 }) {
   const dict = await getDictionary()
   const language = dict.language === 'Italiano' ? 'it' : 'en'
   const languageId = await getLanguage(language).then((res) => {
     return res.data[0].id
   })
-  const response = await getArticle(id, +languageId)
+  console.log(languageId)
+  const response = lang
+    ? await getArticle(id)
+    : await getArticleWithLanguage(id, +languageId)
+  console.log(response)
   if (response?.error) {
     return <ErrorPage message={response.error.message} />
   }

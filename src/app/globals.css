@@ -22,7 +22,7 @@ body {
 }
 
 .container {
-  @apply min-w-full min-h-full lg:px-20 px-5 lg:mt-5 mt-1 relative;
+  @apply min-w-full lg:px-20 px-5 py-1 lg:mt-5 mt-1 relative;
 }
 
 .item {

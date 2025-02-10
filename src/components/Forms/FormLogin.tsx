@@ -43,7 +43,7 @@ export default function FormLogin({ dict }: FormLoginProps) {
       .then((res) => {
         if (res.status === 200) {
           setIsAuth(true)
-          route.push('/dashboard')
+          route.push('/profile')
         } else {
           setError(res.error)
         }
@@ -93,7 +93,7 @@ export default function FormLogin({ dict }: FormLoginProps) {
         </div>
       )}
       <div className="flex justify-center gap-4">
-        <Button color="primary" type="submit" variant="flat">
+        <Button color="primary" disabled={loading} type="submit" variant="flat">
           {dict.login.form.buttons.submit}
         </Button>
       </div>

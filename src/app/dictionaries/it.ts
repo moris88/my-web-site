@@ -91,32 +91,41 @@ const dictionary = {
     message:
       'Ciao, sono un fullstack developer, amo programmare e sono sempre alla ricerca di nuove sfide.',
   },
-  dashboard: {
+  edit_blog: {
+    table: {
+      title: 'Lista degli Articoli',
+      new: 'Nuovo articolo',
+      no_article: 'Nessun articolo disponibile',
+      header: {
+        id: 'ID',
+        title: 'Titolo',
+        language: 'Lingua',
+        actions: 'Azioni',
+      }
+    },
     form: {
-      title: 'Aggiungi un nuovo articolo',
-      it: {
-        title: {
-          label: 'Titolo IT',
-          required: 'Il Titolo è obbligatorio',
-          placeholder: 'Inserisci il titolo dell\'articolo in Italiano',
-        },
-        content: {
-          label: 'Contenuto IT',
-          required: 'Il contenuto è obbligatorio',
-          placeholder: 'Inserisci il contenuto dell\'articolo in Italiano',
-        },
+      section: {
+        new: 'Nuovo articolo',
+        edit: 'Modifica articolo',
       },
-      en: {
-        title: {
-          label: 'Titolo EN',
-          required: 'Il Titolo è obbligatorio',
-          placeholder: 'Inserisci il titolo dell\'articolo in Inglese',
-        },
-        content: {
-          label: 'Contenuto EN',
-          required: 'Il contenuto è obbligatorio',
-          placeholder: 'Inserisci il contenuto dell\'articolo in Inglese',
-        },
+      language: {
+        label: 'Lingua',
+        required: 'La lingua è obbligatoria',
+        placeholder: 'Seleziona una lingua',
+      },
+      title: {
+        label: 'Titolo',
+        required: 'Il Titolo è obbligatorio',
+        placeholder: 'Inserisci il titolo',
+      },
+      content: {
+        label: 'Contenuto',
+        required: 'Il contenuto è obbligatorio',
+        placeholder: 'Inserisci il contenuto',
+      },
+      image: {
+        label: 'Immagine',
+        placeholder: 'Inserisci un percorso dell\'immagine',
       },
       link: {
         label: 'Link',
@@ -125,6 +134,7 @@ const dictionary = {
       loading: 'Invio in corso...',
       buttons: {
         submit: 'Invia',
+        done: 'Indietro',
       },
     },
   },
@@ -293,17 +303,6 @@ const dictionary = {
     terms:
       'Spuntando la checkbox in basso, l\'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all\'art. 13 del D.Lgs. 196/2003 e all\'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.',
     cancel: 'Annulla',
-  },
-  application: {
-    title: 'Applicazione',
-    description:
-      'Visita il mio sito in pochi secondi, senza bisogno del browser e ottimizzato per lo smartphone.',
-    terms:
-      'Utilizzando questa app, l\'utente accetta i seguenti termini e condizioni. Se non accetti questi termini, ti prego di non utilizzare l\'app. L\'app è fornita esclusivamente per uso personale. Non puoi utilizzare l’app per scopi commerciali o illegali, né tentare di interferire con le sue funzionalità o sicurezza. Tutti i contenuti dell\'app, inclusi testi, immagini, loghi e software, sono protetti da diritti d\'autore e non possono essere riprodotti senza il mio consenso. Non sono responsabile per eventuali danni diretti o indiretti derivanti dall’uso dell’app. L’uso dell’app è a tuo rischio esclusivo. Mi riservo il diritto di modificare, sospendere o interrompere temporaneamente o permanentemente l\'app o alcune sue funzioni senza preavviso. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite l’app, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.',
-    cancel: 'Annulla',
-    requirements: 'Requisiti',
-    compatibility: 'Android 8 o superiore',
-    download: 'Scarica App',
   },
 }
 

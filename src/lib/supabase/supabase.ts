@@ -66,11 +66,18 @@ export async function signup(formData: FormData) {
   return await supabase.auth.signUp(data)
 }
 
+export async function getLanguages() {
+  const supabase = await createClient()
+  return (await supabase
+    .from('language')
+    .select('id,type,lang,label')) as ResponseSupabase<LanguageSupabase>
+}
+
 export async function getLanguage(language: Language) {
   const supabase = await createClient()
   return (await supabase
     .from('language')
-    .select('id,type')
+    .select('id,type,lang,label')
     .eq('type', language)) as ResponseSupabase<LanguageSupabase>
 }
 

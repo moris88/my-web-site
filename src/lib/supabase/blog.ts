@@ -1,7 +1,7 @@
 import { createClient } from './supabase'
 import { Article, ResponseSupabase } from '@/types'
 
-export async function getArticles(languageId: number) {
+export async function getArticlesWithLanguage(languageId: number) {
   const supabase = await createClient()
   return (await supabase
     .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
@@ -10,7 +10,15 @@ export async function getArticles(languageId: number) {
     .eq('languageID', languageId)) as ResponseSupabase<Article>
 }
 
-export async function getArticle(id: string, languageId: number) {
+export async function getArticles() {
+  const supabase = await createClient()
+  return (await supabase
+    .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
+    .select('*')
+    .order('created_at', { ascending: true })) as ResponseSupabase<Article>
+}
+
+export async function getArticleWithLanguage(id: string, languageId: number) {
   const supabase = await createClient()
   return (await supabase
     .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
@@ -19,9 +27,50 @@ export async function getArticle(id: string, languageId: number) {
     .eq('languageID', languageId)) as ResponseSupabase<Article>
 }
 
+export async function getArticle(id: string) {
+  const supabase = await createClient()
+  return (await supabase
+    .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
+    .select('*')
+    .eq('id', id)) as ResponseSupabase<Article>
+}
+
 export async function createArticle(data: Article) {
+  if (!data.languageID) {
+    throw new Error('Language ID is required')
+  }
+  if (!data.title) {
+    throw new Error('Title is required')
+  }
+  if (!data.content) {
+    throw new Error('Content is required')
+  }
+  const supabase = await createClient()
+  const user = await supabase.auth.getUser()
+  data.user_id = user?.data?.user?.id
+  return await supabase
+    .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
+    .insert([data])
+}
+
+export async function updateArticle(data: Article) {
+  if (!data.id) {
+    throw new Error('Article ID is required')
+  }
   const supabase = await createClient()
   return await supabase
     .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
-    .insert(data)
+    .upsert([data])
+    .eq('id', data.id)
+}
+
+export async function deleteArticle(id: string) {
+  if (!id) {
+    throw new Error('Article ID is required')
+  }
+  const supabase = await createClient()
+  return await supabase
+    .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
+    .delete()
+    .eq('id', id)
 }

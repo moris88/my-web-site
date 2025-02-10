@@ -1,4 +1,5 @@
-'only server'
+'use server'
+
 export async function sendMessage({
   token,
   chatId,

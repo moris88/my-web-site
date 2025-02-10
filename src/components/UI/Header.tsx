@@ -61,6 +61,7 @@ function Header({ dict, user }: NavbarProps) {
             fallback={<Skeleton className="flex h-7 w-7 rounded-full" />}
           >
             <img
+              className='rounded-lg'
               alt="avatar"
               height={30}
               src="/avatar.webp"
@@ -149,7 +150,7 @@ function Header({ dict, user }: NavbarProps) {
               <DropdownItem key="edit_blog" onPress={() => route.push('/edit_blog')}>
                 {dict.navbar.edit_blog}
               </DropdownItem>
-              <DropdownItem key="edit_blog" onPress={() => route.push('/todolist')}>
+              <DropdownItem key="todolist" onPress={() => route.push('/todolist')}>
                 {dict.navbar.todolist}
               </DropdownItem>
               <DropdownItem key="logout" color="danger" onPress={handleClickLogout}>

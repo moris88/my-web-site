@@ -67,6 +67,8 @@ export interface Article {
   updated_at: string;
   link?: string;
   image?: string;
+  languageID?: number;
+  user_id?: string;
 }
 
 export interface Curriculum {

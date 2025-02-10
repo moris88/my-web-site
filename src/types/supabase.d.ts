@@ -7,8 +7,10 @@ export interface ResponseSupabase<T = unknown> {
 }
 
 export interface LanguageSupabase {
-    id: string
+    id: number
     type: string
+    lang: string
+    label: string
 }
 
 export interface ErrorSupabase {
