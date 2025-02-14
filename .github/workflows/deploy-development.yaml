@@ -31,7 +31,7 @@ jobs:
         run: echo "${{ secrets.VERCEL_TOKEN }}"
 
       - name: "Deploy su Vercel"
-        run: vercel --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
+        run: vercel --token=${{ secrets.VERCEL_TOKEN }} --yes > deployment-url.txt
 
       - name: 'Leggere URL di Deployment'
         id: read_url
