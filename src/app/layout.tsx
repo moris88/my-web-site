@@ -24,8 +24,7 @@ export default async function RootLayout({
 }) {
   const dict = await getDictionary()
   const links = await getLinks()
-  const response = await getUser()
-  const user = response?.data?.user ?? null
+  const user = await getUser()
 
   return (
     <html lang="it">
