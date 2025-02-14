@@ -88,6 +88,7 @@ const dictionary = {
       contacts: 'i miei contatti',
     },
     title: 'Chi sono e cosa faccio?',
+    subtitle: 'In cosa sono specializzato?',
     message:
       'Ciao, sono un fullstack developer, amo programmare e sono sempre alla ricerca di nuove sfide.',
   },

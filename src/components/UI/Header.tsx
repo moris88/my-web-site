@@ -106,11 +106,9 @@ function Header({ dict, user }: NavbarProps) {
               {dict.login.form.logout}
             </Button>
           ) : (
-            <Link href="/login">
-              <Button color="primary" variant="flat">
-                {dict.login.form.login}
-              </Button>
-            </Link>
+            <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+              {dict.login.form.login}
+            </Button>
           )}
         </NavbarMenuItem>
         <NavbarMenuItem className="flex w-full justify-center">
@@ -159,11 +157,9 @@ function Header({ dict, user }: NavbarProps) {
             </DropdownMenu>
           </Dropdown>
         ) : (
-          <Link href="/login">
-            <Button color="primary" variant="flat">
-              {dict.login.form.login}
-            </Button>
-          </Link>
+          <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+            {dict.login.form.login}
+          </Button>
         )}
       </NavbarContent>
     </Navbar>

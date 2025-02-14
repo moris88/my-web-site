@@ -21,6 +21,18 @@ body {
   box-sizing: border-box;
 }
 
+.hero {
+  @apply relative h-[94vh] w-full;
+}
+
+.hero > .hero-image {
+  @apply h-full w-full object-cover object-center;
+}
+
+.hero > .hero-content {
+  @apply absolute top-0 w-full h-full flex items-center justify-center md:pr-10 pr-0;
+}
+
 .container {
   @apply min-w-full lg:px-20 px-5 py-1 lg:mt-5 mt-1 relative;
 }

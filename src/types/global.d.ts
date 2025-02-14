@@ -96,16 +96,20 @@ export interface Experience {
 
 export interface History {
   title: {
-    it: string
-    en: string
-  }
+    it: string;
+    en: string;
+  };
   it: {
-    title: string | null
-    description: string
-  }[]
+    title: string | null;
+    description: string;
+    image?: string;
+    alt?: string;
+  }[];
   en: {
-    title: string | null
-    description: string
-  }[]
-  lastUpdate: string
+    title: string | null;
+    description: string;
+    image?: string;
+    alt?: string;
+  }[];
+  lastUpdate: string;
 }

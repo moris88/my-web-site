@@ -2,13 +2,9 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
-import { Spinner } from '@heroui/spinner'
-import { useSetAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
-import { isLoginAtom } from '@/atoms'
 
 interface FormLoginProps {
   dict: Dictionary
@@ -20,8 +16,6 @@ interface FormData {
 }
 
 export default function FormLogin({ dict }: FormLoginProps) {
-  const route = useRouter()
-  const setIsAuth = useSetAtom(isLoginAtom)
   const [loading, setLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string | null>(null)
   const {
@@ -42,14 +36,11 @@ export default function FormLogin({ dict }: FormLoginProps) {
       .then((res) => res.json())
       .then((res) => {
         if (res.status === 200) {
-          setIsAuth(true)
-          route.push('/profile')
+          window.location.href = '/profile'
         } else {
           setError(res.error)
+          setLoading(false)
         }
-      })
-      .finally(() => {
-        setLoading(false)
       })
   }
 
@@ -86,14 +77,8 @@ export default function FormLogin({ dict }: FormLoginProps) {
         </p>
       )}
       {error && <p className="font-bold text-red-500">{error}</p>}
-      {loading && (
-        <div className="flex items-center justify-center gap-4">
-          {dict.login.form.loading}...
-          <Spinner size="sm" />
-        </div>
-      )}
       <div className="flex justify-center gap-4">
-        <Button color="primary" disabled={loading} type="submit" variant="flat">
+        <Button color="primary" isLoading={loading} type="submit" variant="flat">
           {dict.login.form.buttons.submit}
         </Button>
       </div>
