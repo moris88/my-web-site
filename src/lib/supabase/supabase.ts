@@ -83,5 +83,8 @@ export async function getLanguage(language: Language) {
 
 export async function getUser() {
   const supabase = await createClient()
-  return supabase.auth.getUser()
+  return supabase.auth
+    .getUser()
+    .then((response) => response?.data?.user || null)
+    .catch(() => null)
 }

@@ -3,11 +3,14 @@
 // import { getDictionary } from '@/app/dictionaries'
 import { SectionHero } from '@/components'
 import { getUser } from '@/lib/supabase/supabase'
+import { redirect } from 'next/navigation'
 
 export default async function ProfilePage() {
   // const dict = await getDictionary()
-  const response = await getUser()
-  const user = response?.data?.user ?? null
+  const user = await getUser()
+  if (!user) {
+    redirect('/login')
+  }
   return (
     <SectionHero title={'Profile'}>
       <div className="flex flex-col items-center justify-center">

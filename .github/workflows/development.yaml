@@ -1,13 +1,9 @@
 name: "Deploy su Development"
 
 on:
-  pull_request:
+  push:
     branches:
-      - "development"
-    types:
-      - closed
-      - opened
-      - synchronize
+      - "main"
 
 jobs:
   deploy:
