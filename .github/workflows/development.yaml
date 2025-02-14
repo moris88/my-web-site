@@ -31,12 +31,12 @@ jobs:
 
       - name: 'Leggere URL di Deployment'
         id: read_url
-        run: echo "::set-output name=deploy_url::$(cat deployment-url.txt)"
+        run: echo "deploy_url=$(cat deployment-url.txt)" >> $GITHUB_OUTPUT
 
       - name: 'Commenta sulla Pull Request'
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            ✅ **Deploy completato dopo il merge!**
+            ✅ **Deploy completato dopo il push!**
             🌍 [Visualizza qui](${{ steps.read_url.outputs.deploy_url }})
           repo-token: ${{ secrets.GITHUB_TOKEN }}
