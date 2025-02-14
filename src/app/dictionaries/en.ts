@@ -6,10 +6,10 @@ const dictionary = {
     skills: 'Skills',
     todolist: 'Todo',
     contacts: 'Contacts',
-    application: 'App',
+    edit_blog: 'Edit Blog',
     curriculum: 'Curriculum',
+    profile: 'Profile',
     theme: 'Theme',
-    more: 'More',
   },
   todolist: {
     listitem: {
@@ -88,43 +88,54 @@ const dictionary = {
       contacts: 'my contacts',
     },
     title: 'Who am I and what do I do?',
+    subtitle: 'What do I specialize in?',
     message:
       'Hi, i\'m a fullstack developer, i love coding and i\'m always looking for new challenges.',
   },
-  dashboard: {
-    form: {
-      title: 'Add a new article',
-      it: {
-        title: {
-          label: 'Titolo IT',
-          required: 'Il Titolo è obbligatorio',
-          placeholder: 'Inserisci il titolo dell\'articolo in Italiano',
-        },
-        content: {
-          label: 'Contenuto IT',
-          required: 'Il contenuto è obbligatorio',
-          placeholder: 'Inserisci il contenuto dell\'articolo in Italiano',
-        },
+  edit_blog: {
+    table: {
+      title: 'Articles',
+      new: 'New article',
+      no_article: 'No articles available',
+      header: {
+        id: 'ID',
+        title: 'Title',
+        language: 'Language',
+        actions: 'Actions',
       },
-      en: {
-        title: {
-          label: 'Titolo EN',
-          required: 'Il Titolo è obbligatorio',
-          placeholder: 'Inserisci il titolo dell\'articolo in Inglese',
-        },
-        content: {
-          label: 'Contenuto EN',
-          required: 'Il contenuto è obbligatorio',
-          placeholder: 'Inserisci il contenuto dell\'articolo in Inglese',
-        },
+    },
+    form: {
+      section: {
+        new: 'New article',
+        edit: 'Edit article',
+      },
+      language: {
+        label: 'Language',
+        required: 'The language is required',
+        placeholder: 'Select the language of the article',
+      },
+      title: {
+        label: 'Title',
+        required: 'The title is required',
+        placeholder: 'Enter the title of the article',
+      },
+      content: {
+        label: 'Content',
+        required: 'The content is required',
+        placeholder: 'Enter the content of the article',
+      },
+      image: {
+        label: 'Image',
+        placeholder: 'Enter the image path',
       },
       link: {
         label: 'Link',
-        placeholder: 'Inserisci un link',
+        placeholder: 'Enter the source link of the article',
       },
       loading: 'Submitting...',
       buttons: {
         submit: 'Send',
+        done: 'Done',
       },
     },
   },

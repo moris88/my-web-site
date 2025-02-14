@@ -2,53 +2,94 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
-import { Textarea } from '@heroui/react'
-import moment from 'moment'
+import { Avatar, Select, Textarea, SelectItem, SharedSelection } from '@heroui/react'
+// import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { createArticle } from '@/lib'
+import { Article, LanguageSupabase } from '@/types'
+import { useRouter } from 'next/navigation'
+import { createArticle, updateArticle } from '@/lib'
 
 interface FormArticlesProps {
   dict: Dictionary
+  languages: LanguageSupabase[]
+  article?: Article
 }
 
-interface FormData {
-  title_it: string
-  content_it: string
-  title_en: string
-  content_en: string
-  link: string
-}
-
-export default function FormArticles({ dict }: FormArticlesProps) {
-  const route = useRouter()
+export default function FormArticles({
+  dict,
+  languages,
+  article,
+}: FormArticlesProps) {
+  const router = useRouter()
   const [loading, setLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string | null>(null)
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
-  } = useForm<FormData>()
+  } = useForm<Article>({
+    defaultValues: article ?? undefined,
+  })
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<Article> = (data) => {
+    if (!data.languageID) {
+      setError('Language is required')
+      return
+    }
     setLoading(true)
-    createArticle(
-      { title: data.title_it, content: data.content_it, link: data.link },
-      { title: data.title_en, content: data.content_en, link: data.link },
-      moment().format('YYYY-MM-DD[T]HH:mm:ss.SSS[Z]'),
-    )
-      .then((res) => {
-        if (res.error !== 'Article created successfully') {
-          setError(res.message ?? 'Internal Server Error')
+    console.log('DATA SUBMIT', data)
+    if (article) {
+      fetch('/api/articles', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).then((response) => {
+        if (response.status !== 200) {
+          setError('Error update article')
         } else {
-          route.push('/blog')
+          router.push('/edit_blog')
         }
-      })
-      .finally(() => {
+      }).finally(() => {
         setLoading(false)
       })
+    } else {
+      fetch('/api/articles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).then((response) => {
+        if (response.status !== 200) {
+          setError('Error creating article')
+        } else {
+          router.push('/edit_blog')
+        }
+      }).finally(() => {
+        setLoading(false)
+      })
+    }
+  }
+
+  const selectedLanguage = languages.find(
+    (language) => language.id === article?.languageID
+  )
+
+  const handleSelectedLanguage = (value: SharedSelection) => {
+    const selectedLanguage = languages.find(
+      (language) => {
+
+        return language.id === +(value?.currentKey ?? 0)
+      }
+    )
+    if (selectedLanguage) {
+      setValue('languageID', +selectedLanguage.id)
+    }
   }
 
   return (
@@ -56,73 +97,59 @@ export default function FormArticles({ dict }: FormArticlesProps) {
       className="flex w-full flex-col items-center justify-center gap-4"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
-        <div className="flex w-full flex-col gap-4">
-          <Input
-            isRequired
-            id="title"
-            label={dict.dashboard.form.it.title.label}
-            placeholder={dict.dashboard.form.it.title.placeholder}
-            type="text"
-            {...register('title_it', { required: true })}
-          />
-          {errors?.title_it && (
-            <p className="font-bold text-red-500">
-              {dict.dashboard.form.it.title.required}
-            </p>
-          )}
-          <Textarea
-            isRequired
-            id="content"
-            label={dict.dashboard.form.it.content.label}
-            maxRows={10}
-            minRows={10}
-            placeholder={dict.dashboard.form.it.content.placeholder}
-            type="text"
-            {...register('content_it', { required: false })}
-          />
-          {errors?.content_it && (
-            <p className="font-bold text-red-500">
-              {dict.dashboard.form.it.content.required}
-            </p>
-          )}
-        </div>
-
-        <div className="flex w-full flex-col gap-4">
-          <Input
-            isRequired
-            id="title"
-            label={dict.dashboard.form.en.title.label}
-            placeholder={dict.dashboard.form.en.title.placeholder}
-            type="text"
-            {...register('title_en', { required: true })}
-          />
-          {errors?.title_en && (
-            <p className="font-bold text-red-500">
-              {dict.dashboard.form.en.title.required}
-            </p>
-          )}
-          <Textarea
-            isRequired
-            id="content"
-            label={dict.dashboard.form.en.content.label}
-            maxRows={10}
-            minRows={10}
-            placeholder={dict.dashboard.form.en.content.placeholder}
-            type="text"
-            {...register('content_en', { required: false })}
-          />
-          {errors?.content_en && (
-            <p className="font-bold text-red-500">
-              {dict.dashboard.form.en.content.required}
-            </p>
-          )}
-        </div>
-      </div>
+      <Select
+        isRequired
+        label={dict.edit_blog.form.language.label}
+        placeholder={dict.edit_blog.form.language.placeholder}
+        items={languages}
+        defaultSelectedKeys={[selectedLanguage?.id ?? 0]}
+        onSelectionChange={handleSelectedLanguage}
+      >
+        {(language) => (
+          <SelectItem startContent={
+            <Avatar alt={language?.lang} className="w-6 h-6 shadow-lg" src={`https://flagcdn.com/w160/${language?.lang}.webp`} />
+          }>{language.label}</SelectItem>
+        )}
+      </Select>
+      <Input
+        isRequired
+        id="title"
+        label={dict.edit_blog.form.title.label}
+        placeholder={dict.edit_blog.form.title.placeholder}
+        type="text"
+        {...register('title', { required: true })}
+      />
+      {errors?.title && (
+        <p className="font-bold text-red-500">
+          {dict.edit_blog.form.title.required}
+        </p>
+      )}
+      <Textarea
+        isRequired
+        id="content"
+        label={dict.edit_blog.form.content.label}
+        maxRows={10}
+        minRows={10}
+        placeholder={dict.edit_blog.form.content.placeholder}
+        type="text"
+        {...register('content', { required: false })}
+      />
+      {errors?.content && (
+        <p className="font-bold text-red-500">
+          {dict.edit_blog.form.content.required}
+        </p>
+      )}
+      <Input
+        id="image"
+        label="Image"
+        placeholder={dict.edit_blog.form.image.placeholder}
+        type="text"
+        {...register('image', { required: false })}
+      />
       <Input
         id="link"
         label="Link"
-        placeholder="Enter article link"
+        placeholder={dict.edit_blog.form.link.placeholder}
         type="text"
         {...register('link', { required: false })}
       />
@@ -130,13 +157,16 @@ export default function FormArticles({ dict }: FormArticlesProps) {
       <div className="flex justify-center gap-4">
         {loading ? (
           <Button isLoading color="primary">
-            {dict.dashboard.form.loading}
+            {dict.edit_blog.form.loading}
           </Button>
         ) : (
           <Button color="primary" type="submit" variant="flat">
-            {dict.dashboard.form.buttons.submit}
+            {dict.edit_blog.form.buttons.submit}
           </Button>
         )}
+        <Button color="danger" type="button" variant="flat" onPress={() => router.push('/edit_blog')}>
+          {dict.edit_blog.form.buttons.done}
+        </Button>
       </div>
     </form>
   )

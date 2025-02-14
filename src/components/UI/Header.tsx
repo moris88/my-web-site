@@ -1,11 +1,7 @@
 'use client'
 
 import React, { Suspense } from 'react'
-import { BsFillPhoneFill } from 'react-icons/bs'
-import { FaBloggerB, FaListAlt } from 'react-icons/fa'
-import { HiChevronDown } from 'react-icons/hi2'
 import { usePathname, useRouter } from 'next/navigation'
-import { Image } from '@heroui/image'
 import { Link } from '@heroui/link'
 import {
   Button,
@@ -21,53 +17,35 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Skeleton,
+  Avatar,
 } from '@heroui/react'
-import { useAtom } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
-import { isLoginAtom } from '@/atoms'
 import { logout } from '@/lib'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
+import { User } from '@supabase/supabase-js'
 
 interface NavbarProps {
   dict: Dictionary
+  user: User | null
 }
 
-function Header({ dict }: NavbarProps) {
-  const [isAuth, setIsAuth] = useAtom(isLoginAtom)
+function Header({ dict, user }: NavbarProps) {
   const pathname = usePathname()
   const route = useRouter()
   const links = [
     { name: dict.navbar.curriculum, path: '/curriculum' },
     { name: dict.navbar.experience, path: '/experience' },
     { name: dict.navbar.skills, path: '/skills' },
-    { name: dict.navbar.application, path: '/application' },
     { name: dict.navbar.blog, path: '/blog' },
-    { name: dict.navbar.todolist, path: '/todolist' },
     { name: dict.navbar.contacts, path: '/contacts' },
+    { name: dict.navbar.profile, path: '/profile' },
+    { name: dict.navbar.edit_blog, path: '/edit_blog' },
+    { name: dict.navbar.todolist, path: '/todolist' },
   ]
-
-  const icons: Record<string, React.ReactNode> = {
-    chevron: <HiChevronDown size={16} />,
-    '/application': <BsFillPhoneFill size={16} />,
-    '/todolist': <FaListAlt size={16} />,
-    '/blog': <FaBloggerB size={16} />,
-  }
-
-  React.useEffect(() => {
-    const cookies = document.cookie
-      .split(';')
-      .find((row) => row.trim().startsWith('auth_jwt='))
-
-    const cookieValue = cookies ? cookies.split('=')[1] : null
-    setIsAuth(cookieValue ? true : false)
-  }, [setIsAuth])
 
   const handleClickLogout = () => {
     logout()
-    setTimeout(() => {
-      setIsAuth(false)
-    }, 500)
     route.push('/')
   }
 
@@ -82,11 +60,10 @@ function Header({ dict }: NavbarProps) {
           <Suspense
             fallback={<Skeleton className="flex h-7 w-7 rounded-full" />}
           >
-            <Image
+            <img
+              className='rounded-lg'
               alt="avatar"
               height={30}
-              radius="lg"
-              shadow="lg"
               src="/avatar.webp"
               width={30}
             />
@@ -102,45 +79,45 @@ function Header({ dict }: NavbarProps) {
         <NavbarMenuToggle />
       </NavbarContent>
       <NavbarMenu>
-        {links.map(({ name, path }) => (
-          <NavbarMenuItem
-            key={generateUniqueId()}
-            className="flex w-full items-center justify-center"
-          >
-            <Link href={path}>
-              <div
-                className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
-              >
-                {name}
-              </div>
-            </Link>
-          </NavbarMenuItem>
-        ))}
-        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center">
-          {isAuth ? (
+        {links
+          .filter(({ path }) => {
+            if (!user) {
+              return path !== '/edit_blog' && path !== '/todolist' && path !== '/profile'
+            }
+            return true
+          })
+          .map(({ name, path }) => (
+            <NavbarMenuItem
+              key={generateUniqueId()}
+              className="flex w-full items-center justify-center"
+            >
+              <Link href={path}>
+                <div
+                  className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+                >
+                  {name}
+                </div>
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center" >
+          {user ? (
             <Button color="primary" variant="ghost" onPress={handleClickLogout}>
               {dict.login.form.logout}
             </Button>
           ) : (
-            <Link href="/login">
-              <Button color="primary" variant="flat">
-                {dict.login.form.login}
-              </Button>
-            </Link>
+            <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+              {dict.login.form.login}
+            </Button>
           )}
         </NavbarMenuItem>
-        <div className="flex w-full justify-center">
+        <NavbarMenuItem className="flex w-full justify-center">
           <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
-        </div>
+        </NavbarMenuItem>
       </NavbarMenu>
       <NavbarContent className="hidden gap-4 lg:flex" justify="end">
         {links
-          .filter(
-            (link) =>
-              link.path !== '/application' &&
-              link.path !== '/todolist' &&
-              link.path !== '/blog',
-          )
+          .filter(({ path }) => path !== '/edit_blog' && path !== '/todolist' && path !== '/profile')
           .map(({ name, path }) => (
             <NavbarItem key={generateUniqueId()}>
               <Link href={path}>
@@ -152,56 +129,39 @@ function Header({ dict }: NavbarProps) {
               </Link>
             </NavbarItem>
           ))}
-        <Dropdown>
-          <NavbarItem>
+        <div className="hidden lg:flex">
+          <ToogleTheme />
+        </div>
+        {user ? (
+          <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <Button
-                disableRipple
-                className="bg-transparent p-0 text-base"
-                endContent={icons.chevron}
-              >
-                {dict.navbar.more}
-              </Button>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+              />
             </DropdownTrigger>
-          </NavbarItem>
-          <DropdownMenu
-            itemClasses={{
-              base: 'gap-4',
-            }}
-          >
-            {links
-              .filter(
-                (link) =>
-                  link.path === '/application' ||
-                  link.path === '/todolist' ||
-                  link.path === '/blog',
-              )
-              .map(({ name, path }) => (
-                <DropdownItem
-                  key={generateUniqueId()}
-                  startContent={icons[path]}
-                  onPress={() => route.push(path)}
-                >
-                  <span className="text-black dark:text-white">{name}</span>
-                </DropdownItem>
-              ))}
-          </DropdownMenu>
-        </Dropdown>
-        {isAuth ? (
-          <Button color="primary" variant="ghost" onPress={handleClickLogout}>
-            {dict.login.form.logout}
-          </Button>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="profile" onPress={() => route.push('/profile')}>
+                {dict.navbar.profile}
+              </DropdownItem>
+              <DropdownItem key="edit_blog" onPress={() => route.push('/edit_blog')}>
+                {dict.navbar.edit_blog}
+              </DropdownItem>
+              <DropdownItem key="todolist" onPress={() => route.push('/todolist')}>
+                {dict.navbar.todolist}
+              </DropdownItem>
+              <DropdownItem key="logout" color="danger" onPress={handleClickLogout}>
+                {dict.login.form.logout}
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
         ) : (
-          <Link href="/login">
-            <Button color="primary" variant="flat">
-              {dict.login.form.login}
-            </Button>
-          </Link>
+          <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+            {dict.login.form.login}
+          </Button>
         )}
       </NavbarContent>
-      <div className="hidden lg:flex">
-        <ToogleTheme />
-      </div>
     </Navbar>
   )
 }

@@ -5,9 +5,10 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { twMerge } from 'tailwind-merge'
 import { UIWrapper } from '@/components/UI'
-import { getLinks } from '@/lib/request'
+import { getLinks } from '@/lib/data'
 import { getDictionary } from './dictionaries'
 import './globals.css'
+import { getUser } from '@/lib'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,8 @@ export default async function RootLayout({
 }) {
   const dict = await getDictionary()
   const links = await getLinks()
+  const response = await getUser()
+  const user = response?.data?.user ?? null
 
   return (
     <html lang="it">
@@ -30,7 +33,7 @@ export default async function RootLayout({
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content={String(metadata.description ?? '')} name="description" />
-        <meta name="robots" content="index, follow"/>
+        <meta name="robots" content="index, follow" />
         <title>{String(metadata.title ?? '')}</title>
         <link href="/favicon.ico" rel="icon" />
         <link href="https://www.mauriziotolomeo.it" rel="canonical" />
@@ -38,10 +41,10 @@ export default async function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          'box-border bg-white dark:bg-[#1b1a19] min-h-screen pb-24',
+          'box-border bg-white dark:bg-[#1b1a19]',
         )}
       >
-        <UIWrapper dict={dict} links={links}>
+        <UIWrapper dict={dict} links={links} user={user}>
           {children}
           <SpeedInsights />
           <Analytics />

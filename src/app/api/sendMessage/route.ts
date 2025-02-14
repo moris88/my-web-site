@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
-import { addAtSymbol, sendMessage } from '@/utils'
+import { addAtSymbol } from '@/utils'
+import { sendMessage } from '@/lib'
+import { createClient } from '@supabase/supabase-js'
 
 // recupera env TOKEN_TELEGRAM di next
 const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
@@ -24,6 +26,18 @@ export async function POST(request: Request) {
         chatId: CHAT_ID_TELEGRAM,
         message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email}\nUsername: ${username}`,
       })
+      const supabase = createClient(
+        process.env.SUPABASE_URL!,
+        process.env.SUPABASE_KEY!,
+      )
+      await supabase
+        .from('messages')
+        .insert([{
+          email,
+          message,
+          name,
+          username,
+        }])
     } else {
       throw new Error('Telegram token and chat id are required')
     }

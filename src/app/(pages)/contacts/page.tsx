@@ -1,5 +1,5 @@
 import { PageInfo } from '@/components/PagesDetails'
-import { getContacts, getLinks } from '@/lib/request'
+import { getContacts, getLinks } from '@/lib/data'
 import { getDictionary } from '../../dictionaries'
 
 export default async function ContactPage() {

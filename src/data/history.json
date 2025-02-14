@@ -11,35 +11,51 @@
             },
             {
                 "title": "Un Inizio in Università",
-                "description": "Prima di approdare a Epicode, avevo intrapreso un percorso accademico presso l’Università di Bari, iscrivendomi al corso di laurea in Informatica. Nonostante seguissi le lezioni con costanza, studiassi tanto e superassi regolarmente gli esami, sentivo che qualcosa non andava. Il corso universitario, per quanto valido, non mi soddisfaceva pienamente: percepivo una distanza significativa tra ciò che studiavo e l’accesso al mondo del lavoro. La prospettiva di impiegare anni prima di avere una concreta possibilità di inserimento lavorativo iniziava a pesarmi. Avevo bisogno di un’alternativa più rapida e diretta."
+                "description": "Prima di approdare a Epicode, avevo intrapreso un percorso accademico presso l’Università di Bari, iscrivendomi al corso di laurea in Informatica. Nonostante seguissi le lezioni con costanza, studiassi tanto e superassi regolarmente gli esami, sentivo che qualcosa non andava. Il corso universitario, per quanto valido, non mi soddisfaceva pienamente: percepivo una distanza significativa tra ciò che studiavo e l’accesso al mondo del lavoro. La prospettiva di impiegare anni prima di avere una concreta possibilità di inserimento lavorativo iniziava a pesarmi. Avevo bisogno di un’alternativa più rapida e diretta.",
+                "image": "history/university.webp",
+                "alt": "Una persona che studia ad una scrivania."
             },
             {
                 "title": "Perché Ho Scelto Epicode",
-                "description": "La mia ricerca mi ha portato a scoprire Epicode, un’accademia che offriva corsi intensivi per diventare sviluppatori full stack. All’epoca, il corso aveva una durata di tre mesi (oggi è stato ampliato a sei mesi per offrire una formazione ancora più strutturata) ed era pensato per chi avesse almeno una conoscenza di base di informatica e programmazione. Nonostante avessi già acquisito competenze dall’università, sapevo che un corso focalizzato sullo sviluppo pratico poteva rappresentare un trampolino di lancio. Epicode, con il suo approccio diretto e orientato al lavoro, sembrava la soluzione ideale per velocizzare il mio percorso professionale."
+                "description": "La mia ricerca mi ha portato a scoprire Epicode, un’accademia che offriva corsi intensivi per diventare sviluppatori full stack. All’epoca, il corso aveva una durata di tre mesi (oggi è stato ampliato a sei mesi per offrire una formazione ancora più strutturata) ed era pensato per chi avesse almeno una conoscenza di base di informatica e programmazione. Nonostante avessi già acquisito competenze dall’università, sapevo che un corso focalizzato sullo sviluppo pratico poteva rappresentare un trampolino di lancio. Epicode, con il suo approccio diretto e orientato al lavoro, sembrava la soluzione ideale per velocizzare il mio percorso professionale.",
+                "image": "history/laptop.webp",
+                "alt": "Un laptop su un tavolo di legno."
             },
             {
                 "title": "La Mia Esperienza nel Corso",
-                "description": "Durante i tre mesi del corso, il ritmo è stato intenso e gli argomenti affrontati estremamente pratici. Dallo sviluppo front-end e back-end agli strumenti e alle metodologie usate nel mondo reale, ho avuto modo di consolidare le basi necessarie per iniziare la mia carriera come sviluppatore. Grazie al supporto degli insegnanti e alla rete di tutor di Epicode, sono riuscito a superare le sfide iniziali e a costruire la fiducia necessaria per affrontare il mercato del lavoro. Verso la fine del percorso, ho iniziato a sostenere colloqui: ne ho affrontati tanti, ottenendo tre offerte concrete di stage."
+                "description": "Durante i tre mesi del corso, il ritmo è stato intenso e gli argomenti affrontati estremamente pratici. Dallo sviluppo front-end e back-end agli strumenti e alle metodologie usate nel mondo reale, ho avuto modo di consolidare le basi necessarie per iniziare la mia carriera come sviluppatore. Grazie al supporto degli insegnanti e alla rete di tutor di Epicode, sono riuscito a superare le sfide iniziali e a costruire la fiducia necessaria per affrontare il mercato del lavoro. Verso la fine del percorso, ho iniziato a sostenere colloqui: ne ho affrontati tanti, ottenendo tre offerte concrete di stage.",
+                "image": "history/books.webp",
+                "alt": "Una pila di libri su un tavolo di legno."
             },
             {
                 "title": "L’Inizio della Mia Carriera",
-                "description": "Tra le offerte ricevute, ho scelto quella che meglio rispecchiava le mie ambizioni. Ho iniziato con uno stage e, grazie al lavoro svolto, sono stato confermato con un contratto a tempo indeterminato. Ad oggi, lavoro ancora in quell’azienda, soddisfatto del percorso che ho intrapreso."
+                "description": "Tra le offerte ricevute, ho scelto quella che meglio rispecchiava le mie ambizioni. Ho iniziato con uno stage e, grazie al lavoro svolto, sono stato confermato con un contratto a tempo indeterminato. Ad oggi, lavoro ancora in quell’azienda, soddisfatto del percorso che ho intrapreso.",
+                "image": "history/rocket.webp",
+                "alt": "Un razzo che decolla."
             },
             {
                 "title": "Un Nuovo Capitolo: Ambassador di Epicode",
-                "description": "Nel 2022, con grande orgoglio, sono stato nominato Ambassador di Epicode, un ruolo che considero molto importante. In questa posizione, guido e supporto i nuovi ragazzi che si affacciano al percorso offerto da Epicode. Molti di loro iniziano con insicurezze e dubbi su cosa significhi intraprendere un corso intensivo e strutturato come questo. Essere Ambassador mi permette di condividere la mia esperienza, rassicurare chi è all'inizio e fornire consigli pratici per affrontare al meglio questa sfida. Vedere i loro progressi e sapere di aver contribuito a ispirarli è una grande soddisfazione personale."
+                "description": "Nel 2022, con grande orgoglio, sono stato nominato Ambassador di Epicode, un ruolo che considero molto importante. In questa posizione, guido e supporto i nuovi ragazzi che si affacciano al percorso offerto da Epicode. Molti di loro iniziano con insicurezze e dubbi su cosa significhi intraprendere un corso intensivo e strutturato come questo. Essere Ambassador mi permette di condividere la mia esperienza, rassicurare chi è all'inizio e fornire consigli pratici per affrontare al meglio questa sfida. Vedere i loro progressi e sapere di aver contribuito a ispirarli è una grande soddisfazione personale.",
+                "image": "history/speaking.webp",
+                "alt": "Una persona che parla di fronte ad un pubblico."
             },
             {
                 "title": "Guardando Indietro",
-                "description": "Se penso alla mia esperienza, sono estremamente grato per aver scelto Epicode. Questo corso mi ha permesso di ottenere ciò che cercavo: un ingresso rapido e strutturato nel mondo del lavoro, qualcosa che, nel contesto universitario, sarebbe stato molto più lungo e complicato."
+                "description": "Se penso alla mia esperienza, sono estremamente grato per aver scelto Epicode. Questo corso mi ha permesso di ottenere ciò che cercavo: un ingresso rapido e strutturato nel mondo del lavoro, qualcosa che, nel contesto universitario, sarebbe stato molto più lungo e complicato.",
+                "image": "history/past.webp",
+                "alt": "Una persona che guarda un muro con espressione pensierosa."
             },
             {
                 "title": "Per Chi È Questo Corso?",
-                "description": "Consiglio il corso a chiunque abbia una base di conoscenza informatica e voglia mettersi in gioco. È un percorso che richiede impegno e determinazione, ma se affrontato con serietà, può aprire porte importanti nel mondo del lavoro tecnologico. Se stai considerando questa opzione e hai domande specifiche, sono felice di condividere maggiori dettagli. La mia esperienza è solo un esempio di ciò che si può ottenere con dedizione e con il giusto supporto."
+                "description": "Consiglio il corso a chiunque abbia una base di conoscenza informatica e voglia mettersi in gioco. È un percorso che richiede impegno e determinazione, ma se affrontato con serietà, può aprire porte importanti nel mondo del lavoro tecnologico. Se stai considerando questa opzione e hai domande specifiche, sono felice di condividere maggiori dettagli. La mia esperienza è solo un esempio di ciò che si può ottenere con dedizione e con il giusto supporto.",
+                "image": "history/todo.webp",
+                "alt": "Una lista di cose da fare con una penna e una pianta su un tavolo di legno."
             },
             {
                 "title": "Futuro e Progetti",
-                "description": "Guardando avanti, uno dei miei obiettivi è riprendere gli studi universitari e conseguire la laurea in Informatica. Mi piacerebbe specializzarmi ulteriormente nel front-end development e nel UI Design, settori che mi appassionano particolarmente. Inoltre, tra cinque anni, sogno di ricoprire un ruolo di responsabilità, magari come team leader, contribuendo attivamente alla crescita di progetti innovativi e sfidanti."
+                "description": "Guardando avanti, uno dei miei obiettivi è riprendere gli studi universitari e conseguire la laurea in Informatica. Mi piacerebbe specializzarmi ulteriormente nel front-end development e nel UI Design, settori che mi appassionano particolarmente. Inoltre, tra cinque anni, sogno di ricoprire un ruolo di responsabilità, magari come team leader, contribuendo attivamente alla crescita di progetti innovativi e sfidanti.",
+                "image": "history/chart.webp",
+                "alt": "Un grafico che mostra una tendenza positiva."
             },
             {
                 "title": null,
@@ -53,35 +69,51 @@
             },
             {
                 "title": "A Start in University",
-                "description": "Before joining Epicode, I had embarked on an academic path at the University of Bari, enrolling in the Computer Science degree course. Despite attending classes regularly, studying hard, and passing exams regularly, I felt that something was wrong. The university course, although valid, did not fully satisfy me: I perceived a significant distance between what I studied and access to the world of work. The prospect of spending years before having a concrete opportunity for employment was starting to weigh on me. I needed a faster and more direct alternative."
+                "description": "Before joining Epicode, I had embarked on an academic path at the University of Bari, enrolling in the Computer Science degree course. Despite attending classes regularly, studying hard, and passing exams regularly, I felt that something was wrong. The university course, although valid, did not fully satisfy me: I perceived a significant distance between what I studied and access to the world of work. The prospect of spending years before having a concrete opportunity for employment was starting to weigh on me. I needed a faster and more direct alternative.",
+                "image": "history/university.webp",
+                "alt": "A person studying at a desk."
             },
             {
                 "title": "Why I Chose Epicode",
-                "description": "My research led me to discover Epicode, an academy that offered intensive courses to become full stack developers. At the time, the course lasted three months (today it has been extended to six months to offer even more structured training) and was designed for those with at least a basic knowledge of computer science and programming. Although I had already acquired skills from university, I knew that a course focused on practical development could be a springboard. Epicode, with its direct and work-oriented approach, seemed the ideal solution to speed up my professional path."
+                "description": "My research led me to discover Epicode, an academy that offered intensive courses to become full stack developers. At the time, the course lasted three months (today it has been extended to six months to offer even more structured training) and was designed for those with at least a basic knowledge of computer science and programming. Although I had already acquired skills from university, I knew that a course focused on practical development could be a springboard. Epicode, with its direct and work-oriented approach, seemed the ideal solution to speed up my professional path.",
+                "image": "history/laptop.webp",
+                "alt": "A laptop on a wooden table."
             },
             {
                 "title": "My Experience in the Course",
-                "description": "During the three months of the course, the pace was intense and the topics covered extremely practical. From front-end and back-end development to the tools and methodologies used in the real world, I was able to consolidate the necessary foundations to start my career as a developer. Thanks to the support of Epicode's teachers and tutor network, I was able to overcome the initial challenges and build the confidence needed to face the job market. Towards the end of the course, I started attending interviews: I faced many, obtaining three concrete internship offers."
+                "description": "During the three months of the course, the pace was intense and the topics covered extremely practical. From front-end and back-end development to the tools and methodologies used in the real world, I was able to consolidate the necessary foundations to start my career as a developer. Thanks to the support of Epicode's teachers and tutor network, I was able to overcome the initial challenges and build the confidence needed to face the job market. Towards the end of the course, I started attending interviews: I faced many, obtaining three concrete internship offers.",
+                "image": "history/books.webp",
+                "alt": "A stack of books on a wooden table."
             },
             {
                 "title": "The Beginning of My Career",
-                "description": "Among the offers I received, I chose the one that best reflected my ambitions. I started with an internship and, thanks to the work I did, I was confirmed with a permanent contract. To this day, I still work in that company, satisfied with the path I have taken."
+                "description": "Among the offers I received, I chose the one that best reflected my ambitions. I started with an internship and, thanks to the work I did, I was confirmed with a permanent contract. To this day, I still work in that company, satisfied with the path I have taken.",
+                "image": "history/rocket.webp",
+                "alt": "A rocket taking off."
             },
             {
                 "title": "A New Chapter: Epicode Ambassador",
-                "description": "In 2022, I am very proud to have been named an Epicode Ambassador, a role that I consider very important. In this position, I guide and support new kids who are approaching the path offered by Epicode. Many of them start out with insecurities and doubts about what it means to undertake an intensive and structured course like this. Being an Ambassador allows me to share my experience, reassure those who are at the beginning and provide practical advice to best face this challenge. Seeing their progress and knowing that I have helped inspire them is a great personal satisfaction."
+                "description": "In 2022, I am very proud to have been named an Epicode Ambassador, a role that I consider very important. In this position, I guide and support new kids who are approaching the path offered by Epicode. Many of them start out with insecurities and doubts about what it means to undertake an intensive and structured course like this. Being an Ambassador allows me to share my experience, reassure those who are at the beginning and provide practical advice to best face this challenge. Seeing their progress and knowing that I have helped inspire them is a great personal satisfaction.",
+                "image": "history/speaking.webp",
+                "alt": "A person speaking in front of an audience."
             },
             {
                 "title": "Looking Back",
-                "description": "When I think about my experience, I am extremely grateful for having chosen Epicode. This course allowed me to obtain what I was looking for: a quick and structured entry into the world of work, something that, in a university context, would have been much longer and more complicated."
+                "description": "When I think about my experience, I am extremely grateful for having chosen Epicode. This course allowed me to obtain what I was looking for: a quick and structured entry into the world of work, something that, in a university context, would have been much longer and more complicated.",
+                "image": "history/past.webp",
+                "alt": "A person looking at a wall with a thoughtful expression."
             },
             {
                 "title": "Who is this course for?",
-                "description": "I recommend the course to anyone who has a basic knowledge of IT and wants to get involved. It is a path that requires commitment and determination, but if approached seriously, it can open important doors in the world of technological work. If you are considering this option and have specific questions, I am happy to share more details. My experience is just an example of what can be achieved with dedication and the right support."
+                "description": "I recommend the course to anyone who has a basic knowledge of IT and wants to get involved. It is a path that requires commitment and determination, but if approached seriously, it can open important doors in the world of technological work. If you are considering this option and have specific questions, I am happy to share more details. My experience is just an example of what can be achieved with dedication and the right support.",
+                "image": "history/todo.png",
+                "alt": "A to-do list with a pen and a plant on a wooden table."   
             },
             {
                 "title": "Future and Projects",
-                "description": "Looking ahead, one of my goals is to resume university studies and obtain a degree in Computer Science. I would like to further specialize in front-end development and UI Design, areas that I am particularly passionate about. Furthermore, in five years, I dream of holding a role of responsibility, perhaps as a team leader or project manager, actively contributing to the growth of innovative and challenging projects."
+                "description": "Looking ahead, one of my goals is to resume university studies and obtain a degree in Computer Science. I would like to further specialize in front-end development and UI Design, areas that I am particularly passionate about. Furthermore, in five years, I dream of holding a role of responsibility, perhaps as a team leader or project manager, actively contributing to the growth of innovative and challenging projects.",
+                "image": "history/chart.webp",
+                "alt": "A chart showing a positive trend."
             },
             {
                 "title": null,

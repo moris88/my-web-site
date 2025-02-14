@@ -12,13 +12,11 @@ function MyFooter({ links }: MyFooterProps) {
     const today = new Date()
     return today.getFullYear()
   }
+  const copyRight = `©${getYear()}-Moris™`
   return (
-    <footer className="fixed bottom-0 z-50 flex w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
-      <div className="flex flex-wrap text-sm lg:text-base">
-        <span className="dark:text-gray-400">©</span>
-        <span className="dark:text-gray-400">{getYear()}</span>
-        <span className="dark:text-gray-400">{'-Moris™'}</span>
-        &nbsp;
+    <footer className="flex w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
+      <div className="flex flex-wrap text-sm lg:text-base gap-4 gap-y-1">
+        <span className="dark:text-gray-400">{copyRight}</span>
         <Link href="/cookies">
           <span className="text-sm font-semibold text-black hover:text-blue-600 dark:text-gray-400 lg:text-base">
             Cookies Policy
