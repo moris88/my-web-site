@@ -26,14 +26,14 @@ function PageHistory({ language, history }: PageHistoryProps) {
           const isEven = index % 2 === 0
           if (index === 0 || index === history[language].length - 1) {
             return (
-              <>
+              <React.Fragment key={`history-${index}`}>
                 <h3 className="text-lg lg:text-2xl px-0 lg:px-10">{item.title}</h3>
                 <p>{item.description}</p>
-              </>
+              </React.Fragment>
             )
           }
           return (
-            <div data-aos="zoom-in-up" className="flex md:flex-row flex-col items-center justify-center gap-4 md:py-10 py-2">
+            <div key={`history-${index}`} data-aos="zoom-in-up" className="flex md:flex-row flex-col items-center justify-center gap-4 md:py-10 py-2">
               {isEven ? (<>
                 {item?.image && (
                   <img

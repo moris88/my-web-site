@@ -73,9 +73,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
         </div>
         <div data-aos="fade-up"
           className="flex w-full justify-center">
-          <p className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+          <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
             {parse(info?.description?.[language] ?? '')}
-          </p>
+          </div>
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />

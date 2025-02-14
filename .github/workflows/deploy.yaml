@@ -1,4 +1,4 @@
-name: "Deploy del codice"
+name: "Deploy Production"
 
 on:
   push:
