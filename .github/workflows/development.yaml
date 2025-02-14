@@ -11,18 +11,12 @@ jobs:
     name: Deploy su Development
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-
-      - name: "Installazione dipendenze"
-        run: yarn install
-
       - name: "Installare Vercel CLI"
         run: yarn global add vercel
-
       - name: "Deploy su Vercel"
         run: vercel --token=${{ secrets.VERCEL_TOKEN }} --yes
 
