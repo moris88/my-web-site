@@ -32,10 +32,3 @@ jobs:
         run: yarn global add vercel
       - name: "Deploy"
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
-      - name: 'Commenta sulla Pull Request'
-        uses: mshick/add-pr-comment@v2
-        with:
-          message: |
-            ✅ **Deploy completato dopo il push!**
-            🌍 [Visualizza qui](https://vercel.com/moris-projects-325cbd2b/my-web-site/deployments)
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
