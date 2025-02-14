@@ -11,9 +11,12 @@
   "dependencies": {
     "@heroui/react": "2.6.14",
     "@internationalized/date": "^3.6.0",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.48.1",
     "@vercel/analytics": "^1.4.1",
     "@vercel/blob": "^0.24.0",
     "@vercel/speed-insights": "^1.1.0",
+    "aos": "^2.3.4",
     "framer-motion": "^11.18.0",
     "html-react-parser": "^5.2.2",
     "jotai": "^2.11.0",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -37,7 +41,8 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.20.0",
+    "vercel": "^41.0.1"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

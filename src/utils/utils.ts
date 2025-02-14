@@ -1,6 +1,8 @@
 import moment from 'moment'
 import { Theme } from '@/types'
 
+export const priorityItems = ['urgent', 'high', 'medium', 'low']
+
 export function isActive(currentPath: string, path: string): boolean {
   if (currentPath === '/' && path === '/') return true
   else if (path === '/' && currentPath !== '/') return false

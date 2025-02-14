@@ -61,7 +61,6 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
 
   const handleClickOpenLink = (link?: string) => {
     if (!link) {
-      console.warn('Attempted to open a link, but none was provided.')
       return
     }
     route.push(link)
