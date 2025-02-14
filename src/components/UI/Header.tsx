@@ -106,7 +106,7 @@ function Header({ dict, user }: NavbarProps) {
               {dict.login.form.logout}
             </Button>
           ) : (
-            <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+            <Button color="primary" variant="flat" onPress={() => { route.push('/login') }}>
               {dict.login.form.login}
             </Button>
           )}
@@ -142,13 +142,13 @@ function Header({ dict, user }: NavbarProps) {
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="profile" onPress={() => route.push('/profile')}>
+              <DropdownItem key="profile" onPress={() => { route.push('/profile') }}>
                 {dict.navbar.profile}
               </DropdownItem>
-              <DropdownItem key="edit_blog" onPress={() => route.push('/edit_blog')}>
+              <DropdownItem key="edit_blog" onPress={() => { route.push('/edit_blog') }}>
                 {dict.navbar.edit_blog}
               </DropdownItem>
-              <DropdownItem key="todolist" onPress={() => route.push('/todolist')}>
+              <DropdownItem key="todolist" onPress={() => { route.push('/todolist') }}>
                 {dict.navbar.todolist}
               </DropdownItem>
               <DropdownItem key="logout" color="danger" onPress={handleClickLogout}>
@@ -157,7 +157,7 @@ function Header({ dict, user }: NavbarProps) {
             </DropdownMenu>
           </Dropdown>
         ) : (
-          <Button color="primary" variant="flat" onPress={() => route.push('/login')}>
+          <Button color="primary" variant="flat" onPress={() => { route.push('/login') }}>
             {dict.login.form.login}
           </Button>
         )}

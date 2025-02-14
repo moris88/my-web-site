@@ -28,5 +28,7 @@ jobs:
           node-version: "22"
       - name: "Installazione dipendenze"
         run: yarn install
+      - name: "Installare Vercel CLI"
+        run: yarn global add vercel
       - name: "Deploy"
-        run: vercel --prod
+        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes

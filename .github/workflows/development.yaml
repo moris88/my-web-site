@@ -1,11 +1,9 @@
-name: "Deploy su Development"
+name: "Deploy Development"
 
 on:
-  pull_request:
+  push:
     branches:
-      - "development"
-    types:
-      - closed
+      - "main"
 
 jobs:
   deploy:
@@ -26,7 +24,10 @@ jobs:
         run: yarn global add vercel
 
       - name: "Deploy su Vercel"
-        run: vercel > deployment-url.txt
+        run: echo "${{ secrets.VERCEL_TOKEN }}"
+
+      - name: "Deploy su Vercel"
+        run: vercel --token=${{ secrets.VERCEL_TOKEN }} --yes > deployment-url.txt
 
       - name: 'Leggere URL di Deployment'
         id: read_url
