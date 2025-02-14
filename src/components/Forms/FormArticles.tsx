@@ -9,7 +9,6 @@ import { Avatar, Select, Textarea, SelectItem, SharedSelection } from '@heroui/r
 import { Dictionary } from '@/app/dictionaries'
 import { Article, LanguageSupabase } from '@/types'
 import { useRouter } from 'next/navigation'
-import { createArticle, updateArticle } from '@/lib'
 
 interface FormArticlesProps {
   dict: Dictionary
@@ -40,7 +39,6 @@ export default function FormArticles({
       return
     }
     setLoading(true)
-    console.log('DATA SUBMIT', data)
     if (article) {
       fetch('/api/articles', {
         method: 'PUT',

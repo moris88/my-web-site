@@ -3,7 +3,7 @@
 import { getDictionary } from '@/app/dictionaries'
 import { SectionHero, ErrorPage } from '@/components'
 import FormArticles from '@/components/Forms/FormArticles'
-import { getArticle, getLanguage, getLanguages } from '@/lib'
+import { getArticle, getLanguages } from '@/lib'
 
 export default async function EditArticlePage({
   params: { id },

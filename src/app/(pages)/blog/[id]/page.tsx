@@ -14,11 +14,9 @@ export default async function BlogPage({
   const languageId = await getLanguage(language).then((res) => {
     return res.data[0].id
   })
-  console.log(languageId)
   const response = lang
     ? await getArticle(id)
     : await getArticleWithLanguage(id, +languageId)
-  console.log(response)
   if (response?.error) {
     return <ErrorPage message={response.error.message} />
   }
