@@ -28,7 +28,7 @@ jobs:
         run: yarn global add vercel
 
       - name: "Deploy su Vercel"
-        run: vercel > deployment-url.txt
+        run: vercel --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
 
       - name: 'Leggere URL di Deployment'
         id: read_url
