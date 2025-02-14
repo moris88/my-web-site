@@ -52,7 +52,7 @@ export default function PageEditBlogs({
   return (
     <>
       <div className="flex justify-end gap-2">
-        <Button onPress={() => router.push('/edit_blog/new')}>
+        <Button onPress={() => { router.push('/edit_blog/new') }}>
           <FaPlus className="w-4 h-4" />
           {dict.edit_blog.table.new}
         </Button>
@@ -79,10 +79,10 @@ export default function PageEditBlogs({
                 </TableCell>
                 <TableCell>
                   <ButtonGroup>
-                    <Button onPress={() => handleEdit(article.id)}>
+                    <Button onPress={() => { handleEdit(article.id) }}>
                       <MdEdit className="w-4 h-4" />
                     </Button>
-                    <Button onPress={() => handleDelete(article.id)}>
+                    <Button onPress={() => { handleDelete(article.id) }}>
                       <FaTrash className="w-4 h-4" />
                     </Button>
                   </ButtonGroup>
