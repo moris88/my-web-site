@@ -273,11 +273,13 @@ const dictionary = {
   blog: {
     title: 'My Blog',
     card: {
+      editedAt: 'Edited at',
       postedAt: 'Posted at',
     },
     article: {
       link: 'Source link',
       postedAt: 'Posted at',
+      editedAt: 'Edited at',
       buttons: {
         back: 'Back',
       },

@@ -16,7 +16,7 @@ export default async function ProfilePage() {
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-xl font-bold text-center">{user?.email}</h1>
         <a className="hover:text-primary" href="https://supabase.com/dashboard/project/psgaxddqtxofwhtzfxiw">Supabase Dashboard</a>
-        <pre className='text-sm'>{JSON.stringify(user, null, 3)}</pre>
+        <pre className='text-sm'>{JSON.stringify(user.identities?.[0], null, 3)}</pre>
       </div>
     </SectionHero>
   )

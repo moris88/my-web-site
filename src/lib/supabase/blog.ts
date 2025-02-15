@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { createClient } from './supabase'
 import { Article, ResponseSupabase } from '@/types'
 
@@ -51,17 +52,20 @@ export async function createArticle(data: Article) {
   return await supabase
     .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
     .insert([data])
+    .select('id')
 }
 
-export async function updateArticle(data: Article) {
+export async function updateArticle(data: Partial<Article> & { id: string }) {
   if (!data.id) {
     throw new Error('Article ID is required')
   }
+  data.updated_at = moment().utc().format('YYYY-MM-DD HH:mm:ssZ')
   const supabase = await createClient()
   return await supabase
     .from(process.env.DEVELOPMENT ? 'blog_test' : 'blog')
-    .upsert([data])
+    .update(data)
     .eq('id', data.id)
+    .select('*')
 }
 
 export async function deleteArticle(id: string) {

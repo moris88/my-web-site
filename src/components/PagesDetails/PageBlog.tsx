@@ -19,8 +19,15 @@ function PageBlog({ dict, article }: PageBlogProps) {
   return (
     <>
       {article && (
-        <SectionHero subtitle={article.content} title={article.title}>
-          <small>{`${dict.blog.article.postedAt} ${formatDate(article.created_at)}`}</small>
+        <SectionHero
+          subtitle={article.content}
+          title={article.title}
+          image={article.image}
+        >
+          <div className="flex md:flex-row flex-col gap-2">
+            <small>{`${dict.blog.article.postedAt} ${formatDate(article.created_at)}`}</small>
+            <small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
+          </div>
           {article.link && (
             <Link
               className="italic decoration-black hover:underline dark:decoration-white"
@@ -30,7 +37,7 @@ function PageBlog({ dict, article }: PageBlogProps) {
             </Link>
           )}
           <div className="flex justify-end gap-2">
-            <Button className="flex gap-2" color="primary" variant="flat" onPress={() => router.back()}>
+            <Button className="flex gap-2" color="primary" variant="ghost" onPress={() => router.back()}>
               <HiArrowLeft className="h-5 w-5" />
               {dict.blog.article.buttons.back}
             </Button>
