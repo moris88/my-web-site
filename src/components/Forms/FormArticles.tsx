@@ -5,10 +5,10 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
 import { Avatar, Select, Textarea, SelectItem, SharedSelection } from '@heroui/react'
-// import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
 import { Article, LanguageSupabase } from '@/types'
 import { useRouter } from 'next/navigation'
+import { createArticle, updateArticle } from './article'
 
 interface FormArticlesProps {
   dict: Dictionary
@@ -24,6 +24,9 @@ export default function FormArticles({
   const router = useRouter()
   const [loading, setLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string | null>(null)
+  const [fileInput, setFileInput] = React.useState<HTMLInputElement | null>(
+    null
+  )
   const {
     register,
     handleSubmit,
@@ -33,44 +36,28 @@ export default function FormArticles({
     defaultValues: article ?? undefined,
   })
 
-  const onSubmit: SubmitHandler<Article> = (data) => {
+  const onSubmit: SubmitHandler<Article> = async (data) => {
     if (!data.languageID) {
       setError('Language is required')
       return
     }
     setLoading(true)
-    if (article) {
-      fetch('/api/articles', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then((response) => {
-        if (response.status !== 200) {
-          setError('Error update article')
-        } else {
-          router.push('/edit_blog')
-        }
-      }).finally(() => {
+    if (article?.id) {
+      const response = await updateArticle(data, fileInput)
+      if (response?.error) {
+        setError(response.error)
         setLoading(false)
-      })
+        return
+      }
+      // window.location.href = '/edit_blog'
     } else {
-      fetch('/api/articles', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }).then((response) => {
-        if (response.status !== 200) {
-          setError('Error creating article')
-        } else {
-          router.push('/edit_blog')
-        }
-      }).finally(() => {
+      const response = await createArticle(data, fileInput)
+      if (response?.error) {
+        setError(response.error)
         setLoading(false)
-      })
+        return
+      }
+      window.location.href = '/edit_blog'
     }
   }
 
@@ -137,13 +124,23 @@ export default function FormArticles({
           {dict.edit_blog.form.content.required}
         </p>
       )}
-      <Input
-        id="image"
-        label="Image"
-        placeholder={dict.edit_blog.form.image.placeholder}
-        type="text"
-        {...register('image', { required: false })}
-      />
+      <div className="flex md:flex-row flex-col items-center justify-center gap-2">
+        {(article?.image || fileInput) ?
+          <img src={article?.image || (fileInput?.files?.[0] && URL.createObjectURL(fileInput.files[0]))} className="w-52 h-52 rounded-lg" />
+          :
+          <div className="w-full h-40 bg-gray-300 rounded-lg flex justify-center items-center">
+            <p className="text-4xl text-gray-500">{'No-Image'}</p>
+          </div>
+        }
+        <Input
+          className="w-full"
+          id="image"
+          label="Image"
+          placeholder={dict.edit_blog.form.image.placeholder}
+          type="file"
+          onChange={(e) => setFileInput(e.target)}
+        />
+      </div>
       <Input
         id="link"
         label="Link"
@@ -153,6 +150,9 @@ export default function FormArticles({
       />
       {error && <p className="font-bold text-red-500">{error}</p>}
       <div className="flex justify-center gap-4">
+        <Button type="button" onPress={() => router.push('/edit_blog')}>
+          {dict.edit_blog.form.buttons.done}
+        </Button>
         {loading ? (
           <Button isLoading color="primary">
             {dict.edit_blog.form.loading}
@@ -162,9 +162,6 @@ export default function FormArticles({
             {dict.edit_blog.form.buttons.submit}
           </Button>
         )}
-        <Button color="danger" type="button" variant="flat" onPress={() => router.push('/edit_blog')}>
-          {dict.edit_blog.form.buttons.done}
-        </Button>
       </div>
     </form>
   )

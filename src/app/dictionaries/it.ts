@@ -102,7 +102,7 @@ const dictionary = {
         title: 'Titolo',
         language: 'Lingua',
         actions: 'Azioni',
-      }
+      },
     },
     form: {
       section: {
@@ -273,10 +273,12 @@ const dictionary = {
   blog: {
     title: 'Il mio Blog',
     card: {
+      editedAt: 'Modificato il',
       postedAt: 'Pubblicato il',
     },
     article: {
       link: 'Link alla fonte',
+      editedAt: 'Modificato il',
       postedAt: 'Pubblicato il',
       buttons: {
         back: 'Indietro',
