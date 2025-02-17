@@ -1,5 +1,6 @@
 export { default as ButtonsGroupSocial } from './ButtonsGroupSocial'
 export { default as CardBlog } from './CardBlog'
+export { default as ConfirmModal } from './ConfirmModal'
 export { default as DownloadFile } from './DownloadFile'
 export { default as ErrorPage } from '../Pages/ErrorPage'
 export { default as Footer } from './Footer'

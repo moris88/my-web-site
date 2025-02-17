@@ -1,8 +1,7 @@
 'use server'
 
 import { getDictionary } from '@/app/dictionaries'
-import { SectionHero, ErrorPage } from '@/components'
-import FormArticles from '@/components/Forms/FormArticles'
+import { SectionHero, ErrorPage, FormArticles } from '@/components'
 import { getArticle, getLanguages, getUser } from '@/lib'
 import { redirect } from 'next/navigation'
 

@@ -39,10 +39,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
             >
               <img
                 alt="avatar"
-                className="block rounded-full drop-shadow-xl"
-                height={150}
+                className="block rounded-full drop-shadow-xl w-60 h-60 md:w-[500px] md:h-[500px]"
                 src="/avatar.webp"
-                width={150}
               />
             </Tooltip>
           </div>

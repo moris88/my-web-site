@@ -1,8 +1,7 @@
 'use server'
 
 import { getDictionary } from '@/app/dictionaries'
-import { SectionHero } from '@/components'
-import FormArticles from '@/components/Forms/FormArticles'
+import { SectionHero, FormArticles } from '@/components'
 import { getLanguages } from '@/lib'
 
 export default async function NewArticlePage() {
