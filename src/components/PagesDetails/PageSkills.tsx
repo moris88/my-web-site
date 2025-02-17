@@ -136,7 +136,6 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                                   <Progress
                                     color={mapColor[skill.level]}
                                     value={skill.level * 10}
-                                    showValueLabel
                                   />
                                 </CardBody>
                               </Card>
