@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { Link } from '@heroui/link'
 import {
@@ -20,7 +20,7 @@ import {
   Avatar,
 } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
-import { logout } from '@/lib'
+import { logout, clearAllCookies } from '@/lib'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
 import { User } from '@supabase/supabase-js'
@@ -48,6 +48,13 @@ function Header({ dict, user }: NavbarProps) {
     logout()
     route.push('/')
   }
+
+  useEffect(() => {
+    if (!user) {
+      // svuota i cookies
+      clearAllCookies()
+    }
+  }, [user])
 
   return (
     <Navbar

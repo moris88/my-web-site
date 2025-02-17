@@ -4,17 +4,18 @@ import { HiArrowLeft } from 'react-icons/hi2'
 import Link from 'next/link'
 import { Button } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
-import { SectionHero } from '@/components/UI'
-import { Article } from '@/types'
+import { Comments, SectionHero } from '@/components/UI'
+import { Article, Comment } from '@/types'
 import { formatDate } from '@/utils'
 import { useRouter } from 'next/navigation'
 
 interface PageBlogProps {
   dict: Dictionary
   article: Article
+  comments: Comment[]
 }
 
-function PageBlog({ dict, article }: PageBlogProps) {
+function PageBlog({ dict, article, comments }: PageBlogProps) {
   const router = useRouter()
   return (
     <>
@@ -42,6 +43,7 @@ function PageBlog({ dict, article }: PageBlogProps) {
               {dict.blog.article.buttons.back}
             </Button>
           </div>
+          <Comments comments={comments} dict={dict} />
         </SectionHero>
       )}
     </>

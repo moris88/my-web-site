@@ -60,15 +60,23 @@ export interface Blog extends Partial<Err> {
 }
 
 export interface Article {
-  id: string;
-  title: string;
-  content: string;
-  created_at: string;
-  updated_at: string;
-  link?: string;
-  image?: string;
-  languageID?: number;
-  user_id?: string;
+  id: string
+  title: string
+  content: string
+  created_at: string
+  updated_at: string
+  link?: string
+  image?: string
+  languageID?: number
+  user_id?: string
+}
+
+export interface Comment {
+  id: string
+  article_id: string
+  content: string
+  created_at: string
+  username: string
 }
 
 export interface Curriculum {
@@ -96,20 +104,20 @@ export interface Experience {
 
 export interface History {
   title: {
-    it: string;
-    en: string;
-  };
+    it: string
+    en: string
+  }
   it: {
-    title: string | null;
-    description: string;
-    image?: string;
-    alt?: string;
-  }[];
+    title: string | null
+    description: string
+    image?: string
+    alt?: string
+  }[]
   en: {
-    title: string | null;
-    description: string;
-    image?: string;
-    alt?: string;
-  }[];
-  lastUpdate: string;
+    title: string | null
+    description: string
+    image?: string
+    alt?: string
+  }[]
+  lastUpdate: string
 }

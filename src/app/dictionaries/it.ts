@@ -62,7 +62,7 @@ const dictionary = {
       title: 'Aggiungi un compito',
       description: 'Inserisci la descrizione del compito da completare',
       label: 'Descrizione',
-      confirm: 'Confermi l\'aggiunta del compito?',
+      confirm: "Confermi l'aggiunta del compito?",
       error: 'Il compito non può essere vuoto',
       placeholder: 'esempio "compra il latte"',
       submit: 'Aggiungi',
@@ -128,7 +128,7 @@ const dictionary = {
       },
       image: {
         label: 'Immagine',
-        placeholder: 'Inserisci un percorso dell\'immagine',
+        placeholder: "Inserisci un percorso dell'immagine",
       },
       link: {
         label: 'Link',
@@ -177,7 +177,7 @@ const dictionary = {
           linkedin:
             'Verrai reindirizzato su Linkedin sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei nella mia rete, quindi dovrai chiedere la connessione.',
           facebook:
-            'Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l\'amicizia.',
+            "Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
           github:
             'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
         },
@@ -186,7 +186,7 @@ const dictionary = {
     modal: {
       title: 'Invia un messaggio',
       content:
-        'Il tuo messaggio arriverà direttamente sul mio cellulare sull\'app di Telegram. Puoi lasciarmi il tuo username e ti risponderò immediatamente, altrimenti via email appena possibile!',
+        "Il tuo messaggio arriverà direttamente sul mio cellulare sull'app di Telegram. Puoi lasciarmi il tuo username e ti risponderò immediatamente, altrimenti via email appena possibile!",
       privacy: 'Leggi la privacy',
       message: 'Grazie per il tuo messaggio!!!',
     },
@@ -273,6 +273,28 @@ const dictionary = {
       buttons: {
         back: 'Indietro',
       },
+      comments: {
+        title: 'Commenti',
+        no_comment: 'Nessun commento disponibile',
+        form: {
+          title: 'Lascia un commento',
+          username: {
+            label: 'Username',
+            placeholder: 'Inserisci il tuo username',
+            error: 'Lo username è obbligatorio',
+          },
+          content: {
+            label: 'Il tuo commento',
+            placeholder: 'Inserisci il tuo commento qui...',
+            error: 'Il commento è obbligatorio',
+          },
+          buttons: {
+            submit: 'Invia',
+            done: 'Indietro',
+            loading: 'Invio in corso...',
+          },
+        },
+      },
     },
     buttons: {
       create: 'Crea un nuovo articolo',
@@ -285,7 +307,7 @@ const dictionary = {
   },
   privacy: {
     content:
-      'I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l\'app Telegram attraverso API. Tali dati non verranno archiviati su server locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall\'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Mi impegno a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.',
+      "I dati trasmessi attraverso questo sito sono trattati con la massima riservatezza e sicurezza, conformemente alle normative vigenti in materia di protezione dei dati personali. Le informazioni fornite, inclusi email, nome, username e contenuto del messaggio, verranno automaticamente inoltrate al mio dispositivo mobile tramite l'app Telegram attraverso API. Tali dati non verranno archiviati su server locali, ma saranno esclusivamente presenti sul mio dispositivo personale. I dati raccolti saranno utilizzati esclusivamente per finalità di risposta alle tue richieste e non verranno mai condivisi con terze parti, a meno che ciò non sia richiesto dalla legge. Inoltre, entro 30 giorni dall'invio del messaggio, i dati verranno eliminati in modo permanente e irreversibile, senza alcuna possibilità di recupero, mediante un processo automatico. Mi impegno a garantire che i tuoi dati siano trattati in modo sicuro e responsabile. Se desideri maggiori dettagli o hai domande riguardanti la gestione dei tuoi dati, non esitare a contattarmi.",
     title: 'Informativa sulla privacy',
   },
   curriculum: {
@@ -294,7 +316,7 @@ const dictionary = {
     experiences: 'Esperienze',
     download: 'Scarica CV',
     terms:
-      'Spuntando la checkbox in basso, l\'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all\'art. 13 del D.Lgs. 196/2003 e all\'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.',
+      "Spuntando la checkbox in basso, l'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all'art. 13 del D.Lgs. 196/2003 e all'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.",
     cancel: 'Annulla',
   },
   profile: {
@@ -309,9 +331,9 @@ const dictionary = {
       buttons: {
         submit: 'Invia',
         loading: 'Invio in corso...',
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 export default dictionary
