@@ -13,8 +13,9 @@ import { FormContact } from '@/components'
 interface ModalMessageProps {
   dict: Dictionary
   modal?: boolean
+  className?: string
 }
-function ModalMessage({ dict, modal = true }: ModalMessageProps) {
+function ModalMessage({ dict, modal = true, className }: ModalMessageProps) {
   const [show, setShow] = React.useState<{
     form: boolean
     button: boolean
@@ -49,7 +50,7 @@ function ModalMessage({ dict, modal = true }: ModalMessageProps) {
   }
   if (!modal) {
     return (
-      <div className="flex w-full flex-col items-center justify-center gap-2 rounded-xl bg-gray-200 p-4 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700 lg:max-w-lg max-w-full">
+      <div className={className || ''}>
         <h3 className="mt-5 w-full select-none text-center">
           <span className="flex items-center justify-center gap-1">
             <RiMailSendFill className="h-5 w-5" />

@@ -17,7 +17,7 @@ import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
 import { Priority, Todo } from '@/types'
 import { generateUniqueId, priorityItems } from '@/utils'
-import ConfirmModal from './ConfirmModal'
+import { ConfirmModal } from '@/components'
 
 interface TodoInputProps {
   dict: Dictionary
@@ -88,7 +88,7 @@ function TodoInput({ dict }: TodoInputProps) {
         size="sm"
         onChange={(e) => setShowInput(!e.target.checked)}
       >
-        {'Hidden add todo input'}
+        {dict.todolist.addTask.hiddenForm}
       </Switch>
       {showInput && (
         <>
@@ -129,8 +129,8 @@ function TodoInput({ dict }: TodoInputProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof
-                        typeof dict.todolist.listitem.priority.items
+                      item as keyof
+                      typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>
@@ -144,7 +144,7 @@ function TodoInput({ dict }: TodoInputProps) {
               {dict.todolist.addTask.label}
             </Switch>
             <Button
-              className="flex min-w-36 gap-1"
+              className="flex md:min-w-36 min-w-12 gap-1"
               color="success"
               size="lg"
               onPress={confirmAddTodo}

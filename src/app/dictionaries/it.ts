@@ -16,6 +16,7 @@ const dictionary = {
       title: 'Lista dei Compiti',
       edit: 'Modifica',
       delete: 'Elimina',
+      detail: 'Dettaglio',
       createdAt: 'Creato il',
       updatedAt: 'Aggiornato il',
       completedAt: 'Completato il',
@@ -56,6 +57,7 @@ const dictionary = {
       },
     },
     addTask: {
+      hiddenForm: 'Nascondi il form',
       name: 'Titolo del compito',
       title: 'Aggiungi un compito',
       description: 'Inserisci la descrizione del compito da completare',
@@ -163,18 +165,6 @@ const dictionary = {
     },
   },
   contacts: {
-    title: 'Informazioni',
-    firstName: 'Nome',
-    lastName: 'Cognome',
-    age: 'Età',
-    birthDate: 'Data di nascita',
-    nazionality: 'Nazionalità',
-    job: 'Lavoro',
-    specialization: 'Specializzazione',
-    email: 'Email',
-    phone: 'Telefono',
-    address: 'Indirizzo',
-    website: 'Sito web',
     social: 'I miei contatti',
     buttons: {
       sendEmail: 'Invia un messaggio',
@@ -307,6 +297,21 @@ const dictionary = {
       'Spuntando la checkbox in basso, l\'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all\'art. 13 del D.Lgs. 196/2003 e all\'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.',
     cancel: 'Annulla',
   },
+  profile: {
+    confirmModal: {
+      description: 'La nuova password è stata cambiata con successo',
+      title: 'Password Cambiata',
+    },
+    form: {
+      password: 'Cambia password',
+      email: 'Email',
+      id: 'ID',
+      buttons: {
+        submit: 'Invia',
+        loading: 'Invio in corso...',
+      }
+    }
+  }
 }
 
 export default dictionary

@@ -7,6 +7,7 @@ import {
   HiOutlineFlag,
   HiOutlinePencilSquare,
 } from 'react-icons/hi2'
+import { BiSolidDetail } from 'react-icons/bi'
 import {
   getLocalTimeZone,
   parseAbsoluteToLocal,
@@ -27,7 +28,7 @@ import { Dictionary } from '@/app/dictionaries'
 import { todoListAtom } from '@/atoms'
 import { Priority, Todo } from '@/types'
 import { priorityItems } from '@/utils'
-import ConfirmModal from './ConfirmModal'
+import { ConfirmModal } from '@/components'
 
 interface TodoItemProps {
   dict: Dictionary
@@ -44,6 +45,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   )
   const [showDeleteModal, setShowDeleteModal] = React.useState(false)
   const [showEditModal, setShowEditModal] = React.useState(false)
+  const [showDetailModal, setShowDetailModal] = React.useState(false)
 
   const minValue = today(getLocalTimeZone()) as any
   const [editDueDate, setEditDueDate] = React.useState<string | null>(
@@ -58,7 +60,11 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     return undefined
   }, [editDueDate])
 
-  const toggleTodo = () => {
+  const toggleTodo = (
+    e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
+  ) => {
+    e.preventDefault()
+    e.stopPropagation()
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
@@ -113,7 +119,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const flagIcon: Record<string, React.ReactNode> = {
     low: <HiFlag className="h-3 w-3 text-green-600" />,
-    medium: <HiOutlineFlag className="h-3 w-3" />,
+    medium: <></>,
     high: <HiFlag className="h-3 w-3 text-yellow-600" />,
     urgent: <HiFlag className="h-3 w-3 text-red-600" />,
   }
@@ -130,8 +136,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   return (
     <div
-      className="flex w-full cursor-pointer flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between"
-      onClick={toggleTodo}
+      className="flex w-full flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between"
     >
       {isEditing ? (
         <div className="flex w-full flex-col gap-y-4">
@@ -169,8 +174,8 @@ function TodoItem({ todo, dict }: TodoItemProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                        item as keyof
-                        typeof dict.todolist.listitem.priority.items
+                      item as keyof
+                      typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>
@@ -198,17 +203,30 @@ function TodoItem({ todo, dict }: TodoItemProps) {
         </div>
       ) : (
         <>
-          <Checkbox isSelected={todo.completed} onChange={toggleTodo}>
-            <span
-              className={`flex items-center gap-2 font-bold ${todo.completed ? 'line-through' : ''}`}
+          <div className="flex w-full flex-col items-start gap-y-2">
+            <p
+              className={`cursor-pointer flex gap-2 items-center w-full line-clamp-1 font-bold ${todo.completed ? 'line-through' : ''}`}
+              onClick={toggleTodo}
             >
+              <Checkbox isSelected={todo.completed} />
               {flagIcon[todo.priority]}{' '}
-              <span className={todo.completed ? 'text-green-600' : ''}>
+              <span className={todo.completed ? 'text-green-600' : todo.dueDate && new Date(todo.dueDate) < new Date() ? 'text-red-600' : todo.priority === 'urgent' ? 'text-black' : ''}>
                 {todo.title}
               </span>
-            </span>
-          </Checkbox>
+            </p>
+          </div>
           <ButtonGroup>
+            <Button
+              color="primary"
+              isDisabled={todo.description === '' || todo.description === null}
+              size="sm"
+              onPress={() => setShowDetailModal(true)}
+            >
+              <BiSolidDetail className="h-3 w-3" />
+              <span className="hidden md:inline">
+                {dict.todolist.listitem.detail}
+              </span>
+            </Button>
             <Button
               color="primary"
               isDisabled={todo.completed}
@@ -229,6 +247,14 @@ function TodoItem({ todo, dict }: TodoItemProps) {
           </ButtonGroup>
         </>
       )}
+
+      {/* Modale per confermare l'eliminazione */}
+      <ConfirmModal
+        description={todo.description}
+        onCancel={() => setShowDetailModal(false)}
+        isOpen={showDetailModal}
+        title={todo.title}
+      />
 
       {/* Modale per confermare l'eliminazione */}
       <ConfirmModal

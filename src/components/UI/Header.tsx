@@ -38,10 +38,10 @@ function Header({ dict, user }: NavbarProps) {
     { name: dict.navbar.experience, path: '/experience' },
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.blog, path: '/blog' },
+    { name: dict.navbar.todolist, path: '/todolist' },
     { name: dict.navbar.contacts, path: '/contacts' },
     { name: dict.navbar.profile, path: '/profile' },
     { name: dict.navbar.edit_blog, path: '/edit_blog' },
-    { name: dict.navbar.todolist, path: '/todolist' },
   ]
 
   const handleClickLogout = () => {
@@ -82,7 +82,7 @@ function Header({ dict, user }: NavbarProps) {
         {links
           .filter(({ path }) => {
             if (!user) {
-              return path !== '/edit_blog' && path !== '/todolist' && path !== '/profile'
+              return path !== '/edit_blog' && path !== '/profile'
             }
             return true
           })
@@ -117,7 +117,7 @@ function Header({ dict, user }: NavbarProps) {
       </NavbarMenu>
       <NavbarContent className="hidden gap-4 lg:flex" justify="end">
         {links
-          .filter(({ path }) => path !== '/edit_blog' && path !== '/todolist' && path !== '/profile')
+          .filter(({ path }) => path !== '/edit_blog' && path !== '/profile')
           .map(({ name, path }) => (
             <NavbarItem key={generateUniqueId()}>
               <Link href={path}>
@@ -147,9 +147,6 @@ function Header({ dict, user }: NavbarProps) {
               </DropdownItem>
               <DropdownItem key="edit_blog" onPress={() => { route.push('/edit_blog') }}>
                 {dict.navbar.edit_blog}
-              </DropdownItem>
-              <DropdownItem key="todolist" onPress={() => { route.push('/todolist') }}>
-                {dict.navbar.todolist}
               </DropdownItem>
               <DropdownItem key="logout" color="danger" onPress={handleClickLogout}>
                 {dict.login.form.logout}

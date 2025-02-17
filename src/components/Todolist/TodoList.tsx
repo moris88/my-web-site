@@ -118,19 +118,22 @@ function TodoList({ dict }: TodoListProps) {
             if (!a.completed && b.completed) return -1
             if (isTaskOverdue(a.dueDate) && !isTaskOverdue(b.dueDate)) return -1
             if (!isTaskOverdue(a.dueDate) && isTaskOverdue(b.dueDate)) return 1
+            if (a.priority === 'urgent' && b.priority !== 'urgent') return -1
+            if (a.priority !== 'urgent' && b.priority === 'urgent') return 1
+            if (a.priority === 'high' && b.priority !== 'high') return -1
+            if (a.priority !== 'high' && b.priority === 'high') return 1
+            if (a.priority === 'medium' && b.priority === 'medium') return -1
+            if (a.priority !== 'medium' && b.priority === 'medium') return 1
+            if (a.priority === 'low' && b.priority === 'low') return -1
+            if (a.priority !== 'low' && b.priority === 'low') return 1
             return 0
           })
           .map((todo) => (
             <div
               key={todo.id}
-              className={'rounded-lg bg-gray-200 p-2 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5'}
+              className={`rounded-lg ${todo.priority !== 'urgent' ? 'bg-gray-200 dark:bg-slate-600 hover:shadow-slate-500' : 'bg-red-100 hover:shadow-red-500 !text-black'} p-2 hover:shadow-lg   md:p-5`}
             >
               <TodoItem dict={dict} todo={todo} />
-              {todo.description !== '' && (
-                <p className="py-2 italic">
-                  {dict.todolist.addTask.label}: {todo.description}
-                </p>
-              )}
               <small className="flex flex-col items-start md:flex-row md:items-center">
                 {todo.createdAt && (
                   <span>

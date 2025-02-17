@@ -16,6 +16,7 @@ const dictionary = {
       title: 'Task List',
       edit: 'Edit',
       delete: 'Delete',
+      detail: 'Detail',
       createdAt: 'Created at',
       updatedAt: 'Updated at',
       completedAt: 'Completed at',
@@ -56,6 +57,7 @@ const dictionary = {
       },
     },
     addTask: {
+      hiddenForm: 'Hidden add todo input',
       name: 'Task Title',
       title: 'Add a Task',
       description: 'Enter the task to be completed',
@@ -163,18 +165,6 @@ const dictionary = {
     },
   },
   contacts: {
-    title: 'Information',
-    firstName: 'First Name',
-    lastName: 'Last Name',
-    age: 'Age',
-    birthDate: 'Birth Date',
-    nazionality: 'Nazionality',
-    job: 'Job',
-    specialization: 'Specialization',
-    email: 'Email',
-    phone: 'Phone',
-    address: 'Address',
-    website: 'Website',
     social: 'My contacts',
     buttons: {
       sendEmail: 'Send a message',
@@ -307,17 +297,21 @@ const dictionary = {
       'By checking the checkbox below, you agree to the following terms and conditions. The pdf is provided for personal use only. I authorize the processing of personal data contained in this curriculum vitae in accordance with art. 13 of Legislative Decree 196/2003 and art. 13 of the European Regulation UE 2016/679 on the protection of natural persons with regard to the processing of personal data. You may not use the data for commercial or illegal purposes. All content, including text, images and logos, is protected by copyright and may not be reproduced without my consent. You undertake not to disclose confidential information that you may obtain through this pdf, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
     cancel: 'Cancel',
   },
-  application: {
-    title: 'My App',
-    description:
-      'Visit my site in seconds, without the need for a browser and optimized for smartphones.',
-    terms:
-      'By using this app, you agree to the following terms and conditions. If you do not agree to these terms, please do not use the app.\nThe app is provided for your personal use only. You may not use the app for any commercial or illegal purposes, nor attempt to interfere with its functionality or security. All content in the app, including text, images, logos and software, is protected by copyright and may not be reproduced without my consent. I am not responsible for any direct or indirect damages arising from the use of the app. Use of the app is at your sole risk. I reserve the right to modify, suspend or discontinue temporarily or permanently the app or any of its features without notice. You undertake not to disclose any confidential information that you may obtain through the app, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
-    cancel: 'Cancel',
-    requirements: 'Requirements',
-    compatibility: 'Android 8.0 or higher',
-    download: 'Download App',
-  },
+  profile: {
+    confirmModal: {
+      description: 'The password has been changed successfully!',
+      title: 'Password changed',
+    },
+    form: {
+      password: 'Change password',
+      email: 'Email',
+      id: 'ID',
+      buttons: {
+        submit: 'Submit',
+        loading: 'Loading...',
+      }
+    }
+  }
 }
 
 export default dictionary

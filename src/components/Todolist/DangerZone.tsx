@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Switch } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Todo } from '@/types'
 import { isTaskOverdue } from '@/utils'
-import ConfirmModal from './ConfirmModal'
+import ConfirmModal from '../UI/ConfirmModal'
 
 interface DangerZoneProps {
   dict: Dictionary
@@ -69,9 +69,9 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
   return (
     <>
       <div
-        className={`relative ${showDangerZone ? 'rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5' : ''}`}
+        className={`${showDangerZone ? 'rounded-lg bg-red-200 p-1 hover:shadow-lg hover:shadow-red-500 md:p-5' : ''}`}
       >
-        <div className="absolute left-1 top-1 flex dark:text-black">
+        <div className="flex dark:text-black">
           <Switch
             checked={showDangerZone}
             color="danger"

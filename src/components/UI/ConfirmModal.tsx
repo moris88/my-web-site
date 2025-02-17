@@ -40,7 +40,7 @@ function ConfirmModal({
           <p>{description}</p>
         </ModalBody>
         <ModalFooter>
-          {onCancel && (
+          {buttonCancel && onCancel && (
             <Button color={colorCancel ?? 'default'} onPress={onCancel}>
               {buttonCancel ?? 'Cancel'}
             </Button>
