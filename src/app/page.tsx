@@ -1,3 +1,5 @@
+'use server'
+
 import { HomePage } from '@/components/UI'
 import { getInfo } from '@/lib'
 import { getDictionary } from './dictionaries'

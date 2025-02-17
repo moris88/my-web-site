@@ -1,5 +1,3 @@
-'use server'
-
 import { getDictionary } from '@/app/dictionaries'
 import { SectionHero, FormUser } from '@/components'
 import { getUser } from '@/lib/supabase/supabase'

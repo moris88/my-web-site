@@ -18,7 +18,7 @@ interface PageInfoProps {
 
 export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
-  const iconMap: Record<string, JSX.Element> = {
+  const iconMap: Record<string, React.ReactNode> = {
     facebook: <FaFacebook className="h-6 w-6" />,
     github: <FaGithub className="h-6 w-6" />,
     linkedin: <FaLinkedin className="h-6 w-6" />,

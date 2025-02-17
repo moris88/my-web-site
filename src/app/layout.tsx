@@ -1,4 +1,3 @@
-import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
@@ -7,8 +6,8 @@ import { twMerge } from 'tailwind-merge'
 import { UIWrapper } from '@/components/UI'
 import { getLinks } from '@/lib/data'
 import { getDictionary } from './dictionaries'
-import './globals.css'
 import { getUser } from '@/lib'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
