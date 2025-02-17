@@ -49,22 +49,22 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
     text: string
     message: string
   }[] = [
-      {
-        key: 'completed',
-        text: dict.todolist.listitem.filter.buttons.clear_completed.label,
-        message: dict.todolist.listitem.filter.buttons.clear_completed.message,
-      },
-      {
-        key: 'expired',
-        text: dict.todolist.listitem.filter.buttons.clear_expired.label,
-        message: dict.todolist.listitem.filter.buttons.clear_expired.message,
-      },
-      {
-        key: 'all',
-        text: dict.todolist.listitem.filter.buttons.clear_all.label,
-        message: dict.todolist.listitem.filter.buttons.clear_all.message,
-      },
-    ]
+    {
+      key: 'completed',
+      text: dict.todolist.listitem.filter.buttons.clear_completed.label,
+      message: dict.todolist.listitem.filter.buttons.clear_completed.message,
+    },
+    {
+      key: 'expired',
+      text: dict.todolist.listitem.filter.buttons.clear_expired.label,
+      message: dict.todolist.listitem.filter.buttons.clear_expired.message,
+    },
+    {
+      key: 'all',
+      text: dict.todolist.listitem.filter.buttons.clear_all.label,
+      message: dict.todolist.listitem.filter.buttons.clear_all.message,
+    },
+  ]
 
   return (
     <>
@@ -135,15 +135,15 @@ function DangerZone({ dict, todos, setTodos }: DangerZoneProps) {
           }
           onConfirm={() => {
             switch (key) {
-              case 'completed':
-                clearCompleted()
-                break
-              case 'expired':
-                clearExpired()
-                break
-              case 'all':
-                clearAll()
-                break
+            case 'completed':
+              clearCompleted()
+              break
+            case 'expired':
+              clearExpired()
+              break
+            case 'all':
+              clearAll()
+              break
             }
             setShowDeleteModal({ ...showDeleteModal, [key]: false })
           }}
