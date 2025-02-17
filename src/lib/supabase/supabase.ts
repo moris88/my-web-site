@@ -6,6 +6,8 @@ import { cookies } from 'next/headers'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
+const { error } = console
+
 export async function createClient() {
   const cookieStore = cookies()
 
@@ -15,17 +17,16 @@ export async function createClient() {
     {
       cookies: {
         getAll() {
-          return cookieStore.getAll()
+          const allCookies = cookieStore.getAll()
+          return allCookies
         },
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
             )
-          } catch {
-            // The `setAll` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
+          } catch (err) {
+            error('Failed to set cookies:', err)
           }
         },
       },
@@ -33,17 +34,31 @@ export async function createClient() {
   )
 }
 
+export async function clearAllCookies() {
+  const cookieStore = cookies()
+
+  // Ottieni tutti i cookie attuali
+  const allCookies = cookieStore.getAll()
+
+  // Cancella ogni cookie impostandolo a una stringa vuota con una data scaduta
+  allCookies.forEach(({ name }) =>
+    cookieStore.set(name, '', { expires: new Date(0) })
+  )
+}
+
 export async function login(formData: FormData) {
   const supabase = await createClient()
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
+  const { data, error: err } = await supabase.auth.signInWithPassword({
     email: formData.get('email') as string,
     password: formData.get('password') as string,
-  }
+  })
 
-  return await supabase.auth.signInWithPassword(data)
+  if (err) {
+    error('Login error:', err)
+    return { error: err }
+  }
+  return { data }
 }
 
 export async function logout() {
@@ -55,9 +70,6 @@ export async function logout() {
 
 export async function signup(formData: FormData) {
   const supabase = await createClient()
-
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
   const data = {
     email: formData.get('email') as string,
     password: formData.get('password') as string,

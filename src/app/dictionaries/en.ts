@@ -64,7 +64,7 @@ const dictionary = {
       label: 'Description',
       confirm: 'Do you confirm the addition of the task?',
       error: 'The task cannot be empty',
-      placeholder: 'e.g. \'buy milk\'',
+      placeholder: "e.g. 'buy milk'",
       submit: 'Add',
       cancel: 'Cancel',
       due_date: 'Due date',
@@ -92,7 +92,7 @@ const dictionary = {
     title: 'Who am I and what do I do?',
     subtitle: 'What do I specialize in?',
     message:
-      'Hi, i\'m a fullstack developer, i love coding and i\'m always looking for new challenges.',
+      "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
   },
   edit_blog: {
     table: {
@@ -186,7 +186,7 @@ const dictionary = {
     modal: {
       title: 'Send a message',
       content:
-        'Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I\'ll reply immediately, otherwise via email as soon as possible!',
+        "Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I'll reply immediately, otherwise via email as soon as possible!",
       privacy: 'Read the privacy',
       message: 'Thank you for your message!!!',
     },
@@ -273,6 +273,28 @@ const dictionary = {
       buttons: {
         back: 'Back',
       },
+      comments: {
+        title: 'Comments',
+        no_comment: 'No comments available',
+        form: {
+          title: 'Add a comment',
+          username: {
+            label: 'Username',
+            placeholder: 'Enter your username',
+            error: 'The username is required',
+          },
+          content: {
+            label: 'Your comment',
+            placeholder: 'Enter your comment here...',
+            error: 'The comment is required',
+          },
+          buttons: {
+            submit: 'Submit',
+            done: 'Done',
+            loading: 'Loading...',
+          },
+        },
+      },
     },
     buttons: {
       create: 'Create Article',
@@ -309,9 +331,9 @@ const dictionary = {
       buttons: {
         submit: 'Submit',
         loading: 'Loading...',
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 export default dictionary
