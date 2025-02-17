@@ -165,18 +165,6 @@ const dictionary = {
     },
   },
   contacts: {
-    title: 'Informazioni',
-    firstName: 'Nome',
-    lastName: 'Cognome',
-    age: 'Età',
-    birthDate: 'Data di nascita',
-    nazionality: 'Nazionalità',
-    job: 'Lavoro',
-    specialization: 'Specializzazione',
-    email: 'Email',
-    phone: 'Telefono',
-    address: 'Indirizzo',
-    website: 'Sito web',
     social: 'I miei contatti',
     buttons: {
       sendEmail: 'Invia un messaggio',
