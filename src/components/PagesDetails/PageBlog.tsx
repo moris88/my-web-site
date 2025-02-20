@@ -43,7 +43,7 @@ function PageBlog({ dict, article, comments }: PageBlogProps) {
               {dict.blog.article.buttons.back}
             </Button>
           </div>
-          <Comments comments={comments} dict={dict} />
+          <Comments comments={comments} idArticle={article.id} dict={dict} />
         </SectionHero>
       )}
     </>

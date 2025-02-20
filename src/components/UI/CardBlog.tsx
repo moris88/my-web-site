@@ -48,7 +48,7 @@ function CardBlog({
         <h2 className="line-clamp-1 select-none text-xl font-bold text-black dark:text-gray-300">
           {title}
         </h2>
-        <p className="line-clamp-2 select-none text-md font-bold text-black dark:text-gray-300">{content}</p>
+        <p className="line-clamp-2 select-none text-md font-medium text-black dark:text-gray-300">{content}</p>
         <Divider className="my-2" />
         <small className="select-none text-gray-500">
           {`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
