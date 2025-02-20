@@ -1,6 +1,6 @@
 import { PageHistory } from '@/components'
 import { getHistory } from '@/lib'
-import { getDictionary } from '../../dictionaries'
+import { getDictionary } from '@/app/dictionaries'
 
 export default async function BlogsPage() {
   const dict = await getDictionary()

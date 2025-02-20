@@ -1,7 +1,7 @@
 'use client'
 
 import { Article, LanguageSupabase } from '@/types'
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, ButtonGroup, Button, Avatar } from '@heroui/react'
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, ButtonGroup, Button, Avatar, Link } from '@heroui/react'
 import { useRouter } from 'next/navigation'
 import { FaTrash } from 'react-icons/fa6'
 import { MdEdit } from 'react-icons/md'
@@ -9,7 +9,6 @@ import { FaPlus } from 'react-icons/fa'
 import { Dictionary } from '@/app/dictionaries'
 import React from 'react'
 import { LoadingScreen } from '../UI'
-import Link from 'next/link'
 
 interface PageEditBlogsProps {
     dict: Dictionary
@@ -73,7 +72,15 @@ export default function PageEditBlogs({
             return (
               <TableRow key={article.id}>
                 <TableCell>{article.id}</TableCell>
-                <TableCell><Link href={`/blog/${article.id}?lang=false`}>{article.title}</Link></TableCell>
+                <TableCell>
+                  <Link
+                    isExternal
+                    showAnchorIcon
+                    href={`/blog/${article.id}?lang=false`}
+                  >
+                    {article.title}
+                  </Link>
+                </TableCell>
                 <TableCell>
                   <Avatar alt={language?.lang} className="w-6 h-6 shadow-lg" src={`https://flagcdn.com/w160/${language?.lang}.webp`} />
                 </TableCell>

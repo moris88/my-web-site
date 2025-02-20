@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { twMerge } from 'tailwind-merge'
-import { UIWrapper } from '@/components/UI'
+import { UIWrapper } from '@/components'
 import { getLinks } from '@/lib/data'
 import { getDictionary } from './dictionaries'
 import { getUser } from '@/lib'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Maurizio Tolomeo | Sviluppatore Frontend & Mobile - React, Next.js',
@@ -26,7 +22,7 @@ export default async function RootLayout({
   const user = await getUser()
 
   return (
-    <html lang="it">
+    <html lang={dict.lang}>
       <head>
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -36,12 +32,7 @@ export default async function RootLayout({
         <link href="/favicon.ico" rel="icon" />
         <link href="https://www.mauriziotolomeo.it" rel="canonical" />
       </head>
-      <body
-        className={twMerge(
-          inter.className,
-          'box-border bg-white dark:bg-[#1b1a19]',
-        )}
-      >
+      <body>
         <UIWrapper dict={dict} links={links} user={user}>
           {children}
           <SpeedInsights />

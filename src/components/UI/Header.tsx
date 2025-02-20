@@ -62,7 +62,7 @@ function Header({ dict, user }: NavbarProps) {
   return (
     <Navbar
       isBlurred
-      className="!rounded-lg bg-gray-300 dark:bg-slate-800"
+      className="!rounded-lg bg-gray-300 dark:bg-slate-800 max-h-[60px"
       position="sticky"
     >
       <NavbarBrand>

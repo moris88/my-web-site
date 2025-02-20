@@ -19,6 +19,7 @@
 body {
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+  @apply bg-white dark:bg-[#1b1a19];
 }
 
 .hero {
@@ -34,11 +35,7 @@ body {
 }
 
 .container {
-  @apply min-w-full lg:px-20 px-5 py-1 lg:mt-5 mt-1 relative;
-}
-
-.item {
-  @apply flex items-center gap-2;
+  @apply min-w-full lg:px-20 px-5 py-5 relative;
 }
 
 @media screen and (max-width: 768px) {

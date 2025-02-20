@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { CardBlog, SectionHero } from '@/components/UI'
+import { CardBlog, SectionHero } from '@/components'
 import { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
 

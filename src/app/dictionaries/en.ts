@@ -1,5 +1,6 @@
 const dictionary = {
   language: 'English',
+  lang: 'en',
   navbar: {
     blog: 'Blog',
     experience: 'Experience',

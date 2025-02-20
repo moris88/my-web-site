@@ -9,7 +9,7 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
   const response = await getArticle(id)
   const languages = await getLanguages()
   if (response?.error) {
-    return <ErrorPage message={response.error.message} />
+    return <ErrorPage err={new Error(response.error.message)} />
   }
   const user = await getUser()
   if (!user) {

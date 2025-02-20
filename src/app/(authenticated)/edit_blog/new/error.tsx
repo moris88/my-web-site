@@ -1,7 +1,7 @@
 'use client'
 
-import { ErrorPage } from '@/components/UI'
+import { ErrorPage } from '@/components'
 
-export default function Error() {
-  return <ErrorPage />
+export default function Error({ err }: { err: Error }) {
+  return <ErrorPage err={err} />
 }

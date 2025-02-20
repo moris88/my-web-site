@@ -1,5 +1,5 @@
 import { TodoInput, TodoList } from '@/components'
-import { getDictionary } from '../../dictionaries'
+import { getDictionary } from '@/app/dictionaries'
 
 export default async function TodoListPage() {
   const dict = await getDictionary()

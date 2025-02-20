@@ -20,7 +20,7 @@ export default async function BlogPage({
     ? await getArticle(id)
     : await getArticleWithLanguage(id, +languageId)
   if (article?.error) {
-    return <ErrorPage message={article.error.message} />
+    return <ErrorPage err={new Error(article.error.message)} />
   }
   const comments = await getComment(article.data[0].id)
   return <PageBlog article={article.data[0]} dict={dict} comments={comments.data} />

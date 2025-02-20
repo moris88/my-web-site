@@ -8,7 +8,7 @@ export default async function EditBlogPage() {
   const languages = await getLanguages()
   const response = await getArticles()
   if (response?.error) {
-    return <ErrorPage message={response.error.message} />
+    return <ErrorPage err={new Error(response.error.message)} />
   }
   const user = await getUser()
   if (!user) {

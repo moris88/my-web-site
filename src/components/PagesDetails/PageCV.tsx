@@ -2,13 +2,11 @@
 
 import React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
-import Link from 'next/link'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
-import { Checkbox, Divider } from '@heroui/react'
+import { Modal, ModalBody, ModalContent, ModalHeader, Checkbox, Divider, Link } from '@heroui/react'
 import { Button } from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
-import { DownloadFile, SectionHero } from '@/components/UI'
+import { DownloadFile, SectionHero } from '@/components'
 import { Curriculum } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -44,9 +42,12 @@ function PageCV({ curriculum, dict }: PageCVProps) {
               key={generateUniqueId()}
               className="lg:test-base text-wrap text-sm"
             >
-              <p className="flex select-none flex-col md:flex-row">
+              <p className="flex gap-2 select-none flex-col md:flex-row">
                 <b>
                   <Link
+                    isExternal
+                    showAnchorIcon
+                    color="foreground"
                     className={
                       exp.link ? 'hover:underline' : 'cursor-not-allowed'
                     }
@@ -55,7 +56,8 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                     {exp.company}
                   </Link>
                 </b>{' '}
-                <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
+                <i>{exp.role}</i>
+                <span>{exp.start} {'->'} {exp.end ?? 'present'}</span>
               </p>
               <p className="select-none">description: {exp.description}</p>
               <br />
@@ -85,9 +87,12 @@ function PageCV({ curriculum, dict }: PageCVProps) {
               key={generateUniqueId()}
               className="lg:test-base text-wrap text-sm"
             >
-              <p className="flex select-none flex-col md:flex-row">
+              <p className="flex gap-2 select-none flex-col md:flex-row">
                 <b>
                   <Link
+                    isExternal
+                    showAnchorIcon
+                    color="foreground"
                     className={
                       exp.link ? 'hover:underline' : 'cursor-not-allowed'
                     }
@@ -96,7 +101,8 @@ function PageCV({ curriculum, dict }: PageCVProps) {
                     {exp.institution}
                   </Link>
                 </b>{' '}
-                <i>{exp.role}</i> {exp.start} {'->'} {exp.end ?? 'present'}
+                <i>{exp.role}</i>
+                <span>{exp.start} {'->'} {exp.end ?? 'present'}</span>
               </p>
               <p className="select-none">description: {exp.description}</p>
               <br />

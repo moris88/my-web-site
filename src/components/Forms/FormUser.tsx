@@ -2,12 +2,11 @@
 
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Button, Input, Avatar } from '@heroui/react'
+import { Button, Input, Avatar, Link } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { User } from '@supabase/supabase-js'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { ConfirmModal } from '@/components'
-import Link from 'next/link'
 
 interface FormArticlesProps {
   dict: Dictionary
@@ -61,6 +60,7 @@ export default function FormArticles({
         className="w-24 h-24"
       />
       <Link
+        isExternal showAnchorIcon
         className="hover:text-primary"
         href="https://supabase.com/dashboard/project/psgaxddqtxofwhtzfxiw"
       >

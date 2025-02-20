@@ -3,12 +3,11 @@
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
-import { Button, ButtonGroup } from '@heroui/react'
+import { Button, ButtonGroup, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { ButtonsGroupSocial, ModalMessage } from '@/components/UI'
 import { Contact, StoreLink } from '@/types'
-import Link from 'next/link'
 
 interface PageInfoProps {
   contacts: Contact
@@ -33,7 +32,7 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
   )
 
   return (
-    <div className='min-h-[calc(100vh-128px)] flex flex-col items-center justify-center'>
+    <div className='h-full flex flex-col items-center justify-center'>
       <h3 className="w-full select-none text-center py-4 text-xl">
         <span className="flex items-center justify-center gap-1">
           <HiIdentification className="h-5 w-5" />
@@ -57,10 +56,12 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                 src="/avatar.webp"
               />
               <div>
-                <p className="font-bold text-xl">{contacts?.firstName + ' ' + contacts?.lastName}</p>
-                <p className="font-semibold text-lg text-gray-400 italic">{contacts?.job ?? ''}</p>
+                <p className="text-center font-bold text-xl">{contacts?.firstName + ' ' + contacts?.lastName}</p>
+                <p className="text-center font-semibold text-lg text-gray-400 italic">{contacts?.job ?? ''}</p>
+                <p className="text-center font-semibold text-lg text-gray-400 italic">{contacts?.specialization ?? ''}</p>
               </div>
               <Link
+                showAnchorIcon
                 className="hover:text-primary italic"
                 href={`mailto:${contacts?.email ?? ''}`}
               >

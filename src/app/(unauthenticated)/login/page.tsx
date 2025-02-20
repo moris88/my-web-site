@@ -1,5 +1,5 @@
 import { FormLogin } from '@/components'
-import { getDictionary } from '../../dictionaries'
+import { getDictionary } from '@/app/dictionaries'
 
 export default async function SkillsPage() {
   const dict = await getDictionary()

@@ -19,15 +19,9 @@ export interface StoreLink {
 export interface Contact extends Record<string, any> {
   firstName: string
   lastName: string
-  age: number
-  birthDate: string
-  nazionality: string
   job: string
   specialization: string
-  company: string
   email: string
-  phone: string
-  address: string
   website: string
   links: string[]
 }
