@@ -126,7 +126,7 @@ export default function FormArticles({
       )}
       <div className="flex md:flex-row flex-col items-center justify-center gap-2">
         {(article?.image || fileInput) ?
-          <img src={article?.image || (fileInput?.files?.[0] && URL.createObjectURL(fileInput.files[0]))} className="w-52 h-52 rounded-lg" />
+          <img src={article?.image || (fileInput?.files?.[0] && URL.createObjectURL(fileInput.files[0]))} className="w-52 h-52 rounded-lg" alt="image of article" />
           :
           <div className="w-full h-40 bg-gray-300 rounded-lg flex justify-center items-center">
             <p className="text-4xl text-gray-500">{'No-Image'}</p>

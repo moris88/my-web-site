@@ -1,3 +1,5 @@
+'use server'
+
 import moment from 'moment'
 import { createClient } from './supabase'
 import { Article, ResponseSupabase } from '@/types'

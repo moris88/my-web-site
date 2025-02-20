@@ -33,9 +33,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
             className="flex items-center justify-center p-4 md:p-0"
           >
             <Tooltip
-              color="primary"
+              color="default"
               content={dict.home.message}
-              placement="bottom"
+              placement="top"
             >
               <img
                 alt="avatar"

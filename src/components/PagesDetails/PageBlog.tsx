@@ -1,10 +1,9 @@
 'use client'
 
 import { HiArrowLeft } from 'react-icons/hi2'
-import Link from 'next/link'
-import { Button } from '@heroui/react'
+import { Button, Link } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
-import { Comments, SectionHero } from '@/components/UI'
+import { Comments, SectionHero } from '@/components'
 import { Article, Comment } from '@/types'
 import { formatDate } from '@/utils'
 import { useRouter } from 'next/navigation'
@@ -31,7 +30,8 @@ function PageBlog({ dict, article, comments }: PageBlogProps) {
           </div>
           {article.link && (
             <Link
-              className="italic decoration-black hover:underline dark:decoration-white"
+              isExternal
+              showAnchorIcon
               href={article.link}
             >
               {dict.blog.article.link}

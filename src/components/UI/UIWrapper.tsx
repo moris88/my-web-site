@@ -5,7 +5,7 @@ import { HeroUIProvider } from '@heroui/system'
 import { createStore, Provider } from 'jotai'
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
-import { Footer, Header } from '@/components/UI'
+import { Footer, Header } from '@/components'
 import { StoreLink, Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
 import { User } from '@supabase/supabase-js'
@@ -44,7 +44,7 @@ export default function UIWrapper({
     <Provider store={atomStore}>
       <HeroUIProvider>
         <Header dict={dict} user={user} />
-        <div className="min-h-[86vh] lg:min-h-[84vh]">{children}</div>
+        <main className="min-h-[calc(100vh-130px)]">{children}</main>
         <Footer links={links} />
       </HeroUIProvider>
     </Provider>

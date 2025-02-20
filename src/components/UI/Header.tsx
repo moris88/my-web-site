@@ -20,7 +20,7 @@ import {
   Avatar,
 } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
-import { logout, clearAllCookies } from '@/lib'
+import { logout } from '@/lib'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
 import { User } from '@supabase/supabase-js'
@@ -52,14 +52,17 @@ function Header({ dict, user }: NavbarProps) {
   useEffect(() => {
     if (!user) {
       // svuota i cookies
-      clearAllCookies()
+      document.cookie.split(";").forEach((c) => {
+        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      });
+
     }
   }, [user])
 
   return (
     <Navbar
       isBlurred
-      className="!rounded-lg bg-gray-300 dark:bg-slate-800"
+      className="!rounded-lg bg-gray-300 dark:bg-slate-800 max-h-[60px"
       position="sticky"
     >
       <NavbarBrand>

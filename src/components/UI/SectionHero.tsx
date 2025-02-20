@@ -16,8 +16,8 @@ function SectionHero({
   image
 }: SectionHeroProps) {
   return (
-    <section className="container flex flex-col gap-10 overflow-x-hidden mb-5">
-      {image && (<img className="object-cover object-center w-full h-96 rounded-lg" src={image} alt={'immagine dell\'articolo'} />)}
+    <section className="container flex flex-col gap-10 overflow-x-hidden">
+      {image && (<img className="object-cover object-center w-full h-96 rounded-lg" src={image} alt={'imgae of article'} />)}
       <h2 className="text-center text-lg lg:text-3xl">{title}</h2>
       {subtitle && (
         <p>

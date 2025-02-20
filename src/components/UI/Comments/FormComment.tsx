@@ -38,7 +38,6 @@ export default function FormComment({
     const onSubmit: SubmitHandler<Comment> = async (data) => {
         setLoading(true)
         const response = await createComment(data)
-        console.log(response)
         if (response.error) {
             setError(response.error.message)
             setLoading(false)

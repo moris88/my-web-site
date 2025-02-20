@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation'
 const { error } = console
 
 export async function createClient() {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   return createServerClient(
     process.env.SUPABASE_URL!,
@@ -17,32 +17,21 @@ export async function createClient() {
     {
       cookies: {
         getAll() {
-          const allCookies = cookieStore.getAll()
-          return allCookies
+          return cookieStore.getAll()
         },
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
             )
-          } catch (err) {
-            error('Failed to set cookies:', err)
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
           }
         },
       },
     }
-  )
-}
-
-export async function clearAllCookies() {
-  const cookieStore = cookies()
-
-  // Ottieni tutti i cookie attuali
-  const allCookies = cookieStore.getAll()
-
-  // Cancella ogni cookie impostandolo a una stringa vuota con una data scaduta
-  allCookies.forEach(({ name }) =>
-    cookieStore.set(name, '', { expires: new Date(0) })
   )
 }
 

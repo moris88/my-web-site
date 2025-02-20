@@ -4,7 +4,6 @@ import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '@heroui/button'
 import { Input, Textarea } from '@heroui/input'
-import { Spinner } from '@heroui/spinner'
 import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {
@@ -63,10 +62,9 @@ export default function FormContact({
 
   if (loading)
     return (
-      <p>
-        {dict.contacts.form.loading}...
-        <Spinner size="sm" />
-      </p>
+      <Button isLoading color="primary" variant="flat" type="button" isDisabled>
+        {dict.contacts.form.loading}
+      </Button>
     )
 
   return (

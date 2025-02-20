@@ -2,9 +2,7 @@
     "it": {
         "firstName": "Maurizio",
         "lastName": "Tolomeo",
-        "birthDate": "1988-05-10",
-        "nazionality": "Italiano",
-        "job": "Programmatore Web",
+        "job": "Web Developer",
         "specialization": "Frontend Developer",
         "email": "maurizio.tolomeo@outlook.it",
         "website": "https://www.mauriziotolomeo.it",
@@ -17,9 +15,7 @@
     "en": {
         "firstName": "Maurizio",
         "lastName": "Tolomeo",
-        "birthDate": "1988-05-10",
-        "nazionality": "Italian",
-        "job": "Full Stack Developer",
+        "job": "Web Developer",
         "specialization": "Frontend Developer",
         "email": "maurizio.tolomeo@outlook.it",
         "website": "https://www.mauriziotolomeo.it",

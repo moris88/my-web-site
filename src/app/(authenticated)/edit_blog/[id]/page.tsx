@@ -1,20 +1,15 @@
-'use server'
-
 import { getDictionary } from '@/app/dictionaries'
 import { SectionHero, ErrorPage, FormArticles } from '@/components'
 import { getArticle, getLanguages, getUser } from '@/lib'
 import { redirect } from 'next/navigation'
 
-export default async function EditArticlePage({
-  params: { id },
-}: {
-  params: { id: string }
-}) {
+export default async function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const dict = await getDictionary()
   const response = await getArticle(id)
   const languages = await getLanguages()
   if (response?.error) {
-    return <ErrorPage message={response.error.message} />
+    return <ErrorPage err={new Error(response.error.message)} />
   }
   const user = await getUser()
   if (!user) {

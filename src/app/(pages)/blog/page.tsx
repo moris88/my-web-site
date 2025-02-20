@@ -1,5 +1,5 @@
 import { PageBlogs, ErrorPage } from '@/components'
-import { getDictionary } from '../../dictionaries'
+import { getDictionary } from '@/app/dictionaries'
 import { getLanguage, getArticlesWithLanguage } from '@/lib'
 
 export default async function BlogsPage() {
@@ -10,7 +10,7 @@ export default async function BlogsPage() {
   })
   const response = await getArticlesWithLanguage(+languageId)
   if (response?.error) {
-    return <ErrorPage message={response.error.message} />
+    return <ErrorPage err={new Error(response.error.message)} />
   }
   return <PageBlogs articles={response.data} dict={dict} />
 }
