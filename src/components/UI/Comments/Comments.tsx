@@ -10,8 +10,9 @@ import FormComment from './FormComment'
 interface CommentsProps {
     dict: Dictionary
     comments: Comment[]
+    idArticle: string
 }
-function Comments({ comments, dict }: CommentsProps) {
+function Comments({ comments, dict, idArticle }: CommentsProps) {
     const [showForm, setShowForm] = React.useState<boolean>(false)
     return (
         <div>
@@ -22,9 +23,9 @@ function Comments({ comments, dict }: CommentsProps) {
             {showForm && (
                 <FormComment
                     dict={dict}
-                    articleId={comments[0].article_id}
+                    articleId={idArticle}
                     onClose={() => setShowForm(false)}
-                    onSend={() => window.location.href = `/blog/${comments[0].article_id}`}
+                    onSend={() => window.location.href = `/blog/${idArticle}`}
                 />
             )}
             {!showForm && (
