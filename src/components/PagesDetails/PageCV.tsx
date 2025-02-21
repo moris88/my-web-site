@@ -33,7 +33,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 2,
         }}
       >
-        <p className="text-base lg:text-xl md:text-center text-start">{dict.curriculum.experiences}</p>
+        <p className="text-start text-base md:text-center lg:text-xl">
+          {dict.curriculum.experiences}
+        </p>
       </motion.div>
       <motion.div
         animate={{ translateX: 0 }}
@@ -51,7 +53,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 2,
         }}
       >
-        <p className="text-base lg:text-xl md:text-center text-start">{dict.curriculum.education}</p>
+        <p className="text-start text-base md:text-center lg:text-xl">
+          {dict.curriculum.education}
+        </p>
       </motion.div>
       <motion.div
         animate={{ translateX: 0 }}
@@ -127,8 +131,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           )}
         </div>
       </motion.div>
-
-
     </SectionHero>
   )
 }

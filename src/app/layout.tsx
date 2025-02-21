@@ -7,7 +7,6 @@ import { getDictionary } from './dictionaries'
 import { getUser } from '@/lib'
 import './globals.css'
 
-
 export const metadata: Metadata = {
   title: 'Maurizio Tolomeo | Sviluppatore Frontend & Mobile - React, Next.js',
   description:
