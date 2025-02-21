@@ -62,7 +62,7 @@ export default function FormContact({
 
   if (loading)
     return (
-      <Button isLoading color="primary" variant="flat" type="button" isDisabled>
+      <Button isDisabled isLoading color="primary" type="button" variant="flat">
         {dict.contacts.form.loading}
       </Button>
     )
@@ -113,14 +113,16 @@ export default function FormContact({
         </p>
       )}
       <div className="flex justify-center gap-4">
-        {!notDone && (<Button
-          color="default"
-          type="button"
-          variant="flat"
-          onPress={() => onClose?.()}
-        >
-          {dict.contacts.form.buttons.done}
-        </Button>)}
+        {!notDone && (
+          <Button
+            color="default"
+            type="button"
+            variant="flat"
+            onPress={() => onClose?.()}
+          >
+            {dict.contacts.form.buttons.done}
+          </Button>
+        )}
         <Button color="primary" type="submit" variant="flat">
           {dict.contacts.form.buttons.send}
         </Button>

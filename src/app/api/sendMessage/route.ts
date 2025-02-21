@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     if (!message || !name) {
       return NextResponse.json(
         { error: 'Email, message and name are required' },
-        { status: 404 },
+        { status: 404 }
       )
     }
     if (TOKEN_TELEGRAM && CHAT_ID_TELEGRAM) {
@@ -28,16 +28,16 @@ export async function POST(request: Request) {
       })
       const supabase = createClient(
         process.env.SUPABASE_URL!,
-        process.env.SUPABASE_KEY!,
+        process.env.SUPABASE_KEY!
       )
-      await supabase
-        .from('messages')
-        .insert([{
+      await supabase.from('messages').insert([
+        {
           email,
           message,
           name,
           username,
-        }])
+        },
+      ])
     } else {
       throw new Error('Telegram token and chat id are required')
     }
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     error(err)
     return NextResponse.json(
       { error: 'Internal Server Error' },
-      { status: 500 },
+      { status: 500 }
     )
   }
 }

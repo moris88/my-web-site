@@ -17,8 +17,8 @@ export default async function EditBlogPage() {
   return (
     <SectionHero title={dict.edit_blog.table.title}>
       <PageEditBlogs
-        dict={dict}
         articles={response.data}
+        dict={dict}
         languages={languages?.data}
       />
     </SectionHero>

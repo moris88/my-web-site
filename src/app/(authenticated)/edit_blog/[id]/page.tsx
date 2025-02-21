@@ -3,7 +3,11 @@ import { SectionHero, ErrorPage, FormArticles } from '@/components'
 import { getArticle, getLanguages, getUser } from '@/lib'
 import { redirect } from 'next/navigation'
 
-export default async function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
+export default async function EditArticlePage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
   const { id } = await params
   const dict = await getDictionary()
   const response = await getArticle(id)
@@ -18,8 +22,8 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
   return (
     <SectionHero title={dict.edit_blog.form.section.edit}>
       <FormArticles
-        dict={dict}
         article={response?.data?.[0]}
+        dict={dict}
         languages={languages?.data}
       />
     </SectionHero>

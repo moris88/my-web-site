@@ -78,7 +78,12 @@ export default function FormLogin({ dict }: FormLoginProps) {
       )}
       {error && <p className="font-bold text-red-500">{error}</p>}
       <div className="flex justify-center gap-4">
-        <Button color="primary" isLoading={loading} type="submit" variant="flat">
+        <Button
+          color="primary"
+          isLoading={loading}
+          type="submit"
+          variant="flat"
+        >
           {dict.login.form.buttons.submit}
         </Button>
       </div>

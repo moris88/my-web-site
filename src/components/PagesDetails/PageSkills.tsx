@@ -2,7 +2,20 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import { Accordion, AccordionItem, Card, CardBody, CardHeader, Modal, ModalBody, ModalContent, ModalHeader, Tab, Tabs, Progress } from '@heroui/react'
+import {
+  Accordion,
+  AccordionItem,
+  Card,
+  CardBody,
+  CardHeader,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Tab,
+  Tabs,
+  Progress,
+} from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
 import { Language, Skill, Skills } from '@/types'
@@ -100,7 +113,8 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
         <Tabs
           aria-label="Options"
           className="flex items-center justify-center"
-          color="primary" radius="full"
+          color="primary"
+          radius="full"
         >
           <Tab key="hard" title="Hard Skills">
             <motion.div
@@ -134,9 +148,9 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                                 </CardHeader>
                                 <CardBody>
                                   <Progress
+                                    showValueLabel
                                     color={mapColor[skill.level]}
                                     value={skill.level * 10}
-                                    showValueLabel
                                   />
                                 </CardBody>
                               </Card>
@@ -155,7 +169,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                 softSkills.map((key) => (
                   <div
                     key={generateUniqueId()}
-                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-2"
+                    className="grid grid-cols-1 gap-4 p-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                   >
                     {skills[key].map((skill: Skill) => {
                       return (
@@ -165,7 +179,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                         >
                           <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                             <CardHeader className="flex gap-3">
-                              <p className="text-base text-start font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl line-clamp-1">
+                              <p className="line-clamp-1 text-start text-base font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl">
                                 {typeof skill.title === 'string'
                                   ? skill.title
                                   : skill.title[language]}
@@ -173,9 +187,9 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                             </CardHeader>
                             <CardBody>
                               <Progress
+                                showValueLabel
                                 color={mapColor[skill.level]}
                                 value={skill.level * 10}
-                                showValueLabel
                               />
                             </CardBody>
                           </Card>

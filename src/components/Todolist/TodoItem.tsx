@@ -41,7 +41,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   const [editTitle, setEditTitle] = React.useState(todo.title)
   const [editDescription, setEditDescription] = React.useState(todo.description)
   const [editPriority, setEditPriority] = React.useState<Priority>(
-    todo.priority,
+    todo.priority
   )
   const [showDeleteModal, setShowDeleteModal] = React.useState(false)
   const [showEditModal, setShowEditModal] = React.useState(false)
@@ -49,7 +49,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
 
   const minValue = today(getLocalTimeZone()) as any
   const [editDueDate, setEditDueDate] = React.useState<string | null>(
-    todo.dueDate ?? null,
+    todo.dueDate ?? null
   )
 
   const valueDueDate = React.useMemo(() => {
@@ -68,12 +68,12 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-          ...t,
-          completed: !t.completed,
-          completedAt: !t.completed ? new Date().toISOString() : null,
-          updatedAt: new Date().toISOString(),
-        }
-        : t,
+            ...t,
+            completed: !t.completed,
+            completedAt: !t.completed ? new Date().toISOString() : null,
+            updatedAt: new Date().toISOString(),
+          }
+        : t
     )
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
     setTodos(updatedTodos)
@@ -98,14 +98,14 @@ function TodoItem({ todo, dict }: TodoItemProps) {
     const updatedTodos = todos.map((t) =>
       t.id === todo.id
         ? {
-          ...t,
-          dueDate: editDueDate ? editDueDate.toString() : null,
-          title: editTitle,
-          description: editDescription,
-          priority: editPriority,
-          updatedAt: new Date().toISOString(),
-        }
-        : t,
+            ...t,
+            dueDate: editDueDate ? editDueDate.toString() : null,
+            title: editTitle,
+            description: editDescription,
+            priority: editPriority,
+            updatedAt: new Date().toISOString(),
+          }
+        : t
     )
     setTodos(updatedTodos)
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
@@ -135,9 +135,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   }
 
   return (
-    <div
-      className="flex w-full flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between"
-    >
+    <div className="flex w-full flex-col items-start justify-start gap-y-2 py-2 md:flex-row md:items-center md:justify-between">
       {isEditing ? (
         <div className="flex w-full flex-col gap-y-4">
           <div className="flex w-full flex-col items-center gap-4 md:flex-row">
@@ -174,8 +172,7 @@ function TodoItem({ todo, dict }: TodoItemProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                      item as keyof
-                      typeof dict.todolist.listitem.priority.items
+                        item as keyof typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>
@@ -205,12 +202,22 @@ function TodoItem({ todo, dict }: TodoItemProps) {
         <>
           <div className="flex w-full flex-col items-start gap-y-2">
             <p
-              className={`cursor-pointer flex gap-2 items-center w-full line-clamp-1 font-bold ${todo.completed ? 'line-through' : ''}`}
+              className={`line-clamp-1 flex w-full cursor-pointer items-center gap-2 font-bold ${todo.completed ? 'line-through' : ''}`}
               onClick={toggleTodo}
             >
               <Checkbox isSelected={todo.completed} />
               {flagIcon[todo.priority]}{' '}
-              <span className={todo.completed ? 'text-green-600' : todo.dueDate && new Date(todo.dueDate) < new Date() ? 'text-red-600' : todo.priority === 'urgent' ? 'text-black' : ''}>
+              <span
+                className={
+                  todo.completed
+                    ? 'text-green-600'
+                    : todo.dueDate && new Date(todo.dueDate) < new Date()
+                      ? 'text-red-600'
+                      : todo.priority === 'urgent'
+                        ? 'text-black'
+                        : ''
+                }
+              >
                 {todo.title}
               </span>
             </p>
@@ -251,9 +258,9 @@ function TodoItem({ todo, dict }: TodoItemProps) {
       {/* Modale per confermare l'eliminazione */}
       <ConfirmModal
         description={todo.description}
-        onCancel={() => setShowDetailModal(false)}
         isOpen={showDetailModal}
         title={todo.title}
+        onCancel={() => setShowDetailModal(false)}
       />
 
       {/* Modale per confermare l'eliminazione */}

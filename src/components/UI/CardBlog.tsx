@@ -37,18 +37,20 @@ function CardBlog({
         {image ? (
           <img
             alt={title}
-            className="object-cover w-full h-40 rounded-lg"
+            className="h-40 w-full rounded-lg object-cover"
             src={image}
           />
         ) : (
-          <div className="w-full h-40 bg-gray-300 rounded-lg flex justify-center items-center">
+          <div className="flex h-40 w-full items-center justify-center rounded-lg bg-gray-300">
             <p className="text-4xl text-gray-500">{'No-Image'}</p>
           </div>
         )}
         <h2 className="line-clamp-1 select-none text-xl font-bold text-black dark:text-gray-300">
           {title}
         </h2>
-        <p className="line-clamp-2 select-none text-md font-medium text-black dark:text-gray-300">{content}</p>
+        <p className="text-md line-clamp-2 select-none font-medium text-black dark:text-gray-300">
+          {content}
+        </p>
         <Divider className="my-2" />
         <small className="select-none text-gray-500">
           {`${dict.blog.card.postedAt} ${formatDate(created_at)}`}

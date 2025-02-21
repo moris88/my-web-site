@@ -7,10 +7,7 @@ export default async function NewArticlePage() {
   const response = await getLanguages()
   return (
     <SectionHero title={dict.edit_blog.form.section.new}>
-      <FormArticles
-        languages={response?.data}
-        dict={dict}
-      />
+      <FormArticles dict={dict} languages={response?.data} />
     </SectionHero>
   )
 }

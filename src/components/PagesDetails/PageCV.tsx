@@ -2,13 +2,19 @@
 
 import React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
-import { Modal, ModalBody, ModalContent, ModalHeader, Checkbox, Divider, Link } from '@heroui/react'
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Checkbox,
+  Divider,
+} from '@heroui/react'
 import { Button } from '@heroui/react'
 import { motion } from 'framer-motion'
 import { Dictionary } from '@/app/dictionaries'
-import { DownloadFile, SectionHero } from '@/components'
+import { DownloadFile, SectionHero, Step } from '@/components'
 import { Curriculum } from '@/types'
-import { generateUniqueId } from '@/utils'
 
 interface PageCVProps {
   curriculum: Curriculum
@@ -27,7 +33,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 2,
         }}
       >
-        <p className="text-base lg:text-xl">{dict.curriculum.experiences}</p>
+        <p className="text-base lg:text-xl md:text-center text-start">{dict.curriculum.experiences}</p>
       </motion.div>
       <motion.div
         animate={{ translateX: 0 }}
@@ -36,34 +42,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 1,
         }}
       >
-        <ul className="rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-          {curriculum.experiences.map((exp) => (
-            <li
-              key={generateUniqueId()}
-              className="lg:test-base text-wrap text-sm"
-            >
-              <p className="flex gap-2 select-none flex-col md:flex-row">
-                <b>
-                  <Link
-                    isExternal
-                    showAnchorIcon
-                    color="foreground"
-                    className={
-                      exp.link ? 'hover:underline' : 'cursor-not-allowed'
-                    }
-                    href={exp.link ?? ''}
-                  >
-                    {exp.company}
-                  </Link>
-                </b>{' '}
-                <i>{exp.role}</i>
-                <span>{exp.start} {'->'} {exp.end ?? 'present'}</span>
-              </p>
-              <p className="select-none">description: {exp.description}</p>
-              <br />
-            </li>
-          ))}
-        </ul>
+        <Step experiences={curriculum.experiences} />
       </motion.div>
       <motion.div
         animate={{ opacity: 1 }}
@@ -72,7 +51,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 2,
         }}
       >
-        <p className="text-base lg:text-xl">{dict.curriculum.education}</p>
+        <p className="text-base lg:text-xl md:text-center text-start">{dict.curriculum.education}</p>
       </motion.div>
       <motion.div
         animate={{ translateX: 0 }}
@@ -81,34 +60,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           duration: 1,
         }}
       >
-        <ul className="rounded-lg bg-gray-200 p-1 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-          {curriculum.education.map((exp) => (
-            <li
-              key={generateUniqueId()}
-              className="lg:test-base text-wrap text-sm"
-            >
-              <p className="flex gap-2 select-none flex-col md:flex-row">
-                <b>
-                  <Link
-                    isExternal
-                    showAnchorIcon
-                    color="foreground"
-                    className={
-                      exp.link ? 'hover:underline' : 'cursor-not-allowed'
-                    }
-                    href={exp.link ?? ''}
-                  >
-                    {exp.institution}
-                  </Link>
-                </b>{' '}
-                <i>{exp.role}</i>
-                <span>{exp.start} {'->'} {exp.end ?? 'present'}</span>
-              </p>
-              <p className="select-none">description: {exp.description}</p>
-              <br />
-            </li>
-          ))}
-        </ul>
+        <Step educations={curriculum.education} />
       </motion.div>
       <motion.div
         animate={{ opacity: 1 }}
@@ -175,6 +127,8 @@ function PageCV({ curriculum, dict }: PageCVProps) {
           )}
         </div>
       </motion.div>
+
+
     </SectionHero>
   )
 }

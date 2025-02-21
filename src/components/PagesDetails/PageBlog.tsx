@@ -20,30 +20,31 @@ function PageBlog({ dict, article, comments }: PageBlogProps) {
     <>
       {article && (
         <SectionHero
+          image={article.image}
           subtitle={article.content}
           title={article.title}
-          image={article.image}
         >
-          <div className="flex md:flex-row flex-col gap-2">
+          <div className="flex flex-col gap-2 md:flex-row">
             <small>{`${dict.blog.article.postedAt} ${formatDate(article.created_at)}`}</small>
             <small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
           </div>
           {article.link && (
-            <Link
-              isExternal
-              showAnchorIcon
-              href={article.link}
-            >
+            <Link isExternal showAnchorIcon href={article.link}>
               {dict.blog.article.link}
             </Link>
           )}
           <div className="flex justify-end gap-2">
-            <Button className="flex gap-2" color="primary" variant="ghost" onPress={() => router.back()}>
+            <Button
+              className="flex gap-2"
+              color="primary"
+              variant="ghost"
+              onPress={() => router.back()}
+            >
               <HiArrowLeft className="h-5 w-5" />
               {dict.blog.article.buttons.back}
             </Button>
           </div>
-          <Comments comments={comments} idArticle={article.id} dict={dict} />
+          <Comments comments={comments} dict={dict} idArticle={article.id} />
         </SectionHero>
       )}
     </>

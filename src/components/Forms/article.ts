@@ -43,7 +43,7 @@ export async function updateArticle(
 ) {
   if (!data.id) {
     return Promise.resolve({
-      error: 'Article ID is required!'
+      error: 'Article ID is required!',
     })
   }
   return await fetch('/api/articles', {

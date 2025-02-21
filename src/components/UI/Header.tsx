@@ -52,17 +52,18 @@ function Header({ dict, user }: NavbarProps) {
   useEffect(() => {
     if (!user) {
       // svuota i cookies
-      document.cookie.split(";").forEach((c) => {
-        document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-      });
-
+      document.cookie.split(';').forEach((c) => {
+        document.cookie = c
+          .replace(/^ +/, '')
+          .replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/')
+      })
     }
   }, [user])
 
   return (
     <Navbar
       isBlurred
-      className="!rounded-lg bg-gray-300 dark:bg-slate-800 max-h-[60px"
+      className="max-h-[60px !rounded-lg bg-gray-300 dark:bg-slate-800"
       position="sticky"
     >
       <NavbarBrand>
@@ -71,8 +72,8 @@ function Header({ dict, user }: NavbarProps) {
             fallback={<Skeleton className="flex h-7 w-7 rounded-full" />}
           >
             <img
-              className='rounded-lg'
               alt="avatar"
+              className="rounded-lg"
               height={30}
               src="/avatar.webp"
               width={30}
@@ -110,13 +111,19 @@ function Header({ dict, user }: NavbarProps) {
               </Link>
             </NavbarMenuItem>
           ))}
-        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center" >
+        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center">
           {user ? (
             <Button color="primary" variant="ghost" onPress={handleClickLogout}>
               {dict.login.form.logout}
             </Button>
           ) : (
-            <Button color="primary" variant="flat" onPress={() => { route.push('/login') }}>
+            <Button
+              color="primary"
+              variant="flat"
+              onPress={() => {
+                route.push('/login')
+              }}
+            >
               {dict.login.form.login}
             </Button>
           )}
@@ -145,26 +152,42 @@ function Header({ dict, user }: NavbarProps) {
         {user ? (
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
-              <Avatar
-                isBordered
-                as="button"
-                className="transition-transform"
-              />
+              <Avatar isBordered as="button" className="transition-transform" />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem key="profile" onPress={() => { route.push('/profile') }}>
+              <DropdownItem
+                key="profile"
+                onPress={() => {
+                  route.push('/profile')
+                }}
+              >
                 {dict.navbar.profile}
               </DropdownItem>
-              <DropdownItem key="edit_blog" onPress={() => { route.push('/edit_blog') }}>
+              <DropdownItem
+                key="edit_blog"
+                onPress={() => {
+                  route.push('/edit_blog')
+                }}
+              >
                 {dict.navbar.edit_blog}
               </DropdownItem>
-              <DropdownItem key="logout" color="danger" onPress={handleClickLogout}>
+              <DropdownItem
+                key="logout"
+                color="danger"
+                onPress={handleClickLogout}
+              >
                 {dict.login.form.logout}
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
         ) : (
-          <Button color="primary" variant="flat" onPress={() => { route.push('/login') }}>
+          <Button
+            color="primary"
+            variant="flat"
+            onPress={() => {
+              route.push('/login')
+            }}
+          >
             {dict.login.form.login}
           </Button>
         )}

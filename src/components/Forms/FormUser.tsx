@@ -13,16 +13,10 @@ interface FormArticlesProps {
   user: User
 }
 
-export default function FormArticles({
-  dict,
-  user,
-}: FormArticlesProps) {
+export default function FormArticles({ dict, user }: FormArticlesProps) {
   const [loading, setLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string | null>(null)
-  const {
-    register,
-    handleSubmit,
-  } = useForm<{
+  const { register, handleSubmit } = useForm<{
     psw1: string
     psw2: string
   }>()
@@ -56,11 +50,10 @@ export default function FormArticles({
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* <pre>{JSON.stringify(user, null, 3)}</pre> */}
-      <Avatar
-        className="w-24 h-24"
-      />
+      <Avatar className="h-24 w-24" />
       <Link
-        isExternal showAnchorIcon
+        isExternal
+        showAnchorIcon
         className="hover:text-primary"
         href="https://supabase.com/dashboard/project/psgaxddqtxofwhtzfxiw"
       >
@@ -78,7 +71,7 @@ export default function FormArticles({
         type="text"
         value={user.email}
       />
-      <div className="flex w-full flex-col items-center gap-4 rounded-lg p-4 border border-gray-200">
+      <div className="flex w-full flex-col items-center gap-4 rounded-lg border border-gray-200 p-4">
         <p className="text-start">{dict.profile.form.password}</p>
         <Input
           isRequired
@@ -90,9 +83,9 @@ export default function FormArticles({
               onClick={toggleVisibility1}
             >
               {isVisible1 ? (
-                <FaRegEyeSlash className="text-2xl text-default-400 pointer-events-none" />
+                <FaRegEyeSlash className="pointer-events-none text-2xl text-default-400" />
               ) : (
-                <FaRegEye className="text-2xl text-default-400 pointer-events-none" />
+                <FaRegEye className="pointer-events-none text-2xl text-default-400" />
               )}
             </button>
           }
@@ -110,9 +103,9 @@ export default function FormArticles({
               onClick={toggleVisibility2}
             >
               {isVisible2 ? (
-                <FaRegEyeSlash className="text-2xl text-default-400 pointer-events-none" />
+                <FaRegEyeSlash className="pointer-events-none text-2xl text-default-400" />
               ) : (
-                <FaRegEye className="text-2xl text-default-400 pointer-events-none" />
+                <FaRegEye className="pointer-events-none text-2xl text-default-400" />
               )}
             </button>
           }

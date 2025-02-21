@@ -14,15 +14,10 @@ function MyFooter({ links }: MyFooterProps) {
   }
   const copyRight = `©${getYear()}-Moris™`
   return (
-    <footer className="flex w-full min-h-[60px] select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
-      <div className="flex flex-wrap text-sm lg:text-base gap-4 gap-y-1">
+    <footer className="flex min-h-[60px] w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
+      <div className="flex flex-wrap gap-4 gap-y-1 text-sm lg:text-base">
         <span className="dark:text-gray-400">{copyRight}</span>
-        <Link
-          isExternal
-          showAnchorIcon
-          color="foreground"
-          href="/cookies"
-        >
+        <Link isExternal showAnchorIcon color="foreground" href="/cookies">
           <span className="text-sm font-semibold text-black hover:text-blue-600 dark:text-gray-400 lg:text-base">
             Cookies Policy
           </span>

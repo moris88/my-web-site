@@ -129,8 +129,7 @@ function TodoInput({ dict }: TodoInputProps) {
                   <SelectItem key={index} startContent={flagIcon[index]}>
                     {
                       dict.todolist.listitem.priority.items[
-                      item as keyof
-                      typeof dict.todolist.listitem.priority.items
+                        item as keyof typeof dict.todolist.listitem.priority.items
                       ]
                     }
                   </SelectItem>
@@ -144,7 +143,7 @@ function TodoInput({ dict }: TodoInputProps) {
               {dict.todolist.addTask.label}
             </Switch>
             <Button
-              className="flex md:min-w-36 min-w-12 gap-1"
+              className="flex min-w-12 gap-1 md:min-w-36"
               color="success"
               size="lg"
               onPress={confirmAddTodo}

@@ -1,16 +1,16 @@
 export interface ResponseSupabase<T = unknown> {
   error: ErrorSupabase | null
-  data: T[],
+  data: T[]
   count: number | null
   status: number
   statusText: string
 }
 
 export interface LanguageSupabase {
-    id: number
-    type: string
-    lang: string
-    label: string
+  id: number
+  type: string
+  lang: string
+  label: string
 }
 
 export interface ErrorSupabase {

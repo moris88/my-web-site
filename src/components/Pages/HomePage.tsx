@@ -26,11 +26,11 @@ function HomePage({ dict, info, language }: HomePageProps) {
   return (
     <>
       <div className="hero">
-        <img className="hero-image" src="cover.webp" alt="cover" />
-        <div className="hero-content md:p-32 p-0 flex flex-col items-center justify-center gap-4">
+        <img alt="cover" className="hero-image" src="cover.webp" />
+        <div className="hero-content flex flex-col items-center justify-center gap-4 p-0 md:p-32">
           <div
-            data-aos="fade-up"
             className="flex items-center justify-center p-4 md:p-0"
+            data-aos="fade-up"
           >
             <Tooltip
               color="default"
@@ -39,25 +39,25 @@ function HomePage({ dict, info, language }: HomePageProps) {
             >
               <img
                 alt="avatar"
-                className="block rounded-full drop-shadow-xl w-60 h-60 md:w-[500px] md:h-[500px]"
+                className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[500px] md:w-[500px]"
                 src="/avatar.webp"
               />
             </Tooltip>
           </div>
           <TypingEffect
-            type='h1'
-            className="select-none text-lg md:text-5xl text-white"
+            className="select-none text-lg text-white md:text-5xl"
             skip={!startSubTitle}
             speed={200}
+            type="h1"
             onEnd={() => setStartSubtitle(false)}
           >
             {info.name}
           </TypingEffect>
           <TypingEffect
-            type='h2'
-            className="select-none text-base md:text-3xl text-white"
+            className="select-none text-base text-white md:text-3xl"
             skip={startSubTitle}
             speed={200}
+            type="h2"
           >
             {info.job}
           </TypingEffect>
@@ -69,8 +69,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <p className="italic">{dict.home.title}</p>
           <Divider className="my-5 max-w-10" />
         </div>
-        <div data-aos="fade-up"
-          className="flex w-full justify-center">
+        <div className="flex w-full justify-center" data-aos="fade-up">
           <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
             {parse(info?.description?.[language] ?? '')}
           </div>
@@ -80,7 +79,10 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <p className="italic">{dict.home.subtitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
-        <div data-aos="fade-up" className='flex flex-row items-center justify-center gap-2 mb-10'>
+        <div
+          className="mb-10 flex flex-row items-center justify-center gap-2"
+          data-aos="fade-up"
+        >
           {[
             '/react-logo.webp',
             '/next-js-logo.webp',
@@ -92,7 +94,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
             <img
               key={item}
               alt={item}
-              className="rounded-lg drop-shadow-lg lg:w-40 lg:h-32 w-12 h-8"
+              className="h-8 w-12 rounded-lg drop-shadow-lg lg:h-32 lg:w-40"
               height={100}
               src={item}
               width={100}

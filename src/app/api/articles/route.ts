@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createArticle, deleteArticle, updateArticle } from '@/lib'
 
-const { error , log} = console
+const { error, log } = console
 
 export async function POST(request: Request) {
   try {

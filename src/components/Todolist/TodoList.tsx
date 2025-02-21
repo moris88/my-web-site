@@ -131,7 +131,7 @@ function TodoList({ dict }: TodoListProps) {
           .map((todo) => (
             <div
               key={todo.id}
-              className={`rounded-lg ${todo.priority !== 'urgent' ? 'bg-gray-200 dark:bg-slate-600 hover:shadow-slate-500' : 'bg-red-100 hover:shadow-red-500 !text-black'} p-2 hover:shadow-lg   md:p-5`}
+              className={`rounded-lg ${todo.priority !== 'urgent' ? 'bg-gray-200 hover:shadow-slate-500 dark:bg-slate-600' : 'bg-red-100 !text-black hover:shadow-red-500'} p-2 hover:shadow-lg md:p-5`}
             >
               <TodoItem dict={dict} todo={todo} />
               <small className="flex flex-col items-start md:flex-row md:items-center">

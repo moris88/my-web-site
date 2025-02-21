@@ -7,9 +7,11 @@ import { getDictionary } from './dictionaries'
 import { getUser } from '@/lib'
 import './globals.css'
 
+
 export const metadata: Metadata = {
   title: 'Maurizio Tolomeo | Sviluppatore Frontend & Mobile - React, Next.js',
-  description: 'Sviluppatore Frontend & Mobile con esperienza in React, Next.js, React Native e Tailwind CSS. Creazione di soluzioni moderne e performanti.',
+  description:
+    'Sviluppatore Frontend & Mobile con esperienza in React, Next.js, React Native e Tailwind CSS. Creazione di soluzioni moderne e performanti.',
 }
 
 export default async function RootLayout({
@@ -27,7 +29,7 @@ export default async function RootLayout({
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content={String(metadata.description ?? '')} name="description" />
-        <meta name="robots" content="index, follow" />
+        <meta content="index, follow" name="robots" />
         <title>{String(metadata.title ?? '')}</title>
         <link href="/favicon.ico" rel="icon" />
         <link href="https://www.mauriziotolomeo.it" rel="canonical" />

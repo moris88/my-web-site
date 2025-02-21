@@ -21,7 +21,7 @@ export async function sendMessage({
           chat_id: chatId,
           text: message,
         }),
-      },
+      }
     )
 
     const data = await response.json()

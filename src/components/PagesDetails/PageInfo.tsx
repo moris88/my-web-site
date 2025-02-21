@@ -28,22 +28,22 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
       acc[link.name.toLowerCase()] = link
       return acc
     },
-    {} as Record<string, (typeof links)[0]>,
+    {} as Record<string, (typeof links)[0]>
   )
 
   return (
-    <div className='h-full flex flex-col items-center justify-center'>
-      <h3 className="w-full select-none text-center py-4 text-xl">
+    <div className="flex h-full flex-col items-center justify-center">
+      <h3 className="w-full select-none py-4 text-center text-xl">
         <span className="flex items-center justify-center gap-1">
           <HiIdentification className="h-5 w-5" />
           <b>{dict.contacts.social}</b>
         </span>
       </h3>
       {contacts && (
-        <div className="w-full flex flex-col items-center justify-around gap-4 md:flex-row md:my-4 my-4  bg-gray-200 dark:bg-slate-700">
+        <div className="my-4 flex w-full flex-col items-center justify-around gap-4 bg-gray-200 dark:bg-slate-700 md:my-4 md:flex-row">
           <motion.div
-            className='flex w-full md:w-1/2 flex-col gap-4 items-center justify-center p-14'
             animate={{ opacity: 1, translateY: 0 }}
+            className="flex w-full flex-col items-center justify-center gap-4 p-14 md:w-1/2"
             initial={{ opacity: 0, translateY: -50 }}
             transition={{
               duration: 2,
@@ -52,24 +52,30 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
             <div className="flex flex-col items-center justify-center gap-2">
               <img
                 alt="avatar"
-                className="block rounded-full drop-shadow-xl w-24 h-24 md:w-[200px] md:h-[200px]"
+                className="block h-24 w-24 rounded-full drop-shadow-xl md:h-[200px] md:w-[200px]"
                 src="/avatar.webp"
               />
               <div>
-                <p className="text-center font-bold text-xl">{contacts?.firstName + ' ' + contacts?.lastName}</p>
-                <p className="text-center font-semibold text-lg text-gray-400 italic">{contacts?.job ?? ''}</p>
-                <p className="text-center font-semibold text-lg text-gray-400 italic">{contacts?.specialization ?? ''}</p>
+                <p className="text-center text-xl font-bold">
+                  {contacts?.firstName + ' ' + contacts?.lastName}
+                </p>
+                <p className="text-center text-lg font-semibold italic text-gray-400">
+                  {contacts?.job ?? ''}
+                </p>
+                <p className="text-center text-lg font-semibold italic text-gray-400">
+                  {contacts?.specialization ?? ''}
+                </p>
               </div>
               <Link
                 showAnchorIcon
-                className="hover:text-primary italic"
+                className="italic hover:text-primary"
                 href={`mailto:${contacts?.email ?? ''}`}
               >
                 {contacts?.email ?? ''}
               </Link>
             </div>
             <div className="flex w-full justify-center">
-              <ButtonGroup className="sm:flex flex-row justify-center w-full hidden">
+              <ButtonGroup className="hidden w-full flex-row justify-center sm:flex">
                 {contacts.links.map((button) => {
                   const buttonLower = button.toLowerCase()
                   const storeLink = linkMap[buttonLower]
@@ -78,15 +84,13 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                       key={buttonLower}
                       color="primary"
                       variant="flat"
-                      onPress={() => (
-                        storeLink && setStoreLink(storeLink)
-                      )}
+                      onPress={() => storeLink && setStoreLink(storeLink)}
                     >
                       <span className="flex items-center gap-2">
                         {iconMap[buttonLower]}
                         {
                           dict.contacts.buttons[
-                          button as keyof typeof dict.contacts.buttons
+                            button as keyof typeof dict.contacts.buttons
                           ] as string
                         }
                       </span>
@@ -94,7 +98,7 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                   )
                 })}
               </ButtonGroup>
-              <div className="sm:hidden w-full flex flex-col gap-2 justify-start">
+              <div className="flex w-full flex-col justify-start gap-2 sm:hidden">
                 {contacts.links.map((button) => {
                   const buttonLower = button.toLowerCase()
                   const storeLink = linkMap[buttonLower]
@@ -103,15 +107,13 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
                       key={buttonLower}
                       color="primary"
                       variant="flat"
-                      onPress={() => (
-                        storeLink && setStoreLink(storeLink)
-                      )}
+                      onPress={() => storeLink && setStoreLink(storeLink)}
                     >
                       <span className="flex items-center gap-2">
                         {iconMap[buttonLower]}
                         {
                           dict.contacts.buttons[
-                          button as keyof typeof dict.contacts.buttons
+                            button as keyof typeof dict.contacts.buttons
                           ] as string
                         }
                       </span>
@@ -122,14 +124,18 @@ export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
             </div>
           </motion.div>
           <motion.div
-            className="w-full md:w-1/2 p-14"
             animate={{ opacity: 1, translateY: 0 }}
+            className="w-full p-14 md:w-1/2"
             initial={{ opacity: 0, translateY: 50 }}
             transition={{
               duration: 2,
             }}
           >
-            <ModalMessage className="flex flex-col items-center justify-center gap-2" dict={dict} modal={false} />
+            <ModalMessage
+              className="flex flex-col items-center justify-center gap-2"
+              dict={dict}
+              modal={false}
+            />
           </motion.div>
         </div>
       )}

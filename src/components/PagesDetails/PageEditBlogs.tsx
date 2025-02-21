@@ -1,7 +1,18 @@
 'use client'
 
 import { Article, LanguageSupabase } from '@/types'
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, ButtonGroup, Button, Avatar, Link } from '@heroui/react'
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  ButtonGroup,
+  Button,
+  Avatar,
+  Link,
+} from '@heroui/react'
 import { useRouter } from 'next/navigation'
 import { FaTrash } from 'react-icons/fa6'
 import { MdEdit } from 'react-icons/md'
@@ -11,14 +22,14 @@ import React from 'react'
 import { LoadingScreen } from '../UI'
 
 interface PageEditBlogsProps {
-    dict: Dictionary
-    articles: Article[]
-    languages: LanguageSupabase[]
+  dict: Dictionary
+  articles: Article[]
+  languages: LanguageSupabase[]
 }
 export default function PageEditBlogs({
   dict,
   articles,
-  languages
+  languages,
 }: PageEditBlogsProps) {
   const router = useRouter()
   const [loading, setLoading] = React.useState<boolean>(false)
@@ -34,15 +45,17 @@ export default function PageEditBlogs({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id }),
-    }).then((response) => {
-      if (response.status !== 200) {
-        setError('Error delete article')
-      } else {
-        router.refresh()
-      }
-    }).finally(() => {
-      setLoading(false)
     })
+      .then((response) => {
+        if (response.status !== 200) {
+          setError('Error delete article')
+        } else {
+          router.refresh()
+        }
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   if (loading) {
@@ -51,12 +64,16 @@ export default function PageEditBlogs({
   return (
     <>
       <div className="flex justify-end gap-2">
-        <Button onPress={() => { router.push('/edit_blog/new') }}>
-          <FaPlus className="w-4 h-4" />
+        <Button
+          onPress={() => {
+            router.push('/edit_blog/new')
+          }}
+        >
+          <FaPlus className="h-4 w-4" />
           {dict.edit_blog.table.new}
         </Button>
       </div>
-      {error && <p className="text-red-500 py-2">{error}</p>}
+      {error && <p className="py-2 text-red-500">{error}</p>}
       <Table aria-label={dict.edit_blog.table.title}>
         <TableHeader>
           <TableColumn>{dict.edit_blog.table.header.id}</TableColumn>
@@ -82,20 +99,33 @@ export default function PageEditBlogs({
                   </Link>
                 </TableCell>
                 <TableCell>
-                  <Avatar alt={language?.lang} className="w-6 h-6 shadow-lg" src={`https://flagcdn.com/w160/${language?.lang}.webp`} />
+                  <Avatar
+                    alt={language?.lang}
+                    className="h-6 w-6 shadow-lg"
+                    src={`https://flagcdn.com/w160/${language?.lang}.webp`}
+                  />
                 </TableCell>
                 <TableCell>
                   <ButtonGroup>
-                    <Button onPress={() => { handleEdit(article.id) }}>
-                      <MdEdit className="w-4 h-4" />
+                    <Button
+                      onPress={() => {
+                        handleEdit(article.id)
+                      }}
+                    >
+                      <MdEdit className="h-4 w-4" />
                     </Button>
-                    <Button onPress={() => { handleDelete(article.id) }}>
-                      <FaTrash className="w-4 h-4" />
+                    <Button
+                      onPress={() => {
+                        handleDelete(article.id)
+                      }}
+                    >
+                      <FaTrash className="h-4 w-4" />
                     </Button>
                   </ButtonGroup>
                 </TableCell>
               </TableRow>
-            ) })}
+            )
+          })}
         </TableBody>
       </Table>
     </>

@@ -13,11 +13,17 @@ function SectionHero({
   subtitle,
   children,
   content,
-  image
+  image,
 }: SectionHeroProps) {
   return (
     <section className="container flex flex-col gap-10 overflow-x-hidden">
-      {image && (<img className="object-cover object-center w-full h-96 rounded-lg" src={image} alt={'imgae of article'} />)}
+      {image && (
+        <img
+          alt={'imgae of article'}
+          className="h-96 w-full rounded-lg object-cover object-center"
+          src={image}
+        />
+      )}
       <h2 className="text-center text-lg lg:text-3xl">{title}</h2>
       {subtitle && (
         <p>

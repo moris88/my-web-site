@@ -4,7 +4,13 @@ import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
-import { Avatar, Select, Textarea, SelectItem, SharedSelection } from '@heroui/react'
+import {
+  Avatar,
+  Select,
+  Textarea,
+  SelectItem,
+  SharedSelection,
+} from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Article, LanguageSupabase } from '@/types'
 import { useRouter } from 'next/navigation'
@@ -66,12 +72,9 @@ export default function FormArticles({
   )
 
   const handleSelectedLanguage = (value: SharedSelection) => {
-    const selectedLanguage = languages.find(
-      (language) => {
-
-        return language.id === +(value?.currentKey ?? 0)
-      }
-    )
+    const selectedLanguage = languages.find((language) => {
+      return language.id === +(value?.currentKey ?? 0)
+    })
     if (selectedLanguage) {
       setValue('languageID', +selectedLanguage.id)
     }
@@ -84,16 +87,24 @@ export default function FormArticles({
     >
       <Select
         isRequired
+        defaultSelectedKeys={[selectedLanguage?.id ?? 0]}
+        items={languages}
         label={dict.edit_blog.form.language.label}
         placeholder={dict.edit_blog.form.language.placeholder}
-        items={languages}
-        defaultSelectedKeys={[selectedLanguage?.id ?? 0]}
         onSelectionChange={handleSelectedLanguage}
       >
         {(language) => (
-          <SelectItem startContent={
-            <Avatar alt={language?.lang} className="w-6 h-6 shadow-lg" src={`https://flagcdn.com/w160/${language?.lang}.webp`} />
-          }>{language.label}</SelectItem>
+          <SelectItem
+            startContent={
+              <Avatar
+                alt={language?.lang}
+                className="h-6 w-6 shadow-lg"
+                src={`https://flagcdn.com/w160/${language?.lang}.webp`}
+              />
+            }
+          >
+            {language.label}
+          </SelectItem>
         )}
       </Select>
       <Input
@@ -124,14 +135,21 @@ export default function FormArticles({
           {dict.edit_blog.form.content.required}
         </p>
       )}
-      <div className="flex md:flex-row flex-col items-center justify-center gap-2">
-        {(article?.image || fileInput) ?
-          <img src={article?.image || (fileInput?.files?.[0] && URL.createObjectURL(fileInput.files[0]))} className="w-52 h-52 rounded-lg" alt="image of article" />
-          :
-          <div className="w-full h-40 bg-gray-300 rounded-lg flex justify-center items-center">
+      <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
+        {article?.image || fileInput ? (
+          <img
+            alt="image of article"
+            className="h-52 w-52 rounded-lg"
+            src={
+              article?.image ||
+              (fileInput?.files?.[0] && URL.createObjectURL(fileInput.files[0]))
+            }
+          />
+        ) : (
+          <div className="flex h-40 w-full items-center justify-center rounded-lg bg-gray-300">
             <p className="text-4xl text-gray-500">{'No-Image'}</p>
           </div>
-        }
+        )}
         <Input
           className="w-full"
           id="image"

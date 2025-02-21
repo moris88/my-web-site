@@ -14,10 +14,15 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
     <>
       {!disabled ? (
         <Link download href={pathFile} id="download-link">
-          <Button className="flex gap-2" color="primary" variant="flat" onPress={() => {
-            const link = document.getElementById('download-link')
-            link?.click()
-          }}>
+          <Button
+            className="flex gap-2"
+            color="primary"
+            variant="flat"
+            onPress={() => {
+              const link = document.getElementById('download-link')
+              link?.click()
+            }}
+          >
             {children ?? 'Download'}
             <HiArrowDownTray className="h-5 w-5" />
           </Button>

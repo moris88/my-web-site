@@ -27,42 +27,56 @@ function PageHistory({ language, history }: PageHistoryProps) {
           if (index === 0 || index === history[language].length - 1) {
             return (
               <React.Fragment key={`history-${index}`}>
-                <h3 className="text-lg lg:text-2xl px-0 lg:px-10">{item.title}</h3>
+                <h3 className="px-0 text-lg lg:px-10 lg:text-2xl">
+                  {item.title}
+                </h3>
                 <p>{item.description}</p>
               </React.Fragment>
             )
           }
           return (
-            <div key={`history-${index}`} data-aos="zoom-in-up" className="flex md:flex-row flex-col items-center justify-center gap-4 md:py-10 py-2">
-              {isEven ? (<>
-                {item?.image && (
-                  <img
-                    className="rounded-lg drop-shadow-lg max-w-96 min-w-96 object-cover object-center"
-                    src={item.image}
-                    alt={item.alt}
-                  />
-                )}
-                <div className="flex-col flex gap-4 md:w-1/2 w-full">
-                  <h3 className="text-lg lg:text-2xl md:text-start text-center">{item.title}</h3>
-                  <hr />
-                  <p className="md:text-start text-start">{item.description}</p>
-                </div>
-                {isMobile && (<p className="mt-5">---</p>)}
-              </>) : (
+            <div
+              key={`history-${index}`}
+              className="flex flex-col items-center justify-center gap-4 py-2 md:flex-row md:py-10"
+              data-aos="zoom-in-up"
+            >
+              {isEven ? (
                 <>
-                  <div className="flex-col flex gap-4 md:w-1/2 w-full">
-                    <h3 className="text-lg lg:text-2xl md:text-end text-center">{item.title}</h3>
+                  {item?.image && (
+                    <img
+                      alt={item.alt}
+                      className="min-w-96 max-w-96 rounded-lg object-cover object-center drop-shadow-lg"
+                      src={item.image}
+                    />
+                  )}
+                  <div className="flex w-full flex-col gap-4 md:w-1/2">
+                    <h3 className="text-center text-lg md:text-start lg:text-2xl">
+                      {item.title}
+                    </h3>
                     <hr />
-                    <p className="md:text-end text-start">{item.description}</p>
+                    <p className="text-start md:text-start">
+                      {item.description}
+                    </p>
+                  </div>
+                  {isMobile && <p className="mt-5">---</p>}
+                </>
+              ) : (
+                <>
+                  <div className="flex w-full flex-col gap-4 md:w-1/2">
+                    <h3 className="text-center text-lg md:text-end lg:text-2xl">
+                      {item.title}
+                    </h3>
+                    <hr />
+                    <p className="text-start md:text-end">{item.description}</p>
                   </div>
                   {item?.image && (
                     <img
-                      className="rounded-lg drop-shadow-lg max-w-96 min-w-96 object-cover object-center"
-                      src={item.image}
                       alt={item.alt}
+                      className="min-w-96 max-w-96 rounded-lg object-cover object-center drop-shadow-lg"
+                      src={item.image}
                     />
                   )}
-                  {isMobile && (<p className="mt-5">---</p>)}
+                  {isMobile && <p className="mt-5">---</p>}
                 </>
               )}
             </div>

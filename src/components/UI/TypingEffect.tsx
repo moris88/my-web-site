@@ -9,7 +9,11 @@ interface TypographyProps {
   className?: string
 }
 
-function GetTypography({ type = 'h1', className = '', children }: TypographyProps) {
+function GetTypography({
+  type = 'h1',
+  className = '',
+  children,
+}: TypographyProps) {
   return React.createElement(type, { className }, children)
 }
 
@@ -28,7 +32,7 @@ function TypingEffect({
   speed = 500,
   onEnd,
   skip,
-  type = 'h1'
+  type = 'h1',
 }: TypingEffectProps) {
   const [displayedText, setDisplayedText] = React.useState('')
 
@@ -50,10 +54,7 @@ function TypingEffect({
   }, [children, onEnd, skip, speed])
 
   return (
-    <GetTypography
-      type={type}
-      className={twMerge('font-mono', className)}
-    >
+    <GetTypography className={twMerge('font-mono', className)} type={type}>
       <>
         {typeof children === 'string' ? displayedText.toUpperCase() : children}
         {!skip && <span className="animate-blink">|</span>}
