@@ -1,3 +1,4 @@
+import React from 'react'
 import { PageSkills } from '@/components'
 import { getSkills } from '@/lib'
 import { getDictionary } from '@/app/dictionaries'

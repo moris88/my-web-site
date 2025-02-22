@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import { HiMiniMoon, HiMiniSun } from 'react-icons/hi2'
 import { Switch } from '@heroui/react'
 import { useStore } from 'jotai'

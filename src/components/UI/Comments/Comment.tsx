@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import { Comment as CommentType } from '@/types'
 import { Avatar } from '@heroui/react'
 

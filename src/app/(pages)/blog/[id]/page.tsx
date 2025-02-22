@@ -1,3 +1,4 @@
+import React from 'react'
 import { PageBlog, ErrorPage } from '@/components'
 import { getDictionary } from '../../../dictionaries'
 import {

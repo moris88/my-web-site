@@ -1,3 +1,4 @@
+import React from 'react'
 import { PageHistory } from '@/components'
 import { getHistory } from '@/lib'
 import { getDictionary } from '@/app/dictionaries'

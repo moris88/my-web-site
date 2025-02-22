@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { HiExclamationTriangle } from 'react-icons/hi2'
 
 function ErrorPage({ err }: { err: Error }) {

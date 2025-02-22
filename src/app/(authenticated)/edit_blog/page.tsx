@@ -1,3 +1,4 @@
+import React from 'react'
 import { getDictionary } from '@/app/dictionaries'
 import { SectionHero, PageEditBlogs, ErrorPage } from '@/components'
 import { getUser, getArticles, getLanguages } from '@/lib'

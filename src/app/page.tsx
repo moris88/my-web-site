@@ -1,3 +1,4 @@
+import React from 'react'
 import { HomePage } from '@/components'
 import { getInfo } from '@/lib'
 import { getDictionary } from './dictionaries'

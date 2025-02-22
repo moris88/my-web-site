@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Link } from '@heroui/react'
 import { HiExclamationTriangle } from 'react-icons/hi2'
 

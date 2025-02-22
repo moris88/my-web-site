@@ -65,16 +65,17 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   ) => {
     e.preventDefault()
     e.stopPropagation()
-    const updatedTodos = todos.map((t) =>
-      t.id === todo.id
-        ? {
-            ...t,
-            completed: !t.completed,
-            completedAt: !t.completed ? new Date().toISOString() : null,
-            updatedAt: new Date().toISOString(),
-          }
-        : t
-    )
+    const updatedTodos = todos.map((t) => {
+      if (t.id === todo.id) {
+        return {
+          ...t,
+          completed: !t.completed,
+          completedAt: !t.completed ? new Date().toISOString() : null,
+          updatedAt: new Date().toISOString(),
+        }
+      }
+      return t
+    })
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
     setTodos(updatedTodos)
   }
@@ -95,18 +96,19 @@ function TodoItem({ todo, dict }: TodoItemProps) {
   }
 
   const confirmUpdateTodo = () => {
-    const updatedTodos = todos.map((t) =>
-      t.id === todo.id
-        ? {
-            ...t,
-            dueDate: editDueDate ? editDueDate.toString() : null,
-            title: editTitle,
-            description: editDescription,
-            priority: editPriority,
-            updatedAt: new Date().toISOString(),
-          }
-        : t
-    )
+    const updatedTodos = todos.map((t) => {
+      if (t.id === todo.id) {
+        return {
+          ...t,
+          dueDate: editDueDate ? editDueDate.toString() : null,
+          title: editTitle,
+          description: editDescription,
+          priority: editPriority,
+          updatedAt: new Date().toISOString(),
+        }
+      }
+      return t
+    })
     setTodos(updatedTodos)
     localStorage.setItem('todos', JSON.stringify(updatedTodos))
     setIsEditing(false)

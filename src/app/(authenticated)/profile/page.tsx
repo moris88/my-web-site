@@ -1,3 +1,4 @@
+import React from 'react'
 import { getDictionary } from '@/app/dictionaries'
 import { SectionHero, FormUser } from '@/components'
 import { getUser } from '@/lib/supabase/supabase'
@@ -11,7 +12,9 @@ export default async function ProfilePage() {
   }
   return (
     <SectionHero title={'Profile'}>
-      <FormUser dict={dict} user={user} />
+      <div className="flex w-full justify-center">
+        <FormUser dict={dict} user={user} />
+      </div>
     </SectionHero>
   )
 }

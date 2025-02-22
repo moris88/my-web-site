@@ -9,13 +9,17 @@ import { Dictionary } from '@/app/dictionaries'
 import { ButtonsGroupSocial, ModalMessage } from '@/components/UI'
 import { Contact, StoreLink } from '@/types'
 
-interface PageInfoProps {
+interface PageContactsProps {
   contacts: Contact
   links: StoreLink[]
   dict: Dictionary
 }
 
-export default function PageInfo({ contacts, links, dict }: PageInfoProps) {
+export default function PageContacts({
+  contacts,
+  links,
+  dict,
+}: PageContactsProps) {
   const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
   const iconMap: Record<string, React.ReactNode> = {
     facebook: <FaFacebook className="h-6 w-6" />,

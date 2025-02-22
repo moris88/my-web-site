@@ -46,7 +46,7 @@ function Header({ dict, user }: NavbarProps) {
 
   const handleClickLogout = () => {
     logout()
-    route.push('/')
+    route.refresh()
   }
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function Header({ dict, user }: NavbarProps) {
   return (
     <Navbar
       isBlurred
-      className="max-h-[60px !rounded-lg bg-gray-300 dark:bg-slate-800"
+      className="max-h-[60px] !rounded-lg bg-gray-300 dark:bg-slate-800"
       position="sticky"
     >
       <NavbarBrand>
@@ -87,9 +87,9 @@ function Header({ dict, user }: NavbarProps) {
         </div>
       </NavbarBrand>
       <NavbarContent className="lg:hidden" justify="end">
-        <NavbarMenuToggle />
+        <NavbarMenuToggle id="button-mobile-navbar" />
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className="overflow-hidden">
         {links
           .filter(({ path }) => {
             if (!user) {
@@ -121,6 +121,10 @@ function Header({ dict, user }: NavbarProps) {
               color="primary"
               variant="flat"
               onPress={() => {
+                const btn = document.getElementById('button-mobile-navbar')
+                if (btn) {
+                  btn.click()
+                }
                 route.push('/login')
               }}
             >

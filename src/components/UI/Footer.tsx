@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Link } from '@heroui/react'
 import { StoreLink } from '@/types'

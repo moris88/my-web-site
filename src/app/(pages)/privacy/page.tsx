@@ -1,3 +1,4 @@
+import React from 'react'
 import { Page } from '@/components'
 import { getDictionary } from '@/app/dictionaries'
 

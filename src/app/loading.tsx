@@ -1,3 +1,4 @@
+import React from 'react'
 import { LoadingScreen } from '@/components'
 
 export default function Loading() {

@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Spinner } from '@heroui/spinner'
 
 export default function LoadingScreen() {

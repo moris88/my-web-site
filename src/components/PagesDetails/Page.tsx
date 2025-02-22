@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Dictionary } from '@/app/dictionaries'
 import { ModalMessage, SectionHero } from '@/components'
 

@@ -7,6 +7,8 @@ import { Dictionary } from '@/app/dictionaries'
 import { User } from '@supabase/supabase-js'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { ConfirmModal } from '@/components'
+import { changePswProfile } from '@/lib'
+import moment from 'moment'
 
 interface FormArticlesProps {
   dict: Dictionary
@@ -40,13 +42,19 @@ export default function FormArticles({ dict, user }: FormArticlesProps) {
       setLoading(false)
       return
     }
-    setShowConfirm(true)
     setLoading(false)
+    changePswProfile(data.psw1).then((res) => {
+      if (res.error) {
+        setError(res.error.message)
+        return
+      }
+      setShowConfirm(true)
+    })
   }
 
   return (
     <form
-      className="flex w-full flex-col items-center justify-center gap-4"
+      className="flex w-full max-w-full flex-col items-center justify-center gap-4 lg:max-w-md"
       onSubmit={handleSubmit(onSubmit)}
     >
       {/* <pre>{JSON.stringify(user, null, 3)}</pre> */}
@@ -73,6 +81,10 @@ export default function FormArticles({ dict, user }: FormArticlesProps) {
       />
       <div className="flex w-full flex-col items-center gap-4 rounded-lg border border-gray-200 p-4">
         <p className="text-start">{dict.profile.form.password}</p>
+        <p className="text-sm italic text-gray-400">
+          {dict.profile.form.update_at}:{' '}
+          <span>{moment(user.updated_at).format('DD/MM/YYYY HH:mm')}</span>
+        </p>
         <Input
           isRequired
           endContent={

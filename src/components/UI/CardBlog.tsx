@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Divider } from '@heroui/divider'
 import { Dictionary } from '@/app/dictionaries'
 import { Article } from '@/types'

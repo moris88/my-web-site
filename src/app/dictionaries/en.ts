@@ -327,6 +327,7 @@ const dictionary = {
     },
     form: {
       password: 'Change password',
+      update_at: 'Updated at',
       email: 'Email',
       id: 'ID',
       buttons: {

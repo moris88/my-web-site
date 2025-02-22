@@ -89,3 +89,8 @@ export async function getUser() {
     .then((response) => response?.data?.user || null)
     .catch(() => null)
 }
+
+export async function changePswProfile(password: string) {
+  const supabase = await createClient()
+  return supabase.auth.updateUser({ password })
+}

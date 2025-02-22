@@ -1,3 +1,4 @@
+import React from 'react'
 import { TodoInput, TodoList } from '@/components'
 import { getDictionary } from '@/app/dictionaries'
 

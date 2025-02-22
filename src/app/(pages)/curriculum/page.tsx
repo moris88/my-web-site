@@ -1,3 +1,4 @@
+import React from 'react'
 import { PageCV } from '@/components'
 import { getCV } from '@/lib'
 import { getDictionary } from '@/app/dictionaries'

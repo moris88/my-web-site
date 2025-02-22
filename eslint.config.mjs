@@ -27,6 +27,7 @@ const eslintConfig = [
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  pluginReact.configs.flat.recommended,
   eslintPluginPrettierRecommended,
   {
     plugins: {
@@ -44,6 +45,19 @@ const eslintConfig = [
       'no-empty': 'warn',
       'no-empty-function': 'warn',
       'no-var': 'error',
+      indent: [
+        'error',
+        2,
+        {
+          SwitchCase: 1,
+          ArrayExpression: 1,
+          ObjectExpression: 1,
+          ImportDeclaration: 1,
+          flatTernaryExpressions: false,
+          offsetTernaryExpressions: false,
+          ignoredNodes: ['ConditionalExpression'],
+        },
+      ],
       camelcase: ['error', { properties: 'never', ignoreDestructuring: true }],
       'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
       'func-call-spacing': ['error', 'never'],
