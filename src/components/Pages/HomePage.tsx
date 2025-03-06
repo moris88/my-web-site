@@ -1,14 +1,14 @@
 'use client'
 
 import React from 'react'
-import { Divider } from '@heroui/react'
-import { Tooltip } from '@heroui/react'
+import { Divider, Tooltip } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'
-import TypingEffect from '../UI/TypingEffect'
 import parse from 'html-react-parser'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { useRouter } from 'next/navigation'
+import { UniqueButton, TypingEffect } from '@/components'
 
 interface HomePageProps {
   dict: Dictionary
@@ -18,6 +18,7 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
   const [startSubTitle, setStartSubtitle] = React.useState(true)
+  const router = useRouter()
 
   React.useEffect(() => {
     AOS.init()
@@ -45,7 +46,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
             </Tooltip>
           </div>
           <TypingEffect
-            className="select-none text-lg text-white md:text-5xl"
+            className="select-none text-2xl text-white md:text-5xl"
             skip={!startSubTitle}
             speed={200}
             type="h1"
@@ -61,6 +62,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
           >
             {info.job}
           </TypingEffect>
+          <UniqueButton onClick={() => router.push('/contacts')}>
+            {'Contattami'}
+          </UniqueButton>
         </div>
       </div>
       <div className="container flex flex-col items-center justify-center gap-4">

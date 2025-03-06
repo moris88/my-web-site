@@ -50,3 +50,14 @@ body {
   }
 }
 
+.unique-button {
+  @apply px-5 py-2 uppercase rounded-md text-[17px] font-medium text-white/50 bg-transparent cursor-pointer border border-white transition ease-in-out duration-500 select-none shadow-none;
+}
+
+.unique-button:hover, .unique-button:focus {
+  @apply text-white bg-[#431467] border-white shadow-[0_0_5px_#ffffff,0_0_10px_#ffffff,0_0_20px_#ffffff,0_0_5px_#431467,0_0_20px_#431467,0_0_50px_#431467,0_0_100px_#431467] scale-110;
+}
+
+.unique-button:active {
+  @apply scale-80;
+}

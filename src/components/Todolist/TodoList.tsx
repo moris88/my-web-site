@@ -91,7 +91,9 @@ function TodoList({ dict }: TodoListProps) {
         </div>
       )}
       {todos.length === 0 ? (
-        <p>{dict.todolist.listitem.no_task}</p>
+        <p className="select-none text-center">
+          {dict.todolist.listitem.no_task}
+        </p>
       ) : (
         todos
           .filter((todo) => {
