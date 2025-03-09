@@ -4,5 +4,106 @@
     "description": {
         "it": "<p>🚀 Maurizio Tolomeo | Frontend Developer | alias MORIS</p><br><p>Sono uno sviluppatore web specializzato in tecnologie Frontend, con una forte passione per la creazione di interfacce utente moderne, intuitive e performanti. Amo trasformare idee in esperienze digitali fluide e accessibili, aiutando le aziende a costruire applicazioni scalabili e funzionali.</p><br><p>Mi occupo di progettare soluzioni personalizzate, integrando sistemi avanzati e ottimizzando i processi aziendali attraverso tecnologie come React. Ho esperienza nella gestione di stati complessi e nella creazione di componenti riutilizzabili, per garantire codice efficiente e facilmente manutenibile.</p><br><p>Sempre curioso e affamato di nuove sfide, cerco costantemente di ampliare le mie competenze per restare al passo con l’evoluzione del settore. Per me il codice non è solo lavoro, ma una vera passione.</p>",
         "en": "<p>🚀 Maurizio Tolomeo | Frontend Developer | alias MORIS</p><br><p>I am a web developer specialized in Frontend technologies, with a strong passion for creating modern, intuitive, and high-performance user interfaces. I love turning ideas into smooth and accessible digital experiences, helping companies build scalable and functional applications.</p><br><p>I design customized solutions, integrating advanced systems and optimizing business processes using technologies like React. I have experience in managing complex states and creating reusable components to ensure efficient and easily maintainable code.</p><br><p>Always curious and eager for new challenges, I constantly strive to expand my skills to keep up with industry evolution. For me, coding is not just a job, but a passion.</p>"
+    },
+    "primary_skills": [
+            {
+                "link": {
+                    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg",
+                    "alt": "JavaScript"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://www.typescriptlang.org/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/typescript-colored.svg",
+                    "alt": "JavaScript"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://nextjs.org/docs"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg",
+                    "alt": "NextJs"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://reactjs.org/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/react-colored.svg",
+                    "alt": "React"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://developer.mozilla.org/en-US/docs/Glossary/HTML5"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg",
+                    "alt": "HTML5"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://www.w3.org/TR/CSS/#css"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg",
+                    "alt": "CSS3"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://tailwindcss.com/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/tailwindcss-colored.svg",
+                    "alt": "TailwindCSS"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://nodejs.org/en/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nodejs-colored.svg",
+                    "alt": "NodeJs"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://expressjs.com/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored.svg",
+                    "alt": "ExpressJs"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://supabase.io/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/supabase-colored.svg",
+                    "alt": "Supabase"
+                }
+            },
+            {
+                "link": {
+                    "url": "https://www.figma.com/"
+                },
+                "img": {
+                    "src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg",
+                    "alt": "Figma"
+                }
+            }
+        ]
     }
-}

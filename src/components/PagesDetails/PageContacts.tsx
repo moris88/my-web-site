@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
 import { Button, ButtonGroup, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
@@ -25,6 +25,7 @@ export default function PageContacts({
     facebook: <FaFacebook className="h-6 w-6" />,
     github: <FaGithub className="h-6 w-6" />,
     linkedin: <FaLinkedin className="h-6 w-6" />,
+    telegram: <FaTelegram className="h-6 w-6" />,
   }
 
   const linkMap = links.reduce(
@@ -57,7 +58,7 @@ export default function PageContacts({
               <img
                 alt="avatar"
                 className="block h-24 w-24 rounded-full drop-shadow-xl md:h-[200px] md:w-[200px]"
-                src="/avatar.webp"
+                src="/avatar_2.webp"
               />
               <div>
                 <p className="text-center text-xl font-bold">
@@ -79,7 +80,7 @@ export default function PageContacts({
               </Link>
             </div>
             <div className="flex w-full justify-center">
-              <ButtonGroup className="hidden w-full flex-row justify-center sm:flex">
+              <ButtonGroup className="hidden w-full flex-row justify-center lg:flex">
                 {contacts.links.map((button) => {
                   const buttonLower = button.toLowerCase()
                   const storeLink = linkMap[buttonLower]
@@ -102,7 +103,7 @@ export default function PageContacts({
                   )
                 })}
               </ButtonGroup>
-              <div className="flex w-full flex-col justify-start gap-2 sm:hidden">
+              <div className="flex w-full flex-col justify-start gap-2 lg:hidden">
                 {contacts.links.map((button) => {
                   const buttonLower = button.toLowerCase()
                   const storeLink = linkMap[buttonLower]

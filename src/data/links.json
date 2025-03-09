@@ -13,5 +13,10 @@
         "label": "Facebook",
         "name": "facebook",
         "url": "https://www.facebook.com/mauriziotolomeo88"
+    },
+    {
+        "label": "Telegram",
+        "name": "telegram",
+        "url": "https://t.me/moris_tolomeo"
     }
 ]

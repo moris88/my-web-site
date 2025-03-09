@@ -172,6 +172,7 @@ const dictionary = {
       linkedin: 'Linkedin',
       facebook: 'Facebook',
       github: 'Github',
+      telegram: 'Telegram',
       storeLink: {
         button: 'Vai',
         content: {
@@ -181,6 +182,8 @@ const dictionary = {
             "Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
           github:
             'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
+          telegram:
+            'Verrai reindirizzato su Telegram sul mio profilo pubblico. Puoi mandarmi un messaggio direttamente.',
         },
       },
     },

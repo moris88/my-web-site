@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Divider, Tooltip } from '@heroui/react'
+import { Divider, Link, Tooltip } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
 import { Info, Language } from '@/types'
 import parse from 'html-react-parser'
@@ -9,6 +9,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useRouter } from 'next/navigation'
 import { UniqueButton, TypingEffect } from '@/components'
+import { generateUniqueId } from '@/utils'
+import { twMerge } from 'tailwind-merge'
 
 interface HomePageProps {
   dict: Dictionary
@@ -28,7 +30,12 @@ function HomePage({ dict, info, language }: HomePageProps) {
     <>
       <div className="hero">
         <img alt="cover" className="hero-image" src="cover.webp" />
-        <div className="hero-content flex flex-col items-center justify-center gap-4 p-0 md:p-32">
+        <div
+          className={twMerge(
+            'hero-content flex w-full flex-col items-center justify-center gap-4',
+            '!pr-0'
+          )}
+        >
           <div
             className="flex items-center justify-center p-4 md:p-0"
             data-aos="fade-up"
@@ -87,22 +94,14 @@ function HomePage({ dict, info, language }: HomePageProps) {
           className="mb-10 flex flex-row items-center justify-center gap-2"
           data-aos="fade-up"
         >
-          {[
-            '/react-logo.webp',
-            '/next-js-logo.webp',
-            '/tailwindcss-logo.webp',
-            '/javascript-logo.webp',
-            '/typescript-logo.webp',
-            '/node-js-logo.webp',
-          ].map((item) => (
-            <img
-              key={item}
-              alt={item}
-              className="h-8 w-12 rounded-lg drop-shadow-lg lg:h-32 lg:w-40"
-              height={100}
-              src={item}
-              width={100}
-            />
+          {info.primary_skills.map(({ link, img }) => (
+            <Link key={generateUniqueId()} isExternal href={link.url}>
+              <img
+                alt={img.alt}
+                className="h-auto w-8 rounded-xl drop-shadow-lg lg:w-32"
+                src={img.src}
+              />
+            </Link>
           ))}
         </div>
       </div>

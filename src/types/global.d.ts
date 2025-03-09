@@ -8,6 +8,15 @@ export interface Info {
     it: string
     en: string
   }
+  primary_skills: {
+    link: {
+      url: string
+    }
+    img: {
+      src: string
+      alt: string
+    }
+  }[]
 }
 
 export interface StoreLink {
