@@ -21,7 +21,7 @@ function PageBlog({ dict, article, comments }: PageBlogProps) {
     <>
       {article && (
         <SectionHero
-          image={article.image}
+          image={{ src: article.image ?? '' }}
           subtitle={article.content}
           title={article.title}
         >

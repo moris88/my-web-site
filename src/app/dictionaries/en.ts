@@ -5,83 +5,12 @@ const dictionary = {
     blog: 'Blog',
     experience: 'Experience',
     skills: 'Skills',
-    todolist: 'Todo',
+    projects: 'Projects',
     contacts: 'Contacts',
     edit_blog: 'Edit Blog',
     curriculum: 'Curriculum',
     profile: 'Profile',
     theme: 'Theme',
-  },
-  todolist: {
-    listitem: {
-      title: 'Task List',
-      edit: 'Edit',
-      delete: 'Delete',
-      detail: 'Detail',
-      createdAt: 'Created at',
-      updatedAt: 'Updated at',
-      completedAt: 'Completed at',
-      dueDateAt: 'Due date',
-      expired: 'Expired',
-      no_task: 'No tasks available',
-      priority: {
-        label: 'Select priority',
-        items: {
-          urgent: 'Urgent',
-          high: 'High',
-          medium: 'Medium',
-          low: 'Low',
-        },
-      },
-      filter: {
-        label: 'Filter by',
-        all: 'All',
-        completed: 'Completed',
-        uncompleted: 'Uncompleted',
-        overdue: 'Overdue',
-        not_overdue: 'Not overdue',
-        buttons: {
-          message: 'What operation do you want to do?',
-          clear_completed: {
-            label: 'Clear completed tasks',
-            message: 'Are you sure you want to delete the completed tasks?',
-          },
-          clear_expired: {
-            label: 'Clear expired tasks',
-            message: 'Are you sure you want to delete the expired tasks?',
-          },
-          clear_all: {
-            label: 'Clear all tasks',
-            message: 'Are you sure you want to delete all tasks?',
-          },
-        },
-      },
-    },
-    addTask: {
-      hiddenForm: 'Hidden add todo input',
-      name: 'Task Title',
-      title: 'Add a Task',
-      description: 'Enter the task to be completed',
-      label: 'Description',
-      confirm: 'Do you confirm the addition of the task?',
-      error: 'The task cannot be empty',
-      placeholder: "e.g. 'buy milk'",
-      submit: 'Add',
-      cancel: 'Cancel',
-      due_date: 'Due date',
-    },
-    editTask: {
-      title: 'Edit Task',
-      description: 'Do you want to edit the selected task?',
-      submit: 'Edit',
-      cancel: 'Cancel',
-    },
-    deleteTask: {
-      title: 'Delete Task',
-      description: 'Are you sure you want to delete this task?',
-      delete: 'Delete',
-      cancel: 'Cancel',
-    },
   },
   home: {
     links: {
@@ -301,6 +230,16 @@ const dictionary = {
     },
     buttons: {
       create: 'Create Article',
+    },
+  },
+  projects: {
+    title: 'My Projects',
+    project: {
+      link: 'Link webapp',
+      github: 'Link at repository',
+      buttons: {
+        back: 'Done',
+      },
     },
   },
   cookies: {
