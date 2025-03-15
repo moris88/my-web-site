@@ -10,11 +10,7 @@ export default {
     './node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {
-      primary: {
-        DEFAULT: '#2563eb',
-      },
-    },
+    extend: {},
     keyframes: {
       blink: {
         '0%, 100%': { opacity: '1' },

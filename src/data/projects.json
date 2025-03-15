@@ -1,0 +1,37 @@
+{
+    "projects": {
+        "it": [
+            {
+                "id": 1,
+                "title": "Todo App",
+                "description": "Una semplice todo app realizzata con React",
+                "image": {
+                    "src": "/projects/1.webp",
+                    "alt": "Todo App"
+                },
+                "url": "https://project-todolist-ew08s18i1-moris-projects-325cbd2b.vercel.app/",
+                "github": "https://github.com/moris88/project-todolist",
+                "tags": ["React", "Typescript", "HeroUI", "TailwindCSS"]
+            }
+        ],
+        "en": [
+            {
+                "id": 1,
+                "title": "Todo App",
+                "description": "A simple todo app built with React",
+                "image": {
+                    "src": "/projects/1.webp",
+                    "alt": "Todo App"
+                },
+                "url": "https://project-todolist-ew08s18i1-moris-projects-325cbd2b.vercel.app/",
+                "github": "https://github.com/moris88/project-todolist",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "HeroUI",
+                    "TailwindCSS"
+                ]
+            }
+        ]
+    }
+}

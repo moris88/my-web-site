@@ -124,3 +124,16 @@ export interface History {
   }[]
   lastUpdate: string
 }
+
+export interface Project {
+  id: number
+  title: string
+  description: string
+  url: string
+  github: string
+  image: {
+    src: string
+    alt: string
+  }
+  tags: string[]
+}

@@ -3,7 +3,10 @@ import React from 'react'
 interface SectionHeroProps {
   title: string
   subtitle?: string
-  image?: string
+  image?: {
+    src: string
+    alt?: string
+  }
   content?: React.ReactNode
   children?: React.ReactNode
 }
@@ -17,11 +20,11 @@ function SectionHero({
 }: SectionHeroProps) {
   return (
     <section className="container flex flex-col gap-10 overflow-x-hidden">
-      {image && (
+      {image?.src && (
         <img
-          alt={'imgae of article'}
+          alt={image?.alt ?? title}
           className="h-96 w-full rounded-lg object-cover object-center"
-          src={image}
+          src={image.src}
         />
       )}
       <h2 className="text-center text-lg lg:text-3xl">{title}</h2>
