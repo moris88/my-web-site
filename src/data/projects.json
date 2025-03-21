@@ -4,32 +4,39 @@
             {
                 "id": 1,
                 "title": "Todo App",
-                "description": "Una semplice todo app realizzata con React",
+                "description": "ToDo Manager è un'applicazione web realizzata con React, TypeScript, Vite.js e Tailwind CSS, progettata per semplificare la gestione delle attività quotidiane. Funzionalità principali: 1. Gestione avanzata delle attività – Crea, modifica e aggiorna i tuoi To-Do con descrizioni dettagliate. 2. Categorie personalizzate – Organizza i task in tre stati: To-Do, In Progress e Done. 3. Priorità dei task – Imposta livelli di priorità per concentrarti su ciò che è più importante. 4. Notifiche di scadenza – Ricevi avvisi per non perdere di vista le attività imminenti. 5. Modifica la descrizione dei task senza perdere traccia dei progressi. Grazie alla combinazione di React e Vite.js, l'app garantisce prestazioni elevate e un'esperienza utente fluida, mentre Tailwind CSS assicura un'interfaccia moderna e reattiva. Perfetta per chi vuole restare organizzato con un’interfaccia intuitiva e potente!",
                 "image": {
                     "src": "/projects/1.webp",
                     "alt": "Todo App"
                 },
-                "url": "https://project-todolist-ew08s18i1-moris-projects-325cbd2b.vercel.app/",
+                "url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
                 "github": "https://github.com/moris88/project-todolist",
-                "tags": ["React", "Typescript", "HeroUI", "TailwindCSS"]
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "HeroUI",
+                    "TailwindCSS",
+                    "Vitejs"
+                ]
             }
         ],
         "en": [
             {
                 "id": 1,
                 "title": "Todo App",
-                "description": "A simple todo app built with React",
+                "description": "ToDo Manager is a web application built with React, TypeScript, Vite.js, and Tailwind CSS, designed to simplify daily task management. Key Features: 1. Advanced task management – Create, edit, and update your to-dos with detailed descriptions. 2. Custom categories – Organize tasks into three states: To-Do, In Progress, and Done. 3. Task prioritization – Set priority levels to focus on what matters most. 4. Deadline notifications – Receive alerts to keep track of upcoming tasks. 5. Edit task descriptions without losing progress. By leveraging React and Vite.js, the app ensures high performance and a smooth user experience, while Tailwind CSS provides a modern and responsive interface. Perfect for those who want to stay organized with an intuitive and powerful interface!",
                 "image": {
                     "src": "/projects/1.webp",
                     "alt": "Todo App"
                 },
-                "url": "https://project-todolist-ew08s18i1-moris-projects-325cbd2b.vercel.app/",
+                "url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
                 "github": "https://github.com/moris88/project-todolist",
                 "tags": [
                     "React",
                     "Typescript",
                     "HeroUI",
-                    "TailwindCSS"
+                    "TailwindCSS",
+                    "Vitejs"
                 ]
             }
         ]
