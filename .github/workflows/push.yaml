@@ -2,9 +2,9 @@ name: 'Qualità e Build del codice'
 
 on:
   push:
-    branches:  # Specifica che il workflow si attiva solo sui branch
-      - '**'   # Questo include tutti i branch, puoi specificare solo quelli che vuoi
-    tags-ignore:  # Evita l'attivazione su tag
+    branches:
+      - '**'
+    tags-ignore:
       - '*'
 
 jobs:
@@ -13,25 +13,48 @@ jobs:
     name: Eslint
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: 'Installazione dipendenze'
         run: npm install
+
       - name: 'Check qualità codice'
         run: npm run lint
+
   build:
     needs: eslint
     runs-on: ubuntu-latest
     name: Build
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: 'Installazione dipendenze'
         run: npm install
+
       - name: 'Build test'
         run: npm run build
