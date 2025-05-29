@@ -1,55 +1,46 @@
 'use client'
 
 import React from 'react'
-import { HiArrowLeft } from 'react-icons/hi2'
-import { Button, Link } from '@heroui/react'
+// import { useRouter } from 'next/navigation'
+// import moment from 'moment'
 import { Dictionary } from '@/app/dictionaries'
-import { Comments, SectionHero } from '@/components'
-import { Article, Comment } from '@/types'
-import { formatDate } from '@/utils'
-import { useRouter } from 'next/navigation'
+// import { CardBlog, SectionHero } from '@/components'
+import { Article } from '@/types'
+// import { generateUniqueId } from '@/utils'
 
 interface PageBlogProps {
   dict: Dictionary
-  article: Article
-  comments: Comment[]
+  articles: Article[]
 }
 
-function PageBlog({ dict, article, comments }: PageBlogProps) {
-  const router = useRouter()
-  return (
-    <>
-      {article && (
-        <SectionHero
-          image={{ src: article.image ?? '' }}
-          subtitle={article.content}
-          title={article.title}
-        >
-          <div className="flex flex-col gap-2 md:flex-row">
-            <small>{`${dict.blog.article.postedAt} ${formatDate(article.created_at)}`}</small>
-            <small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
-          </div>
-          {article.link && (
-            <Link isExternal showAnchorIcon href={article.link}>
-              {dict.blog.article.link}
-            </Link>
-          )}
-          <div className="flex justify-end gap-2">
-            <Button
-              className="flex gap-2"
-              color="primary"
-              variant="ghost"
-              onPress={() => router.back()}
-            >
-              <HiArrowLeft className="h-5 w-5" />
-              {dict.blog.article.buttons.back}
-            </Button>
-          </div>
-          <Comments comments={comments} dict={dict} idArticle={article.id} />
-        </SectionHero>
-      )}
-    </>
-  )
+function PageBlog({ dict, articles }: Readonly<PageBlogProps>) {
+  console.log('PageBlog', dict, articles)
+  // const router = useRouter()
+
+  // const handleClickRow = (article: Article) => {
+  //   router.push(`/blog/${article.id}`)
+  // }
+
+  return <p className="text-center">Work in progress...</p>
+
+  // return (
+  //   <SectionHero title={dict.blog.title}>
+  //     <div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
+  //       {articles
+  //         .toSorted((a: Article, b: Article) =>
+  //           moment(b.created_at).diff(moment(a.created_at))
+  //         )
+  //         .map((article) => (
+  //           <CardBlog
+  //             key={generateUniqueId()}
+  //             article={article}
+  //             dict={dict}
+  //             onClick={() => handleClickRow(article)}
+  //           />
+  //         ))}
+  //     </div>
+  //   </SectionHero>
+  // )
 }
 
 export default PageBlog

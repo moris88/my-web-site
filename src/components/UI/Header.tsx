@@ -1,14 +1,9 @@
 'use client'
 
-import React, { Suspense, useEffect } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import React, { Suspense } from 'react'
+import { usePathname } from 'next/navigation'
 import { Link } from '@heroui/link'
 import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -17,48 +12,25 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Skeleton,
-  Avatar,
 } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'
-import { logout } from '@/lib'
 import { generateUniqueId, isActive } from '@/utils'
 import ToogleTheme from './ToogleTheme'
-import { User } from '@supabase/supabase-js'
 
 interface NavbarProps {
   dict: Dictionary
-  user: User | null
 }
 
-function Header({ dict, user }: NavbarProps) {
+function Header({ dict }: Readonly<NavbarProps>) {
   const pathname = usePathname()
-  const route = useRouter()
   const links = [
     { name: dict.navbar.curriculum, path: '/curriculum' },
     { name: dict.navbar.experience, path: '/experience' },
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.projects, path: '/projects' },
-    { name: dict.navbar.blog, path: '/blog' },
+    // { name: dict.navbar.blog, path: '/blog' },
     { name: dict.navbar.contacts, path: '/contacts' },
-    { name: dict.navbar.profile, path: '/profile' },
-    { name: dict.navbar.edit_blog, path: '/edit_blog' },
   ]
-
-  const handleClickLogout = () => {
-    logout()
-    route.refresh()
-  }
-
-  useEffect(() => {
-    if (!user) {
-      // svuota i cookies
-      document.cookie.split(';').forEach((c) => {
-        document.cookie = c
-          .replace(/^ +/, '')
-          .replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/')
-      })
-    }
-  }, [user])
 
   return (
     <Navbar
@@ -90,48 +62,20 @@ function Header({ dict, user }: NavbarProps) {
         <NavbarMenuToggle id="button-mobile-navbar" />
       </NavbarContent>
       <NavbarMenu className="overflow-hidden">
-        {links
-          .filter(({ path }) => {
-            if (!user) {
-              return path !== '/edit_blog' && path !== '/profile'
-            }
-            return true
-          })
-          .map(({ name, path }) => (
-            <NavbarMenuItem
-              key={generateUniqueId()}
-              className="flex w-full items-center justify-center"
-            >
-              <Link href={path}>
-                <div
-                  className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
-                >
-                  {name}
-                </div>
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        <NavbarMenuItem className="mt-8 flex w-full items-center justify-center">
-          {user ? (
-            <Button color="primary" variant="ghost" onPress={handleClickLogout}>
-              {dict.login.form.logout}
-            </Button>
-          ) : (
-            <Button
-              color="primary"
-              variant="flat"
-              onPress={() => {
-                const btn = document.getElementById('button-mobile-navbar')
-                if (btn) {
-                  btn.click()
-                }
-                route.push('/login')
-              }}
-            >
-              {dict.login.form.login}
-            </Button>
-          )}
-        </NavbarMenuItem>
+        {links.map(({ name, path }) => (
+          <NavbarMenuItem
+            key={generateUniqueId()}
+            className="flex w-full items-center justify-center"
+          >
+            <Link href={path}>
+              <div
+                className={`${isActive(pathname, path) ? 'border-b text-blue-600 dark:text-gray-400' : 'text-black hover:border-b hover:text-blue-600 dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+              >
+                {name}
+              </div>
+            </Link>
+          </NavbarMenuItem>
+        ))}
         <NavbarMenuItem className="flex w-full justify-center">
           <ToogleTheme>{dict.navbar.theme}</ToogleTheme>
         </NavbarMenuItem>
@@ -153,48 +97,6 @@ function Header({ dict, user }: NavbarProps) {
         <div className="hidden lg:flex">
           <ToogleTheme />
         </div>
-        {user ? (
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Avatar isBordered as="button" className="transition-transform" />
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem
-                key="profile"
-                onPress={() => {
-                  route.push('/profile')
-                }}
-              >
-                {dict.navbar.profile}
-              </DropdownItem>
-              <DropdownItem
-                key="edit_blog"
-                onPress={() => {
-                  route.push('/edit_blog')
-                }}
-              >
-                {dict.navbar.edit_blog}
-              </DropdownItem>
-              <DropdownItem
-                key="logout"
-                color="danger"
-                onPress={handleClickLogout}
-              >
-                {dict.login.form.logout}
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        ) : (
-          <Button
-            color="primary"
-            variant="flat"
-            onPress={() => {
-              route.push('/login')
-            }}
-          >
-            {dict.login.form.login}
-          </Button>
-        )}
       </NavbarContent>
     </Navbar>
   )

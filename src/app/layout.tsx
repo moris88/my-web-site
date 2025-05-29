@@ -5,7 +5,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { UIWrapper } from '@/components'
 import { getLinks } from '@/lib/data'
 import { getDictionary } from './dictionaries'
-import { getUser } from '@/lib'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default async function RootLayout({
 }) {
   const dict = await getDictionary()
   const links = await getLinks()
-  const user = await getUser()
 
   return (
     <html lang={dict.lang}>
@@ -35,7 +33,7 @@ export default async function RootLayout({
         <link href="https://www.mauriziotolomeo.it" rel="canonical" />
       </head>
       <body>
-        <UIWrapper dict={dict} links={links} user={user}>
+        <UIWrapper dict={dict} links={links}>
           {children}
           <SpeedInsights />
           <Analytics />

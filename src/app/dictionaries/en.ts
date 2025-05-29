@@ -7,9 +7,7 @@ const dictionary = {
     skills: 'Skills',
     projects: 'Projects',
     contacts: 'Contacts',
-    edit_blog: 'Edit Blog',
     curriculum: 'Curriculum',
-    profile: 'Profile',
     theme: 'Theme',
   },
   home: {
@@ -23,76 +21,6 @@ const dictionary = {
     subtitle: 'What do I specialize in?',
     message:
       "Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
-  },
-  edit_blog: {
-    table: {
-      title: 'Articles',
-      new: 'New article',
-      no_article: 'No articles available',
-      header: {
-        id: 'ID',
-        title: 'Title',
-        language: 'Language',
-        actions: 'Actions',
-      },
-    },
-    form: {
-      section: {
-        new: 'New article',
-        edit: 'Edit article',
-      },
-      language: {
-        label: 'Language',
-        required: 'The language is required',
-        placeholder: 'Select the language of the article',
-      },
-      title: {
-        label: 'Title',
-        required: 'The title is required',
-        placeholder: 'Enter the title of the article',
-      },
-      content: {
-        label: 'Content',
-        required: 'The content is required',
-        placeholder: 'Enter the content of the article',
-      },
-      image: {
-        label: 'Image',
-        placeholder: 'Enter the image path',
-      },
-      link: {
-        label: 'Link',
-        placeholder: 'Enter the source link of the article',
-      },
-      loading: 'Submitting...',
-      buttons: {
-        submit: 'Send',
-        done: 'Done',
-      },
-    },
-  },
-  login: {
-    form: {
-      title: 'Access to Reserved Area',
-      login: 'Login',
-      logout: 'Logout',
-      username: {
-        value: 'Username',
-        label: 'Username',
-        required: 'Username is required',
-        placeholder: 'Insert your username',
-      },
-      password: {
-        value: 'Password',
-        label: 'Password',
-        required: 'Password is required',
-        placeholder: 'Insert your password',
-      },
-      loading: 'Login in progress...',
-      buttons: {
-        submit: 'Login',
-      },
-    },
   },
   contacts: {
     social: 'My contacts',
@@ -260,22 +188,6 @@ const dictionary = {
     terms:
       'By checking the checkbox below, you agree to the following terms and conditions. The pdf is provided for personal use only. I authorize the processing of personal data contained in this curriculum vitae in accordance with art. 13 of Legislative Decree 196/2003 and art. 13 of the European Regulation UE 2016/679 on the protection of natural persons with regard to the processing of personal data. You may not use the data for commercial or illegal purposes. All content, including text, images and logos, is protected by copyright and may not be reproduced without my consent. You undertake not to disclose confidential information that you may obtain through this pdf, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
     cancel: 'Cancel',
-  },
-  profile: {
-    confirmModal: {
-      description: 'The password has been changed successfully!',
-      title: 'Password changed',
-    },
-    form: {
-      password: 'Change password',
-      update_at: 'Updated at',
-      email: 'Email',
-      id: 'ID',
-      buttons: {
-        submit: 'Submit',
-        loading: 'Loading...',
-      },
-    },
   },
 }
 

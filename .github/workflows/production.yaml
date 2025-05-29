@@ -16,6 +16,6 @@ jobs:
         with:
           node-version: "22"
       - name: "Installare Vercel CLI"
-        run: yarn global add vercel
+        run: npm install -g vercel
       - name: "Deploy"
         run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
