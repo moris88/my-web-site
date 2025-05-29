@@ -8,7 +8,6 @@ import { themeAtom } from '@/atoms'
 import { Footer, Header } from '@/components'
 import { StoreLink, Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
-import { User } from '@supabase/supabase-js'
 
 const atomStore = createStore()
 
@@ -16,15 +15,13 @@ interface UIWrapperProps {
   children: React.ReactNode
   dict: Dictionary
   links: StoreLink[]
-  user: User | null
 }
 
 export default function UIWrapper({
   children,
   dict,
   links,
-  user,
-}: UIWrapperProps) {
+}: Readonly<UIWrapperProps>) {
   const [inizializate, setInizializate] = React.useState<boolean>(false)
 
   React.useEffect(() => {
@@ -34,7 +31,6 @@ export default function UIWrapper({
       atomStore.set(themeAtom, theme || 'light')
       setThemeDocument(theme || 'light')
       setInizializate(true)
-      return
     }
   }, [inizializate])
 
@@ -43,7 +39,7 @@ export default function UIWrapper({
   return (
     <Provider store={atomStore}>
       <HeroUIProvider>
-        <Header dict={dict} user={user} />
+        <Header dict={dict} />
         <main className="min-h-[calc(100vh-124px)]">{children}</main>
         <Footer links={links} />
       </HeroUIProvider>

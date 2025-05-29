@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { addAtSymbol } from '@/utils'
 import { sendMessage } from '@/lib'
-import { createClient } from '@supabase/supabase-js'
 
 // recupera env TOKEN_TELEGRAM di next
 const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
@@ -10,10 +9,10 @@ const { error } = console
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const email = body.email || 'Not provided'
-    const message = body.message || null
-    const username = addAtSymbol(body.username || null, '@')
-    const name = body.name || null
+    const email = body.email ?? 'Not provided'
+    const message = body.message ?? null
+    const username = addAtSymbol(body.username ?? null, '@')
+    const name = body.name ?? null
     if (!message || !name) {
       return NextResponse.json(
         { error: 'Email, message and name are required' },
@@ -26,18 +25,6 @@ export async function POST(request: Request) {
         chatId: CHAT_ID_TELEGRAM,
         message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email}\nUsername: ${username}`,
       })
-      const supabase = createClient(
-        process.env.SUPABASE_URL!,
-        process.env.SUPABASE_KEY!
-      )
-      await supabase.from('messages').insert([
-        {
-          email,
-          message,
-          name,
-          username,
-        },
-      ])
     } else {
       throw new Error('Telegram token and chat id are required')
     }

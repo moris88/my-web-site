@@ -7,9 +7,7 @@ const dictionary = {
     skills: 'Competenze',
     projects: 'Progetti',
     contacts: 'Contatti',
-    edit_blog: 'Gestione Blog',
     curriculum: 'Curriculum',
-    profile: 'Profilo',
     theme: 'Tema',
   },
   home: {
@@ -23,76 +21,6 @@ const dictionary = {
     subtitle: 'In cosa sono specializzato?',
     message:
       'Ciao, sono un fullstack developer, amo programmare e sono sempre alla ricerca di nuove sfide.',
-  },
-  edit_blog: {
-    table: {
-      title: 'Lista degli Articoli',
-      new: 'Nuovo articolo',
-      no_article: 'Nessun articolo disponibile',
-      header: {
-        id: 'ID',
-        title: 'Titolo',
-        language: 'Lingua',
-        actions: 'Azioni',
-      },
-    },
-    form: {
-      section: {
-        new: 'Nuovo articolo',
-        edit: 'Modifica articolo',
-      },
-      language: {
-        label: 'Lingua',
-        required: 'La lingua è obbligatoria',
-        placeholder: 'Seleziona una lingua',
-      },
-      title: {
-        label: 'Titolo',
-        required: 'Il Titolo è obbligatorio',
-        placeholder: 'Inserisci il titolo',
-      },
-      content: {
-        label: 'Contenuto',
-        required: 'Il contenuto è obbligatorio',
-        placeholder: 'Inserisci il contenuto',
-      },
-      image: {
-        label: 'Immagine',
-        placeholder: "Inserisci un percorso dell'immagine",
-      },
-      link: {
-        label: 'Link',
-        placeholder: 'Inserisci un link',
-      },
-      loading: 'Invio in corso...',
-      buttons: {
-        submit: 'Invia',
-        done: 'Indietro',
-      },
-    },
-  },
-  login: {
-    form: {
-      title: 'Accesso Area Riservata',
-      login: 'Login',
-      logout: 'Logout',
-      username: {
-        value: 'Username',
-        label: 'Username',
-        required: 'Lo username è obbligatorio',
-        placeholder: 'Inserisci il tuo username',
-      },
-      password: {
-        value: 'Password',
-        label: 'Password',
-        required: 'La password è obbligatorio',
-        placeholder: 'Inserisci la tua password',
-      },
-      loading: 'Login in corso...',
-      buttons: {
-        submit: 'Accesso',
-      },
-    },
   },
   contacts: {
     social: 'I miei contatti',
@@ -261,22 +189,6 @@ const dictionary = {
     terms:
       "Spuntando la checkbox in basso, l'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all'art. 13 del D.Lgs. 196/2003 e all'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.",
     cancel: 'Annulla',
-  },
-  profile: {
-    confirmModal: {
-      description: 'La nuova password è stata cambiata con successo',
-      title: 'Password Cambiata',
-    },
-    form: {
-      password: 'Cambia password',
-      update_at: 'Utente aggiornato il',
-      email: 'Email',
-      id: 'ID',
-      buttons: {
-        submit: 'Invia',
-        loading: 'Invio in corso...',
-      },
-    },
   },
 }
 
