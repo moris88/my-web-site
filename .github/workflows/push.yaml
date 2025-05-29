@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '22'
       - name: 'Installazione dipendenze'
-        run: npm run install
+        run: npm install
       - name: 'Check qualità codice'
         run: npm run lint
   build:
@@ -32,6 +32,6 @@ jobs:
         with:
           node-version: '22'
       - name: 'Installazione dipendenze'
-        run: npm run install
+        run: npm install
       - name: 'Build test'
         run: npm run build
