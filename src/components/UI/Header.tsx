@@ -28,7 +28,7 @@ function Header({ dict }: Readonly<NavbarProps>) {
     { name: dict.navbar.experience, path: '/experience' },
     { name: dict.navbar.skills, path: '/skills' },
     { name: dict.navbar.projects, path: '/projects' },
-    { name: dict.navbar.blog, path: '/blog' },
+    // { name: dict.navbar.blog, path: '/blog' },
     { name: dict.navbar.contacts, path: '/contacts' },
   ]
 
