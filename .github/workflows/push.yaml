@@ -18,9 +18,9 @@ jobs:
         with:
           node-version: '22'
       - name: 'Installazione dipendenze'
-        run: yarn install
+        run: npm run install
       - name: 'Check qualità codice'
-        run: yarn lint
+        run: npm run lint
   build:
     needs: eslint
     runs-on: ubuntu-latest
@@ -32,6 +32,6 @@ jobs:
         with:
           node-version: '22'
       - name: 'Installazione dipendenze'
-        run: yarn install
+        run: npm run install
       - name: 'Build test'
-        run: yarn build
+        run: npm run build
