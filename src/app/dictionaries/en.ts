@@ -29,7 +29,6 @@ const dictionary = {
       linkedin: 'Linkedin',
       facebook: 'Facebook',
       github: 'Github',
-      telegram: 'Telegram',
       storeLink: {
         button: 'Go',
         content: {
@@ -39,14 +38,13 @@ const dictionary = {
             'You will be redirected to my public Facebook profile. You can only send me a message if you are my friend, so you will have to request friendship.',
           github:
             'You will be redirected to Github on my public profile. You cannot send me a message but you can view my public repositories and click on "Follow".',
-          telegram: 'You will be redirected to Telegram on my public profile.',
         },
       },
     },
     modal: {
       title: 'Send a message',
       content:
-        "Your message will arrive directly on my phone on the Telegram app. You can leave me your username and I'll reply immediately, otherwise via email as soon as possible!",
+        "Your message will arrive on my personal email. I'll answer you as soon as possible!",
       privacy: 'Read the privacy',
       message: 'Thank you for your message!!!',
     },
@@ -61,11 +59,6 @@ const dictionary = {
         value: 'Email',
         label: 'Email',
         placeholder: 'Insert your email',
-      },
-      username: {
-        value: 'Username',
-        label: 'Username',
-        placeholder: 'Insert your Telegram username',
       },
       message: {
         value: 'Message',

@@ -61,13 +61,6 @@ export default function FormContact({
       })
   }
 
-  if (loading)
-    return (
-      <Button isDisabled isLoading color="primary" type="button" variant="flat">
-        {dict.contacts.form.loading}
-      </Button>
-    )
-
   return (
     <form
       className="flex w-full flex-col gap-4"
@@ -76,6 +69,7 @@ export default function FormContact({
       <Input
         isRequired
         id="name"
+        isDisabled={loading}
         label={dict.contacts.form.name.label}
         placeholder={dict.contacts.form.name.placeholder}
         type="text"
@@ -89,6 +83,7 @@ export default function FormContact({
       <Input
         isRequired
         id="email"
+        isDisabled={loading}
         label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
@@ -97,6 +92,7 @@ export default function FormContact({
       <Textarea
         isRequired
         id="message"
+        isDisabled={loading}
         label={dict.contacts.form.message.label}
         minRows={4}
         placeholder={dict.contacts.form.message.placeholder}
@@ -110,6 +106,7 @@ export default function FormContact({
       <div className="flex justify-center gap-4">
         {!notDone && (
           <Button
+            isDisabled={loading}
             color="default"
             type="button"
             variant="flat"
@@ -118,9 +115,21 @@ export default function FormContact({
             {dict.contacts.form.buttons.done}
           </Button>
         )}
-        <Button color="primary" type="submit" variant="flat">
-          {dict.contacts.form.buttons.send}
-        </Button>
+        {!loading ? (
+          <Button color="primary" type="submit" variant="flat">
+            {dict.contacts.form.buttons.send}
+          </Button>
+        ) : (
+          <Button
+            isDisabled
+            isLoading
+            color="primary"
+            type="button"
+            variant="flat"
+          >
+            {dict.contacts.form.loading}
+          </Button>
+        )}
       </div>
     </form>
   )

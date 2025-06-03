@@ -29,7 +29,6 @@ const dictionary = {
       linkedin: 'Linkedin',
       facebook: 'Facebook',
       github: 'Github',
-      telegram: 'Telegram',
       storeLink: {
         button: 'Vai',
         content: {
@@ -39,15 +38,13 @@ const dictionary = {
             "Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
           github:
             'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
-          telegram:
-            'Verrai reindirizzato su Telegram sul mio profilo pubblico. Puoi mandarmi un messaggio direttamente.',
         },
       },
     },
     modal: {
       title: 'Invia un messaggio',
       content:
-        "Il tuo messaggio arriverà direttamente sul mio cellulare sull'app di Telegram. Puoi lasciarmi il tuo username e ti risponderò immediatamente, altrimenti via email appena possibile!",
+        'Il tuo messaggio arriverà sulla mia email personale. Ti rispondo appena possibile!',
       privacy: 'Leggi la privacy',
       message: 'Grazie per il tuo messaggio!!!',
     },
@@ -62,11 +59,6 @@ const dictionary = {
         value: 'Email',
         label: 'Email',
         placeholder: 'Inserisci la tua email',
-      },
-      username: {
-        value: 'Username',
-        label: 'Username',
-        placeholder: 'Inserisci il tuo username di Telegram',
       },
       message: {
         value: 'Messaggio',

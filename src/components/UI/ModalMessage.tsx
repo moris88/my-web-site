@@ -52,10 +52,9 @@ function ModalMessage({
       error: false,
     })
   }
-  console.log('ModalMessage rendered', { modal, show })
   if (!modal) {
     return (
-      <div className={className || ''}>
+      <div className={className ?? ''}>
         <h3 className="mt-5 w-full select-none text-center">
           <span className="flex items-center justify-center gap-1">
             <RiMailSendFill className="h-5 w-5" />

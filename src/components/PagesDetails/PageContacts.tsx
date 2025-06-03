@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
 import { Button, ButtonGroup, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
@@ -25,7 +25,6 @@ export default function PageContacts({
     facebook: <FaFacebook className="h-6 w-6" />,
     github: <FaGithub className="h-6 w-6" />,
     linkedin: <FaLinkedin className="h-6 w-6" />,
-    telegram: <FaTelegram className="h-6 w-6" />,
   }
 
   const linkMap = links.reduce(

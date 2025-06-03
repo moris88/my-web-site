@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin, FaTelegram } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Link } from '@heroui/react'
 import { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
@@ -10,7 +10,7 @@ interface MyFooterProps {
   links: StoreLink[]
 }
 
-function MyFooter({ links }: MyFooterProps) {
+function MyFooter({ links }: Readonly<MyFooterProps>) {
   const getYear = () => {
     const today = new Date()
     return today.getFullYear()
@@ -37,9 +37,6 @@ function MyFooter({ links }: MyFooterProps) {
             )}
             {link.name === 'linkedin' && (
               <FaLinkedin className="h-6 w-6 text-black dark:text-white" />
-            )}
-            {link.name === 'telegram' && (
-              <FaTelegram className="h-6 w-6 text-black dark:text-white" />
             )}
           </Link>
         ))}
