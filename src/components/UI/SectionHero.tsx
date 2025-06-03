@@ -17,7 +17,7 @@ function SectionHero({
   children,
   content,
   image,
-}: SectionHeroProps) {
+}: Readonly<SectionHeroProps>) {
   return (
     <section className="container flex flex-col gap-10 overflow-x-hidden">
       {image?.src && (

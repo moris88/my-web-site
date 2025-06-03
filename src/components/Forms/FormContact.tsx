@@ -17,7 +17,6 @@ interface FormContactProps {
 interface FormData {
   name: string
   email: string
-  username: string
   message: string
 }
 
@@ -27,7 +26,7 @@ export default function FormContact({
   onSuccess,
   onError,
   onClose,
-}: FormContactProps) {
+}: Readonly<FormContactProps>) {
   const [loading, setLoading] = React.useState<boolean>(false)
   const {
     register,
@@ -42,10 +41,12 @@ export default function FormContact({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'api-key': process.env.NEXT_PUBLIC_SERVER_API_KEY ?? '',
       },
       body: JSON.stringify(data),
     })
       .then((res) => {
+        console.log('Response:', res)
         if (res.status === 200) {
           onSuccess()
         } else {
@@ -86,18 +87,12 @@ export default function FormContact({
         </p>
       )}
       <Input
-        id="username"
-        label={dict.contacts.form.username.label}
-        placeholder={dict.contacts.form.username.placeholder}
-        type="text"
-        {...register('username', { required: false })}
-      />
-      <Input
+        isRequired
         id="email"
         label={dict.contacts.form.email.label}
         placeholder={dict.contacts.form.email.placeholder}
         type="email"
-        {...register('email', { required: false })}
+        {...register('email', { required: true })}
       />
       <Textarea
         isRequired
