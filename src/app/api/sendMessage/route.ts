@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const { name, email, message } = body
 
-  const ip = req.headers.get('x-forwarded-for') || 'IP non disponibile'
+  const ip = req.headers.get('x-forwarded-for') ?? 'IP non disponibile'
   const userAgent = req.headers.get('user-agent')
 
   if (apiKey !== process.env.NEXT_PUBLIC_SERVER_API_KEY) {
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       log(`A: ${process.env.EMAIL_TO}`)
       log(`Oggetto: Warning!!! Nuovo messaggio dal sito web da ${name}`)
       log(
-        `Messaggio: Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`
+        `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`
       )
       return NextResponse.json(
         { message: 'Email inviata con successo' },
@@ -46,8 +46,10 @@ export async function POST(req: NextRequest) {
       from: `"${name}" <${email}>`,
       to: process.env.EMAIL_TO,
       subject: `Warning!!! Nuovo messaggio dal sito web da ${name}`,
-      text: `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}`,
+      text: `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`,
     })
+
+    log(`Email inviata con successo a ${process.env.EMAIL_TO}`)
 
     return NextResponse.json(
       { message: 'Email inviata con successo' },
