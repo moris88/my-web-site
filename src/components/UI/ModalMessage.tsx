@@ -15,7 +15,11 @@ interface ModalMessageProps {
   modal?: boolean
   className?: string
 }
-function ModalMessage({ dict, modal = true, className }: ModalMessageProps) {
+function ModalMessage({
+  dict,
+  modal = true,
+  className,
+}: Readonly<ModalMessageProps>) {
   const [show, setShow] = React.useState<{
     form: boolean
     button: boolean
@@ -48,6 +52,7 @@ function ModalMessage({ dict, modal = true, className }: ModalMessageProps) {
       error: false,
     })
   }
+  console.log('ModalMessage rendered', { modal, show })
   if (!modal) {
     return (
       <div className={className || ''}>
@@ -68,6 +73,16 @@ function ModalMessage({ dict, modal = true, className }: ModalMessageProps) {
             </Link>
           </p>
           <Divider className="my-2" />
+          {show.success && (
+            <p className="select-none text-center text-3xl text-green-600">
+              {dict.contacts.modal.message}
+            </p>
+          )}
+          {show.error && error && (
+            <p className="select-none text-center text-3xl text-red-500">
+              Error: {error}
+            </p>
+          )}
           <FormContact
             dict={dict}
             notDone={!modal}

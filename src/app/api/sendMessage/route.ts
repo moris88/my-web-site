@@ -1,38 +1,65 @@
-import { NextResponse } from 'next/server'
-import { addAtSymbol } from '@/utils'
-import { sendMessage } from '@/lib'
+// app/api/sendMessage/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+import nodemailer from 'nodemailer'
 
-// recupera env TOKEN_TELEGRAM di next
-const { TOKEN_TELEGRAM, CHAT_ID_TELEGRAM } = process.env
-const { error } = console
+const { error, log } = console
 
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
+  const apiKey = req.headers.get('api-key')
+  const body = await req.json()
+  const { name, email, message } = body
+
+  const ip = req.headers.get('x-forwarded-for') || 'IP non disponibile'
+  const userAgent = req.headers.get('user-agent')
+
+  if (apiKey !== process.env.NEXT_PUBLIC_SERVER_API_KEY) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
+  }
+
+  if (!name || !email || !message) {
+    return NextResponse.json({ message: 'Missing fields' }, { status: 400 })
+  }
+
   try {
-    const body = await request.json()
-    const email = body.email ?? 'Not provided'
-    const message = body.message ?? null
-    const username = addAtSymbol(body.username ?? null, '@')
-    const name = body.name ?? null
-    if (!message || !name) {
+    if (process.env.DEVELOPMENT) {
+      log('Simulazione invio email:')
+      log(`Da: ${name} <${email}>`)
+      log(`A: ${process.env.EMAIL_TO}`)
+      log(`Oggetto: Warning!!! Nuovo messaggio dal sito web da ${name}`)
+      log(
+        `Messaggio: Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`
+      )
       return NextResponse.json(
-        { error: 'Email, message and name are required' },
-        { status: 404 }
+        { message: 'Email inviata con successo' },
+        { status: 200 }
       )
     }
-    if (TOKEN_TELEGRAM && CHAT_ID_TELEGRAM) {
-      await sendMessage({
-        token: TOKEN_TELEGRAM,
-        chatId: CHAT_ID_TELEGRAM,
-        message: `Messaggio da ${name}:\n\n${message}\n\nEmail: ${email}\nUsername: ${username}`,
-      })
-    } else {
-      throw new Error('Telegram token and chat id are required')
-    }
-    return NextResponse.json({ status: 200 })
-  } catch (err) {
-    error(err)
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    })
+
+    await transporter.sendMail({
+      from: `"${name}" <${email}>`,
+      to: process.env.EMAIL_TO,
+      subject: `Warning!!! Nuovo messaggio dal sito web da ${name}`,
+      text: `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}`,
+    })
+
     return NextResponse.json(
-      { error: 'Internal Server Error' },
+      { message: 'Email inviata con successo' },
+      { status: 200 }
+    )
+  } catch (err: any) {
+    error('Errore invio email:', err)
+    return NextResponse.json(
+      {
+        message: "Errore durante l'invio dell'email",
+        error: err?.message ?? 'Unknown error',
+      },
       { status: 500 }
     )
   }
