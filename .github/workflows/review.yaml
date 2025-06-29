@@ -24,14 +24,16 @@ jobs:
             BASE_REF=${{ github.event.pull_request.base.sha }}
             HEAD_REF=${{ github.event.pull_request.head.sha }}
             DIFF=$(git diff "$BASE_REF" "$HEAD_REF")
-        
+            
             if [ -z "$DIFF" ]; then
                 echo "::warning::No diff found for this PR. Gemini review will be skipped."
                 echo "diff_output=" >> "$GITHUB_OUTPUT"
             else
-                echo "diff_output<<EOF" >> "$GITHUB_OUTPUT"
-                echo "$DIFF" >> "$GITHUB_OUTPUT"
-                echo "EOF" >> "$GITHUB_OUTPUT"
+                {
+                echo "diff_output<<EOF"
+                echo "$DIFF"
+                echo "EOF"
+                } >> "$GITHUB_OUTPUT"
             fi
 
       - name: Read Gemini Prompt from File
@@ -39,9 +41,11 @@ jobs:
         run: |
               PROMPT_FILE="review/gemini_instructions.md"
               if [ -f "$PROMPT_FILE" ]; then
-                echo "prompt_content<<EOF" >> "$GITHUB_OUTPUT"
-                cat "$PROMPT_FILE" >> "$GITHUB_OUTPUT"
-                echo "EOF" >> "$GITHUB_OUTPUT"
+                {
+                  echo "prompt_content<<EOF"
+                  cat "$PROMPT_FILE"
+                  echo "EOF"
+                } >> "$GITHUB_OUTPUT"
               else
                 echo "::warning file=$PROMPT_FILE::Prompt file not found. Using default prompt."
                 echo "prompt_content=Perform a code review of the following diff. Identify potential bugs, performance improvements, code clarity, adherence to best practices, and suggest missing tests. Provide your suggestions in a concise and readable format." >> "$GITHUB_OUTPUT"
