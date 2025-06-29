@@ -10,9 +10,9 @@ git fetch origin "$BASE_BRANCH"
 git fetch origin "$HEAD_BRANCH"
 git checkout "$HEAD_BRANCH"
 
-DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH")
+DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH" -- .)
 
-if [ -z "$FILTERED_DIFF" ]; then
+if [ -z "$DIFF" ]; then
   echo "No differences found between $BASE_BRANCH and $HEAD_BRANCH."
   echo "## Code Review Report, No changes detected." > review.txt
   exit 0
