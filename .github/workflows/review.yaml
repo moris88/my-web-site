@@ -101,6 +101,15 @@ jobs:
         uses: actions/github-script@v7
         if: success() && steps.gemini_review.outputs.review_comment != ''
         with:
-          script: |
-            const comment = `${{ steps.gemini_review.outputs.review_comment }}`;
-            const prNumber = context.payload.pull
+            script: |
+                const comment = `${{ steps.gemini_review.outputs.review_comment }}`;
+                const { owner, repo } = context.repo;
+                const prNumber = context.payload.pull_request.number;
+        
+                await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: prNumber,
+                body: comment,
+                });
+        
