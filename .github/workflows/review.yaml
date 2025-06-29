@@ -16,6 +16,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Set execute permission on scripts
+        run: chmod +x review/get_pr_diff.sh review/read_prompt_file.sh
       - name: Get PR Diff
         id: get_diff
         run: |
