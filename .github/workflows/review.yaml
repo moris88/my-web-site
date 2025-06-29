@@ -26,27 +26,25 @@ jobs:
           DIFF=$(git diff "$BASE_REF" "$HEAD_REF")
 
           if [ -z "$DIFF" ]; then
-            echo "::warning::Nessun diff trovato per questa PR. La review di Gemini verrà saltata."
+            echo "::warning::No diff found for this PR. Gemini review will be skipped."
             echo "diff_output=" >> "$GITHUB_OUTPUT"
           else
-            echo "diff_output<<EOF_DIFF" >> "$GITHUB_OUTPUT"
-            echo "$DIFF" >> "$GITHUB_OUTPUT"
-            echo "EOF_DIFF" >> "$GITHUB_OUTPUT"
+            # Using printf and a here-string for robust multi-line output
+            # This avoids potential issues with `echo` and complex strings
+            printf "diff_output<<EOF_DIFF\n%s\nEOF_DIFF\n" "$DIFF" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Read Gemini Prompt from File
         id: read_prompt_file
         run: |
-          # --- PERCORSO AGGIORNATO DEL PROMPT ---
           PROMPT_FILE="review/gemini_instructions.md"
           if [ -f "$PROMPT_FILE" ]; then
             PROMPT_CONTENT=$(cat "$PROMPT_FILE")
-            echo "prompt_content<<EOF_PROMPT" >> "$GITHUB_OUTPUT"
-            echo "$PROMPT_CONTENT" >> "$GITHUB_OUTPUT"
-            echo "EOF_PROMPT" >> "$GITHUB_OUTPUT"
+            # Using printf and a here-string for robust multi-line output
+            printf "prompt_content<<EOF_PROMPT\n%s\nEOF_PROMPT\n" "$PROMPT_CONTENT" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning file=$PROMPT_FILE::File del prompt non trovato. Verrà utilizzato un prompt predefinito."
-            echo "prompt_content=Esegui una code review del seguente diff. Identifica potenziali bug, miglioramenti di performance, chiarezza del codice, aderenza a best practice e suggerisci test mancanti. Fornisci i tuoi suggerimenti in un formato conciso e leggibile." >> "$GITHUB_OUTPUT"
+            echo "::warning file=$PROMPT_FILE::Prompt file not found. Using default prompt."
+            echo "prompt_content=Perform a code review of the following diff. Identify potential bugs, performance improvements, code clarity, adherence to best practices, and suggest missing tests. Provide your suggestions in a concise and readable format." >> "$GITHUB_OUTPUT"
           fi
 
       - name: Delete Previous Gemini Review Comments
@@ -79,20 +77,21 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
+          # The _RAW suffix is just a reminder that these are the direct outputs from previous steps
           PR_DIFF_RAW="${{ steps.get_diff.outputs.diff_output }}"
           GEMINI_PROMPT_RAW="${{ steps.read_prompt_file.outputs.prompt_content }}"
 
           TEMP_DIFF_FILE=$(mktemp)
           TEMP_PROMPT_FILE=$(mktemp)
 
+          # Using printf to write content to temporary files for robustness
           printf "%s" "$PR_DIFF_RAW" > "$TEMP_DIFF_FILE"
           printf "%s" "$GEMINI_PROMPT_RAW" > "$TEMP_PROMPT_FILE"
 
-          # --- PERCORSO AGGIORNATO DELLO SCRIPT ---
           SCRIPT_PATH="review/gemini_review_script.sh"
-          chmod +x "$SCRIPT_PATH" # Rendi eseguibile lo script nel suo nuovo percorso
+          chmod +x "$SCRIPT_PATH"
 
-          # Esegui lo script dal suo nuovo percorso
+          # Execute the script, passing file paths
           "$SCRIPT_PATH" "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE" >> "$GITHUB_OUTPUT"
 
           rm "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE"
@@ -103,11 +102,4 @@ jobs:
         with:
           script: |
             const comment = `${{ steps.gemini_review.outputs.review_comment }}`;
-            const prNumber = context.payload.pull_request.number;
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: prNumber,
-              body: comment
-            });
+            const prNumber = context.payload.pull
