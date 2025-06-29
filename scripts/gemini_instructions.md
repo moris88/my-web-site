@@ -77,3 +77,9 @@ Important: although you're reading and analyzing code in English, write your fin
 as if you were commenting directly on the pull request in GitHub.
 Group your feedback into categories: **Miglioramenti**, **Problemi**, **Refactor consigliati**.
 Be concise, constructive, and provide suggestions or code snippets when applicable.
+
+Di seguito il codice modificato da revisionare:
+
+```diff
+$DIFF
+```
