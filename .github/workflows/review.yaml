@@ -1,93 +1,60 @@
-name: Gemini Code Review
+name: Automated Code Review
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    branches:
+      - main
 
 jobs:
-  review:
+  code-review:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set execute permission on scripts
-        run: chmod +x review/get_pr_diff.sh review/read_prompt_file.sh
-      - name: Get PR Diff
-        id: get_diff
-        run: |
-            BASE_REF=${{ github.event.pull_request.base.sha }}
-            HEAD_REF=${{ github.event.pull_request.head.sha }}
-            ./review/get_pr_diff.sh "$BASE_REF" "$HEAD_REF" >> $GITHUB_OUTPUT
-      - name: Read Gemini Prompt from File
-        id: read_prompt_file
-        run: |
-            ./review/read_prompt_file.sh >> $GITHUB_OUTPUT
-      - name: Delete Previous Gemini Review Comments
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const prNumber = context.payload.pull_request.number;
-            const botName = 'github-actions[bot]';
 
-            const { data: comments } = await github.rest.issues.listComments({
-              owner,
-              repo,
-              issue_number: prNumber,
-            });
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq
 
-            for (const comment of comments) {
-              if (comment.user.login === botName && comment.body.includes('')) {
-                console.log(`Deleting comment ID: ${comment.id}`);
-                await github.rest.issues.deleteComment({
-                  owner,
-                  repo,
-                  comment_id: comment.id,
-                });
-              }
-            }
-      - name: Run Gemini Review Script (Bash)
-        id: gemini_review
+      - name: Run automated code review
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
         run: |
-          # The _RAW suffix is just a reminder that these are the direct outputs from previous steps
-          PR_DIFF_RAW="${{ steps.get_diff.outputs.diff_output }}"
-          GEMINI_PROMPT_RAW="${{ steps.read_prompt_file.outputs.prompt_content }}"
+          chmod +x scripts/automated-code-review.sh
+          scripts/automated-code-review.sh "$GEMINI_API_KEY"
 
-          TEMP_DIFF_FILE=$(mktemp)
-          TEMP_PROMPT_FILE=$(mktemp)
-
-          # Using printf to write content to temporary files for robustness
-          printf "%s" "$PR_DIFF_RAW" > "$TEMP_DIFF_FILE"
-          printf "%s" "$GEMINI_PROMPT_RAW" > "$TEMP_PROMPT_FILE"
-
-          SCRIPT_PATH="review/gemini_review_script.sh"
-          chmod +x "$SCRIPT_PATH"
-
-          # Execute the script, passing file paths
-          "$SCRIPT_PATH" "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE" >> "$GITHUB_OUTPUT"
-
-          rm "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE"
-      - name: Add New Gemini Review Comment to PR
+      - name: Remove previous Code Review comments
         uses: actions/github-script@v7
-        if: success() && steps.gemini_review.outputs.review_comment != ''
         with:
-            script: |
-                const comment = `${{ steps.gemini_review.outputs.review_comment }}`;
-                const { owner, repo } = context.repo;
-                const prNumber = context.payload.pull_request.number;
-        
-                await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: prNumber,
-                body: comment,
-                });
-        
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number: prNumber });
+            for (const comment of comments) {
+              if (comment.body.startsWith("## Code Review Report") && comment.user.login === "github-actions[bot]") {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id });
+              }
+            }
+
+      - name: Post code review comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          REVIEW=$(cat review.txt)
+          COMMENT_BODY=$(jq -nc --arg body "$REVIEW" '{"body": $body}')
+          curl -s -X POST \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$COMMENT_BODY" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/comments"
+
+      - name: Upload Gemini response artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-response
+          path: full_response.json
