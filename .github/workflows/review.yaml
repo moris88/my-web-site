@@ -23,30 +23,30 @@ jobs:
           PR_NUMBER=${{ github.event.pull_request.number }}
           BASE_REF=${{ github.event.pull_request.base.sha }}
           HEAD_REF=${{ github.event.pull_request.head.sha }}
-          DIFF=$(git diff $BASE_REF $HEAD_REF)
+          DIFF=$(git diff "$BASE_REF" "$HEAD_REF")
 
           if [ -z "$DIFF" ]; then
             echo "::warning::Nessun diff trovato per questa PR. La review di Gemini verrà saltata."
-            echo "diff_output=" >> $GITHUB_OUTPUT
+            echo "diff_output=" >> "$GITHUB_OUTPUT"
           else
-            echo "diff_output<<EOF" >> $GITHUB_OUTPUT
-            echo "$DIFF" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
+            echo "diff_output<<EOF_DIFF" >> "$GITHUB_OUTPUT"
+            echo "$DIFF" >> "$GITHUB_OUTPUT"
+            echo "EOF_DIFF" >> "$GITHUB_OUTPUT"
           fi
-
 
       - name: Read Gemini Prompt from File
         id: read_prompt_file
         run: |
-          PROMPT_FILE="review/copilot-instructions.md" # O il tuo percorso: es. .github/PROMPT.md
+          # --- PERCORSO AGGIORNATO DEL PROMPT ---
+          PROMPT_FILE="review/gemini_instructions.md"
           if [ -f "$PROMPT_FILE" ]; then
             PROMPT_CONTENT=$(cat "$PROMPT_FILE")
-            echo "prompt_content<<EOF" >> $GITHUB_OUTPUT
-            echo "$PROMPT_CONTENT" >> $GITHUB_OUTPUT
-            echo "EOF" >> $GITHUB_OUTPUT
+            echo "prompt_content<<EOF_PROMPT" >> "$GITHUB_OUTPUT"
+            echo "$PROMPT_CONTENT" >> "$GITHUB_OUTPUT"
+            echo "EOF_PROMPT" >> "$GITHUB_OUTPUT"
           else
             echo "::warning file=$PROMPT_FILE::File del prompt non trovato. Verrà utilizzato un prompt predefinito."
-            echo "prompt_content=Esegui una code review del seguente diff. Identifica potenziali bug, miglioramenti di performance, chiarezza del codice, aderenza a best practice e suggerisci test mancanti. Fornisci i tuoi suggerimenti in un formato conciso e leggibile." >> $GITHUB_OUTPUT
+            echo "prompt_content=Esegui una code review del seguente diff. Identifica potenziali bug, miglioramenti di performance, chiarezza del codice, aderenza a best practice e suggerisci test mancanti. Fornisci i tuoi suggerimenti in un formato conciso e leggibile." >> "$GITHUB_OUTPUT"
           fi
 
       - name: Delete Previous Gemini Review Comments
@@ -73,29 +73,32 @@ jobs:
                 });
               }
             }
+
       - name: Run Gemini Review Script (Bash)
         id: gemini_review
         env:
-            # Passa direttamente la GEMINI_API_KEY come variabile d'ambiente allo script Bash
-            GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-            PR_DIFF="${{ steps.get_diff.outputs.diff_output }}"
-            GEMINI_PROMPT="${{ steps.read_prompt_file.outputs.prompt_content }}"
+          PR_DIFF_RAW="${{ steps.get_diff.outputs.diff_output }}"
+          GEMINI_PROMPT_RAW="${{ steps.read_prompt_file.outputs.prompt_content }}"
 
-            TEMP_DIFF_FILE=$(mktemp)
-            TEMP_PROMPT_FILE=$(mktemp)
+          TEMP_DIFF_FILE=$(mktemp)
+          TEMP_PROMPT_FILE=$(mktemp)
 
-            echo "$PR_DIFF" > "$TEMP_DIFF_FILE"
-            echo "$GEMINI_PROMPT" > "$TEMP_PROMPT_FILE"
+          printf "%s" "$PR_DIFF_RAW" > "$TEMP_DIFF_FILE"
+          printf "%s" "$GEMINI_PROMPT_RAW" > "$TEMP_PROMPT_FILE"
 
-            chmod +x review_script.sh
-            ./review/gemini_review_script.sh "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE" >> "$GITHUB_OUTPUT"
+          # --- PERCORSO AGGIORNATO DELLO SCRIPT ---
+          SCRIPT_PATH="review/gemini_review_script.sh"
+          chmod +x "$SCRIPT_PATH" # Rendi eseguibile lo script nel suo nuovo percorso
 
-            rm "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE"
+          # Esegui lo script dal suo nuovo percorso
+          "$SCRIPT_PATH" "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE" >> "$GITHUB_OUTPUT"
+
+          rm "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE"
 
       - name: Add New Gemini Review Comment to PR
         uses: actions/github-script@v7
-        # Esegui questo step solo se lo script ha prodotto un commento e lo step precedente è stato un successo
         if: success() && steps.gemini_review.outputs.review_comment != ''
         with:
           script: |
