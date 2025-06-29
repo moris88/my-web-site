@@ -77,7 +77,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
       <div className="container flex flex-col items-center justify-center gap-4">
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />
-          <p className="italic">{dict.home.title1}</p>
+          <p className="italic">{dict.home.whoAmITitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
@@ -87,7 +87,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />
-          <p className="italic">{dict.home.title2}</p>
+          <p className="italic">{dict.home.whatIDoTitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
@@ -97,7 +97,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />
-          <p className="italic">{dict.home.title3}</p>
+          <p className="italic">{dict.home.whatISpecializeInTitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
         <div

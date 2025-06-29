@@ -17,9 +17,9 @@ const dictionary = {
       portfolio: 'il mio portfolio',
       contacts: 'i miei contatti',
     },
-    title1: 'Chi sono?',
-    title2: 'Cosa faccio?',
-    title3: 'In cosa sono specializzato?',
+    whoAmITitle: 'Chi sono?',
+    whatIDoTitle: 'Cosa faccio?',
+    whatISpecializeInTitle: 'In cosa sono specializzato?',
     message:
       'Ciao, sono un fullstack developer, amo programmare e sono sempre alla ricerca di nuove sfide.',
   },
