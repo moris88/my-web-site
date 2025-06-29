@@ -26,7 +26,7 @@ if [ ${#DIFF} -gt $MAX_LENGTH ]; then
   exit 0
 fi
 
-PROMPT_FILE="gemini_instructions.md"
+PROMPT_FILE="scripts/gemini_instructions.md"
 if [ ! -f "$PROMPT_FILE" ]; then
   echo "::warning file=$PROMPT_FILE::Prompt file not found, using default prompt."
   PROMPT="You are an expert developer performing a code review of the following diff:\n$DIFF"
