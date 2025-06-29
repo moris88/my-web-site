@@ -1,0 +1,108 @@
+name: Gemini Code Review
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR Diff
+        id: get_diff
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          BASE_REF=${{ github.event.pull_request.base.sha }}
+          HEAD_REF=${{ github.event.pull_request.head.sha }}
+          DIFF=$(git diff $BASE_REF $HEAD_REF)
+
+          if [ -z "$DIFF" ]; then
+            echo "::warning::Nessun diff trovato per questa PR. La review di Gemini verrà saltata."
+            echo "diff_output=" >> $GITHUB_OUTPUT
+          else
+            echo "diff_output<<EOF" >> $GITHUB_OUTPUT
+            echo "$DIFF" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+
+      - name: Read Gemini Prompt from File
+        id: read_prompt_file
+        run: |
+          PROMPT_FILE="review/copilot-instructions.md" # O il tuo percorso: es. .github/PROMPT.md
+          if [ -f "$PROMPT_FILE" ]; then
+            PROMPT_CONTENT=$(cat "$PROMPT_FILE")
+            echo "prompt_content<<EOF" >> $GITHUB_OUTPUT
+            echo "$PROMPT_CONTENT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "::warning file=$PROMPT_FILE::File del prompt non trovato. Verrà utilizzato un prompt predefinito."
+            echo "prompt_content=Esegui una code review del seguente diff. Identifica potenziali bug, miglioramenti di performance, chiarezza del codice, aderenza a best practice e suggerisci test mancanti. Fornisci i tuoi suggerimenti in un formato conciso e leggibile." >> $GITHUB_OUTPUT
+          fi
+
+      - name: Delete Previous Gemini Review Comments
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request.number;
+            const botName = 'github-actions[bot]';
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number: prNumber,
+            });
+
+            for (const comment of comments) {
+              if (comment.user.login === botName && comment.body.includes('')) {
+                console.log(`Deleting comment ID: ${comment.id}`);
+                await github.rest.issues.deleteComment({
+                  owner,
+                  repo,
+                  comment_id: comment.id,
+                });
+              }
+            }
+
+      - name: Run Gemini Review Script (Bash)
+        id: gemini_review
+        env:
+          # Passa l'URL del servizio come variabile d'ambiente allo script Bash
+          GEMINI_REVIEW_SERVICE_URL: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${{ secrets.GEMINI_API_KEY }}"
+        run: |
+          # Ottieni i valori dagli output degli step precedenti
+          PR_DIFF_ESCAPED=$(printf "%s" "${{ steps.get_diff.outputs.diff_output }}" | sed 's/"/\\"/g' | tr -d '\n')
+          GEMINI_PROMPT_ESCAPED=$(printf "%s" "${{ steps.read_prompt_file.outputs.prompt_content }}" | sed 's/"/\\"/g' | tr -d '\n')
+
+          # Assicurati che lo script Bash sia eseguibile
+          chmod +x review_script.sh
+
+          # Esegui lo script Bash passando diff e prompt come argomenti
+          # L'output dello script verrà catturato in review_comment
+          ./review/gemini_review_script.sh "$PR_DIFF_ESCAPED" "$GEMINI_PROMPT_ESCAPED" >> "$GITHUB_OUTPUT"
+
+      - name: Add New Gemini Review Comment to PR
+        uses: actions/github-script@v7
+        # Esegui questo step solo se lo script ha prodotto un commento e lo step precedente è stato un successo
+        if: success() && steps.gemini_review.outputs.review_comment != ''
+        with:
+          script: |
+            const comment = `${{ steps.gemini_review.outputs.review_comment }}`;
+            const prNumber = context.payload.pull_request.number;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: comment
+            });
