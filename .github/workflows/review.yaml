@@ -29,28 +29,24 @@ jobs:
                 echo "::warning::No diff found for this PR. Gemini review will be skipped."
                 echo "diff_output=" >> "$GITHUB_OUTPUT"
             else
-                {
-                echo "diff_output<<EOF"
-                echo "$DIFF"
-                echo "EOF"
-                } >> "$GITHUB_OUTPUT"
+                echo "diff_output<<EOF" >> "$GITHUB_OUTPUT"
+                echo "$DIFF" >> "$GITHUB_OUTPUT"
+                echo "EOF" >> "$GITHUB_OUTPUT"
             fi
 
       - name: Read Gemini Prompt from File
         id: read_prompt_file
         run: |
-            PROMPT_FILE="review/gemini_instructions.md"
-            if [ -f "$PROMPT_FILE" ]; then
-            PROMPT_CONTENT=$(cat "$PROMPT_FILE")
-            {
-                echo "prompt_content<<EOF"
-                echo "$PROMPT_CONTENT"
-                echo "EOF"
-            } >> "$GITHUB_OUTPUT"
-            else
-            echo "::warning file=$PROMPT_FILE::Prompt file not found. Using default prompt."
-            echo "prompt_content=Perform a code review of the following diff. Identify potential bugs, performance improvements, code clarity, adherence to best practices, and suggest missing tests. Provide your suggestions in a concise and readable format." >> "$GITHUB_OUTPUT"
-            fi
+              PROMPT_FILE="review/gemini_instructions.md"
+              if [ -f "$PROMPT_FILE" ]; then
+                echo "prompt_content<<EOF" >> "$GITHUB_OUTPUT"
+                cat "$PROMPT_FILE" >> "$GITHUB_OUTPUT"
+                echo "EOF" >> "$GITHUB_OUTPUT"
+              else
+                echo "::warning file=$PROMPT_FILE::Prompt file not found. Using default prompt."
+                echo "prompt_content=Perform a code review of the following diff. Identify potential bugs, performance improvements, code clarity, adherence to best practices, and suggest missing tests. Provide your suggestions in a concise and readable format." >> "$GITHUB_OUTPUT"
+              fi
+          
 
       - name: Delete Previous Gemini Review Comments
         uses: actions/github-script@v7
