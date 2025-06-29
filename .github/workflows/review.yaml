@@ -20,32 +20,37 @@ jobs:
       - name: Get PR Diff
         id: get_diff
         run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          BASE_REF=${{ github.event.pull_request.base.sha }}
-          HEAD_REF=${{ github.event.pull_request.head.sha }}
-          DIFF=$(git diff "$BASE_REF" "$HEAD_REF")
-
-          if [ -z "$DIFF" ]; then
-            echo "::warning::No diff found for this PR. Gemini review will be skipped."
-            echo "diff_output=" >> "$GITHUB_OUTPUT"
-          else
-            # Using printf and a here-string for robust multi-line output
-            # This avoids potential issues with `echo` and complex strings
-            printf "diff_output<<EOF_DIFF\n%s\nEOF_DIFF\n" "$DIFF" >> "$GITHUB_OUTPUT"
-          fi
+            PR_NUMBER=${{ github.event.pull_request.number }}
+            BASE_REF=${{ github.event.pull_request.base.sha }}
+            HEAD_REF=${{ github.event.pull_request.head.sha }}
+            DIFF=$(git diff "$BASE_REF" "$HEAD_REF")
+        
+            if [ -z "$DIFF" ]; then
+                echo "::warning::No diff found for this PR. Gemini review will be skipped."
+                echo "diff_output=" >> "$GITHUB_OUTPUT"
+            else
+                {
+                echo "diff_output<<EOF"
+                echo "$DIFF"
+                echo "EOF"
+                } >> "$GITHUB_OUTPUT"
+            fi
 
       - name: Read Gemini Prompt from File
         id: read_prompt_file
         run: |
-          PROMPT_FILE="review/gemini_instructions.md"
-          if [ -f "$PROMPT_FILE" ]; then
+            PROMPT_FILE="review/gemini_instructions.md"
+            if [ -f "$PROMPT_FILE" ]; then
             PROMPT_CONTENT=$(cat "$PROMPT_FILE")
-            # Using printf and a here-string for robust multi-line output
-            printf "prompt_content<<EOF_PROMPT\n%s\nEOF_PROMPT\n" "$PROMPT_CONTENT" >> "$GITHUB_OUTPUT"
-          else
+            {
+                echo "prompt_content<<EOF"
+                echo "$PROMPT_CONTENT"
+                echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+            else
             echo "::warning file=$PROMPT_FILE::Prompt file not found. Using default prompt."
             echo "prompt_content=Perform a code review of the following diff. Identify potential bugs, performance improvements, code clarity, adherence to best practices, and suggest missing tests. Provide your suggestions in a concise and readable format." >> "$GITHUB_OUTPUT"
-          fi
+            fi
 
       - name: Delete Previous Gemini Review Comments
         uses: actions/github-script@v7
