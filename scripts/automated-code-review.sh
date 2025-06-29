@@ -11,7 +11,6 @@ git fetch origin "$HEAD_BRANCH"
 git checkout "$HEAD_BRANCH"
 
 DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH")
-FILTERED_DIFF=$(echo "$DIFF" | sed -E 's/(API_KEY|SECRET|PASSWORD)=.*/\1=***REDACTED***/g')
 
 if [ -z "$FILTERED_DIFF" ]; then
   echo "No differences found between $BASE_BRANCH and $HEAD_BRANCH."
@@ -20,9 +19,9 @@ if [ -z "$FILTERED_DIFF" ]; then
 fi
 
 MAX_LENGTH=50000
-if [ ${#FILTERED_DIFF} -gt $MAX_LENGTH ]; then
-  echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review."
-  echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review." > review.txt
+if [ ${#DIFF} -gt $MAX_LENGTH ]; then
+  echo "Diff too large (${#DIFF} chars), skipping automated review."
+  echo "Diff too large (${#DIFF} chars), skipping automated review." > review.txt
   echo "{}" > full_response.json
   exit 0
 fi
@@ -30,9 +29,9 @@ fi
 PROMPT_FILE="scripts/gemini_instructions.md"
 if [ ! -f "$PROMPT_FILE" ]; then
   echo "::warning file=$PROMPT_FILE::Prompt file not found, using default prompt."
-  PROMPT="You are an expert developer performing a code review of the following diff:\n$FILTERED_DIFF"
+  PROMPT="You are an expert developer performing a code review of the following diff:\n$DIFF\nPlease provide a detailed review, including potential issues, improvements, and best practices."
 else
-  export FILTERED_DIFF  # rende la variabile disponibile a `envsubst`
+  export DIFF  # rende la variabile disponibile a `envsubst`
   PROMPT=$(envsubst '$DIFF' < "$PROMPT_FILE")
 fi
 
