@@ -10,18 +10,19 @@ git fetch origin "$BASE_BRANCH"
 git fetch origin "$HEAD_BRANCH"
 git checkout "$HEAD_BRANCH"
 
-DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH")
+DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH" -- src/)
+FILTERED_DIFF=$(echo "$DIFF" | sed -E 's/(API_KEY|SECRET|PASSWORD)=.*/\1=***REDACTED***/g')
 
-if [ -z "$DIFF" ]; then
+if [ -z "$FILTERED_DIFF" ]; then
   echo "No differences found between $BASE_BRANCH and $HEAD_BRANCH."
   echo "## Code Review Report\nNo changes detected." > review.txt
   exit 0
 fi
 
 MAX_LENGTH=10000
-if [ ${#DIFF} -gt $MAX_LENGTH ]; then
-  echo "Diff too large (${#DIFF} chars), skipping automated review."
-  echo "Diff too large (${#DIFF} chars), skipping automated review." > review.txt
+if [ ${#FILTERED_DIFF} -gt $MAX_LENGTH ]; then
+  echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review."
+  echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review." > review.txt
   echo "{}" > full_response.json
   exit 0
 fi
@@ -29,9 +30,9 @@ fi
 PROMPT_FILE="scripts/gemini_instructions.md"
 if [ ! -f "$PROMPT_FILE" ]; then
   echo "::warning file=$PROMPT_FILE::Prompt file not found, using default prompt."
-  PROMPT="You are an expert developer performing a code review of the following diff:\n$DIFF"
+  PROMPT="You are an expert developer performing a code review of the following diff:\n$FILTERED_DIFF"
 else
-  export DIFF  # rende la variabile disponibile a `envsubst`
+  export FILTERED_DIFF  # rende la variabile disponibile a `envsubst`
   PROMPT=$(envsubst '$DIFF' < "$PROMPT_FILE")
 fi
 
@@ -50,7 +51,7 @@ PAYLOAD=$(jq -nc --arg prompt "$ESCAPED_PROMPT" '
   ],
 }')
 
-FULL_RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}" \
+FULL_RESPONSE=$(curl --fail --max-time 15 --connect-timeout 5 --retry 2 --retry-delay 2 -s -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}" \
   -H "Content-Type: application/json" \
   -d "$PAYLOAD")
 
