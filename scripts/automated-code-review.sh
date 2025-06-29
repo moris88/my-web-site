@@ -10,7 +10,7 @@ git fetch origin "$BASE_BRANCH"
 git fetch origin "$HEAD_BRANCH"
 git checkout "$HEAD_BRANCH"
 
-DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH" -- .)
+DIFF=$(git diff origin/"$BASE_BRANCH"...origin/"$HEAD_BRANCH")
 FILTERED_DIFF=$(echo "$DIFF" | sed -E 's/(API_KEY|SECRET|PASSWORD)=.*/\1=***REDACTED***/g')
 
 if [ -z "$FILTERED_DIFF" ]; then
