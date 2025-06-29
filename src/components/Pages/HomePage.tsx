@@ -8,7 +8,7 @@ import parse from 'html-react-parser'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useRouter } from 'next/navigation'
-import { UniqueButton, TypingEffect } from '@/components'
+import { UniqueButton, TypingEffect, SkillItem } from '@/components'
 import { generateUniqueId } from '@/utils'
 import { twMerge } from 'tailwind-merge'
 
@@ -104,20 +104,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
           className="mb-10 flex flex-col items-center justify-center gap-2 lg:flex-row"
           data-aos="fade-up"
         >
-          {info.primary_skills.map(({ link, img }) => (
-            <div
-              key={generateUniqueId()}
-              className="flex max-h-full min-h-20 flex-row items-center justify-center gap-2 lg:max-h-20 lg:flex-col"
-            >
-              <Link isExternal href={link.url}>
-                <img
-                  alt={img.alt}
-                  className="duration-600 h-auto w-full max-w-8 rounded-xl object-cover drop-shadow-lg transition-all ease-in-out hover:max-w-20 lg:max-w-12"
-                  src={img.src}
-                />
-              </Link>
-              <p className="select-none">{img.alt}</p>
-            </div>
+          {info.primary_skills.map(({ link, img }, index) => (
+            <SkillItem key={`skill-${index}`} img={img} link={link} />
           ))}
         </div>
       </div>
