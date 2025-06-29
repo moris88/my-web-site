@@ -73,23 +73,25 @@ jobs:
                 });
               }
             }
-
       - name: Run Gemini Review Script (Bash)
         id: gemini_review
         env:
-          # Passa l'URL del servizio come variabile d'ambiente allo script Bash
-          GEMINI_REVIEW_SERVICE_URL: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${{ secrets.GEMINI_API_KEY }}"
+            # Passa direttamente la GEMINI_API_KEY come variabile d'ambiente allo script Bash
+            GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          # Ottieni i valori dagli output degli step precedenti
-          PR_DIFF_ESCAPED=$(printf "%s" "${{ steps.get_diff.outputs.diff_output }}" | sed 's/"/\\"/g' | tr -d '\n')
-          GEMINI_PROMPT_ESCAPED=$(printf "%s" "${{ steps.read_prompt_file.outputs.prompt_content }}" | sed 's/"/\\"/g' | tr -d '\n')
+            PR_DIFF="${{ steps.get_diff.outputs.diff_output }}"
+            GEMINI_PROMPT="${{ steps.read_prompt_file.outputs.prompt_content }}"
 
-          # Assicurati che lo script Bash sia eseguibile
-          chmod +x review_script.sh
+            TEMP_DIFF_FILE=$(mktemp)
+            TEMP_PROMPT_FILE=$(mktemp)
 
-          # Esegui lo script Bash passando diff e prompt come argomenti
-          # L'output dello script verrà catturato in review_comment
-          ./review/gemini_review_script.sh "$PR_DIFF_ESCAPED" "$GEMINI_PROMPT_ESCAPED" >> "$GITHUB_OUTPUT"
+            echo "$PR_DIFF" > "$TEMP_DIFF_FILE"
+            echo "$GEMINI_PROMPT" > "$TEMP_PROMPT_FILE"
+
+            chmod +x review_script.sh
+            ./review/gemini_review_script.sh "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE" >> "$GITHUB_OUTPUT"
+
+            rm "$TEMP_DIFF_FILE" "$TEMP_PROMPT_FILE"
 
       - name: Add New Gemini Review Comment to PR
         uses: actions/github-script@v7

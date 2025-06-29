@@ -1,31 +1,40 @@
 #!/bin/bash
 
-# Abilita il tracciamento degli errori
+# Abilita il tracciamento degli errori e l'uscita in caso di errore
 set -e
 
-# Recupera il diff e il prompt dagli argomenti passati allo script
-# $1 sarà il diff, $2 sarà il prompt
-PR_DIFF="$1"
-GEMINI_PROMPT="$2"
+# Recupera i PERCORSI dei file temporanei dagli argomenti
+# $1 sarà il percorso al file del diff, $2 sarà il percorso al file del prompt
+DIFF_FILE_PATH="$1"
+PROMPT_FILE_PATH="$2"
 
-# URL del tuo servizio intermedio Gemini (presa dalle variabili d'ambiente)
+# Leggi il contenuto dei file
+PR_DIFF=$(cat "$DIFF_FILE_PATH")
+GEMINI_PROMPT=$(cat "$PROMPT_FILE_PATH")
+
+# Recupera l'URL del servizio Gemini e la SERVICE_API_KEY dalle variabili d'ambiente
 GEMINI_SERVICE_URL="$GEMINI_REVIEW_SERVICE_URL"
+SERVICE_API_KEY="$SERVICE_API_KEY"
 
 if [ -z "$GEMINI_SERVICE_URL" ]; then
-    echo "Errore: GEMINI_REVIEW_SERVICE_URL non configurato." >&2 # Stampa su stderr
+    echo "Errore: GEMINI_REVIEW_SERVICE_URL non configurato." >&2
+    exit 1
+fi
+
+if [ -z "$SERVICE_API_KEY" ]; then
+    echo "Errore: SERVICE_API_KEY non configurato nel secret di GitHub Actions." >&2
+    echo "review_comment=\n**Errore:** API Key di servizio non configurata."
     exit 1
 fi
 
 if [ -z "$PR_DIFF" ]; then
     echo "Nessun diff fornito, saltando la review di Gemini." >&2
-    # Stampa un output vuoto per review_comment per non creare il commento
     echo "review_comment="
     exit 0
 fi
 
 # Prepara il payload JSON da inviare al tuo servizio intermedio
-# Usiamo `jq` per creare il JSON in modo sicuro e gestire l'escape dei caratteri
-# Nota: `jq` deve essere disponibile sul runner, ma è preinstallato su Ubuntu runners.
+# jq gestisce automaticamente l'escape dei contenuti di $PR_DIFF e $GEMINI_PROMPT
 PAYLOAD=$(jq -n \
             --arg diff "$PR_DIFF" \
             --arg prompt "$GEMINI_PROMPT" \
@@ -37,9 +46,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Effettua la chiamata POST al tuo servizio intermedio usando `curl`
-# `-s` per la modalità silenziosa, `-f` per fallire in caso di errore HTTP
-RESPONSE=$(curl -s -f -X POST -H "Content-Type: application/json" \
+# Effettua la chiamata POST con l'header X-API-Key
+RESPONSE=$(curl -s -f -X POST \
+                -H "Content-Type: application/json" \
+                -H "X-API-Key: $SERVICE_API_KEY" \
                 -d "$PAYLOAD" \
                 "$GEMINI_SERVICE_URL")
 
@@ -47,18 +57,20 @@ CURL_EXIT_CODE=$?
 
 if [ $CURL_EXIT_CODE -ne 0 ]; then
     echo "Errore durante la chiamata al servizio Gemini (codice curl: $CURL_EXIT_CODE)." >&2
-    # In caso di errore HTTP o di rete, stampa un commento di errore
     ERROR_COMMENT="**Errore durante la review di Gemini:**
 Non è stato possibile ottenere una review a causa di un problema di comunicazione con il servizio Gemini.
 Codice di errore CURL: \`$CURL_EXIT_CODE\`
 "
+    if [ $CURL_EXIT_CODE -eq 22 ] && echo "$RESPONSE" | jq -e '.error' > /dev/null; then
+        API_ERROR_MESSAGE=$(echo "$RESPONSE" | jq -r '.error')
+        ERROR_COMMENT+="Dettagli: \`$API_ERROR_MESSAGE\`"
+    fi
     echo "review_comment<<EOF"
     echo "$ERROR_COMMENT"
     echo "EOF"
     exit 1
 fi
 
-# Estrai il commento di review dalla risposta JSON usando `jq`
 REVIEW_COMMENT=$(echo "$RESPONSE" | jq -r '.review_comment // "Nessun commento di review ricevuto dal servizio Gemini."')
 
 if [ $? -ne 0 ]; then
@@ -72,11 +84,8 @@ Il servizio Gemini ha restituito una risposta non valida o incompleta.
     exit 1
 fi
 
-# Aggiungiamo il marcatore HTML all'inizio del commento
 FINAL_REVIEW_COMMENT="$REVIEW_COMMENT"
 
-# Stampa il risultato su stdout. GitHub Actions catturerà questo output.
-# L'output verrà poi accessibile tramite steps.gemini_review.outputs.review_comment
 echo "review_comment<<EOF"
 echo "$FINAL_REVIEW_COMMENT"
 echo "EOF"
