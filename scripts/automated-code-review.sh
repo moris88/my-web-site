@@ -19,7 +19,7 @@ if [ -z "$FILTERED_DIFF" ]; then
   exit 0
 fi
 
-MAX_LENGTH=10000
+MAX_LENGTH=50000
 if [ ${#FILTERED_DIFF} -gt $MAX_LENGTH ]; then
   echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review."
   echo "Diff too large (${#FILTERED_DIFF} chars), skipping automated review." > review.txt
