@@ -31,11 +31,13 @@ if [ ! -f "$PROMPT_FILE" ]; then
   echo "::warning file=$PROMPT_FILE::Prompt file not found, using default prompt."
   PROMPT="You are an expert developer performing a code review of the following diff:\n$DIFF"
 else
-  PROMPT=$(sed "s|\$DIFF|$DIFF|g" "$PROMPT_FILE")
+  export DIFF  # rende la variabile disponibile a `envsubst`
+  PROMPT=$(envsubst '$DIFF' < "$PROMPT_FILE")
 fi
 
+ESCAPED_PROMPT=$(printf '%s' "$PROMPT" | jq -Rs .)
 # Prepare JSON payload for Gemini API (esempio generico, adattare secondo doc Gemini)
-PAYLOAD=$(jq -nc --arg prompt "$PROMPT" '
+PAYLOAD=$(jq -nc --arg prompt "$ESCAPED_PROMPT" '
 {
   "contents": [
     {
