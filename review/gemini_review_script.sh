@@ -21,12 +21,6 @@ if [ -z "$GEMINI_SERVICE_URL" ]; then
     exit 1
 fi
 
-if [ -z "$SERVICE_API_KEY" ]; then
-    echo "Errore: SERVICE_API_KEY non configurato nel secret di GitHub Actions." >&2
-    echo "review_comment=\n**Errore:** API Key di servizio non configurata."
-    exit 1
-fi
-
 if [ -z "$PR_DIFF" ]; then
     echo "Nessun diff fornito, saltando la review di Gemini." >&2
     echo "review_comment="
@@ -49,7 +43,6 @@ fi
 # Effettua la chiamata POST con l'header X-API-Key
 RESPONSE=$(curl -s -f -X POST \
                 -H "Content-Type: application/json" \
-                -H "X-API-Key: $SERVICE_API_KEY" \
                 -d "$PAYLOAD" \
                 "$GEMINI_SERVICE_URL")
 
