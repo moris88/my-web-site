@@ -8,7 +8,7 @@ import parse from 'html-react-parser'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useRouter } from 'next/navigation'
-import { UniqueButton, TypingEffect } from '@/components'
+import { UniqueButton, TypingEffect, SkillItem } from '@/components'
 import { generateUniqueId } from '@/utils'
 import { twMerge } from 'tailwind-merge'
 
@@ -47,7 +47,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
             >
               <img
                 alt="avatar"
-                className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[500px] md:w-[500px]"
+                className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
                 src="/avatar.webp"
               />
             </Tooltip>
@@ -77,31 +77,35 @@ function HomePage({ dict, info, language }: HomePageProps) {
       <div className="container flex flex-col items-center justify-center gap-4">
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />
-          <p className="italic">{dict.home.title}</p>
+          <p className="italic">{dict.home.whoAmITitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
           <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-            {parse(info?.description?.[language] ?? '')}
+            {parse(info?.description1?.[language] ?? '')}
           </div>
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">
           <Divider className="my-5 max-w-10" />
-          <p className="italic">{dict.home.subtitle}</p>
+          <p className="italic">{dict.home.whatIDoTitle}</p>
+          <Divider className="my-5 max-w-10" />
+        </div>
+        <div className="flex w-full justify-center" data-aos="fade-up">
+          <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
+            {parse(info?.description2?.[language] ?? '')}
+          </div>
+        </div>
+        <div className="my-10 flex flex-col items-center justify-center gap-2">
+          <Divider className="my-5 max-w-10" />
+          <p className="italic">{dict.home.whatISpecializeInTitle}</p>
           <Divider className="my-5 max-w-10" />
         </div>
         <div
-          className="mb-10 flex flex-row items-center justify-center gap-2"
+          className="mb-10 flex flex-col items-center justify-center gap-2 lg:flex-row"
           data-aos="fade-up"
         >
-          {info.primary_skills.map(({ link, img }) => (
-            <Link key={generateUniqueId()} isExternal href={link.url}>
-              <img
-                alt={img.alt}
-                className="h-auto w-8 rounded-xl drop-shadow-lg lg:w-32"
-                src={img.src}
-              />
-            </Link>
+          {info.primary_skills.map(({ link, img }, index) => (
+            <SkillItem key={`skill-${index}`} img={img} link={link} />
           ))}
         </div>
       </div>

@@ -18,6 +18,23 @@
                     "TailwindCSS",
                     "Vitejs"
                 ]
+            },
+            {
+                "id": 2,
+                "title": "Conteggio Consumo Acqua Condominio",
+                "description": "Questa applicazione è stata sviluppata per semplificare la gestione del consumo di acqua in un condominio. Consente di registrare e monitorare i consumi di acqua per ogni appartamento, facilitando la suddivisione delle spese tra i condomini. L'applicazione è realizzata con React, TypeScript, Vite.js e Tailwind CSS, garantendo un'interfaccia utente moderna e reattiva.",
+                "image": {
+                    "src": "/projects/2.webp",
+                    "alt": "Conteggio Consumo Acqua Condominio App"
+                },
+                "url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+                "github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "TailwindCSS",
+                    "Vitejs"
+                ]
             }
         ],
         "en": [
@@ -35,6 +52,23 @@
                     "React",
                     "Typescript",
                     "HeroUI",
+                    "TailwindCSS",
+                    "Vitejs"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Water Consumption Tracking App",
+                "description": "This application was developed to simplify the management of water consumption in a condominium. It allows users to record and monitor water usage for each apartment, facilitating the division of expenses among residents. The app is built with React, TypeScript, Vite.js, and Tailwind CSS, ensuring a modern and responsive user interface.",
+                "image": {
+                    "src": "/projects/2.webp",
+                    "alt": "Water Consumption Tracking App"
+                },
+                "url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+                "github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
+                "tags": [
+                    "React",
+                    "Typescript",
                     "TailwindCSS",
                     "Vitejs"
                 ]

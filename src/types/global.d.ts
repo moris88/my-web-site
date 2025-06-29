@@ -4,7 +4,11 @@ export type Theme = 'light' | 'dark'
 export interface Info {
   name: string
   job: string
-  description: {
+  description1: {
+    it: string
+    en: string
+  }
+  description2: {
     it: string
     en: string
   }
