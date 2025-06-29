@@ -15,7 +15,7 @@ FILTERED_DIFF=$(echo "$DIFF" | sed -E 's/(API_KEY|SECRET|PASSWORD)=.*/\1=***REDA
 
 if [ -z "$FILTERED_DIFF" ]; then
   echo "No differences found between $BASE_BRANCH and $HEAD_BRANCH."
-  echo "## Code Review Report\nNo changes detected." > review.txt
+  echo "## Code Review Report, No changes detected." > review.txt
   exit 0
 fi
 
