@@ -8,6 +8,7 @@ import jsonLinks from '@/data/links.json'
 import jsonSkills from '@/data/skills.json'
 import jsonProjects from '@/data/projects.json'
 import jsonBlog from '@/data/blog.json'
+import jsonQuiz from '@/data/quiz.json'
 import {
   Blog,
   Contact,
@@ -16,6 +17,7 @@ import {
   Info,
   Language,
   Project,
+  QuizQuestion,
   Skills,
   StoreLink,
 } from '@/types'
@@ -50,4 +52,8 @@ export async function getProjects(language: Language) {
 
 export async function getBlog(language: Language) {
   return jsonBlog[language] as Blog
+}
+
+export async function getQuiz() {
+  return jsonQuiz as { quiz: QuizQuestion[] }
 }
