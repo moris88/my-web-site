@@ -139,3 +139,32 @@ export interface Project {
   }
   tags: string[]
 }
+
+export type DeveloperCategory =
+  | 'frontend'
+  | 'backend'
+  | 'fullstack'
+  | 'desktop'
+  | 'mobile'
+  | 'database'
+
+export interface DeveloperProfile {
+  title: string
+  shortLabel: string
+  description: string
+  reasons: string[]
+}
+
+export interface QuizQuestion {
+  question: {
+    it: string
+    en: string
+  }
+  answers: {
+    text: {
+      it: string
+      en: string
+    }
+    points: Partial<Record<DeveloperCategory, number>>
+  }[]
+}
