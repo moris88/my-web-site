@@ -1,4 +1,4 @@
-# Mi sito personale
+# Mio sito personale
 
 ## Descrizione
 
