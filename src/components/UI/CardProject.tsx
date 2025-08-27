@@ -21,7 +21,7 @@ function CardProject({ project, onClick }: CardProjectProps) {
       onClick={handleOnClick}
     >
       <div className="flex min-h-20 flex-col items-start gap-y-2">
-        {image.src ? (
+        {image?.src ? (
           <img
             alt={image.alt}
             className="h-40 w-full rounded-lg object-cover object-top"

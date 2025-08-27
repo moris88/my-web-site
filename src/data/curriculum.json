@@ -3,15 +3,23 @@
         "experiences": [
             {
                 "company": "CRMPartners S.R.L.",
-                "role": "Web Developer",
+                "role": "Web Developer - Frontend",
                 "start": "27/12/2021",
                 "end": null,
-                "description": "Stack: tailwind, docker, aws, scss, redux",
+                "description": "Stack: express, tailwind, docker, aws, scss, redux, advanced react; Piattaforme: zoho, freshworks, zendesk; Metodologie: agile",
                 "link": "https://www.crmpartners.it/"
             },
             {
+                "company": "Epicode",
+                "role": "Ambassador",
+                "start": "2023",
+                "end": null,
+                "description": "Promotore e rappresentante di Epicode School, con il compito di diffondere la conoscenza della scuola e dei suoi corsi, nonché di supportare gli studenti durante il loro percorso formativo.",
+                "link": "https://epicode.com/it/opinioni-e-recensioni/"
+            },
+            {
                 "company": "CRMPartners S.R.L.",
-                "role": "Web Developer",
+                "role": "Junior Web Developer",
                 "start": "17/05/2021",
                 "end": "24/12/2021",
                 "description": "Stack: deluge, java, react; Piattaforme: zoho, freshworks, zendesk",
@@ -21,7 +29,7 @@
         "education": [
             {
                 "institution": "Epicode School",
-                "role": "student,ambassador",
+                "role": "student",
                 "start": "18/01/2021",
                 "end": "16/04/2021",
                 "description": "Stack: javascript, typescript, angular, php, laravel, html, css, bootstrap",
@@ -31,7 +39,7 @@
                 "institution": "Università degli Studi di Bari",
                 "role": "student",
                 "start": "01/10/2013",
-                "end": "01/12/2017",
+                "end": "01/12/2016",
                 "description": "Facoltà di informatica; Stack: java, c, c++, sql, linux; Esami superati: reti, algoritmi, analisi matematica, calcolo numerico, database, programmazione, metodi avanzati di programmazione, linguaggi di programmazione, ingegneria del software, matematica discreta, sistemi operativi, architettura degli elaboratori",
                 "link": "https://epicode.com/"
             },
@@ -49,15 +57,23 @@
         "experience": [
             {
                 "company": "CRMPartners S.R.L.",
-                "role": "Web Developer",
+                "role": "Web Developer - Frontend",
                 "start": "27/12/2021",
                 "end": null,
-                "description": "tailwind, docker, aws, scss, agile, redux",
+                "description": "Stack: express, tailwind, docker, aws, scss, redux, advanced react; Platforms: zoho, freshworks, zendesk and google cloud; Methodologies: agile",
                 "link": "https://www.crmpartners.it/"
             },
             {
+                "company": "Epicode",
+                "role": "Ambassador",
+                "start": "2023",
+                "end": null,
+                "description": "Promoter and representative of Epicode School, with the task of spreading the knowledge of the school and its courses, as well as supporting students during their training path.",
+                "link": "https://epicode.com/it/opinioni-e-recensioni/"
+            },
+            {
                 "company": "CRMPartners S.R.L.",
-                "role": "Web Developer",
+                "role": "Junior Web Developer",
                 "start": "17/05/2021",
                 "end": "24/12/2021",
                 "description": "Stack: deluge, java, react; Platforms: zoho, freshworks, zendesk",
@@ -77,7 +93,7 @@
                 "institution": "University of Bari",
                 "role": "student",
                 "start": "01/10/2013",
-                "end": "01/12/2017",
+                "end": "01/12/2016",
                 "description": "Faculty of computer science; Stack: java, c, c++, sql, linux; Exams: networks, algorithms, mathematical analysis, numerical calculation, database, programming, advanced programming methods, programming languages, software engineering, discrete mathematics, operating systems, computer architecture",
                 "link": "https://epicode.com/"
             },
