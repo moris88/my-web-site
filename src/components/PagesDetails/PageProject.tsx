@@ -15,13 +15,14 @@ interface PageProjectProps {
 
 function PageProject({ dict, project }: PageProjectProps) {
   const router = useRouter()
+
   return (
     <>
       {project && (
         <SectionHero title={project.title}>
           <div className="flex flex-col gap-4 md:flex-row">
             <div className="w-full md:w-1/2">
-              {project.image.src ? (
+              {project.image?.src ? (
                 <img
                   alt={project.image.alt}
                   className="h-full w-full rounded-lg border border-gray-300"

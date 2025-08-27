@@ -157,8 +157,8 @@ const dictionary = {
   projects: {
     title: 'My Projects',
     project: {
-      link: 'Link webapp',
-      github: 'Link at repository',
+      link: 'Link webapp/package',
+      github: 'Link at github repository',
       buttons: {
         back: 'Done',
       },

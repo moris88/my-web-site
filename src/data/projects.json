@@ -35,6 +35,20 @@
                     "TailwindCSS",
                     "Vitejs"
                 ]
+            },
+            {
+                "id": 3,
+                "title": "Git Commit Helper IT",
+                "description": "Git Commit Helper IT è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che sfrutta l'intelligenza artificiale per assistere gli sviluppatori nella scrittura di messaggi di commit chiari e significativi. Utilizzando modelli di linguaggio avanzati, l'applicazione analizza le modifiche apportate al codice e suggerisce messaggi di commit appropriati, migliorando la comunicazione all'interno del team di sviluppo e facilitando la gestione del versionamento del codice.",
+                "image": null,
+                "url": "https://www.npmjs.com/package/git-commit-helper-it",
+                "github": "https://github.com/moris88/git-commit-helper",
+                "tags": [
+                    "Javascript",
+                    "AI",
+                    "Git",
+                    "CLI"
+                ]
             }
         ],
         "en": [
@@ -71,6 +85,20 @@
                     "Typescript",
                     "TailwindCSS",
                     "Vitejs"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Git Commit Helper IT",
+                "description": "Git Commit Helper IT is a Command Line Interface (CLI) application developed in JavaScript that leverages artificial intelligence to assist developers in writing clear and meaningful commit messages. By utilizing advanced language models, the application analyzes code changes and suggests appropriate commit messages, enhancing communication within the development team and facilitating code version management.",
+                "image": null,
+                "url": "https://www.npmjs.com/package/git-commit-helper-it",
+                "github": "https://github.com/moris88/git-commit-helper",
+                "tags": [
+                    "Javascript",
+                    "AI",
+                    "Git",
+                    "CLI"
                 ]
             }
         ]
