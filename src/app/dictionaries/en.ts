@@ -183,6 +183,85 @@ const dictionary = {
       'By checking the checkbox below, you agree to the following terms and conditions. The pdf is provided for personal use only. I authorize the processing of personal data contained in this curriculum vitae in accordance with art. 13 of Legislative Decree 196/2003 and art. 13 of the European Regulation UE 2016/679 on the protection of natural persons with regard to the processing of personal data. You may not use the data for commercial or illegal purposes. All content, including text, images and logos, is protected by copyright and may not be reproduced without my consent. You undertake not to disclose confidential information that you may obtain through this pdf, including my personal data. These Terms and Conditions are governed by Italian law and any dispute will be resolved before a court.',
     cancel: 'Cancel',
   },
+  quiz: {
+    popup: {
+      title: 'Quiz completed!',
+      message:
+        'Thanks for taking the quiz! You can retake it to explore other options.',
+      buttons: {
+        close: 'Take the quiz again',
+      },
+    },
+    label: 'Why it suits you:',
+    results: {
+      frontend: {
+        title: 'Frontend Developer',
+        shortLabel: 'User Interfaces and Web Design',
+        description:
+          'You enjoy designing what the user sees: beautiful, interactive, and responsive interfaces. You use HTML, CSS, JavaScript, and frameworks like React or Vue.',
+        reasons: [
+          'You prefer to see visual results immediately',
+          'You like working with layouts and design',
+          'You love creating intuitive user experiences',
+        ],
+      },
+      backend: {
+        title: 'Backend Developer',
+        shortLabel: 'Logic, APIs, and Data Management',
+        description:
+          'You take care of the logic that makes an app work: servers, security, APIs, databases. You write efficient and secure code in languages like Python, Java, or PHP.',
+        reasons: [
+          'You prefer working with data and logic',
+          'You are interested in security and scalability',
+          'You love building robust APIs and systems',
+        ],
+      },
+      fullstack: {
+        title: 'Full-stack Developer',
+        shortLabel: 'Frontend + Backend = Full Power',
+        description:
+          'You can work on both frontend and backend: you build complete applications, know databases, APIs, user interfaces, and the entire development cycle.',
+        reasons: [
+          'You like having a complete view of the project',
+          'You don’t want to limit yourself to just one area',
+          'You love being versatile and independent',
+        ],
+      },
+      desktop: {
+        title: 'Desktop Software Developer',
+        shortLabel: 'Computer Applications',
+        description:
+          'You develop software that runs on Windows or Mac, even offline. You use languages like C#, Java, or C++, and manage interfaces, files, and local devices.',
+        reasons: [
+          'You are interested in apps installable on PCs',
+          'You enjoy working with logic and graphical interfaces',
+          'You want to create complete and standalone programs',
+        ],
+      },
+      mobile: {
+        title: 'Mobile Developer',
+        shortLabel: 'Apps for Smartphones and Tablets',
+        description:
+          'You build apps for Android or iOS that interact with the camera, notifications, GPS. You use Flutter, Kotlin, Swift, or React Native.',
+        reasons: [
+          'You love mobile apps and touch-based design',
+          'You like leveraging smartphone features',
+          'You want to be present in app stores',
+        ],
+      },
+      database: {
+        title: 'Database Specialist',
+        shortLabel: 'Data Management and Architecture',
+        description:
+          'You design, optimize, and manage databases. You write queries, create efficient data structures, and ensure data integrity and security.',
+        reasons: [
+          'You like working with data and logical structures',
+          'You love writing complex queries and optimizing performance',
+          'You are interested in data management and analysis',
+        ],
+      },
+    },
+  },
 }
 
 export default dictionary

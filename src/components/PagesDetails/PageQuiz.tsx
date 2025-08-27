@@ -60,25 +60,26 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
   return (
     <div className="mx-auto max-w-xl p-4">
       {result && !stop && (
-        <QuizResultPopup category={result} onClose={resetQuiz} />
+        <QuizResultPopup category={result} dict={dict} onClose={resetQuiz} />
       )}
       {stop && (
-        <div className="rounded-xl bg-white p-6 shadow-md">
-          <h2 className="mb-4 text-xl font-semibold">Quiz completato!</h2>
-          <p className="mb-4 text-gray-700">
-            Grazie per aver partecipato! Puoi ripetere il quiz per esplorare
-            altre opzioni.
+        <div className="rounded-xl bg-white p-6 shadow-md dark:bg-gray-800">
+          <h2 className="mb-4 text-xl font-semibold">
+            {dict.quiz.popup.title}
+          </h2>
+          <p className="mb-4 text-gray-700 dark:text-white">
+            {dict.quiz.popup.message}
           </p>
           <button
             className="w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             onClick={() => setStop(false)}
           >
-            Ripeti il quiz
+            {dict.quiz.popup.buttons.close}
           </button>
         </div>
       )}
       {!result && !stop && (
-        <div className="rounded-xl bg-white p-6 shadow-md">
+        <div className="rounded-xl bg-white p-6 shadow-md dark:bg-gray-800">
           <h2 className="mb-4 text-xl font-semibold">
             {questions[step].question[language]}
           </h2>
@@ -87,7 +88,10 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
               <li key={i}>
                 <button
                   className="w-full rounded-md bg-blue-100 px-4 py-2 text-left text-blue-900 hover:bg-blue-200"
-                  onClick={() => handleAnswer(answer.points)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleAnswer(answer.points)
+                  }}
                 >
                   {answer.text[language]}
                 </button>

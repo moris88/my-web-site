@@ -183,6 +183,85 @@ const dictionary = {
       "Spuntando la checkbox in basso, l'utente accetta i seguenti termini e condizioni. Il pdf è fornito esclusivamente per uso personale. Autorizzo il trattamento dei dati personali contenuto in questo curriculum vitae in base all'art. 13 del D.Lgs. 196/2003 e all'art 13 del Regolamento Europeo UE 2016/679 relativo alla protezione delle persone fisiche. Ti impegni a non divulgare informazioni riservate che potresti ottenere tramite questo pdf, inclusi i miei dati personali. Questi Termini e Condizioni sono regolati dalle leggi italiane e ogni controversia sarà risolta dinanzi un tribunale.",
     cancel: 'Annulla',
   },
+  quiz: {
+    popup: {
+      title: 'Quiz completato!',
+      message:
+        'Grazie per aver partecipato! Puoi ripetere il quiz per esplorare altre opzioni.',
+      buttons: {
+        close: 'Ripeti il quiz',
+      },
+    },
+    label: 'Perché ti si addice:',
+    results: {
+      frontend: {
+        title: 'Frontend Developer',
+        shortLabel: 'Interfacce utente e design web',
+        description:
+          'Ti piace progettare ciò che l’utente vede: interfacce belle, interattive e responsive. Usi HTML, CSS, JavaScript e framework come React o Vue.',
+        reasons: [
+          'Preferisci vedere subito i risultati visivi',
+          'Ti piace lavorare con layout e design',
+          'Ami creare esperienze utente intuitive',
+        ],
+      },
+      backend: {
+        title: 'Backend Developer',
+        shortLabel: 'Logica, API e gestione dati',
+        description:
+          "Ti occupi della logica che fa funzionare un'app: server, sicurezza, API, database. Scrivi codice efficiente e sicuro in linguaggi come Python, Java, PHP.",
+        reasons: [
+          'Preferisci lavorare con i dati e la logica',
+          'Ti interessa la sicurezza e la scalabilità',
+          'Ami costruire API e sistemi robusti',
+        ],
+      },
+      fullstack: {
+        title: 'Full-stack Developer',
+        shortLabel: 'Frontend + Backend = Potenza totale',
+        description:
+          'Sai muoverti sia nel frontend che nel backend: costruisci applicazioni complete, conosci database, API, interfacce utente e tutto il ciclo di sviluppo.',
+        reasons: [
+          'Ti piace avere una visione completa del progetto',
+          'Non vuoi limitarti a una sola area',
+          'Ami essere versatile e indipendente',
+        ],
+      },
+      desktop: {
+        title: 'Software Desktop Developer',
+        shortLabel: 'App per computer',
+        description:
+          'Sviluppi software che gira su Windows o Mac, anche offline. Usi linguaggi come C#, Java o C++, e gestisci interfacce, file, dispositivi locali.',
+        reasons: [
+          'Ti interessano le app installabili su PC',
+          'Ami lavorare con logica e interfacce grafiche',
+          'Vuoi creare programmi completi e autonomi',
+        ],
+      },
+      mobile: {
+        title: 'Mobile Developer',
+        shortLabel: 'App per smartphone e tablet',
+        description:
+          'Costruisci app per Android o iOS, che interagiscono con fotocamera, notifiche, GPS. Usi Flutter, Kotlin, Swift o React Native.',
+        reasons: [
+          'Ami le app mobili e il design touch',
+          'Ti piace sfruttare le funzionalità dello smartphone',
+          'Vuoi essere presente negli store di app',
+        ],
+      },
+      database: {
+        title: 'Database Specialist',
+        shortLabel: 'Gestione e architettura dei dati',
+        description:
+          'Progetti, ottimizzi e gestisci database. Scrivi query, crei strutture dati efficienti e garantisci integrità e sicurezza dei dati.',
+        reasons: [
+          'Ti piace lavorare con dati e strutture logiche',
+          'Ami scrivere query complesse e ottimizzare performance',
+          'Ti interessa la gestione e l’analisi dei dati',
+        ],
+      },
+    },
+  },
 }
 
 export default dictionary
