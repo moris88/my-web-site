@@ -1,16 +1,17 @@
 'use client'
 
-import React from 'react'
-import { Divider, Link, Tooltip } from '@heroui/react'
-import { Dictionary } from '@/app/dictionaries'
-import { Info, Language } from '@/types'
-import parse from 'html-react-parser'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
+
+import { Divider, Tooltip } from '@heroui/react'
+import AOS from 'aos'
+import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'
-import { UniqueButton, TypingEffect, SkillItem } from '@/components'
-import { generateUniqueId } from '@/utils'
+import React from 'react'
 import { twMerge } from 'tailwind-merge'
+
+import { Dictionary } from '@/app/dictionaries'
+import { SkillItem, TypingEffect, UniqueButton } from '@/components'
+import { Info, Language } from '@/types'
 
 interface HomePageProps {
   dict: Dictionary
@@ -53,7 +54,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
             </Tooltip>
           </div>
           <TypingEffect
-            className="select-none text-2xl text-white md:text-5xl"
+            className="text-2xl text-white select-none md:text-5xl"
             skip={!startSubTitle}
             speed={200}
             type="h1"
@@ -62,7 +63,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
             {info.name}
           </TypingEffect>
           <TypingEffect
-            className="select-none text-base text-white md:text-3xl"
+            className="text-base text-white select-none md:text-3xl"
             skip={startSubTitle}
             speed={200}
             type="h2"
@@ -81,8 +82,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
-          <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-            {parse(info?.description1?.[language] ?? '')}
+          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify select-none hover:shadow-lg hover:shadow-slate-500 md:p-5 dark:bg-slate-600">
+            {parse(info?.whoAmIDescription?.[language] ?? '')}
           </div>
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">
@@ -91,8 +92,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
-          <div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-600 md:p-5">
-            {parse(info?.description2?.[language] ?? '')}
+          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify select-none hover:shadow-lg hover:shadow-slate-500 md:p-5 dark:bg-slate-600">
+            {parse(info?.whatIDoDescription?.[language] ?? '')}
           </div>
         </div>
         <div className="my-10 flex flex-col items-center justify-center gap-2">

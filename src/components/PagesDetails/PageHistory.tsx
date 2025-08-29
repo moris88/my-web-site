@@ -1,11 +1,13 @@
 'use client'
 
-import { SectionHero } from '@/components/UI'
-import { History, Language } from '@/types'
-import React from 'react'
-import { useScreenDimensions } from '@/hooks'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
+
+import AOS from 'aos'
+import React from 'react'
+
+import { SectionHero } from '@/components/UI'
+import { useScreenDimensions } from '@/hooks'
+import { History, Language } from '@/types'
 
 interface PageHistoryProps {
   language: Language
@@ -45,7 +47,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
                   {item?.image && (
                     <img
                       alt={item.alt}
-                      className="min-w-96 max-w-96 rounded-lg object-cover object-center drop-shadow-lg"
+                      className="max-w-96 min-w-96 rounded-lg object-cover object-center drop-shadow-lg"
                       src={item.image}
                     />
                   )}
@@ -72,7 +74,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
                   {item?.image && (
                     <img
                       alt={item.alt}
-                      className="min-w-96 max-w-96 rounded-lg object-cover object-center drop-shadow-lg"
+                      className="max-w-96 min-w-96 rounded-lg object-cover object-center drop-shadow-lg"
                       src={item.image}
                     />
                   )}

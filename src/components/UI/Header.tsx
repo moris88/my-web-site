@@ -1,7 +1,5 @@
 'use client'
 
-import React, { Suspense } from 'react'
-import { usePathname } from 'next/navigation'
 import { Link } from '@heroui/link'
 import {
   Navbar,
@@ -13,8 +11,12 @@ import {
   NavbarMenuToggle,
   Skeleton,
 } from '@heroui/react'
+import { usePathname } from 'next/navigation'
+import React, { Suspense } from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { generateUniqueId, isActive } from '@/utils'
+
 import ToogleTheme from './ToogleTheme'
 
 interface NavbarProps {
@@ -52,7 +54,7 @@ function Header({ dict }: Readonly<NavbarProps>) {
             />
           </Suspense>
           <Link href="/">
-            <span className="self-center whitespace-nowrap text-base font-semibold text-black dark:text-white md:text-xl">
+            <span className="self-center text-base font-semibold whitespace-nowrap text-black md:text-xl dark:text-white">
               Maurizio Tolomeo
             </span>
           </Link>

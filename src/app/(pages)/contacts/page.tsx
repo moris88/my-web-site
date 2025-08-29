@@ -1,7 +1,8 @@
 import React from 'react'
+
+import { getDictionary } from '@/app/dictionaries'
 import { PageContacts } from '@/components'
 import { getContacts, getLinks } from '@/lib/data'
-import { getDictionary } from '@/app/dictionaries'
 
 export default async function ContactPage() {
   const dict = await getDictionary()

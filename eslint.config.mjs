@@ -1,15 +1,15 @@
-import globals from 'globals'
+import { FlatCompat } from '@eslint/eslintrc'
 import pluginJs from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import pluginReact from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import globals from 'globals'
 import { dirname } from 'path'
+import tseslint from 'typescript-eslint'
 import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -20,15 +20,19 @@ const compat = new FlatCompat({
 
 /** @type {import('eslint').Linter.Config[]} */
 const eslintConfig = [
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
-  { ignores: ['node_modules/'] },
+  { files: ['**/*.{js,mjs,cjs,ts,tsx}'] },
+  { ignores: ['node_modules/', '.next/'] },
   { languageOptions: { globals: globals.browser } },
+
+  // --- Base configs ---
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   pluginReact.configs.flat.recommended,
   eslintPluginPrettierRecommended,
+
+  // --- Plugins ---
   {
     plugins: {
       'react-hooks': reactHooks,
@@ -36,6 +40,8 @@ const eslintConfig = [
       'simple-import-sort': simpleImportSort,
     },
   },
+
+  // --- Custom rules ---
   {
     rules: {
       'prettier/prettier': 'error',
@@ -45,19 +51,6 @@ const eslintConfig = [
       'no-empty': 'warn',
       'no-empty-function': 'warn',
       'no-var': 'error',
-      indent: [
-        'error',
-        2,
-        {
-          SwitchCase: 1,
-          ArrayExpression: 1,
-          ObjectExpression: 1,
-          ImportDeclaration: 1,
-          flatTernaryExpressions: false,
-          offsetTernaryExpressions: false,
-          ignoredNodes: ['ConditionalExpression'],
-        },
-      ],
       camelcase: ['error', { properties: 'never', ignoreDestructuring: true }],
       'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
       'func-call-spacing': ['error', 'never'],
@@ -67,20 +60,20 @@ const eslintConfig = [
         { skipBlankLines: true, ignoreComments: true },
       ],
       'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
-      'sort-imports': [
-        'error',
-        {
-          ignoreCase: true,
-          ignoreDeclarationSort: true,
-          ignoreMemberSort: true,
-          memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
-          allowSeparatedGroups: true,
-        },
-      ],
+
+      // ✅ Usa SOLO simple-import-sort
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
+      'sort-imports': 'off',
+
+      // Typescript
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'off',
+
+      // Next.js
       '@next/next/no-img-element': 'off',
-      // react
+
+      // React
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
@@ -103,14 +96,14 @@ const eslintConfig = [
         {
           callbacksLast: true,
           shorthandFirst: true,
-          shorthandLast: false,
           ignoreCase: true,
-          noSortAlphabetically: false,
           reservedFirst: true,
         },
       ],
     },
   },
+
+  // --- Settings ---
   { settings: { react: { version: 'detect' } } },
 ]
 

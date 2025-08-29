@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
 import { HeroUIProvider } from '@heroui/system'
 import { createStore, Provider } from 'jotai'
+import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
 import { Footer, Header } from '@/components'

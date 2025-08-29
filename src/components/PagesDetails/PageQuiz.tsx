@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
-import { DeveloperCategory, QuizQuestion } from '@/types'
 import { QuizResultPopup } from '@/components'
+import { DeveloperCategory, QuizQuestion } from '@/types'
 
 interface PageQuizProps {
   dict: Dictionary

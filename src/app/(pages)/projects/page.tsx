@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { getDictionary } from '@/app/dictionaries'
 import { PageProjects } from '@/components'
 import { getProjects } from '@/lib'

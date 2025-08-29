@@ -1,7 +1,5 @@
 'use client'
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
 import {
   Accordion,
   AccordionItem,
@@ -12,11 +10,14 @@ import {
   ModalBody,
   ModalContent,
   ModalHeader,
+  Progress,
   Tab,
   Tabs,
-  Progress,
 } from '@heroui/react'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
+import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { Language, Skill, Skills } from '@/types'
 import { generateUniqueId } from '@/utils'
@@ -142,7 +143,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                             >
                               <Card className="max-w-sm bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                                 <CardHeader className="flex gap-3">
-                                  <p className="text-lg font-bold tracking-tight text-black dark:text-gray-300 lg:text-2xl">
+                                  <p className="text-lg font-bold tracking-tight text-black lg:text-2xl dark:text-gray-300">
                                     {skill.title as string}
                                   </p>
                                 </CardHeader>
@@ -179,7 +180,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
                         >
                           <Card className="max-w-sm cursor-pointer bg-gray-200 transition-all duration-100 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700">
                             <CardHeader className="flex gap-3">
-                              <p className="line-clamp-1 text-start text-base font-bold tracking-tight text-black dark:text-gray-300 lg:text-lg xl:text-xl">
+                              <p className="line-clamp-1 text-start text-base font-bold tracking-tight text-black lg:text-lg xl:text-xl dark:text-gray-300">
                                 {typeof skill.title === 'string'
                                   ? skill.title
                                   : skill.title[language]}

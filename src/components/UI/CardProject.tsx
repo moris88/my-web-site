@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
-import { Project } from '@/types'
 import { Chip } from '@heroui/react'
+import React from 'react'
+
+import { Project } from '@/types'
 
 interface CardProjectProps {
   project: Project
@@ -32,7 +33,7 @@ function CardProject({ project, onClick }: CardProjectProps) {
             <p className="text-4xl text-gray-500">{'No-Image'}</p>
           </div>
         )}
-        <h2 className="line-clamp-1 select-none text-xl font-bold text-black dark:text-gray-300">
+        <h2 className="line-clamp-1 text-xl font-bold text-black select-none dark:text-gray-300">
           {title}
         </h2>
         <div className="flex flex-wrap gap-2 gap-y-1">
