@@ -45,9 +45,12 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           REVIEW=$(cat review.txt)
-          BODY="<details><summary>Automated Code Review</summary>
+          BODY="<details><summary>🤖 Automated Code Review 🧐</summary>
 
           $REVIEW
+
+          ---
+          *Powered by Google Gemini* ✨
           </details>"
           COMMENT_BODY=$(jq -nc --arg body "$BODY" '{"body": $body}')
           curl -s -X POST \
