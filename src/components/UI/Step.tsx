@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
-import { Education, Experience } from '@/types'
-import { MdOutlineWork, MdSchool } from 'react-icons/md'
 import { Link } from '@heroui/react'
+import React from 'react'
+import { MdOutlineWork, MdSchool } from 'react-icons/md'
+
+import { Education, Experience } from '@/types'
 import { generateUniqueId } from '@/utils'
 
 interface StepProps {
@@ -28,7 +29,7 @@ function Step({ educations = [], experiences = [] }: StepProps) {
                   <div className="h-full w-px bg-gray-300" />
                 )}
               </div>
-              <div className="pb-8 pt-1">
+              <div className="pt-1 pb-8">
                 <p className="mb-2 text-lg font-bold">
                   <Link
                     isExternal
@@ -68,7 +69,7 @@ function Step({ educations = [], experiences = [] }: StepProps) {
                   <div className="h-full w-px bg-gray-300" />
                 )}
               </div>
-              <div className="pb-8 pt-1">
+              <div className="pt-1 pb-8">
                 <p className="mb-2 text-lg font-bold">
                   <Link
                     isExternal

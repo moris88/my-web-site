@@ -1,8 +1,9 @@
 'use client'
 
+import { Link } from '@heroui/react'
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { Link } from '@heroui/react'
+
 import { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -17,11 +18,11 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
   }
   const copyRight = `©${getYear()}-Moris™`
   return (
-    <footer className="flex min-h-[60px] w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
+    <footer className="flex min-h-[60px] w-full items-center justify-between rounded-lg bg-gray-300 p-5 select-none dark:bg-slate-800">
       <div className="flex flex-wrap gap-4 gap-y-1 text-sm lg:text-base">
         <span className="dark:text-gray-400">{copyRight}</span>
         <Link isExternal showAnchorIcon color="foreground" href="/cookies">
-          <span className="text-sm font-semibold text-black hover:text-blue-600 dark:text-gray-400 lg:text-base">
+          <span className="text-sm font-semibold text-black hover:text-blue-600 lg:text-base dark:text-gray-400">
             Cookies Policy
           </span>
         </Link>

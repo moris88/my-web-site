@@ -1,7 +1,8 @@
 import React from 'react'
+
+import { getDictionary } from '@/app/dictionaries'
 import { PageSkills } from '@/components'
 import { getSkills } from '@/lib'
-import { getDictionary } from '@/app/dictionaries'
 
 export default async function SkillsPage() {
   const skills = await getSkills()

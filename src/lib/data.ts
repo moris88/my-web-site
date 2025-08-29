@@ -1,14 +1,14 @@
 'use server'
 
+import jsonBlog from '@/data/blog.json'
 import jsonContacts from '@/data/contacts.json'
 import jsonCurriculum from '@/data/curriculum.json'
 import jsonHistory from '@/data/history.json'
 import jsonInfo from '@/data/info.json'
 import jsonLinks from '@/data/links.json'
-import jsonSkills from '@/data/skills.json'
 import jsonProjects from '@/data/projects.json'
-import jsonBlog from '@/data/blog.json'
 import jsonQuiz from '@/data/quiz.json'
+import jsonSkills from '@/data/skills.json'
 import {
   Blog,
   Contact,

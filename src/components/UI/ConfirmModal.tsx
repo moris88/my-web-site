@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import {
   Button,
   Modal,
@@ -9,6 +8,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@heroui/react'
+import React from 'react'
 
 interface ConfirmModalProps {
   isOpen: boolean

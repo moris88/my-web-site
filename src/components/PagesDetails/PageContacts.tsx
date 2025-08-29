@@ -1,10 +1,11 @@
 'use client'
 
+import { Button, ButtonGroup, Link } from '@heroui/react'
+import { motion } from 'framer-motion'
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
-import { Button, ButtonGroup, Link } from '@heroui/react'
-import { motion } from 'framer-motion'
+
 import { Dictionary } from '@/app/dictionaries'
 import { ButtonsGroupSocial, ModalMessage } from '@/components/UI'
 import { Contact, StoreLink } from '@/types'
@@ -37,14 +38,14 @@ export default function PageContacts({
 
   return (
     <div className="flex h-full flex-col items-center justify-center">
-      <h3 className="w-full select-none py-4 text-center text-xl">
+      <h3 className="w-full py-4 text-center text-xl select-none">
         <span className="flex items-center justify-center gap-1">
           <HiIdentification className="h-5 w-5" />
           <b>{dict.contacts.social}</b>
         </span>
       </h3>
       {contacts && (
-        <div className="my-4 flex w-full flex-col items-center justify-around gap-4 bg-gray-200 dark:bg-slate-700 md:my-4 md:flex-row">
+        <div className="my-4 flex w-full flex-col items-center justify-around gap-4 bg-gray-200 md:my-4 md:flex-row dark:bg-slate-700">
           <motion.div
             animate={{ opacity: 1, translateY: 0 }}
             className="flex w-full flex-col items-center justify-center gap-4 p-14 md:w-1/2"
@@ -63,16 +64,16 @@ export default function PageContacts({
                 <p className="text-center text-xl font-bold">
                   {contacts?.firstName + ' ' + contacts?.lastName}
                 </p>
-                <p className="text-center text-lg font-semibold italic text-gray-400">
+                <p className="text-center text-lg font-semibold text-gray-400 italic">
                   {contacts?.job ?? ''}
                 </p>
-                <p className="text-center text-lg font-semibold italic text-gray-400">
+                <p className="text-center text-lg font-semibold text-gray-400 italic">
                   {contacts?.specialization ?? ''}
                 </p>
               </div>
               <Link
                 showAnchorIcon
-                className="italic hover:text-primary"
+                className="hover:text-primary italic"
                 href={`mailto:${contacts?.email ?? ''}`}
               >
                 {contacts?.email ?? ''}

@@ -1,12 +1,13 @@
 'use client'
 
+import { Button, Link } from '@heroui/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiArrowLeft } from 'react-icons/hi2'
-import { Button, Link } from '@heroui/react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { SectionHero } from '@/components'
 import { Project } from '@/types'
-import { useRouter } from 'next/navigation'
 
 interface PageProjectProps {
   dict: Dictionary

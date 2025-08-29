@@ -1,7 +1,9 @@
 import React from 'react'
-import { PageProject, ErrorPage } from '@/components'
-import { getDictionary } from '../../../dictionaries'
+
+import { ErrorPage, PageProject } from '@/components'
 import { getProjects } from '@/lib'
+
+import { getDictionary } from '../../../dictionaries'
 
 export default async function BlogPage({
   params,

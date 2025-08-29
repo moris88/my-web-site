@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
 import { Divider } from '@heroui/divider'
+import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { Article } from '@/types'
 import { formatDate } from '@/utils'
@@ -46,14 +47,14 @@ function CardBlog({
             <p className="text-4xl text-gray-500">{'No-Image'}</p>
           </div>
         )}
-        <h2 className="line-clamp-1 select-none text-xl font-bold text-black dark:text-gray-300">
+        <h2 className="line-clamp-1 text-xl font-bold text-black select-none dark:text-gray-300">
           {title}
         </h2>
-        <p className="text-md line-clamp-2 select-none font-medium text-black dark:text-gray-300">
+        <p className="text-md line-clamp-2 font-medium text-black select-none dark:text-gray-300">
           {content}
         </p>
         <Divider className="my-2" />
-        <small className="select-none text-gray-500">
+        <small className="text-gray-500 select-none">
           {`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
         </small>
       </div>

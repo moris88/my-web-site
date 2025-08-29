@@ -1,6 +1,7 @@
+import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { DeveloperCategory } from '@/types'
-import React from 'react'
 
 interface QuizResultPopupProps {
   dict: Dictionary
@@ -19,7 +20,7 @@ function QuizResultPopup({
       <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl dark:bg-gray-800">
         <button
           aria-label="Close"
-          className="absolute right-2 top-2 text-gray-500 hover:text-gray-800 dark:text-white"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:text-white"
           onClick={onClose}
         >
           ✕
@@ -27,7 +28,7 @@ function QuizResultPopup({
         <h2 className="mb-2 text-2xl font-bold text-blue-600">
           {profile.title}
         </h2>
-        <p className="mb-4 text-sm italic text-gray-500 dark:text-white">
+        <p className="mb-4 text-sm text-gray-500 italic dark:text-white">
           {profile.shortLabel}
         </p>
         <p className="mb-4 text-gray-700 dark:text-white">

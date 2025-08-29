@@ -1,12 +1,13 @@
 'use client'
 
-import React from 'react'
-import { HiEnvelope } from 'react-icons/hi2'
-import { RiMailSendFill } from 'react-icons/ri'
 import { Button } from '@heroui/button'
 import { Link } from '@heroui/link'
 import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
 import { Divider } from '@heroui/react'
+import React from 'react'
+import { HiEnvelope } from 'react-icons/hi2'
+import { RiMailSendFill } from 'react-icons/ri'
+
 import { Dictionary } from '@/app/dictionaries'
 import { FormContact } from '@/components'
 
@@ -55,7 +56,7 @@ function ModalMessage({
   if (!modal) {
     return (
       <div className={className ?? ''}>
-        <h3 className="mt-5 w-full select-none text-center">
+        <h3 className="mt-5 w-full text-center select-none">
           <span className="flex items-center justify-center gap-1">
             <RiMailSendFill className="h-5 w-5" />
             <b>{dict.contacts.modal.title}</b>
@@ -66,19 +67,19 @@ function ModalMessage({
           <p>
             {dict.contacts.modal.content}&nbsp;
             <Link href="/privacy">
-              <i className="whitespace-nowrap font-semibold dark:text-white">
+              <i className="font-semibold whitespace-nowrap dark:text-white">
                 {'Privacy Policy'}
               </i>
             </Link>
           </p>
           <Divider className="my-2" />
           {show.success && (
-            <p className="select-none text-center text-3xl text-green-600">
+            <p className="text-center text-3xl text-green-600 select-none">
               {dict.contacts.modal.message}
             </p>
           )}
           {show.error && error && (
-            <p className="select-none text-center text-3xl text-red-500">
+            <p className="text-center text-3xl text-red-500 select-none">
               Error: {error}
             </p>
           )}
@@ -143,7 +144,7 @@ function ModalMessage({
                   <p>
                     {dict.contacts.modal.content}&nbsp;
                     <Link href="/privacy">
-                      <i className="whitespace-nowrap font-semibold dark:text-white">
+                      <i className="font-semibold whitespace-nowrap dark:text-white">
                         {'Privacy Policy'}
                       </i>
                     </Link>
@@ -176,12 +177,12 @@ function ModalMessage({
         </Modal>
       )}
       {show.success && (
-        <p className="select-none text-center text-3xl text-green-600">
+        <p className="text-center text-3xl text-green-600 select-none">
           {dict.contacts.modal.message}
         </p>
       )}
       {show.error && error && (
-        <p className="select-none text-center text-3xl text-red-500">
+        <p className="text-center text-3xl text-red-500 select-none">
           Error: {error}
         </p>
       )}

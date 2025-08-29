@@ -1,24 +1,41 @@
 {
   "name": "my-web-site",
+  "version": "0.1.0",
   "private": true,
-  "description": "A modern web application built with Next.js, React, and Tailwind CSS.",
+  "description": "My personal portfolio website built with Next.js, React, and Tailwind CSS. It features a blog, a project showcase, and a contact form. The site is designed to be modern, responsive, and performant.",
   "keywords": [
     "nextjs",
     "react",
     "tailwindcss",
-    "web",
-    "application"
+    "typescript",
+    "portfolio",
+    "blog",
+    "personal-website",
+    "web-developer",
+    "frontend",
+    "Maurizio Tolomeo"
   ],
   "author": {
-    "name": "Your Name",
+    "name": "Maurizio Tolomeo",
     "email": "maurizio.tolomeo@outlook.it",
     "url": "https://mauriziotolomeo.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moris88/my-web-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moris88/my-web-site/issues"
+  },
+  "homepage": "https://github.com/moris88/my-web-site#readme",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings 10"
+    "lint": "eslint src --max-warnings 10"
   },
   "dependencies": {
     "@heroui/accordion": "^2.2.21",

@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
 import { Button } from '@heroui/button'
 import { Input, Textarea } from '@heroui/input'
+import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
 import { Dictionary } from '@/app/dictionaries'
 
 interface FormContactProps {
@@ -106,8 +107,8 @@ export default function FormContact({
       <div className="flex justify-center gap-4">
         {!notDone && (
           <Button
-            isDisabled={loading}
             color="default"
+            isDisabled={loading}
             type="button"
             variant="flat"
             onPress={() => onClose?.()}

@@ -1,56 +1,69 @@
-# Mio sito personale
+# My Personal Website
 
-## Descrizione
+## 🚀 About Me
 
-Questo è il mio sito personale, dove condivido le mie passioni, i miei progetti e le mie idee. È un luogo dove posso esprimere la mia creatività e connettermi con altre persone che condividono i miei interessi.
+This is my personal website, where I share my passions, projects, and ideas. It's a place where I can express my creativity and connect with other people who share my interests.
 
-## Contenuti
+## ✨ Features
 
-- **Blog**: Articoli su vari argomenti di programmazione.
-- **Portfolio**: Una raccolta dei miei progetti e lavori.
-- **Contatti**: Informazioni su come contattarmi per collaborazioni o domande.
+* **Blog**: Articles on various programming topics.
+* **Portfolio**: A collection of my projects and work.
+* **Contact**: Information on how to contact me for collaborations or questions.
 
-## Tecnologie utilizzate
+## 🛠️ Technologies Used
 
-- **React**: Per la creazione dell'interfaccia utente.
-- **Next.js**: Per il rendering lato server e la generazione di pagine statiche.
-- **Tailwind CSS**: Per lo stile e il layout del sito.
+* **React**: For building the user interface.
+* **Next.js**: For server-side rendering and static site generation.
+* **Tailwind CSS**: For styling and site layout.
+* **TypeScript**: For static typing.
+* **Vercel**: For deployment.
 
-## Avvio in locale
+## Getting Started
 
-Per avviare il sito in locale, segui questi passaggi:
+To get a local copy up and running, follow these simple steps.
 
-1. Clona il repository:
+### Prerequisites
 
-   ```bash
-   git clone
-   ```
+* Node.js (v18.x or later)
+* npm
 
-2. Naviga nella cartella del progetto:
+### Installation
 
-   ```bash
-    cd nome-del-repository
+1. Clone the repo:
+
+    ```sh
+    git clone https://github.com/moris88/my-web-site.git
     ```
 
-3. Installa le dipendenze:
+2. Navigate to the project folder:
 
-    ```bash
+    ```sh
+    cd my-web-site
+    ```
+
+3. Install NPM packages:
+
+    ```sh
     npm install
     ```
 
-4. Avvia il server di sviluppo:
+4. Start the development server:
 
-    ```bash
+    ```sh
     npm run dev
     ```
 
-5. Apri il browser e vai su `http://localhost:3000` per vedere il sito in esecuzione.
+5. Open your browser and go to `http://localhost:3000` to see the site running.
 
-## Deploy su Vercel
+## 🚀 Deployment
 
-Per effettuare il deploy del sito su Vercel, segui questi passaggi:
+This project is set up for continuous deployment with Vercel.
 
-1. Mergiando sul branch principale (main), si avvia un'action di GitHub che esegue il deploy in staging su Vercel.
-2. Inserendo il tag `X.X.X` (dove X.X.X è la versione), si avvia un'action di GitHub che esegue il deploy in produzione su Vercel.
-3. Assicurati di avere configurato le variabili d'ambiente necessarie su Vercel per il corretto funzionamento del sito.
-4. Dopo il deploy, il sito sarà accessibile all'URL fornito da Vercel.
+* **Staging**: Merging to the `main` branch triggers a GitHub Action that deploys to a staging environment on Vercel.
+* **Production**: Pushing a tag in the format `vX.X.X` (e.g., `v1.0.0`) triggers a GitHub Action that deploys to production on Vercel.
+
+Make sure you have the necessary environment variables configured on Vercel for the site to function correctly. After deployment, the site will be accessible at the URL provided by Vercel.
+
+## 📄 License
+
+Distributed under the MIT License.

@@ -1,17 +1,18 @@
 'use client'
 
-import React from 'react'
-import { HiArrowDownTray } from 'react-icons/hi2'
 import {
+  Checkbox,
+  Divider,
   Modal,
   ModalBody,
   ModalContent,
   ModalHeader,
-  Checkbox,
-  Divider,
 } from '@heroui/react'
 import { Button } from '@heroui/react'
 import { motion } from 'framer-motion'
+import React from 'react'
+import { HiArrowDownTray } from 'react-icons/hi2'
+
 import { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero, Step } from '@/components'
 import { Curriculum } from '@/types'

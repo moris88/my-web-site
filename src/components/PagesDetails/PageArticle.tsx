@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+
 // import { HiArrowLeft } from 'react-icons/hi2'
 // import { Button, Link } from '@heroui/react'
 import { Dictionary } from '@/app/dictionaries'

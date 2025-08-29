@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
 import { useRouter } from 'next/navigation'
+import React from 'react'
+
 import { Dictionary } from '@/app/dictionaries'
 import { CardProject, SectionHero } from '@/components'
 import { Project } from '@/types'

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { getDictionary } from '@/app/dictionaries'
 import { PageQuiz } from '@/components'
 import { getQuiz } from '@/lib'

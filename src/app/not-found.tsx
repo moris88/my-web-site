@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
 import { Link } from '@heroui/react'
+import React from 'react'
 import { HiExclamationTriangle } from 'react-icons/hi2'
 
 export default function NotFound() {
