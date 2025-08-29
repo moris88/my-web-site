@@ -1,336 +1,384 @@
 {
-    "languages": [
-        {
-            "title": "JavaScript",
-            "level": 9
-        },
-        {
-            "title": "TypeScript",
-            "level": 9
-        },
-        {
-            "title": "Python",
-            "level": 6
-        },
-        {
-            "title": "Rust",
-            "level": 5
-        },
-        {
-            "title": "Java",
-            "level": 7
-        },
-        {
-            "title": "C",
-            "level": 6
-        },
-        {
-            "title": "C++",
-            "level": 6
-        },
-        {
-            "title": "C#",
-            "level": 5
-        },
-        {
-            "title": "SQL",
-            "level": 8
-        },
-        {
-            "title": "PHP",
-            "level": 7
-        },
-        {
-            "title": "HTML",
-            "level": 9
-        },
-        {
-            "title": "CSS",
-            "level": 9
+    "languages": {
+        "list": [
+            {
+                "title": "JavaScript",
+                "level": 9
+            },
+            {
+                "title": "TypeScript",
+                "level": 9
+            },
+            {
+                "title": "Python",
+                "level": 6
+            },
+            {
+                "title": "Rust",
+                "level": 5
+            },
+            {
+                "title": "Java",
+                "level": 7
+            },
+            {
+                "title": "C",
+                "level": 6
+            },
+            {
+                "title": "C++",
+                "level": 6
+            },
+            {
+                "title": "C#",
+                "level": 5
+            },
+            {
+                "title": "SQL",
+                "level": 8
+            },
+            {
+                "title": "PHP",
+                "level": 7
+            },
+            {
+                "title": "HTML",
+                "level": 9
+            },
+            {
+                "title": "CSS",
+                "level": 9
+            }
+        ],
+        "description": {
+            "it": "Conoscenze linguistiche orientate allo sviluppo full-stack, con particolare padronanza nelle tecnologie web moderne e nei linguaggi ad alte prestazioni.",
+            "en": "Language skills focused on full-stack development, with strong command of modern web technologies and high-performance languages."
         }
-    ],
-    "frontends": [
-        {
-            "title": "MaterialUI",
-            "level": 9,
-            "link": "https://mui.com/material-ui/"
-        },
-        {
-            "title": "Bootstrap",
-            "level": 9,
-            "link": "https://getbootstrap.com/"
-        },
-        {
-            "title": "Flowbite",
-            "level": 9,
-            "link": "https://flowbite.com/"
-        },
-        {
-            "title": "NextUI",
-            "level": 9,
-            "link": "https://nextui.org/"
-        },
-        {
-            "title": "ShadcnUI",
-            "level": 9,
-            "link": "https://ui.shadcn.com/"
-        },
-        {
-            "title": "TailwindCSS",
-            "level": 9,
-            "link": "https://tailwindcss.com/"
+    },
+    "frontends": {
+        "list": [
+            {
+                "title": "MaterialUI",
+                "level": 9,
+                "link": "https://mui.com/material-ui/"
+            },
+            {
+                "title": "Bootstrap",
+                "level": 9,
+                "link": "https://getbootstrap.com/"
+            },
+            {
+                "title": "Flowbite",
+                "level": 9,
+                "link": "https://flowbite.com/"
+            },
+            {
+                "title": "NextUI",
+                "level": 9,
+                "link": "https://nextui.org/"
+            },
+            {
+                "title": "ShadcnUI",
+                "level": 9,
+                "link": "https://ui.shadcn.com/"
+            },
+            {
+                "title": "TailwindCSS",
+                "level": 9,
+                "link": "https://tailwindcss.com/"
+            }
+        ],
+        "description": {
+            "it": "Toolkit e librerie UI moderni utilizzati per progettare interfacce utente intuitive, responsive e scalabili.",
+            "en": "Modern UI toolkits and libraries used to design intuitive, responsive, and scalable user interfaces."
         }
-    ],
-    "frameworks_frontend": [
-        {
-            "title": "Angular",
-            "level": 6,
-            "link": "https://angular.io/"
-        },
-        {
-            "title": "React",
-            "level": 9,
-            "link": "https://react.dev/"
-        },
-        {
-            "title": "Next.js",
-            "level": 8,
-            "link": "https://nextjs.org/"
-        },
-        {
-            "title": "Astro.js",
-            "level": 6,
-            "link": "https://astro.build/"
-        },
-        {
-            "title": "Solid.js",
-            "level": 7,
-            "link": "https://www.solidjs.com/"
-        },
-        {
-            "title": "Vue.js",
-            "level": 6,
-            "link": "https://vuejs.org/"
+    },
+    "frameworks_frontend": {
+        "list": [
+            {
+                "title": "Angular",
+                "level": 6,
+                "link": "https://angular.io/"
+            },
+            {
+                "title": "React",
+                "level": 9,
+                "link": "https://react.dev/"
+            },
+            {
+                "title": "Next.js",
+                "level": 8,
+                "link": "https://nextjs.org/"
+            },
+            {
+                "title": "Astro.js",
+                "level": 6,
+                "link": "https://astro.build/"
+            },
+            {
+                "title": "Solid.js",
+                "level": 7,
+                "link": "https://www.solidjs.com/"
+            },
+            {
+                "title": "Vue.js",
+                "level": 6,
+                "link": "https://vuejs.org/"
+            }
+        ],
+        "description": {
+            "it": "Framework frontend utilizzati per costruire applicazioni web dinamiche, componenti riutilizzabili e interfacce performanti.",
+            "en": "Frontend frameworks used to build dynamic web applications, reusable components, and high-performance interfaces."
         }
-    ],
-    "frameworks_backend": [
-        {
-            "title": "Node.js",
-            "level": 8,
-            "link": "https://nodejs.org/en"
-        },
-        {
-            "title": "Express.js",
-            "level": 8,
-            "link": "https://expressjs.com/"
-        },
-        {
-            "title": "Laravel",
-            "level": 6,
-            "link": "https://laravel.com/"
-        },
-        {
-            "title": "Django",
-            "level": 6,
-            "link": "https://www.djangoproject.com/"
-        },
-        {
-            "title": "Spring",
-            "level": 5,
-            "link": "https://spring.io/"
+    },
+    "frameworks_backend": {
+        "list": [
+            {
+                "title": "Node.js",
+                "level": 8,
+                "link": "https://nodejs.org/en"
+            },
+            {
+                "title": "Express.js",
+                "level": 8,
+                "link": "https://expressjs.com/"
+            },
+            {
+                "title": "Laravel",
+                "level": 6,
+                "link": "https://laravel.com/"
+            },
+            {
+                "title": "Django",
+                "level": 6,
+                "link": "https://www.djangoproject.com/"
+            },
+            {
+                "title": "Spring",
+                "level": 5,
+                "link": "https://spring.io/"
+            }
+        ],
+        "description": {
+            "it": "Framework e tecnologie backend per lo sviluppo di API, gestione dei dati e logica server-side.",
+            "en": "Backend frameworks and technologies for API development, data handling, and server-side logic."
         }
-    ],
-    "database": [
-        {
-            "title": "MongoDB",
-            "level": 7,
-            "link": "https://www.mongodb.com/"
-        },
-        {
-            "title": "MySQL",
-            "level": 9,
-            "link": "https://www.mysql.com/"
-        },
-        {
-            "title": "PostgreSQL",
-            "level": 8,
-            "link": "https://www.postgresql.org/"
-        },
-        {
-            "title": "GraphQL",
-            "level": 6,
-            "link": "https://graphql.org/"
+    },
+    "database": {
+        "list": [
+            {
+                "title": "MongoDB",
+                "level": 7,
+                "link": "https://www.mongodb.com/"
+            },
+            {
+                "title": "MySQL",
+                "level": 9,
+                "link": "https://www.mysql.com/"
+            },
+            {
+                "title": "PostgreSQL",
+                "level": 8,
+                "link": "https://www.postgresql.org/"
+            },
+            {
+                "title": "GraphQL",
+                "level": 6,
+                "link": "https://graphql.org/"
+            }
+        ],
+        "description": {
+            "it": "Tecnologie di gestione dati, dai database relazionali a quelli NoSQL, ottimizzate per affidabilità e performance.",
+            "en": "Data management technologies, from relational to NoSQL databases, optimized for reliability and performance."
         }
-    ],
-    "tools": [
-        {
-            "title": "VSCode",
-            "level": 9,
-            "link": "https://code.visualstudio.com/"
-        },
-        {
-            "title": "Git",
-            "level": 8,
-            "link": "https://git-scm.com/"
-        },
-        {
-            "title": "GitHub",
-            "level": 9,
-            "link": "https://github.com/"
-        },
-        {
-            "title": "Strapi",
-            "level": 7,
-            "link": "https://strapi.io/"
-        },
-        {
-            "title": "Figma",
-            "level": 7,
-            "link": "https://www.figma.com/"
-        },
-        {
-            "title": "Vite.js",
-            "level": 9,
-            "link": "https://vitejs.dev/"
+    },
+    "tools": {
+        "list": [
+            {
+                "title": "VSCode",
+                "level": 9,
+                "link": "https://code.visualstudio.com/"
+            },
+            {
+                "title": "Git",
+                "level": 8,
+                "link": "https://git-scm.com/"
+            },
+            {
+                "title": "GitHub",
+                "level": 9,
+                "link": "https://github.com/"
+            },
+            {
+                "title": "Strapi",
+                "level": 7,
+                "link": "https://strapi.io/"
+            },
+            {
+                "title": "Figma",
+                "level": 7,
+                "link": "https://www.figma.com/"
+            },
+            {
+                "title": "Vite.js",
+                "level": 9,
+                "link": "https://vitejs.dev/"
+            }
+        ],
+        "description": {
+            "it": "Strumenti essenziali per lo sviluppo, la collaborazione e la gestione del ciclo di vita delle applicazioni.",
+            "en": "Essential tools for development, collaboration, and application lifecycle management."
         }
-    ],
-    "platforms": [
-        {
-            "title": "Zoho",
-            "level": 9,
-            "link": "https://www.zoho.com/it/"
-        },
-        {
-            "title": "Freshworks",
-            "level": 9,
-            "link": "https://www.freshworks.com/"
-        },
-        {
-            "title": "Zendesk",
-            "level": 8,
-            "link": "https://www.zendesk.com/it/"
-        },
-        {
-            "title": "Google Cloud",
-            "level": 6,
-            "link": "https://cloud.google.com/"
-        },
-        {
-            "title": "AWS",
-            "level": 7,
-            "link": "https://aws.amazon.com/"
+    },
+    "platforms": {
+        "list": [
+            {
+                "title": "Zoho",
+                "level": 9,
+                "link": "https://www.zoho.com/it/"
+            },
+            {
+                "title": "Freshworks",
+                "level": 9,
+                "link": "https://www.freshworks.com/"
+            },
+            {
+                "title": "Zendesk",
+                "level": 8,
+                "link": "https://www.zendesk.com/it/"
+            },
+            {
+                "title": "Google Cloud",
+                "level": 6,
+                "link": "https://cloud.google.com/"
+            },
+            {
+                "title": "AWS",
+                "level": 7,
+                "link": "https://aws.amazon.com/"
+            }
+        ],
+        "description": {
+            "it": "Piattaforme cloud e software integrati per la gestione di servizi aziendali, customer support e infrastrutture scalabili.",
+            "en": "Cloud platforms and integrated software for managing business services, customer support, and scalable infrastructures."
         }
-    ],
-    "soft": [
-        {
-            "title": {
-                "it": "Responsabilità",
-                "en": "Responsibility"
+    },
+    "soft": {
+        "list": [
+            {
+                "title": {
+                    "it": "Responsabilità",
+                    "en": "Responsibility"
+                },
+                "description": {
+                    "it": "Essere responsabile significa essere affidabile, onesto e rispettoso. Significa fare ciò che si dice e dire ciò che si fa. Significa assumersi la responsabilità delle proprie azioni e delle conseguenze che ne derivano.",
+                    "en": "Being responsible means being reliable, honest and respectful. It means doing what you say and saying what you do. It means taking responsibility for your actions and the consequences that result."
+                },
+                "level": 9
             },
-            "description": {
-                "it": "Essere responsabile significa essere affidabile, onesto e rispettoso. Significa fare ciò che si dice e dire ciò che si fa. Significa assumersi la responsabilità delle proprie azioni e delle conseguenze che ne derivano.",
-                "en": "Being responsible means being reliable, honest and respectful. It means doing what you say and saying what you do. It means taking responsibility for your actions and the consequences that result."
+            {
+                "title": {
+                    "it": "Dedizione",
+                    "en": "Dedication"
+                },
+                "description": {
+                    "it": "La dedizione è la capacità di dedicarsi completamente a ciò che si fa. Significa essere disposti a fare sacrifici e a lavorare sodo per raggiungere i propri obiettivi.",
+                    "en": "Dedication is the ability to fully dedicate oneself to what one does. It means being willing to make sacrifices and work hard to achieve one's goals."
+                },
+                "level": 9
             },
-            "level": 9
-        },
-        {
-            "title": {
-                "it": "Dedizione",
-                "en": "Dedication"
+            {
+                "title": {
+                    "it": "Curiosità",
+                    "en": "Curiosity"
+                },
+                "description": {
+                    "it": "La curiosità è la voglia di imparare e scoprire cose nuove. È la capacità di porsi domande e cercare risposte. È la spinta a esplorare il mondo e a cercare nuove esperienze.",
+                    "en": "Curiosity is the desire to learn and discover new things. It is the ability to ask questions and seek answers. It is the drive to explore the world and seek new experiences."
+                },
+                "level": 9
             },
-            "description": {
-                "it": "La dedizione è la capacità di dedicarsi completamente a ciò che si fa. Significa essere disposti a fare sacrifici e a lavorare sodo per raggiungere i propri obiettivi.",
-                "en": "Dedication is the ability to fully dedicate oneself to what one does. It means being willing to make sacrifices and work hard to achieve one's goals."
+            {
+                "title": {
+                    "it": "Autodisciplina",
+                    "en": "Self-discipline"
+                },
+                "description": {
+                    "it": "L'autodisciplina è la capacità di controllare i propri impulsi e di fare ciò che è necessario anche quando non si ha voglia di farlo. È la capacità di mantenere la concentrazione e la determinazione anche di fronte alle difficoltà.",
+                    "en": "Self-discipline is the ability to control one's impulses and do what is necessary even when one does not feel like doing it. It is the ability to maintain focus and determination even in the face of difficulties."
+                },
+                "level": 9
             },
-            "level": 9
-        },
-        {
-            "title": {
-                "it": "Curiosità",
-                "en": "Curiosity"
+            {
+                "title": {
+                    "it": "Fiducia in se stessi",
+                    "en": "Self-confidence"
+                },
+                "description": {
+                    "it": "La fiducia in se stessi è la consapevolezza delle proprie capacità e del proprio valore. È la capacità di credere in se stessi e nelle proprie capacità anche di fronte alle critiche e alle difficoltà.",
+                    "en": "Self-confidence is the awareness of one's own abilities and worth. It is the ability to believe in oneself and in one's abilities even in the face of criticism and difficulties."
+                },
+                "level": 6
             },
-            "description": {
-                "it": "La curiosità è la voglia di imparare e scoprire cose nuove. È la capacità di porsi domande e cercare risposte. È la spinta a esplorare il mondo e a cercare nuove esperienze.",
-                "en": "Curiosity is the desire to learn and discover new things. It is the ability to ask questions and seek answers. It is the drive to explore the world and seek new experiences."
+            {
+                "title": {
+                    "it": "Spirito critico",
+                    "en": "Critical spirit"
+                },
+                "description": {
+                    "it": "Lo spirito critico è la capacità di valutare in modo obiettivo le informazioni e le situazioni. È la capacità di analizzare i fatti in modo razionale e di prendere decisioni informate.",
+                    "en": "Critical spirit is the ability to objectively evaluate information and situations. It is the ability to analyze facts rationally and make informed decisions."
+                },
+                "level": 6
             },
-            "level": 9
-        },
-        {
-            "title": {
-                "it": "Autodisciplina",
-                "en": "Self-discipline"
+            {
+                "title": {
+                    "it": "Capacità di lavoro di squadra",
+                    "en": "Team work ability"
+                },
+                "description": {
+                    "it": "La capacità di lavoro di squadra è la capacità di lavorare efficacemente con gli altri per raggiungere un obiettivo comune. È la capacità di ascoltare gli altri, di condividere le proprie idee e di collaborare per trovare soluzioni condivise.",
+                    "en": "Team work ability is the ability to work effectively with others to achieve a common goal. It is the ability to listen to others, share one's ideas and collaborate to find shared solutions."
+                },
+                "level": 8
             },
-            "description": {
-                "it": "L'autodisciplina è la capacità di controllare i propri impulsi e di fare ciò che è necessario anche quando non si ha voglia di farlo. È la capacità di mantenere la concentrazione e la determinazione anche di fronte alle difficoltà.",
-                "en": "Self-discipline is the ability to control one's impulses and do what is necessary even when one does not feel like doing it. It is the ability to maintain focus and determination even in the face of difficulties."
+            {
+                "title": {
+                    "it": "Risoluzione dei problemi",
+                    "en": "Problem solving"
+                },
+                "description": {
+                    "it": "La risoluzione dei problemi è la capacità di affrontare le difficoltà in modo creativo e razionale. È la capacità di individuare le cause dei problemi, di analizzarle e di trovare soluzioni efficaci.",
+                    "en": "Problem solving is the ability to face difficulties in a creative and rational way. It is the ability to identify the causes of problems, analyze them and find effective solutions."
+                },
+                "level": 8
             },
-            "level": 9
-        },
-        {
-            "title": {
-                "it": "Fiducia in se stessi",
-                "en": "Self-confidence"
+            {
+                "title": {
+                    "it": "Responsabilità da Team Leader",
+                    "en": "Team Leader responsibility"
+                },
+                "description": {
+                    "it": "La responsabilità di un Team Leader è quella di guidare e motivare il team per raggiungere gli obiettivi comuni. È la capacità di prendere decisioni, di gestire i conflitti e di supportare i membri del team.",
+                    "en": "The responsibility of a Team Leader is to lead and motivate the team to achieve common goals. It is the ability to make decisions, manage conflicts and support team members."
+                },
+                "level": 6
             },
-            "description": {
-                "it": "La fiducia in se stessi è la consapevolezza delle proprie capacità e del proprio valore. È la capacità di credere in se stessi e nelle proprie capacità anche di fronte alle critiche e alle difficoltà.",
-                "en": "Self-confidence is the awareness of one's own abilities and worth. It is the ability to believe in oneself and in one's abilities even in the face of criticism and difficulties."
-            },
-            "level": 6
-        },
-        {
-            "title": {
-                "it": "Spirito critico",
-                "en": "Critical spirit"
-            },
-            "description": {
-                "it": "Lo spirito critico è la capacità di valutare in modo obiettivo le informazioni e le situazioni. È la capacità di analizzare i fatti in modo razionale e di prendere decisioni informate.",
-                "en": "Critical spirit is the ability to objectively evaluate information and situations. It is the ability to analyze facts rationally and make informed decisions."
-            },
-            "level": 6
-        },
-        {
-            "title": {
-                "it": "Capacità di lavoro di squadra",
-                "en": "Team work ability"
-            },
-            "description": {
-                "it": "La capacità di lavoro di squadra è la capacità di lavorare efficacemente con gli altri per raggiungere un obiettivo comune. È la capacità di ascoltare gli altri, di condividere le proprie idee e di collaborare per trovare soluzioni condivise.",
-                "en": "Team work ability is the ability to work effectively with others to achieve a common goal. It is the ability to listen to others, share one's ideas and collaborate to find shared solutions."
-            },
-            "level": 8
-        },
-        {
-            "title": {
-                "it": "Risoluzione dei problemi",
-                "en": "Problem solving"
-            },
-            "description": {
-                "it": "La risoluzione dei problemi è la capacità di affrontare le difficoltà in modo creativo e razionale. È la capacità di individuare le cause dei problemi, di analizzarle e di trovare soluzioni efficaci.",
-                "en": "Problem solving is the ability to face difficulties in a creative and rational way. It is the ability to identify the causes of problems, analyze them and find effective solutions."
-            },
-            "level": 8
-        },
-        {
-            "title": {
-                "it": "Responsabilità da Team Leader",
-                "en": "Team Leader responsibility"
-            },
-            "description": {
-                "it": "La responsabilità di un Team Leader è quella di guidare e motivare il team per raggiungere gli obiettivi comuni. È la capacità di prendere decisioni, di gestire i conflitti e di supportare i membri del team.",
-                "en": "The responsibility of a Team Leader is to lead and motivate the team to achieve common goals. It is the ability to make decisions, manage conflicts and support team members."
-            },
-            "level": 6
-        },
-        {
-            "title": {
-                "it": "Resistenza allo stress",
-                "en": "Resistance to stress"
-            },
-            "description": {
-                "it": "La resistenza allo stress è la capacità di mantenere la calma e la concentrazione anche di fronte a situazioni difficili e stressanti. È la capacità di gestire le emozioni e di trovare soluzioni efficaci anche sotto pressione.",
-                "en": "Resistance to stress is the ability to remain calm and focused even in difficult and stressful situations. It is the ability to manage emotions and find effective solutions even under pressure."
-            },
-            "level": 6
+            {
+                "title": {
+                    "it": "Resistenza allo stress",
+                    "en": "Resistance to stress"
+                },
+                "description": {
+                    "it": "La resistenza allo stress è la capacità di mantenere la calma e la concentrazione anche di fronte a situazioni difficili e stressanti. È la capacità di gestire le emozioni e di trovare soluzioni efficaci anche sotto pressione.",
+                    "en": "Resistance to stress is the ability to remain calm and focused even in difficult and stressful situations. It is the ability to manage emotions and find effective solutions even under pressure."
+                },
+                "level": 5
+            }
+        ],
+        "description": {
+            "it": "Competenze trasversali che supportano il lavoro di squadra, la produttività personale e la leadership tecnica.",
+            "en": "Soft skills that support teamwork, personal productivity, and technical leadership."
         }
-    ]
+    }
 }

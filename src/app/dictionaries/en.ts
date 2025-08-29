@@ -44,8 +44,9 @@ const dictionary = {
     },
     modal: {
       title: 'Send a message',
-      content:
-        "Your message will arrive on my personal email. I'll answer you as soon as possible!",
+      content1:
+        'Fill out the form below to send me a message. Fields marked with * are required. You will receive a response as soon as possible. Read the',
+      content2: 'for more information on how I manage your data.',
       privacy: 'Read the privacy',
       message: 'Thank you for your message!!!',
     },
@@ -84,24 +85,37 @@ const dictionary = {
     tools: 'Tools',
     platforms: 'Platforms',
     soft: 'Soft',
-    legend: [
-      {
-        color: 'green',
-        label: 'Advanced/Optimal',
+    legend: {
+      title: 'Legend',
+      description:
+        'The progress bar indicates my level of proficiency in each technology. Here is what the different colors represent:',
+      buttons: {
+        show: 'Mostra legenda',
+        hide: 'Hide legend',
       },
-      {
-        color: 'yellow',
-        label: 'Intermediate/Good',
-      },
-      {
-        color: 'orange',
-        label: 'Basic/Adequate',
-      },
-      {
-        color: 'red',
-        label: 'Unknown',
-      },
-    ],
+      list: [
+        {
+          color: 'secondary',
+          label: 'Excellent command',
+          level: 90,
+        },
+        {
+          color: 'success',
+          label: 'Good command',
+          level: 80,
+        },
+        {
+          color: 'warning',
+          label: 'Adequate command',
+          level: 60,
+        },
+        {
+          color: 'danger',
+          label: 'Basic command',
+          level: 50,
+        },
+      ],
+    },
     card: {
       level: 'Level',
       adequate: 'Adequate',

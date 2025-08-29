@@ -39,15 +39,23 @@ export interface Contact extends Record<string, any> {
   links: string[]
 }
 
-export interface Skills extends Record<string, Skill[]> {
-  languages: Skill[]
-  frontends: Skill[]
-  frameworks_frontend: Skill[]
-  database: Skill[]
-  frameworks_backend: Skill[]
-  tools: Skill[]
-  platforms: Skill[]
-  soft: Skill[]
+export interface Skills extends Record<string, ListSkills> {
+  languages: ListSkills
+  frontends: ListSkills
+  frameworks_frontend: ListSkills
+  database: ListSkills
+  frameworks_backend: ListSkills
+  tools: ListSkills
+  platforms: ListSkills
+  soft: ListSkills
+}
+
+export interface ListSkills {
+  list: Skill[]
+  description: {
+    it: string
+    en: string
+  }
 }
 
 export interface Skill {

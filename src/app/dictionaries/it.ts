@@ -44,8 +44,9 @@ const dictionary = {
     },
     modal: {
       title: 'Invia un messaggio',
-      content:
-        'Il tuo messaggio arriverà sulla mia email personale. Ti rispondo appena possibile!',
+      content1:
+        'Compila il form sottostante per inviarmi un messaggio. I campi contrassegnati con * sono obbligatori. Riceverai una risposta il prima possibile. Consulta la',
+      content2: 'per maggiori informazioni su come gestisco i tuoi dati.',
       privacy: 'Leggi la privacy',
       message: 'Grazie per il tuo messaggio!!!',
     },
@@ -84,24 +85,37 @@ const dictionary = {
     tools: 'Strumenti',
     platforms: 'Piattaforme',
     soft: 'Soft',
-    legend: [
-      {
-        color: 'green',
-        label: 'Avanzato/Ottimale',
+    legend: {
+      title: 'Legenda',
+      description:
+        'La barra di avanzamento indica il mio livello di competenza in ciascuna tecnologia. Ecco cosa rappresentano i diversi colori:',
+      buttons: {
+        show: 'Mostra legenda',
+        hide: 'Nascondi legenda',
       },
-      {
-        color: 'yellow',
-        label: 'Intermedio/Buono',
-      },
-      {
-        color: 'orange',
-        label: 'Base/Adeguato',
-      },
-      {
-        color: 'red',
-        label: 'Sconosciuto',
-      },
-    ],
+      list: [
+        {
+          color: 'secondary',
+          label: 'Eccellente padronanza',
+          level: 90,
+        },
+        {
+          color: 'success',
+          label: 'Ottima padronanza',
+          level: 80,
+        },
+        {
+          color: 'warning',
+          label: 'Buona padronanza',
+          level: 60,
+        },
+        {
+          color: 'danger',
+          label: 'Conoscenze di base',
+          level: 50,
+        },
+      ],
+    },
     card: {
       level: 'Livello',
       adequate: 'Adeguato',
