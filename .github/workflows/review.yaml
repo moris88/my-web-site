@@ -34,7 +34,7 @@ jobs:
             const prNumber = context.issue.number;
             const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number: prNumber });
             for (const comment of comments) {
-              if (comment.body.startsWith("## Code Review Report") && comment.user.login === "github-actions[bot]") {
+              if (comment.body.includes("<summary>Automated Code Review</summary>") && comment.user.login === "github-actions[bot]") {
                 await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id });
               }
             }
@@ -45,7 +45,14 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           REVIEW=$(cat review.txt)
-          COMMENT_BODY=$(jq -nc --arg body "$REVIEW" '{"body": $body}')
+          BODY="<details><summary>🤖 Automated Code Review 🧐</summary>
+
+          $REVIEW
+
+          ---
+          *Powered by Google Gemini* ✨
+          </details>"
+          COMMENT_BODY=$(jq -nc --arg body "$BODY" '{"body": $body}')
           curl -s -X POST \
             -H "Authorization: token $GITHUB_TOKEN" \
             -H "Content-Type: application/json" \
