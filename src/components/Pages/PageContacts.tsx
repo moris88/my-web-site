@@ -73,7 +73,7 @@ export default function PageContacts({
               </div>
               <Link
                 showAnchorIcon
-                className="hover:text-primary italic"
+                className="hover:text-primary text-gray-400 italic"
                 href={`mailto:${contacts?.email ?? ''}`}
               >
                 {contacts?.email ?? ''}

@@ -40,7 +40,10 @@
                 "id": 3,
                 "title": "Git Commit Helper IT",
                 "description": "Git Commit Helper IT è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che sfrutta l'intelligenza artificiale per assistere gli sviluppatori nella scrittura di messaggi di commit chiari e significativi. Utilizzando modelli di linguaggio avanzati, l'applicazione analizza le modifiche apportate al codice e suggerisce messaggi di commit appropriati, migliorando la comunicazione all'interno del team di sviluppo e facilitando la gestione del versionamento del codice.",
-                "image": null,
+                "image": {
+                    "src": "/projects/3.webp",
+                    "alt": "Git Commit Helper IT CLI"
+                },
                 "url": "https://www.npmjs.com/package/git-commit-helper-it",
                 "github": "https://github.com/moris88/git-commit-helper",
                 "tags": [
@@ -48,6 +51,45 @@
                     "AI",
                     "Git",
                     "CLI"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "PDF Merged IT",
+                "description": "PDF Merged IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di unire più file PDF in un unico documento. L'applicazione offre un'interfaccia intuitiva e facile da usare, permettendo agli utenti di caricare i loro file PDF, organizzarli nell'ordine desiderato e scaricare il file PDF risultante. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di fusione rapido ed efficiente, ideale per chiunque abbia bisogno di combinare documenti PDF per lavoro, studio o uso personale.",
+                "image": {
+                    "src": "/projects/4.webp",
+                    "alt": "PDF Merged IT App"
+                },
+                "url": "https://pdf-merged.vercel.app/",
+                "github": "https://github.com/moris88/pdf-merged",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "TailwindCSS",
+                    "Vitejs",
+                    "pdf-lib"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Generatore di Fattura IT",
+                "description": "Generatore di Fattura IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare e personalizzare fatture professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dettagli del cliente, gli articoli o servizi forniti, le quantità, i prezzi e le tasse applicabili. Una volta completata la fattura, gli utenti possono scaricarla in formato PDF. Utilizzando librerie JavaScript avanzate per la generazione di PDF, l'app garantisce un processo efficiente e professionale.",
+                "image": {
+                    "src": "/projects/5.webp",
+                    "alt": "Invoice Generator IT App"
+                },
+                "url": "https://generatore-di-fattura.vercel.app/",
+                "github": "https://github.com/moris88/generatore-di-fattura",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "TailwindCSS",
+                    "Vitejs",
+                    "pdf-lib",
+                    "react-signature-canvas",
+                    "jspdf",
+                    "html2canvas"
                 ]
             }
         ],
@@ -91,7 +133,10 @@
                 "id": 3,
                 "title": "Git Commit Helper IT",
                 "description": "Git Commit Helper IT is a Command Line Interface (CLI) application developed in JavaScript that leverages artificial intelligence to assist developers in writing clear and meaningful commit messages. By utilizing advanced language models, the application analyzes code changes and suggests appropriate commit messages, enhancing communication within the development team and facilitating code version management.",
-                "image": null,
+                "image": {
+                    "src": "/projects/3.webp",
+                    "alt": "Git Commit Helper IT CLI"
+                },
                 "url": "https://www.npmjs.com/package/git-commit-helper-it",
                 "github": "https://github.com/moris88/git-commit-helper",
                 "tags": [
@@ -99,6 +144,45 @@
                     "AI",
                     "Git",
                     "CLI"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "PDF Merged IT",
+                "description": "PDF Merged IT is a web application developed in JavaScript that allows users to merge multiple PDF files into a single document. The application offers an intuitive and user-friendly interface, enabling users to upload their PDF files, arrange them in the desired order, and download the resulting merged PDF file. By utilizing advanced JavaScript libraries for PDF manipulation, the app ensures a fast and efficient merging process, ideal for anyone needing to combine PDF documents for work, study, or personal use.",
+                "image": {
+                    "src": "/projects/4.webp",
+                    "alt": "PDF Merged IT App"
+                },
+                "url": "https://pdf-merged.vercel.app/",
+                "github": "https://github.com/moris88/pdf-merged",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "TailwindCSS",
+                    "Vitejs",
+                    "pdf-lib"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Invoice Generator IT",
+                "description": "Invoice Generator IT is a web application developed in JavaScript that allows users to create and customize professional invoices quickly and easily. The application provides an intuitive interface for entering client details, items or services provided, quantities, prices, and applicable taxes. Once the invoice is completed, users can download it in PDF format. By utilizing advanced JavaScript libraries for PDF generation, the app ensures an efficient and professional process.",
+                "image": {
+                    "src": "/projects/5.webp",
+                    "alt": "Invoice Generator IT App"
+                },
+                "url": "https://generatore-di-fattura.vercel.app/",
+                "github": "https://github.com/moris88/generatore-di-fattura",
+                "tags": [
+                    "React",
+                    "Typescript",
+                    "TailwindCSS",
+                    "Vitejs",
+                    "pdf-lib",
+                    "react-signature-canvas",
+                    "jspdf",
+                    "html2canvas"
                 ]
             }
         ]

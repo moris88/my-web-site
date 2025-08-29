@@ -65,12 +65,13 @@ function ModalMessage({
         <Divider className="my-2" />
         <div className="flex flex-col items-center justify-center gap-2">
           <p>
-            {dict.contacts.modal.content}&nbsp;
+            {dict.contacts.modal.content1}&nbsp;
             <Link href="/privacy">
               <i className="font-semibold whitespace-nowrap dark:text-white">
                 {'Privacy Policy'}
               </i>
             </Link>
+            &nbsp;{dict.contacts.modal.content2}
           </p>
           <Divider className="my-2" />
           {show.success && (
@@ -142,12 +143,13 @@ function ModalMessage({
                 <Divider className="mb-3" />
                 <ModalBody>
                   <p>
-                    {dict.contacts.modal.content}&nbsp;
+                    {dict.contacts.modal.content1}&nbsp;
                     <Link href="/privacy">
                       <i className="font-semibold whitespace-nowrap dark:text-white">
                         {'Privacy Policy'}
                       </i>
                     </Link>
+                    &nbsp;{dict.contacts.modal.content2}
                   </p>
                   <FormContact
                     dict={dict}
