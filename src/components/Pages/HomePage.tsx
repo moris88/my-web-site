@@ -82,7 +82,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
-          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify select-none hover:shadow-lg hover:shadow-slate-500 md:p-5 dark:bg-slate-600">
+          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify shadow-lg shadow-slate-500 select-none md:p-5 dark:bg-slate-600">
             {parse(info?.whoAmIDescription?.[language] ?? '')}
           </div>
         </div>
@@ -92,7 +92,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
           <Divider className="my-5 max-w-10" />
         </div>
         <div className="flex w-full justify-center" data-aos="fade-up">
-          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify select-none hover:shadow-lg hover:shadow-slate-500 md:p-5 dark:bg-slate-600">
+          <div className="col-span-3 rounded-lg bg-gray-200 p-2 text-justify shadow-lg shadow-slate-500 select-none md:p-5 dark:bg-slate-600">
             {parse(info?.whatIDoDescription?.[language] ?? '')}
           </div>
         </div>

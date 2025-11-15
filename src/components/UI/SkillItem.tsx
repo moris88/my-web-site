@@ -1,3 +1,5 @@
+'use client'
+
 import { Link } from '@heroui/react'
 import React from 'react'
 
