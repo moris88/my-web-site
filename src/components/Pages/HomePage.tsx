@@ -10,8 +10,9 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { SkillItem, TypingEffect, UniqueButton } from '@/components'
+import { SkillItem, UniqueButton } from '@/components'
 import type { Info, Language } from '@/types'
+import Typewriter from 'typewriter-effect';
 
 interface HomePageProps {
 	dict: Dictionary
@@ -20,7 +21,7 @@ interface HomePageProps {
 }
 
 function HomePage({ dict, info, language }: HomePageProps) {
-	const [startSubTitle, setStartSubtitle] = React.useState(true)
+	const [startSubTitle, setStartSubtitle] = React.useState(false)
 	const router = useRouter()
 
 	React.useEffect(() => {
@@ -53,25 +54,44 @@ function HomePage({ dict, info, language }: HomePageProps) {
 							/>
 						</Tooltip>
 					</div>
-					<TypingEffect
-						className="select-none text-2xl text-white md:text-5xl"
-						skip={!startSubTitle}
-						speed={200}
-						type="h1"
-						onEnd={() => setStartSubtitle(false)}
-					>
-						{info.name}
-					</TypingEffect>
-					<TypingEffect
-						className="select-none text-base text-white md:text-3xl"
-						skip={startSubTitle}
-						speed={200}
-						type="h2"
-					>
-						{info.job}
-					</TypingEffect>
-					<UniqueButton onClick={() => router.push('/contacts')}>
-						{'Contattami'}
+					{!startSubTitle && (
+						<div className='text-3xl text-shadow-md text-white'>
+							<Typewriter
+								onInit={(typewriter) => {
+										typewriter.typeString('MAURIZIO TOLOMEO')
+										.pauseFor(500)
+										.callFunction(() => {
+											setStartSubtitle(true)
+										})
+										.start();
+								}}
+							/>
+						</div>
+					)}
+					{startSubTitle && (
+						<>
+							<p className='text-3xl text-shadow-md text-white'>MAURIZIO TOLOMEO</p>
+							<div className='text-center text-shadow-md text-white text-xl'>
+								<Typewriter
+								onInit={(typewriter) => {
+									typewriter.typeString('REACT DEVELOPER')
+										.pauseFor(1500)
+										.deleteAll()
+										.typeString('UI/UX DESIGNER')
+										.pauseFor(1500)
+										.deleteAll()
+										.typeString('PROMPT ENGINEER')
+										.pauseFor(1500)
+										.deleteAll()
+										.typeString('WEB DEVELOPER SPECIALIZED IN FRONTEND')
+										.start();
+								}}
+								/>
+							</div>
+						</>
+					)}
+					<UniqueButton className="mt-4" onClick={() => router.push('/contacts')}>
+						{language === 'en' ? 'Contact Me' : 'Contattami'}
 					</UniqueButton>
 				</div>
 			</div>
@@ -106,7 +126,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					data-aos="fade-up"
 				>
 					{info.primary_skills.map(({ link, img }) => (
-						<SkillItem key={`skill-${img}`} img={img} link={link} />
+						<SkillItem key={`skill-${img.src}`} img={img} link={link} />
 					))}
 				</div>
 			</div>
