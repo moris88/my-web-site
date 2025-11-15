@@ -1,63 +1,64 @@
- @import "tailwindcss";
+@import "tailwindcss";
 /* Note: You may need to change the path to fit your project structure */
- @config "../../tailwind.config.js";
+@config "../../tailwind.config.js";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  box-sizing: border-box;
-  @apply bg-white dark:bg-[#1b1a19];
+	font-family: "Inter", sans-serif;
+	box-sizing: border-box;
+	@apply bg-white dark:bg-[#1b1a19];
 }
 
 .hero {
-  @apply relative h-[94vh] w-full;
+	@apply relative h-[94vh] w-full;
 }
 
 .hero > .hero-image {
-  @apply h-full w-full object-cover object-center rounded-xl;
+	@apply h-full w-full object-cover object-center rounded-xl;
 }
 
 .hero > .hero-content {
-  @apply absolute top-0 w-full h-full flex items-center justify-center md:pr-10 pr-0;
+	@apply absolute top-0 w-full h-full flex items-center justify-center md:pr-10 pr-0;
 }
 
 .container {
-  @apply min-w-full lg:px-20 px-5 py-5 relative;
+	@apply min-w-full lg:px-20 px-5 py-5 relative;
 }
 
 @media screen and (max-width: 768px) {
-  .item {
-    font-size: 10px;
-  }
+	.item {
+		font-size: 10px;
+	}
 }
 
 @media screen and (max-width: 550px) {
-  .item {
-    font-size: 12px;
-  }
+	.item {
+		font-size: 12px;
+	}
 }
 
 .unique-button {
-  @apply px-5 py-2 uppercase rounded-md text-[17px] font-medium text-white/50 bg-transparent cursor-pointer border border-white transition ease-in-out duration-500 select-none shadow-none;
+	@apply px-5 py-2 uppercase rounded-md text-[17px] font-medium text-white/50 bg-transparent cursor-pointer border border-white transition ease-in-out duration-500 select-none shadow-none;
 }
 
-.unique-button:hover, .unique-button:focus {
-  @apply text-white bg-[#431467] border-white shadow-[0_0_5px_#ffffff,0_0_10px_#ffffff,0_0_20px_#ffffff,0_0_5px_#431467,0_0_20px_#431467,0_0_50px_#431467,0_0_100px_#431467] scale-110;
+.unique-button:hover,
+.unique-button:focus {
+	@apply text-white bg-[#431467] border-white shadow-[0_0_5px_#ffffff,0_0_10px_#ffffff,0_0_20px_#ffffff,0_0_5px_#431467,0_0_20px_#431467,0_0_50px_#431467,0_0_100px_#431467] scale-110;
 }
 
 .unique-button:active {
-  @apply scale-80;
+	@apply scale-80;
 }

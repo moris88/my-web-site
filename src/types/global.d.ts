@@ -2,177 +2,177 @@ export type Language = 'it' | 'en'
 export type Theme = 'light' | 'dark'
 
 export interface Info {
-  name: string
-  job: string
-  whoAmIDescription: {
-    it: string
-    en: string
-  }
-  whatIDoDescription: {
-    it: string
-    en: string
-  }
-  primary_skills: {
-    link: {
-      url: string
-    }
-    img: {
-      src: string
-      alt: string
-    }
-  }[]
+	name: string
+	job: string
+	whoAmIDescription: {
+		it: string
+		en: string
+	}
+	whatIDoDescription: {
+		it: string
+		en: string
+	}
+	primary_skills: {
+		link: {
+			url: string
+		}
+		img: {
+			src: string
+			alt: string
+		}
+	}[]
 }
 
 export interface StoreLink {
-  label: string
-  name: string
-  url: string
+	label: string
+	name: string
+	url: string
 }
 
-export interface Contact extends Record<string, any> {
-  firstName: string
-  lastName: string
-  job: string
-  specialization: string
-  email: string
-  website: string
-  links: string[]
+export interface Contact extends Record<string, string | string[]> {
+	firstName: string
+	lastName: string
+	job: string
+	specialization: string
+	email: string
+	website: string
+	links: string[]
 }
 
 export interface Skills extends Record<string, ListSkills> {
-  languages: ListSkills
-  frontends: ListSkills
-  frameworks_frontend: ListSkills
-  database: ListSkills
-  frameworks_backend: ListSkills
-  tools: ListSkills
-  platforms: ListSkills
-  soft: ListSkills
+	languages: ListSkills
+	frontends: ListSkills
+	frameworks_frontend: ListSkills
+	database: ListSkills
+	frameworks_backend: ListSkills
+	tools: ListSkills
+	platforms: ListSkills
+	soft: ListSkills
 }
 
 export interface ListSkills {
-  list: Skill[]
-  description: {
-    it: string
-    en: string
-  }
+	list: Skill[]
+	description: {
+		it: string
+		en: string
+	}
 }
 
 export interface Skill {
-  title: string | { it: string; en: string }
-  description?: { it: string; en: string }
-  level: number
-  link?: string
+	title: string | { it: string; en: string }
+	description?: { it: string; en: string }
+	level: number
+	link?: string
 }
 
 export interface Err {
-  error: string
-  message: string
+	error: string
+	message: string
 }
 
 export interface Blog extends Partial<Err> {
-  articles: Article[]
+	articles: Article[]
 }
 
 export interface Article {
-  id: string
-  title: string
-  content: string
-  created_at: string
-  updated_at: string
-  link?: string
-  image?: string
+	id: string
+	title: string
+	content: string
+	created_at: string
+	updated_at: string
+	link?: string
+	image?: string
 }
 
 export interface Comment {
-  id: string
-  article_id: string
-  content: string
-  created_at: string
-  username: string
+	id: string
+	article_id: string
+	content: string
+	created_at: string
+	username: string
 }
 
 export interface Curriculum {
-  education: Education[]
-  experiences: Experience[]
+	education: Education[]
+	experiences: Experience[]
 }
 
 export interface Education {
-  institution: string
-  role: string
-  start: string
-  end: string | null
-  description: string
-  link: string | null
+	institution: string
+	role: string
+	start: string
+	end: string | null
+	description: string
+	link: string | null
 }
 
 export interface Experience {
-  company: string
-  role: string
-  start: string
-  end: string | null
-  description: string
-  link: string | null
+	company: string
+	role: string
+	start: string
+	end: string | null
+	description: string
+	link: string | null
 }
 
 export interface History {
-  title: {
-    it: string
-    en: string
-  }
-  it: {
-    title: string | null
-    description: string
-    image?: string
-    alt?: string
-  }[]
-  en: {
-    title: string | null
-    description: string
-    image?: string
-    alt?: string
-  }[]
-  lastUpdate: string
+	title: {
+		it: string
+		en: string
+	}
+	it: {
+		title: string | null
+		description: string
+		image?: string
+		alt?: string
+	}[]
+	en: {
+		title: string | null
+		description: string
+		image?: string
+		alt?: string
+	}[]
+	lastUpdate: string
 }
 
 export interface Project {
-  id: number
-  title: string
-  description: string
-  url: string
-  github: string
-  image: {
-    src: string
-    alt: string
-  }
-  tags: string[]
+	id: number
+	title: string
+	description: string
+	url: string
+	github: string
+	image: {
+		src: string
+		alt: string
+	}
+	tags: string[]
 }
 
 export type DeveloperCategory =
-  | 'frontend'
-  | 'backend'
-  | 'fullstack'
-  | 'desktop'
-  | 'mobile'
-  | 'database'
+	| 'frontend'
+	| 'backend'
+	| 'fullstack'
+	| 'desktop'
+	| 'mobile'
+	| 'database'
 
 export interface DeveloperProfile {
-  title: string
-  shortLabel: string
-  description: string
-  reasons: string[]
+	title: string
+	shortLabel: string
+	description: string
+	reasons: string[]
 }
 
 export interface QuizQuestion {
-  question: {
-    it: string
-    en: string
-  }
-  answers: {
-    text: {
-      it: string
-      en: string
-    }
-    points: Partial<Record<DeveloperCategory, number>>
-  }[]
+	question: {
+		it: string
+		en: string
+	}
+	answers: {
+		text: {
+			it: string
+			en: string
+		}
+		points: Partial<Record<DeveloperCategory, number>>
+	}[]
 }

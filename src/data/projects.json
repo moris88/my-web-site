@@ -1,190 +1,146 @@
 {
-    "projects": {
-        "it": [
-            {
-                "id": 1,
-                "title": "Todo App",
-                "description": "ToDo Manager è un'applicazione web realizzata con React, TypeScript, Vite.js e Tailwind CSS, progettata per semplificare la gestione delle attività quotidiane. Funzionalità principali: 1. Gestione avanzata delle attività – Crea, modifica e aggiorna i tuoi To-Do con descrizioni dettagliate. 2. Categorie personalizzate – Organizza i task in tre stati: To-Do, In Progress e Done. 3. Priorità dei task – Imposta livelli di priorità per concentrarti su ciò che è più importante. 4. Notifiche di scadenza – Ricevi avvisi per non perdere di vista le attività imminenti. 5. Modifica la descrizione dei task senza perdere traccia dei progressi. Grazie alla combinazione di React e Vite.js, l'app garantisce prestazioni elevate e un'esperienza utente fluida, mentre Tailwind CSS assicura un'interfaccia moderna e reattiva. Perfetta per chi vuole restare organizzato con un’interfaccia intuitiva e potente!",
-                "image": {
-                    "src": "/projects/1.webp",
-                    "alt": "Todo App"
-                },
-                "url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
-                "github": "https://github.com/moris88/project-todolist",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "HeroUI",
-                    "TailwindCSS",
-                    "Vitejs"
-                ]
-            },
-            {
-                "id": 2,
-                "title": "Conteggio Consumo Acqua Condominio",
-                "description": "Questa applicazione è stata sviluppata per semplificare la gestione del consumo di acqua in un condominio. Consente di registrare e monitorare i consumi di acqua per ogni appartamento, facilitando la suddivisione delle spese tra i condomini. L'applicazione è realizzata con React, TypeScript, Vite.js e Tailwind CSS, garantendo un'interfaccia utente moderna e reattiva.",
-                "image": {
-                    "src": "/projects/2.webp",
-                    "alt": "Conteggio Consumo Acqua Condominio App"
-                },
-                "url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
-                "github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs"
-                ]
-            },
-            {
-                "id": 3,
-                "title": "Git Commit Helper IT",
-                "description": "Git Commit Helper IT è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che sfrutta l'intelligenza artificiale per assistere gli sviluppatori nella scrittura di messaggi di commit chiari e significativi. Utilizzando modelli di linguaggio avanzati, l'applicazione analizza le modifiche apportate al codice e suggerisce messaggi di commit appropriati, migliorando la comunicazione all'interno del team di sviluppo e facilitando la gestione del versionamento del codice.",
-                "image": {
-                    "src": "/projects/3.webp",
-                    "alt": "Git Commit Helper IT CLI"
-                },
-                "url": "https://www.npmjs.com/package/git-commit-helper-it",
-                "github": "https://github.com/moris88/git-commit-helper",
-                "tags": [
-                    "Javascript",
-                    "AI",
-                    "Git",
-                    "CLI"
-                ]
-            },
-            {
-                "id": 4,
-                "title": "PDF Merged IT",
-                "description": "PDF Merged IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di unire più file PDF in un unico documento. L'applicazione offre un'interfaccia intuitiva e facile da usare, permettendo agli utenti di caricare i loro file PDF, organizzarli nell'ordine desiderato e scaricare il file PDF risultante. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di fusione rapido ed efficiente, ideale per chiunque abbia bisogno di combinare documenti PDF per lavoro, studio o uso personale.",
-                "image": {
-                    "src": "/projects/4.webp",
-                    "alt": "PDF Merged IT App"
-                },
-                "url": "https://pdf-merged.vercel.app/",
-                "github": "https://github.com/moris88/pdf-merged",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs",
-                    "pdf-lib"
-                ]
-            },
-            {
-                "id": 5,
-                "title": "Generatore di Fattura IT",
-                "description": "Generatore di Fattura IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare e personalizzare fatture professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dettagli del cliente, gli articoli o servizi forniti, le quantità, i prezzi e le tasse applicabili. Una volta completata la fattura, gli utenti possono scaricarla in formato PDF. Utilizzando librerie JavaScript avanzate per la generazione di PDF, l'app garantisce un processo efficiente e professionale.",
-                "image": {
-                    "src": "/projects/5.webp",
-                    "alt": "Invoice Generator IT App"
-                },
-                "url": "https://generatore-di-fattura.vercel.app/",
-                "github": "https://github.com/moris88/generatore-di-fattura",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs",
-                    "pdf-lib",
-                    "react-signature-canvas",
-                    "jspdf",
-                    "html2canvas"
-                ]
-            }
-        ],
-        "en": [
-            {
-                "id": 1,
-                "title": "Todo App",
-                "description": "ToDo Manager is a web application built with React, TypeScript, Vite.js, and Tailwind CSS, designed to simplify daily task management. Key Features: 1. Advanced task management – Create, edit, and update your to-dos with detailed descriptions. 2. Custom categories – Organize tasks into three states: To-Do, In Progress, and Done. 3. Task prioritization – Set priority levels to focus on what matters most. 4. Deadline notifications – Receive alerts to keep track of upcoming tasks. 5. Edit task descriptions without losing progress. By leveraging React and Vite.js, the app ensures high performance and a smooth user experience, while Tailwind CSS provides a modern and responsive interface. Perfect for those who want to stay organized with an intuitive and powerful interface!",
-                "image": {
-                    "src": "/projects/1.webp",
-                    "alt": "Todo App"
-                },
-                "url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
-                "github": "https://github.com/moris88/project-todolist",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "HeroUI",
-                    "TailwindCSS",
-                    "Vitejs"
-                ]
-            },
-            {
-                "id": 2,
-                "title": "Water Consumption Tracking App",
-                "description": "This application was developed to simplify the management of water consumption in a condominium. It allows users to record and monitor water usage for each apartment, facilitating the division of expenses among residents. The app is built with React, TypeScript, Vite.js, and Tailwind CSS, ensuring a modern and responsive user interface.",
-                "image": {
-                    "src": "/projects/2.webp",
-                    "alt": "Water Consumption Tracking App"
-                },
-                "url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
-                "github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs"
-                ]
-            },
-            {
-                "id": 3,
-                "title": "Git Commit Helper IT",
-                "description": "Git Commit Helper IT is a Command Line Interface (CLI) application developed in JavaScript that leverages artificial intelligence to assist developers in writing clear and meaningful commit messages. By utilizing advanced language models, the application analyzes code changes and suggests appropriate commit messages, enhancing communication within the development team and facilitating code version management.",
-                "image": {
-                    "src": "/projects/3.webp",
-                    "alt": "Git Commit Helper IT CLI"
-                },
-                "url": "https://www.npmjs.com/package/git-commit-helper-it",
-                "github": "https://github.com/moris88/git-commit-helper",
-                "tags": [
-                    "Javascript",
-                    "AI",
-                    "Git",
-                    "CLI"
-                ]
-            },
-            {
-                "id": 4,
-                "title": "PDF Merged IT",
-                "description": "PDF Merged IT is a web application developed in JavaScript that allows users to merge multiple PDF files into a single document. The application offers an intuitive and user-friendly interface, enabling users to upload their PDF files, arrange them in the desired order, and download the resulting merged PDF file. By utilizing advanced JavaScript libraries for PDF manipulation, the app ensures a fast and efficient merging process, ideal for anyone needing to combine PDF documents for work, study, or personal use.",
-                "image": {
-                    "src": "/projects/4.webp",
-                    "alt": "PDF Merged IT App"
-                },
-                "url": "https://pdf-merged.vercel.app/",
-                "github": "https://github.com/moris88/pdf-merged",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs",
-                    "pdf-lib"
-                ]
-            },
-            {
-                "id": 5,
-                "title": "Invoice Generator IT",
-                "description": "Invoice Generator IT is a web application developed in JavaScript that allows users to create and customize professional invoices quickly and easily. The application provides an intuitive interface for entering client details, items or services provided, quantities, prices, and applicable taxes. Once the invoice is completed, users can download it in PDF format. By utilizing advanced JavaScript libraries for PDF generation, the app ensures an efficient and professional process.",
-                "image": {
-                    "src": "/projects/5.webp",
-                    "alt": "Invoice Generator IT App"
-                },
-                "url": "https://generatore-di-fattura.vercel.app/",
-                "github": "https://github.com/moris88/generatore-di-fattura",
-                "tags": [
-                    "React",
-                    "Typescript",
-                    "TailwindCSS",
-                    "Vitejs",
-                    "pdf-lib",
-                    "react-signature-canvas",
-                    "jspdf",
-                    "html2canvas"
-                ]
-            }
-        ]
-    }
+	"projects": {
+		"it": [
+			{
+				"id": 1,
+				"title": "Todo App",
+				"description": "ToDo Manager è un'applicazione web realizzata con React, TypeScript, Vite.js e Tailwind CSS, progettata per semplificare la gestione delle attività quotidiane. Funzionalità principali: 1. Gestione avanzata delle attività – Crea, modifica e aggiorna i tuoi To-Do con descrizioni dettagliate. 2. Categorie personalizzate – Organizza i task in tre stati: To-Do, In Progress e Done. 3. Priorità dei task – Imposta livelli di priorità per concentrarti su ciò che è più importante. 4. Notifiche di scadenza – Ricevi avvisi per non perdere di vista le attività imminenti. 5. Modifica la descrizione dei task senza perdere traccia dei progressi. Grazie alla combinazione di React e Vite.js, l'app garantisce prestazioni elevate e un'esperienza utente fluida, mentre Tailwind CSS assicura un'interfaccia moderna e reattiva. Perfetta per chi vuole restare organizzato con un’interfaccia intuitiva e potente!",
+				"image": {
+					"src": "/projects/1.webp",
+					"alt": "Todo App"
+				},
+				"url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
+				"github": "https://github.com/moris88/project-todolist",
+				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 2,
+				"title": "Conteggio Consumo Acqua Condominio",
+				"description": "Questa applicazione è stata sviluppata per semplificare la gestione del consumo di acqua in un condominio. Consente di registrare e monitorare i consumi di acqua per ogni appartamento, facilitando la suddivisione delle spese tra i condomini. L'applicazione è realizzata con React, TypeScript, Vite.js e Tailwind CSS, garantendo un'interfaccia utente moderna e reattiva.",
+				"image": {
+					"src": "/projects/2.webp",
+					"alt": "Conteggio Consumo Acqua Condominio App"
+				},
+				"url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 3,
+				"title": "Git Commit Helper IT",
+				"description": "Git Commit Helper IT è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che sfrutta l'intelligenza artificiale per assistere gli sviluppatori nella scrittura di messaggi di commit chiari e significativi. Utilizzando modelli di linguaggio avanzati, l'applicazione analizza le modifiche apportate al codice e suggerisce messaggi di commit appropriati, migliorando la comunicazione all'interno del team di sviluppo e facilitando la gestione del versionamento del codice.",
+				"image": {
+					"src": "/projects/3.webp",
+					"alt": "Git Commit Helper IT CLI"
+				},
+				"url": "https://www.npmjs.com/package/git-commit-helper-it",
+				"github": "https://github.com/moris88/git-commit-helper",
+				"tags": ["Javascript", "AI", "Git", "CLI"]
+			},
+			{
+				"id": 4,
+				"title": "PDF Merged IT",
+				"description": "PDF Merged IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di unire più file PDF in un unico documento. L'applicazione offre un'interfaccia intuitiva e facile da usare, permettendo agli utenti di caricare i loro file PDF, organizzarli nell'ordine desiderato e scaricare il file PDF risultante. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di fusione rapido ed efficiente, ideale per chiunque abbia bisogno di combinare documenti PDF per lavoro, studio o uso personale.",
+				"image": {
+					"src": "/projects/4.webp",
+					"alt": "PDF Merged IT App"
+				},
+				"url": "https://pdf-merged.vercel.app/",
+				"github": "https://github.com/moris88/pdf-merged",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+			},
+			{
+				"id": 5,
+				"title": "Generatore di Fattura IT",
+				"description": "Generatore di Fattura IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare e personalizzare fatture professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dettagli del cliente, gli articoli o servizi forniti, le quantità, i prezzi e le tasse applicabili. Una volta completata la fattura, gli utenti possono scaricarla in formato PDF. Utilizzando librerie JavaScript avanzate per la generazione di PDF, l'app garantisce un processo efficiente e professionale.",
+				"image": {
+					"src": "/projects/5.webp",
+					"alt": "Invoice Generator IT App"
+				},
+				"url": "https://generatore-di-fattura.vercel.app/",
+				"github": "https://github.com/moris88/generatore-di-fattura",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib",
+					"react-signature-canvas",
+					"jspdf",
+					"html2canvas"
+				]
+			}
+		],
+		"en": [
+			{
+				"id": 1,
+				"title": "Todo App",
+				"description": "ToDo Manager is a web application built with React, TypeScript, Vite.js, and Tailwind CSS, designed to simplify daily task management. Key Features: 1. Advanced task management – Create, edit, and update your to-dos with detailed descriptions. 2. Custom categories – Organize tasks into three states: To-Do, In Progress, and Done. 3. Task prioritization – Set priority levels to focus on what matters most. 4. Deadline notifications – Receive alerts to keep track of upcoming tasks. 5. Edit task descriptions without losing progress. By leveraging React and Vite.js, the app ensures high performance and a smooth user experience, while Tailwind CSS provides a modern and responsive interface. Perfect for those who want to stay organized with an intuitive and powerful interface!",
+				"image": {
+					"src": "/projects/1.webp",
+					"alt": "Todo App"
+				},
+				"url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
+				"github": "https://github.com/moris88/project-todolist",
+				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 2,
+				"title": "Water Consumption Tracking App",
+				"description": "This application was developed to simplify the management of water consumption in a condominium. It allows users to record and monitor water usage for each apartment, facilitating the division of expenses among residents. The app is built with React, TypeScript, Vite.js, and Tailwind CSS, ensuring a modern and responsive user interface.",
+				"image": {
+					"src": "/projects/2.webp",
+					"alt": "Water Consumption Tracking App"
+				},
+				"url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 3,
+				"title": "Git Commit Helper IT",
+				"description": "Git Commit Helper IT is a Command Line Interface (CLI) application developed in JavaScript that leverages artificial intelligence to assist developers in writing clear and meaningful commit messages. By utilizing advanced language models, the application analyzes code changes and suggests appropriate commit messages, enhancing communication within the development team and facilitating code version management.",
+				"image": {
+					"src": "/projects/3.webp",
+					"alt": "Git Commit Helper IT CLI"
+				},
+				"url": "https://www.npmjs.com/package/git-commit-helper-it",
+				"github": "https://github.com/moris88/git-commit-helper",
+				"tags": ["Javascript", "AI", "Git", "CLI"]
+			},
+			{
+				"id": 4,
+				"title": "PDF Merged IT",
+				"description": "PDF Merged IT is a web application developed in JavaScript that allows users to merge multiple PDF files into a single document. The application offers an intuitive and user-friendly interface, enabling users to upload their PDF files, arrange them in the desired order, and download the resulting merged PDF file. By utilizing advanced JavaScript libraries for PDF manipulation, the app ensures a fast and efficient merging process, ideal for anyone needing to combine PDF documents for work, study, or personal use.",
+				"image": {
+					"src": "/projects/4.webp",
+					"alt": "PDF Merged IT App"
+				},
+				"url": "https://pdf-merged.vercel.app/",
+				"github": "https://github.com/moris88/pdf-merged",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+			},
+			{
+				"id": 5,
+				"title": "Invoice Generator IT",
+				"description": "Invoice Generator IT is a web application developed in JavaScript that allows users to create and customize professional invoices quickly and easily. The application provides an intuitive interface for entering client details, items or services provided, quantities, prices, and applicable taxes. Once the invoice is completed, users can download it in PDF format. By utilizing advanced JavaScript libraries for PDF generation, the app ensures an efficient and professional process.",
+				"image": {
+					"src": "/projects/5.webp",
+					"alt": "Invoice Generator IT App"
+				},
+				"url": "https://generatore-di-fattura.vercel.app/",
+				"github": "https://github.com/moris88/generatore-di-fattura",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib",
+					"react-signature-canvas",
+					"jspdf",
+					"html2canvas"
+				]
+			}
+		]
+	}
 }

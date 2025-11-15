@@ -1,577 +1,577 @@
 {
-    "quiz": [
-        {
-            "question": {
-                "it": "1 - Cosa ti entusiasma di più?",
-                "en": "1 - What excites you the most?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Gestire logica, API e dati",
-                        "en": "Handling logic, APIs, and data"
-                    },
-                    "points": {
-                        "backend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Fare tutto: dal backend al design",
-                        "en": "Doing everything: from backend to design"
-                    },
-                    "points": {
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Creare programmi per PC",
-                        "en": "Creating software for PC"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Progettare app per smartphone",
-                        "en": "Designing smartphone apps"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Lavorare con dati, query e performance",
-                        "en": "Working with data, queries and performance"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Creare interfacce utente belle e dinamiche",
-                        "en": "Creating beautiful and dynamic UIs"
-                    },
-                    "points": {
-                        "frontend": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "2 - Quale tecnologia ti ispira di più?",
-                "en": "2 - Which technology inspires you the most?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Node.js o Python",
-                        "en": "Node.js or Python"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "fullstack": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Flutter o Swift",
-                        "en": "Flutter or Swift"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "React o Vue",
-                        "en": "React or Vue"
-                    },
-                    "points": {
-                        "frontend": 2,
-                        "fullstack": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "SQL o MongoDB",
-                        "en": "SQL or MongoDB"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Java o C#",
-                        "en": "Java or C#"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "3 - Ti piace lavorare con...",
-                "en": "3 - Do you like working with..."
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Interfacce touch e sensori",
-                        "en": "Touch interfaces and sensors"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "API, server, sicurezza, dati",
-                        "en": "APIs, servers, security, and data"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "database": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "HTML, CSS, animazioni e design",
-                        "en": "HTML, CSS, animations, and design"
-                    },
-                    "points": {
-                        "frontend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Tutto!",
-                        "en": "Everything!"
-                    },
-                    "points": {
-                        "frontend": 1,
-                        "backend": 1,
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Componenti desktop, file, stampanti",
-                        "en": "Desktop components, files, printers"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "4 - Ti appassiona di più...",
-                "en": "4 - What are you most passionate about..."
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Gestire grandi quantità di dati",
-                        "en": "Handling large amounts of data"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Vedere risultati visivi immediati",
-                        "en": "Seeing immediate visual results"
-                    },
-                    "points": {
-                        "frontend": 2,
-                        "mobile": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Scrivere codice che funziona ovunque",
-                        "en": "Writing code that works everywhere"
-                    },
-                    "points": {
-                        "fullstack": 2,
-                        "mobile": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Ottimizzare codice e performance",
-                        "en": "Optimizing code and performance"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "database": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Automatizzare attività locali",
-                        "en": "Automating local tasks"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "5 - Quale esperienza ti piacerebbe provare?",
-                "en": "5 - Which experience would you like to try?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Progettare l’interfaccia di un’app",
-                        "en": "Designing an app interface"
-                    },
-                    "points": {
-                        "frontend": 2,
-                        "mobile": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Costruire un sito web da zero",
-                        "en": "Building a website from scratch"
-                    },
-                    "points": {
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Sviluppare un’app Android/iOS",
-                        "en": "Developing an Android/iOS app"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Scrivere logica e dati",
-                        "en": "Writing logic and managing data"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "database": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Creare un programma per Windows/Mac",
-                        "en": "Creating a program for Windows/Mac"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "6 - Come ti piace lavorare nei progetti?",
-                "en": "6 - How do you like working on projects?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Preferisco applicazioni installabili su computer",
-                        "en": "I prefer installable desktop applications"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Mi piace l’integrazione con dispositivi mobili",
-                        "en": "I like integration with mobile devices"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Amo lavorare sul look e l’esperienza utente",
-                        "en": "I love working on look & user experience"
-                    },
-                    "points": {
-                        "frontend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Mi piace controllare l’intero flusso",
-                        "en": "I like managing the entire flow"
-                    },
-                    "points": {
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Lavorare con query e database mi entusiasma",
-                        "en": "Working with queries and databases excites me"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Preferisco concentrarmi sui dati e l’architettura",
-                        "en": "I prefer focusing on data and architecture"
-                    },
-                    "points": {
-                        "backend": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "7 - In quale contesto ti immagini a lavorare?",
-                "en": "7 - In which context do you imagine working?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Creando tool per ufficio o desktop",
-                        "en": "Creating office or desktop tools"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Su sistemi aziendali complessi",
-                        "en": "On complex enterprise systems"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "database": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Su app mobili usate ogni giorno",
-                        "en": "On mobile apps used every day"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "In ambienti orientati ai dati",
-                        "en": "In data-driven environments"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "In team su un grande sito web",
-                        "en": "In a team on a large website"
-                    },
-                    "points": {
-                        "fullstack": 2,
-                        "frontend": 1
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "8 - Quale attività ti diverte di più?",
-                "en": "8 - Which activity do you enjoy the most?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Scrivere query complesse per estrarre dati",
-                        "en": "Writing complex queries to extract data"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Testare app su diversi smartphone",
-                        "en": "Testing apps on different smartphones"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Disegnare il flusso completo di un’app",
-                        "en": "Designing the complete flow of an app"
-                    },
-                    "points": {
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Ottimizzare un’interfaccia utente",
-                        "en": "Optimizing a user interface"
-                    },
-                    "points": {
-                        "frontend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Fare debug e risolvere problemi tecnici",
-                        "en": "Debugging and solving technical problems"
-                    },
-                    "points": {
-                        "backend": 2,
-                        "desktop": 1
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "9 - Con quale linguaggio ti piacerebbe lavorare?",
-                "en": "9 - Which programming language would you like to work with?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "JavaScript o TypeScript",
-                        "en": "JavaScript or TypeScript"
-                    },
-                    "points": {
-                        "frontend": 1,
-                        "fullstack": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Python o Go",
-                        "en": "Python or Go"
-                    },
-                    "points": {
-                        "backend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Java o C#",
-                        "en": "Java or C#"
-                    },
-                    "points": {
-                        "backend": 1,
-                        "desktop": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "SQL o noSQL",
-                        "en": "SQL or noSQL"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Kotlin o Swift",
-                        "en": "Kotlin or Swift"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                }
-            ]
-        },
-        {
-            "question": {
-                "it": "10 - Se potessi scegliere un progetto, quale preferiresti?",
-                "en": "10 - If you could choose a project, which one would you prefer?"
-            },
-            "answers": [
-                {
-                    "text": {
-                        "it": "Un gestionale desktop per uffici",
-                        "en": "A desktop management system for offices"
-                    },
-                    "points": {
-                        "desktop": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Un progetto che include tutto",
-                        "en": "A project that includes everything"
-                    },
-                    "points": {
-                        "fullstack": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Un portale web interattivo",
-                        "en": "An interactive web portal"
-                    },
-                    "points": {
-                        "frontend": 2,
-                        "fullstack": 1
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Un sistema per l’analisi di grandi dati",
-                        "en": "A system for big data analysis"
-                    },
-                    "points": {
-                        "database": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Un sistema backend per un e-commerce",
-                        "en": "A backend system for e-commerce"
-                    },
-                    "points": {
-                        "backend": 2
-                    }
-                },
-                {
-                    "text": {
-                        "it": "Un’app mobile innovativa",
-                        "en": "An innovative mobile app"
-                    },
-                    "points": {
-                        "mobile": 2
-                    }
-                }
-            ]
-        }
-    ]
+	"quiz": [
+		{
+			"question": {
+				"it": "1 - Cosa ti entusiasma di più?",
+				"en": "1 - What excites you the most?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Gestire logica, API e dati",
+						"en": "Handling logic, APIs, and data"
+					},
+					"points": {
+						"backend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Fare tutto: dal backend al design",
+						"en": "Doing everything: from backend to design"
+					},
+					"points": {
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Creare programmi per PC",
+						"en": "Creating software for PC"
+					},
+					"points": {
+						"desktop": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Progettare app per smartphone",
+						"en": "Designing smartphone apps"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Lavorare con dati, query e performance",
+						"en": "Working with data, queries and performance"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Creare interfacce utente belle e dinamiche",
+						"en": "Creating beautiful and dynamic UIs"
+					},
+					"points": {
+						"frontend": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "2 - Quale tecnologia ti ispira di più?",
+				"en": "2 - Which technology inspires you the most?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Node.js o Python",
+						"en": "Node.js or Python"
+					},
+					"points": {
+						"backend": 2,
+						"fullstack": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Flutter o Swift",
+						"en": "Flutter or Swift"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "React o Vue",
+						"en": "React or Vue"
+					},
+					"points": {
+						"frontend": 2,
+						"fullstack": 1
+					}
+				},
+				{
+					"text": {
+						"it": "SQL o MongoDB",
+						"en": "SQL or MongoDB"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Java o C#",
+						"en": "Java or C#"
+					},
+					"points": {
+						"desktop": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "3 - Ti piace lavorare con...",
+				"en": "3 - Do you like working with..."
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Interfacce touch e sensori",
+						"en": "Touch interfaces and sensors"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "API, server, sicurezza, dati",
+						"en": "APIs, servers, security, and data"
+					},
+					"points": {
+						"backend": 2,
+						"database": 1
+					}
+				},
+				{
+					"text": {
+						"it": "HTML, CSS, animazioni e design",
+						"en": "HTML, CSS, animations, and design"
+					},
+					"points": {
+						"frontend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Tutto!",
+						"en": "Everything!"
+					},
+					"points": {
+						"frontend": 1,
+						"backend": 1,
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Componenti desktop, file, stampanti",
+						"en": "Desktop components, files, printers"
+					},
+					"points": {
+						"desktop": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "4 - Ti appassiona di più...",
+				"en": "4 - What are you most passionate about..."
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Gestire grandi quantità di dati",
+						"en": "Handling large amounts of data"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Vedere risultati visivi immediati",
+						"en": "Seeing immediate visual results"
+					},
+					"points": {
+						"frontend": 2,
+						"mobile": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Scrivere codice che funziona ovunque",
+						"en": "Writing code that works everywhere"
+					},
+					"points": {
+						"fullstack": 2,
+						"mobile": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Ottimizzare codice e performance",
+						"en": "Optimizing code and performance"
+					},
+					"points": {
+						"backend": 2,
+						"database": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Automatizzare attività locali",
+						"en": "Automating local tasks"
+					},
+					"points": {
+						"desktop": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "5 - Quale esperienza ti piacerebbe provare?",
+				"en": "5 - Which experience would you like to try?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Progettare l’interfaccia di un’app",
+						"en": "Designing an app interface"
+					},
+					"points": {
+						"frontend": 2,
+						"mobile": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Costruire un sito web da zero",
+						"en": "Building a website from scratch"
+					},
+					"points": {
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Sviluppare un’app Android/iOS",
+						"en": "Developing an Android/iOS app"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Scrivere logica e dati",
+						"en": "Writing logic and managing data"
+					},
+					"points": {
+						"backend": 2,
+						"database": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Creare un programma per Windows/Mac",
+						"en": "Creating a program for Windows/Mac"
+					},
+					"points": {
+						"desktop": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "6 - Come ti piace lavorare nei progetti?",
+				"en": "6 - How do you like working on projects?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Preferisco applicazioni installabili su computer",
+						"en": "I prefer installable desktop applications"
+					},
+					"points": {
+						"desktop": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Mi piace l’integrazione con dispositivi mobili",
+						"en": "I like integration with mobile devices"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Amo lavorare sul look e l’esperienza utente",
+						"en": "I love working on look & user experience"
+					},
+					"points": {
+						"frontend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Mi piace controllare l’intero flusso",
+						"en": "I like managing the entire flow"
+					},
+					"points": {
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Lavorare con query e database mi entusiasma",
+						"en": "Working with queries and databases excites me"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Preferisco concentrarmi sui dati e l’architettura",
+						"en": "I prefer focusing on data and architecture"
+					},
+					"points": {
+						"backend": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "7 - In quale contesto ti immagini a lavorare?",
+				"en": "7 - In which context do you imagine working?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Creando tool per ufficio o desktop",
+						"en": "Creating office or desktop tools"
+					},
+					"points": {
+						"desktop": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Su sistemi aziendali complessi",
+						"en": "On complex enterprise systems"
+					},
+					"points": {
+						"backend": 2,
+						"database": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Su app mobili usate ogni giorno",
+						"en": "On mobile apps used every day"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "In ambienti orientati ai dati",
+						"en": "In data-driven environments"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "In team su un grande sito web",
+						"en": "In a team on a large website"
+					},
+					"points": {
+						"fullstack": 2,
+						"frontend": 1
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "8 - Quale attività ti diverte di più?",
+				"en": "8 - Which activity do you enjoy the most?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Scrivere query complesse per estrarre dati",
+						"en": "Writing complex queries to extract data"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Testare app su diversi smartphone",
+						"en": "Testing apps on different smartphones"
+					},
+					"points": {
+						"mobile": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Disegnare il flusso completo di un’app",
+						"en": "Designing the complete flow of an app"
+					},
+					"points": {
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Ottimizzare un’interfaccia utente",
+						"en": "Optimizing a user interface"
+					},
+					"points": {
+						"frontend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Fare debug e risolvere problemi tecnici",
+						"en": "Debugging and solving technical problems"
+					},
+					"points": {
+						"backend": 2,
+						"desktop": 1
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "9 - Con quale linguaggio ti piacerebbe lavorare?",
+				"en": "9 - Which programming language would you like to work with?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "JavaScript o TypeScript",
+						"en": "JavaScript or TypeScript"
+					},
+					"points": {
+						"frontend": 1,
+						"fullstack": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Python o Go",
+						"en": "Python or Go"
+					},
+					"points": {
+						"backend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Java o C#",
+						"en": "Java or C#"
+					},
+					"points": {
+						"backend": 1,
+						"desktop": 2
+					}
+				},
+				{
+					"text": {
+						"it": "SQL o noSQL",
+						"en": "SQL or noSQL"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Kotlin o Swift",
+						"en": "Kotlin or Swift"
+					},
+					"points": {
+						"mobile": 2
+					}
+				}
+			]
+		},
+		{
+			"question": {
+				"it": "10 - Se potessi scegliere un progetto, quale preferiresti?",
+				"en": "10 - If you could choose a project, which one would you prefer?"
+			},
+			"answers": [
+				{
+					"text": {
+						"it": "Un gestionale desktop per uffici",
+						"en": "A desktop management system for offices"
+					},
+					"points": {
+						"desktop": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Un progetto che include tutto",
+						"en": "A project that includes everything"
+					},
+					"points": {
+						"fullstack": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Un portale web interattivo",
+						"en": "An interactive web portal"
+					},
+					"points": {
+						"frontend": 2,
+						"fullstack": 1
+					}
+				},
+				{
+					"text": {
+						"it": "Un sistema per l’analisi di grandi dati",
+						"en": "A system for big data analysis"
+					},
+					"points": {
+						"database": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Un sistema backend per un e-commerce",
+						"en": "A backend system for e-commerce"
+					},
+					"points": {
+						"backend": 2
+					}
+				},
+				{
+					"text": {
+						"it": "Un’app mobile innovativa",
+						"en": "An innovative mobile app"
+					},
+					"points": {
+						"mobile": 2
+					}
+				}
+			]
+		}
+	]
 }
