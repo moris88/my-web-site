@@ -1,28 +1,20 @@
 {
-    "it": {
-        "firstName": "Maurizio",
-        "lastName": "Tolomeo",
-        "job": "Web Developer",
-        "specialization": "Frontend",
-        "email": "maurizio.tolomeo@outlook.it",
-        "website": "https://www.mauriziotolomeo.it",
-        "links": [
-            "linkedin",
-            "github",
-            "facebook"
-        ]
-    },
-    "en": {
-        "firstName": "Maurizio",
-        "lastName": "Tolomeo",
-        "job": "Web Developer",
-        "specialization": "Frontend",
-        "email": "maurizio.tolomeo@outlook.it",
-        "website": "https://www.mauriziotolomeo.it",
-        "links": [
-            "linkedin",
-            "github",
-            "facebook"
-        ]
-    }
+	"it": {
+		"firstName": "Maurizio",
+		"lastName": "Tolomeo",
+		"job": "Web Developer",
+		"specialization": "Frontend",
+		"email": "maurizio.tolomeo@outlook.it",
+		"website": "https://www.mauriziotolomeo.it",
+		"links": ["linkedin", "github", "facebook"]
+	},
+	"en": {
+		"firstName": "Maurizio",
+		"lastName": "Tolomeo",
+		"job": "Web Developer",
+		"specialization": "Frontend",
+		"email": "maurizio.tolomeo@outlook.it",
+		"website": "https://www.mauriziotolomeo.it",
+		"links": ["linkedin", "github", "facebook"]
+	}
 }

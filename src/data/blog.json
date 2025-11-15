@@ -1,28 +1,28 @@
 {
-    "it": {
-        "articles": [
-            {
-                "id": "1",
-                "title": "string",
-                "content": "string",
-                "created_at": "string",
-                "updated_at": "string",
-                "link": "string",
-                "image": "string"
-            }
-        ]
-    },
-    "en": {
-        "articles": [
-            {
-                "id": "1",
-                "title": "string",
-                "content": "string",
-                "created_at": "string",
-                "updated_at": "string",
-                "link": "string",
-                "image": "string"
-            }
-        ]
-    }
+	"it": {
+		"articles": [
+			{
+				"id": "1",
+				"title": "string",
+				"content": "string",
+				"created_at": "string",
+				"updated_at": "string",
+				"link": "string",
+				"image": "string"
+			}
+		]
+	},
+	"en": {
+		"articles": [
+			{
+				"id": "1",
+				"title": "string",
+				"content": "string",
+				"created_at": "string",
+				"updated_at": "string",
+				"link": "string",
+				"image": "string"
+			}
+		]
+	}
 }
