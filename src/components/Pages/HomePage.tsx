@@ -35,7 +35,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				<div
 					className={twMerge(
 						'hero-content flex w-full flex-col items-center justify-center gap-4',
-						'!pr-0',
+						'pr-0!',
 					)}
 				>
 					<div
