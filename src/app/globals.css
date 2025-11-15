@@ -50,15 +50,60 @@ body {
 	}
 }
 
+/* Stile di base del bottone */
 .unique-button {
 	@apply px-5 py-2 uppercase rounded-md text-[17px] font-medium text-white/50 bg-transparent cursor-pointer border border-white transition ease-in-out duration-500 select-none shadow-none;
 }
 
+/* Hover e focus */
 .unique-button:hover,
 .unique-button:focus {
 	@apply text-white bg-[#431467] border-white shadow-[0_0_5px_#ffffff,0_0_10px_#ffffff,0_0_20px_#ffffff,0_0_5px_#431467,0_0_20px_#431467,0_0_50px_#431467,0_0_100px_#431467] scale-110;
 }
 
+/* Stato attivo */
 .unique-button:active {
 	@apply scale-80;
 }
+
+/* Animazione per il lampeggio con l'effetto hover */
+@keyframes blinkHoverEffect {
+	0% {
+		transform: scale(1);
+		border-color: white;
+		box-shadow: none;
+		opacity: 1;
+	}
+
+	50% {
+		transform: scale(1.1); /* Ingrandimento */
+		border-color: #431467; /* Colore bordo hover */
+		box-shadow:
+			0 0 5px #ffffff,
+			0 0 10px #ffffff,
+			0 0 20px #ffffff,
+			0 0 5px #431467,
+			0 0 20px #431467,
+			0 0 50px #431467,
+			0 0 100px #431467; /* Effetto hover */
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1); /* Torna alla dimensione originale */
+		border-color: white;
+		box-shadow: none;
+		opacity: 1;
+	}
+}
+
+/* Applicare l'animazione quando non è in hover, con un ritardo di 5 secondi */
+.unique-button:not(:hover) {
+	animation: blinkHoverEffect 1s ease-in-out 20 5s; /* Lampeggia 3 volte con effetto hover dopo 5 secondi */
+}
+
+/* La proprietà `animation` funziona così:
+   - `1s`: durata dell'animazione per ogni ciclo
+   - `ease-in-out`: tipo di transizione
+   - `3`: numero di cicli (in questo caso, 3 lampeggi)
+   - `5s`: ritardo prima che l'animazione inizi (5 secondi) */
