@@ -12,7 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import type { Dictionary } from '@/app/dictionaries'
 import { SkillItem, UniqueButton } from '@/components'
 import type { Info, Language } from '@/types'
-import Typewriter from 'typewriter-effect';
+import Typewriter from 'typewriter-effect'
 
 interface HomePageProps {
 	dict: Dictionary
@@ -55,42 +55,49 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</Tooltip>
 					</div>
 					{!startSubTitle && (
-						<div className='text-3xl text-shadow-md text-white'>
+						<div className="text-3xl text-shadow-md text-white">
 							<Typewriter
 								onInit={(typewriter) => {
-										typewriter.typeString('MAURIZIO TOLOMEO')
+									typewriter
+										.typeString('MAURIZIO TOLOMEO')
 										.pauseFor(500)
 										.callFunction(() => {
 											setStartSubtitle(true)
 										})
-										.start();
+										.start()
 								}}
 							/>
 						</div>
 					)}
 					{startSubTitle && (
 						<>
-							<p className='text-3xl text-shadow-md text-white'>MAURIZIO TOLOMEO</p>
-							<div className='text-center text-shadow-md text-white text-xl'>
+							<p className="text-3xl text-shadow-md text-white">
+								MAURIZIO TOLOMEO
+							</p>
+							<div className="text-center text-shadow-md text-white text-xl">
 								<Typewriter
-								onInit={(typewriter) => {
-									typewriter.typeString('REACT DEVELOPER')
-										.pauseFor(1500)
-										.deleteAll()
-										.typeString('UI/UX DESIGNER')
-										.pauseFor(1500)
-										.deleteAll()
-										.typeString('PROMPT ENGINEER')
-										.pauseFor(1500)
-										.deleteAll()
-										.typeString('WEB DEVELOPER SPECIALIZED IN FRONTEND')
-										.start();
-								}}
+									onInit={(typewriter) => {
+										typewriter
+											.typeString('REACT DEVELOPER')
+											.pauseFor(1500)
+											.deleteAll()
+											.typeString('UI/UX DESIGNER')
+											.pauseFor(1500)
+											.deleteAll()
+											.typeString('PROMPT ENGINEER')
+											.pauseFor(1500)
+											.deleteAll()
+											.typeString('WEB DEVELOPER SPECIALIZED IN FRONTEND')
+											.start()
+									}}
 								/>
 							</div>
 						</>
 					)}
-					<UniqueButton className="mt-4" onClick={() => router.push('/contacts')}>
+					<UniqueButton
+						className="mt-4"
+						onClick={() => router.push('/contacts')}
+					>
 						{language === 'en' ? 'Contact Me' : 'Contattami'}
 					</UniqueButton>
 				</div>

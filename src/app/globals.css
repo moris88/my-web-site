@@ -78,7 +78,14 @@ body {
 	50% {
 		transform: scale(1.1); /* Ingrandimento */
 		border-color: #431467; /* Colore bordo hover */
-		box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 5px #431467, 0 0 20px #431467, 0 0 50px #431467, 0 0 100px #431467; /* Effetto hover */
+		box-shadow:
+			0 0 5px #ffffff,
+			0 0 10px #ffffff,
+			0 0 20px #ffffff,
+			0 0 5px #431467,
+			0 0 20px #431467,
+			0 0 50px #431467,
+			0 0 100px #431467; /* Effetto hover */
 		opacity: 1;
 	}
 

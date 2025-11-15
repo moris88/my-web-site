@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge"
+import { twMerge } from 'tailwind-merge'
 
 interface ButtonProps {
 	children: React.ReactNode
@@ -8,7 +8,11 @@ interface ButtonProps {
 
 function UniqueButton({ children, onClick, className }: ButtonProps) {
 	return (
-		<button type="button" className={twMerge("unique-button", className)} onClick={onClick}>
+		<button
+			type="button"
+			className={twMerge('unique-button', className)}
+			onClick={onClick}
+		>
 			{children}
 		</button>
 	)
