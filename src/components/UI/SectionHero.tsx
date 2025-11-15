@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 interface SectionHeroProps {
 	title: string
 	subtitle?: string

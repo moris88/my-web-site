@@ -9,7 +9,7 @@
 					"src": "/projects/1.webp",
 					"alt": "Todo App"
 				},
-				"url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
+				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
 				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
 			},
@@ -21,7 +21,7 @@
 					"src": "/projects/2.webp",
 					"alt": "Conteggio Consumo Acqua Condominio App"
 				},
-				"url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			},
@@ -45,7 +45,7 @@
 					"src": "/projects/4.webp",
 					"alt": "PDF Merged IT App"
 				},
-				"url": "https://pdf-merged.vercel.app/",
+				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
 			},
@@ -57,7 +57,7 @@
 					"src": "/projects/5.webp",
 					"alt": "Invoice Generator IT App"
 				},
-				"url": "https://generatore-di-fattura.vercel.app/",
+				"url": "https://invoice-generator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/generatore-di-fattura",
 				"tags": [
 					"React",
@@ -80,7 +80,7 @@
 					"src": "/projects/1.webp",
 					"alt": "Todo App"
 				},
-				"url": "https://project-todolist-hk5fi8618-moris-projects-325cbd2b.vercel.app/",
+				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
 				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
 			},
@@ -92,7 +92,7 @@
 					"src": "/projects/2.webp",
 					"alt": "Water Consumption Tracking App"
 				},
-				"url": "https://conteggio-consumo-acqua-condominio.vercel.app/",
+				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			},
@@ -116,7 +116,7 @@
 					"src": "/projects/4.webp",
 					"alt": "PDF Merged IT App"
 				},
-				"url": "https://pdf-merged.vercel.app/",
+				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
 			},
@@ -128,7 +128,7 @@
 					"src": "/projects/5.webp",
 					"alt": "Invoice Generator IT App"
 				},
-				"url": "https://generatore-di-fattura.vercel.app/",
+				"url": "https://invoice-generator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/generatore-di-fattura",
 				"tags": [
 					"React",

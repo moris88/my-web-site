@@ -119,7 +119,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 												</Button>
 												<DownloadFile
 													disabled={!accept}
-													pathFile="https://my-personal-cv-seven.vercel.app/"
+													pathFile="https://cv.mauriziotolomeo.it/"
 												>
 													{dict.curriculum.download}
 												</DownloadFile>
