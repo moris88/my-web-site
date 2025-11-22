@@ -2,8 +2,10 @@
 
 import { useRouter } from 'next/navigation'
 
+import { FaLaptopCode } from 'react-icons/fa6'
+
 import type { Dictionary } from '@/app/dictionaries'
-import { CardProject, SectionHero } from '@/components'
+import { CardProject } from '@/components'
 import type { Project } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -24,7 +26,10 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 				<div className="flex flex-col items-center gap-4 text-center">
 					<h2 className="font-bold text-3xl md:text-4xl">
-						{dict.projects.title}
+						<span className="flex items-center justify-center gap-2">
+							<FaLaptopCode className="h-8 w-8 text-primary" />
+							{dict.projects.title}
+						</span>
 					</h2>
 					<div className="h-1 w-20 rounded-full bg-primary" />
 					<p className="text-gray-600 dark:text-gray-300">
