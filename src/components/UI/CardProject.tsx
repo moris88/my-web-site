@@ -1,6 +1,7 @@
 'use client'
 
-import { Chip } from '@heroui/react'
+import { Card, CardBody, CardFooter, CardHeader, Chip } from '@heroui/react'
+import { motion } from 'framer-motion'
 
 import type { Project } from '@/types'
 
@@ -10,41 +11,47 @@ interface CardProjectProps {
 }
 
 function CardProject({ project, onClick }: CardProjectProps) {
-	const { title, image, tags } = project
-	const handleOnClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-		e.preventDefault()
+	const { title, image, tags, description } = project
+	const handleOnClick = () => {
 		onClick?.(project)
 	}
+
 	return (
-		<button
-			type="button"
-			className="hover:-translate-y-2 w-full cursor-pointer rounded-lg bg-gray-200 p-4 text-black transition-all duration-100 ease-in-out hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700"
+		<motion.div
+			whileHover={{ scale: 1.02 }}
+			whileTap={{ scale: 0.98 }}
+			className="h-full w-full cursor-pointer"
 			onClick={handleOnClick}
 		>
-			<div className="flex min-h-20 flex-col items-start gap-y-2">
-				{image?.src ? (
-					<img
-						alt={image.alt}
-						className="h-40 w-full rounded-lg object-cover object-top"
-						src={image.src}
-					/>
-				) : (
-					<div className="flex h-40 w-full items-center justify-center rounded-lg bg-gray-300">
-						<p className="text-4xl text-gray-500">{'No-Image'}</p>
-					</div>
-				)}
-				<h2 className="line-clamp-1 select-none font-bold text-black text-xl dark:text-gray-300">
-					{title}
-				</h2>
-				<div className="flex flex-wrap gap-2 gap-y-1">
+			<Card className="h-full w-full border-none bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800 dark:shadow-slate-900/50">
+				<CardHeader className="p-0">
+					{image?.src ? (
+						<img
+							alt={image.alt}
+							className="h-48 w-full object-cover object-top"
+							src={image.src}
+						/>
+					) : (
+						<div className="flex h-48 w-full items-center justify-center bg-gray-200 dark:bg-slate-700">
+							<p className="text-gray-500">No Image</p>
+						</div>
+					)}
+				</CardHeader>
+				<CardBody className="flex flex-col gap-2 p-4">
+					<h3 className="line-clamp-1 font-bold text-xl">{title}</h3>
+					<p className="line-clamp-2 text-gray-500 text-sm dark:text-gray-400">
+						{description}
+					</p>
+				</CardBody>
+				<CardFooter className="flex flex-wrap gap-2 px-4 pt-0 pb-4">
 					{tags.map((tag) => (
-						<Chip key={`tag-${tag}`} color="primary">
+						<Chip key={`tag-${tag}`} size="sm" color="primary" variant="flat">
 							{tag}
 						</Chip>
 					))}
-				</div>
-			</div>
-		</button>
+				</CardFooter>
+			</Card>
+		</motion.div>
 	)
 }
 

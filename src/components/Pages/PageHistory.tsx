@@ -6,6 +6,7 @@ import { Button } from '@heroui/button'
 import AOS from 'aos'
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
+import { useRouter } from 'next/navigation'
 
 import { SectionHero } from '@/components/UI'
 import { useScreenDimensions } from '@/hooks'
@@ -19,6 +20,7 @@ interface PageHistoryProps {
 function PageHistory({ language, history }: PageHistoryProps) {
 	const { isMobile } = useScreenDimensions()
 	const [showContent, setShowContent] = React.useState(true)
+	const router = useRouter()
 
 	React.useEffect(() => {
 		AOS.init()
@@ -27,7 +29,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
 	return (
 		<SectionHero title={history.title[language]}>
 			{showContent && (
-				<div className="rounded-lg bg-blue-50 p-2 shadow-md">
+				<div className="rounded-lg bg-blue-50 p-2 shadow-md dark:bg-slate-900">
 					<div className="flex w-full justify-end">
 						<IoMdClose
 							className="h-6 w-6 cursor-pointer"
@@ -49,9 +51,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
 							color="primary"
 							type="button"
 							variant="flat"
-							onPress={() => {
-								window.open('https://mauriziotolomeo.it/quiz', '_blank')
-							}}
+							onPress={() => router.push('/quiz')}
 						>
 							{language === 'en' ? 'Take the test' : 'Fai il test'}
 						</Button>
@@ -62,7 +62,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
 				const isEven = index % 2 === 0
 				if (index === 0 || index === history[language].length - 1) {
 					return (
-						<React.Fragment key={`history-${item.title}`}>
+						<React.Fragment key={item.id}>
 							<h3 className="px-0 text-lg lg:px-10 lg:text-2xl">
 								{item.title}
 							</h3>
@@ -72,7 +72,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
 				}
 				return (
 					<div
-						key={`history-${item.title}`}
+						key={item.id}
 						className="flex flex-col items-center justify-center gap-4 py-2 md:flex-row md:py-10"
 						data-aos="zoom-in-up"
 					>
@@ -116,6 +116,12 @@ function PageHistory({ language, history }: PageHistoryProps) {
 					</div>
 				)
 			})}
+			<div className="mt-10 flex w-full justify-end text-gray-500 text-sm">
+				<p>
+					{language === 'en' ? 'Last update: ' : 'Ultimo aggiornamento: '}
+					{history.lastUpdate}
+				</p>
+			</div>
 		</SectionHero>
 	)
 }
