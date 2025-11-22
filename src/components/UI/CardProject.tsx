@@ -43,7 +43,7 @@ function CardProject({ project, onClick }: CardProjectProps) {
 						{description}
 					</p>
 				</CardBody>
-				<CardFooter className="flex flex-wrap gap-2 px-4 pb-4 pt-0">
+				<CardFooter className="flex flex-wrap gap-2 px-4 pt-0 pb-4">
 					{tags.map((tag) => (
 						<Chip key={`tag-${tag}`} size="sm" color="primary" variant="flat">
 							{tag}

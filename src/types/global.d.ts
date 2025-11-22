@@ -136,12 +136,14 @@ export interface History {
 		en: string
 	}
 	it: {
+		id: string
 		title: string | null
 		description: string
 		image?: string
 		alt?: string
 	}[]
 	en: {
+		id: string
 		title: string | null
 		description: string
 		image?: string

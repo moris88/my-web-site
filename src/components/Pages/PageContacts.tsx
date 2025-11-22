@@ -1,13 +1,17 @@
 'use client'
 
-import { Button, ButtonGroup, Link } from '@heroui/react'
+import { Button, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { ButtonsGroupSocial, InteractiveAvatar, ModalMessage } from '@/components/UI'
+import {
+	ButtonsGroupSocial,
+	InteractiveAvatar,
+	ModalMessage,
+} from '@/components/UI'
 import type { Contact, StoreLink } from '@/types'
 
 interface PageContactsProps {
@@ -104,7 +108,7 @@ export default function PageContacts({
 													{iconMap[buttonLower]}
 													{
 														dict.contacts.buttons[
-														button as keyof typeof dict.contacts.buttons
+															button as keyof typeof dict.contacts.buttons
 														] as string
 													}
 												</span>

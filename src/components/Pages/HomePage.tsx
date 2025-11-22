@@ -160,7 +160,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						className="rounded-2xl bg-gray-50 p-8 shadow-lg dark:bg-slate-800 dark:shadow-slate-900/50"
 						data-aos="fade-up"
 					>
-						<div className="prose max-w-4xl text-justify text-gray-700 dark:prose-invert dark:text-gray-300">
+						<div className="prose dark:prose-invert max-w-4xl text-justify text-gray-700 dark:text-gray-300">
 							{parse(info?.whoAmIDescription?.[language] ?? '')}
 						</div>
 					</div>
