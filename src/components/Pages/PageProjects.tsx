@@ -20,17 +20,29 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 	}
 
 	return (
-		<SectionHero title={dict.projects.title}>
-			<div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
-				{projects.map((project) => (
-					<CardProject
-						key={generateUniqueId()}
-						project={project}
-						onClick={handleClickRow}
-					/>
-				))}
+		<section className="min-h-screen w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
+				<div className="flex flex-col items-center gap-4 text-center">
+					<h2 className="font-bold text-3xl md:text-4xl">
+						{dict.projects.title}
+					</h2>
+					<div className="h-1 w-20 rounded-full bg-primary" />
+					<p className="text-gray-600 dark:text-gray-300">
+						A collection of my work.
+					</p>
+				</div>
+
+				<div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+					{projects.map((project) => (
+						<CardProject
+							key={generateUniqueId()}
+							project={project}
+							onClick={handleClickRow}
+						/>
+					))}
+				</div>
 			</div>
-		</SectionHero>
+		</section>
 	)
 }
 

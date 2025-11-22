@@ -7,10 +7,16 @@ import AOS from 'aos'
 import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { SkillItem, UniqueButton } from '@/components'
+import {
+	InteractiveAvatar,
+	InfiniteSkillsScroller,
+	ServiceCard,
+	UniqueButton,
+} from '@/components'
 import type { Info, Language } from '@/types'
 import Typewriter from 'typewriter-effect'
 
@@ -47,7 +53,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 							content={dict.home.message}
 							placement="top"
 						>
-							<img
+							<InteractiveAvatar
 								alt="avatar"
 								className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
 								src="/avatar.webp"
@@ -102,41 +108,90 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					</UniqueButton>
 				</div>
 			</div>
-			<div className="container flex flex-col items-center justify-center gap-4">
-				<div className="my-10 flex flex-col items-center justify-center gap-2">
-					<Divider className="my-5 max-w-10" />
-					<p className="italic">{dict.home.whoAmITitle}</p>
-					<Divider className="my-5 max-w-10" />
-				</div>
-				<div className="flex w-full justify-center" data-aos="fade-up">
-					<div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify shadow-lg shadow-slate-500 md:p-5 dark:bg-slate-600">
-						{parse(info?.whoAmIDescription?.[language] ?? '')}
+
+			{/* Services Section */}
+			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
+					<div className="flex flex-col items-center gap-4 text-center">
+						<h2 className="font-bold text-3xl md:text-4xl">
+							{dict.home.whatIDoTitle}
+						</h2>
+						<div className="h-1 w-20 rounded-full bg-primary" />
+						<div className="max-w-3xl text-gray-600 dark:text-gray-300">
+							{parse(info?.whatIDoDescription?.[language] ?? '')}
+						</div>
+					</div>
+
+					<div
+						className="grid w-full grid-cols-1 gap-6 md:grid-cols-3"
+						data-aos="fade-up"
+					>
+						{info.services?.map((service) => {
+							const iconMap: Record<string, React.ReactNode> = {
+								FaRobot: <FaRobot className="h-8 w-8" />,
+								FaCode: <FaCode className="h-8 w-8" />,
+								FaPaintBrush: <FaPaintbrush className="h-8 w-8" />,
+							}
+
+							return (
+								<ServiceCard
+									key={service.title.en}
+									description={service.description[language]}
+									icon={iconMap[service.icon]}
+									title={service.title[language]}
+								/>
+							)
+						})}
 					</div>
 				</div>
-				<div className="my-10 flex flex-col items-center justify-center gap-2">
-					<Divider className="my-5 max-w-10" />
-					<p className="italic">{dict.home.whatIDoTitle}</p>
-					<Divider className="my-5 max-w-10" />
-				</div>
-				<div className="flex w-full justify-center" data-aos="fade-up">
-					<div className="col-span-3 select-none rounded-lg bg-gray-200 p-2 text-justify shadow-lg shadow-slate-500 md:p-5 dark:bg-slate-600">
-						{parse(info?.whatIDoDescription?.[language] ?? '')}
+			</section>
+
+			{/* About Section */}
+			<section className="w-full bg-white py-20 dark:bg-slate-900">
+				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
+					<div className="flex flex-col items-center gap-4 text-center">
+						<h2 className="font-bold text-3xl md:text-4xl">
+							{dict.home.whoAmITitle}
+						</h2>
+						<div className="h-1 w-20 rounded-full bg-primary" />
+					</div>
+
+					<div
+						className="rounded-2xl bg-gray-50 p-8 shadow-lg dark:bg-slate-800 dark:shadow-slate-900/50"
+						data-aos="fade-up"
+					>
+						<div className="prose max-w-4xl text-justify text-gray-700 dark:prose-invert dark:text-gray-300">
+							{parse(info?.whoAmIDescription?.[language] ?? '')}
+						</div>
+					</div>
+
+					<div className="mt-10 flex w-full flex-col items-center gap-6">
+						<h3 className="font-semibold text-2xl">My Tech Stack</h3>
+						<div
+							className="w-full max-w-4xl rounded-xl bg-gray-50 p-6 shadow-md dark:bg-slate-800 dark:shadow-slate-900/50"
+							data-aos="fade-up"
+						>
+							{parse(info?.secondary_skills?.[language] ?? '')}
+						</div>
 					</div>
 				</div>
-				<div className="my-10 flex flex-col items-center justify-center gap-2">
-					<Divider className="my-5 max-w-10" />
-					<p className="italic">{dict.home.whatISpecializeInTitle}</p>
-					<Divider className="my-5 max-w-10" />
+			</section>
+
+			{/* Skills Section */}
+			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
+					<div className="flex flex-col items-center gap-4 text-center">
+						<h2 className="font-bold text-3xl md:text-4xl">
+							{dict.home.whatISpecializeInTitle}
+						</h2>
+						<div className="h-1 w-20 rounded-full bg-primary" />
+					</div>
+
+					<div className="w-full" data-aos="fade-up">
+						<InfiniteSkillsScroller skills={info.primary_skills} />
+					</div>
 				</div>
-				<div
-					className="mb-10 flex flex-col items-center justify-center gap-2 lg:flex-row"
-					data-aos="fade-up"
-				>
-					{info.primary_skills.map(({ link, img }) => (
-						<SkillItem key={`skill-${img.src}`} img={img} link={link} />
-					))}
-				</div>
-			</div>
+			</section>
 		</>
 	)
 }

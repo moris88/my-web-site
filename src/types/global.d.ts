@@ -12,6 +12,10 @@ export interface Info {
 		it: string
 		en: string
 	}
+	secondary_skills: {
+		it: string
+		en: string
+	}
 	primary_skills: {
 		link: {
 			url: string
@@ -20,6 +24,17 @@ export interface Info {
 			src: string
 			alt: string
 		}
+	}[]
+	services: {
+		title: {
+			it: string
+			en: string
+		}
+		description: {
+			it: string
+			en: string
+		}
+		icon: string
 	}[]
 }
 

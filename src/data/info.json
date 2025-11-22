@@ -9,6 +9,10 @@
 		"it": "<p>Nel mio lavoro mi occupo di progettare e sviluppare soluzioni software su misura, mettendo particolare attenzione all’integrazione di sistemi complessi e all’ottimizzazione dei processi aziendali. Utilizzo principalmente React e tecnologie correlate per gestire stati applicativi complessi, creare componenti modulari e riutilizzabili, e garantire così un codice pulito, efficiente e facilmente mantenibile nel tempo.</p><br><p>Il mio obiettivo è fornire prodotti scalabili e performanti che rispondano alle esigenze reali delle aziende, migliorando la produttività e l’esperienza utente.</p>",
 		"en": "<p>In my work, I design and develop tailored software solutions, focusing on integrating complex systems and optimizing business processes. I primarily use React and related technologies to handle complex application states, build modular and reusable components, and ensure clean, efficient, and maintainable code over time.</p><br><p>My goal is to deliver scalable and high-performing products that meet real business needs, enhancing productivity and user experience.</p>"
 	},
+	"secondary_skills": {
+		"it": "<p>Sviluppatore specializzato nell'ecosistema JavaScript/TypeScript. La mia expertise principale è in React (Web e Native), ma possiedo gli strumenti per curare l'intero stack tecnologico, dal database all'interfaccia utente.</p><br><ul><li><b>Frontend Core:</b> React (Avanzato), Next.js, TypeScript, Tailwind CSS, SCSS.</li><li><b>Backend Core:</b> Node.js, Express.js, Supabase.</li><li><b>Database:</b> PostgreSQL, MySQL, MongoDB.</li><li><b>Version Control:</b> Git, GitHub.</li><li><b>Design Tools:</b> Figma</li></ul></p>",
+		"en": "<p>Specialized developer in the JavaScript/TypeScript ecosystem. My main expertise is in React (Web and Native), but I have the tools to care for the entire technology stack, from the database to the user interface.<br><ul><li><b>Frontend Core:</b> React (Avanzato), Next.js, TypeScript, Tailwind CSS, SCSS.</li><li><b>Backend Core:</b> Node.js, Express.js, Supabase.</li><li><b>Database:</b> PostgreSQL, MySQL, MongoDB.</li><li><b>Version Control:</b> Git, GitHub.</li><li><b>Design Tools:</b> Figma</li></ul></p>"
+	},
 	"primary_skills": [
 		{
 			"link": {
@@ -108,6 +112,41 @@
 				"src": "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg",
 				"alt": "Figma"
 			}
+		}
+	],
+	"services": [
+		{
+			"title": {
+				"it": "Prompt Engineer",
+				"en": "Prompt Engineer"
+			},
+			"description": {
+				"it": "Ottimizzo l'interazione con le AI per generare contenuti precisi e soluzioni innovative.",
+				"en": "I optimize interaction with AI to generate precise content and innovative solutions."
+			},
+			"icon": "FaRobot"
+		},
+		{
+			"title": {
+				"it": "Frontend Developer",
+				"en": "Frontend Developer"
+			},
+			"description": {
+				"it": "Creo interfacce web moderne, veloci e responsive con React e Next.js.",
+				"en": "I create modern, fast, and responsive web interfaces with React and Next.js."
+			},
+			"icon": "FaCode"
+		},
+		{
+			"title": {
+				"it": "UI/UX Designer",
+				"en": "UI/UX Designer"
+			},
+			"description": {
+				"it": "Progetto esperienze utente intuitive e design accattivanti che catturano l'attenzione.",
+				"en": "I design intuitive user experiences and captivating designs that grab attention."
+			},
+			"icon": "FaPaintBrush"
 		}
 	]
 }
