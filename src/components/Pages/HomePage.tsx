@@ -2,7 +2,7 @@
 
 import 'aos/dist/aos.css'
 
-import { Divider, Tooltip } from '@heroui/react'
+import { Tooltip } from '@heroui/react'
 import AOS from 'aos'
 import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'

@@ -6,6 +6,7 @@ import { Button } from '@heroui/button'
 import AOS from 'aos'
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
+import { useRouter } from 'next/navigation'
 
 import { SectionHero } from '@/components/UI'
 import { useScreenDimensions } from '@/hooks'
@@ -19,6 +20,7 @@ interface PageHistoryProps {
 function PageHistory({ language, history }: PageHistoryProps) {
 	const { isMobile } = useScreenDimensions()
 	const [showContent, setShowContent] = React.useState(true)
+	const router = useRouter()
 
 	React.useEffect(() => {
 		AOS.init()
@@ -49,9 +51,7 @@ function PageHistory({ language, history }: PageHistoryProps) {
 							color="primary"
 							type="button"
 							variant="flat"
-							onPress={() => {
-								window.open('https://mauriziotolomeo.it/quiz', '_blank')
-							}}
+							onPress={() => router.push('/quiz')}
 						>
 							{language === 'en' ? 'Take the test' : 'Fai il test'}
 						</Button>
