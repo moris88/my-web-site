@@ -82,9 +82,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 							onPress={() => setStop(false)}
 							className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-padding p-[2px] font-semibold text-transparent shadow-lg transition-transform hover:scale-105"
 						>
-							<span
-								className="flex h-full w-full items-center justify-center rounded-full bg-white px-4 text-blue-600 dark:bg-slate-900 dark:text-purple-300"
-							>
+							<span className="flex h-full w-full items-center justify-center rounded-full bg-white px-4 text-blue-600 dark:bg-slate-900 dark:text-purple-300">
 								{dict.quiz.popup.buttons.reset}
 							</span>
 						</Button>

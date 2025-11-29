@@ -207,7 +207,7 @@ const dictionary = {
 				'Grazie per aver partecipato! Puoi ripetere il quiz per esplorare altre opzioni.',
 			buttons: {
 				reset: 'Ripeti il quiz',
-				close: 'Torna indietro'
+				close: 'Torna indietro',
 			},
 		},
 		label: 'Perché ti si addice:',

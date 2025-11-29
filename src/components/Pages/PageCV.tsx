@@ -49,7 +49,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 					{type === 'work' ? (
 						<FaCity className="h-5 w-5" />
 					) : (
-							<RiBookFill className="h-5 w-5" />
+						<RiBookFill className="h-5 w-5" />
 					)}
 				</div>
 
