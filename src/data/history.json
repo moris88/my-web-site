@@ -1,14 +1,14 @@
 {
 	"history": {
 		"title": {
-			"it": "La Mia Esperienza: Una Scelta che Ha Cambiato la Mia Vita",
-			"en": "My Experience: A Life-Changing Decision"
+			"it": "Il Mio Viaggio nel Codice: Una Storia di Passione e Crescita",
+			"en": "My Journey in Code: A Story of Passion and Growth"
 		},
 		"it": [
 			{
 				"id": "history-1",
 				"title": null,
-				"description": "Quando ho deciso di intraprendere un percorso nel mondo dello sviluppo web, sapevo che la strada non sarebbe stata semplice. Tuttavia, ero determinato a trovare una via più rapida ed efficace per entrare nel settore. Nel 2021, questa determinazione mi ha portato a scegliere il corso di Full Stack Developer di Epicode, un’esperienza che si è rivelata una delle decisioni più significative della mia carriera."
+				"description": "Ogni grande viaggio inizia con una scelta coraggiosa. La mia avventura nel mondo dello sviluppo web non è nata per caso, ma dalla volontà di trasformare una passione in una professione concreta. Nel 2021, ho deciso di dare una svolta alla mia vita, cercando un percorso che unisse teoria e pratica, sfida e creatività. Questa determinazione mi ha guidato verso il corso Full Stack Developer di Epicode: il punto di svolta che ha trasformato la mia curiosità in competenza e il mio sogno in una carriera."
 			},
 			{
 				"id": "history-2",
@@ -83,7 +83,7 @@
 			{
 				"id": "history-1",
 				"title": null,
-				"description": "When I decided to embark on a journey in the world of web development, I knew the road wouldn't be easy. However, I was determined to find a faster and more effective way to enter the industry. In 2021, this determination led me to choose Epicode's Full Stack Developer course, an experience that turned out to be one of the most significant decisions of my career."
+				"description": "Every great journey begins with a brave choice. My adventure in the world of web development didn't happen by chance, but from the desire to turn a passion into a concrete profession. In 2021, I decided to turn my life around, looking for a path that combined theory and practice, challenge and creativity. This determination led me to Epicode's Full Stack Developer course: the turning point that transformed my curiosity into competence and my dream into a career."
 			},
 			{
 				"id": "history-2",
