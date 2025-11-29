@@ -55,7 +55,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						>
 							<InteractiveAvatar
 								alt="avatar"
-								className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[350px] md:w-[350px] lg:h-[500px] lg:w-[500px] 2xl:h-[650px] 2xl:w-[650px]"
+								className="block aspect-square max-h-[80vh] w-full max-w-[clamp(180px,30vw,450px)]"
 								src="/avatar.webp"
 							/>
 						</Tooltip>
