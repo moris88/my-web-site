@@ -17,9 +17,13 @@
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: "Rubik", sans-serif;
 	box-sizing: border-box;
 	@apply bg-white dark:bg-[#1b1a19];
+}
+
+.myFont {
+	font-family: "Science Gothic", sans-serif;
 }
 
 .hero {

@@ -55,13 +55,13 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						>
 							<InteractiveAvatar
 								alt="avatar"
-								className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]"
+								className="block h-60 w-60 rounded-full drop-shadow-xl md:h-[350px] md:w-[350px] lg:h-[500px] lg:w-[500px] 2xl:h-[650px] 2xl:w-[650px]"
 								src="/avatar.webp"
 							/>
 						</Tooltip>
 					</div>
 					{!startSubTitle && (
-						<div className="text-3xl text-shadow-md text-white">
+						<div className="font-outfit text-3xl text-shadow-md text-white">
 							<Typewriter
 								onInit={(typewriter) => {
 									typewriter
@@ -77,10 +77,10 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					)}
 					{startSubTitle && (
 						<>
-							<p className="text-3xl text-shadow-md text-white">
+							<p className="myFont text-3xl text-shadow-md text-white">
 								MAURIZIO TOLOMEO
 							</p>
-							<div className="text-center text-shadow-md text-white text-xl">
+							<div className="myFont text-center text-shadow-md text-white text-xl">
 								<Typewriter
 									onInit={(typewriter) => {
 										typewriter
