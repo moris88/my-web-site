@@ -22,6 +22,9 @@ import React from 'react'
 import type { Dictionary } from '@/app/dictionaries'
 import type { Language, Skill, Skills } from '@/types'
 import { generateUniqueId } from '@/utils'
+import { SectionHero } from '@/components'
+
+import { FaTools } from "react-icons/fa";
 
 interface SkillsProps {
 	skills: Skills
@@ -95,10 +98,8 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
 	}
 
 	return (
-		<section className="flex flex-col justify-center px-2 md:px-14">
-			<h1 className="my-5 text-center font-bold text-3xl">
-				{dict.skills.title}
-			</h1>
+		<SectionHero icon={<FaTools className="h-8 w-8 text-primary" />} title={dict.skills.title} subtitle={dict.skills.subtitle}>
+		<div className="flex flex-col justify-center px-2 md:px-14">
 			<div className="block">
 				{skill && (
 					<Modal
@@ -229,7 +230,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
 				</Tabs>
 				<div className="my-5 flex items-center justify-center">
 					<Button
-						className="flex gap-2"
+						className="flex gap-2 bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 						color="default"
 						variant="flat"
 						onPress={() => setShowLegend((t) => !t)}
@@ -271,6 +272,7 @@ export default function PageSkills({ skills, language, dict }: SkillsProps) {
 					</div>
 				)}
 			</div>
-		</section>
+		</div>
+		</SectionHero>
 	)
 }

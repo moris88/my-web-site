@@ -8,10 +8,11 @@ import { HiIdentification } from 'react-icons/hi2'
 
 import type { Dictionary } from '@/app/dictionaries'
 import {
+	SectionHero,
 	ButtonsGroupSocial,
 	InteractiveAvatar,
 	ModalMessage,
-} from '@/components/UI'
+} from '@/components'
 import type { Contact, StoreLink } from '@/types'
 
 interface PageContactsProps {
@@ -41,21 +42,8 @@ export default function PageContacts({
 	)
 
 	return (
-		<section className="min-h-screen w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+		<SectionHero icon={<HiIdentification className="h-8 w-8 text-primary" />} title={dict.contacts.title} subtitle={dict.contacts.subtitle}>
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
-				<div className="flex flex-col items-center gap-4 text-center">
-					<h2 className="font-bold text-3xl md:text-4xl">
-						<span className="flex items-center justify-center gap-2">
-							<HiIdentification className="h-8 w-8 text-primary" />
-							{dict.contacts.social}
-						</span>
-					</h2>
-					<div className="h-1 w-20 rounded-full bg-primary" />
-					<p className="text-gray-600 dark:text-gray-300">
-						Let&apos;s build something together.
-					</p>
-				</div>
-
 				{contacts && (
 					<div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
 						{/* Left Column: Profile & Info */}
@@ -145,6 +133,6 @@ export default function PageContacts({
 					/>
 				</div>
 			</div>
-		</section>
+		</SectionHero>
 	)
 }

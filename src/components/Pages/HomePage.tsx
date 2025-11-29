@@ -61,7 +61,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</Tooltip>
 					</div>
 					{!startSubTitle && (
-						<div className="font-outfit text-3xl text-shadow-md text-white">
+						<div className="myFont text-3xl text-shadow-md text-white">
 							<Typewriter
 								onInit={(typewriter) => {
 									typewriter
