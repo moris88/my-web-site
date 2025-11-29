@@ -112,22 +112,24 @@ export interface Curriculum {
 	experiences: Experience[]
 }
 
-export interface Education {
-	institution: string
-	role: string
-	start: string
-	end: string | null
-	description: string
-	link: string | null
-}
-
 export interface Experience {
+	type: 'work'
 	company: string
 	role: string
 	start: string
-	end: string | null
+	end?: string
 	description: string
-	link: string | null
+	link?: string
+}
+
+export interface Education {
+	type: 'education'
+	institution: string
+	role: string
+	start: string
+	end?: string
+	description: string
+	link?: string
 }
 
 export interface History {

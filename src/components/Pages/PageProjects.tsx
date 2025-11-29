@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { FaLaptopCode } from 'react-icons/fa6'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { CardProject } from '@/components'
+import { CardProject, SectionHero } from '@/components'
 import type { Project } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -22,32 +22,25 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 	}
 
 	return (
-		<section className="min-h-screen w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
-			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
-				<div className="flex flex-col items-center gap-4 text-center">
-					<h2 className="font-bold text-3xl md:text-4xl">
-						<span className="flex items-center justify-center gap-2">
-							<FaLaptopCode className="h-8 w-8 text-primary" />
-							{dict.projects.title}
-						</span>
-					</h2>
-					<div className="h-1 w-20 rounded-full bg-primary" />
-					<p className="text-gray-600 dark:text-gray-300">
-						A collection of my work.
-					</p>
+		<SectionHero
+			icon={<FaLaptopCode className="h-8 w-8 text-primary" />}
+			title={dict.projects.title}
+			subtitle={dict.projects.subtitle}
+		>
+			<section className="min-h-screen w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
+					<div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+						{projects.map((project) => (
+							<CardProject
+								key={generateUniqueId()}
+								project={project}
+								onClick={handleClickRow}
+							/>
+						))}
+					</div>
 				</div>
-
-				<div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-					{projects.map((project) => (
-						<CardProject
-							key={generateUniqueId()}
-							project={project}
-							onClick={handleClickRow}
-						/>
-					))}
-				</div>
-			</div>
-		</section>
+			</section>
+		</SectionHero>
 	)
 }
 

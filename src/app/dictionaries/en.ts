@@ -24,7 +24,8 @@ const dictionary = {
 			"Hi, i'm a fullstack developer, i love coding and i'm always looking for new challenges.",
 	},
 	contacts: {
-		social: 'My contacts',
+		title: 'My contacts',
+		subtitle: "Let's build something together.",
 		buttons: {
 			sendEmail: 'Send a message',
 			linkedin: 'Linkedin',
@@ -77,6 +78,7 @@ const dictionary = {
 	},
 	skills: {
 		title: 'My Skills',
+		subtitle: 'Here is a collection of my skills.',
 		languages: 'Languages',
 		frontends: 'Frontends',
 		frameworks_frontend: 'Frameworks Frontend',
@@ -170,6 +172,7 @@ const dictionary = {
 	},
 	projects: {
 		title: 'My Projects',
+		subtitle: 'A collection of my work.',
 		project: {
 			link: 'Link webapp/package',
 			github: 'Link at github repository',
@@ -203,7 +206,8 @@ const dictionary = {
 			message:
 				'Thanks for taking the quiz! You can retake it to explore other options.',
 			buttons: {
-				close: 'Take the quiz again',
+				reset: 'Take the quiz again',
+				close: 'Done',
 			},
 		},
 		label: 'Why it suits you:',
