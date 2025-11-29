@@ -42,7 +42,11 @@ export default function PageContacts({
 	)
 
 	return (
-		<SectionHero icon={<HiIdentification className="h-8 w-8 text-primary" />} title={dict.contacts.title} subtitle={dict.contacts.subtitle}>
+		<SectionHero
+			icon={<HiIdentification className="h-8 w-8 text-primary" />}
+			title={dict.contacts.title}
+			subtitle={dict.contacts.subtitle}
+		>
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 				{contacts && (
 					<div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">

@@ -12,11 +12,13 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { MdOutlineWork, MdSchool } from 'react-icons/md'
-import { TbFileCv } from "react-icons/tb"
+import { TbFileCv } from 'react-icons/tb'
+import { FaCity } from 'react-icons/fa'
+import { RiBookFill } from 'react-icons/ri'
 
 import type { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components'
-import type { Curriculum } from '@/types'
+import type { Curriculum, Education, Experience } from '@/types'
 
 interface PageCVProps {
 	curriculum: Curriculum
@@ -29,7 +31,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 
 	// Helper to render timeline items
 	const renderTimelineItem = (
-		item: any,
+		item: Experience | Education,
 		index: number,
 		total: number,
 		type: 'work' | 'education',
@@ -45,9 +47,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				{/* Icon */}
 				<div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-blue-600 shadow-sm dark:border-slate-900 dark:bg-blue-900/30 dark:text-blue-400">
 					{type === 'work' ? (
-						<MdOutlineWork className="h-5 w-5" />
+						<FaCity className="h-5 w-5" />
 					) : (
-						<MdSchool className="h-5 w-5" />
+							<RiBookFill className="h-5 w-5" />
 					)}
 				</div>
 
@@ -61,10 +63,12 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 								rel="noopener noreferrer"
 								className="hover:text-blue-600 hover:underline dark:hover:text-blue-400"
 							>
-								{item.company || item.institution}
+								{item.type === 'work' ? item.company : item.institution}
 							</a>
+						) : item.type === 'work' ? (
+							item.company
 						) : (
-							item.company || item.institution
+							item.institution
 						)}
 					</h3>
 					<div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-gray-500 text-sm dark:text-gray-400">
@@ -85,7 +89,10 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 	}
 
 	return (
-		<SectionHero icon={<TbFileCv className="h-8 w-8 text-primary" />} title={dict.curriculum.title}>
+		<SectionHero
+			icon={<TbFileCv className="h-8 w-8 text-primary" />}
+			title={dict.curriculum.title}
+		>
 			<div className="mx-auto max-w-4xl">
 				{/* Download Button (Floating on mobile, inline on desktop) */}
 				<div className="mb-12 flex justify-center">
@@ -108,14 +115,19 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 						transition={{ duration: 0.5 }}
 					>
 						<h2 className="mb-8 flex items-center gap-3 font-bold text-2xl text-gray-900 dark:text-white">
-							<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+							<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
 								<MdOutlineWork />
 							</span>
 							{dict.curriculum.experiences}
 						</h2>
 						<div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-gray-200/50 shadow-xl md:p-8 dark:border-gray-800 dark:bg-slate-900/50 dark:shadow-none">
 							{curriculum.experiences.map((exp, index) =>
-								renderTimelineItem(exp, index, curriculum.experiences.length, 'work'),
+								renderTimelineItem(
+									exp,
+									index,
+									curriculum.experiences.length,
+									'work',
+								),
 							)}
 						</div>
 					</motion.div>
@@ -134,7 +146,12 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 						</h2>
 						<div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-gray-200/50 shadow-xl md:p-8 dark:border-gray-800 dark:bg-slate-900/50 dark:shadow-none">
 							{curriculum.education.map((edu, index) =>
-								renderTimelineItem(edu, index, curriculum.education.length, 'education'),
+								renderTimelineItem(
+									edu,
+									index,
+									curriculum.education.length,
+									'education',
+								),
 							)}
 						</div>
 					</motion.div>
@@ -157,18 +174,12 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 							{dict.curriculum.terms}
 						</p>
 						<div className="py-4">
-							<Checkbox
-								isSelected={accept}
-								onValueChange={setAccept}
-							>
+							<Checkbox isSelected={accept} onValueChange={setAccept}>
 								I accept the terms and conditions
 							</Checkbox>
 						</div>
 						<div className="flex justify-end gap-2 pb-4">
-							<Button
-								variant="light"
-								onPress={() => setShowDownload(false)}
-							>
+							<Button variant="light" onPress={() => setShowDownload(false)}>
 								{dict.curriculum.cancel}
 							</Button>
 							<DownloadFile

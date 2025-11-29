@@ -78,7 +78,7 @@ const dictionary = {
 	},
 	skills: {
 		title: 'My Skills',
-		subtitle: "Ecco una raccolta delle mie skills.",
+		subtitle: 'Here is a collection of my skills.',
 		languages: 'Languages',
 		frontends: 'Frontends',
 		frameworks_frontend: 'Frameworks Frontend',
@@ -206,7 +206,8 @@ const dictionary = {
 			message:
 				'Thanks for taking the quiz! You can retake it to explore other options.',
 			buttons: {
-				close: 'Take the quiz again',
+				reset: 'Take the quiz again',
+				close: 'Done',
 			},
 		},
 		label: 'Why it suits you:',

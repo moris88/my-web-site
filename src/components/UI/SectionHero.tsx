@@ -1,5 +1,3 @@
-import { FaLaptopCode } from 'react-icons/fa6'
-
 interface SectionHeroProps {
 	title: string
 	subtitle?: string
@@ -30,9 +28,7 @@ function SectionHero({
 					</span>
 				</h2>
 				<div className="h-1 w-20 rounded-full bg-primary" />
-				<p className="text-gray-600 dark:text-gray-300">
-					{subtitle}
-				</p>
+				<p className="text-gray-600 dark:text-gray-300">{subtitle}</p>
 			</div>
 			{image?.src && (
 				<img
@@ -41,7 +37,7 @@ function SectionHero({
 					src={image.src}
 				/>
 			)}
-{/* 			<h2 className="text-center text-lg lg:text-3xl">{title}</h2>
+			{/* 			<h2 className="text-center text-lg lg:text-3xl">{title}</h2>
 			{subtitle && (
 				<p>
 					<i>{subtitle}</i>

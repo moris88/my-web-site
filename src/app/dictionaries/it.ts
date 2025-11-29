@@ -25,7 +25,7 @@ const dictionary = {
 	},
 	contacts: {
 		title: 'I miei contatti',
-		subtitle: "Costruiamo qualcosa insieme.",
+		subtitle: 'Costruiamo qualcosa insieme.',
 		buttons: {
 			sendEmail: 'Invia un messaggio',
 			linkedin: 'Linkedin',
@@ -78,7 +78,7 @@ const dictionary = {
 	},
 	skills: {
 		title: 'Le mie Competenze',
-		subtitle: "",
+		subtitle: 'Ecco una raccolta delle mie skills.',
 		languages: 'Linguaggi',
 		frontends: 'Frontend',
 		frameworks_frontend: 'Frameworks Frontend',
@@ -206,7 +206,8 @@ const dictionary = {
 			message:
 				'Grazie per aver partecipato! Puoi ripetere il quiz per esplorare altre opzioni.',
 			buttons: {
-				close: 'Ripeti il quiz',
+				reset: 'Ripeti il quiz',
+				close: 'Torna indietro'
 			},
 		},
 		label: 'Perché ti si addice:',
