@@ -76,8 +76,8 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: 'https://mauriziotolomeo.it',
 		languages: {
-			'en-US': 'https://mauriziotolomeo.it/en',
-			'it-IT': 'https://mauriziotolomeo.it/it',
+			'en-US': 'https://mauriziotolomeo.it',
+			'it-IT': 'https://mauriziotolomeo.it',
 		},
 	},
 }
@@ -91,7 +91,7 @@ export default async function RootLayout({
 	const links = await getLinks()
 
 	return (
-		<html lang={dict.lang}>
+		<html lang={dict.lang} suppressHydrationWarning={true}>
 			<head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
