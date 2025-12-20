@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import React, { useRef, useState } from 'react'
 
 interface InteractiveAvatarProps {
 	src: string

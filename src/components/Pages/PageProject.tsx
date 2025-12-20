@@ -1,7 +1,7 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { Button, Link } from '@heroui/react'
+import { useRouter } from 'next/navigation'
 import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
 import { SectionHero } from '@/components'

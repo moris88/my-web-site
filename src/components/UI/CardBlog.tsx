@@ -1,8 +1,8 @@
 'use client'
 
-import type { Article } from '@/types'
 import { Divider } from '@heroui/divider'
 import type { Dictionary } from '@/app/dictionaries'
+import type { Article } from '@/types'
 import { formatDate } from '@/utils'
 
 interface CardBlogProps {

@@ -42,16 +42,19 @@ export async function POST(req: NextRequest) {
 			},
 		})
 
-		await transporter.sendMail({
-			from: `"${name}" <${email}>`,
-			to: process.env.EMAIL_TO,
-			subject: `Warning!!! Nuovo messaggio dal sito web da ${name}`,
-			text: `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`,
-		}).then(() => {
-			log(`Email inviata con successo a ${process.env.EMAIL_TO}`)
-		}).catch((err) => {
-			throw err
-		})
+		await transporter
+			.sendMail({
+				from: `"${name}" <${email}>`,
+				to: process.env.EMAIL_TO,
+				subject: `Warning!!! Nuovo messaggio dal sito web da ${name}`,
+				text: `Ciao sono ${name} (email: ${email}), questo e' il mio messaggio:\n\n${message}\n\nIP: ${ip}\nUser-Agent: ${userAgent}`,
+			})
+			.then(() => {
+				log(`Email inviata con successo a ${process.env.EMAIL_TO}`)
+			})
+			.catch((err) => {
+				throw err
+			})
 
 		return NextResponse.json(
 			{ message: 'Email inviata con successo' },
