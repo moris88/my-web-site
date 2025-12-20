@@ -10,11 +10,11 @@ import {
 } from '@heroui/react'
 import { motion } from 'framer-motion'
 import React from 'react'
+import { FaCity } from 'react-icons/fa'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { MdOutlineWork, MdSchool } from 'react-icons/md'
-import { TbFileCv } from 'react-icons/tb'
-import { FaCity } from 'react-icons/fa'
 import { RiBookFill } from 'react-icons/ri'
+import { TbFileCv } from 'react-icons/tb'
 
 import type { Dictionary } from '@/app/dictionaries'
 import { DownloadFile, SectionHero } from '@/components'

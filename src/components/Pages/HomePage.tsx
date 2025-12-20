@@ -9,16 +9,15 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
-
+import Typewriter from 'typewriter-effect'
 import type { Dictionary } from '@/app/dictionaries'
 import {
-	InteractiveAvatar,
 	InfiniteSkillsScroller,
+	InteractiveAvatar,
 	ServiceCard,
 	UniqueButton,
 } from '@/components'
 import type { Info, Language } from '@/types'
-import Typewriter from 'typewriter-effect'
 
 interface HomePageProps {
 	dict: Dictionary

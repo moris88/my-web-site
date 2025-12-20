@@ -1,12 +1,11 @@
 'use client'
 
+import { Button } from '@heroui/button'
+import { useRouter } from 'next/navigation'
 import React from 'react'
-
 import type { Dictionary } from '@/app/dictionaries'
 import { QuizResultPopup } from '@/components'
 import type { DeveloperCategory, QuizQuestion } from '@/types'
-import { Button } from '@heroui/button'
-import { useRouter } from 'next/navigation'
 
 interface PageQuizProps {
 	dict: Dictionary

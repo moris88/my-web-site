@@ -8,10 +8,10 @@ import { HiIdentification } from 'react-icons/hi2'
 
 import type { Dictionary } from '@/app/dictionaries'
 import {
-	SectionHero,
 	ButtonsGroupSocial,
 	InteractiveAvatar,
 	ModalMessage,
+	SectionHero,
 } from '@/components'
 import type { Contact, StoreLink } from '@/types'
 

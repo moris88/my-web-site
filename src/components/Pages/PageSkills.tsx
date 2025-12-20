@@ -18,13 +18,11 @@ import {
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-
+import { FaTools } from 'react-icons/fa'
 import type { Dictionary } from '@/app/dictionaries'
+import { SectionHero } from '@/components'
 import type { Language, Skill, Skills } from '@/types'
 import { generateUniqueId } from '@/utils'
-import { SectionHero } from '@/components'
-
-import { FaTools } from 'react-icons/fa'
 
 interface SkillsProps {
 	skills: Skills
