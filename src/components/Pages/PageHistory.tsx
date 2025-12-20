@@ -16,7 +16,7 @@ interface PageHistoryProps {
 	history: History
 }
 
-function PageHistory({ language, history }: PageHistoryProps) {
+function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 	const [showContent, setShowContent] = React.useState(true)
 	const router = useRouter()
 

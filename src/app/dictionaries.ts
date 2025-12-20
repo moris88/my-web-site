@@ -10,8 +10,5 @@ export const getDictionary = async () => {
 	return dictionaries[locale as keyof typeof dictionaries]()
 }
 
-export type Dictionary = ReturnType<typeof getDictionary> extends Promise<
-	infer T
->
-	? T
-	: never
+export type Dictionary =
+	ReturnType<typeof getDictionary> extends Promise<infer T> ? T : never
