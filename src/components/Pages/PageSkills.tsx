@@ -30,7 +30,11 @@ interface SkillsProps {
 	language: Language
 }
 
-export default function PageSkills({ skills, language, dict }: SkillsProps) {
+export default function PageSkills({
+	skills,
+	language,
+	dict,
+}: Readonly<SkillsProps>) {
 	const route = useRouter()
 	const [skill, setSkill] = React.useState<{
 		title: string

@@ -8,9 +8,9 @@ interface IconProps {
 	pathD: string
 	labelIcon: string
 }
-function Icon({ className, labelIcon, pathD }: IconProps) {
+function Icon({ className, labelIcon, pathD }: Readonly<IconProps>) {
 	const id = useId()
-	const titleId = `${id}-title`
+	const titleId = `icon-${id}`
 
 	return (
 		<svg
@@ -18,7 +18,7 @@ function Icon({ className, labelIcon, pathD }: IconProps) {
 			fill="currentColor"
 			viewBox="0 0 16 16"
 			xmlns="http://www.w3.org/2000/svg"
-			role={labelIcon ? 'img' : undefined}
+			role={labelIcon ? 'img' : 'presentation'}
 			aria-labelledby={labelIcon ? titleId : undefined}
 			aria-hidden={labelIcon ? undefined : true}
 		>

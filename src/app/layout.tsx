@@ -10,7 +10,6 @@ import { getLinks } from '@/lib/data'
 
 import { getDictionary } from './dictionaries'
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
 	title: 'Maurizio Tolomeo | Frontend & Mobile Developer - React, Next.js',
 	description:
@@ -85,9 +84,9 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
 	children,
-}: {
+}: Readonly<{
 	children: React.ReactNode
-}) {
+}>) {
 	const dict = await getDictionary()
 	const links = await getLinks()
 

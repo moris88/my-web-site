@@ -17,7 +17,7 @@ function ButtonsGroupSocial({
 	dict,
 	storeLink,
 	setStoreLink,
-}: ButtonsGroupSocialProps) {
+}: Readonly<ButtonsGroupSocialProps>) {
 	const route = useRouter()
 	return (
 		<>

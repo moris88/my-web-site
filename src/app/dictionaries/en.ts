@@ -31,6 +31,7 @@ const dictionary = {
 			linkedin: 'Linkedin',
 			facebook: 'Facebook',
 			github: 'Github',
+			gitlab: 'GitLab',
 			storeLink: {
 				button: 'Go',
 				content: {
