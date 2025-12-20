@@ -3,7 +3,7 @@
 import { Button, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
 
 import type { Dictionary } from '@/app/dictionaries'
@@ -31,6 +31,7 @@ export default function PageContacts({
 		facebook: <FaFacebook className="h-6 w-6" />,
 		github: <FaGithub className="h-6 w-6" />,
 		linkedin: <FaLinkedin className="h-6 w-6" />,
+		gitlab: <FaGitlab className="h-6 w-6" />,
 	}
 
 	const linkMap = links.reduce(
@@ -86,6 +87,7 @@ export default function PageContacts({
 							<div className="mt-8 w-full">
 								<div className="flex flex-wrap justify-center gap-3">
 									{contacts.links.map((button) => {
+										console.log('button', button)
 										const buttonLower = button.toLowerCase()
 										const storeLink = linkMap[buttonLower]
 										return (

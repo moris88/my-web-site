@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from '@heroui/react'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 
 import type { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
@@ -34,6 +34,9 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 						)}
 						{link.name === 'github' && (
 							<FaGithub className="h-6 w-6 text-black dark:text-white" />
+						)}
+						{link.name === 'gitlab' && (
+							<FaGitlab className="h-6 w-6 text-black dark:text-white" />
 						)}
 						{link.name === 'linkedin' && (
 							<FaLinkedin className="h-6 w-6 text-black dark:text-white" />
