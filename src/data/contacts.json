@@ -6,7 +6,7 @@
 		"specialization": "Frontend",
 		"email": "maurizio.tolomeo@outlook.it",
 		"website": "https://www.mauriziotolomeo.it",
-		"links": ["linkedin", "github", "facebook", "gitlab"]
+		"links": ["linkedin", "github", "gitlab", "facebook"]
 	},
 	"en": {
 		"firstName": "Maurizio",
@@ -15,6 +15,6 @@
 		"specialization": "Frontend",
 		"email": "maurizio.tolomeo@outlook.it",
 		"website": "https://www.mauriziotolomeo.it",
-		"links": ["linkedin", "github", "facebook", "gitlab"]
+		"links": ["linkedin", "github", "gitlab", "facebook"]
 	}
 }

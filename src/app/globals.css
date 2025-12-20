@@ -2,6 +2,17 @@
 /* Note: You may need to change the path to fit your project structure */
 @config "../../tailwind.config.js";
 
+@theme {
+  /* Configurazione Animazioni */
+  --animate-scroll: scroll 40s linear infinite;
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
