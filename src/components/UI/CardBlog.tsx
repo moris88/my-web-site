@@ -1,6 +1,7 @@
 'use client'
 
-import { Divider } from '@heroui/divider'
+import { Card, CardBody, CardFooter, CardHeader, Chip } from '@heroui/react'
+import { motion } from 'framer-motion'
 import type { Dictionary } from '@/app/dictionaries'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
@@ -12,7 +13,18 @@ interface CardBlogProps {
 }
 
 function CardBlog({
-	article: { id, title, created_at, updated_at, content, link, image },
+	article: {
+		id,
+		title,
+		alt,
+		published,
+		published_at,
+		created_at,
+		updated_at,
+		content,
+		link,
+		image,
+	},
 	onClick,
 	dict,
 }: CardBlogProps) {
@@ -26,38 +38,45 @@ function CardBlog({
 			link,
 			updated_at,
 			image,
+			alt,
+			published_at,
+			published,
 		})
 	}
 	return (
-		<button
-			type="button"
-			className="hover:-translate-y-2 w-full cursor-pointer rounded-lg bg-gray-200 p-4 text-black transition-all duration-100 ease-in-out hover:shadow-lg hover:shadow-slate-500 dark:bg-slate-700"
+		<motion.div
+			whileHover={{ scale: 1.02 }}
+			whileTap={{ scale: 0.98 }}
+			className="h-full w-full cursor-pointer"
 			onClick={handleOnClick}
 		>
-			<div className="flex min-h-20 flex-col items-start gap-y-2">
-				{image ? (
-					<img
-						alt={title}
-						className="h-40 w-full rounded-lg object-cover"
-						src={image}
-					/>
-				) : (
-					<div className="flex h-40 w-full items-center justify-center rounded-lg bg-gray-300">
-						<p className="text-4xl text-gray-500">{'No-Image'}</p>
-					</div>
-				)}
-				<h2 className="line-clamp-1 select-none font-bold text-black text-xl dark:text-gray-300">
-					{title}
-				</h2>
-				<p className="line-clamp-2 select-none font-medium text-black text-md dark:text-gray-300">
-					{content}
-				</p>
-				<Divider className="my-2" />
-				<small className="select-none text-gray-500">
-					{`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
-				</small>
-			</div>
-		</button>
+			<Card className="h-full w-full border-none bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800 dark:shadow-slate-900/50">
+				<CardHeader className="p-0">
+					{image ? (
+						<img
+							alt={alt ?? 'Blog Image'}
+							className="aspect-video h-48 w-full object-cover object-top"
+							src={`${image}`}
+						/>
+					) : (
+						<div className="flex h-48 w-full items-center justify-center bg-gray-200 dark:bg-slate-700">
+							<p className="text-gray-500">No Image</p>
+						</div>
+					)}
+				</CardHeader>
+				<CardBody className="flex flex-col gap-2 p-4">
+					<h3 className="line-clamp-1 font-bold text-xl">{title}</h3>
+					<p className="line-clamp-2 text-gray-500 text-sm dark:text-gray-400">
+						{content}
+					</p>
+				</CardBody>
+				<CardFooter className="flex flex-wrap gap-2 px-4 pt-0 pb-4">
+					<Chip size="sm" color="primary" variant="flat">
+						{`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
+					</Chip>
+				</CardFooter>
+			</Card>
+		</motion.div>
 	)
 }
 

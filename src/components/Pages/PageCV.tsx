@@ -41,7 +41,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 			<div key={index} className="relative flex gap-6 pb-12 last:pb-0">
 				{/* Timeline Line */}
 				{!isLast && (
-					<div className="absolute top-10 left-[19px] h-full w-0.5 bg-gray-200 dark:bg-gray-800" />
+					<div className="absolute top-10 left-4.75 h-full w-0.5 bg-gray-200 dark:bg-gray-800" />
 				)}
 
 				{/* Icon */}
@@ -97,7 +97,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				{/* Download Button (Floating on mobile, inline on desktop) */}
 				<div className="mb-12 flex justify-center">
 					<Button
-						className="bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
+						className="bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 						size="lg"
 						radius="full"
 						onPress={() => setShowDownload(true)}

@@ -30,14 +30,14 @@ function Header({ dict }: Readonly<NavbarProps>) {
 		{ name: dict.navbar.experience, path: '/experience' },
 		{ name: dict.navbar.skills, path: '/skills' },
 		{ name: dict.navbar.projects, path: '/projects' },
-		// { name: dict.navbar.blog, path: '/blog' },
+		{ name: dict.navbar.blog, path: '/blog' },
 		{ name: dict.navbar.contacts, path: '/contacts' },
 	]
 
 	return (
 		<Navbar
 			isBlurred
-			className="!rounded-lg max-h-[60px] bg-gray-300 dark:bg-slate-800"
+			className="max-h-15 rounded-lg! bg-gray-300 dark:bg-slate-800"
 			position="sticky"
 		>
 			<NavbarBrand>

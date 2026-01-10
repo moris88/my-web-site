@@ -133,12 +133,28 @@ const dictionary = {
 	},
 	blog: {
 		title: 'My Blog',
+		subtitle:
+			'Discover articles, experiments, and inspirations from my frontend world.',
 		card: {
+			createdAt: 'Created at',
 			editedAt: 'Edited at',
 			postedAt: 'Posted at',
 		},
+		filters: {
+			title: 'Filter by title...',
+			fromDate: 'From date',
+			toDate: 'To date',
+			author: 'Filter by author...',
+			buttons: {
+				apply: 'Apply Filters',
+				reset: 'Reset Filters',
+			},
+		},
+		empty: 'Sorry, there are no articles matching your criteria. Please try again later or adjust your filters.',
 		article: {
 			link: 'Source link',
+			author: 'Author:',
+			createdAt: 'Created at',
 			postedAt: 'Posted at',
 			editedAt: 'Edited at',
 			buttons: {

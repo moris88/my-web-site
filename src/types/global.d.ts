@@ -95,8 +95,12 @@ export interface Article {
 	content: string
 	created_at: string
 	updated_at: string
+	published_at: string
+	published: 'true' | 'false'
 	link?: string
 	image?: string
+	alt?: string
+	author?: string
 }
 
 export interface Comment {

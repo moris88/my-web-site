@@ -27,7 +27,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			title={dict.projects.title}
 			subtitle={dict.projects.subtitle}
 		>
-			<section className="min-h-screen w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+			<section className="min-h-screen w-full dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 						{projects.map((project) => (

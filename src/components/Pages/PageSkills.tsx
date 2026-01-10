@@ -146,7 +146,7 @@ export default function PageSkills({
 										<AccordionItem
 											key={generateUniqueId()}
 											aria-label={mappa[index as keyof typeof mappa]}
-											className="!bg-gray-200 dark:!bg-slate-800 my-2"
+											className="my-2 bg-gray-200! dark:bg-slate-800!"
 											title={mappa[index as keyof typeof mappa]}
 										>
 											<div className="flex flex-col gap-2">
@@ -238,7 +238,7 @@ export default function PageSkills({
 					</Tabs>
 					<div className="my-5 flex items-center justify-center">
 						<Button
-							className="flex gap-2 bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
+							className="flex gap-2 bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 							color="default"
 							variant="flat"
 							onPress={() => setShowLegend((t) => !t)}

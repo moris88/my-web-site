@@ -1,0 +1,50 @@
+import db from '@/lib/database'
+import { NextResponse } from 'next/server'
+
+export async function GET(
+	request: Request,
+	context: { params: Promise<{ id: string }> },
+) {
+	try {
+		// 1. Recupero ID dalla Promise
+		const { id } = await context.params 
+		
+		// 2. Recupero query param ?language=it
+		const { searchParams } = new URL(request.url)
+		const language = searchParams.get("language")
+		console.log("ID:", id) 
+		console.log("Lingua richiesta:", language)
+
+		// 3. Validazione ID
+		const idNumber = Number(id)
+		if (Number.isNaN(idNumber) || idNumber <= 0) {
+			return NextResponse.json({ error: 'ID not valid' }, { status: 400 })
+		}
+
+		// 4. Validazione lingua
+		if (language && !['it', 'en'].includes(language)) {
+			return NextResponse.json(
+				{ error: 'Invalid language parameter' },
+				{ status: 400 },
+			)
+		}
+		
+		// 5. Query al DB
+		const stmt = db.prepare(`
+      SELECT *
+      FROM articles
+      WHERE id = ? and language = ?
+    `)
+
+		const article = stmt.get(idNumber, language)
+
+		if (!article) {
+			return NextResponse.json({ error: 'Articles not found' }, { status: 404 })
+		}
+
+		return NextResponse.json(article)
+	} catch (error) {
+		console.error('DB error:', error)
+		return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+	}
+}
