@@ -29,6 +29,10 @@ export async function GET(
 			)
 		}
 
+		if (db == null) {
+			throw new Error('Database connection is not established.')
+		}
+
 		// 5. Query al DB
 		const stmt = db.prepare(`
       SELECT *

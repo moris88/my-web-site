@@ -19,7 +19,7 @@ interface PageBlogProps {
 }
 
 function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
-	const [articles, setArticles] = React.useState<Article[]>([])
+	const [articles, setArticles] = React.useState<Article[]>()
 	const [isPending, startTransition] = React.useTransition()
 	const router = useRouter()
 
@@ -43,6 +43,10 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 			fetch(`/api/blog?${params.toString()}`)
 				.then((res) => res.json())
 				.then((res) => setArticles(res.data))
+				.catch((error) => {
+					console.error('Error fetching articles with filters:', error)
+					setArticles([])
+				})
 		})
 	}, [language, title, author, date])
 
@@ -146,13 +150,14 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 			{/* LISTA ARTICOLI */}
 			<div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
-				{articles.length === 0 && (
+				{!articles && <p className="col-span-full">{''}</p>}
+				{articles?.length === 0 && (
 					<p className="col-span-full text-center font-bold">
 						{dict.blog.empty}
 					</p>
 				)}
 				{articles
-					.toSorted((a: Article, b: Article) =>
+					?.toSorted((a: Article, b: Article) =>
 						moment(b.published_at).diff(moment(a.published_at)),
 					)
 					.map((article) => (
