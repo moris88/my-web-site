@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import 'aos/dist/aos.css'
 
@@ -14,6 +14,7 @@ import type { Dictionary } from '@/app/dictionaries'
 import {
 	InfiniteSkillsScroller,
 	InteractiveAvatar,
+	SectionCardLink,
 	ServiceCard,
 	UniqueButton,
 } from '@/components'
@@ -191,6 +192,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					</div>
 				</div>
 			</section>
+
+			{/* Section Card Link */}
+			<SectionCardLink dict={dict} />
 		</>
 	)
 }

@@ -11,11 +11,14 @@ const dictionary = {
 		theme: 'Tema',
 	},
 	home: {
+		navigate: 'Naviga le sezioni del mio sito',
 		links: {
 			skills: 'le mie competenze',
 			blog: 'il mio blog',
 			portfolio: 'il mio portfolio',
 			contacts: 'i miei contatti',
+			curriculum: 'il mio curriculum',
+			experience: 'le mie esperienze',
 		},
 		whoAmITitle: 'Chi sono?',
 		whatIDoTitle: 'Cosa faccio?',
