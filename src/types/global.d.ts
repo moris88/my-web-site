@@ -113,7 +113,7 @@ export interface Comment {
 }
 
 export interface Curriculum {
-	education: Education[]
+	educations: Education[]
 	experiences: Experience[]
 }
 

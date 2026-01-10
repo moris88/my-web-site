@@ -7,7 +7,7 @@ const dictionaries = {
 
 export const getDictionary = async () => {
 	const locale = (await cookies()).get('locale')?.value.split('-')[0] || 'it'
-	return dictionaries[locale as keyof typeof dictionaries]()
+	return dictionaries['en']()
 }
 
 export type Dictionary =

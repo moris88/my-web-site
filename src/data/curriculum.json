@@ -26,7 +26,7 @@
 				"link": "https://www.crmpartners.it/"
 			}
 		],
-		"education": [
+		"educations": [
 			{
 				"institution": "Epicode School",
 				"role": "student",
@@ -54,7 +54,7 @@
 		]
 	},
 	"en": {
-		"experience": [
+		"experiences": [
 			{
 				"company": "CRMPartners S.R.L.",
 				"role": "Web Developer - Frontend",
@@ -80,7 +80,7 @@
 				"link": "https://www.crmpartners.it/"
 			}
 		],
-		"education": [
+		"educations": [
 			{
 				"institution": "Epicode School",
 				"role": "student,ambassador",
