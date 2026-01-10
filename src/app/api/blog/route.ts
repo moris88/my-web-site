@@ -64,6 +64,10 @@ export async function GET(request: Request) {
 			? `WHERE ${whereClauses.join(' AND ')}`
 			: ''
 
+		if (db == null) {
+			throw new Error('Database connection is not established.')
+		}
+
 		// Query articoli
 		const stmt = db.prepare(`
       SELECT *
