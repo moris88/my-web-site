@@ -91,8 +91,9 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						return (
 							<div
 								key={item.id}
-								className={`relative flex items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-									}`}
+								className={`relative flex items-center ${
+									isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+								}`}
 								data-aos="fade-up"
 							>
 								{/* Timeline Dot */}

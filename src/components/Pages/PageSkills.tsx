@@ -263,13 +263,13 @@ export default function PageSkills({
 											showValueLabel
 											color={
 												item.color as
-												| 'secondary'
-												| 'success'
-												| 'warning'
-												| 'danger'
-												| 'primary'
-												| 'default'
-												| undefined
+													| 'secondary'
+													| 'success'
+													| 'warning'
+													| 'danger'
+													| 'primary'
+													| 'default'
+													| undefined
 											}
 											label={item.label}
 											value={item.level}

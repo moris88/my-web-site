@@ -13,17 +13,15 @@ import {
 } from '@heroui/react'
 import { usePathname } from 'next/navigation'
 import { Suspense } from 'react'
-
-import type { Dictionary } from '@/app/dictionaries'
-import { generateUniqueId, isActive } from '@/utils'
-
-import ToogleTheme from './ToogleTheme'
-import { TbFileCv } from 'react-icons/tb'
-import { AiOutlineLineChart } from "react-icons/ai"
+import { AiOutlineLineChart } from 'react-icons/ai'
 import { FaTools } from 'react-icons/fa'
 import { FaLaptopCode } from 'react-icons/fa6'
 import { GrArticle } from 'react-icons/gr'
 import { HiIdentification } from 'react-icons/hi2'
+import { TbFileCv } from 'react-icons/tb'
+import type { Dictionary } from '@/app/dictionaries'
+import { generateUniqueId, isActive } from '@/utils'
+import ToogleTheme from './ToogleTheme'
 
 interface NavbarProps {
 	dict: Dictionary
@@ -32,12 +30,36 @@ interface NavbarProps {
 function Header({ dict }: Readonly<NavbarProps>) {
 	const pathname = usePathname()
 	const links = [
-		{ name: dict.navbar.curriculum, path: '/curriculum', icon: <TbFileCv className="h-8 w-8 text-primary" /> },
-		{ name: dict.navbar.experience, path: '/experience', icon: <AiOutlineLineChart className="h-8 w-8 text-primary" /> },
-		{ name: dict.navbar.skills, path: '/skills', icon: <FaTools className="h-6 w-6 text-primary" /> },
-		{ name: dict.navbar.projects, path: '/projects', icon: <FaLaptopCode className="h-8 w-8 text-primary" /> },
-		{ name: dict.navbar.blog, path: '/blog', icon: <GrArticle className="h-8 w-8 text-primary" /> },
-		{ name: dict.navbar.contacts, path: '/contacts', icon: <HiIdentification className="h-8 w-8 text-primary" /> },
+		{
+			name: dict.navbar.curriculum,
+			path: '/curriculum',
+			icon: <TbFileCv className="h-8 w-8 text-primary" />,
+		},
+		{
+			name: dict.navbar.experience,
+			path: '/experience',
+			icon: <AiOutlineLineChart className="h-8 w-8 text-primary" />,
+		},
+		{
+			name: dict.navbar.skills,
+			path: '/skills',
+			icon: <FaTools className="h-6 w-6 text-primary" />,
+		},
+		{
+			name: dict.navbar.projects,
+			path: '/projects',
+			icon: <FaLaptopCode className="h-8 w-8 text-primary" />,
+		},
+		{
+			name: dict.navbar.blog,
+			path: '/blog',
+			icon: <GrArticle className="h-8 w-8 text-primary" />,
+		},
+		{
+			name: dict.navbar.contacts,
+			path: '/contacts',
+			icon: <HiIdentification className="h-8 w-8 text-primary" />,
+		},
 	]
 
 	return (
@@ -75,36 +97,43 @@ function Header({ dict }: Readonly<NavbarProps>) {
 						key={generateUniqueId()}
 						className="flex flex-col w-full items-center justify-center"
 					>
-						<Link href={path} className='my-8 group'>
+						<Link href={path} className="my-8 group">
 							<div
 								className={`${isActive(pathname, path) ? 'text-primary dark:text-gray-400' : 'text-black hover:text-primary dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out text-2xl flex items-center gap-4`}
 							>
-								<span className={isActive(pathname, path) ? "" : "opacity-0 transition-opacity duration-300 group-hover:opacity-100"}>
+								<span
+									className={
+										isActive(pathname, path)
+											? ''
+											: 'opacity-0 transition-opacity duration-300 group-hover:opacity-100'
+									}
+								>
 									{icon}
 								</span>
 								{name}
 							</div>
 						</Link>
-						<hr className='border-t border-primary w-1/2' />
+						<hr className="border-t border-primary w-1/2" />
 					</NavbarMenuItem>
 				))}
 				<NavbarMenuItem className="flex w-full justify-center my-8">
-					<ToogleTheme><span className='text-2xl'>{dict.navbar.theme}</span></ToogleTheme>
+					<ToogleTheme>
+						<span className="text-2xl">{dict.navbar.theme}</span>
+					</ToogleTheme>
 				</NavbarMenuItem>
 			</NavbarMenu>
 			<NavbarContent className="hidden gap-4 lg:flex" justify="end">
-				{links
-					.map(({ name, path }) => (
-						<NavbarItem key={generateUniqueId()}>
-							<Link href={path}>
-								<span
-									className={`${isActive(pathname, path) ? 'border-b border-b-primary text-primary dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-primary hover:text-primary dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
-								>
-									{name}
-								</span>
-							</Link>
-						</NavbarItem>
-					))}
+				{links.map(({ name, path }) => (
+					<NavbarItem key={generateUniqueId()}>
+						<Link href={path}>
+							<span
+								className={`${isActive(pathname, path) ? 'border-b border-b-primary text-primary dark:border-b-gray-400 dark:text-gray-400' : 'text-black hover:border-b hover:border-b-primary hover:text-primary dark:text-white dark:hover:border-b-gray-400 dark:hover:text-gray-400'} transition-all duration-300 ease-in-out`}
+							>
+								{name}
+							</span>
+						</Link>
+					</NavbarItem>
+				))}
 				<div className="hidden lg:flex">
 					<ToogleTheme />
 				</div>
