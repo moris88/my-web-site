@@ -28,7 +28,7 @@ function CardProject({ project, onClick }: CardProjectProps) {
 					{image?.src ? (
 						<img
 							alt={image.alt}
-							className="aspect-video h-48 w-full object-cover object-top"
+							className="aspect-video h-48 w-full bg-gray-50 object-contain dark:bg-slate-700"
 							src={`${image.src}`}
 						/>
 					) : (
@@ -38,8 +38,8 @@ function CardProject({ project, onClick }: CardProjectProps) {
 					)}
 				</CardHeader>
 				<CardBody className="flex flex-col gap-2 p-4">
-					<h3 className="line-clamp-1 font-bold text-xl">{title}</h3>
-					<p className="line-clamp-2 text-gray-500 text-sm dark:text-gray-400">
+					<h3 className="font-bold text-xl">{title}</h3>
+					<p className="line-clamp-4 text-gray-500 text-sm dark:text-gray-400">
 						{description}
 					</p>
 				</CardBody>

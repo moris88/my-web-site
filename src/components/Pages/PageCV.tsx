@@ -145,11 +145,11 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 							{dict.curriculum.education}
 						</h2>
 						<div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-gray-200/50 shadow-xl md:p-8 dark:border-gray-800 dark:bg-slate-900/50 dark:shadow-none">
-							{curriculum.education.map((edu, index) =>
+							{curriculum.educations.map((edu, index) =>
 								renderTimelineItem(
 									edu,
 									index,
-									curriculum.education.length,
+									curriculum.educations.length,
 									'education',
 								),
 							)}

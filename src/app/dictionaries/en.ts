@@ -11,11 +11,14 @@ const dictionary = {
 		theme: 'Theme',
 	},
 	home: {
+		navigate: 'Navigate the sections of the site',
 		links: {
 			skills: 'my skills',
 			blog: 'my blog',
 			portfolio: 'my portfolio',
 			contacts: 'my contacts',
+			curriculum: 'my curriculum',
+			experience: 'my experience',
 		},
 		whoAmITitle: 'Who am I?',
 		whatIDoTitle: 'What do I do?',
@@ -191,6 +194,15 @@ const dictionary = {
 	projects: {
 		title: 'My Projects',
 		subtitle: 'A collection of my work.',
+		filters: {
+			title: 'Search by title...',
+			tags: 'Search by tags...',
+			buttons: {
+				reset: 'Reset Filters',
+				apply: 'Apply Filters',
+				show: 'Show Filters',
+			},
+		},
 		project: {
 			link: 'Link webapp/package',
 			github: 'Link at github repository',
