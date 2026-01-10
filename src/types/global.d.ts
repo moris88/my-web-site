@@ -92,11 +92,16 @@ export interface Blog extends Partial<Err> {
 export interface Article {
 	id: string
 	title: string
+	summary: string
 	content: string
 	created_at: string
 	updated_at: string
+	published_at: string
+	published: 'true' | 'false'
 	link?: string
 	image?: string
+	alt?: string
+	author?: string
 }
 
 export interface Comment {

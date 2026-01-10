@@ -1,5 +1,4 @@
-import { ErrorPage, PageArticle } from '@/components'
-import { getBlog } from '@/lib'
+import { PageArticle } from '@/components'
 
 import { getDictionary } from '../../../dictionaries'
 
@@ -11,10 +10,5 @@ export default async function BlogPage({
 	const { id } = await params
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
-	const blog = await getBlog(language)
-	const article = blog.articles.find((a) => a.id === id)
-	if (!article) {
-		return <ErrorPage err={new Error('Article not found!')} />
-	}
-	return <PageArticle article={article} dict={dict} />
+	return <PageArticle language={language} id={id} dict={dict} />
 }

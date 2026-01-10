@@ -28,8 +28,8 @@ function CardProject({ project, onClick }: CardProjectProps) {
 					{image?.src ? (
 						<img
 							alt={image.alt}
-							className="h-48 w-full object-cover object-top"
-							src={image.src}
+							className="aspect-video h-48 w-full object-cover object-top"
+							src={`${image.src}`}
 						/>
 					) : (
 						<div className="flex h-48 w-full items-center justify-center bg-gray-200 dark:bg-slate-700">

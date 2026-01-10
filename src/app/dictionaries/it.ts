@@ -133,12 +133,29 @@ const dictionary = {
 	},
 	blog: {
 		title: 'Il mio Blog',
+		subtitle:
+			'Scopri articoli, esperimenti e ispirazioni dal mio mondo frontend.',
 		card: {
+			createdAt: 'Creato il',
 			editedAt: 'Modificato il',
 			postedAt: 'Pubblicato il',
 		},
+		filters: {
+			title: 'Cerca per titolo...',
+			date: 'Cerca per data...',
+			author: 'Cerca per autore...',
+			buttons: {
+				reset: 'Reimposta filtri',
+				apply: 'Applica filtri',
+				show: 'Mostra filtri',
+			},
+		},
+		empty:
+			'Non sono stati trovati articoli che corrispondono ai criteri di ricerca. Prova a modificare i filtri o a cercare con parole chiave diverse.',
 		article: {
 			link: 'Link alla fonte',
+			author: 'Autore:',
+			createdAt: 'Creato il',
 			editedAt: 'Modificato il',
 			postedAt: 'Pubblicato il',
 			buttons: {

@@ -44,7 +44,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 			{/* Quiz Banner */}
 			{showContent && (
 				<div
-					className="relative mx-auto my-8 w-full max-w-4xl overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-1 shadow-lg backdrop-blur-sm dark:from-blue-900/20 dark:to-purple-900/20"
+					className="relative mx-auto my-8 w-full max-w-4xl overflow-hidden rounded-2xl bg-linear-to-r from-blue-500/10 to-purple-500/10 p-1 shadow-lg backdrop-blur-sm dark:from-blue-900/20 dark:to-purple-900/20"
 					data-aos="fade-up"
 				>
 					<div className="relative rounded-xl bg-white/50 p-6 dark:bg-slate-900/50">
@@ -69,7 +69,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								</p>
 							</div>
 							<Button
-								className="bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg"
+								className="bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg"
 								radius="full"
 								onPress={() => router.push('/quiz')}
 							>
@@ -83,7 +83,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 			{/* Timeline Section */}
 			<div className="relative mx-auto max-w-6xl py-10">
 				{/* Vertical Line */}
-				<div className="md:-translate-x-1/2 absolute top-0 left-4 h-full w-0.5 bg-gradient-to-b from-transparent via-gray-300 to-transparent md:left-1/2 dark:via-gray-700" />
+				<div className="absolute top-0 left-4 h-full w-0.5 bg-linear-to-b from-transparent via-gray-300 to-transparent md:left-1/2 md:-translate-x-1/2 dark:via-gray-700" />
 
 				<div className="flex flex-col gap-12">
 					{timelineItems.map((item, index) => {
@@ -97,15 +97,15 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								data-aos="fade-up"
 							>
 								{/* Timeline Dot */}
-								<div className="-translate-x-1/2 absolute left-4 h-4 w-4 rounded-full border-4 border-white bg-blue-600 shadow-md md:left-1/2 dark:border-slate-900 dark:bg-blue-500" />
+								<div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-blue-600 shadow-md md:left-1/2 dark:border-slate-900 dark:bg-blue-500" />
 
 								{/* Spacer for Desktop */}
 								<div className="hidden w-1/2 md:block" />
 
 								{/* Content Card */}
 								<div className="ml-12 w-full md:ml-0 md:w-1/2 md:px-8">
-									<div className="group hover:-translate-y-1 relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all hover:shadow-xl dark:border-gray-800 dark:bg-slate-900">
-										<div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity group-hover:opacity-100" />
+									<div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl dark:border-gray-800 dark:bg-slate-900">
+										<div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity group-hover:opacity-100" />
 
 										{item.image && (
 											<div className="mb-4 overflow-hidden rounded-xl">

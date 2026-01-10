@@ -1,6 +1,9 @@
+import HtmlRenderer from './HTMLRender'
+
 interface SectionHeroProps {
 	title: string
 	subtitle?: string
+	html?: string
 	image?: {
 		src: string
 		alt?: string
@@ -15,6 +18,7 @@ function SectionHero({
 	subtitle,
 	children,
 	content,
+	html,
 	image,
 	icon,
 }: Readonly<SectionHeroProps>) {
@@ -33,16 +37,11 @@ function SectionHero({
 			{image?.src && (
 				<img
 					alt={image?.alt ?? title}
-					className="h-96 w-full rounded-lg object-cover object-center"
-					src={image.src}
+					className="aspect-video h-96 w-full rounded-lg object-cover object-center"
+					src={`/${image.src}`}
 				/>
 			)}
-			{/* 			<h2 className="text-center text-lg lg:text-3xl">{title}</h2>
-			{subtitle && (
-				<p>
-					<i>{subtitle}</i>
-				</p>
-			)} */}
+			{html && <HtmlRenderer html={html} />}
 			{content ?? children}
 		</section>
 	)
