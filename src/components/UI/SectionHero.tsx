@@ -1,4 +1,4 @@
-import HtmlRenderer from "./HTMLRender"
+import HtmlRenderer from './HTMLRender'
 
 interface SectionHeroProps {
 	title: string
@@ -41,9 +41,7 @@ function SectionHero({
 					src={`/${image.src}`}
 				/>
 			)}
-			{html && (
-				<HtmlRenderer html={html} />
-			)}
+			{html && <HtmlRenderer html={html} />}
 			{content ?? children}
 		</section>
 	)

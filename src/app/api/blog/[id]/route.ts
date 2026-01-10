@@ -1,5 +1,5 @@
-import db from '@/lib/database'
 import { NextResponse } from 'next/server'
+import db from '@/lib/database'
 
 export async function GET(
 	request: Request,
@@ -7,13 +7,13 @@ export async function GET(
 ) {
 	try {
 		// 1. Recupero ID dalla Promise
-		const { id } = await context.params 
-		
+		const { id } = await context.params
+
 		// 2. Recupero query param ?language=it
 		const { searchParams } = new URL(request.url)
-		const language = searchParams.get("language")
-		console.log("ID:", id) 
-		console.log("Lingua richiesta:", language)
+		const language = searchParams.get('language')
+		console.log('ID:', id)
+		console.log('Lingua richiesta:', language)
 
 		// 3. Validazione ID
 		const idNumber = Number(id)
@@ -28,7 +28,7 @@ export async function GET(
 				{ status: 400 },
 			)
 		}
-		
+
 		// 5. Query al DB
 		const stmt = db.prepare(`
       SELECT *
@@ -45,6 +45,9 @@ export async function GET(
 		return NextResponse.json(article)
 	} catch (error) {
 		console.error('DB error:', error)
-		return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+		return NextResponse.json(
+			{ error: 'Internal Server Error' },
+			{ status: 500 },
+		)
 	}
 }

@@ -1,6 +1,9 @@
 'use client'
 
+import { Button } from '@heroui/button'
+import { Input } from '@heroui/input'
 import { Spinner } from '@heroui/spinner'
+import { AnimatePresence, motion } from 'framer-motion'
 import moment from 'moment'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -9,9 +12,6 @@ import type { Dictionary } from '@/app/dictionaries'
 import { CardBlog, SectionHero } from '@/components'
 import type { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
-import { Button } from '@heroui/button'
-import { Input } from '@heroui/input'
-import { motion, AnimatePresence } from 'framer-motion'
 
 interface PageBlogProps {
 	dict: Dictionary
@@ -81,15 +81,17 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 			icon={<GrArticle className="h-8 w-8 text-primary" />}
 		>
 			{/* 🔘 Bottone toggle */}
-			{!showFilters && (<div className="mb-4 flex justify-center">
-				<Button
-					color="primary"
-					variant="flat"
-					onPress={() => setShowFilters((prev) => !prev)}
-				>
-					{dict.blog.filters.buttons.show}
-				</Button>
-			</div>)}
+			{!showFilters && (
+				<div className="mb-4 flex justify-center">
+					<Button
+						color="primary"
+						variant="flat"
+						onPress={() => setShowFilters((prev) => !prev)}
+					>
+						{dict.blog.filters.buttons.show}
+					</Button>
+				</div>
+			)}
 
 			{/* 🔍 UI FILTRI con animazione */}
 			<AnimatePresence>

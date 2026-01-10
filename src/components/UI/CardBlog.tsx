@@ -13,13 +13,7 @@ interface CardBlogProps {
 }
 
 function CardBlog({
-	article: {
-		title,
-		alt,
-		summary,
-		published_at,
-		image,
-	},
+	article: { title, alt, summary, published_at, image },
 	onClick,
 	dict,
 }: CardBlogProps) {

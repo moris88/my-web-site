@@ -150,7 +150,8 @@ const dictionary = {
 				show: 'Show Filters',
 			},
 		},
-		empty: 'Sorry, there are no articles matching your criteria. Please try again later or adjust your filters.',
+		empty:
+			'Sorry, there are no articles matching your criteria. Please try again later or adjust your filters.',
 		article: {
 			link: 'Source link',
 			author: 'Author:',

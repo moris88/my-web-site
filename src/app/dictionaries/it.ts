@@ -150,7 +150,8 @@ const dictionary = {
 				show: 'Mostra filtri',
 			},
 		},
-		empty: 'Non sono stati trovati articoli che corrispondono ai criteri di ricerca. Prova a modificare i filtri o a cercare con parole chiave diverse.',
+		empty:
+			'Non sono stati trovati articoli che corrispondono ai criteri di ricerca. Prova a modificare i filtri o a cercare con parole chiave diverse.',
 		article: {
 			link: 'Link alla fonte',
 			author: 'Autore:',
