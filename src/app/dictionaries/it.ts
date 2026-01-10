@@ -147,6 +147,7 @@ const dictionary = {
 			buttons: {
 				reset: 'Reimposta filtri',
 				apply: 'Applica filtri',
+				show: 'Mostra filtri',
 			},
 		},
 		empty: 'Non sono stati trovati articoli che corrispondono ai criteri di ricerca. Prova a modificare i filtri o a cercare con parole chiave diverse.',

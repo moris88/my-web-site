@@ -49,8 +49,8 @@ function CardBlog({
 					)}
 				</CardHeader>
 				<CardBody className="flex flex-col gap-2 p-4">
-					<h3 className="line-clamp-1 font-bold text-xl">{title}</h3>
-					<p className="line-clamp-4 flex-1 text-gray-500 text-sm dark:text-gray-400">
+					<h3 className="font-bold text-xl">{title}</h3>
+					<p className="flex-1 text-gray-500 text-sm dark:text-gray-400">
 						{summary}
 					</p>
 				</CardBody>
