@@ -95,11 +95,11 @@ function Header({ dict }: Readonly<NavbarProps>) {
 				{links.map(({ name, path, icon }) => (
 					<NavbarMenuItem
 						key={generateUniqueId()}
-						className="flex flex-col w-full items-center justify-center"
+						className="flex w-full flex-col items-center justify-center"
 					>
-						<Link href={path} className="my-8 group">
+						<Link href={path} className="group my-8">
 							<div
-								className={`${isActive(pathname, path) ? 'text-primary dark:text-gray-400' : 'text-black hover:text-primary dark:text-white dark:hover:text-gray-400'} transition-all duration-300 ease-in-out text-2xl flex items-center gap-4`}
+								className={`${isActive(pathname, path) ? 'text-primary' : 'text-black hover:text-primary dark:text-white dark:hover:text-primary'} flex items-center gap-2 pr-4 text-2xl transition-all duration-300 ease-in-out md:pr-0`}
 							>
 								<span
 									className={
@@ -113,10 +113,10 @@ function Header({ dict }: Readonly<NavbarProps>) {
 								{name}
 							</div>
 						</Link>
-						<hr className="border-t border-primary w-1/2" />
+						<hr className="w-5/6 border-primary border-t" />
 					</NavbarMenuItem>
 				))}
-				<NavbarMenuItem className="flex w-full justify-center my-8">
+				<NavbarMenuItem className="my-8 flex w-full justify-center pr-4 md:pr-0">
 					<ToogleTheme>
 						<span className="text-2xl">{dict.navbar.theme}</span>
 					</ToogleTheme>

@@ -107,7 +107,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 							<li key={answer.text[language]} className="select-none">
 								<button
 									type="button"
-									className="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-left hover:bg-linear-to-r hover:from-primary hover:to-purple-600 text-white dark:hover:shadow-blue-200 hover:shadow-black hover:shadow-md hover:transition-all hover:duration-300 hover:ease-in-out dark:hover:bg-linear-to-r dark:hover:from-blue-900 dark:hover:to-purple-900"
+									className="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-left text-white hover:bg-linear-to-r hover:from-primary hover:to-purple-600 hover:shadow-black hover:shadow-md hover:transition-all hover:duration-300 hover:ease-in-out dark:hover:bg-linear-to-r dark:hover:from-blue-900 dark:hover:to-purple-900 dark:hover:shadow-blue-200"
 									onClick={(e) => {
 										e.preventDefault()
 										handleAnswer(answer.points)
