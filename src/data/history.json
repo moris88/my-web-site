@@ -69,14 +69,14 @@
 			{
 				"id": "history-10",
 				"title": "Futuro e Progetti",
-				"description": "Guardando avanti, uno dei miei obiettivi è riprendere gli studi universitari e conseguire la laurea in Informatica. Mi piacerebbe specializzarmi ulteriormente nel front-end development e nel UI Design, settori che mi appassionano particolarmente. Mi piacerebbe aprire un canale Youtube, e fare divulgazione di codice, AI e best practices chissà se arriverà un giorno. Inoltre, tra cinque anni, sogno di ricoprire un ruolo di responsabilità, magari come team leader, contribuendo attivamente alla crescita di progetti innovativi e sfidanti.",
+				"description": "Guardando avanti, uno dei miei obiettivi è riprendere gli studi universitari e conseguire la laurea in Informatica. Mi piacerebbe specializzarmi ulteriormente nel front-end development e nel UI Design, settori che mi appassionano particolarmente. Mi piacerebbe aprire un canale Youtube, e fare divulgazione di codice, AI e best practices, chissà se arriverà un giorno. Inoltre, tra 3/5 anni, sogno di ricoprire un ruolo di responsabilità, magari come Tech Lead, UX/UI Lead o Engineering Manager, contribuendo attivamente alla crescita di progetti innovativi e sfidanti.",
 				"image": "history/chart.webp",
 				"alt": "Un grafico che mostra una tendenza positiva."
 			},
 			{
 				"id": "history-11",
 				"title": null,
-				"description": "A presto, con nuovi aggiornamenti! Maurizio."
+				"description": "A presto, con nuovi aggiornamenti! Maurizio. Nel mentre, seguimi sui miei canali social e sul mio blog o i miei progetti per rimanere aggiornato sulle mie avventure nel mondo del codice."
 			}
 		],
 		"en": [
@@ -144,13 +144,13 @@
 			{
 				"id": "history-10",
 				"title": "Future and Projects",
-				"description": "Looking ahead, one of my goals is to resume my university studies and earn a degree in Computer Science. I would like to further specialize in front-end development and UI Design, areas that I am particularly passionate about. I would like to open a Youtube channel, and do outreach on code, AI and best practices, who knows if one day it will come true. Additionally, in five years, I dream of holding a position of responsibility, perhaps as a team leader, actively contributing to the growth of innovative and challenging projects.",
+				"description": "Looking ahead, one of my goals is to resume my university studies and earn a degree in Computer Science. I would like to further specialize in front-end development and UI Design, areas that I am particularly passionate about. I would like to open a Youtube channel, and do outreach on code, AI and best practices, who knows if one day it will come true. Additionally, in five years, I dream of holding a position of responsibility, perhaps as a Tech Lead, UX/UI Lead or Engineering Manager, actively contributing to the growth of innovative and challenging projects.",
 				"alt": "A chart showing a positive trend."
 			},
 			{
 				"id": "history-11",
 				"title": null,
-				"description": "See you soon, with new updates! Maurizio."
+				"description": "See you soon, with new updates! Maurizio. In the meantime, follow me on my social channels and on my blog or my projects to stay updated on my adventures in the world of code."
 			}
 		],
 		"lastUpdate": "15/11/2025"

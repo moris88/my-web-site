@@ -33,7 +33,7 @@ function CardBlog({
 					{image ? (
 						<img
 							alt={alt ?? 'Blog Image'}
-							className="aspect-video h-48 w-full object-cover object-top"
+							className="aspect-video h-48 w-full bg-gray-50 object-contain dark:bg-slate-700"
 							src={`${image}`}
 						/>
 					) : (

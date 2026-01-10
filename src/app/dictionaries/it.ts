@@ -191,6 +191,15 @@ const dictionary = {
 	projects: {
 		title: 'I miei progetti',
 		subtitle: 'Una raccolta del mio lavoro.',
+		filters: {
+			title: 'Cerca per titolo...',
+			tags: 'Cerca per tag...',
+			buttons: {
+				reset: 'Reimposta filtri',
+				apply: 'Applica filtri',
+				show: 'Mostra filtri',
+			},
+		},
 		project: {
 			link: 'Link alla webapp/package',
 			github: 'Link al repository github',

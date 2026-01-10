@@ -136,6 +136,17 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 				<p className="text-gray-600 text-lg dark:text-gray-300">
 					{outroItem.description}
 				</p>
+				<div className="mt-2 flex w-full items-center justify-center gap-2 border-gray-200 border-t py-2 dark:border-gray-700">
+					<Button color="primary" variant="ghost" className="mt-6" onPress={() => router.push('/blog')}>
+						{language === 'en' ? 'Read my blog' : 'Leggi il mio blog'}
+					</Button>
+					<Button color="primary" variant="ghost" className="mt-6" onPress={() => router.push('/projects')}>
+						{language === 'en' ? 'Read my projects' : 'Guarda i miei progetti'}
+					</Button>
+					<Button color="primary" variant="ghost" className="mt-6" onPress={() => router.push('/contacts')}>
+						{language === 'en' ? 'Read my contacts' : 'Guarda i miei contatti'}
+					</Button>
+				</div>
 			</div>
 
 			<div className="mt-10 flex w-full justify-center text-gray-500 text-sm">
