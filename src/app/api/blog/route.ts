@@ -50,7 +50,7 @@ export async function GET(request: Request) {
 
 		if (date) {
 			whereClauses.push(`published_at >= ? AND published_at <= ?`)
-			params.push(date + 'T00:00:00', date + 'T23:59:59')
+			params.push(`${date}T00:00:00`, `${date}T23:59:59`)
 		}
 
 		if (language) {
