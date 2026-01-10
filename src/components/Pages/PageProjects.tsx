@@ -1,12 +1,12 @@
 'use client'
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import { FaLaptopCode } from 'react-icons/fa6'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
 import { Select, SelectItem } from '@heroui/react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
+import React from 'react'
+import { FaLaptopCode } from 'react-icons/fa6'
 import type { Dictionary } from '@/app/dictionaries'
 import { CardProject, SectionHero } from '@/components'
 import type { Project } from '@/types'
@@ -73,19 +73,17 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			subtitle={dict.projects.subtitle}
 		>
 			{/* 🔘 Bottone toggle */}
-			{
-				!showFilters && (
-					<div className="mb-4 flex justify-center">
-						<Button
-							color="primary"
-							variant="flat"
-							onPress={() => setShowFilters((prev) => !prev)}
-						>
-							{dict.projects.filters.buttons.show}
-						</Button>
-					</div>
-				)
-			}
+			{!showFilters && (
+				<div className="mb-4 flex justify-center">
+					<Button
+						color="primary"
+						variant="flat"
+						onPress={() => setShowFilters((prev) => !prev)}
+					>
+						{dict.projects.filters.buttons.show}
+					</Button>
+				</div>
+			)}
 
 			{/* 🔍 UI FILTRI con animazione */}
 			<AnimatePresence>
@@ -114,9 +112,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 								onSelectionChange={(setTags) => setTag(setTags as Set<string>)}
 							>
 								{allTags.map((tag) => (
-									<SelectItem key={tag}>
-										{tag}
-									</SelectItem>
+									<SelectItem key={tag}>{tag}</SelectItem>
 								))}
 							</Select>
 						</div>
@@ -154,7 +150,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 					</div>
 				</div>
 			</section>
-		</SectionHero>	
+		</SectionHero>
 	)
 }
 
