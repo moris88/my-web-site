@@ -142,8 +142,7 @@ const dictionary = {
 		},
 		filters: {
 			title: 'Filter by title...',
-			fromDate: 'From date',
-			toDate: 'To date',
+			date: 'Filter by date...',
 			author: 'Filter by author...',
 			buttons: {
 				apply: 'Apply Filters',

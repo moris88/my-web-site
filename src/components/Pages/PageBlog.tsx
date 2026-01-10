@@ -25,8 +25,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 	// 🔍 FILTRI
 	const [title, setTitle] = React.useState('')
 	const [author, setAuthor] = React.useState('')
-	const [dateFrom, setDateFrom] = React.useState('')
-	const [dateTo, setDateTo] = React.useState('')
+	const [date, setDate] = React.useState('')
 
 	// 🔄 Funzione fetch con filtri
 	const fetchArticlesWithFilters = React.useCallback(() => {
@@ -35,14 +34,13 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 			if (title) params.set('title', title)
 			if (author) params.set('author', author)
-			if (dateFrom) params.set('date_from', dateFrom)
-			if (dateTo) params.set('date_to', dateTo)
+			if (date) params.set('date', date)
 
 			fetch(`/api/blog?${params.toString()}`)
 				.then((res) => res.json())
 				.then((res) => setArticles(res.data))
 		})
-	}, [language, title, author, dateFrom, dateTo])
+	}, [language, title, author, date])
 
 	// 🔄 Funzione fetch senza filtri
 	const fetchArticles = React.useCallback(() => {
@@ -64,8 +62,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 	const handleReset = () => {
 		setTitle('')
 		setAuthor('')
-		setDateFrom('')
-		setDateTo('')
+		setDate('')
 		fetchArticles()
 	}
 
@@ -88,25 +85,18 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 					onChange={(e) => setTitle(e.target.value)}
 				/>
 
-				<Input
+				{/* <Input
 					type="text"
 					label={dict.blog.filters.author}
 					value={author}
 					onChange={(e) => setAuthor(e.target.value)}
-				/>
+				/> */}
 
 				<Input
-					label={dict.blog.filters.fromDate}
+					label={dict.blog.filters.date}
 					type="date"
-					value={dateFrom}
-					onChange={(e) => setDateFrom(e.target.value)}
-				/>
-
-				<Input
-					label={dict.blog.filters.toDate}
-					type="date"
-					value={dateTo}
-					onChange={(e) => setDateTo(e.target.value)}
+					value={date}
+					onChange={(e) => setDate(moment(e.target.value).format('YYYY-MM-DD'))}
 				/>
 			</div>
 

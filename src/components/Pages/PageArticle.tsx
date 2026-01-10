@@ -45,7 +45,7 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 			{article && (
 				<SectionHero
 					image={{ src: article.image ?? '', alt: article.alt ?? '' }}
-					subtitle={article.content}
+					html={article.content}
 					title={article.title}
 				>
 					<div className="flex flex-col gap-2 md:flex-row">

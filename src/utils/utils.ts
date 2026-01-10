@@ -12,7 +12,7 @@ export function isActive(currentPath: string, path: string): boolean {
 
 export function formatDate(date?: string): string {
 	if (!date) return ''
-	return `${moment(date).format('DD/MM/YYYY')} ${moment(date).format('HH:mm')}`
+	return `${moment(date).format('DD/MM/YYYY HH:mm')}`
 }
 
 export function generateUniqueId() {

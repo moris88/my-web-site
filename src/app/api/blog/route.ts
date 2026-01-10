@@ -32,8 +32,7 @@ export async function GET(request: Request) {
 		// 🔍 Filtri
 		const title = searchParams.get('title')
 		const author = searchParams.get('author')
-		const dateFrom = searchParams.get('date_from')
-		const dateTo = searchParams.get('date_to')
+		const date = searchParams.get('date')
 
 		// Costruzione dinamica della WHERE
 		const whereClauses = [`published = 'true'`]
@@ -49,20 +48,17 @@ export async function GET(request: Request) {
 			params.push(`%${author}%`)
 		}
 
-		if (dateFrom) {
-			whereClauses.push(`published_at >= ?`)
-			params.push(dateFrom)
-		}
-
-		if (dateTo) {
-			whereClauses.push(`published_at <= ?`)
-			params.push(dateTo)
+		if (date) {
+			whereClauses.push(`published_at >= ? AND published_at <= ?`)
+			params.push(date + 'T00:00:00', date + 'T23:59:59')
 		}
 
 		if (language) {
 			whereClauses.push(`language = ?`)
 			params.push(language)
 		}
+
+		console.log('WHERE clauses:', whereClauses, 'Params:', params)
 
 		const whereSQL = whereClauses.length
 			? `WHERE ${whereClauses.join(' AND ')}`

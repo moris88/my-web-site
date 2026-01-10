@@ -92,6 +92,7 @@ export interface Blog extends Partial<Err> {
 export interface Article {
 	id: string
 	title: string
+	summary: string
 	content: string
 	created_at: string
 	updated_at: string

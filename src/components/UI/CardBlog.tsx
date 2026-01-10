@@ -8,21 +8,16 @@ import { formatDate } from '@/utils'
 
 interface CardBlogProps {
 	article: Article
-	onClick?: (_article: Article) => void
+	onClick?: () => void
 	dict: Dictionary
 }
 
 function CardBlog({
 	article: {
-		id,
 		title,
 		alt,
-		published,
+		summary,
 		published_at,
-		created_at,
-		updated_at,
-		content,
-		link,
 		image,
 	},
 	onClick,
@@ -30,18 +25,7 @@ function CardBlog({
 }: CardBlogProps) {
 	const handleOnClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
 		e.preventDefault()
-		onClick?.({
-			id,
-			title,
-			created_at,
-			content,
-			link,
-			updated_at,
-			image,
-			alt,
-			published_at,
-			published,
-		})
+		onClick?.()
 	}
 	return (
 		<motion.div
@@ -66,13 +50,13 @@ function CardBlog({
 				</CardHeader>
 				<CardBody className="flex flex-col gap-2 p-4">
 					<h3 className="line-clamp-1 font-bold text-xl">{title}</h3>
-					<p className="line-clamp-2 text-gray-500 text-sm dark:text-gray-400">
-						{content}
+					<p className="line-clamp-4 flex-1 text-gray-500 text-sm dark:text-gray-400">
+						{summary}
 					</p>
 				</CardBody>
 				<CardFooter className="flex flex-wrap gap-2 px-4 pt-0 pb-4">
 					<Chip size="sm" color="primary" variant="flat">
-						{`${dict.blog.card.postedAt} ${formatDate(created_at)}`}
+						{`${dict.blog.card.postedAt} ${formatDate(published_at)}`}
 					</Chip>
 				</CardFooter>
 			</Card>
