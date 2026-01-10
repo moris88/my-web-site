@@ -9,6 +9,13 @@ const config = {
 		'./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}',
 	],
 	darkMode: 'class',
+	theme: {
+		extend: {
+			colors: {
+				primary: '#006fee',
+			},
+		},
+	},
 	plugins: [heroui()],
 }
 

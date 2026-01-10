@@ -24,7 +24,7 @@ function QuizResultPopup({
 				>
 					✕
 				</button>
-				<h2 className="mb-2 font-bold text-2xl text-blue-600">
+				<h2 className="mb-2 font-bold text-2xl text-primary">
 					{profile.title}
 				</h2>
 				<p className="mb-4 text-gray-500 text-sm italic dark:text-white">

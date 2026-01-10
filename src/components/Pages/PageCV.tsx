@@ -45,7 +45,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				)}
 
 				{/* Icon */}
-				<div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-blue-600 shadow-sm dark:border-slate-900 dark:bg-blue-900/30 dark:text-blue-400">
+				<div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-primary shadow-sm dark:border-slate-900 dark:bg-blue-900/30 dark:text-blue-400">
 					{type === 'work' ? (
 						<FaCity className="h-5 w-5" />
 					) : (
@@ -61,7 +61,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 								href={item.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="hover:text-blue-600 hover:underline dark:hover:text-blue-400"
+								className="hover:text-primary hover:underline dark:hover:text-blue-400"
 							>
 								{item.type === 'work' ? item.company : item.institution}
 							</a>
@@ -97,7 +97,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				{/* Download Button (Floating on mobile, inline on desktop) */}
 				<div className="mb-12 flex justify-center">
 					<Button
-						className="bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
+						className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 						size="lg"
 						radius="full"
 						onPress={() => setShowDownload(true)}

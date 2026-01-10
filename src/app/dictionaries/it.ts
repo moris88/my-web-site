@@ -156,6 +156,7 @@ const dictionary = {
 		empty:
 			'Non sono stati trovati articoli che corrispondono ai criteri di ricerca. Prova a modificare i filtri o a cercare con parole chiave diverse.',
 		article: {
+			shareTitle: 'Condividi questo articolo',
 			link: 'Link alla fonte',
 			author: 'Autore:',
 			createdAt: 'Creato il',

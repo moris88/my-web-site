@@ -156,6 +156,7 @@ const dictionary = {
 		empty:
 			'Sorry, there are no articles matching your criteria. Please try again later or adjust your filters.',
 		article: {
+			shareTitle: 'Share this article',
 			link: 'Source link',
 			author: 'Author:',
 			createdAt: 'Created at',

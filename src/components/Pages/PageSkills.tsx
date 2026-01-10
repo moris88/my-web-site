@@ -101,7 +101,7 @@ export default function PageSkills({
 
 	return (
 		<SectionHero
-			icon={<FaTools className="h-8 w-8 text-primary" />}
+			icon={<FaTools className="h-6 w-6 text-primary" />}
 			title={dict.skills.title}
 			subtitle={dict.skills.subtitle}
 		>
@@ -238,7 +238,7 @@ export default function PageSkills({
 					</Tabs>
 					<div className="my-5 flex items-center justify-center">
 						<Button
-							className="flex gap-2 bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
+							className="flex gap-2 bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 							color="default"
 							variant="flat"
 							onPress={() => setShowLegend((t) => !t)}
@@ -263,13 +263,13 @@ export default function PageSkills({
 											showValueLabel
 											color={
 												item.color as
-													| 'secondary'
-													| 'success'
-													| 'warning'
-													| 'danger'
-													| 'primary'
-													| 'default'
-													| undefined
+												| 'secondary'
+												| 'success'
+												| 'warning'
+												| 'danger'
+												| 'primary'
+												| 'default'
+												| undefined
 											}
 											label={item.label}
 											value={item.level}
