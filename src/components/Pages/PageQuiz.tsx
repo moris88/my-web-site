@@ -66,7 +66,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 				<QuizResultPopup category={result} dict={dict} onClose={resetQuiz} />
 			)}
 			{stop && (
-				<div className="rounded-xl bg-white p-6 shadow-md dark:bg-gray-800">
+				<div className="rounded-xl bg-blue-50 p-6 shadow-md dark:bg-gray-800">
 					<h2 className="mb-4 font-semibold text-xl">
 						{dict.quiz.popup.title}
 					</h2>
@@ -79,9 +79,9 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 							radius="full"
 							type="button"
 							onPress={() => setStop(false)}
-							className="relative inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-padding p-[2px] font-semibold text-transparent shadow-lg transition-transform hover:scale-105"
+							className="relative inline-flex items-center justify-center bg-linear-to-r from-primary to-purple-600 bg-clip-padding p-0.5 font-semibold text-transparent shadow-lg transition-transform hover:scale-105"
 						>
-							<span className="flex h-full w-full items-center justify-center rounded-full bg-white px-4 text-blue-600 dark:bg-slate-900 dark:text-purple-300">
+							<span className="flex h-full w-full items-center justify-center rounded-full bg-white px-4 text-primary dark:bg-slate-900 dark:text-purple-300">
 								{dict.quiz.popup.buttons.reset}
 							</span>
 						</Button>
@@ -89,7 +89,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 							size="lg"
 							radius="full"
 							type="button"
-							className="bg-gradient-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
+							className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
 							onPress={() => router.push('/experience')}
 						>
 							{dict.quiz.popup.buttons.close}
@@ -98,7 +98,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 				</div>
 			)}
 			{!result && !stop && (
-				<div className="rounded-xl bg-white p-6 shadow-md dark:bg-gray-800">
+				<div className="rounded-xl bg-blue-50 p-6 shadow-md dark:bg-gray-800">
 					<h2 className="mb-4 select-none font-semibold text-xl">
 						{questions[step].question[language]}
 					</h2>
@@ -107,7 +107,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 							<li key={answer.text[language]} className="select-none">
 								<button
 									type="button"
-									className="w-full cursor-pointer rounded-md bg-blue-100 px-4 py-2 text-left text-blue-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:shadow-blue-200 hover:shadow-md hover:transition-all hover:duration-300 hover:ease-in-out dark:hover:bg-gradient-to-r dark:hover:from-blue-900 dark:hover:from-blue-900 dark:hover:to-purple-900 dark:hover:to-purple-900 dark:hover:shadow-blue-800 dark:hover:shadow-blue-800"
+									className="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-left hover:bg-linear-to-r hover:from-primary hover:to-purple-600 text-white dark:hover:shadow-blue-200 hover:shadow-black hover:shadow-md hover:transition-all hover:duration-300 hover:ease-in-out dark:hover:bg-linear-to-r dark:hover:from-blue-900 dark:hover:to-purple-900"
 									onClick={(e) => {
 										e.preventDefault()
 										handleAnswer(answer.points)

@@ -69,7 +69,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								</p>
 							</div>
 							<Button
-								className="bg-linear-to-r from-blue-600 to-purple-600 font-semibold text-white shadow-lg"
+								className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg"
 								radius="full"
 								onPress={() => router.push('/quiz')}
 							>
@@ -97,7 +97,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								data-aos="fade-up"
 							>
 								{/* Timeline Dot */}
-								<div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-blue-600 shadow-md md:left-1/2 dark:border-slate-900 dark:bg-blue-500" />
+								<div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-primary shadow-md md:left-1/2 dark:border-slate-900 dark:bg-blue-500" />
 
 								{/* Spacer for Desktop */}
 								<div className="hidden w-1/2 md:block" />
@@ -116,7 +116,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 												/>
 											</div>
 										)}
-										<h4 className="mb-2 font-bold text-blue-600 text-xl dark:text-blue-400">
+										<h4 className="mb-2 font-bold text-primary text-xl dark:text-blue-400">
 											{item.title}
 										</h4>
 										<p className="text-gray-600 leading-relaxed dark:text-gray-300">

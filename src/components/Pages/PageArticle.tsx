@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
-import { SectionHero } from '@/components'
+import { SectionHero, ShareSocial } from '@/components'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
 
@@ -61,6 +61,7 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 					{article.author && (
 						<small>{`${dict.blog.article.author} ${article.author}`}</small>
 					)}
+					<ShareSocial article={article} title={dict.blog.article.shareTitle} />
 					<div className="flex justify-end gap-2">
 						<Button
 							className="flex gap-2"
