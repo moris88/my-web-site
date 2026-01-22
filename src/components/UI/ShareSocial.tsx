@@ -63,7 +63,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		},
 	]
 	return (
-		<section className="flex select-none items-center justify-start gap-4 md:justify-end">
+		<section className="flex select-none flex-col items-center justify-start gap-4 md:flex-row md:justify-end">
 			<div className="flex flex-wrap gap-4 gap-y-1 text-sm lg:text-base">
 				<span className="dark:text-gray-400">{title}</span>
 			</div>

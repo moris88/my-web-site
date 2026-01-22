@@ -48,19 +48,21 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 					html={article.content}
 					title={article.title}
 				>
-					<div className="flex flex-col gap-2 md:flex-row">
-						<small>{`${dict.blog.article.createdAt} ${formatDate(article.created_at)}`}</small>
-						<small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
-						<small>{`${dict.blog.article.postedAt} ${formatDate(article.published_at)}`}</small>
+					<div className="flex flex-col gap-2">
+						<div className="flex flex-col gap-2 md:flex-row">
+							<small>{`${dict.blog.article.createdAt} ${formatDate(article.created_at)}`}</small>
+							<small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
+							<small>{`${dict.blog.article.postedAt} ${formatDate(article.published_at)}`}</small>
+						</div>
+						{article.link && (
+							<Link isExternal showAnchorIcon href={article.link}>
+								{dict.blog.article.link}
+							</Link>
+						)}
+						{article.author && (
+							<small>{`${dict.blog.article.author} ${article.author}`}</small>
+						)}
 					</div>
-					{article.link && (
-						<Link isExternal showAnchorIcon href={article.link}>
-							{dict.blog.article.link}
-						</Link>
-					)}
-					{article.author && (
-						<small>{`${dict.blog.article.author} ${article.author}`}</small>
-					)}
 					<ShareSocial article={article} title={dict.blog.article.shareTitle} />
 					<div className="flex justify-end gap-2">
 						<Button
