@@ -131,12 +131,12 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 			</div>
 
 			{/* Outro Section */}
-			<div className="mx-auto mt-10 max-w-4xl rounded-2xl bg-gray-50 p-8 text-center dark:bg-slate-800/50">
+			<div className="mx-0 mt-10 max-w-4xl rounded-2xl bg-gray-50 p-8 text-center md:mx-auto dark:bg-slate-800/50">
 				<h3 className="mb-4 font-bold text-2xl">{outroItem.title}</h3>
 				<p className="text-gray-600 text-lg dark:text-gray-300">
 					{outroItem.description}
 				</p>
-				<div className="mt-2 flex w-full items-center justify-center gap-2 border-gray-200 border-t py-2 dark:border-gray-700">
+				<div className="mt-2 flex w-full flex-col items-center justify-center gap-2 border-gray-200 border-t py-2 md:flex-row dark:border-gray-700">
 					<Button
 						color="primary"
 						variant="ghost"
