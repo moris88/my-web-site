@@ -4,7 +4,11 @@ import { getDictionary } from '../../../dictionaries'
 import { getArticle } from '@/lib/articles'
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: { id: number } }): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: {
+	params: { id: number }
+}): Promise<Metadata> {
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
 	const article = await getArticle(params.id, language)

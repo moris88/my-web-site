@@ -50,9 +50,15 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 				>
 					<div className="flex flex-col gap-2">
 						<div className="flex flex-col gap-2 md:flex-row">
-							{article.created_at && (<small>{`${dict.blog.article.createdAt} ${formatDate(article.created_at)}`}</small>)}
-							{article.updated_at && (<small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>)}
-							{article.published_at && (<small>{`${dict.blog.article.postedAt} ${formatDate(article.published_at)}`}</small>)}
+							{article.created_at && (
+								<small>{`${dict.blog.article.createdAt} ${formatDate(article.created_at)}`}</small>
+							)}
+							{article.updated_at && (
+								<small>{`${dict.blog.article.editedAt} ${formatDate(article.updated_at)}`}</small>
+							)}
+							{article.published_at && (
+								<small>{`${dict.blog.article.postedAt} ${formatDate(article.published_at)}`}</small>
+							)}
 						</div>
 						{article.link && (
 							<Link isExternal showAnchorIcon href={article.link}>

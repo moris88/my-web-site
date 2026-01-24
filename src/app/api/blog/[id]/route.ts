@@ -35,7 +35,10 @@ export async function GET(
 		}
 
 		// 5. Query al DB
-		const article = await getArticle(idNumber, (language === 'it' || language === 'en') ? language : 'en')
+		const article = await getArticle(
+			idNumber,
+			language === 'it' || language === 'en' ? language : 'en',
+		)
 
 		if (!article) {
 			return NextResponse.json({ error: 'Articles not found' }, { status: 404 })
