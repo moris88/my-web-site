@@ -7,11 +7,12 @@ import type { Metadata } from 'next'
 export async function generateMetadata({
 	params,
 }: {
-	params: { id: number }
+	params: Promise<{ id: string }> // Deve essere una Promise
 }): Promise<Metadata> {
+	const { id } = await params; // Unwrapping asincrono obbligatorio
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
-	const article = await getArticle(params.id, language)
+	const article = await getArticle(Number(id), language)
 
 	if (!article) {
 		return {
