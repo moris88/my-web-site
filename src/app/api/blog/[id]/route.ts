@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import db from '@/lib/database'
+import { getArticle } from '@/lib/articles'
 
 export async function GET(
 	request: Request,
@@ -34,13 +35,7 @@ export async function GET(
 		}
 
 		// 5. Query al DB
-		const stmt = db.prepare(`
-      SELECT *
-      FROM articles
-      WHERE id = ? and language = ?
-    `)
-
-		const article = stmt.get(idNumber, language)
+		const article = await getArticle(idNumber, (language === 'it' || language === 'en') ? language : 'en')
 
 		if (!article) {
 			return NextResponse.json({ error: 'Articles not found' }, { status: 404 })
