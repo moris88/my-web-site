@@ -9,7 +9,7 @@ export async function generateMetadata({
 }: {
 	params: Promise<{ id: string }> // Deve essere una Promise
 }): Promise<Metadata> {
-	const { id } = await params; // Unwrapping asincrono obbligatorio
+	const { id } = await params // Unwrapping asincrono obbligatorio
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
 	const article = await getArticle(Number(id), language)
