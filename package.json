@@ -82,6 +82,6 @@
 		"tailwind-merge": "^3.4.0",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5",
-		"vercel": "^50.1.6"
+		"vercel": "^50.12.3"
 	}
 }
