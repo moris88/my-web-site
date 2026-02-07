@@ -141,7 +141,6 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			{/* 
 			<section className="w-full bg-white py-20 dark:bg-slate-900">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
@@ -173,7 +172,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					</div>
 				</div>
 			</section>
-
+			
+			{/*
 			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
