@@ -188,8 +188,8 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					</div>
 				</div>
 			</section>
-
-			<SectionCardLink dict={dict} /> */}
+			*/}
+			<SectionCardLink dict={dict} /> 
 		</>
 	)
 }
