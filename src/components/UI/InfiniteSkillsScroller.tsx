@@ -21,7 +21,7 @@ function InfiniteSkillsScroller({
 						className="flex w-37.5 shrink-0 items-center justify-center"
 						key={`skill-1-${skill.img.src}-${index}`}
 					>
-						<SkillItem img={skill.img} link={skill.link} />
+						{/* <SkillItem img={skill.img} link={skill.link} /> */}
 					</div>
 				))}
 				{/* Duplicazione per effetto infinito */}
@@ -30,7 +30,7 @@ function InfiniteSkillsScroller({
 						className="flex w-37.5 shrink-0 items-center justify-center"
 						key={`skill-2-${skill.img.src}-${index}`}
 					>
-						<SkillItem img={skill.img} link={skill.link} />
+						{/* <SkillItem img={skill.img} link={skill.link} /> */}
 					</div>
 				))}
 			</div>
