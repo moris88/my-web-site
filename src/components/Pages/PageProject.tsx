@@ -51,7 +51,7 @@ function PageProject({ dict, project }: PageProjectProps) {
 									</Chip>
 								))}
 							</div>
-							<p>{project.description}</p>
+							<p className="text-black dark:text-white">{project.description}</p>
 							<span className="flex flex-col items-center gap-4 lg:flex-row">
 								{project.url && (
 									<Link
