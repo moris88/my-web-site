@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@heroui/react'
+import Link from 'next/link'
 
 interface SkillItemProps {
 	link: { url: string }
@@ -9,15 +9,23 @@ interface SkillItemProps {
 
 function SkillItem({ link, img }: Readonly<SkillItemProps>) {
 	return (
-		<div className="flex max-h-full min-h-20 flex-row items-center justify-center gap-2 md:min-h-40 lg:max-h-40 lg:flex-col">
-			<Link isExternal href={link.url}>
+		<div className="flex h-full w-full flex-col items-center justify-center gap-3 p-2">
+			<Link
+				href={link.url}
+				className="group flex items-center justify-center"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<img
 					alt={img.alt}
-					className="h-auto w-full max-w-8 rounded-xl object-cover drop-shadow-lg transition-all duration-600 ease-in-out hover:max-w-20 md:max-w-16 md:hover:max-w-24 lg:max-w-24 lg:hover:max-w-32"
 					src={img.src}
+					// Dimensioni fisse e stabili per lo scroller
+					className="h-12 w-12 object-contain transition-transform duration-500 ease-in-out group-hover:scale-125 md:h-16 md:w-16 lg:h-20 lg:w-20"
 				/>
 			</Link>
-			<p className="select-none">{img.alt}</p>
+			<p className="select-none font-medium text-slate-600 text-xs dark:text-slate-400">
+				{img.alt}
+			</p>
 		</div>
 	)
 }

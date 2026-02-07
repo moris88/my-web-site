@@ -58,7 +58,7 @@ function SectionCardLink({ dict }: Readonly<SectionCardLinkProps>) {
 		<section className="w-full bg-white py-20 dark:bg-slate-900">
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 				<div className="flex flex-col items-center gap-4 text-center">
-					<h2 className="font-bold text-3xl md:text-4xl">
+					<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
 						{dict.home.navigate}
 					</h2>
 					<div className="h-1 w-20 rounded-full bg-primary" />

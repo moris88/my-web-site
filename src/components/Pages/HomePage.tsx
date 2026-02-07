@@ -2,7 +2,6 @@
 
 import 'aos/dist/aos.css'
 
-import { Tooltip } from '@heroui/react'
 import AOS from 'aos'
 import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'
@@ -16,6 +15,7 @@ import {
 	InteractiveAvatar,
 	SectionCardLink,
 	ServiceCard,
+	Tooltip,
 	UniqueButton,
 } from '@/components'
 import type { Info, Language } from '@/types'
@@ -48,11 +48,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						className="flex items-center justify-center p-4 md:p-0"
 						data-aos="fade-up"
 					>
-						<Tooltip
-							color="default"
-							content={dict.home.message}
-							placement="top"
-						>
+						<Tooltip position="bottom" text={dict.home.message}>
 							<InteractiveAvatar
 								alt="avatar"
 								className="block aspect-square max-h-[80vh] w-full max-w-[clamp(180px,30vw,450px)]"
@@ -113,7 +109,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
-						<h2 className="font-bold text-3xl md:text-4xl">
+						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
 							{dict.home.whatIDoTitle}
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />
@@ -150,7 +146,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 			<section className="w-full bg-white py-20 dark:bg-slate-900">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
-						<h2 className="font-bold text-3xl md:text-4xl">
+						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
 							{dict.home.whoAmITitle}
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />
@@ -160,15 +156,17 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						className="rounded-2xl bg-gray-50 p-8 shadow-lg dark:bg-slate-800 dark:shadow-slate-900/50"
 						data-aos="fade-up"
 					>
-						<div className="prose dark:prose-invert max-w-4xl text-justify text-gray-700 dark:text-gray-300">
+						<div className="prose dark:prose-invert max-w-4xl text-justify text-black dark:text-white">
 							{parse(info?.whoAmIDescription?.[language] ?? '')}
 						</div>
 					</div>
 
 					<div className="mt-10 flex w-full flex-col items-center gap-6">
-						<h3 className="font-semibold text-2xl">My Tech Stack</h3>
+						<h3 className="font-semibold text-2xl text-black dark:text-white">
+							My Tech Stack
+						</h3>
 						<div
-							className="w-full max-w-4xl rounded-xl bg-gray-50 p-6 shadow-md dark:bg-slate-800 dark:shadow-slate-900/50"
+							className="w-full max-w-4xl rounded-xl bg-gray-50 p-6 text-black shadow-md dark:bg-slate-800 dark:text-white dark:shadow-slate-900/50"
 							data-aos="fade-up"
 						>
 							{parse(info?.secondary_skills?.[language] ?? '')}
@@ -181,7 +179,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
-						<h2 className="font-bold text-3xl md:text-4xl">
+						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
 							{dict.home.whatISpecializeInTitle}
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />

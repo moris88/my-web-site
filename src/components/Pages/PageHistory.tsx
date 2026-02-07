@@ -2,13 +2,12 @@
 
 import 'aos/dist/aos.css'
 
-import { Button } from '@heroui/button'
 import AOS from 'aos'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
 
-import { SectionHero } from '@/components/UI'
+import { Button, SectionHero } from '@/components/UI'
 import type { History, Language } from '@/types'
 
 interface PageHistoryProps {
@@ -57,7 +56,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						</button>
 						<div className="flex flex-col items-center gap-4 text-center">
 							<div>
-								<p className="font-bold text-xl">
+								<p className="font-bold text-black text-xl dark:text-white">
 									{language === 'en'
 										? 'Want to discover what kind of developer you are?'
 										: 'Vuoi scoprire che sviluppatore sei?'}
@@ -68,11 +67,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 										: 'Fai il mio quiz per scoprire il tuo tipo di personalità e ottenere consigli personalizzati!'}
 								</p>
 							</div>
-							<Button
-								className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg"
-								radius="full"
-								onPress={() => router.push('/quiz')}
-							>
+							<Button onClick={() => router.push('/quiz')}>
 								{language === 'en' ? 'Take the test' : 'Fai il test'}
 							</Button>
 						</div>
@@ -105,7 +100,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								{/* Content Card */}
 								<div className="ml-12 w-full md:ml-0 md:w-1/2 md:px-8">
 									<div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl dark:border-gray-800 dark:bg-slate-900">
-										<div className="absolute inset-0 bg-linear-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity group-hover:opacity-100" />
+										<div className="absolute inset-0 bg-blue-500/5 opacity-0 transition-opacity group-hover:opacity-100" />
 
 										{item.image && (
 											<div className="mb-4 overflow-hidden rounded-xl">
@@ -141,7 +136,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						color="primary"
 						variant="ghost"
 						className="mt-6"
-						onPress={() => router.push('/blog')}
+						onClick={() => router.push('/blog')}
 					>
 						{language === 'en' ? 'Read my blog' : 'Leggi il mio blog'}
 					</Button>
@@ -149,7 +144,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						color="primary"
 						variant="ghost"
 						className="mt-6"
-						onPress={() => router.push('/projects')}
+						onClick={() => router.push('/projects')}
 					>
 						{language === 'en' ? 'Read my projects' : 'Guarda i miei progetti'}
 					</Button>
@@ -157,7 +152,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						color="primary"
 						variant="ghost"
 						className="mt-6"
-						onPress={() => router.push('/contacts')}
+						onClick={() => router.push('/contacts')}
 					>
 						{language === 'en' ? 'Read my contacts' : 'Guarda i miei contatti'}
 					</Button>

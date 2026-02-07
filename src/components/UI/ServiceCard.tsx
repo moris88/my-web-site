@@ -1,8 +1,8 @@
 'use client'
 
-import { Card, CardBody, CardHeader } from '@heroui/react'
 import { motion } from 'framer-motion'
 import type React from 'react'
+import { Card, CardContent } from './Card'
 
 interface ServiceCardProps {
 	title: string
@@ -17,7 +17,12 @@ function ServiceCard({ title, description, icon }: Readonly<ServiceCardProps>) {
 			whileTap={{ scale: 0.95 }}
 			className="h-full"
 		>
-			<Card className="h-full border-2 border-transparent bg-white/50 shadow-lg backdrop-blur-md hover:border-primary dark:bg-slate-800/50 dark:shadow-slate-900/50">
+			<Card>
+				<CardContent icon={icon} title={title}>
+					<p className="text-default-500">{description}</p>
+				</CardContent>
+			</Card>
+			{/* <Card className="h-full border-2 border-transparent bg-white/50 shadow-lg backdrop-blur-md hover:border-primary dark:bg-slate-800/50 dark:shadow-slate-900/50">
 				<CardHeader className="flex gap-3">
 					<div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 text-primary">
 						{icon}
@@ -29,7 +34,7 @@ function ServiceCard({ title, description, icon }: Readonly<ServiceCardProps>) {
 				<CardBody>
 					<p className="text-default-500">{description}</p>
 				</CardBody>
-			</Card>
+			</Card> */}
 		</motion.div>
 	)
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import { HeroUIProvider } from '@heroui/system'
 import { createStore, Provider } from 'jotai'
 import React from 'react'
 
@@ -39,11 +38,9 @@ export default function UIWrapper({
 
 	return (
 		<Provider store={atomStore}>
-			<HeroUIProvider>
-				<Header dict={dict} />
-				<main className="min-h-[calc(100vh-124px)]">{children}</main>
-				<Footer links={links} />
-			</HeroUIProvider>
+			<Header dict={dict} />
+			<main className="min-h-[calc(100vh-144px)]">{children}</main>
+			<Footer links={links} />
 		</Provider>
 	)
 }

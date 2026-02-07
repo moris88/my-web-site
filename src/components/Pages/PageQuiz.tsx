@@ -1,10 +1,9 @@
 'use client'
 
-import { Button } from '@heroui/button'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import type { Dictionary } from '@/app/dictionaries'
-import { QuizResultPopup } from '@/components'
+import { Button, QuizResultPopup } from '@/components'
 import type { DeveloperCategory, QuizQuestion } from '@/types'
 
 interface PageQuizProps {
@@ -67,7 +66,7 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 			)}
 			{stop && (
 				<div className="rounded-xl bg-blue-50 p-6 shadow-md dark:bg-gray-800">
-					<h2 className="mb-4 font-semibold text-xl">
+					<h2 className="mb-4 font-semibold text-black text-xl dark:text-white">
 						{dict.quiz.popup.title}
 					</h2>
 					<p className="mb-4 text-gray-700 dark:text-white">
@@ -75,23 +74,13 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 					</p>
 					<div className="flex items-center justify-center gap-4">
 						<Button
-							size="lg"
-							radius="full"
 							type="button"
-							onPress={() => setStop(false)}
-							className="relative inline-flex items-center justify-center bg-linear-to-r from-primary to-purple-600 bg-clip-padding p-0.5 font-semibold text-transparent shadow-lg transition-transform hover:scale-105"
+							variant="secondary"
+							onClick={() => setStop(false)}
 						>
-							<span className="flex h-full w-full items-center justify-center rounded-full bg-white px-4 text-primary dark:bg-slate-900 dark:text-purple-300">
-								{dict.quiz.popup.buttons.reset}
-							</span>
+							{dict.quiz.popup.buttons.reset}
 						</Button>
-						<Button
-							size="lg"
-							radius="full"
-							type="button"
-							className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
-							onPress={() => router.push('/experience')}
-						>
+						<Button type="button" onClick={() => router.push('/experience')}>
 							{dict.quiz.popup.buttons.close}
 						</Button>
 					</div>
@@ -99,22 +88,23 @@ function PageQuiz({ dict, language, questions }: Readonly<PageQuizProps>) {
 			)}
 			{!result && !stop && (
 				<div className="rounded-xl bg-blue-50 p-6 shadow-md dark:bg-gray-800">
-					<h2 className="mb-4 select-none font-semibold text-xl">
+					<h2 className="mb-4 select-none font-semibold text-black text-xl dark:text-white">
 						{questions[step].question[language]}
 					</h2>
 					<ul className="space-y-3">
 						{questions[step].answers.map((answer) => (
 							<li key={answer.text[language]} className="select-none">
-								<button
+								<Button
 									type="button"
-									className="w-full cursor-pointer rounded-md bg-primary px-4 py-2 text-left text-white hover:bg-linear-to-r hover:from-primary hover:to-purple-600 hover:shadow-black hover:shadow-md hover:transition-all hover:duration-300 hover:ease-in-out dark:hover:bg-linear-to-r dark:hover:from-blue-900 dark:hover:to-purple-900 dark:hover:shadow-blue-200"
+									variant="secondary"
+									className="w-full"
 									onClick={(e) => {
 										e.preventDefault()
 										handleAnswer(answer.points)
 									}}
 								>
 									{answer.text[language]}
-								</button>
+								</Button>
 							</li>
 						))}
 					</ul>

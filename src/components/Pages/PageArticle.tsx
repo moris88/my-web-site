@@ -1,13 +1,13 @@
 'use client'
 
-import { Button, Link, Spinner } from '@heroui/react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
-import { SectionHero, ShareSocial } from '@/components'
+import { Button, SectionHero, ShareSocial, Spinner } from '@/components'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
+import { Link } from 'lucide-react'
 
 interface PageArticleProps {
 	dict: Dictionary
@@ -33,7 +33,7 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 	}, [language, id])
 
 	if (isPending) {
-		return <Spinner size="lg" variant="gradient" />
+		return <Spinner />
 	}
 
 	if (article === null) {
@@ -49,7 +49,7 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 					title={article.title}
 				>
 					<div className="flex flex-col gap-2">
-						<div className="flex flex-col gap-2 md:flex-row">
+						<div className="flex flex-col gap-2 text-black md:flex-row dark:text-white">
 							{article.created_at && (
 								<small>{`${dict.blog.article.createdAt} ${formatDate(article.created_at)}`}</small>
 							)}
@@ -61,21 +61,20 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 							)}
 						</div>
 						{article.link && (
-							<Link isExternal showAnchorIcon href={article.link}>
+							<Link href={article.link} className="text-black dark:text-white">
 								{dict.blog.article.link}
 							</Link>
 						)}
 						{article.author && (
-							<small>{`${dict.blog.article.author} ${article.author}`}</small>
+							<small className="text-black dark:text-white">{`${dict.blog.article.author} ${article.author}`}</small>
 						)}
 					</div>
 					<ShareSocial article={article} title={dict.blog.article.shareTitle} />
 					<div className="flex justify-end gap-2">
 						<Button
 							className="flex gap-2"
-							color="primary"
 							variant="ghost"
-							onPress={() => router.back()}
+							onClick={() => router.back()}
 						>
 							<HiArrowLeft className="h-5 w-5" />
 							{dict.blog.article.buttons.back}

@@ -1,15 +1,15 @@
 'use client'
 
-import { Button } from '@heroui/button'
-import { Input, Textarea } from '@heroui/input'
 import React from 'react'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 
 import type { Dictionary } from '@/app/dictionaries'
+import { Button, Input, Label } from '@/components'
 
 interface FormContactProps {
 	dict: Dictionary
 	notDone?: boolean
+	disabled?: boolean
 	onClose?: () => void
 	onSuccess: () => void
 	onError: (_message: string) => void
@@ -27,12 +27,14 @@ export default function FormContact({
 	onSuccess,
 	onError,
 	onClose,
+	disabled = false,
 }: Readonly<FormContactProps>) {
 	const [loading, setLoading] = React.useState<boolean>(false)
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm<FormData>()
 
 	const onSubmit: SubmitHandler<FormData> = (data) => {
@@ -49,6 +51,7 @@ export default function FormContact({
 			.then((res) => {
 				console.log('Response:', res)
 				if (res.status === 200) {
+					reset()
 					onSuccess()
 				} else {
 					onError('Something went wrong')
@@ -67,67 +70,66 @@ export default function FormContact({
 			className="flex w-full flex-col gap-4"
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<Input
-				isRequired
-				id="name"
-				isDisabled={loading}
-				label={dict.contacts.form.name.label}
-				placeholder={dict.contacts.form.name.placeholder}
-				type="text"
-				{...register('name', { required: true })}
-			/>
-			{errors?.name && (
-				<p className="font-bold text-red-500">
-					{dict.contacts.form.name.required}
-				</p>
-			)}
-			<Input
-				isRequired
-				id="email"
-				isDisabled={loading}
-				label={dict.contacts.form.email.label}
-				placeholder={dict.contacts.form.email.placeholder}
-				type="email"
-				{...register('email', { required: true })}
-			/>
-			<Textarea
-				isRequired
-				id="message"
-				isDisabled={loading}
-				label={dict.contacts.form.message.label}
-				minRows={4}
-				placeholder={dict.contacts.form.message.placeholder}
-				{...register('message', { required: true })}
-			/>
-			{errors?.message && (
-				<p className="font-bold text-red-500">
-					{dict.contacts.form.message.required}
-				</p>
-			)}
+			<Label label={dict.contacts.form.name.label} required>
+				<Input
+					id="name"
+					disabled={loading || disabled}
+					placeholder={dict.contacts.form.name.placeholder}
+					type="text"
+					{...register('name', { required: true })}
+				/>
+				{errors?.name && (
+					<p className="font-bold text-red-500">
+						{dict.contacts.form.name.required}
+					</p>
+				)}
+			</Label>
+			<Label label={dict.contacts.form.email.label} required>
+				<Input
+					id="email"
+					disabled={loading || disabled}
+					placeholder={dict.contacts.form.email.placeholder}
+					type="email"
+					{...register('email', { required: true })}
+				/>
+				{errors?.email && (
+					<p className="font-bold text-red-500">
+						{dict.contacts.form.email.required}
+					</p>
+				)}
+			</Label>
+			<Label label={dict.contacts.form.message.label} required>
+				<Input
+					id="message"
+					disabled={loading || disabled}
+					as="textarea"
+					rows={4}
+					placeholder={dict.contacts.form.message.placeholder}
+					{...register('message', { required: true })}
+				/>
+				{errors?.message && (
+					<p className="font-bold text-red-500">
+						{dict.contacts.form.message.required}
+					</p>
+				)}
+			</Label>
 			<div className="flex justify-center gap-4">
 				{!notDone && (
 					<Button
-						color="default"
-						isDisabled={loading}
+						disabled={loading}
 						type="button"
-						variant="flat"
-						onPress={() => onClose?.()}
+						variant="outline"
+						onClick={() => onClose?.()}
 					>
 						{dict.contacts.form.buttons.done}
 					</Button>
 				)}
 				{!loading ? (
-					<Button color="primary" type="submit" variant="flat">
+					<Button type="submit" disabled={disabled}>
 						{dict.contacts.form.buttons.send}
 					</Button>
 				) : (
-					<Button
-						isDisabled
-						isLoading
-						color="primary"
-						type="button"
-						variant="flat"
-					>
+					<Button disabled={loading || disabled} type="button">
 						{dict.contacts.form.loading}
 					</Button>
 				)}

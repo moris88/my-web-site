@@ -1,13 +1,5 @@
 'use client'
 
-import {
-	Button,
-	Checkbox,
-	Modal,
-	ModalBody,
-	ModalContent,
-	ModalHeader,
-} from '@heroui/react'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FaCity } from 'react-icons/fa'
@@ -17,7 +9,13 @@ import { RiBookFill } from 'react-icons/ri'
 import { TbFileCv } from 'react-icons/tb'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { DownloadFile, SectionHero } from '@/components'
+import {
+	Button,
+	Checkbox,
+	Dialog,
+	DownloadFile,
+	SectionHero,
+} from '@/components'
 import type { Curriculum, Education, Experience } from '@/types'
 
 interface PageCVProps {
@@ -96,14 +94,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 			<div className="mx-auto max-w-4xl">
 				{/* Download Button (Floating on mobile, inline on desktop) */}
 				<div className="mb-12 flex justify-center">
-					<Button
-						className="bg-linear-to-r from-primary to-purple-600 font-semibold text-white shadow-lg transition-transform hover:scale-105"
-						size="lg"
-						radius="full"
-						onPress={() => setShowDownload(true)}
-						endContent={<HiArrowDownTray className="h-5 w-5" />}
-					>
+					<Button onClick={() => setShowDownload(true)}>
 						{dict.curriculum.download}
+						{<HiArrowDownTray className="h-5 w-5" />}
 					</Button>
 				</div>
 
@@ -159,39 +152,35 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 			</div>
 
 			{/* Download Modal */}
-			<Modal
+			<Dialog
 				isOpen={showDownload}
+				isDismissible={false}
 				onClose={() => setShowDownload(false)}
-				backdrop="blur"
-				size="md"
+				title={dict.curriculum.download}
 			>
-				<ModalContent>
-					<ModalHeader className="flex flex-col gap-1">
+				<p className="text-gray-600 dark:text-gray-300">
+					{dict.curriculum.terms}
+				</p>
+				<div className="py-4">
+					<Checkbox
+						id="accept-terms"
+						checked={accept}
+						onChange={setAccept}
+						label={'I accept the terms and conditions'}
+					/>
+				</div>
+				<div className="flex justify-end gap-2 pb-4">
+					<Button variant="ghost" onClick={() => setShowDownload(false)}>
+						{dict.curriculum.cancel}
+					</Button>
+					<DownloadFile
+						disabled={!accept}
+						pathFile="https://cv.mauriziotolomeo.it/"
+					>
 						{dict.curriculum.download}
-					</ModalHeader>
-					<ModalBody>
-						<p className="text-gray-600 dark:text-gray-300">
-							{dict.curriculum.terms}
-						</p>
-						<div className="py-4">
-							<Checkbox isSelected={accept} onValueChange={setAccept}>
-								I accept the terms and conditions
-							</Checkbox>
-						</div>
-						<div className="flex justify-end gap-2 pb-4">
-							<Button variant="light" onPress={() => setShowDownload(false)}>
-								{dict.curriculum.cancel}
-							</Button>
-							<DownloadFile
-								disabled={!accept}
-								pathFile="https://cv.mauriziotolomeo.it/"
-							>
-								{dict.curriculum.download}
-							</DownloadFile>
-						</div>
-					</ModalBody>
-				</ModalContent>
-			</Modal>
+					</DownloadFile>
+				</div>
+			</Dialog>
 		</SectionHero>
 	)
 }

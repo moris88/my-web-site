@@ -1,11 +1,11 @@
 'use client'
 
-import { Button } from '@heroui/button'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
 import { useRouter } from 'next/navigation'
 
 import type { Dictionary } from '@/app/dictionaries'
 import type { StoreLink } from '@/types'
+import { Dialog } from './Dialog'
+import { Button } from './Button'
 
 interface ButtonsGroupSocialProps {
 	storeLink: StoreLink | null
@@ -22,37 +22,25 @@ function ButtonsGroupSocial({
 	return (
 		<>
 			{storeLink && (
-				<Modal
-					isDismissable={false}
+				<Dialog
 					isOpen={storeLink !== null}
-					size="md"
 					onClose={() => setStoreLink(null)}
+					title={storeLink.label}
 				>
-					<ModalContent>
-						{() => (
-							<>
-								<ModalHeader className="flex flex-col gap-1">
-									{storeLink.label}
-								</ModalHeader>
-								<ModalBody>
-									{
-										dict.contacts.buttons.storeLink.content[
-											storeLink.label.toLowerCase() as keyof typeof dict.contacts.buttons.storeLink.content
-										]
-									}
-									<Button
-										className="flex gap-2"
-										color="default"
-										variant="flat"
-										onPress={() => route.push(storeLink.url)}
-									>
-										{dict.contacts.buttons.storeLink.button}
-									</Button>
-								</ModalBody>
-							</>
-						)}
-					</ModalContent>
-				</Modal>
+					{
+						dict.contacts.buttons.storeLink.content[
+							storeLink.label.toLowerCase() as keyof typeof dict.contacts.buttons.storeLink.content
+						]
+					}
+					<div className="mt-4 flex w-full justify-end">
+						<Button
+							className="flex gap-2"
+							onClick={() => route.push(storeLink.url)}
+						>
+							{dict.contacts.buttons.storeLink.button}
+						</Button>
+					</div>
+				</Dialog>
 			)}
 		</>
 	)

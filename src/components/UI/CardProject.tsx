@@ -1,9 +1,9 @@
 'use client'
 
-import { Card, CardBody, CardFooter, CardHeader, Chip } from '@heroui/react'
 import { motion } from 'framer-motion'
 
 import type { Project } from '@/types'
+import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
 
 interface CardProjectProps {
 	project: Project
@@ -23,32 +23,30 @@ function CardProject({ project, onClick }: CardProjectProps) {
 			className="h-full w-full cursor-pointer"
 			onClick={handleOnClick}
 		>
-			<Card className="h-full w-full border-none bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800 dark:shadow-slate-900/50">
-				<CardHeader className="p-0">
-					{image?.src ? (
-						<img
-							alt={image.alt}
-							className="aspect-video h-48 w-full bg-gray-50 object-contain dark:bg-slate-700"
-							src={`${image.src}`}
-						/>
-					) : (
-						<div className="flex h-48 w-full items-center justify-center bg-gray-200 dark:bg-slate-700">
-							<p className="text-gray-500">No Image</p>
-						</div>
-					)}
-				</CardHeader>
-				<CardBody className="flex flex-col gap-2 p-4">
-					<h3 className="font-bold text-xl">{title}</h3>
+			<Card>
+				<CardImage src={image?.src ?? ''} alt={image?.alt ?? ''} />
+				<CardContent title={title}>
 					<p className="line-clamp-4 text-gray-500 text-sm dark:text-gray-400">
 						{description}
 					</p>
-				</CardBody>
-				<CardFooter className="flex flex-wrap gap-2 px-4 pt-0 pb-4">
-					{tags.map((tag) => (
-						<Chip key={`tag-${tag}`} size="sm" color="primary" variant="flat">
-							{tag}
-						</Chip>
-					))}
+				</CardContent>
+				<CardFooter className="flex flex-wrap gap-2">
+					{tags.length <= 3 &&
+						tags.map((tag) => (
+							<Chip key={`tag-${tag}`} size="sm">
+								{tag}
+							</Chip>
+						))}
+					{tags.length > 3 && (
+						<>
+							{tags.slice(0, 3).map((tag) => (
+								<Chip key={`tag-${tag}`} size="sm">
+									{tag}
+								</Chip>
+							))}
+							<Chip size="sm">{`+${tags.length - 3}`}</Chip>
+						</>
+					)}
 				</CardFooter>
 			</Card>
 		</motion.div>

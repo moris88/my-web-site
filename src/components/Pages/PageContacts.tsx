@@ -1,6 +1,5 @@
 'use client'
 
-import { Button, Link } from '@heroui/react'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
@@ -8,12 +7,14 @@ import { HiIdentification } from 'react-icons/hi2'
 
 import type { Dictionary } from '@/app/dictionaries'
 import {
+	Button,
 	ButtonsGroupSocial,
 	InteractiveAvatar,
 	ModalMessage,
 	SectionHero,
 } from '@/components'
 import type { Contact, StoreLink } from '@/types'
+import Link from 'next/link'
 
 interface PageContactsProps {
 	contacts: Contact
@@ -50,7 +51,7 @@ export default function PageContacts({
 		>
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 				{contacts && (
-					<div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2">
+					<div className="grid w-full grid-cols-1 gap-8 xl:grid-cols-2">
 						{/* Left Column: Profile & Info */}
 						<motion.div
 							animate={{ opacity: 1, x: 0 }}
@@ -65,7 +66,7 @@ export default function PageContacts({
 									src="/avatar_2.webp"
 								/>
 								<div className="text-center">
-									<h3 className="font-bold text-2xl">
+									<h3 className="font-bold text-2xl text-black dark:text-white">
 										{`${contacts?.firstName} ${contacts?.lastName}`}
 									</h3>
 									<p className="font-medium text-gray-500 text-lg dark:text-gray-400">
@@ -76,39 +77,34 @@ export default function PageContacts({
 									</p>
 								</div>
 								<Link
-									showAnchorIcon
 									className="text-lg text-primary hover:underline"
 									href={`mailto:${contacts?.email ?? ''}`}
 								>
 									{contacts?.email ?? ''}
 								</Link>
-							</div>
-
-							<div className="mt-8 w-full">
-								<div className="flex flex-wrap justify-center gap-3">
-									{contacts.links.map((button) => {
-										console.log('button', button)
-										const buttonLower = button.toLowerCase()
-										const storeLink = linkMap[buttonLower]
-										return (
-											<Button
-												key={buttonLower}
-												className="bg-gray-100 dark:bg-slate-700"
-												color="primary"
-												variant="flat"
-												onPress={() => storeLink && setStoreLink(storeLink)}
-											>
-												<span className="flex items-center gap-2">
-													{iconMap[buttonLower]}
-													{
-														dict.contacts.buttons[
-															button as keyof typeof dict.contacts.buttons
-														] as string
-													}
-												</span>
-											</Button>
-										)
-									})}
+								<div className="w-full">
+									<div className="flex flex-wrap justify-center gap-3">
+										{contacts.links.map((button) => {
+											console.log('button', button)
+											const buttonLower = button.toLowerCase()
+											const storeLink = linkMap[buttonLower]
+											return (
+												<Button
+													key={buttonLower}
+													onClick={() => storeLink && setStoreLink(storeLink)}
+												>
+													<span className="flex items-center gap-2">
+														{iconMap[buttonLower]}
+														{
+															dict.contacts.buttons[
+																button as keyof typeof dict.contacts.buttons
+															] as string
+														}
+													</span>
+												</Button>
+											)
+										})}
+									</div>
 								</div>
 							</div>
 						</motion.div>

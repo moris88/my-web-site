@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@heroui/react'
+import Link from 'next/link'
 import { HiExclamationTriangle } from 'react-icons/hi2'
 
 export default function NotFound() {
@@ -11,9 +11,7 @@ export default function NotFound() {
 					<HiExclamationTriangle className="h-12 w-12 text-red-500" />
 					<span className="text-4xl">{'Page not found!'}</span>
 				</div>
-				<Link isExternal showAnchorIcon href={'/'}>
-					{'Return Home'}
-				</Link>
+				<Link href={'/'}>{'Return Home'}</Link>
 			</div>
 		</div>
 	)

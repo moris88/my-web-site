@@ -1,14 +1,18 @@
 'use client'
 
-import { Button } from '@heroui/button'
-import { Input } from '@heroui/input'
-import { Select, SelectItem } from '@heroui/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaLaptopCode } from 'react-icons/fa6'
 import type { Dictionary } from '@/app/dictionaries'
-import { CardProject, SectionHero } from '@/components'
+import {
+	Button,
+	CardProject,
+	Input,
+	Label,
+	SectionHero,
+	Select,
+} from '@/components'
 import type { Project } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -77,8 +81,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 				<div className="mb-4 flex justify-center">
 					<Button
 						color="primary"
-						variant="flat"
-						onPress={() => setShowFilters((prev) => !prev)}
+						onClick={() => setShowFilters((prev) => !prev)}
 					>
 						{dict.projects.filters.buttons.show}
 					</Button>
@@ -95,42 +98,39 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 						transition={{ duration: 0.25, ease: 'easeOut' }}
 						className="flex flex-col items-center justify-center gap-4 md:flex-row"
 					>
-						<div className="w-full flex-1">
+						<Label
+							className="w-full flex-1"
+							label={dict.projects.filters.title.label}
+						>
 							<Input
 								type="text"
-								label={dict.projects.filters.title}
+								placeholder={dict.projects.filters.title.placeholder}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
 							/>
-						</div>
+						</Label>
 
-						<div className="w-full flex-1">
+						<Label
+							className="w-full flex-1"
+							label={dict.projects.filters.tags.label}
+						>
 							<Select
-								label={dict.projects.filters.tags}
-								selectedKeys={tag}
-								selectionMode="multiple"
-								onSelectionChange={(setTags) => setTag(setTags as Set<string>)}
-							>
-								{allTags.map((tag) => (
-									<SelectItem key={tag}>{tag}</SelectItem>
-								))}
-							</Select>
-						</div>
+								multiple
+								placeholder={dict.projects.filters.tags.placeholder}
+								options={allTags.map((tag) => ({ value: tag, label: tag }))}
+								value={Array.from(tag)}
+								onChange={(value) => setTag(new Set(value as string[]))}
+							/>
+						</Label>
 
 						<div className="flex items-center gap-2">
 							<Button
 								className="flex w-full gap-2"
-								color="primary"
-								onPress={fetchProjectsWithFilters}
+								onClick={fetchProjectsWithFilters}
 							>
 								{dict.projects.filters.buttons.apply}
 							</Button>
-							<Button
-								className="flex w-full gap-2"
-								color="primary"
-								variant="light"
-								onPress={handleReset}
-							>
+							<Button variant="outline" onClick={handleReset}>
 								{dict.projects.filters.buttons.reset}
 							</Button>
 						</div>
@@ -139,7 +139,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			</AnimatePresence>
 			<section className="min-h-screen w-full dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
-					<div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
+					<div className="grid grid-cols-1 items-stretch gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
 						{projectsState.map((project) => (
 							<CardProject
 								key={generateUniqueId()}
