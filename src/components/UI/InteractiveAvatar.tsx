@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React, { useRef, useState } from 'react'
+import React from 'react'
 
 interface InteractiveAvatarProps {
 	src: string
@@ -14,9 +14,9 @@ const InteractiveAvatar: React.FC<InteractiveAvatarProps> = ({
 	alt,
 	className,
 }) => {
-	const ref = useRef<HTMLDivElement>(null)
-	const [rotateX, setRotateX] = useState(0)
-	const [rotateY, setRotateY] = useState(0)
+	const ref = React.useRef<HTMLDivElement>(null)
+	const [rotateX, setRotateX] = React.useState(0)
+	const [rotateY, setRotateY] = React.useState(0)
 
 	React.useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
