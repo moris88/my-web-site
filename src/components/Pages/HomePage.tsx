@@ -173,7 +173,6 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 			
-			{/*
 			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
@@ -182,13 +181,14 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />
 					</div>
-
+					{/*
 					<div className="w-full" data-aos="fade-up">
 						<InfiniteSkillsScroller skills={info.primary_skills} />
 					</div>
+					*/}
 				</div>
 			</section>
-			*/}
+			
 			<SectionCardLink dict={dict} /> 
 		</>
 	)
