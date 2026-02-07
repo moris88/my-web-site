@@ -28,9 +28,6 @@
 		"url": "https://github.com/moris88/my-web-site/issues"
 	},
 	"homepage": "https://github.com/moris88/my-web-site#readme",
-	"engines": {
-		"node": ">=24.x"
-	},
 	"type": "module",
 	"scripts": {
 		"dev": "next dev",

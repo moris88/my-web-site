@@ -36,7 +36,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 
 	return (
 		<>
-			<div className="hero">
+			<section className="hero">
 				<img alt="cover" className="hero-image" src="cover.webp" />
 				<div
 					className={twMerge(
@@ -103,10 +103,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						{language === 'en' ? 'Contact Me' : 'Contattami'}
 					</UniqueButton>
 				</div>
-			</div>
+			</section>
 
-			{/* Services Section */}
-			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+			{/* <section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
 						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
@@ -142,7 +141,6 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			{/* About Section */}
 			<section className="w-full bg-white py-20 dark:bg-slate-900">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
@@ -175,7 +173,6 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			{/* Skills Section */}
 			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
@@ -191,8 +188,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			{/* Section Card Link */}
-			<SectionCardLink dict={dict} />
+			<SectionCardLink dict={dict} /> */}
 		</>
 	)
 }

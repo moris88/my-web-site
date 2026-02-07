@@ -111,12 +111,12 @@ export default async function RootLayout({
 			<body>
 				<UIWrapper dict={dict} links={links}>
 					{children}
-					{/* {process.env.DEVELOPMENT !== 'true' && (
+					{process.env.DEVELOPMENT !== 'true' && (
 						<>
 							<Analytics />
 							<SpeedInsights />
 						</>
-					)} */}
+					)}
 				</UIWrapper>
 			</body>
 		</html>
