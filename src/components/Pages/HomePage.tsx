@@ -9,6 +9,7 @@ import React from 'react'
 import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
 import Typewriter from 'typewriter-effect'
+
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	InfiniteSkillsScroller,
@@ -181,11 +182,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />
 					</div>
-					{/*
 					<div className="w-full" data-aos="fade-up">
 						<InfiniteSkillsScroller skills={info.primary_skills} />
-					</div>
-					*/}
+					</div> 
 				</div>
 			</section>
 			

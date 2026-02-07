@@ -8,6 +8,7 @@ interface SkillItemProps {
 }
 
 function SkillItem({ link, img }: Readonly<SkillItemProps>) {
+	console.log('Rendering SkillItem with link:', link, 'and img:', img)
 	return (
 		<div className="flex h-full w-full flex-col items-center justify-center gap-3 p-2">
 			<Link
