@@ -44,6 +44,8 @@ const dictionary = {
 						"Verrai reindirizzato su Facebook sul mio profilo pubblico. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
 					github:
 						'Verrai reindirizzato su Github sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
+					gitlab:
+						'Verrai reindirizzato su GitLab sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
 				},
 			},
 		},
@@ -66,6 +68,7 @@ const dictionary = {
 				value: 'Email',
 				label: 'Email',
 				placeholder: 'Inserisci la tua email',
+				required: "L'email è obbligatoria",
 			},
 			message: {
 				value: 'Messaggio',
@@ -144,9 +147,18 @@ const dictionary = {
 			postedAt: 'Pubblicato il',
 		},
 		filters: {
-			title: 'Cerca per titolo...',
-			date: 'Cerca per data...',
-			author: 'Cerca per autore...',
+			title: {
+				placeholder: 'Cerca per titolo...',
+				label: 'Titolo',
+			},
+			date: {
+				placeholder: 'Cerca per data...',
+				label: 'Data',
+			},
+			author: {
+				placeholder: 'Cerca per autore...',
+				label: 'Autore',
+			},
 			buttons: {
 				reset: 'Reimposta filtri',
 				apply: 'Applica filtri',
@@ -196,8 +208,8 @@ const dictionary = {
 		title: 'I miei progetti',
 		subtitle: 'Una raccolta del mio lavoro.',
 		filters: {
-			title: 'Cerca per titolo...',
-			tags: 'Cerca per tag...',
+			title: { placeholder: 'Cerca per titolo...', label: 'Titolo' },
+			tags: { placeholder: 'Cerca per tag...', label: 'Tag' },
 			buttons: {
 				reset: 'Reimposta filtri',
 				apply: 'Applica filtri',

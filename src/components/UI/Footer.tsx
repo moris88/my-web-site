@@ -1,10 +1,10 @@
 'use client'
 
-import { Link } from '@heroui/react'
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 
 import type { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
+import Link from 'next/link'
 
 interface MyFooterProps {
 	links: StoreLink[]
@@ -17,11 +17,11 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 	}
 	const copyRight = `©${getYear()}-Moris™`
 	return (
-		<footer className="flex min-h-15 w-full select-none items-center justify-between rounded-lg bg-gray-300 p-5 dark:bg-slate-800">
+		<footer className="flex min-h-15 w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
 			<div className="flex flex-wrap gap-4 gap-y-1 text-sm lg:text-base">
-				<span className="dark:text-gray-400">{copyRight}</span>
-				<Link isExternal showAnchorIcon color="foreground" href="/cookies">
-					<span className="font-semibold text-primary text-sm hover:text-primary lg:text-base dark:text-gray-400">
+				<span className="text-white">{copyRight}</span>
+				<Link color="foreground" href="/cookies">
+					<span className="font-semibold text-primary text-sm hover:text-primary/50 lg:text-base dark:text-gray-400 dark:hover:text-gray-200">
 						Cookies Policy
 					</span>
 				</Link>
@@ -30,16 +30,16 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 				{links.map((link) => (
 					<Link key={generateUniqueId()} href={link.url}>
 						{link.name === 'facebook' && (
-							<FaFacebook className="h-6 w-6 text-primary dark:text-white" />
+							<FaFacebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'github' && (
-							<FaGithub className="h-6 w-6 text-primary dark:text-white" />
+							<FaGithub className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'gitlab' && (
-							<FaGitlab className="h-6 w-6 text-primary dark:text-white" />
+							<FaGitlab className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'linkedin' && (
-							<FaLinkedin className="h-6 w-6 text-primary dark:text-white" />
+							<FaLinkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 					</Link>
 				))}

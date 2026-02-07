@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from '@heroui/react'
 import Link from 'next/link'
 import type React from 'react'
 import { HiArrowDownTray } from 'react-icons/hi2'
+import { Button } from './Button'
 
 interface DownloadFileProps {
 	pathFile: string
@@ -18,9 +18,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
 				<Link download href={pathFile} id="download-link">
 					<Button
 						className="flex gap-2"
-						color="primary"
-						variant="flat"
-						onPress={() => {
+						onClick={() => {
 							const link = document.getElementById('download-link')
 							link?.click()
 						}}
@@ -30,12 +28,7 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
 					</Button>
 				</Link>
 			) : (
-				<Button
-					isDisabled
-					className="flex cursor-not-allowed gap-2"
-					color="primary"
-					variant="flat"
-				>
+				<Button disabled className="flex cursor-not-allowed gap-2">
 					{children ?? 'Download'}
 					<HiArrowDownTray className="h-5 w-5" />
 				</Button>

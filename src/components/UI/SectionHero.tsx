@@ -25,7 +25,7 @@ function SectionHero({
 	return (
 		<section className="container flex flex-col gap-10 overflow-x-hidden">
 			<div className="flex flex-col items-center gap-4 text-center">
-				<h2 className="font-bold text-3xl md:text-4xl">
+				<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
 					<span className="flex items-center justify-center gap-2">
 						{icon}
 						{title}

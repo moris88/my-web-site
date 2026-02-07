@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@heroui/react'
+import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 interface CardLinkProps {
@@ -20,7 +20,7 @@ function CardLink({ icon, title, description, path }: Readonly<CardLinkProps>) {
 			)}
 		>
 			<div className="text-primary">{icon}</div>
-			<h3 className="font-bold text-xl">{title}</h3>
+			<h3 className="font-bold text-primary text-xl">{title}</h3>
 			<p className="text-gray-600 dark:text-gray-300">{description}</p>
 		</Link>
 	)

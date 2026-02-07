@@ -1,10 +1,10 @@
 'use client'
 
-import { Card, CardBody, CardFooter, CardHeader, Chip } from '@heroui/react'
 import { motion } from 'framer-motion'
 import type { Dictionary } from '@/app/dictionaries'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
+import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
 
 interface CardBlogProps {
 	article: Article
@@ -28,7 +28,20 @@ function CardBlog({
 			className="h-full w-full cursor-pointer"
 			onClick={handleOnClick}
 		>
-			<Card className="h-full w-full border-none bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800 dark:shadow-slate-900/50">
+			<Card>
+				<CardImage src={image ?? ''} alt={alt ?? ''} />
+				<CardContent title={title}>
+					<p className="line-clamp-4 text-gray-500 text-sm dark:text-gray-400">
+						{summary}
+					</p>
+				</CardContent>
+				<CardFooter className="flex flex-wrap gap-2">
+					<Chip size="sm">
+						{`${dict.blog.card.postedAt} ${formatDate(published_at)}`}
+					</Chip>
+				</CardFooter>
+			</Card>
+			{/* <Card className="h-full w-full border-none bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800 dark:shadow-slate-900/50">
 				<CardHeader className="p-0">
 					{image ? (
 						<img
@@ -53,7 +66,7 @@ function CardBlog({
 						{`${dict.blog.card.postedAt} ${formatDate(published_at)}`}
 					</Chip>
 				</CardFooter>
-			</Card>
+			</Card> */}
 		</motion.div>
 	)
 }

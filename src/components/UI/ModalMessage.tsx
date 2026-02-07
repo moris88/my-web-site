@@ -1,15 +1,12 @@
 'use client'
 
-import { Button } from '@heroui/button'
-import { Link } from '@heroui/link'
-import { Modal, ModalBody, ModalContent, ModalHeader } from '@heroui/modal'
-import { Divider } from '@heroui/react'
 import React from 'react'
 import { HiEnvelope } from 'react-icons/hi2'
 import { RiMailSendFill } from 'react-icons/ri'
 
 import type { Dictionary } from '@/app/dictionaries'
-import { FormContact } from '@/components'
+import { FormContact, Button, Dialog } from '@/components'
+import Link from 'next/link'
 
 interface ModalMessageProps {
 	dict: Dictionary
@@ -57,14 +54,14 @@ function ModalMessage({
 		return (
 			<div className={className ?? ''}>
 				<h3 className="mt-5 w-full select-none text-center">
-					<span className="flex items-center justify-center gap-1">
+					<span className="flex items-center justify-center gap-1 text-black dark:text-white">
 						<RiMailSendFill className="h-5 w-5" />
 						<b>{dict.contacts.modal.title}</b>
 					</span>
 				</h3>
-				<Divider className="my-2" />
+				{/* <Separator className="my-2" /> */}
 				<div className="flex flex-col items-center justify-center gap-2">
-					<p>
+					<p className="text-black dark:text-white">
 						{dict.contacts.modal.content1}&nbsp;
 						<Link href="/privacy">
 							<i className="whitespace-nowrap font-semibold dark:text-white">
@@ -73,7 +70,7 @@ function ModalMessage({
 						</Link>
 						&nbsp;{dict.contacts.modal.content2}
 					</p>
-					<Divider className="my-2" />
+					{/* <Separator className="my-2" /> */}
 					{show.success && (
 						<p className="select-none text-center text-3xl text-green-600">
 							{dict.contacts.modal.message}
@@ -87,6 +84,7 @@ function ModalMessage({
 					<FormContact
 						dict={dict}
 						notDone={!modal}
+						disabled={show.success}
 						onError={(m) => {
 							setError(m)
 							setShow({
@@ -114,9 +112,8 @@ function ModalMessage({
 			{show.button && (
 				<Button
 					className="flex gap-2"
-					color="default"
-					variant="flat"
-					onPress={() => {
+					variant="default"
+					onClick={() => {
 						setShow({
 							form: true,
 							button: false,
@@ -130,53 +127,43 @@ function ModalMessage({
 				</Button>
 			)}
 			{show.form && (
-				<Modal
-					isDismissable={false}
+				<Dialog
 					isOpen={show.form}
-					size="md"
+					isDismissible={false}
 					onClose={handleClickClose}
+					title={dict.contacts.modal.title}
 				>
-					<ModalContent>
-						{(onClose) => (
-							<>
-								<ModalHeader>{dict.contacts.modal.title}</ModalHeader>
-								<Divider className="mb-3" />
-								<ModalBody>
-									<p>
-										{dict.contacts.modal.content1}&nbsp;
-										<Link href="/privacy">
-											<i className="whitespace-nowrap font-semibold dark:text-white">
-												{'Privacy Policy'}
-											</i>
-										</Link>
-										&nbsp;{dict.contacts.modal.content2}
-									</p>
-									<FormContact
-										dict={dict}
-										onClose={onClose}
-										onError={(m) => {
-											setError(m)
-											setShow({
-												form: false,
-												button: false,
-												success: false,
-												error: true,
-											})
-										}}
-										onSuccess={() => {
-											setShow({
-												form: false,
-												button: false,
-												success: true,
-												error: false,
-											})
-										}}
-									/>
-								</ModalBody>
-							</>
-						)}
-					</ModalContent>
-				</Modal>
+					<p>
+						{dict.contacts.modal.content1}&nbsp;
+						<Link href="/privacy">
+							<i className="whitespace-nowrap font-semibold dark:text-white">
+								{'Privacy Policy'}
+							</i>
+						</Link>
+						&nbsp;{dict.contacts.modal.content2}
+					</p>
+					<FormContact
+						dict={dict}
+						onClose={handleClickClose}
+						onError={(m) => {
+							setError(m)
+							setShow({
+								form: false,
+								button: false,
+								success: false,
+								error: true,
+							})
+						}}
+						onSuccess={() => {
+							setShow({
+								form: false,
+								button: false,
+								success: true,
+								error: false,
+							})
+						}}
+					/>
+				</Dialog>
 			)}
 			{show.success && (
 				<p className="select-none text-center text-3xl text-green-600">

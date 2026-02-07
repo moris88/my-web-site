@@ -1,15 +1,20 @@
 'use client'
 
-import { Button } from '@heroui/button'
-import { Input } from '@heroui/input'
-import { Spinner } from '@heroui/spinner'
 import { AnimatePresence, motion } from 'framer-motion'
 import moment from 'moment'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { GrArticle } from 'react-icons/gr'
 import type { Dictionary } from '@/app/dictionaries'
-import { CardBlog, SectionHero } from '@/components'
+import {
+	Button,
+	CardBlog,
+	Input,
+	Label,
+	SectionHero,
+	Select,
+	Spinner,
+} from '@/components'
 import type { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
 
@@ -25,7 +30,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 	// 🔍 FILTRI
 	const [title, setTitle] = React.useState('')
-	const [author, setAuthor] = React.useState('')
+	const [author, setAuthor] = React.useState<string | null>(null)
 	const [date, setDate] = React.useState('')
 
 	// 👁️‍🗨️ Toggle filtri
@@ -69,13 +74,13 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 	// ♻️ Reset filtri
 	const handleReset = () => {
 		setTitle('')
-		setAuthor('')
+		setAuthor(null)
 		setDate('')
 		fetchArticles()
 	}
 
 	if (isPending) {
-		return <Spinner size="lg" variant="gradient" />
+		return <Spinner />
 	}
 
 	return (
@@ -87,11 +92,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 			{/* 🔘 Bottone toggle */}
 			{!showFilters && (
 				<div className="mb-4 flex justify-center">
-					<Button
-						color="primary"
-						variant="flat"
-						onPress={() => setShowFilters((prev) => !prev)}
-					>
+					<Button onClick={() => setShowFilters((prev) => !prev)}>
 						{dict.blog.filters.buttons.show}
 					</Button>
 				</div>
@@ -107,40 +108,54 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 						transition={{ duration: 0.25, ease: 'easeOut' }}
 						className="flex flex-col items-center justify-center gap-4 md:flex-row"
 					>
-						<div className="w-full flex-1">
+						<Label
+							className="w-full flex-1"
+							label={dict.blog.filters.title.label}
+						>
 							<Input
+								placeholder={dict.blog.filters.title.placeholder}
 								type="text"
-								label={dict.blog.filters.title}
 								value={title}
 								onChange={(e) => setTitle(e.target.value)}
 							/>
-						</div>
+						</Label>
 
-						<div className="w-full flex-1">
+						<Label
+							className="w-full flex-1"
+							label={dict.blog.filters.date.label}
+						>
 							<Input
-								label={dict.blog.filters.date}
+								placeholder={dict.blog.filters.date.placeholder}
 								type="date"
 								value={date}
 								onChange={(e) =>
 									setDate(moment(e.target.value).format('YYYY-MM-DD'))
 								}
 							/>
-						</div>
+						</Label>
+
+						<Label
+							className="w-full flex-1"
+							label={dict.blog.filters.author.label}
+						>
+							<Select
+								options={[
+									{ value: 'Maurizio Tolomeo', label: 'Maurizio Tolomeo' },
+								]}
+								placeholder={dict.blog.filters.author.placeholder}
+								value={author ?? ''}
+								onChange={(value) => setAuthor(value as string | null)}
+							/>
+						</Label>
 
 						<div className="flex items-center gap-2">
 							<Button
 								className="flex w-full gap-2"
-								color="primary"
-								onPress={fetchArticlesWithFilters}
+								onClick={fetchArticlesWithFilters}
 							>
 								{dict.blog.filters.buttons.apply}
 							</Button>
-							<Button
-								className="flex w-full gap-2"
-								color="primary"
-								variant="light"
-								onPress={handleReset}
-							>
+							<Button variant="outline" onClick={handleReset}>
 								{dict.blog.filters.buttons.reset}
 							</Button>
 						</div>
@@ -149,7 +164,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 			</AnimatePresence>
 
 			{/* LISTA ARTICOLI */}
-			<div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
+			<div className="grid grid-cols-1 items-stretch gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
 				{!articles && <p className="col-span-full">{''}</p>}
 				{articles?.length === 0 && (
 					<p className="col-span-full text-center font-bold">

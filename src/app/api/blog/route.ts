@@ -6,6 +6,11 @@ export async function GET(request: Request) {
 	try {
 		const { searchParams } = new URL(request.url)
 
+		console.log(
+			'Received GET /api/blog with params:',
+			Object.fromEntries(searchParams.entries()),
+		)
+
 		// Pagination
 		const page = Number(searchParams.get('page') ?? 1)
 		const perPage = Number(searchParams.get('per_page') ?? 10)

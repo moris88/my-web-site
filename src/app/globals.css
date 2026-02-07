@@ -1,5 +1,5 @@
 @import "tailwindcss";
-/* Note: You may need to change the path to fit your project structure */
+@custom-variant dark (&:is(.dark *));
 @config "../../tailwind.config.js";
 
 @theme {
@@ -13,20 +13,6 @@
 		to {
 			transform: translateX(-50%);
 		}
-	}
-}
-
-:root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
 	}
 }
 
@@ -120,8 +106,6 @@ body {
 	animation: blinkHoverEffect 1s ease-in-out 20 5s; /* Lampeggia 3 volte con effetto hover dopo 5 secondi */
 }
 
-/* La proprietà `animation` funziona così:
-   - `1s`: durata dell'animazione per ogni ciclo
-   - `ease-in-out`: tipo di transizione
-   - `3`: numero di cicli (in questo caso, 3 lampeggi)
-   - `5s`: ritardo prima che l'animazione inizi (5 secondi) */
+.prose {
+	@apply text-black dark:text-white;
+}

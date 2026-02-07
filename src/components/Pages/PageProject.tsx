@@ -1,11 +1,11 @@
 'use client'
 
-import { Button, Link } from '@heroui/react'
 import { useRouter } from 'next/navigation'
 import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
-import { SectionHero } from '@/components'
+import { Button, Chip, SectionHero } from '@/components'
 import type { Project } from '@/types'
+import Link from 'next/link'
 
 interface PageProjectProps {
 	dict: Dictionary
@@ -34,29 +34,43 @@ function PageProject({ dict, project }: PageProjectProps) {
 							)}
 						</div>
 						<div className="flex w-full flex-col gap-4 md:w-1/2">
+							<div className="flex items-center gap-2">
+								<Button
+									className="flex gap-2"
+									variant="ghost"
+									onClick={() => router.back()}
+								>
+									<HiArrowLeft className="h-5 w-5" />
+									{dict.projects.project.buttons.back}
+								</Button>
+							</div>
+							<div className="mt-4 flex flex-wrap gap-2">
+								{project.tags.map((tag) => (
+									<Chip key={`tag-${tag}`} size="sm">
+										{tag}
+									</Chip>
+								))}
+							</div>
 							<p>{project.description}</p>
-							{project.url && (
-								<Link isExternal showAnchorIcon href={project.url}>
-									{dict.projects.project.link}
-								</Link>
-							)}
-							{project.github && (
-								<Link isExternal showAnchorIcon href={project.github}>
-									{dict.projects.project.github}
-								</Link>
-							)}
+							<span className="flex flex-col items-center gap-4 lg:flex-row">
+								{project.url && (
+									<Link
+										href={project.url}
+										className="rounded-lg bg-primary p-2 text-white transition-colors hover:bg-primary/90"
+									>
+										{dict.projects.project.link}
+									</Link>
+								)}
+								{project.github && (
+									<Link
+										href={project.github}
+										className="rounded-lg bg-primary p-2 text-white transition-colors hover:bg-primary/90"
+									>
+										{dict.projects.project.github}
+									</Link>
+								)}
+							</span>
 						</div>
-					</div>
-					<div className="flex justify-end gap-2">
-						<Button
-							className="flex gap-2"
-							color="primary"
-							variant="ghost"
-							onPress={() => router.back()}
-						>
-							<HiArrowLeft className="h-5 w-5" />
-							{dict.projects.project.buttons.back}
-						</Button>
 					</div>
 				</SectionHero>
 			)}
