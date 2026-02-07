@@ -14,8 +14,6 @@ function SkillItem({ link, img }: Readonly<SkillItemProps>) {
 			<Link
 				href={link.url}
 				className="group flex items-center justify-center"
-				target="_blank"
-				rel="noopener noreferrer"
 			>
 				<img
 					alt={img.alt}
