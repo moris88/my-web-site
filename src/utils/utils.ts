@@ -5,7 +5,6 @@ import type { Theme } from '@/types'
 export const priorityItems = ['urgent', 'high', 'medium', 'low']
 
 export function isActive(currentPath: string, path: string): boolean {
-	console.log('isActive check:', { currentPath, path })
 	if (currentPath === '/' && path === '/') return true
 	else if (path === '/' && currentPath !== '/') return false
 	else return currentPath.startsWith(path)

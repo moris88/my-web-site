@@ -29,7 +29,7 @@
 	},
 	"homepage": "https://github.com/moris88/my-web-site#readme",
 	"engines": {
-		"node": ">=22.0.0"
+		"node": ">=24.x"
 	},
 	"type": "module",
 	"scripts": {
