@@ -61,7 +61,9 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 							)}
 						</div>
 						{article.link && (
-							<Link href={article.link} className="text-black dark:text-white">{dict.blog.article.link}</Link>
+							<Link href={article.link} className="text-black dark:text-white">
+								{dict.blog.article.link}
+							</Link>
 						)}
 						{article.author && (
 							<small className="text-black dark:text-white">{`${dict.blog.article.author} ${article.author}`}</small>
