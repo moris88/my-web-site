@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
-import Typewriter from 'typewriter-effect'
+
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	InfiniteSkillsScroller,
@@ -27,7 +27,6 @@ interface HomePageProps {
 }
 
 function HomePage({ dict, info, language }: HomePageProps) {
-	const [startSubTitle, setStartSubtitle] = React.useState(false)
 	const router = useRouter()
 
 	React.useEffect(() => {
@@ -56,46 +55,12 @@ function HomePage({ dict, info, language }: HomePageProps) {
 							/>
 						</Tooltip>
 					</div>
-					{!startSubTitle && (
-						<div className="myFont text-3xl text-shadow-md text-white">
-							<Typewriter
-								onInit={(typewriter) => {
-									typewriter
-										.typeString('MAURIZIO TOLOMEO')
-										.pauseFor(500)
-										.callFunction(() => {
-											setStartSubtitle(true)
-										})
-										.start()
-								}}
-							/>
-						</div>
-					)}
-					{startSubTitle && (
-						<>
-							<p className="myFont text-3xl text-shadow-md text-white">
-								MAURIZIO TOLOMEO
-							</p>
-							<div className="myFont text-center text-shadow-md text-white text-xl">
-								<Typewriter
-									onInit={(typewriter) => {
-										typewriter
-											.typeString('REACT DEVELOPER')
-											.pauseFor(1500)
-											.deleteAll()
-											.typeString('UI/UX DESIGNER')
-											.pauseFor(1500)
-											.deleteAll()
-											.typeString('PROMPT ENGINEER')
-											.pauseFor(1500)
-											.deleteAll()
-											.typeString('WEB DEVELOPER SPECIALIZED IN FRONTEND')
-											.start()
-									}}
-								/>
-							</div>
-						</>
-					)}
+					<p className="myFont text-3xl text-shadow-md text-white">
+						MAURIZIO TOLOMEO
+					</p>
+					<p className="myFont text-center text-shadow-md text-white text-xl">
+						WEB DEVELOPER SPECIALIZED IN FRONTEND
+					</p>
 					<UniqueButton
 						className="mt-4"
 						onClick={() => router.push('/contacts')}
