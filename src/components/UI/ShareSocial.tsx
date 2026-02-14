@@ -10,7 +10,6 @@ import {
 } from 'react-icons/fa'
 import { IoLogoWhatsapp } from 'react-icons/io'
 import type { Article } from '@/types'
-import { generateUniqueId } from '@/utils'
 import Tooltip from './Tooltip'
 
 interface MyFooterProps {
@@ -82,7 +81,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 			</div>
 			<div className="flex items-center gap-4">
 				{links.map((link) => (
-					<Link key={generateUniqueId()} href={link.url}>
+					<Link key={`share-link-${link.name}`} href={link.url}>
 						<Tooltip text={`Share on ${link.name}`} position="left">
 							{link.icon}
 						</Tooltip>

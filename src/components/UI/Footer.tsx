@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 import type { StoreLink } from '@/types'
-import { generateUniqueId } from '@/utils'
 
 interface MyFooterProps {
 	links: StoreLink[]
@@ -27,7 +26,7 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 			</div>
 			<div className="flex items-center gap-4">
 				{links.map((link) => (
-					<Link key={generateUniqueId()} href={link.url}>
+					<Link key={`footer-link-${link.name}`} href={link.url}>
 						{link.name === 'facebook' && (
 							<FaFacebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}

@@ -16,7 +16,6 @@ import {
 } from '@/components'
 import CardArticle from '@/components/UI/Cards/Article'
 import type { Article } from '@/types'
-import { generateUniqueId } from '@/utils'
 
 interface PageBlogProps {
 	dict: Dictionary
@@ -179,7 +178,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 						)
 						.map((article) => (
 							<CardArticle
-								key={generateUniqueId()}
+								key={`article-${article.id}`}
 								article={article}
 								dict={dict}
 								onClick={() => router.push(`/blog/${article.id}`)}

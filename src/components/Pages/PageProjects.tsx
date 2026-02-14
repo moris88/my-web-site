@@ -8,7 +8,6 @@ import type { Dictionary } from '@/app/dictionaries'
 import { Button, Input, Label, SectionHero, Select } from '@/components'
 import CardProject from '@/components/UI/Cards/Project'
 import type { Project } from '@/types'
-import { generateUniqueId } from '@/utils'
 
 interface PageProjectsProps {
 	dict: Dictionary
@@ -136,7 +135,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 					<div className="grid grid-cols-1 items-stretch gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
 						{projectsState.map((project) => (
 							<CardProject
-								key={generateUniqueId()}
+								key={`project-${project.id}`}
 								project={project}
 								onClick={handleClickRow}
 							/>

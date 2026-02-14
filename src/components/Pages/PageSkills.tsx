@@ -15,7 +15,6 @@ import {
 	Tabs,
 } from '@/components'
 import type { Language, Skill, Skills } from '@/types'
-import { generateUniqueId } from '@/utils'
 
 interface SkillsProps {
 	skills: Skills
@@ -109,11 +108,11 @@ export default function PageSkills({
 									<div className="flex flex-col gap-2">
 										{hardSkills?.map((key, index) => (
 											<Accordion
-												key={generateUniqueId()}
+												key={`hard-${key}`}
 												allowMultiple
 												items={[
 													{
-														id: generateUniqueId(),
+														id: `hard-item-${index}`,
 														title: mappa[index as keyof typeof mappa],
 														content: (
 															<div className="flex flex-col gap-2">
@@ -127,7 +126,7 @@ export default function PageSkills({
 																			return (
 																				<button
 																					type="button"
-																					key={generateUniqueId()}
+																					key={`hard-skill-${index}-${skill.title}`}
 																					disabled={!skill.link}
 																					className="cursor-pointer"
 																					onClick={() =>
@@ -163,10 +162,7 @@ export default function PageSkills({
 								content: (
 									<>
 										{softSkills?.map((key) => (
-											<div
-												key={generateUniqueId()}
-												className="flex flex-col gap-2"
-											>
+											<div key={`soft-${key}`} className="flex flex-col gap-2">
 												<p className="text-center text-black text-sm italic dark:text-white">
 													{skills[key].description[language]}
 												</p>
@@ -176,7 +172,7 @@ export default function PageSkills({
 														.map((skill: Skill) => {
 															return (
 																<button
-																	key={generateUniqueId()}
+																	key={`soft-skill-${key}-${skill.title}`}
 																	type="button"
 																	onClick={(e) => {
 																		e.preventDefault()
@@ -228,7 +224,10 @@ export default function PageSkills({
 							</p>
 							<ul className="w-full max-w-xl">
 								{dict.skills.legend.list.map((item) => (
-									<li key={generateUniqueId()} className="w-full py-4 text-sm">
+									<li
+										key={`legend-item-${item.label}`}
+										className="w-full py-4 text-sm"
+									>
 										<ProgressBar
 											color={
 												item.color as

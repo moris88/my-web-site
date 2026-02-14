@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
 const Card = ({
@@ -17,15 +20,26 @@ const Card = ({
 	</div>
 )
 
-const CardImage = ({ src, alt }: { src: string; alt?: string }) => (
-	<div className="aspect-video w-full flex-1 overflow-hidden">
-		<img
-			src={src}
-			alt={alt || 'Card image'}
-			className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-		/>
-	</div>
-)
+const CardImage = ({ src, alt }: { src: string; alt?: string }) => {
+	const [isLoaded, setIsLoaded] = React.useState(false)
+
+	return (
+		<div className="relative aspect-video w-full flex-1 overflow-hidden">
+			{/* Fallback manuale */}
+			{!isLoaded && (
+				<div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
+			)}
+			<img
+				src={src}
+				alt={alt || 'Card image'}
+				onLoad={() => setIsLoaded(true)}
+				className={`h-full w-full object-cover transition-transform duration-300 hover:scale-105 ${
+					isLoaded ? 'opacity-100' : 'opacity-0'
+				}`}
+			/>
+		</div>
+	)
+}
 
 const CardContent = ({
 	icon,

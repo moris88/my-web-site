@@ -15,17 +15,6 @@ export function formatDate(date?: string): string {
 	return `${moment(date).format('DD/MM/YYYY HH:mm')}`
 }
 
-export function generateUniqueId() {
-	// Ottieni il timestamp corrente
-	const timestamp = Date.now().toString(36) // Base 36 per ridurre la lunghezza
-
-	// Genera una stringa casuale
-	const randomString = Math.random().toString(36).substring(2, 10) // Random a base 36
-
-	// Combina il timestamp e la stringa casuale per creare un ID unico
-	return `${timestamp}-${randomString}`
-}
-
 export function setThemeDocument(theme: Theme) {
 	window.localStorage.setItem('theme', theme)
 	if (theme === 'dark') document.documentElement.classList.add('dark')
