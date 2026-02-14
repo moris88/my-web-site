@@ -8,13 +8,13 @@ import { GrArticle } from 'react-icons/gr'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
-	CardArticle,
 	Input,
 	Label,
 	SectionHero,
 	Select,
 	Skeleton,
 } from '@/components'
+import CardArticle from '@/components/UI/Cards/Article'
 import type { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
 

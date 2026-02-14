@@ -7,12 +7,12 @@ import { FaLaptopCode } from 'react-icons/fa6'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
-	CardProject,
 	Input,
 	Label,
 	SectionHero,
 	Select,
 } from '@/components'
+import CardProject from '@/components/UI/Cards/Project'
 import type { Project } from '@/types'
 import { generateUniqueId } from '@/utils'
 
