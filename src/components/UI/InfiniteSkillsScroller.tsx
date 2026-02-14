@@ -23,17 +23,17 @@ function InfiniteSkillsScroller({
 					if (!skill.img || !skill.img?.src) {
 						console.warn(
 							`Skill at index ${index} is missing img or img.src:`,
-							skill
+							skill,
 						)
 						return null // Salta questa skill se l'immagine non è valida
 					}
 					return (
-					<div
-						className="flex w-37.5 shrink-0 items-center justify-center"
-						key={`skill-1-${skill.img.src}-${index}`}
-					>
-						<SkillScrollItem img={skill.img} />
-					</div>
+						<div
+							className="flex w-37.5 shrink-0 items-center justify-center"
+							key={`skill-1-${skill.img.src}-${index}`}
+						>
+							<SkillScrollItem img={skill.img} />
+						</div>
 					)
 				})}
 				{/* Duplicazione per effetto infinito */}
@@ -41,17 +41,17 @@ function InfiniteSkillsScroller({
 					if (!skill.img || !skill.img?.src) {
 						console.warn(
 							`Skill at index ${index} is missing img or img.src:`,
-							skill
+							skill,
 						)
 						return null // Salta questa skill se l'immagine non è valida
 					}
 					return (
-					<div
-						className="flex w-37.5 shrink-0 items-center justify-center"
-						key={`skill-2-${skill.img.src}-${index}`}
-					>
-						<SkillScrollItem img={skill.img} />
-					</div>
+						<div
+							className="flex w-37.5 shrink-0 items-center justify-center"
+							key={`skill-2-${skill.img.src}-${index}`}
+						>
+							<SkillScrollItem img={skill.img} />
+						</div>
 					)
 				})}
 			</div>
