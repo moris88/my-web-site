@@ -8,7 +8,7 @@ import {
 	FaUser,
 } from 'react-icons/fa'
 import type { Dictionary } from '@/app/dictionaries'
-import CardLink from './CardLink'
+import CardLink from './Cards/Link'
 
 interface SectionCardLinkProps {
 	dict: Dictionary

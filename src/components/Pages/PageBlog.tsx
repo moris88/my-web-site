@@ -8,7 +8,7 @@ import { GrArticle } from 'react-icons/gr'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
-	CardBlog,
+	CardArticle,
 	Input,
 	Label,
 	SectionHero,
@@ -178,7 +178,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 							moment(b.published_at).diff(moment(a.published_at)),
 						)
 						.map((article) => (
-							<CardBlog
+							<CardArticle
 								key={generateUniqueId()}
 								article={article}
 								dict={dict}
