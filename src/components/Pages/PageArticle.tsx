@@ -1,5 +1,6 @@
 'use client'
 
+import { Link } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiArrowLeft } from 'react-icons/hi2'
@@ -7,7 +8,6 @@ import type { Dictionary } from '@/app/dictionaries'
 import { Button, SectionHero, ShareSocial, Spinner } from '@/components'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
-import { Link } from 'lucide-react'
 
 interface PageArticleProps {
 	dict: Dictionary

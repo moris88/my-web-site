@@ -1,11 +1,11 @@
 'use client'
 
 import { useStore } from 'jotai'
+import { Moon, Sun } from 'lucide-react'
+import React from 'react'
 import { themeAtom } from '@/atoms'
 import type { Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
-import { Moon, Sun } from 'lucide-react'
-import React from 'react'
 
 function ToogleTheme() {
 	const atomStore = useStore()
@@ -30,7 +30,7 @@ function ToogleTheme() {
 			<button
 				type="button"
 				onClick={handleToggle}
-				className={`relative inline-flex h-10 w-20 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 ${
+				className={`relative inline-flex h-10 w-20 cursor-pointer items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 ${
 					myTheme === 'dark' ? 'bg-slate-800' : 'bg-slate-200'
 				}`}
 				aria-label="Toggle Theme"

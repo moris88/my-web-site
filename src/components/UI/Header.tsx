@@ -10,6 +10,7 @@ import { TbFileCv } from 'react-icons/tb'
 import type { Dictionary } from '@/app/dictionaries'
 import { Navbar } from './Navbar'
 import Skeleton from './Skeleton'
+import Tooltip from './Tooltip'
 
 interface NavbarProps {
 	dict: Dictionary
@@ -69,9 +70,11 @@ function Header({ dict }: Readonly<NavbarProps>) {
 							width={30}
 						/>
 					</Suspense>
-					<span className="self-center whitespace-nowrap font-semibold text-base text-black md:text-xl dark:text-white">
-						Maurizio Tolomeo
-					</span>
+					<Tooltip text="Home page" position="right">
+						<span className="cursor-pointer self-center whitespace-nowrap font-semibold text-base text-black transition-colors duration-300 hover:text-primary md:text-xl dark:text-white dark:hover:text-primary">
+							Maurizio Tolomeo
+						</span>
+					</Tooltip>
 				</div>
 			}
 		/>

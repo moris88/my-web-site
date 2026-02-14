@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-import type { Project } from '@/types'
 import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
+import type { Project } from '@/types'
 
 interface CardProjectProps {
 	project: Project

@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import type { Dictionary } from '@/app/dictionaries'
+import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
 import type { Article } from '@/types'
 import { formatDate } from '@/utils'
-import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
 
 interface CardBlogProps {
 	article: Article

@@ -1,12 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import React from 'react'
 import { HiEnvelope } from 'react-icons/hi2'
 import { RiMailSendFill } from 'react-icons/ri'
-
 import type { Dictionary } from '@/app/dictionaries'
-import { FormContact, Button, Dialog } from '@/components'
-import Link from 'next/link'
+import { Button, Dialog, FormContact } from '@/components'
 
 interface ModalMessageProps {
 	dict: Dictionary

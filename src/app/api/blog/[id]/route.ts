@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import db from '@/lib/database'
 import { getArticle } from '@/lib/articles'
+import db from '@/lib/database'
 
 export async function GET(
 	request: Request,

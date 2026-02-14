@@ -1,10 +1,10 @@
 import { Menu, X } from 'lucide-react'
-import { usePathname } from 'next/navigation'
-import { isActive } from '@/utils'
 import Link from 'next/link'
-import ToogleTheme from './ToogleTheme'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
+import { isActive } from '@/utils'
+import ToogleTheme from './ToogleTheme'
 
 export const Navbar = ({
 	navLinks,

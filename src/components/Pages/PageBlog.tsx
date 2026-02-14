@@ -13,7 +13,7 @@ import {
 	Label,
 	SectionHero,
 	Select,
-	Spinner,
+	Skeleton,
 } from '@/components'
 import type { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
@@ -38,14 +38,14 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 	// 🔄 Funzione fetch con filtri
 	const fetchArticlesWithFilters = React.useCallback(() => {
-		startTransition(() => {
+		startTransition(async () => {
 			const params = new URLSearchParams({ language })
 
 			if (title) params.set('title', title)
 			if (author) params.set('author', author)
 			if (date) params.set('date', date)
 
-			fetch(`/api/blog?${params.toString()}`)
+			await fetch(`/api/blog?${params.toString()}`)
 				.then((res) => res.json())
 				.then((res) => setArticles(res.data))
 				.catch((error) => {
@@ -57,10 +57,10 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 	// 🔄 Funzione fetch senza filtri
 	const fetchArticles = React.useCallback(() => {
-		startTransition(() => {
+		startTransition(async () => {
 			const params = new URLSearchParams({ language })
 
-			fetch(`/api/blog?${params.toString()}`)
+			await fetch(`/api/blog?${params.toString()}`)
 				.then((res) => res.json())
 				.then((res) => setArticles(res.data))
 		})
@@ -77,10 +77,6 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 		setAuthor(null)
 		setDate('')
 		fetchArticles()
-	}
-
-	if (isPending) {
-		return <Spinner />
 	}
 
 	return (
@@ -171,18 +167,24 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 						{dict.blog.empty}
 					</p>
 				)}
-				{articles
-					?.toSorted((a: Article, b: Article) =>
-						moment(b.published_at).diff(moment(a.published_at)),
-					)
-					.map((article) => (
-						<CardBlog
-							key={generateUniqueId()}
-							article={article}
-							dict={dict}
-							onClick={() => router.push(`/blog/${article.id}`)}
-						/>
+				{}
+				{isPending &&
+					[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+						<Skeleton key={i} className="h-96" />
 					))}
+				{!isPending &&
+					articles
+						?.toSorted((a: Article, b: Article) =>
+							moment(b.published_at).diff(moment(a.published_at)),
+						)
+						.map((article) => (
+							<CardBlog
+								key={generateUniqueId()}
+								article={article}
+								dict={dict}
+								onClick={() => router.push(`/blog/${article.id}`)}
+							/>
+						))}
 			</div>
 		</SectionHero>
 	)

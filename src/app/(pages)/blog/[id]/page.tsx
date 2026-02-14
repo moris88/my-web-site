@@ -1,8 +1,7 @@
-import { PageArticle } from '@/components'
-
-import { getDictionary } from '../../../dictionaries'
-import { getArticle } from '@/lib/articles'
 import type { Metadata } from 'next'
+import { PageArticle } from '@/components'
+import { getArticle } from '@/lib/articles'
+import { getDictionary } from '../../../dictionaries'
 
 export async function generateMetadata({
 	params,

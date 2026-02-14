@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React from 'react'
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 import { HiIdentification } from 'react-icons/hi2'
-
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
@@ -14,7 +14,6 @@ import {
 	SectionHero,
 } from '@/components'
 import type { Contact, StoreLink } from '@/types'
-import Link from 'next/link'
 
 interface PageContactsProps {
 	contacts: Contact

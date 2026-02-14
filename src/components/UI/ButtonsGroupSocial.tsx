@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation'
 
 import type { Dictionary } from '@/app/dictionaries'
 import type { StoreLink } from '@/types'
-import { Dialog } from './Dialog'
 import { Button } from './Button'
+import { Dialog } from './Dialog'
 
 interface ButtonsGroupSocialProps {
 	storeLink: StoreLink | null

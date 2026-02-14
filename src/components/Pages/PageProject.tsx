@@ -1,11 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, Chip, SectionHero } from '@/components'
 import type { Project } from '@/types'
-import Link from 'next/link'
 
 interface PageProjectProps {
 	dict: Dictionary

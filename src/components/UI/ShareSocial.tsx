@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import {
 	FaFacebook,
 	FaLinkedin,
@@ -10,7 +11,6 @@ import {
 import { IoLogoWhatsapp } from 'react-icons/io'
 import type { Article } from '@/types'
 import { generateUniqueId } from '@/utils'
-import Link from 'next/link'
 import Tooltip from './Tooltip'
 
 interface MyFooterProps {

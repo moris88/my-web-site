@@ -1,10 +1,9 @@
 'use client'
 
+import Link from 'next/link'
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
-
 import type { StoreLink } from '@/types'
 import { generateUniqueId } from '@/utils'
-import Link from 'next/link'
 
 interface MyFooterProps {
 	links: StoreLink[]
@@ -17,11 +16,11 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 	}
 	const copyRight = `©${getYear()}-Moris™`
 	return (
-		<footer className="flex min-h-15 w-full select-none items-center justify-between rounded-lg bg-slate-800 p-5">
-			<div className="flex flex-wrap gap-4 gap-y-1 text-sm lg:text-base">
-				<span className="text-white">{copyRight}</span>
+		<footer className="flex min-h-15 w-full select-none items-center justify-between rounded-lg bg-gray-200 p-5 dark:bg-slate-800">
+			<div className="flex flex-wrap gap-4 gap-y-1 text-black text-sm lg:text-base dark:text-white">
+				<span className="font-bold">{copyRight}</span>
 				<Link color="foreground" href="/cookies">
-					<span className="font-semibold text-primary text-sm hover:text-primary/50 lg:text-base dark:text-gray-400 dark:hover:text-gray-200">
+					<span className="font-medium text-primary text-sm hover:text-primary/50 lg:text-base dark:text-gray-400 dark:hover:text-gray-200">
 						Cookies Policy
 					</span>
 				</Link>

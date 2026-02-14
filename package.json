@@ -34,7 +34,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome lint",
-		"format": "biome format"
+		"format": "biome format",
+		"check": "biome check"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.6.1",

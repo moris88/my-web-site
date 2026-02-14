@@ -1,7 +1,7 @@
 'use client'
 
+import { Check, ChevronDown, X } from 'lucide-react'
 import React from 'react'
-import { ChevronDown, Check, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface Option {

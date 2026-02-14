@@ -9,11 +9,7 @@ interface InteractiveAvatarProps {
 	className?: string
 }
 
-function InteractiveAvatar({
-	src,
-	alt,
-	className,
-}: InteractiveAvatarProps) {
+function InteractiveAvatar({ src, alt, className }: InteractiveAvatarProps) {
 	const ref = React.useRef<HTMLDivElement>(null)
 	const [rotateX, setRotateX] = React.useState(0)
 	const [rotateY, setRotateY] = React.useState(0)
