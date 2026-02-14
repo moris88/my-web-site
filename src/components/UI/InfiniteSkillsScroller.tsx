@@ -1,6 +1,6 @@
 'use client'
 
-import { SkillItem } from '@/components'
+import { SkillScrollItem } from '@/components'
 import type { Info } from '@/types'
 
 interface InfiniteSkillsScrollerProps {
@@ -21,7 +21,7 @@ function InfiniteSkillsScroller({
 						className="flex w-37.5 shrink-0 items-center justify-center"
 						key={`skill-1-${skill.img.src}-${index}`}
 					>
-						<SkillItem img={skill.img} />
+						<SkillScrollItem img={skill.img} />
 					</div>
 				))}
 				{/* Duplicazione per effetto infinito */}
@@ -30,7 +30,7 @@ function InfiniteSkillsScroller({
 						className="flex w-37.5 shrink-0 items-center justify-center"
 						key={`skill-2-${skill.img.src}-${index}`}
 					>
-						<SkillItem img={skill.img} />
+						<SkillScrollItem img={skill.img} />
 					</div>
 				))}
 			</div>

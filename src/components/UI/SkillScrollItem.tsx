@@ -1,10 +1,10 @@
 'use client'
 
-interface SkillItemProps {
+interface SkillScrollItemProps {
 	img: { src: string; alt: string }
 }
 
-function SkillItem({ img }: Readonly<SkillItemProps>) {
+function SkillScrollItem({ img }: Readonly<SkillScrollItemProps>) {
 	console.log('Rendering SkillItem with img:', img)
 	return (
 		<div className="group flex h-full w-full flex-col items-center justify-center gap-3 p-2">
@@ -21,4 +21,4 @@ function SkillItem({ img }: Readonly<SkillItemProps>) {
 	)
 }
 
-export default SkillItem
+export default SkillScrollItem
