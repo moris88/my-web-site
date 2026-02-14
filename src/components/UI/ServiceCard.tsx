@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import type React from 'react'
-import { Card, CardContent } from './Card'
+import Card, { CardContent } from './Card'
 
 interface ServiceCardProps {
 	title: string

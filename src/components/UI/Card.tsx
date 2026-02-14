@@ -77,4 +77,5 @@ const CardFooter = ({
 	</div>
 )
 
-export { Card, CardContent, CardImage, CardFooter }
+export default Card
+export { CardContent, CardImage, CardFooter }
