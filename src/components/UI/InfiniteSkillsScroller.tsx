@@ -60,15 +60,21 @@ function InfiniteSkillsScroller({
 
 export default InfiniteSkillsScroller
 
-function Item({ skill, index }: { skill: {
-	link: {
-		url: string;
-	};
-	img: {
-		src: string;
-		alt: string;
-	};
-}; index: number }) {
+function Item({
+	skill,
+	index,
+}: {
+	skill: {
+		link: {
+			url: string
+		}
+		img: {
+			src: string
+			alt: string
+		}
+	}
+	index: number
+}) {
 	return (
 		<div
 			className="flex w-37.5 shrink-0 items-center justify-center"

@@ -5,13 +5,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaLaptopCode } from 'react-icons/fa6'
 import type { Dictionary } from '@/app/dictionaries'
-import {
-	Button,
-	Input,
-	Label,
-	SectionHero,
-	Select,
-} from '@/components'
+import { Button, Input, Label, SectionHero, Select } from '@/components'
 import CardProject from '@/components/UI/Cards/Project'
 import type { Project } from '@/types'
 import { generateUniqueId } from '@/utils'
