@@ -71,7 +71,7 @@ export const Navbar = ({
 
 					<div className="flex flex-col space-y-6">
 						{navLinks.map(({ title, href, icon }) =>
-							ItemNavbar({ title, href, icon, pathname }),
+							ItemNavbar({ title, href, icon, pathname, onClick: () => setIsOpen(false) }),
 						)}
 						<div className="flex w-full items-center justify-center gap-2">
 							<ToogleTheme />
@@ -98,14 +98,16 @@ function ItemNavbar({
 	href,
 	icon,
 	pathname,
+	onClick,
 }: {
 	title: string
 	href: string
 	icon: React.ReactNode
 	pathname: string
+	onClick?: () => void
 }) {
 	return (
-		<Link key={href} href={href} className="group">
+		<Link key={href} href={href} className="group" onClick={onClick}>
 			<div
 				className={twMerge(
 					isActive(pathname, href)
