@@ -84,9 +84,9 @@ export default function PageSkills({
 
 	const renderIcon = (iconName?: string) => {
 		if (!iconName) return null
-		const IconComponent = (LucideIcons as unknown as Record<string, React.ElementType>)[
-			iconName
-		]
+		const IconComponent = (
+			LucideIcons as unknown as Record<string, React.ElementType>
+		)[iconName]
 		return IconComponent ? <IconComponent className="h-5 w-5" /> : null
 	}
 
