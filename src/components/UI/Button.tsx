@@ -4,23 +4,24 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-	'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 dark:focus-visible:ring-slate-400/50',
+	'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 cursor-pointer disabled:cursor-not-allowed active:scale-[0.98]',
 	{
 		variants: {
 			variant: {
-				default: 'bg-primary text-white hover:bg-primary/90 shadow-sm',
+				default:
+					'bg-primary text-white shadow-sm hover:bg-primary/90 hover:shadow-md hover:-translate-y-0.5',
 				secondary:
-					'bg-white dark:bg-slate-900 text-primary hover:bg-primary/90 dark:hover:bg-white shadow-sm hover:text-white dark:hover:text-primary',
+					'bg-white dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 hover:-translate-y-0.5',
 				outline:
-					'border border-primary border-primary text-primary hover:bg-primary/50 hover:text-white hover:shadow-sm',
+					'border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-md hover:-translate-y-0.5 bg-transparent',
 				ghost:
-					'border border-transparent hover:border-primary text-primary hover:shadow-sm',
+					'hover:bg-primary/10 hover:text-primary text-slate-700 dark:text-slate-300',
 				link: 'text-primary underline-offset-4 hover:underline',
 			},
 			size: {
-				default: 'h-9 px-4 py-2',
+				default: 'h-10 px-5 py-2',
 				sm: 'h-8 rounded-md px-3 text-xs',
-				lg: 'h-10 rounded-md px-8',
+				lg: 'h-12 rounded-lg px-8 text-base',
 			},
 		},
 		defaultVariants: {

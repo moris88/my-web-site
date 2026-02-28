@@ -16,7 +16,6 @@ interface PageArticleProps {
 }
 
 function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
-	console.log('PageArticle', dict, language, id)
 	const [article, setArticle] = React.useState<Article | null>()
 	const [isPending, startTransition] = React.useTransition()
 	const router = useRouter()
@@ -27,7 +26,15 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 				.then((res) => res.json())
 				.then((res) => {
 					console.log('Fetched article:', res)
+					if (!res || res.error) {
+						setArticle(null)
+						return
+					}
 					setArticle(res)
+				})
+				.catch((err) => {
+					console.error('Error fetching article:', err)
+					setArticle(null)
 				})
 		})
 	}, [language, id])

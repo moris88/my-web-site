@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import type React from 'react'
 
-import { UIWrapper } from '@/components'
+import { MaintenancePage, UIWrapper } from '@/components'
 import { getLinks } from '@/lib/data'
 
 import { getDictionary } from './dictionaries'
@@ -103,15 +103,19 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body>
-				<UIWrapper dict={dict} links={links}>
-					{children}
-					{process.env.DEVELOPMENT === undefined && (
-						<>
-							<Analytics />
-							<SpeedInsights />
-						</>
-					)}
-				</UIWrapper>
+				{process.env.NEXT_PUBLIC_SITE_MAINTENANCE === 'true' ? (
+					<MaintenancePage dict={dict} />
+				) : (
+					<UIWrapper dict={dict} links={links}>
+						{children}
+						{process.env.DEVELOPMENT === 'true' && (
+							<>
+								<Analytics />
+								<SpeedInsights />
+							</>
+						)}
+					</UIWrapper>
+				)}
 			</body>
 		</html>
 	)

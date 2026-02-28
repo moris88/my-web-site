@@ -1,5 +1,7 @@
 export { default as ErrorPage } from './ErrorPage'
 export { default as HomePage } from './HomePage'
+export { default as MaintenancePage } from './MaintenancePage'
+export { default as NotFoundPage } from './NotFoundPage'
 export { default as Page } from './Page'
 export { default as PageArticle } from './PageArticle'
 export { default as PageBlog } from './PageBlog'

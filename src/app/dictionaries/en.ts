@@ -370,6 +370,17 @@ const dictionary = {
 			},
 		},
 	},
+	not_found: {
+		title: 'Page not found',
+		message:
+			'The page you are looking for seems to have vanished into thin air.',
+		button: 'Return Home',
+	},
+	maintenance: {
+		title: 'Site under maintenance',
+		message: 'We are working to improve your experience. We will be back soon!',
+		button: 'Reload page',
+	},
 }
 
 export default dictionary

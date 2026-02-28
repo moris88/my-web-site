@@ -2,6 +2,9 @@
 
 import { ErrorPage } from '@/components'
 
+const { error } = console
+
 export default function DefaultError({ err }: { err: Error }) {
-	return <ErrorPage err={err} />
+	error('An error occurred:', err)
+	return <ErrorPage />
 }

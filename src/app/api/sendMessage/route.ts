@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 	}
 
 	try {
-		if (process.env.DEVELOPMENT) {
+		if (process.env.DEVELOPMENT === 'true') {
 			log('Simulazione invio email:')
 			log(`Da: ${name} <${email}>`)
 			log(`A: ${process.env.EMAIL_TO}`)

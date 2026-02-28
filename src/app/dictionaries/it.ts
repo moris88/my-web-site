@@ -363,6 +363,17 @@ const dictionary = {
 			},
 		},
 	},
+	not_found: {
+		title: 'Pagina non trovata',
+		message: 'La pagina che stai cercando sembra essere sparita nel nulla.',
+		button: 'Torna alla Home',
+	},
+	maintenance: {
+		title: 'Sito in manutenzione',
+		message:
+			"Stiamo lavorando per migliorare l'esperienza di navigazione. Torneremo presto!",
+		button: 'Ricarica pagina',
+	},
 }
 
 export default dictionary

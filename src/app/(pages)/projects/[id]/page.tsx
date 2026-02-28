@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ErrorPage, PageProject } from '@/components'
+import { NotFoundPage, PageProject } from '@/components'
 import { getProjects } from '@/lib'
 import { getDictionary } from '../../../dictionaries'
 
@@ -61,7 +61,7 @@ export default async function ProjectPage({
 	const projects = await getProjects(language)
 	const project = projects.find((project) => project.id === +id)
 	if (!project) {
-		return <ErrorPage err={new Error('Project not found')} />
+		return <NotFoundPage dict={dict} />
 	}
 	return <PageProject dict={dict} project={project} />
 }
