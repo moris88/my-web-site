@@ -82,7 +82,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 			<div className="flex items-center gap-4">
 				{links.map((link) => (
 					<Link key={`share-link-${link.name}`} href={link.url}>
-						<Tooltip text={`Share on ${link.name}`} position="left">
+						<Tooltip text={`Share on ${link.name}`} position="top">
 							{link.icon}
 						</Tooltip>
 					</Link>

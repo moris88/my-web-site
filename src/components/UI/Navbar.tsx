@@ -66,7 +66,9 @@ export const Navbar = ({
 					</div>
 
 					<div className="my-8">
-						<Link href="/">{logo}</Link>
+						<Link href="/" onClick={() => setIsOpen(false)}>
+							{logo}
+						</Link>
 					</div>
 
 					<div className="flex flex-col space-y-6">

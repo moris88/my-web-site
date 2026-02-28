@@ -253,7 +253,7 @@ const dictionary = {
 			top: 'I dati conferiti tramite questo sito sono gestiti secondo i seguenti protocolli di sicurezza e riservatezza.',
 			privacy: [
 				'Tipologia Dati Trattati: Nome, username, indirizzo email, contenuto del messaggio.',
-				"Modalità di Trasmissione: Inoltro automatico esclusivamente all'indirizzo",
+				"Modalità di Trasmissione: Inoltro automatico esclusivamente all'indirizzo maurizio.tolomeo@outlook.it.",
 				'Archiviazione: Assenza di memorizzazione su server locali o database intermedi.',
 				"Finalità: Elaborazione esclusiva della richiesta dell'utente.",
 				'Comunicazione a Terzi: Nessuna condivisione esterna, salvo obblighi di legge.',
