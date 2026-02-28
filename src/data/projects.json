@@ -69,6 +69,75 @@
 					"jspdf",
 					"html2canvas"
 				]
+			},
+			{
+				"id": 6,
+				"title": "Creditsafe Business Report for Zoho CRM",
+				"description": "Creditsafe Business Report for Zoho CRM è un'applicazione web sviluppata in Typescript e Nextjs che consente agli utenti di creare e personalizzare report aziendali professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di ricercare e analizzare i dati aziendali in modo efficiente. Una volta completato il report, gli utenti possono scaricarlo in formato PDF.",
+				"image": {
+					"src": "/projects/6.webp",
+					"alt": "Creditsafe for Zoho CRM App"
+				},
+				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
+			},
+			{
+				"id": 7,
+				"title": "Portale ex-alumni dell'università di Trento",
+				"description": "Il portale web degli ex-alumni dell'università di Trento è una piattaforma online sviluppata in PHP e Drupal che consente agli ex studenti dell'università di connettersi, condividere esperienze e accedere a risorse esclusive. La parte di frontend è stata realizzata con HTML, CSS e JavaScript, mentre il backend è stato sviluppato con PHP e Drupal, garantendo un'esperienza utente fluida e un'efficace gestione dei contenuti. Il sito offre funzionalità di visualizzare news ed eventi, l'accesso a eventi e opportunità di networking.",
+				"image": {
+					"src": "/projects/7.webp",
+					"alt": "Alumni Website University of Trento"
+				},
+				"url": "https://alumni.unitn.it/",
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
+			},
+			{
+				"id": 8,
+				"title": "CLI Backup Script",
+				"description": "CLI Backup Script è un'applicazione Command Line Interface (CLI) sviluppata in JavaScript che consente agli utenti di eseguire backup dei propri file in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di selezionare i file da includere nel backup e avviare il processo con un solo comando. Utilizzando librerie JavaScript avanzate per la gestione del file system, l'app garantisce un processo di backup efficiente e affidabile, ideale per chiunque abbia bisogno di proteggere i propri dati in modo rapido e senza complicazioni.",
+				"image": {
+					"src": "/projects/8.webp",
+					"alt": "CLI Backup Script"
+				},
+				"url": "https://www.npmjs.com/package/backup-script-cli",
+				"github": "https://github.com/moris88/backup-cli",
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
+			},
+			{
+				"id": 9,
+				"title": "React-PDF-Editor",
+				"description": "React-PDF-Editor è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare file PDF in modo semplice e veloce, con l'uso di placeholder. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dati nei placeholder e generare un file PDF personalizzato. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di creazione efficiente e professionale, ideale per chiunque abbia bisogno di generare documenti PDF in modo rapido e senza complicazioni. E' una applicazione in modalità alpha, quindi è in fase di sviluppo e potrebbe essere soggetta a modifiche e miglioramenti futuri.",
+				"image": {
+					"src": "/projects/9.webp",
+					"alt": "React-PDF-Editor"
+				},
+				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/React-PDF-Editor",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			}
 		],
 		"en": [
@@ -139,6 +208,75 @@
 					"react-signature-canvas",
 					"jspdf",
 					"html2canvas"
+				]
+			},
+			{
+				"id": 6,
+				"title": "Creditsafe Business Report per Zoho CRM",
+				"description": "Creditsafe Business Report per Zoho CRM is a web application developed in TypeScript and Next.js that allows users to create and customize professional business reports quickly and easily. The application provides an intuitive interface for searching and analyzing business data efficiently. Once the report is completed, users can download it in PDF format.",
+				"image": {
+					"src": "/projects/6.webp",
+					"alt": "Creditsafe per Zoho CRM App"
+				},
+				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
+			},
+			{
+				"id": 7,
+				"title": "Alumni Portal of the University of Trento",
+				"description": "The alumni portal of the University of Trento is an online platform developed in PHP and Drupal that allows former students to connect, share experiences, and access exclusive resources. The frontend is built with HTML, CSS, and JavaScript, while the backend is developed with PHP and Drupal, ensuring a smooth user experience and effective content management. The site offers features such as viewing news and events, and accessing networking opportunities.",
+				"image": {
+					"src": "/projects/7.webp",
+					"alt": "Alumni Website University of Trento"
+				},
+				"url": "https://alumni.unitn.it/",
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
+			},
+			{
+				"id": 8,
+				"title": "CLI Backup Script",
+				"description": "CLI Backup Script is a Command Line Interface (CLI) application developed in JavaScript that allows users to perform backups of their files quickly and easily. The application provides an intuitive interface for selecting files to include in the backup and starting the process with a single command. By utilizing advanced JavaScript libraries for file system management, the app ensures an efficient and reliable backup process, ideal for anyone needing to protect their data quickly and without complications.",
+				"image": {
+					"src": "/projects/8.webp",
+					"alt": "CLI Backup Script"
+				},
+				"url": "https://www.npmjs.com/package/backup-script-cli",
+				"github": "https://github.com/moris88/backup-cli",
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
+			},
+			{
+				"id": 9,
+				"title": "React-PDF-Editor",
+				"description": "React-PDF-Editor is a JavaScript-based web application designed to enable users to create PDF files quickly and easily through the use of placeholders. The application offers an intuitive interface that allows for simple data input into designated placeholders to generate customized PDF documents. By leveraging advanced JavaScript libraries for PDF manipulation, the app ensures an efficient and professional creation process, making it an ideal solution for anyone needing to generate PDF documents rapidly and without complications. Currently in its alpha stage, the application is under active development and may be subject to future changes and improvements.",
+				"image": {
+					"src": "/projects/9.webp",
+					"alt": "React-PDF-Editor"
+				},
+				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/React-PDF-Editor",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
 				]
 			}
 		]
