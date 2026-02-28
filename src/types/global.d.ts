@@ -78,6 +78,7 @@ export interface Skill {
 	description?: { it: string; en: string }
 	level: number
 	link?: string
+	icon?: string
 }
 
 export interface Err {

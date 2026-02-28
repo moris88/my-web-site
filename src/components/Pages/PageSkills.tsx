@@ -1,5 +1,6 @@
 'use client'
 
+import * as LucideIcons from 'lucide-react'
 import { Wrench } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -81,6 +82,14 @@ export default function PageSkills({
 		10: 'secondary',
 	}
 
+	const renderIcon = (iconName?: string) => {
+		if (!iconName) return null
+		const IconComponent = (LucideIcons as unknown as Record<string, React.ElementType>)[
+			iconName
+		]
+		return IconComponent ? <IconComponent className="h-5 w-5" /> : null
+	}
+
 	return (
 		<SectionHero
 			icon={<Wrench className="h-6 w-6 text-primary" />}
@@ -135,6 +144,7 @@ export default function PageSkills({
 																				>
 																					<Card className="bg-gray-300">
 																						<CardContent
+																							icon={renderIcon(skill.icon)}
 																							title={skill.title as string}
 																						>
 																							<ProgressBar
@@ -182,6 +192,7 @@ export default function PageSkills({
 																>
 																	<Card className="bg-gray-100">
 																		<CardContent
+																			icon={renderIcon(skill.icon)}
 																			title={
 																				typeof skill.title === 'string'
 																					? skill.title

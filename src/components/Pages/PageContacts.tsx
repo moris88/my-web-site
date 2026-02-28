@@ -57,7 +57,7 @@ export default function PageContacts({
 							initial={{ opacity: 0, x: -50 }}
 							transition={{ duration: 0.5 }}
 						>
-							<div className="flex flex-col items-center gap-6">
+							<div className="flex h-full flex-col items-center justify-center gap-6">
 								<InteractiveAvatar
 									alt="avatar"
 									className="block h-40 w-40 rounded-full drop-shadow-xl md:h-60 md:w-60"
@@ -88,6 +88,7 @@ export default function PageContacts({
 											const storeLink = linkMap[buttonLower]
 											return (
 												<Button
+													variant="secondary"
 													key={buttonLower}
 													onClick={() => storeLink && setStoreLink(storeLink)}
 												>
@@ -114,7 +115,7 @@ export default function PageContacts({
 							initial={{ opacity: 0, x: 50 }}
 							transition={{ duration: 0.5, delay: 0.2 }}
 						>
-							<div className="w-full max-w-md">
+							<div className="flex h-full flex-col items-center justify-center gap-6">
 								<ModalMessage
 									className="flex flex-col gap-4"
 									dict={dict}

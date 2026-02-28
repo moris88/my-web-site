@@ -3,51 +3,63 @@
 		"list": [
 			{
 				"title": "JavaScript",
-				"level": 9
+				"level": 9,
+				"icon": "Code"
 			},
 			{
 				"title": "TypeScript",
-				"level": 9
+				"level": 9,
+				"icon": "FileCode"
 			},
 			{
 				"title": "Python",
-				"level": 6
+				"level": 6,
+				"icon": "Terminal"
 			},
 			{
 				"title": "Rust",
-				"level": 5
+				"level": 5,
+				"icon": "Cpu"
 			},
 			{
 				"title": "Java",
-				"level": 7
+				"level": 7,
+				"icon": "Coffee"
 			},
 			{
 				"title": "C",
-				"level": 6
+				"level": 6,
+				"icon": "Binary"
 			},
 			{
 				"title": "C++",
-				"level": 6
+				"level": 6,
+				"icon": "Binary"
 			},
 			{
 				"title": "C#",
-				"level": 5
+				"level": 5,
+				"icon": "Hash"
 			},
 			{
 				"title": "SQL",
-				"level": 8
+				"level": 8,
+				"icon": "Database"
 			},
 			{
 				"title": "PHP",
-				"level": 7
+				"level": 7,
+				"icon": "Globe"
 			},
 			{
 				"title": "HTML",
-				"level": 9
+				"level": 9,
+				"icon": "Globe"
 			},
 			{
 				"title": "CSS",
-				"level": 9
+				"level": 9,
+				"icon": "Palette"
 			}
 		],
 		"description": {
@@ -60,32 +72,38 @@
 			{
 				"title": "MaterialUI",
 				"level": 9,
-				"link": "https://mui.com/material-ui/"
+				"link": "https://mui.com/material-ui/",
+				"icon": "Layout"
 			},
 			{
 				"title": "Bootstrap",
 				"level": 9,
-				"link": "https://getbootstrap.com/"
+				"link": "https://getbootstrap.com/",
+				"icon": "Grid"
 			},
 			{
 				"title": "Flowbite",
 				"level": 9,
-				"link": "https://flowbite.com/"
+				"link": "https://flowbite.com/",
+				"icon": "Component"
 			},
 			{
 				"title": "NextUI",
 				"level": 9,
-				"link": "https://nextui.org/"
+				"link": "https://nextui.org/",
+				"icon": "Zap"
 			},
 			{
 				"title": "ShadcnUI",
 				"level": 9,
-				"link": "https://ui.shadcn.com/"
+				"link": "https://ui.shadcn.com/",
+				"icon": "Box"
 			},
 			{
 				"title": "TailwindCSS",
 				"level": 9,
-				"link": "https://tailwindcss.com/"
+				"link": "https://tailwindcss.com/",
+				"icon": "Wind"
 			}
 		],
 		"description": {
@@ -98,32 +116,38 @@
 			{
 				"title": "Angular",
 				"level": 6,
-				"link": "https://angular.io/"
+				"link": "https://angular.io/",
+				"icon": "Shield"
 			},
 			{
 				"title": "React",
 				"level": 9,
-				"link": "https://react.dev/"
+				"link": "https://react.dev/",
+				"icon": "Atom"
 			},
 			{
 				"title": "Next.js",
 				"level": 8,
-				"link": "https://nextjs.org/"
+				"link": "https://nextjs.org/",
+				"icon": "Zap"
 			},
 			{
 				"title": "Astro.js",
 				"level": 6,
-				"link": "https://astro.build/"
+				"link": "https://astro.build/",
+				"icon": "Rocket"
 			},
 			{
 				"title": "Solid.js",
 				"level": 7,
-				"link": "https://www.solidjs.com/"
+				"link": "https://www.solidjs.com/",
+				"icon": "Flame"
 			},
 			{
 				"title": "Vue.js",
 				"level": 6,
-				"link": "https://vuejs.org/"
+				"link": "https://vuejs.org/",
+				"icon": "Gem"
 			}
 		],
 		"description": {
@@ -136,27 +160,32 @@
 			{
 				"title": "Node.js",
 				"level": 8,
-				"link": "https://nodejs.org/en"
+				"link": "https://nodejs.org/en",
+				"icon": "Server"
 			},
 			{
 				"title": "Express.js",
 				"level": 8,
-				"link": "https://expressjs.com/"
+				"link": "https://expressjs.com/",
+				"icon": "FastForward"
 			},
 			{
 				"title": "Laravel",
 				"level": 6,
-				"link": "https://laravel.com/"
+				"link": "https://laravel.com/",
+				"icon": "Container"
 			},
 			{
 				"title": "Django",
 				"level": 6,
-				"link": "https://www.djangoproject.com/"
+				"link": "https://www.djangoproject.com/",
+				"icon": "GanttChartSquare"
 			},
 			{
 				"title": "Spring",
 				"level": 5,
-				"link": "https://spring.io/"
+				"link": "https://spring.io/",
+				"icon": "Leaf"
 			}
 		],
 		"description": {
@@ -169,22 +198,26 @@
 			{
 				"title": "MongoDB",
 				"level": 7,
-				"link": "https://www.mongodb.com/"
+				"link": "https://www.mongodb.com/",
+				"icon": "Leaf"
 			},
 			{
 				"title": "MySQL",
 				"level": 9,
-				"link": "https://www.mysql.com/"
+				"link": "https://www.mysql.com/",
+				"icon": "Database"
 			},
 			{
 				"title": "PostgreSQL",
 				"level": 8,
-				"link": "https://www.postgresql.org/"
+				"link": "https://www.postgresql.org/",
+				"icon": "Database"
 			},
 			{
 				"title": "GraphQL",
 				"level": 6,
-				"link": "https://graphql.org/"
+				"link": "https://graphql.org/",
+				"icon": "Network"
 			}
 		],
 		"description": {
@@ -197,32 +230,38 @@
 			{
 				"title": "VSCode",
 				"level": 9,
-				"link": "https://code.visualstudio.com/"
+				"link": "https://code.visualstudio.com/",
+				"icon": "AppWindow"
 			},
 			{
 				"title": "Git",
 				"level": 8,
-				"link": "https://git-scm.com/"
+				"link": "https://git-scm.com/",
+				"icon": "GitBranch"
 			},
 			{
 				"title": "GitHub",
 				"level": 9,
-				"link": "https://github.com/"
+				"link": "https://github.com/",
+				"icon": "Github"
 			},
 			{
 				"title": "Strapi",
 				"level": 7,
-				"link": "https://strapi.io/"
+				"link": "https://strapi.io/",
+				"icon": "Layers"
 			},
 			{
 				"title": "Figma",
 				"level": 7,
-				"link": "https://www.figma.com/"
+				"link": "https://www.figma.com/",
+				"icon": "Figma"
 			},
 			{
 				"title": "Vite.js",
 				"level": 9,
-				"link": "https://vitejs.dev/"
+				"link": "https://vitejs.dev/",
+				"icon": "Zap"
 			}
 		],
 		"description": {
@@ -235,27 +274,32 @@
 			{
 				"title": "Zoho",
 				"level": 9,
-				"link": "https://www.zoho.com/it/"
+				"link": "https://www.zoho.com/it/",
+				"icon": "Briefcase"
 			},
 			{
 				"title": "Freshworks",
 				"level": 9,
-				"link": "https://www.freshworks.com/"
+				"link": "https://www.freshworks.com/",
+				"icon": "Smile"
 			},
 			{
 				"title": "Zendesk",
 				"level": 8,
-				"link": "https://www.zendesk.com/it/"
+				"link": "https://www.zendesk.com/it/",
+				"icon": "LifeBuoy"
 			},
 			{
 				"title": "Google Cloud",
 				"level": 6,
-				"link": "https://cloud.google.com/"
+				"link": "https://cloud.google.com/",
+				"icon": "Cloud"
 			},
 			{
 				"title": "AWS",
 				"level": 7,
-				"link": "https://aws.amazon.com/"
+				"link": "https://aws.amazon.com/",
+				"icon": "Cloud"
 			}
 		],
 		"description": {
@@ -274,7 +318,8 @@
 					"it": "Essere responsabile significa essere affidabile, onesto e rispettoso. Significa fare ciò che si dice e dire ciò che si fa. Significa assumersi la responsabilità delle proprie azioni e delle conseguenze che ne derivano.",
 					"en": "Being responsible means being reliable, honest and respectful. It means doing what you say and saying what you do. It means taking responsibility for your actions and the consequences that result."
 				},
-				"level": 9
+				"level": 9,
+				"icon": "CheckCircle"
 			},
 			{
 				"title": {
@@ -285,7 +330,8 @@
 					"it": "La dedizione è la capacità di dedicarsi completamente a ciò che si fa. Significa essere disposti a fare sacrifici e a lavorare sodo per raggiungere i propri obiettivi.",
 					"en": "Dedication is the ability to fully dedicate oneself to what one does. It means being willing to make sacrifices and work hard to achieve one's goals."
 				},
-				"level": 9
+				"level": 9,
+				"icon": "Heart"
 			},
 			{
 				"title": {
@@ -296,7 +342,8 @@
 					"it": "La curiosità è la voglia di imparare e scoprire cose nuove. È la capacità di porsi domande e cercare risposte. È la spinta a esplorare il mondo e a cercare nuove esperienze.",
 					"en": "Curiosity is the desire to learn and discover new things. It is the ability to ask questions and seek answers. It is the drive to explore the world and seek new experiences."
 				},
-				"level": 9
+				"level": 9,
+				"icon": "Search"
 			},
 			{
 				"title": {
@@ -307,7 +354,8 @@
 					"it": "L'autodisciplina è la capacità di controllare i propri impulsi e di fare ciò che è necessario anche quando non si ha voglia di farlo. È la capacità di mantenere la concentrazione e la determinazione anche di fronte alle difficoltà.",
 					"en": "Self-discipline is the ability to control one's impulses and do what is necessary even when one does not feel like doing it. It is the ability to maintain focus and determination even in the face of difficulties."
 				},
-				"level": 9
+				"level": 9,
+				"icon": "Timer"
 			},
 			{
 				"title": {
@@ -318,7 +366,8 @@
 					"it": "La fiducia in se stessi è la consapevolezza delle proprie capacità e del proprio valore. È la capacità di credere in se stessi e nelle proprie capacità anche di fronte alle critiche e alle difficoltà.",
 					"en": "Self-confidence is the awareness of one's own abilities and worth. It is the ability to believe in oneself and in one's abilities even in the face of criticism and difficulties."
 				},
-				"level": 6
+				"level": 6,
+				"icon": "UserCheck"
 			},
 			{
 				"title": {
@@ -329,7 +378,8 @@
 					"it": "Lo spirito critico è la capacità di valutare in modo obiettivo le informazioni e le situazioni. È la capacità di analizzare i fatti in modo razionale e di prendere decisioni informate.",
 					"en": "Critical spirit is the ability to objectively evaluate information and situations. It is the ability to analyze facts rationally and make informed decisions."
 				},
-				"level": 6
+				"level": 6,
+				"icon": "Lightbulb"
 			},
 			{
 				"title": {
@@ -340,7 +390,8 @@
 					"it": "La capacità di lavoro di squadra è la capacità di lavorare efficacemente con gli altri per raggiungere un obiettivo comune. È la capacità di ascoltare gli altri, di condividere le proprie idee e di collaborare per trovare soluzioni condivise.",
 					"en": "Team work ability is the ability to work effectively with others to achieve a common goal. It is the ability to listen to others, share one's ideas and collaborate to find shared solutions."
 				},
-				"level": 8
+				"level": 8,
+				"icon": "Users"
 			},
 			{
 				"title": {
@@ -351,7 +402,8 @@
 					"it": "La risoluzione dei problemi è la capacità di affrontare le difficoltà in modo creativo e razionale. È la capacità di individuare le cause dei problemi, di analizzarle e di trovare soluzioni efficaci.",
 					"en": "Problem solving is the ability to face difficulties in a creative and rational way. It is the ability to identify the causes of problems, analyze them and find effective solutions."
 				},
-				"level": 8
+				"level": 8,
+				"icon": "Wrench"
 			},
 			{
 				"title": {
@@ -362,7 +414,8 @@
 					"it": "La responsabilità di un Team Leader è quella di guidare e motivare il team per raggiungere gli obiettivi comuni. È la capacità di prendere decisioni, di gestire i conflitti e di supportare i membri del team.",
 					"en": "The responsibility of a Team Leader is to lead and motivate the team to achieve common goals. It is the ability to make decisions, manage conflicts and support team members."
 				},
-				"level": 6
+				"level": 6,
+				"icon": "Crown"
 			},
 			{
 				"title": {
@@ -373,7 +426,8 @@
 					"it": "La resistenza allo stress è la capacità di mantenere la calma e la concentrazione anche di fronte a situazioni difficili e stressanti. È la capacità di gestire le emozioni e di trovare soluzioni efficaci anche sotto pressione.",
 					"en": "Resistance to stress is the ability to remain calm and focused even in difficult and stressful situations. It is the ability to manage emotions and find effective solutions even under pressure."
 				},
-				"level": 5
+				"level": 5,
+				"icon": "Activity"
 			}
 		],
 		"description": {
