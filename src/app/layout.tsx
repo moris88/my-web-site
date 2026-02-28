@@ -105,7 +105,7 @@ export default async function RootLayout({
 			<body>
 				<UIWrapper dict={dict} links={links}>
 					{children}
-					{process.env.DEVELOPMENT !== 'true' && (
+					{process.env.DEVELOPMENT === undefined && (
 						<>
 							<Analytics />
 							<SpeedInsights />
