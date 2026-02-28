@@ -79,13 +79,7 @@
 					"alt": "Creditsafe for Zoho CRM App"
 				},
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": [
-					"Nextjs",
-					"Typescript",
-					"TailwindCSS",
-					"React",
-					"creditsafe"
-				]
+				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
 			},
 			{
 				"id": 7,
@@ -96,13 +90,7 @@
 					"alt": "Alumni Website University of Trento"
 				},
 				"url": "https://alumni.unitn.it/",
-				"tags": [
-					"PHP",
-					"Drupal",
-					"HTML",
-					"CSS",
-					"JavaScript"
-				]
+				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
 			},
 			{
 				"id": 8,
@@ -114,12 +102,7 @@
 				},
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
-				]
+				"tags": ["Javascript", "Node.js", "CLI", "File System"]
 			},
 			{
 				"id": 9,
@@ -131,13 +114,7 @@
 				},
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
 			}
 		],
 		"en": [
@@ -219,13 +196,7 @@
 					"alt": "Creditsafe per Zoho CRM App"
 				},
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": [
-					"Nextjs",
-					"Typescript",
-					"TailwindCSS",
-					"React",
-					"creditsafe"
-				]
+				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
 			},
 			{
 				"id": 7,
@@ -236,13 +207,7 @@
 					"alt": "Alumni Website University of Trento"
 				},
 				"url": "https://alumni.unitn.it/",
-				"tags": [
-					"PHP",
-					"Drupal",
-					"HTML",
-					"CSS",
-					"JavaScript"
-				]
+				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
 			},
 			{
 				"id": 8,
@@ -254,12 +219,7 @@
 				},
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
-				]
+				"tags": ["Javascript", "Node.js", "CLI", "File System"]
 			},
 			{
 				"id": 9,
@@ -271,13 +231,7 @@
 				},
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
 			}
 		]
 	}
