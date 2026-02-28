@@ -18,7 +18,10 @@ function Page({ dict, page }: Readonly<PageCookiesProps>) {
 			<section className="flex flex-col items-center justify-center gap-10 p-2">
 				<ul className="flex max-w-sm flex-col gap-4 md:max-w-lg">
 					{content[page].map((item, index) => (
-						<li key={index} className="list-disc">
+						<li
+							key={index}
+							className="list-disc text-gray-500 dark:text-gray-400"
+						>
 							{item}
 						</li>
 					))}
