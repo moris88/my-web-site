@@ -18,7 +18,13 @@ interface PageHistoryProps {
 
 function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 	const [showContent, setShowContent] = React.useState(true)
-	const [selectedItem, setSelectedItem] = React.useState<{ id: string; title: string | null; description: string; image?: string; alt?: string } | null>(null)
+	const [selectedItem, setSelectedItem] = React.useState<{
+		id: string
+		title: string | null
+		description: string
+		image?: string
+		alt?: string
+	} | null>(null)
 	const router = useRouter()
 
 	React.useEffect(() => {
@@ -88,8 +94,9 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						return (
 							<div
 								key={item.id}
-								className={`relative flex items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-									}`}
+								className={`relative flex items-center ${
+									isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+								}`}
 								data-aos="fade-up"
 							>
 								{/* Timeline Dot */}
@@ -218,7 +225,10 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 									{selectedItem.description}
 								</p>
 								<div className="mt-8 pt-4">
-									<Button onClick={() => setSelectedItem(null)} className="w-full md:w-auto">
+									<Button
+										onClick={() => setSelectedItem(null)}
+										className="w-full md:w-auto"
+									>
 										{language === 'en' ? 'Close' : 'Chiudi'}
 									</Button>
 								</div>
