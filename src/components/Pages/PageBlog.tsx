@@ -1,10 +1,10 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import { FileText } from 'lucide-react'
 import moment from 'moment'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { GrArticle } from 'react-icons/gr'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
@@ -82,7 +82,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 		<SectionHero
 			title={dict.blog.title}
 			subtitle={dict.blog.subtitle}
-			icon={<GrArticle className="h-8 w-8 text-primary" />}
+			icon={<FileText className="h-8 w-8 text-primary" />}
 		>
 			{/* 🔘 Bottone toggle */}
 			{!showFilters && (

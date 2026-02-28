@@ -1,7 +1,7 @@
 'use client'
 
+import { Facebook, Github, Gitlab, Linkedin } from 'lucide-react'
 import Link from 'next/link'
-import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
 import type { StoreLink } from '@/types'
 
 interface MyFooterProps {
@@ -28,16 +28,16 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 				{links.map((link) => (
 					<Link key={`footer-link-${link.name}`} href={link.url}>
 						{link.name === 'facebook' && (
-							<FaFacebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+							<Facebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'github' && (
-							<FaGithub className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+							<Github className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'gitlab' && (
-							<FaGitlab className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+							<Gitlab className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 						{link.name === 'linkedin' && (
-							<FaLinkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+							<Linkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 					</Link>
 				))}

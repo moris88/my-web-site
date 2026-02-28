@@ -1,12 +1,6 @@
 'use client'
 
-import {
-	FaBook,
-	FaCode,
-	FaEnvelope,
-	FaProjectDiagram,
-	FaUser,
-} from 'react-icons/fa'
+import { Book, Code, Mail, Network, User } from 'lucide-react'
 import type { Dictionary } from '@/app/dictionaries'
 import CardLink from './Cards/Link'
 
@@ -19,37 +13,37 @@ function SectionCardLink({ dict }: Readonly<SectionCardLinkProps>) {
 		{
 			name: dict.navbar.curriculum,
 			path: '/curriculum',
-			icon: <FaUser className="h-8 w-8" />,
+			icon: <User className="h-8 w-8" />,
 			description: dict.home.links.curriculum,
 		},
 		{
 			name: dict.navbar.experience,
 			path: '/experience',
-			icon: <FaProjectDiagram className="h-8 w-8" />,
+			icon: <Network className="h-8 w-8" />,
 			description: dict.home.links.experience,
 		},
 		{
 			name: dict.navbar.skills,
 			path: '/skills',
-			icon: <FaCode className="h-8 w-8" />,
+			icon: <Code className="h-8 w-8" />,
 			description: dict.home.links.skills,
 		},
 		{
 			name: dict.navbar.projects,
 			path: '/projects',
-			icon: <FaProjectDiagram className="h-8 w-8" />,
+			icon: <Network className="h-8 w-8" />,
 			description: dict.home.links.portfolio,
 		},
 		{
 			name: dict.navbar.blog,
 			path: '/blog',
-			icon: <FaBook className="h-8 w-8" />,
+			icon: <Book className="h-8 w-8" />,
 			description: dict.home.links.blog,
 		},
 		{
 			name: dict.navbar.contacts,
 			path: '/contacts',
-			icon: <FaEnvelope className="h-8 w-8" />,
+			icon: <Mail className="h-8 w-8" />,
 			description: dict.home.links.contacts,
 		},
 	]

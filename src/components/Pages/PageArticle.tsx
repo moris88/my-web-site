@@ -1,9 +1,9 @@
 'use client'
 
-import { Link } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, SectionHero, ShareSocial, Spinner } from '@/components'
 import type { Article } from '@/types'
@@ -76,7 +76,7 @@ function PageArticle({ dict, language, id }: Readonly<PageArticleProps>) {
 							variant="ghost"
 							onClick={() => router.back()}
 						>
-							<HiArrowLeft className="h-5 w-5" />
+							<ArrowLeft className="h-5 w-5" />
 							{dict.blog.article.buttons.back}
 						</Button>
 					</div>

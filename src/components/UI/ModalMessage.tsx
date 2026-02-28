@@ -1,9 +1,8 @@
 'use client'
 
+import { Mail, Send } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { HiEnvelope } from 'react-icons/hi2'
-import { RiMailSendFill } from 'react-icons/ri'
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, Dialog, FormContact } from '@/components'
 
@@ -54,7 +53,7 @@ function ModalMessage({
 			<div className={className ?? ''}>
 				<h3 className="mt-5 w-full select-none text-center">
 					<span className="flex items-center justify-center gap-1 text-black dark:text-white">
-						<RiMailSendFill className="h-5 w-5" />
+						<Send className="h-5 w-5" />
 						<b>{dict.contacts.modal.title}</b>
 					</span>
 				</h3>
@@ -122,7 +121,7 @@ function ModalMessage({
 					}}
 				>
 					{dict.contacts.buttons.sendEmail}
-					<HiEnvelope className="h-5 w-5" />
+					<Mail className="h-5 w-5" />
 				</Button>
 			)}
 			{show.form && (

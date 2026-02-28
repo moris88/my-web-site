@@ -1,8 +1,8 @@
 'use client'
 
+import { Download } from 'lucide-react'
 import Link from 'next/link'
 import type React from 'react'
-import { HiArrowDownTray } from 'react-icons/hi2'
 import { Button } from './Button'
 
 interface DownloadFileProps {
@@ -24,13 +24,13 @@ function DownloadFile({ pathFile, children, disabled }: DownloadFileProps) {
 						}}
 					>
 						{children ?? 'Download'}
-						<HiArrowDownTray className="h-5 w-5" />
+						<Download className="h-5 w-5" />
 					</Button>
 				</Link>
 			) : (
 				<Button disabled className="flex cursor-not-allowed gap-2">
 					{children ?? 'Download'}
-					<HiArrowDownTray className="h-5 w-5" />
+					<Download className="h-5 w-5" />
 				</Button>
 			)}
 		</>

@@ -1,8 +1,8 @@
 'use client'
 
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { HiArrowLeft } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, Chip, SectionHero } from '@/components'
 import type { Project } from '@/types'
@@ -40,7 +40,7 @@ function PageProject({ dict, project }: PageProjectProps) {
 									variant="ghost"
 									onClick={() => router.back()}
 								>
-									<HiArrowLeft className="h-5 w-5" />
+									<ArrowLeft className="h-5 w-5" />
 									{dict.projects.project.buttons.back}
 								</Button>
 							</div>

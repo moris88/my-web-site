@@ -1,14 +1,14 @@
 'use client'
 
-import Link from 'next/link'
 import {
-	FaFacebook,
-	FaLinkedin,
-	FaReddit,
-	FaTelegram,
-	FaTwitter,
-} from 'react-icons/fa'
-import { IoLogoWhatsapp } from 'react-icons/io'
+	Facebook,
+	Linkedin,
+	MessageCircle,
+	MessageSquare,
+	Send,
+	Twitter,
+} from 'lucide-react'
+import Link from 'next/link'
 import type { Article } from '@/types'
 import Tooltip from './Tooltip'
 
@@ -22,7 +22,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'facebook',
 			icon: (
-				<FaFacebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<Facebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
 				window.location.href,
@@ -31,7 +31,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'linkedin',
 			icon: (
-				<FaLinkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<Linkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
 				window.location.href,
@@ -40,7 +40,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'twitter',
 			icon: (
-				<FaTwitter className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<Twitter className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
 				window.location.href,
@@ -49,7 +49,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'reddit',
 			icon: (
-				<FaReddit className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<MessageSquare className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.reddit.com/submit?url=${encodeURIComponent(
 				window.location.href,
@@ -58,7 +58,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'telegram',
 			icon: (
-				<FaTelegram className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<Send className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://t.me/share/url?url=${encodeURIComponent(
 				window.location.href,
@@ -67,7 +67,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 		{
 			name: 'whatsapp',
 			icon: (
-				<IoLogoWhatsapp className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+				<MessageCircle className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://api.whatsapp.com/send?text=${encodeURIComponent(
 				`${article.title} ${window.location.href}`,

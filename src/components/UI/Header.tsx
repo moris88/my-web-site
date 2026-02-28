@@ -1,12 +1,14 @@
 'use client'
 
+import {
+	FileText,
+	FileUser,
+	IdCard,
+	Laptop,
+	LineChart,
+	Wrench,
+} from 'lucide-react'
 import { Suspense } from 'react'
-import { AiOutlineLineChart } from 'react-icons/ai'
-import { FaTools } from 'react-icons/fa'
-import { FaLaptopCode } from 'react-icons/fa6'
-import { GrArticle } from 'react-icons/gr'
-import { HiIdentification } from 'react-icons/hi2'
-import { TbFileCv } from 'react-icons/tb'
 import type { Dictionary } from '@/app/dictionaries'
 import { Navbar } from './Navbar'
 import Skeleton from './Skeleton'
@@ -21,32 +23,32 @@ function Header({ dict }: Readonly<NavbarProps>) {
 		{
 			name: dict.navbar.curriculum,
 			path: '/curriculum',
-			icon: <TbFileCv className="h-4 w-4 text-primary" />,
+			icon: <FileUser className="h-4 w-4 text-primary" />,
 		},
 		{
 			name: dict.navbar.experience,
 			path: '/experience',
-			icon: <AiOutlineLineChart className="h-4 w-4 text-primary" />,
+			icon: <LineChart className="h-4 w-4 text-primary" />,
 		},
 		{
 			name: dict.navbar.skills,
 			path: '/skills',
-			icon: <FaTools className="h-4 w-4 text-primary" />,
+			icon: <Wrench className="h-4 w-4 text-primary" />,
 		},
 		{
 			name: dict.navbar.projects,
 			path: '/projects',
-			icon: <FaLaptopCode className="h-4 w-4 text-primary" />,
+			icon: <Laptop className="h-4 w-4 text-primary" />,
 		},
 		{
 			name: dict.navbar.blog,
 			path: '/blog',
-			icon: <GrArticle className="h-4 w-4 text-primary" />,
+			icon: <FileText className="h-4 w-4 text-primary" />,
 		},
 		{
 			name: dict.navbar.contacts,
 			path: '/contacts',
-			icon: <HiIdentification className="h-4 w-4 text-primary" />,
+			icon: <IdCard className="h-4 w-4 text-primary" />,
 		},
 	]
 

@@ -5,9 +5,9 @@ import 'aos/dist/aos.css'
 import AOS from 'aos'
 import { motion } from 'framer-motion'
 import parse from 'html-react-parser'
+import { Bot, Code, Paintbrush } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
 import Typewriter from 'typewriter-effect'
 import type { Dictionary } from '@/app/dictionaries'
@@ -124,9 +124,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					>
 						{info.services?.map((service) => {
 							const iconMap: Record<string, React.ReactNode> = {
-								FaRobot: <FaRobot className="h-8 w-8" />,
-								FaCode: <FaCode className="h-8 w-8" />,
-								FaPaintBrush: <FaPaintbrush className="h-8 w-8" />,
+								Bot: <Bot className="h-8 w-8" />,
+								Code: <Code className="h-8 w-8" />,
+								Paintbrush: <Paintbrush className="h-8 w-8" />,
 							}
 
 							return (
@@ -183,25 +183,25 @@ function HomePage({ dict, info, language }: HomePageProps) {
 										'SCSS',
 									],
 									color: 'from-blue-500/10 to-cyan-500/10',
-									icon: <FaCode className="text-blue-500" />,
+									icon: <Code className="text-blue-500" />,
 								},
 								{
 									title: 'Backend Core',
 									skills: ['Node.js', 'Express.js', 'Supabase', 'REST APIs'],
 									color: 'from-green-500/10 to-emerald-500/10',
-									icon: <FaCode className="text-green-500" />,
+									icon: <Code className="text-green-500" />,
 								},
 								{
 									title: 'Database',
 									skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite'],
 									color: 'from-purple-500/10 to-pink-500/10',
-									icon: <FaCode className="text-purple-500" />,
+									icon: <Code className="text-purple-500" />,
 								},
 								{
 									title: 'Tools & Design',
 									skills: ['Git & GitHub', 'Figma', 'Biome', 'Vercel'],
 									color: 'from-orange-500/10 to-yellow-500/10',
-									icon: <FaPaintbrush className="text-orange-500" />,
+									icon: <Paintbrush className="text-orange-500" />,
 								},
 							].map((category, idx) => (
 								<motion.div

@@ -1,8 +1,8 @@
 'use client'
 
+import { Wrench } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { FaTools } from 'react-icons/fa'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Accordion,
@@ -83,7 +83,7 @@ export default function PageSkills({
 
 	return (
 		<SectionHero
-			icon={<FaTools className="h-6 w-6 text-primary" />}
+			icon={<Wrench className="h-6 w-6 text-primary" />}
 			title={dict.skills.title}
 			subtitle={dict.skills.subtitle}
 		>

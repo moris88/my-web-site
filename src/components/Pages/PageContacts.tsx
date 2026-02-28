@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Facebook, Github, Gitlab, IdCard, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from 'react-icons/fa'
-import { HiIdentification } from 'react-icons/hi2'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
@@ -28,10 +27,10 @@ export default function PageContacts({
 }: Readonly<PageContactsProps>) {
 	const [storeLink, setStoreLink] = React.useState<StoreLink | null>(null)
 	const iconMap: Record<string, React.ReactNode> = {
-		facebook: <FaFacebook className="h-6 w-6" />,
-		github: <FaGithub className="h-6 w-6" />,
-		linkedin: <FaLinkedin className="h-6 w-6" />,
-		gitlab: <FaGitlab className="h-6 w-6" />,
+		facebook: <Facebook className="h-6 w-6" />,
+		github: <Github className="h-6 w-6" />,
+		linkedin: <Linkedin className="h-6 w-6" />,
+		gitlab: <Gitlab className="h-6 w-6" />,
 	}
 
 	const linkMap = links.reduce(
@@ -44,7 +43,7 @@ export default function PageContacts({
 
 	return (
 		<SectionHero
-			icon={<HiIdentification className="h-8 w-8 text-primary" />}
+			icon={<IdCard className="h-8 w-8 text-primary" />}
 			title={dict.contacts.title}
 			subtitle={dict.contacts.subtitle}
 		>

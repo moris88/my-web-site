@@ -1,9 +1,9 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import { Laptop } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { FaLaptopCode } from 'react-icons/fa6'
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, Input, Label, SectionHero, Select } from '@/components'
 import CardProject from '@/components/UI/Cards/Project'
@@ -65,7 +65,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 
 	return (
 		<SectionHero
-			icon={<FaLaptopCode className="h-8 w-8 text-primary" />}
+			icon={<Laptop className="h-8 w-8 text-primary" />}
 			title={dict.projects.title}
 			subtitle={dict.projects.subtitle}
 		>
@@ -133,13 +133,15 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			<section className="min-h-screen w-full dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="grid grid-cols-1 items-stretch gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
-						{projectsState.filter((project) => project.public).map((project) => (
-							<CardProject
-								key={`project-${project.id}`}
-								project={project}
-								onClick={handleClickRow}
-							/>
-						))}
+						{projectsState
+							.filter((project) => project.public)
+							.map((project) => (
+								<CardProject
+									key={`project-${project.id}`}
+									project={project}
+									onClick={handleClickRow}
+								/>
+							))}
 					</div>
 				</div>
 			</section>

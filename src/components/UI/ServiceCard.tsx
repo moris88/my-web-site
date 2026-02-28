@@ -39,7 +39,9 @@ function ServiceCard({ title, description, icon }: Readonly<ServiceCardProps>) {
 									className="flex items-center gap-2 font-medium text-primary text-sm"
 								>
 									<span className="h-px w-8 bg-primary/30" />
-									<button type="button" onClick={() => setIsHovered(true)}>Scopri di più</button>
+									<button type="button" onClick={() => setIsHovered(true)}>
+										Scopri di più
+									</button>
 								</motion.div>
 							) : (
 								<motion.div

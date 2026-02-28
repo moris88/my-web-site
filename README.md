@@ -35,7 +35,7 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 - **Forms**: [React Hook Form](https://react-hook-form.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/), [AOS](https://michalsnik.github.io/aos/)
 - **Tooling**: [Biome](https://biomejs.dev/) (Linting & Formatting)
-- **Icons**: [Lucide React](https://lucide.dev/), [React Icons](https://react-icons.github.io/react-icons/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 - **Deployment**: [Vercel](https://vercel.com/)
 
 ---

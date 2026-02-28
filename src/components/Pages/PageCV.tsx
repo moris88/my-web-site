@@ -1,12 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import {
+	Book,
+	Briefcase,
+	Building2,
+	Download,
+	FileUser,
+	GraduationCap,
+} from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { FaCity } from 'react-icons/fa'
-import { HiArrowDownTray } from 'react-icons/hi2'
-import { MdOutlineWork, MdSchool } from 'react-icons/md'
-import { RiBookFill } from 'react-icons/ri'
-import { TbFileCv } from 'react-icons/tb'
 
 import type { Dictionary } from '@/app/dictionaries'
 import {
@@ -68,9 +71,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 
 				<div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-primary shadow-sm dark:border-slate-900 dark:bg-blue-900/30 dark:text-blue-400">
 					{type === 'work' ? (
-						<FaCity className="h-5 w-5" />
+						<Building2 className="h-5 w-5" />
 					) : (
-						<RiBookFill className="h-5 w-5" />
+						<Book className="h-5 w-5" />
 					)}
 				</div>
 
@@ -110,14 +113,14 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 
 	return (
 		<SectionHero
-			icon={<TbFileCv className="h-8 w-8 text-primary" />}
+			icon={<FileUser className="h-8 w-8 text-primary" />}
 			title={dict.curriculum.title}
 		>
 			<div className="mx-auto max-w-4xl">
 				<div className="mb-12 flex justify-center">
 					<Button onClick={() => setShowDownload(true)}>
 						{dict.curriculum.download}
-						{<HiArrowDownTray className="h-5 w-5" />}
+						{<Download className="h-5 w-5" />}
 					</Button>
 				</div>
 
@@ -129,7 +132,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 					>
 						<h2 className="mb-8 flex items-center gap-3 font-bold text-2xl text-gray-900 dark:text-white">
 							<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
-								<MdOutlineWork />
+								<Briefcase />
 							</span>
 							{dict.curriculum.experiences}
 						</h2>
@@ -152,7 +155,7 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 					>
 						<h2 className="mb-8 flex items-center gap-3 font-bold text-2xl text-gray-900 dark:text-white">
 							<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
-								<MdSchool />
+								<GraduationCap />
 							</span>
 							{dict.curriculum.education}
 						</h2>

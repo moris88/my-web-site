@@ -4,9 +4,9 @@ import 'aos/dist/aos.css'
 
 import AOS from 'aos'
 import { AnimatePresence, motion } from 'framer-motion'
+import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { IoMdClose } from 'react-icons/io'
 
 import { Button, SectionHero } from '@/components/UI'
 import type { History, Language } from '@/types'
@@ -60,7 +60,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 							className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
 							onClick={() => setShowContent(false)}
 						>
-							<IoMdClose size={24} />
+							<X size={24} />
 						</button>
 						<div className="flex flex-col items-center gap-4 text-center">
 							<div>
@@ -196,7 +196,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 							className="absolute top-6 right-6 z-50 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
 							onClick={() => setSelectedItem(null)}
 						>
-							<IoMdClose size={32} />
+							<X size={32} />
 						</motion.button>
 
 						<motion.div
