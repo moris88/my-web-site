@@ -121,8 +121,8 @@
 				"en": "Prompt Engineer"
 			},
 			"description": {
-				"it": "Ottimizzo l'interazione con le AI per generare contenuti precisi e soluzioni innovative.",
-				"en": "I optimize interaction with AI to generate precise content and innovative solutions."
+				"it": "Ottimizzo l'interazione con modelli linguistici avanzati (LLM) per generare contenuti di alta qualità, automatizzare workflow complessi e sviluppare soluzioni basate sull'intelligenza artificiale generativa con precisione chirurgica.",
+				"en": "I optimize interactions with Advanced Language Models (LLMs) to generate high-quality content, automate complex workflows, and develop generative AI-based solutions with surgical precision."
 			},
 			"icon": "FaRobot"
 		},
@@ -132,8 +132,8 @@
 				"en": "Frontend Developer"
 			},
 			"description": {
-				"it": "Creo interfacce web moderne, veloci e responsive con React e Next.js.",
-				"en": "I create modern, fast, and responsive web interfaces with React and Next.js."
+				"it": "Sviluppo interfacce web moderne, scalabili e ad alte prestazioni utilizzando React e Next.js. Mi concentro sulla scrittura di codice pulito, sull'accessibilità e sull'ottimizzazione dei Core Web Vitals per un'esperienza utente eccellente.",
+				"en": "I develop modern, scalable, and high-performance web interfaces using React and Next.js. I focus on writing clean code, ensuring accessibility, and optimizing Core Web Vitals for an excellent user experience."
 			},
 			"icon": "FaCode"
 		},
@@ -143,8 +143,8 @@
 				"en": "UI/UX Designer"
 			},
 			"description": {
-				"it": "Progetto esperienze utente intuitive e design accattivanti che catturano l'attenzione.",
-				"en": "I design intuitive user experiences and captivating designs that grab attention."
+				"it": "Progetto esperienze digitali intuitive e visivamente accattivanti. Trasformo requisiti complessi in wireframe e prototipi interattivi, ponendo l'utente al centro del processo creativo per massimizzare l'engagement e l'usabilità.",
+				"en": "I design intuitive and visually appealing digital experiences. I transform complex requirements into wireframes and interactive prototypes, placing the user at the center of the creative process to maximize engagement and usability."
 			},
 			"icon": "FaPaintBrush"
 		}

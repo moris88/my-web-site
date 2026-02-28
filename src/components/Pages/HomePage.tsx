@@ -3,13 +3,13 @@
 import 'aos/dist/aos.css'
 
 import AOS from 'aos'
+import { motion } from 'framer-motion'
 import parse from 'html-react-parser'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FaCode, FaPaintbrush, FaRobot } from 'react-icons/fa6'
 import { twMerge } from 'tailwind-merge'
 import Typewriter from 'typewriter-effect'
-
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	InfiniteSkillsScroller,
@@ -160,15 +160,95 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</div>
 					</div>
 
-					<div className="mt-10 flex w-full flex-col items-center gap-6">
-						<h3 className="font-semibold text-2xl text-black dark:text-white">
-							My Tech Stack
-						</h3>
+					<div className="mt-16 flex w-full flex-col items-center gap-10">
+						<div className="flex flex-col items-center gap-2">
+							<h3 className="font-bold text-3xl text-black dark:text-white">
+								My Tech Stack
+							</h3>
+							<div className="h-1 w-12 rounded-full bg-primary/40" />
+						</div>
+
 						<div
-							className="w-full max-w-4xl rounded-xl bg-gray-50 p-6 text-black shadow-md dark:bg-slate-800 dark:text-white dark:shadow-slate-900/50"
+							className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2"
 							data-aos="fade-up"
 						>
-							{parse(info?.secondary_skills?.[language] ?? '')}
+							{[
+								{
+									title: 'Frontend Core',
+									skills: [
+										'React (Advanced)',
+										'Next.js',
+										'TypeScript',
+										'Tailwind CSS',
+										'SCSS',
+									],
+									color: 'from-blue-500/10 to-cyan-500/10',
+									icon: <FaCode className="text-blue-500" />,
+								},
+								{
+									title: 'Backend Core',
+									skills: ['Node.js', 'Express.js', 'Supabase', 'REST APIs'],
+									color: 'from-green-500/10 to-emerald-500/10',
+									icon: <FaCode className="text-green-500" />,
+								},
+								{
+									title: 'Database',
+									skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite'],
+									color: 'from-purple-500/10 to-pink-500/10',
+									icon: <FaCode className="text-purple-500" />,
+								},
+								{
+									title: 'Tools & Design',
+									skills: ['Git & GitHub', 'Figma', 'Biome', 'Vercel'],
+									color: 'from-orange-500/10 to-yellow-500/10',
+									icon: <FaPaintbrush className="text-orange-500" />,
+								},
+							].map((category, idx) => (
+								<motion.div
+									key={category.title}
+									initial={{ opacity: 0, y: 20 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{ delay: idx * 0.1 }}
+									whileHover={{ y: -5 }}
+									className={twMerge(
+										'group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all dark:border-slate-800 dark:bg-slate-800/50',
+										'hover:border-primary/30 hover:shadow-xl dark:hover:border-primary/30',
+									)}
+								>
+									<div
+										className={twMerge(
+											'absolute inset-0 -z-10 bg-linear-to-br opacity-0 transition-opacity group-hover:opacity-100',
+											category.color,
+										)}
+									/>
+
+									<div className="flex items-start justify-between">
+										<div className="flex flex-col gap-1">
+											<span className="font-bold text-primary/60 text-xs uppercase tracking-wider">
+												Category
+											</span>
+											<h4 className="font-bold text-slate-900 text-xl dark:text-white">
+												{category.title}
+											</h4>
+										</div>
+										<div className="rounded-xl bg-slate-100 p-3 text-xl dark:bg-slate-800">
+											{category.icon}
+										</div>
+									</div>
+
+									<div className="mt-6 flex flex-wrap gap-2">
+										{category.skills.map((skill) => (
+											<span
+												key={skill}
+												className="rounded-lg border border-slate-100 bg-slate-50/50 px-3 py-1 font-medium text-slate-600 text-sm transition-colors group-hover:border-primary/20 group-hover:bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:group-hover:bg-slate-700"
+											>
+												{skill}
+											</span>
+										))}
+									</div>
+								</motion.div>
+							))}
 						</div>
 					</div>
 				</div>

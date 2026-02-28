@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import type React from 'react'
+import { useState } from 'react'
 import Card, { CardContent } from './Card'
 
 interface ServiceCardProps {
@@ -11,30 +12,64 @@ interface ServiceCardProps {
 }
 
 function ServiceCard({ title, description, icon }: Readonly<ServiceCardProps>) {
+	const [isHovered, setIsHovered] = useState(false)
+
 	return (
 		<motion.div
-			whileHover={{ scale: 1.05 }}
-			whileTap={{ scale: 0.95 }}
-			className="h-full"
+			layout
+			whileHover={{ y: -5 }}
+			onHoverStart={() => setIsHovered(true)}
+			onHoverEnd={() => setIsHovered(false)}
+			className="h-full cursor-default"
+			transition={{
+				layout: { duration: 0.3, ease: 'easeOut' },
+				y: { duration: 0.2 },
+			}}
 		>
-			<Card>
+			<Card className="relative h-full overflow-hidden border-2 transition-colors duration-300 hover:border-primary/50">
 				<CardContent icon={icon} title={title}>
-					<p className="text-default-500">{description}</p>
+					<motion.div layout className="relative mt-2 overflow-hidden">
+						<AnimatePresence mode="wait">
+							{!isHovered ? (
+								<motion.div
+									key="indicator"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									className="flex items-center gap-2 font-medium text-primary text-sm"
+								>
+									<span className="h-px w-8 bg-primary/30" />
+									Scopri di più
+								</motion.div>
+							) : (
+								<motion.div
+									key="description"
+									initial={{ opacity: 0, height: 0 }}
+									animate={{ opacity: 1, height: 'auto' }}
+									exit={{ opacity: 0, height: 0 }}
+									transition={{
+										height: { duration: 0.3 },
+										opacity: { duration: 0.2, delay: 0.1 },
+									}}
+								>
+									<p className="text-slate-600 leading-relaxed dark:text-slate-300">
+										{description}
+									</p>
+								</motion.div>
+							)}
+						</AnimatePresence>
+					</motion.div>
 				</CardContent>
+
+				{/* Decorative background element */}
+				<motion.div
+					className="absolute -top-4 -right-4 -z-10 h-24 w-24 rounded-full bg-primary/5 blur-2xl"
+					animate={{
+						scale: isHovered ? 1.5 : 1,
+						opacity: isHovered ? 0.8 : 0.3,
+					}}
+				/>
 			</Card>
-			{/* <Card className="h-full border-2 border-transparent bg-white/50 shadow-lg backdrop-blur-md hover:border-primary dark:bg-slate-800/50 dark:shadow-slate-900/50">
-				<CardHeader className="flex gap-3">
-					<div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 text-primary">
-						{icon}
-					</div>
-					<div className="flex flex-col">
-						<p className="font-bold text-md">{title}</p>
-					</div>
-				</CardHeader>
-				<CardBody>
-					<p className="text-default-500">{description}</p>
-				</CardBody>
-			</Card> */}
 		</motion.div>
 	)
 }

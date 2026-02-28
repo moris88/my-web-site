@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
-@config "../../tailwind.config.js";
 
 @theme {
+	/* Configurazione Colori */
+	--color-primary: #006fee;
+
 	/* Configurazione Animazioni */
 	--animate-scroll: scroll 40s linear infinite;
 

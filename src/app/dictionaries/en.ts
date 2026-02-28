@@ -16,12 +16,17 @@ const dictionary = {
 	home: {
 		navigate: 'Navigate the sections of the site',
 		links: {
-			skills: 'my skills',
-			blog: 'my blog',
-			portfolio: 'my portfolio',
-			contacts: 'my contacts',
-			curriculum: 'my curriculum',
-			experience: 'my experience',
+			skills:
+				'Explore my technology stack and the technical skills I have developed over time.',
+			blog: 'Read my latest articles on frontend development, new technologies, and best practices.',
+			portfolio:
+				'View the projects I have created, from web apps to open-source components.',
+			contacts:
+				'Let’s get in touch for collaborations, consultations, or simple feedback.',
+			curriculum:
+				'Download my detailed professional background and academic education.',
+			experience:
+				'Discover the timeline of my work experiences and the milestones achieved.',
 		},
 		whoAmITitle: 'Who am I?',
 		whatIDoTitle: 'What do I do?',
@@ -269,7 +274,7 @@ const dictionary = {
 	curriculum: {
 		title: 'Curriculum Vitae',
 		education: 'Education',
-		experiences: 'Experience',
+		experiences: 'Work Experience',
 		download: 'Download CV',
 		terms: {
 			top: 'Before proceeding with the download of my curriculum vitae in PDF format, I invite you to carefully read the following terms and conditions. The document is provided exclusively for informational and professional purposes, and its use is subject to the conditions outlined here. By accepting the following conditions by checking the checkbox, the user acknowledges and agrees to the following:',
