@@ -119,7 +119,7 @@ export default function PageSkills({
 																<p className="text-center text-sm italic">
 																	{skills[key]?.description?.[language]}
 																</p>
-																<div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 sm:grid-cols-2 lg:grid-cols-4">
+																<div className="my-4 grid grid-cols-1 gap-4 gap-y-4 px-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 																	{skills[key]?.list
 																		?.toSorted((a, b) => b.level - a.level)
 																		.map((skill: Skill) => {
@@ -166,13 +166,13 @@ export default function PageSkills({
 												<p className="text-center text-black text-sm italic dark:text-white">
 													{skills[key].description[language]}
 												</p>
-												<div className="grid grid-cols-1 gap-4 p-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+												<div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 													{skills[key].list
 														.toSorted((a, b) => b.level - a.level)
-														.map((skill: Skill) => {
+														.map((skill: Skill, index) => {
 															return (
 																<button
-																	key={`soft-skill-${key}-${skill.title}`}
+																	key={`soft-skill-${key}-${index}`}
 																	type="button"
 																	onClick={(e) => {
 																		e.preventDefault()
