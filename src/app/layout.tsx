@@ -11,6 +11,7 @@ import { getLinks } from '@/lib/data'
 import { getDictionary } from './dictionaries'
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://mauriziotolomeo.it'),
 	title: 'Maurizio Tolomeo | Frontend & Mobile Developer - React, Next.js',
 	description:
 		'Frontend & Mobile Developer with experience in React, Next.js, React Native, and Tailwind CSS. Building modern and performant solutions.',
@@ -72,13 +73,6 @@ export const metadata: Metadata = {
 	},
 	verification: {
 		google: process.env.GOOGLE_VERIFICATION_CODE,
-	},
-	alternates: {
-		canonical: 'https://mauriziotolomeo.it',
-		languages: {
-			'en-US': 'https://mauriziotolomeo.it',
-			'it-IT': 'https://mauriziotolomeo.it',
-		},
 	},
 }
 

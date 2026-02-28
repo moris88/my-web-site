@@ -19,12 +19,18 @@ export async function generateMetadata({
 		}
 	}
 
+	const description = article.summary || article.content.replace(/<[^>]*>/g, '').substring(0, 150)
+
 	return {
 		title: article.title,
-		description: article.content.substring(0, 150),
+		description: description,
+		alternates: {
+			canonical: `/blog/${id}`,
+		},
 		openGraph: {
 			title: article.title,
-			description: article.content.substring(0, 150),
+			description: description,
+			url: `/blog/${id}`,
 			images: [
 				{
 					url: article.image ?? '',
@@ -41,7 +47,7 @@ export async function generateMetadata({
 		twitter: {
 			card: 'summary_large_image',
 			title: article.title,
-			description: article.content.substring(0, 150),
+			description: description,
 			images: [article.image ?? ''],
 		},
 	}
