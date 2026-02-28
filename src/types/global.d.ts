@@ -194,3 +194,16 @@ export interface QuizQuestion {
 		points: Partial<Record<DeveloperCategory, number>>
 	}[]
 }
+
+declare global {
+	namespace NodeJS {
+		interface ProcessEnv {
+			DEVELOPMENT: boolean
+			EMAIL_USER: string
+			EMAIL_PASS: string
+			EMAIL_TO: string
+			NEXT_PUBLIC_SERVER_API_KEY: string
+			GOOGLE_VERIFICATION_CODE: string
+		}
+	}
+}
