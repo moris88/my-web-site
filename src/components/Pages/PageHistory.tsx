@@ -3,6 +3,7 @@
 import 'aos/dist/aos.css'
 
 import AOS from 'aos'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { IoMdClose } from 'react-icons/io'
@@ -17,6 +18,7 @@ interface PageHistoryProps {
 
 function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 	const [showContent, setShowContent] = React.useState(true)
+	const [selectedItem, setSelectedItem] = React.useState<{ id: string; title: string | null; description: string; image?: string; alt?: string } | null>(null)
 	const router = useRouter()
 
 	React.useEffect(() => {
@@ -86,9 +88,8 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 						return (
 							<div
 								key={item.id}
-								className={`relative flex items-center ${
-									isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-								}`}
+								className={`relative flex items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+									}`}
 								data-aos="fade-up"
 							>
 								{/* Timeline Dot */}
@@ -99,7 +100,11 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 
 								{/* Content Card */}
 								<div className="ml-12 w-full md:ml-0 md:w-1/2 md:px-8">
-									<div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl dark:border-gray-800 dark:bg-slate-900">
+									<button
+										type="button"
+										className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 text-left shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl dark:border-gray-800 dark:bg-slate-900"
+										onClick={() => setSelectedItem(item)}
+									>
 										<div className="absolute inset-0 bg-blue-500/5 opacity-0 transition-opacity group-hover:opacity-100" />
 
 										{item.image && (
@@ -107,17 +112,21 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 												<img
 													src={item.image}
 													alt={item.alt || item.title || ''}
-													className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+													className="h-48 w-full transition-transform duration-500 group-hover:scale-110"
 												/>
 											</div>
 										)}
 										<h4 className="mb-2 font-bold text-primary text-xl dark:text-blue-400">
 											{item.title}
 										</h4>
-										<p className="text-gray-600 leading-relaxed dark:text-gray-300">
+										<p className="line-clamp-4 text-gray-600 leading-relaxed dark:text-gray-300">
 											{item.description}
 										</p>
-									</div>
+										<div className="mt-4 flex items-center gap-2 font-semibold text-primary text-sm">
+											<span className="h-px w-8 bg-primary/30" />
+											{language === 'en' ? 'Discover more' : 'Scopri di più'}
+										</div>
+									</button>
 								</div>
 							</div>
 						)
@@ -165,6 +174,59 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 					{history.lastUpdate}
 				</p>
 			</div>
+
+			{/* Fullscreen Detail Modal */}
+			<AnimatePresence>
+				{selectedItem && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-md md:p-10"
+						onClick={() => setSelectedItem(null)}
+					>
+						<motion.button
+							className="absolute top-6 right-6 z-50 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+							onClick={() => setSelectedItem(null)}
+						>
+							<IoMdClose size={32} />
+						</motion.button>
+
+						<motion.div
+							initial={{ scale: 0.9, opacity: 0, y: 20 }}
+							animate={{ scale: 1, opacity: 1, y: 0 }}
+							exit={{ scale: 0.9, opacity: 0, y: 20 }}
+							transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+							className="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-900"
+							onClick={(e) => e.stopPropagation()}
+						>
+							{selectedItem.image && (
+								<div className="h-64 w-full shrink-0 md:h-80">
+									<img
+										src={selectedItem.image}
+										alt={selectedItem.alt || selectedItem.title || ''}
+										className="h-full w-full"
+									/>
+								</div>
+							)}
+							<div className="flex flex-col overflow-y-auto p-8 md:p-10">
+								<h2 className="mb-4 font-bold text-3xl text-primary md:text-4xl dark:text-blue-400">
+									{selectedItem.title}
+								</h2>
+								<div className="mb-6 h-1 w-16 rounded-full bg-primary/20" />
+								<p className="text-gray-600 text-lg leading-relaxed dark:text-gray-300">
+									{selectedItem.description}
+								</p>
+								<div className="mt-8 pt-4">
+									<Button onClick={() => setSelectedItem(null)} className="w-full md:w-auto">
+										{language === 'en' ? 'Close' : 'Chiudi'}
+									</Button>
+								</div>
+							</div>
+						</motion.div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</SectionHero>
 	)
 }
