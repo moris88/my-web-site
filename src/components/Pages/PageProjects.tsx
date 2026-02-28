@@ -133,7 +133,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			<section className="min-h-screen w-full dark:bg-[#1b1a19]">
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="grid grid-cols-1 items-stretch gap-4 p-2 md:grid-cols-2 xl:grid-cols-4">
-						{projectsState.map((project) => (
+						{projectsState.filter((project) => project.public).map((project) => (
 							<CardProject
 								key={`project-${project.id}`}
 								project={project}

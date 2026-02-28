@@ -9,6 +9,7 @@
 					"src": "/projects/1.webp",
 					"alt": "Todo App"
 				},
+				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
 				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
@@ -21,6 +22,7 @@
 					"src": "/projects/2.webp",
 					"alt": "Conteggio Consumo Acqua Condominio App"
 				},
+				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
@@ -33,6 +35,7 @@
 					"src": "/projects/3.webp",
 					"alt": "Git Commit Helper IT CLI"
 				},
+				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
 				"tags": ["Javascript", "AI", "Git", "CLI"]
@@ -45,6 +48,7 @@
 					"src": "/projects/4.webp",
 					"alt": "PDF Merged IT App"
 				},
+				"public": true,
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
@@ -57,6 +61,7 @@
 					"src": "/projects/5.webp",
 					"alt": "Invoice Generator IT App"
 				},
+				"public": true,
 				"url": "https://invoice-generator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/generatore-di-fattura",
 				"tags": [
@@ -78,6 +83,7 @@
 					"src": "/projects/6.webp",
 					"alt": "Creditsafe for Zoho CRM App"
 				},
+				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
 				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
 			},
@@ -89,6 +95,7 @@
 					"src": "/projects/7.webp",
 					"alt": "Alumni Website University of Trento"
 				},
+				"public": false,
 				"url": "https://alumni.unitn.it/",
 				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
 			},
@@ -100,6 +107,7 @@
 					"src": "/projects/8.webp",
 					"alt": "CLI Backup Script"
 				},
+				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
 				"tags": ["Javascript", "Node.js", "CLI", "File System"]
@@ -112,6 +120,7 @@
 					"src": "/projects/9.webp",
 					"alt": "React-PDF-Editor"
 				},
+				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
@@ -126,6 +135,7 @@
 					"src": "/projects/1.webp",
 					"alt": "Todo App"
 				},
+				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
 				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
@@ -138,6 +148,7 @@
 					"src": "/projects/2.webp",
 					"alt": "Water Consumption Tracking App"
 				},
+				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
@@ -150,6 +161,7 @@
 					"src": "/projects/3.webp",
 					"alt": "Git Commit Helper IT CLI"
 				},
+				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
 				"tags": ["Javascript", "AI", "Git", "CLI"]
@@ -174,6 +186,7 @@
 					"src": "/projects/5.webp",
 					"alt": "Invoice Generator IT App"
 				},
+				"public": true,
 				"url": "https://invoice-generator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/generatore-di-fattura",
 				"tags": [
@@ -195,6 +208,7 @@
 					"src": "/projects/6.webp",
 					"alt": "Creditsafe per Zoho CRM App"
 				},
+				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
 				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
 			},
@@ -206,6 +220,7 @@
 					"src": "/projects/7.webp",
 					"alt": "Alumni Website University of Trento"
 				},
+				"public": false,
 				"url": "https://alumni.unitn.it/",
 				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
 			},
@@ -217,6 +232,7 @@
 					"src": "/projects/8.webp",
 					"alt": "CLI Backup Script"
 				},
+				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
 				"tags": ["Javascript", "Node.js", "CLI", "File System"]
@@ -229,6 +245,7 @@
 					"src": "/projects/9.webp",
 					"alt": "React-PDF-Editor"
 				},
+				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]

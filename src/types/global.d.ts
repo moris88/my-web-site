@@ -161,6 +161,7 @@ export interface Project {
 		src: string
 		alt: string
 	}
+	public: boolean
 	tags: string[]
 }
 
