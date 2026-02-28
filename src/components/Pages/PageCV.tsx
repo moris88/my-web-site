@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaCity } from 'react-icons/fa'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { MdOutlineWork, MdSchool } from 'react-icons/md'
@@ -186,7 +186,9 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 					className="my-4 max-h-[30vh] list-inside list-disc overflow-y-auto rounded-lg border border-gray-200 p-4 text-gray-600 dark:border-gray-700 dark:text-gray-300"
 				>
 					{(dict.curriculum.terms.items as string[]).map((term, index) => (
-						<li key={index} className="mb-2 last:mb-0">{term}</li>
+						<li key={index} className="mb-2 last:mb-0">
+							{term}
+						</li>
 					))}
 				</ul>
 

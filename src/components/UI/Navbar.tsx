@@ -71,7 +71,13 @@ export const Navbar = ({
 
 					<div className="flex flex-col space-y-6">
 						{navLinks.map(({ title, href, icon }) =>
-							ItemNavbar({ title, href, icon, pathname, onClick: () => setIsOpen(false) }),
+							ItemNavbar({
+								title,
+								href,
+								icon,
+								pathname,
+								onClick: () => setIsOpen(false),
+							}),
 						)}
 						<div className="flex w-full items-center justify-center gap-2">
 							<ToogleTheme />

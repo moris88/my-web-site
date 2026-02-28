@@ -33,7 +33,7 @@ function SectionHero({
 					</span>
 				</h2>
 				<div className="h-1 w-20 rounded-full bg-primary" />
-				<p className={cn("text-gray-600 dark:text-gray-300", )}>{subtitle}</p>
+				<p className={cn('text-gray-600 dark:text-gray-300')}>{subtitle}</p>
 			</div>
 			{image?.src && (
 				<img

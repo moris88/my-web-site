@@ -20,9 +20,9 @@ function Icon({ className, labelIcon, pathD }: Readonly<IconProps>) {
 			xmlns="http://www.w3.org/2000/svg"
 			role={labelIcon ? 'img' : 'presentation'}
 			aria-labelledby={labelIcon ? titleId : undefined}
-			aria-hidden={labelIcon ? undefined : true}
+			aria-hidden={!labelIcon}
 		>
-			{labelIcon ? <title id={titleId}>{labelIcon}</title> : null}
+			<title id={titleId}>{labelIcon || 'Icon'}</title>
 			<path d={pathD} />
 		</svg>
 	)
