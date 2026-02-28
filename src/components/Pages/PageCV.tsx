@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import React from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { FaCity } from 'react-icons/fa'
 import { HiArrowDownTray } from 'react-icons/hi2'
 import { MdOutlineWork, MdSchool } from 'react-icons/md'
@@ -24,10 +24,35 @@ interface PageCVProps {
 }
 
 function PageCV({ curriculum, dict }: PageCVProps) {
-	const [accept, setAccept] = React.useState<boolean>(false)
-	const [showDownload, setShowDownload] = React.useState<boolean>(false)
+	const [accept, setAccept] = useState<boolean>(false)
+	const [showDownload, setShowDownload] = useState<boolean>(false)
 
-	// Helper to render timeline items
+	// Stato per gestire l'abilitazione basata sullo scroll
+	const [hasReadTerms, setHasReadTerms] = useState<boolean>(false)
+	const scrollRef = useRef<HTMLUListElement>(null)
+
+	// Funzione per verificare se l'utente ha raggiunto la fine del testo
+	const handleScroll = () => {
+		const element = scrollRef.current
+		if (element) {
+			const { scrollTop, scrollHeight, clientHeight } = element
+			// Soglia di tolleranza di 2px per gestire arrotondamenti dei vari browser
+			const isAtBottom = scrollHeight - scrollTop <= clientHeight + 2
+
+			if (isAtBottom) {
+				setHasReadTerms(true)
+			}
+		}
+	}
+
+	// Reset dello stato quando il modal viene chiuso/riaperto
+	useEffect(() => {
+		if (!showDownload) {
+			setHasReadTerms(false)
+			setAccept(false)
+		}
+	}, [showDownload])
+
 	const renderTimelineItem = (
 		item: Experience | Education,
 		index: number,
@@ -37,12 +62,10 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 		const isLast = index === total - 1
 		return (
 			<div key={index} className="relative flex gap-6 pb-12 last:pb-0">
-				{/* Timeline Line */}
 				{!isLast && (
 					<div className="absolute top-10 left-4.75 h-full w-0.5 bg-gray-200 dark:bg-gray-800" />
 				)}
 
-				{/* Icon */}
 				<div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-primary shadow-sm dark:border-slate-900 dark:bg-blue-900/30 dark:text-blue-400">
 					{type === 'work' ? (
 						<FaCity className="h-5 w-5" />
@@ -51,7 +74,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 					)}
 				</div>
 
-				{/* Content */}
 				<div className="flex flex-col gap-2 pt-1">
 					<h3 className="font-bold text-gray-900 text-xl dark:text-gray-100">
 						{item.link ? (
@@ -92,7 +114,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 			title={dict.curriculum.title}
 		>
 			<div className="mx-auto max-w-4xl">
-				{/* Download Button (Floating on mobile, inline on desktop) */}
 				<div className="mb-12 flex justify-center">
 					<Button onClick={() => setShowDownload(true)}>
 						{dict.curriculum.download}
@@ -101,7 +122,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				</div>
 
 				<div className="grid gap-16 md:grid-cols-1">
-					{/* Experience Section */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -125,7 +145,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 						</div>
 					</motion.div>
 
-					{/* Education Section */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -151,7 +170,6 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				</div>
 			</div>
 
-			{/* Download Modal */}
 			<Dialog
 				isOpen={showDownload}
 				isDismissible={false}
@@ -159,16 +177,35 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 				title={dict.curriculum.download}
 			>
 				<p className="text-gray-600 dark:text-gray-300">
-					{dict.curriculum.terms}
+					{dict.curriculum.terms.top}
 				</p>
+
+				<ul
+					ref={scrollRef}
+					onScroll={handleScroll}
+					className="my-4 max-h-[30vh] list-inside list-disc overflow-y-auto rounded-lg border border-gray-200 p-4 text-gray-600 dark:border-gray-700 dark:text-gray-300"
+				>
+					{(dict.curriculum.terms.items as string[]).map((term, index) => (
+						<li key={index} className="mb-2 last:mb-0">{term}</li>
+					))}
+				</ul>
+
+				{!hasReadTerms && (
+					<p className="mb-2 font-semibold text-red-600 text-xs dark:text-red-400">
+						* Devi scorrere tutto il testo per poter accettare i termini.
+					</p>
+				)}
+
 				<div className="py-4">
 					<Checkbox
 						id="accept-terms"
 						checked={accept}
 						onChange={setAccept}
-						label={'I accept the terms and conditions'}
+						disabled={!hasReadTerms}
+						label={dict.curriculum.accept}
 					/>
 				</div>
+
 				<div className="flex justify-end gap-2 pb-4">
 					<Button variant="ghost" onClick={() => setShowDownload(false)}>
 						{dict.curriculum.cancel}

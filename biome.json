@@ -20,6 +20,9 @@
 			"performance": {
 				"noImgElement": "off"
 			},
+			"suspicious": {
+				"noArrayIndexKey": "off"
+			},
 			"nursery": {
 				"useSortedClasses": "warn"
 			},

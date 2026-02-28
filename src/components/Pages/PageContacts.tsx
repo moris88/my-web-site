@@ -82,7 +82,7 @@ export default function PageContacts({
 									{contacts?.email ?? ''}
 								</Link>
 								<div className="w-full">
-									<div className="flex flex-wrap justify-center gap-3">
+									<div className="flex flex-col flex-wrap justify-center gap-3 md:flex-row">
 										{contacts.links.map((button) => {
 											console.log('button', button)
 											const buttonLower = button.toLowerCase()

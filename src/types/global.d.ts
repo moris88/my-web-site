@@ -104,14 +104,6 @@ export interface Article {
 	author?: string
 }
 
-export interface Comment {
-	id: string
-	article_id: string
-	content: string
-	created_at: string
-	username: string
-}
-
 export interface Curriculum {
 	educations: Education[]
 	experiences: Experience[]
