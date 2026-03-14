@@ -1,14 +1,12 @@
 'use client'
 
-import 'aos/dist/aos.css'
-
-import AOS from 'aos'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
+import { ChevronDown, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
 import { Button, SectionHero } from '@/components/UI'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 import type { History, Language } from '@/types'
 
 interface PageHistoryProps {
@@ -25,11 +23,24 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 		image?: string
 		alt?: string
 	} | null>(null)
+	const [showScrollTop, setShowScrollTop] = React.useState(false)
 	const router = useRouter()
 
+	useScrollReveal()
+
 	React.useEffect(() => {
-		AOS.init()
+		const handleScroll = () => {
+			// Mostra il tasto quando si è scesi di almeno 400px
+			setShowScrollTop(window.scrollY > 400)
+		}
+
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 
 	const historyItems = history[language]
 	const introItem = historyItems[0]
@@ -38,6 +49,25 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 
 	return (
 		<SectionHero title={history.title[language]}>
+			{/* BOTTONE SCROLL TO TOP */}
+			<AnimatePresence>
+				{showScrollTop && (
+					<div className="fixed right-6 bottom-20 z-50 flex">
+						<motion.button
+							initial={{ opacity: 0, scale: 0 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0 }}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							onClick={scrollToTop}
+							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
+						>
+							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
+						</motion.button>
+					</div>
+				)}
+			</AnimatePresence>
+
 			{/* Intro Section */}
 			<div className="mx-auto max-w-4xl text-center">
 				<h3 className="mb-4 font-bold text-2xl md:text-3xl">
@@ -52,7 +82,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 			{showContent && (
 				<div
 					className="relative mx-auto my-8 w-full max-w-4xl overflow-hidden rounded-2xl bg-linear-to-r from-blue-500/10 to-purple-500/10 p-1 shadow-lg backdrop-blur-sm dark:from-blue-900/20 dark:to-purple-900/20"
-					data-aos="fade-up"
+					data-reveal="fade-up"
 				>
 					<div className="relative rounded-xl bg-white/50 p-6 dark:bg-slate-900/50">
 						<button
@@ -97,7 +127,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 								className={`relative flex items-center ${
 									isEven ? 'md:flex-row' : 'md:flex-row-reverse'
 								}`}
-								data-aos="fade-up"
+								data-reveal="fade-up"
 							>
 								{/* Timeline Dot */}
 								<div className="absolute left-4 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-white bg-primary shadow-md md:left-1/2 dark:border-slate-900 dark:bg-blue-500" />

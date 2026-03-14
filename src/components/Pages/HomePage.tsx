@@ -1,9 +1,6 @@
 'use client'
 
-import 'aos/dist/aos.css'
-
-import AOS from 'aos'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import parse from 'html-react-parser'
 import { Bot, ChevronDown, Code, Paintbrush } from 'lucide-react'
 import { useRouter } from 'next/navigation'
@@ -19,6 +16,7 @@ import {
 	Tooltip,
 	UniqueButton,
 } from '@/components'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 import type { Info, Language } from '@/types'
 
 interface HomePageProps {
@@ -29,55 +27,22 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
 	const [startSubTitle, setStartSubtitle] = React.useState(false)
-	const [isLastSection, setIsLastSection] = React.useState(false)
+	const [showScrollTop, setShowScrollTop] = React.useState(false)
 	const router = useRouter()
 
-	React.useEffect(() => {
-		AOS.init()
+	useScrollReveal()
 
+	React.useEffect(() => {
 		const handleScroll = () => {
-			// Controlla se siamo all'ultima sezione
-			const lastSection = document.getElementById('links')
-			if (lastSection) {
-				const isAtEnd =
-					window.scrollY + window.innerHeight >=
-					document.documentElement.scrollHeight - 100
-				setIsLastSection(isAtEnd)
-			}
+			setShowScrollTop(window.scrollY > 400)
 		}
 
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
 
-	const handleSectionScroll = () => {
-		const sectionIds = [
-			'hero',
-			'what-i-do',
-			'who-am-i',
-			'specialization',
-			'links',
-		]
-		const scrollPosition = window.scrollY + 150 // offset per precisione
-
-		let nextIndex = 0
-
-		if (isLastSection) {
-			nextIndex = 0
-		} else {
-			for (let i = 0; i < sectionIds.length; i++) {
-				const element = document.getElementById(sectionIds[i])
-				if (element && element.offsetTop > scrollPosition) {
-					nextIndex = i
-					break
-				}
-			}
-		}
-
-		const nextSection = document.getElementById(sectionIds[nextIndex])
-		if (nextSection) {
-			nextSection.scrollIntoView({ behavior: 'smooth' })
-		}
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
 	}
 
 	return (
@@ -92,7 +57,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				>
 					<div
 						className="flex items-center justify-center p-4 md:p-0"
-						data-aos="fade-up"
+						data-reveal="fade-up"
 					>
 						<Tooltip position="bottom" text={dict.home.message}>
 							<InteractiveAvatar
@@ -151,19 +116,24 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			{/* BOTTONE SCROLL */}
-			<div className="fixed right-10 bottom-18 z-50 hidden md:flex">
-				<motion.button
-					initial={{ opacity: 0, scale: 0 }}
-					animate={{ opacity: 1, scale: 1, rotate: isLastSection ? 180 : 0 }}
-					whileHover={{ scale: 1.1 }}
-					whileTap={{ scale: 0.9 }}
-					onClick={handleSectionScroll}
-					className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
-				>
-					<ChevronDown className="h-7 w-7 text-primary" />
-				</motion.button>
-			</div>
+			{/* BOTTONE SCROLL TO TOP */}
+			<AnimatePresence>
+				{showScrollTop && (
+					<div className="fixed right-6 bottom-20 z-50 flex">
+						<motion.button
+							initial={{ opacity: 0, scale: 0 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0 }}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							onClick={scrollToTop}
+							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
+						>
+							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
+						</motion.button>
+					</div>
+				)}
+			</AnimatePresence>
 
 			<section
 				id="what-i-do"
@@ -182,7 +152,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 
 					<div
 						className="grid w-full grid-cols-1 gap-6 md:grid-cols-3"
-						data-aos="fade-up"
+						data-reveal="fade-up"
 					>
 						{info.services?.map((service) => {
 							const iconMap: Record<string, React.ReactNode> = {
@@ -218,7 +188,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 
 					<div
 						className="rounded-2xl bg-gray-50 p-8 shadow-lg dark:bg-slate-800 dark:shadow-slate-900/50"
-						data-aos="fade-up"
+						data-reveal="fade-up"
 					>
 						<div className="prose dark:prose-invert max-w-4xl text-black dark:text-white">
 							{parse(info?.whoAmIDescription?.[language] ?? '')}
@@ -235,7 +205,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 
 						<div
 							className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2"
-							data-aos="fade-up"
+							data-reveal="fade-up"
 						>
 							{[
 								{
@@ -330,7 +300,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</h2>
 						<div className="h-1 w-20 rounded-full bg-primary" />
 					</div>
-					<div className="w-full" data-aos="fade-up">
+					<div className="w-full" data-reveal="fade-up">
 						<InfiniteSkillsScroller skills={info.primary_skills} />
 					</div>
 				</div>

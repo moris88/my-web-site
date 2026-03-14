@@ -166,16 +166,16 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 				{/* 🖱️ Scroll Up Button (Fixed, appare quando si scende o se non c'è FeaturedArticle) */}
 				<AnimatePresence>
 					{isScrolled && (
-						<div className="fixed right-10 bottom-18 z-50 hidden md:flex">
+						<div className="fixed right-6 bottom-20 z-50 flex">
 							<motion.button
 								layoutId="scroll-button"
 								initial={{ opacity: 0, scale: 0, rotate: 0 }}
 								animate={{ opacity: 1, scale: 1, rotate: 180 }}
 								exit={{ opacity: 0, scale: 0, rotate: 0 }}
 								onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-								className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
+								className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
 							>
-								<ChevronDown className="h-7 w-7 text-primary" />
+								<ChevronDown className="h-6 w-6 text-primary md:h-7 md:w-7" />
 							</motion.button>
 						</div>
 					)}

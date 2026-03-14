@@ -1,10 +1,11 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
 	Book,
 	Briefcase,
 	Building2,
+	ChevronDown,
 	Download,
 	FileUser,
 	GraduationCap,
@@ -33,6 +34,21 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 	// Stato per gestire l'abilitazione basata sullo scroll
 	const [hasReadTerms, setHasReadTerms] = useState<boolean>(false)
 	const scrollRef = useRef<HTMLUListElement>(null)
+
+	// Stato per il tasto Scroll to Top
+	const [showScrollTop, setShowScrollTop] = useState<boolean>(false)
+
+	useEffect(() => {
+		const handleScrollWindow = () => {
+			setShowScrollTop(window.scrollY > 400)
+		}
+		window.addEventListener('scroll', handleScrollWindow)
+		return () => window.removeEventListener('scroll', handleScrollWindow)
+	}, [])
+
+	const scrollToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 
 	// Funzione per verificare se l'utente ha raggiunto la fine del testo
 	const handleScroll = () => {
@@ -116,6 +132,25 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 			icon={<FileUser className="h-8 w-8 text-primary" />}
 			title={dict.curriculum.title}
 		>
+			{/* BOTTONE SCROLL TO TOP */}
+			<AnimatePresence>
+				{showScrollTop && (
+					<div className="fixed right-6 bottom-20 z-50 flex">
+						<motion.button
+							initial={{ opacity: 0, scale: 0 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0 }}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							onClick={scrollToTop}
+							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
+						>
+							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
+						</motion.button>
+					</div>
+				)}
+			</AnimatePresence>
+
 			<div className="mx-auto max-w-4xl">
 				<div className="mb-12 flex justify-center">
 					<Button onClick={() => setShowDownload(true)}>

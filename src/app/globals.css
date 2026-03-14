@@ -33,7 +33,7 @@ body {
 }
 
 .hero > .hero-image {
-	@apply h-full w-full object-cover object-center rounded-xl transition-all duration-500 brightness-200 opacity-70 dark:brightness-100 dark:opacity-100;
+	@apply h-full w-full object-cover object-center rounded-xl transition-all duration-500 brightness-160 opacity-80 dark:brightness-100 dark:opacity-100;
 }
 
 .hero > .hero-content {
@@ -110,4 +110,13 @@ body {
 
 .prose {
 	@apply text-black dark:text-white;
+}
+
+/* Scroll Reveal (Replica AOS fade-up) - Più accentuato */
+[data-reveal="fade-up"] {
+	@apply opacity-0 translate-y-24 scale-95 blur-xs transition-all duration-1000 ease-out;
+}
+
+[data-reveal="fade-up"].reveal-active {
+	@apply opacity-100 translate-y-0 scale-100 blur-none;
 }

@@ -20,7 +20,7 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 - **🎮 Interactive Quiz**: A built-in quiz system to engage visitors.
 - **📨 Contact System**: Functional contact form integrated with **Nodemailer**.
 - **🌗 Dark/Light Mode**: Seamless theme switching for better user experience.
-- **🎭 Rich Animations**: Smooth transitions and interactive elements using **Framer Motion** and **AOS**.
+- **🎭 Rich Animations**: Smooth transitions and interactive elements using **Framer Motion** and custom **Tailwind CSS** scroll reveals.
 - **⚡ High Performance**: Optimized with **Next.js**, **Vercel Analytics**, and **Speed Insights**.
 
 ---
@@ -33,7 +33,7 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 - **Database**: [SQLite](https://www.sqlite.org/) (via [better-sqlite3](https://github.com/WiseLibs/node-better-sqlite3))
 - **State Management**: [Jotai](https://jotai.org/)
 - **Forms**: [React Hook Form](https://react-hook-form.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/), [AOS](https://michalsnik.github.io/aos/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Tooling**: [Biome](https://biomejs.dev/) (Linting & Formatting)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Deployment**: [Vercel](https://vercel.com/)
