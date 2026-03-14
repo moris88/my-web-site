@@ -150,6 +150,8 @@ const dictionary = {
 		title: 'Il mio Blog',
 		subtitle:
 			'Scopri articoli, esperimenti e ispirazioni dal mio mondo frontend.',
+		latestPost: 'Ultimo articolo',
+		readMore: 'Leggi di più',
 		card: {
 			createdAt: 'Creato il',
 			editedAt: 'Modificato il',

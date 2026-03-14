@@ -5,7 +5,7 @@ import 'aos/dist/aos.css'
 import AOS from 'aos'
 import { motion } from 'framer-motion'
 import parse from 'html-react-parser'
-import { Bot, Code, Paintbrush } from 'lucide-react'
+import { Bot, ChevronDown, Code, Paintbrush } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -29,15 +29,60 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
 	const [startSubTitle, setStartSubtitle] = React.useState(false)
+	const [isLastSection, setIsLastSection] = React.useState(false)
 	const router = useRouter()
 
 	React.useEffect(() => {
 		AOS.init()
+
+		const handleScroll = () => {
+			// Controlla se siamo all'ultima sezione
+			const lastSection = document.getElementById('links')
+			if (lastSection) {
+				const isAtEnd =
+					window.scrollY + window.innerHeight >=
+					document.documentElement.scrollHeight - 100
+				setIsLastSection(isAtEnd)
+			}
+		}
+
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
+	const handleSectionScroll = () => {
+		const sectionIds = [
+			'hero',
+			'what-i-do',
+			'who-am-i',
+			'specialization',
+			'links',
+		]
+		const scrollPosition = window.scrollY + 150 // offset per precisione
+
+		let nextIndex = 0
+
+		if (isLastSection) {
+			nextIndex = 0
+		} else {
+			for (let i = 0; i < sectionIds.length; i++) {
+				const element = document.getElementById(sectionIds[i])
+				if (element && element.offsetTop > scrollPosition) {
+					nextIndex = i
+					break
+				}
+			}
+		}
+
+		const nextSection = document.getElementById(sectionIds[nextIndex])
+		if (nextSection) {
+			nextSection.scrollIntoView({ behavior: 'smooth' })
+		}
+	}
 
 	return (
 		<>
-			<section className="hero">
+			<section id="hero" className="hero">
 				<img alt="cover" className="hero-image" src="cover.webp" />
 				<div
 					className={twMerge(
@@ -58,7 +103,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 						</Tooltip>
 					</div>
 					{!startSubTitle && (
-						<div className="myFont text-3xl text-shadow-md text-white">
+						<div className="myFont text-center text-3xl text-shadow-md text-white">
 							<Typewriter
 								onInit={(typewriter) => {
 									typewriter
@@ -74,7 +119,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 					)}
 					{startSubTitle && (
 						<>
-							<p className="myFont text-3xl text-shadow-md text-white">
+							<p className="myFont text-center text-3xl text-shadow-md text-white">
 								MAURIZIO TOLOMEO
 							</p>
 							<div className="myFont text-center text-shadow-md text-white text-xl">
@@ -106,7 +151,24 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+			{/* BOTTONE SCROLL */}
+			<div className="fixed right-10 bottom-18 z-50 hidden md:flex">
+				<motion.button
+					initial={{ opacity: 0, scale: 0 }}
+					animate={{ opacity: 1, scale: 1, rotate: isLastSection ? 180 : 0 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.9 }}
+					onClick={handleSectionScroll}
+					className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
+				>
+					<ChevronDown className="h-7 w-7 text-primary" />
+				</motion.button>
+			</div>
+
+			<section
+				id="what-i-do"
+				className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]"
+			>
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
 						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
@@ -142,7 +204,10 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			<section className="w-full bg-white py-20 dark:bg-slate-900">
+			<section
+				id="who-am-i"
+				className="w-full bg-white py-20 dark:bg-slate-900"
+			>
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
 						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
@@ -176,7 +241,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 								{
 									title: 'Frontend Core',
 									skills: [
-										'React (Advanced)',
+										'React.js',
 										'Next.js',
 										'TypeScript',
 										'Tailwind CSS',
@@ -199,7 +264,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 								},
 								{
 									title: 'Tools & Design',
-									skills: ['Git & GitHub', 'Figma', 'Biome', 'Vercel'],
+									skills: ['Git & GitHub', 'Figma', 'Biome.js', 'Vercel'],
 									color: 'from-orange-500/10 to-yellow-500/10',
 									icon: <Paintbrush className="text-orange-500" />,
 								},
@@ -254,7 +319,10 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			<section className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]">
+			<section
+				id="specialization"
+				className="w-full bg-gray-50 py-20 dark:bg-[#1b1a19]"
+			>
 				<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 					<div className="flex flex-col items-center gap-4 text-center">
 						<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">
@@ -268,7 +336,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 				</div>
 			</section>
 
-			<SectionCardLink dict={dict} />
+			<SectionCardLink id="links" dict={dict} />
 		</>
 	)
 }

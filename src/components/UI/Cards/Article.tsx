@@ -29,7 +29,7 @@ function CardArticle({
 			className="h-full w-full cursor-pointer"
 			onClick={handleOnClick}
 		>
-			<Card>
+			<Card className="h-full">
 				<CardImage src={image ?? ''} alt={alt ?? ''} />
 				<CardContent title={title}>
 					<p className="line-clamp-4 text-gray-500 text-sm dark:text-gray-400">

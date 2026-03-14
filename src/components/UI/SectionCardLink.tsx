@@ -6,9 +6,10 @@ import CardLink from './Cards/Link'
 
 interface SectionCardLinkProps {
 	dict: Dictionary
+	id?: string
 }
 
-function SectionCardLink({ dict }: Readonly<SectionCardLinkProps>) {
+function SectionCardLink({ dict, id }: Readonly<SectionCardLinkProps>) {
 	const links = [
 		{
 			name: dict.navbar.curriculum,
@@ -49,7 +50,7 @@ function SectionCardLink({ dict }: Readonly<SectionCardLinkProps>) {
 	]
 
 	return (
-		<section className="w-full bg-white py-20 dark:bg-slate-900">
+		<section id={id} className="w-full bg-white py-20 dark:bg-slate-900">
 			<div className="container mx-auto flex flex-col items-center gap-10 px-4">
 				<div className="flex flex-col items-center gap-4 text-center">
 					<h2 className="font-bold text-3xl text-black md:text-4xl dark:text-white">

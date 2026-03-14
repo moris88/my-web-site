@@ -150,6 +150,8 @@ const dictionary = {
 		title: 'My Blog',
 		subtitle:
 			'Discover articles, experiments, and inspirations from my frontend world.',
+		latestPost: 'Latest Post',
+		readMore: 'Read More',
 		card: {
 			createdAt: 'Created at',
 			editedAt: 'Edited at',

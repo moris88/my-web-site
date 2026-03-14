@@ -24,7 +24,7 @@ const CardImage = ({ src, alt }: { src: string; alt?: string }) => {
 	const [isLoaded, setIsLoaded] = React.useState(false)
 
 	return (
-		<div className="relative aspect-video w-full flex-1 overflow-hidden">
+		<div className="relative aspect-video w-full overflow-hidden">
 			{/* Fallback manuale */}
 			{!isLoaded && (
 				<div className="absolute inset-0 animate-pulse bg-gray-300 dark:bg-slate-800" />
@@ -83,7 +83,7 @@ const CardFooter = ({
 }) => (
 	<div
 		className={twMerge(
-			`flex-1 border-slate-100 border-t bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-900/50`,
+			`border-slate-100 border-t bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-900/50`,
 			className,
 		)}
 	>

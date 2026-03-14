@@ -8,13 +8,13 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Deploy Production
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "22"
+          node-version: "24"
       - name: "Installare Vercel CLI"
         run: npm install -g vercel
       - name: "Deploy"

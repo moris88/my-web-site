@@ -33,7 +33,7 @@ body {
 }
 
 .hero > .hero-image {
-	@apply h-full w-full object-cover object-center rounded-xl;
+	@apply h-full w-full object-cover object-center rounded-xl transition-all duration-500 brightness-200 opacity-70 dark:brightness-100 dark:opacity-100;
 }
 
 .hero > .hero-content {
