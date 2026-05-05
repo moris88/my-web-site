@@ -92,4 +92,4 @@ const CardFooter = ({
 )
 
 export default Card
-export { CardContent, CardImage, CardFooter }
+export { CardContent, CardFooter, CardImage }

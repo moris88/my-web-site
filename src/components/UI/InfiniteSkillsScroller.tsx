@@ -19,7 +19,7 @@ function InfiniteSkillsScroller({
 			{/* w-max assicura che il div si espanda in base al contenuto per l'animazione */}
 			<div className="flex h-52 w-max animate-scroll hover:[animation-play-state:paused]">
 				{skills.map((skill, index) => {
-					if (!skill.img || !skill.img?.src) {
+					if (!skill.img?.src) {
 						console.warn(
 							`Skill at index ${index} is missing img or img.src:`,
 							skill,
@@ -37,7 +37,7 @@ function InfiniteSkillsScroller({
 				})}
 				{/* Duplicazione per effetto infinito */}
 				{skills.map((skill, index) => {
-					if (!skill.img || !skill.img?.src) {
+					if (!skill.img?.src) {
 						console.warn(
 							`Skill at index ${index} is missing img or img.src:`,
 							skill,
