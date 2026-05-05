@@ -12,7 +12,7 @@
 				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
-				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			},
 			{
 				"id": 2,
