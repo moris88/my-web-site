@@ -1,4 +1,4 @@
-name: "Code Quality Analysis"
+name: "Code Duplication Analysis"
 
 on:
   pull_request:
@@ -13,6 +13,7 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    name: "Analyze code duplication in PR"
 
     steps:
       - uses: actions/checkout@v4
