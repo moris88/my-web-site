@@ -95,7 +95,7 @@
 			},
 			{
 				"title": "ShadcnUI",
-				"level": 9,
+				"level": 8,
 				"link": "https://ui.shadcn.com/",
 				"icon": "Box"
 			},
@@ -240,28 +240,28 @@
 				"icon": "GitBranch"
 			},
 			{
-				"title": "GitHub",
-				"level": 9,
-				"link": "https://github.com/",
-				"icon": "Github"
-			},
-			{
 				"title": "Strapi",
 				"level": 7,
 				"link": "https://strapi.io/",
 				"icon": "Layers"
 			},
 			{
-				"title": "Figma",
-				"level": 7,
-				"link": "https://www.figma.com/",
-				"icon": "Figma"
-			},
-			{
 				"title": "Vite.js",
 				"level": 9,
 				"link": "https://vitejs.dev/",
 				"icon": "Zap"
+			},
+			{
+				"title": "Docker",
+				"level": 7,
+				"link": "https://www.docker.com/",
+				"icon": "Container"
+			},
+			{
+				"title": "Llama",
+				"level": 8,
+				"link": "https://www.llama.ai/",
+				"icon": "Box"
 			}
 		],
 		"description": {
@@ -297,14 +297,52 @@
 			},
 			{
 				"title": "AWS",
-				"level": 7,
+				"level": 6,
 				"link": "https://aws.amazon.com/",
 				"icon": "Cloud"
+			},
+			{
+				"title": "GitHub",
+				"level": 9,
+				"link": "https://github.com/",
+				"icon": "Github"
+			},
+			{
+				"title": "Figma",
+				"level": 7,
+				"link": "https://www.figma.com/",
+				"icon": "Figma"
 			}
 		],
 		"description": {
 			"it": "Piattaforme cloud e software integrati per la gestione di servizi aziendali, customer support e infrastrutture scalabili.",
 			"en": "Cloud platforms and integrated software for managing business services, customer support, and scalable infrastructures."
+		}
+	},
+	"ai": {
+		"list": [
+			{
+				"title": "Google/Gemini",
+				"level": 9,
+				"link": "https://aistudio.google.com/prompts/new_chat",
+				"icon": "Bot"
+			},
+			{
+				"title": "Anthropic/Claude",
+				"level": 9,
+				"link": "https://platform.claude.com/docs/en/home",
+				"icon": "Bot"
+			},
+			{
+				"title": "Alibaba/Qwen",
+				"level": 8,
+				"link": "https://qwen.ai/apiplatform",
+				"icon": "Bot"
+			}
+		],
+		"description": {
+			"it": "Esperienza con modelli di intelligenza artificiale avanzati per l'automazione, l'analisi dei dati e la generazione di contenuti intelligenti.",
+			"en": "Experience with advanced artificial intelligence models for automation, data analysis, and intelligent content generation."
 		}
 	},
 	"soft": {

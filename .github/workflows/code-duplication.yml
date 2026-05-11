@@ -1,4 +1,4 @@
-name: "Check Code Duplication in PR Diff"
+name: "Code Duplication Analysis"
 
 on:
   pull_request:
@@ -13,174 +13,209 @@ permissions:
 jobs:
   analyze:
     runs-on: ubuntu-latest
+    name: "Analyze code duplication in PR"
 
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # scarica tutta la storia, serve per merge-base e diff
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
+          cache: 'pnpm'
 
-      - name: Fetch main branch fully
+      - name: Fetch main branch
         run: git fetch origin main --unshallow || true
 
-      - name: Determine merge base with main
+      - name: Determine merge base
         id: base
         run: |
           base=$(git merge-base origin/main HEAD)
           echo "base=$base" >> $GITHUB_OUTPUT
 
-      - name: Get changed files compared to base
+      - name: Get changed TypeScript files
         id: changed
         run: |
-          files=$(git diff --name-only ${{ steps.base.outputs.base }} HEAD | paste -sd ',' -)
-          echo "files=$files" >> $GITHUB_OUTPUT
+          files=$(git diff --name-only "${{ steps.base.outputs.base }}" HEAD \
+            | grep -E '\.(ts|tsx)$' \
+            | grep -v 'node_modules' \
+            || true)
+          if [ -z "$files" ]; then
+            echo "count=0" >> $GITHUB_OUTPUT
+            echo "files=" >> $GITHUB_OUTPUT
+          else
+            count=$(echo "$files" | grep -c '\S')
+            echo "count=$count" >> $GITHUB_OUTPUT
+            echo "files=$(echo "$files" | paste -sd ' ' -)" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Get code changes summary (additions/deletions)
-        id: codechange
+      - name: Get change stats
+        id: stats
         run: |
-          stats=$(git diff --shortstat ${{ steps.base.outputs.base }} HEAD)
-          echo "stats=$stats" >> $GITHUB_OUTPUT
+          shortstat=$(git diff --shortstat "${{ steps.base.outputs.base }}" HEAD)
+          echo "shortstat=$shortstat" >> $GITHUB_OUTPUT
+          commits=$(git rev-list "${{ steps.base.outputs.base }}..HEAD" --count)
+          echo "commits=$commits" >> $GITHUB_OUTPUT
 
-      - name: Install JSCPD
-        run: npm install -g jscpd
+      - name: Install jscpd
+        run: pnpm add -g jscpd
 
-      - name: Run JSCPD on changed files only
+      - name: Run jscpd on PR files
+        id: jscpd_pr
         run: |
-          echo "Running on: ${{ steps.changed.outputs.files }}"
-          files_csv="${{ steps.changed.outputs.files }}"
-          # Trasforma CSV in array di file e filtra quelli esistenti
-          files_filtered=$(echo "$files_csv" | tr ',' '\n' | while read f; do
-            if [ -f "$f" ]; then echo "$f"; fi
-          done | paste -sd ' ' -)
-          echo "Filtered files: $files_filtered"
-          if [ -z "$files_filtered" ]; then
-            echo "No valid files found to analyze, skipping jscpd"
+          files="${{ steps.changed.outputs.files }}"
+          if [ -z "$files" ]; then
+            echo "skipped=true" >> $GITHUB_OUTPUT
             exit 0
           fi
-          jscpd $files_filtered --reporters json,markdown --output report
+          echo "skipped=false" >> $GITHUB_OUTPUT
+          jscpd $files \
+            --reporters json,markdown \
+            --output report \
+            --min-lines 5 \
+            --min-tokens 50 \
+            --ignore "**/*.test.ts,**/*.spec.ts,**/*.d.ts"
 
-      - name: Run JSCPD on main branch
+      - name: Run jscpd on main (baseline)
+        if: steps.jscpd_pr.outputs.skipped != 'true'
         run: |
-          git checkout origin/main
-          jscpd . --output report_main --reporters json
+          git worktree add /tmp/main-wt origin/main
+          jscpd /tmp/main-wt/src \
+            --reporters json \
+            --output report_main \
+            --min-lines 5 \
+            --min-tokens 50 \
+            --ignore "**/*.test.ts,**/*.spec.ts,**/*.d.ts" || true
+          git worktree remove /tmp/main-wt --force
 
-      - name: Return to PR branch
-        run: git checkout -
-
-      - name: Upload JSCPD Reports
+      - name: Upload JSCPD reports
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: jscpd-reports
           path: |
             report
             report_main
 
-      - name: Comment on PR with JSCPD report
+      - name: Comment on PR
         uses: actions/github-script@v7
-        if: success()
+        if: always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const path = require('path');
-            const pr = context.issue.number;
 
+            const pr = context.issue.number;
             const COMMENT_MARKER = '<!-- jscpd-report -->';
-            const MAX_DUPLICATION = 5; // soglia massima ammessa in %
+            const MAX_DUPLICATION = 5;
+
+            const { data: prData } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr
+            });
+            const headSha = prData.head.sha.substring(0, 7);
+            const timestamp = new Date().toUTCString();
+            const commitCount = parseInt('${{ steps.stats.outputs.commits }}') || 0;
+
+            const { data: changedFiles } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr,
+              per_page: 100
+            });
+            const tsFiles = changedFiles.filter(f => /\.(ts|tsx)$/.test(f.filename) && f.status !== 'removed');
+
+            const statsText = '${{ steps.stats.outputs.shortstat }}';
+            const added = parseInt((statsText.match(/(\d+) insertions?/) || [])[1] || '0');
+            const deleted = parseInt((statsText.match(/(\d+) deletions?/) || [])[1] || '0');
+            const filesChanged = parseInt((statsText.match(/(\d+) files? changed/) || [])[1] || '0');
+
+            let body = `${COMMENT_MARKER}\n`;
+            body += `## 🔍 Code Analysis Report\n\n`;
+
+            const arrowChange = added > deleted ? '📈' : deleted > added ? '📉' : '⚖️';
+            body += `| | |\n|---|---|\n`;
+            body += `| **Branch** | \`${prData.head.ref}\` → \`${prData.base.ref}\` |\n`;
+            body += `| **Author** | @${prData.user.login} |\n`;
+            body += `| **Commit** | \`${headSha}\` |\n`;
+            body += `| **Commits in PR** | ${commitCount} |\n`;
+            body += `| **Files changed** | ${filesChanged} (${arrowChange} +${added} / -${deleted} lines) |\n`;
+            body += `| **Analyzed at** | ${timestamp} |\n\n`;
+
+            if (tsFiles.length > 0) {
+              const statusIcon = { added: '🆕', modified: '✏️', renamed: '🔄', removed: '🗑️' };
+              body += `<details>\n<summary>📁 TypeScript/TSX files changed (${tsFiles.length})</summary>\n\n`;
+              for (const f of tsFiles) {
+                const icon = statusIcon[f.status] || '📝';
+                body += `- ${icon} \`${f.filename}\` (+${f.additions} / -${f.deletions})\n`;
+              }
+              body += `\n</details>\n\n`;
+            }
+
+            body += `---\n\n`;
 
             const jsonPathDiff = path.join(process.cwd(), 'report', 'jscpd-report.json');
             const jsonPathMain = path.join(process.cwd(), 'report_main', 'jscpd-report.json');
-
-            let title = '## ✅ Nessuna duplicazione nel diff.\n\n';
-            let summaryTable = '';
-            let details = '';
-            let body = '';
+            const skipped = '${{ steps.jscpd_pr.outputs.skipped }}' === 'true';
 
             let pctDiff = 0, clones = 0;
-            if (fs.existsSync(jsonPathDiff)) {
-              const rawDiff = fs.readFileSync(jsonPathDiff, 'utf8');
-              const reportDiff = JSON.parse(rawDiff);
+
+            if (skipped) {
+              body += `### ✅ Duplication check skipped — no TypeScript files changed.\n\n`;
+            } else if (!fs.existsSync(jsonPathDiff)) {
+              body += `### ✅ No duplication found in changed files.\n\n`;
+            } else {
+              const reportDiff = JSON.parse(fs.readFileSync(jsonPathDiff, 'utf8'));
               const total = reportDiff.statistics.total;
-              pctDiff = total.percentage;
-              clones = total.clones;
+              pctDiff = total.percentage || 0;
+              clones = total.clones || 0;
 
-              if (pctDiff > 0) {
-                let pctMain = 0;
-                if (fs.existsSync(jsonPathMain)) {
-                  const rawMain = fs.readFileSync(jsonPathMain, 'utf8');
-                  const reportMain = JSON.parse(rawMain);
-                  pctMain = reportMain.statistics.total.percentage;
-                }
+              let pctMain = 0;
+              if (fs.existsSync(jsonPathMain)) {
+                const reportMain = JSON.parse(fs.readFileSync(jsonPathMain, 'utf8'));
+                pctMain = reportMain.statistics.total.percentage || 0;
+              }
+              const delta = pctDiff - pctMain;
+              const deltaSign = delta > 0 ? '+' : '';
+              const trendArrow = delta > 0 ? '📈' : delta < 0 ? '📉' : '⚖️';
 
-                const diffPctChange = pctDiff - pctMain;
-                const arrow = diffPctChange > 0 ? '📈' : diffPctChange < 0 ? '📉' : '⚖️';
-                const changeStr = `(${arrow} ${diffPctChange > 0 ? '+' : ''}${diffPctChange.toFixed(2)}%)`;
+              const statusEmoji = pctDiff === 0 ? '✅' : pctDiff <= MAX_DUPLICATION ? '⚠️' : '❌';
+              const badge = pctDiff === 0 ? 'PASS' : pctDiff <= MAX_DUPLICATION ? 'WARN' : 'FAIL';
 
-                title = `## ⚠️ Duplicazione codice rilevata: ${pctDiff.toFixed(2)}% ${changeStr} in ${clones} blocc${clones !== 1 ? 'hi' : 'o'} duplicat${clones !== 1 ? 'i' : 'o'}\n\n`;
+              body += `### ${statusEmoji} Duplication: **${badge}** — \`${pctDiff.toFixed(2)}%\` (${trendArrow} \`${deltaSign}${delta.toFixed(2)}%\` vs main)\n\n`;
+              body += `> Threshold: **${MAX_DUPLICATION}%** | Found **${clones}** duplicate block${clones !== 1 ? 's' : ''} across ${total.sources} file${total.sources !== 1 ? 's' : ''}\n\n`;
 
-                summaryTable = '| Formato | Files | Linee | Cloni | Righe duplicate (%) |\n' +
-                              '|---|---|---|---|---|\n';
-
+              if (clones > 0) {
+                let table = `| Format | Files | Lines | Clones | Duplicated (%) |\n|---|---|---|---|---|\n`;
                 for (const fmt in reportDiff.statistics.formats) {
-                  const stat = reportDiff.statistics.formats[fmt].total;
-                  summaryTable += `| ${fmt} | ${stat.sources} | ${stat.lines} | ${stat.clones} | ${stat.duplicatedLines} (${stat.percentage.toFixed(2)}%) |\n`;
+                  const s = reportDiff.statistics.formats[fmt].total;
+                  table += `| \`${fmt}\` | ${s.sources} | ${s.lines} | ${s.clones} | ${s.duplicatedLines} (${s.percentage.toFixed(2)}%) |\n`;
                 }
+                table += `| **Total** | ${total.sources} | ${total.lines} | ${total.clones} | ${total.duplicatedLines} (${total.percentage.toFixed(2)}%) |`;
+                body += `<details>\n<summary>📊 Statistics by format</summary>\n\n${table}\n\n</details>\n\n`;
 
-                summaryTable += `| **Total** | ${total.sources} | ${total.lines} | ${total.clones} | ${total.duplicatedLines} (${total.percentage.toFixed(2)}%) |`;
-
-                details = reportDiff.duplicates.map(d => {
-                  const snippet = d.fragment
-                    ? `\n\`\`\`${d.format}\n${d.fragment.trim()}\n\`\`\`\n`
-                    : '';
-                  return `- **${d.firstFile.name}** ↔ **${d.secondFile.name}** (Linee ${d.firstFile.start}-${d.firstFile.end} ↔ ${d.secondFile.start}-${d.secondFile.end})${snippet}`;
-                }).join('\n');
+                const blocks = reportDiff.duplicates.map((d, i) => {
+                  const snippet = d.fragment ? `\n\`\`\`${d.format}\n${d.fragment.trim()}\n\`\`\`\n` : '';
+                  return `**#${i + 1}** \`${d.firstFile.name}\` (L${d.firstFile.start}–${d.firstFile.end}) ↔ \`${d.secondFile.name}\` (L${d.secondFile.start}–${d.secondFile.end})${snippet}`;
+                }).join('\n\n');
+                body += `<details>\n<summary>📄 Duplicate blocks (${clones})</summary>\n\n${blocks}\n\n</details>\n\n`;
               }
             }
 
-            const statsText = `${{ steps.codechange.outputs.stats }}`;
-            let codeChangeLine = '';
-            if (statsText && statsText.trim() !== '') {
-              const added = statsText.match(/(\d+) insertions?/);
-              const deleted = statsText.match(/(\d+) deletions?/);
-              const files = statsText.match(/(\d+) files? changed/);
-
-              const addedCount = added ? parseInt(added[1]) : 0;
-              const deletedCount = deleted ? parseInt(deleted[1]) : 0;
-              const filesChanged = files ? parseInt(files[1]) : 0;
-
-              codeChangeLine = `📦 **Modifiche nel diff con \`main\`**: 📝 ${filesChanged} file cambiati, ➕ ${addedCount} righe aggiunte, ➖ ${deletedCount} rimosse `;
-
-              if (addedCount > deletedCount) {
-                codeChangeLine += '📈';
-              } else if (deletedCount > addedCount) {
-                codeChangeLine += '📉';
-              } else {
-                codeChangeLine += '⚖️';
-              }
-
-              body += `${codeChangeLine}\n\n`;
-            }
-
-            body = `${COMMENT_MARKER}\n${body}${title}`;
-            if (summaryTable) {
-              body += `<details>\n<summary>📊 Statistiche sintetiche (per formato)</summary>\n\n${summaryTable}\n</details>\n\n`;
-            }
-            if (details) {
-              body += `<details>\n<summary>📄 Elenco duplicati (espandi per vedere i dettagli)</summary>\n\n${details}\n</details>`;
-            }
-
-            // Elimina vecchi commenti
-            const existing = await github.rest.issues.listComments({
+            const { data: comments } = await github.rest.issues.listComments({
               issue_number: pr,
               owner: context.repo.owner,
               repo: context.repo.repo
             });
-            for (const c of existing.data) {
-              if (c.body && c.body.includes(COMMENT_MARKER)) {
+            for (const c of comments) {
+              if (c.body?.includes(COMMENT_MARKER)) {
                 await github.rest.issues.deleteComment({
                   comment_id: c.id,
                   owner: context.repo.owner,
@@ -188,7 +223,6 @@ jobs:
                 });
               }
             }
-
             await github.rest.issues.createComment({
               issue_number: pr,
               owner: context.repo.owner,
@@ -196,7 +230,6 @@ jobs:
               body
             });
 
-            // 🚨 Fallisce se supera la soglia
             if (pctDiff > MAX_DUPLICATION) {
-              core.setFailed(`❌ La duplicazione del codice (${pctDiff.toFixed(2)}%) supera la soglia massima consentita (${MAX_DUPLICATION}%). Fare refactor prima del merge.`);
+              core.setFailed(`❌ Code duplication (${pctDiff.toFixed(2)}%) exceeds the max threshold (${MAX_DUPLICATION}%). Refactor before merging.`);
             }

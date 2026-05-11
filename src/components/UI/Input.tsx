@@ -22,14 +22,7 @@ const Input = React.forwardRef<
 		className,
 	)
 
-	return (
-		<Component
-			// biome-ignore lint/suspicious/noExplicitAny: Il tipo è già gestito da React.InputHTMLAttributes
-			ref={ref as any}
-			className={baseStyles}
-			{...props}
-		/>
-	)
+	return <Component ref={ref as any} className={baseStyles} {...props} />
 })
 
 Input.displayName = 'Input'
