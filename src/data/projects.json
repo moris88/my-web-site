@@ -4,7 +4,7 @@
 			{
 				"id": 1,
 				"title": "Todo App",
-				"description": "ToDo Manager è un'applicazione web realizzata con React, TypeScript, Vite.js e Tailwind CSS, progettata per semplificare la gestione delle attività quotidiane. Funzionalità principali: 1. Gestione avanzata delle attività – Crea, modifica e aggiorna i tuoi To-Do con descrizioni dettagliate. 2. Categorie personalizzate – Organizza i task in tre stati: To-Do, In Progress e Done. 3. Priorità dei task – Imposta livelli di priorità per concentrarti su ciò che è più importante. 4. Notifiche di scadenza – Ricevi avvisi per non perdere di vista le attività imminenti. 5. Modifica la descrizione dei task senza perdere traccia dei progressi. Grazie alla combinazione di React e Vite.js, l'app garantisce prestazioni elevate e un'esperienza utente fluida, mentre Tailwind CSS assicura un'interfaccia moderna e reattiva. Perfetta per chi vuole restare organizzato con un’interfaccia intuitiva e potente!",
+				"description": "ToDo Manager è un'applicazione web per la gestione di attività personali e di team, costruita interamente in React e progettata per funzionare senza backend: tutti i dati vengono salvati nel browser, senza account né server. Ogni task può essere arricchito con priorità, stati del ciclo di vita, sottotask, tag, date di scadenza e note in Markdown. Le attività si organizzano in progetti e sprint, con una vista calendario per tenere d'occhio le scadenze e una sezione statistiche con grafici e metriche sui progressi. Il soft-delete protegge da eliminazioni accidentali, i dati si esportano e importano in CSV, e l'interfaccia è disponibile in italiano e inglese con supporto al tema scuro.",
 				"image": {
 					"src": "/projects/1.webp",
 					"alt": "Todo App"
@@ -12,7 +12,15 @@
 				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"React-icons",
+					"Recharts",
+					"Remark-gfm"
+				]
 			},
 			{
 				"id": 2,
@@ -25,7 +33,12 @@
 				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -38,7 +51,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -51,7 +69,13 @@
 				"public": true,
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -85,7 +109,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -97,7 +127,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -110,7 +146,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -123,7 +164,13 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			}
 		],
 		"en": [
@@ -138,7 +185,13 @@
 				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
-				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"HeroUI",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 2,
@@ -151,7 +204,12 @@
 				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-acqua-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -164,7 +222,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -176,7 +239,13 @@
 				},
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -210,7 +279,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -222,7 +297,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -235,7 +316,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -248,7 +334,13 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			}
 		]
 	}
