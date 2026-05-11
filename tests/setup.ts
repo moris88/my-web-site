@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 // jsdom non implementa showModal/close nativamente
 if (typeof HTMLDialogElement !== 'undefined') {
