@@ -36,7 +36,11 @@
 		"start": "next start",
 		"lint": "biome lint",
 		"format": "biome format",
-		"check": "biome check"
+		"check": "biome check",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:coverage": "vitest run --coverage",
+		"test:ui": "vitest --ui"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^2.0.1",
@@ -68,11 +72,15 @@
 		"@types/nodemailer": "^7.0.11",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"@vitest/coverage-v8": "^4.1.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"jsdom": "^29.1.1",
 		"postcss": "^8",
 		"tailwind-merge": "^3.6.0",
 		"tailwindcss": "^4.3.0",
-		"typescript": "^5"
+		"typescript": "^5",
+		"vite-tsconfig-paths": "^6.1.1",
+		"vitest": "^4.1.5"
 	}
 }
