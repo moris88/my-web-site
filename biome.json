@@ -21,7 +21,8 @@
 				"noImgElement": "off"
 			},
 			"suspicious": {
-				"noArrayIndexKey": "off"
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off"
 			},
 			"nursery": {
 				"useSortedClasses": "warn"
