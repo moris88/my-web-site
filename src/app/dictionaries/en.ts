@@ -102,6 +102,7 @@ const dictionary = {
 		frameworks_backend: 'Frameworks Backend',
 		tools: 'Tools',
 		platforms: 'Platforms',
+		ai: 'Artificial Intelligence',
 		soft: 'Soft',
 		legend: {
 			title: 'Legend',

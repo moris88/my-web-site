@@ -1,37 +1,37 @@
 name: 'Qualità e Build del codice'
 
 on:
-  push:
+  pull_request:
     branches:
       - '**'
-    tags-ignore:
-      - '*'
+    types: [opened, synchronize, reopened]
+permissions: {}
 
 jobs:
   biome-build:
-    runs-on: ubuntu-latest
     name: Biome Linting & Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
 
       - name: Setup node
         uses: actions/setup-node@v6
         with:
           node-version: '24'
-
-      - name: Cache npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'pnpm'
 
       - name: 'Installazione dipendenze'
-        run: npm install
+        run: pnpm install
 
       - name: 'Check qualità codice'
-        run: npm run check
+        run: pnpm check
 
       - name: 'Build test'
-        run: npm run build
+        run: pnpm build

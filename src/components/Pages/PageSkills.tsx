@@ -61,6 +61,7 @@ export default function PageSkills({
 		4: dict.skills.database,
 		5: dict.skills.tools,
 		6: dict.skills.platforms,
+		7: dict.skills.ai,
 	}
 
 	const handleClickClose = () => {
