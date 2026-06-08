@@ -31,9 +31,14 @@
 					"alt": "Conteggio Consumo Condominio App"
 				},
 				"public": true,
-				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
+				"url": "https://condominium.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -46,7 +51,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -59,7 +69,13 @@
 				"public": true,
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -93,7 +109,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -105,7 +127,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -118,7 +146,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -131,7 +164,34 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
+			},
+			{
+				"id": 10,
+				"title": "Journaling App",
+				"description": "Questa web app è una piattaforma di journaling quotidiano progettata per coniugare l'essenzialità del testo con le più moderne tecnologie digitali. L'interfaccia si focalizza su un editor minimale basato sul formato Markdown nativo, che permette all'utente di redigere una singola nota al giorno, organizzarla con una sintassi pulita ed esportabile, e arricchirla visivamente tramite il caricamento diretto di fotografie. Per massimizzare la flessibilità di inserimento, il sistema integra un modulo di trascrizione vocale avanzato in grado di convertire fedelmente i pensieri parlati in testo formattato, mentre un motore di intelligenza artificiale analizza costantemente i contenuti scritti per offrire prompt di scrittura personalizzati per stimolare la riflessione quotidiana.",
+				"image": {
+					"src": "/projects/10.webp",
+					"alt": "Journaling App"
+				},
+				"public": true,
+				"url": "https://journaling.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/journaling-dev",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"AI",
+					"Speech-to-Text",
+					"Markdown"
+				]
 			}
 		],
 		"en": [
@@ -146,7 +206,13 @@
 				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
-				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"HeroUI",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 2,
@@ -159,7 +225,12 @@
 				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -172,7 +243,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -184,7 +260,13 @@
 				},
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -218,7 +300,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -230,7 +318,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -243,7 +337,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -256,7 +355,34 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
+			},
+			{
+				"id": 10,
+				"title": "Journaling App",
+				"description": "This web app is a daily journaling platform designed to combine text essentiality with the most modern digital technologies. The interface focuses on a minimal editor based on native Markdown format, which allows users to write a single note per day, organize it with clean, exportable syntax, and visually enrich it through direct photo uploads. To maximize input flexibility, the system integrates an advanced voice transcription module capable of faithfully converting spoken thoughts into formatted text, while an artificial intelligence engine constantly analyzes the written content to offer personalized writing prompts that stimulate daily reflection.",
+				"image": {
+					"src": "/projects/10.webp",
+					"alt": "Journaling App"
+				},
+				"public": true,
+				"url": "https://journaling.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/journaling-dev",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"AI",
+					"Speech-to-Text",
+					"Markdown"
+				]
 			}
 		]
 	}
