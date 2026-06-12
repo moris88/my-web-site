@@ -153,6 +153,19 @@
 					"Speech-to-Text",
 					"Markdown"
 				]
+			},
+			{
+				"id": 11,
+				"title": "Gift Planner App",
+				"description": "Wedding Gift Planner è un'applicazione web interattiva, realizzata con React e TypeScript, progettata per aiutare gli invitati a calcolare la cifra ideale per un regalo di nozze in base al contesto italiano. Grazie a un algoritmo personalizzabile che analizza variabili come il legame affettivo, la composizione del nucleo familiare, la tipologia di ricevimento e le spese logistiche sostenute, lo strumento fornisce stime accurate e trasparenti, semplificando la gestione del budget e garantendo il rispetto del galateo moderno in ogni situazione.",
+				"image": {
+					"src": "/projects/11.webp",
+					"alt": "Gift Planner App"
+				},
+				"public": true,
+				"url": "https://gift-planner.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/gift-planner",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		],
 		"en": [
@@ -299,6 +312,19 @@
 					"Speech-to-Text",
 					"Markdown"
 				]
+			},
+			{
+				"id": 11,
+				"title": "Gift Planner App",
+				"description": "Wedding Gift Planner is an interactive web application built with React and TypeScript, designed to help guests determine the ideal wedding gift amount within the Italian context. Using a customizable algorithm that factors in variables such as the closeness of the relationship, family size, type of reception, and travel expenses, the tool provides accurate and transparent estimates, simplifying budget planning while ensuring modern etiquette is followed for every occasion.",
+				"image": {
+					"src": "/projects/11.webp",
+					"alt": "Gift Planner App"
+				},
+				"public": true,
+				"url": "https://gift-planner.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/gift-planner",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		]
 	}
