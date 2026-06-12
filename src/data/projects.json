@@ -165,12 +165,7 @@
 				"public": true,
 				"url": "https://gift-planner.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/gift-planner",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		],
 		"en": [
@@ -329,12 +324,7 @@
 				"public": true,
 				"url": "https://gift-planner.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/gift-planner",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		]
 	}
