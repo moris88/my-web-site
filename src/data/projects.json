@@ -179,6 +179,19 @@
 				"url": "https://ai-estimator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/AI-Project-Estimator",
 				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 13,
+				"title": "JSON Formatter",
+				"description": "Una moderna applicazione web per validare, formattare e navigare strutture JSON complesse con facilità. Sviluppata con le tecnologie più recenti per offrire un'esperienza fluida e reattiva.",
+				"image": {
+					"src": "/projects/13.webp",
+					"alt": "JSON Formatter"
+				},
+				"public": true,
+				"url": "https://json-formatter.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/json-formatter",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		],
 		"en": [
@@ -351,6 +364,19 @@
 				"url": "https://ai-estimator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/AI-Project-Estimator",
 				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 13,
+				"title": "JSON Formatter",
+				"description": "A modern web application for validating, formatting, and navigating complex JSON structures with ease. Developed using the latest technologies to provide a smooth and responsive experience.",
+				"image": {
+					"src": "/projects/13.webp",
+					"alt": "AI Project Estimator"
+				},
+				"public": true,
+				"url": "https://json-formatter.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/json-formatter",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		]
 	}
