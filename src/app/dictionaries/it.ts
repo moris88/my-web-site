@@ -377,6 +377,75 @@ const dictionary = {
 			"Stiamo lavorando per migliorare l'esperienza di navigazione. Torneremo presto!",
 		button: 'Ricarica pagina',
 	},
+	assistant: {
+		title: 'Assistente Virtuale',
+		welcome:
+			"Ciao! Sono l'assistente virtuale di Maurizio. Come posso aiutarti oggi?",
+		placeholder: 'Scegli una domanda...',
+		contactMe: "Non ho trovato quello che cercavo, vorrei scriverti un'email.",
+		backToQuestions: 'Torna alle domande',
+		questions: [
+			{
+				id: '1',
+				text: 'Quali tecnologie utilizzi principalmente?',
+				answer:
+					'Maurizio è specializzato in React, Next.js, TypeScript e Tailwind CSS per lo sviluppo frontend. Per il backend utilizza principalmente Node.js e SQL.',
+			},
+			{
+				id: '2',
+				text: 'Sei disponibile per collaborazioni freelance?',
+				answer:
+					'Sì, Maurizio valuta sempre nuove opportunità interessanti. Puoi scrivergli direttamente tramite il [modulo di contatto](chat:contact)!',
+			},
+			{
+				id: '3',
+				text: 'Come posso muovermi nel mondo della programmazione?',
+				answer:
+					'Il consiglio di Maurizio è: focalizzati sulle basi (HTML/CSS/JS), costruisci progetti reali e non aver paura di fallire. La costanza batte il talento!',
+			},
+			{
+				id: '4',
+				text: 'Offri supporto o mentorship?',
+				answer:
+					'Certamente! Maurizio ama condividere la sua esperienza. Se hai bisogno di consigli su come orientarti nel mercato del lavoro, scrivigli pure tramite il [modulo di contatto](chat:contact) o seguilo su [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/).',
+			},
+			{
+				id: '5',
+				text: 'Come trovare il primo lavoro come dev?',
+				answer:
+					"Un portfolio solido e un profilo [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) curato sono essenziali. Partecipa a community e contribuisci all'open source.",
+			},
+			{
+				id: '6',
+				text: 'Dove posso vedere i tuoi lavori?',
+				answer:
+					'Puoi esplorare la sezione [Progetti](/projects) di questo sito per vedere una selezione dei lavori più significativi.',
+			},
+			{
+				id: '7',
+				text: 'Qual è il tuo approccio al design?',
+				answer:
+					"Maurizio predilige un design pulito, minimalista e accessibile, mettendo sempre l'utente al centro dell'esperienza.",
+			},
+			{
+				id: '8',
+				text: 'Lavori anche con applicazioni mobile?',
+				answer:
+					'Sì, Maurizio ha esperienza nello sviluppo di app cross-platform utilizzando React Native.',
+			},
+			{
+				id: '9',
+				text: 'Come gestisci i test nel codice?',
+				answer:
+					'Utilizza strumenti come Vitest e Testing Library per garantire che il codice sia solido, affidabile e privo di regressioni.',
+			},
+			{
+				id: '10',
+				text: 'Quali sono i tuoi hobby fuori dal codice?',
+				answer:
+					'Maurizio è un appassionato di musica, adora programmare (sì, il codice è anche un hobby!) e nel tempo libero si diverte con i videogiochi.',
+			},
+		],
+	},
 }
-
 export default dictionary

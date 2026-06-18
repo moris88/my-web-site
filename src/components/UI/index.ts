@@ -1,4 +1,5 @@
 export * from './Accordion'
+export { default as AssistantChat } from './AssistantChat'
 export * from './Button'
 export { default as ButtonsGroupSocial } from './ButtonsGroupSocial'
 export * from './Card'

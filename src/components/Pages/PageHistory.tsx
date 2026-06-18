@@ -52,7 +52,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 			{/* BOTTONE SCROLL TO TOP */}
 			<AnimatePresence>
 				{showScrollTop && (
-					<div className="fixed right-6 bottom-20 z-50 flex">
+					<div className="fixed right-6 bottom-36 z-50 flex">
 						<motion.button
 							initial={{ opacity: 0, scale: 0 }}
 							animate={{ opacity: 1, scale: 1 }}

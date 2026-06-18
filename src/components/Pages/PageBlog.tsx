@@ -166,7 +166,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 				{/* 🖱️ Scroll Up Button (Fixed, appare quando si scende o se non c'è FeaturedArticle) */}
 				<AnimatePresence>
 					{isScrolled && (
-						<div className="fixed right-6 bottom-20 z-50 flex">
+						<div className="fixed right-6 bottom-36 z-50 flex">
 							<motion.button
 								layoutId="scroll-button"
 								initial={{ opacity: 0, scale: 0, rotate: 0 }}

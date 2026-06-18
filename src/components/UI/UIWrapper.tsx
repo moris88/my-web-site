@@ -5,7 +5,7 @@ import React from 'react'
 
 import type { Dictionary } from '@/app/dictionaries'
 import { themeAtom } from '@/atoms'
-import { Footer, Header } from '@/components'
+import { AssistantChat, Footer, Header } from '@/components'
 import type { StoreLink, Theme } from '@/types'
 import { setThemeDocument } from '@/utils'
 
@@ -41,6 +41,7 @@ export default function UIWrapper({
 			<Header dict={dict} />
 			<main className="min-h-[calc(100vh-144px)]">{children}</main>
 			<Footer links={links} />
+			<AssistantChat dict={dict} />
 		</Provider>
 	)
 }
