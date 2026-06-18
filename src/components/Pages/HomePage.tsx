@@ -1,8 +1,8 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import parse from 'html-react-parser'
-import { Bot, ChevronDown, Code, Paintbrush } from 'lucide-react'
+import { Bot, Code, Paintbrush } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -11,12 +11,13 @@ import type { Dictionary } from '@/app/dictionaries'
 import {
 	InfiniteSkillsScroller,
 	InteractiveAvatar,
+	ScrollToTop,
 	SectionCardLink,
 	ServiceCard,
 	Tooltip,
 	UniqueButton,
 } from '@/components'
-import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { useScrollReveal } from '@/hooks'
 import type { Info, Language } from '@/types'
 
 interface HomePageProps {
@@ -27,23 +28,9 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
 	const [startSubTitle, setStartSubtitle] = React.useState(false)
-	const [showScrollTop, setShowScrollTop] = React.useState(false)
 	const router = useRouter()
 
 	useScrollReveal()
-
-	React.useEffect(() => {
-		const handleScroll = () => {
-			setShowScrollTop(window.scrollY > 400)
-		}
-
-		window.addEventListener('scroll', handleScroll)
-		return () => window.removeEventListener('scroll', handleScroll)
-	}, [])
-
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	}
 
 	return (
 		<>
@@ -117,23 +104,7 @@ function HomePage({ dict, info, language }: HomePageProps) {
 			</section>
 
 			{/* BOTTONE SCROLL TO TOP */}
-			<AnimatePresence>
-				{showScrollTop && (
-					<div className="fixed right-6 bottom-36 z-50 flex">
-						<motion.button
-							initial={{ opacity: 0, scale: 0 }}
-							animate={{ opacity: 1, scale: 1 }}
-							exit={{ opacity: 0, scale: 0 }}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.9 }}
-							onClick={scrollToTop}
-							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
-						>
-							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
-						</motion.button>
-					</div>
-				)}
-			</AnimatePresence>
+			<ScrollToTop />
 
 			<section
 				id="what-i-do"

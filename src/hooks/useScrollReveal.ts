@@ -7,7 +7,7 @@ import { useEffect } from 'react'
  * Cerca elementi con l'attributo `data-reveal` e aggiunge la classe `active`
  * quando entrano nel viewport.
  */
-export function useScrollReveal() {
+function useScrollReveal() {
 	useEffect(() => {
 		const observerOptions = {
 			root: null,
@@ -37,3 +37,5 @@ export function useScrollReveal() {
 		}
 	}, [])
 }
+
+export default useScrollReveal

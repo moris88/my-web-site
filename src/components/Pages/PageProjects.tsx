@@ -1,11 +1,18 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, Laptop } from 'lucide-react'
+import { Laptop } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import type { Dictionary } from '@/app/dictionaries'
-import { Button, Input, Label, SectionHero, Select } from '@/components'
+import {
+	Button,
+	Input,
+	Label,
+	ScrollToTop,
+	SectionHero,
+	Select,
+} from '@/components'
 import CardProject from '@/components/UI/Cards/Project'
 import type { Project } from '@/types'
 
@@ -24,21 +31,6 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 
 	// 👁️‍🗨️ Toggle filtri
 	const [showFilters, setShowFilters] = React.useState(false)
-
-	// Stato per il tasto Scroll to Top
-	const [showScrollTop, setShowScrollTop] = React.useState<boolean>(false)
-
-	React.useEffect(() => {
-		const handleScrollWindow = () => {
-			setShowScrollTop(window.scrollY > 400)
-		}
-		window.addEventListener('scroll', handleScrollWindow)
-		return () => window.removeEventListener('scroll', handleScrollWindow)
-	}, [])
-
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	}
 
 	const handleClickRow = (project: Project) => {
 		router.push(`/projects/${project.id}`)
@@ -85,23 +77,7 @@ function PageProjects({ dict, projects }: PageProjectsProps) {
 			subtitle={dict.projects.subtitle}
 		>
 			{/* BOTTONE SCROLL TO TOP */}
-			<AnimatePresence>
-				{showScrollTop && (
-					<div className="fixed right-6 bottom-36 z-50 flex">
-						<motion.button
-							initial={{ opacity: 0, scale: 0 }}
-							animate={{ opacity: 1, scale: 1 }}
-							exit={{ opacity: 0, scale: 0 }}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.9 }}
-							onClick={scrollToTop}
-							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
-						>
-							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
-						</motion.button>
-					</div>
-				)}
-			</AnimatePresence>
+			<ScrollToTop />
 
 			{/* 🔘 Bottone toggle */}
 			{!showFilters && (

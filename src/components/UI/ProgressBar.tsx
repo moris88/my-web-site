@@ -6,9 +6,15 @@ interface ProgressBarProps {
 	value: number // Valore da 0 a 100
 	label?: string
 	color?: 'danger' | 'warning' | 'success' | 'secondary' | 'primary'
+	className?: string
 }
 
-function ProgressBar({ value, label, color = 'primary' }: ProgressBarProps) {
+function ProgressBar({
+	value,
+	label,
+	color = 'primary',
+	className = '',
+}: ProgressBarProps) {
 	const [progress, setProgress] = React.useState(0)
 
 	React.useEffect(() => {
@@ -26,7 +32,7 @@ function ProgressBar({ value, label, color = 'primary' }: ProgressBarProps) {
 	}
 
 	return (
-		<div className="w-full space-y-2">
+		<div className={`w-full space-y-2 ${className}`}>
 			<div className="flex justify-between font-medium text-sm">
 				<span className="text-slate-700 dark:text-slate-200">{label}</span>
 				<span className="text-slate-500">{progress}%</span>

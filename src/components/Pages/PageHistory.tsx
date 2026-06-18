@@ -1,12 +1,12 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
-import { Button, SectionHero } from '@/components/UI'
-import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { Button, ScrollToTop, SectionHero } from '@/components/UI'
+import { useScrollReveal } from '@/hooks'
 import type { History, Language } from '@/types'
 
 interface PageHistoryProps {
@@ -23,24 +23,9 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 		image?: string
 		alt?: string
 	} | null>(null)
-	const [showScrollTop, setShowScrollTop] = React.useState(false)
 	const router = useRouter()
 
 	useScrollReveal()
-
-	React.useEffect(() => {
-		const handleScroll = () => {
-			// Mostra il tasto quando si è scesi di almeno 400px
-			setShowScrollTop(window.scrollY > 400)
-		}
-
-		window.addEventListener('scroll', handleScroll)
-		return () => window.removeEventListener('scroll', handleScroll)
-	}, [])
-
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	}
 
 	const historyItems = history[language]
 	const introItem = historyItems[0]
@@ -50,23 +35,7 @@ function PageHistory({ language, history }: Readonly<PageHistoryProps>) {
 	return (
 		<SectionHero title={history.title[language]}>
 			{/* BOTTONE SCROLL TO TOP */}
-			<AnimatePresence>
-				{showScrollTop && (
-					<div className="fixed right-6 bottom-36 z-50 flex">
-						<motion.button
-							initial={{ opacity: 0, scale: 0 }}
-							animate={{ opacity: 1, scale: 1 }}
-							exit={{ opacity: 0, scale: 0 }}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.9 }}
-							onClick={scrollToTop}
-							className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-2xl ring-1 ring-black/5 transition-colors hover:bg-slate-50 md:h-14 md:w-14 dark:bg-slate-800 dark:ring-white/10 dark:hover:bg-slate-700"
-						>
-							<ChevronDown className="h-6 w-6 rotate-180 text-primary md:h-7 md:w-7" />
-						</motion.button>
-					</div>
-				)}
-			</AnimatePresence>
+			<ScrollToTop />
 
 			{/* Intro Section */}
 			<div className="mx-auto max-w-4xl text-center">
