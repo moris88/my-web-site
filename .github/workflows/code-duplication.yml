@@ -195,8 +195,10 @@ jobs:
               if (clones > 0) {
                 let table = `| Format | Files | Lines | Clones | Duplicated (%) |\n|---|---|---|---|---|\n`;
                 for (const fmt in reportDiff.statistics.formats) {
-                  const s = reportDiff.statistics.formats[fmt].total;
-                  table += `| \`${fmt}\` | ${s.sources} | ${s.lines} | ${s.clones} | ${s.duplicatedLines} (${s.percentage.toFixed(2)}%) |\n`;
+                  const s = reportDiff.statistics.formats[fmt];
+                  const percentage = s.percentage || 0;
+                  const duplicatedLines = s.duplicatedLines || 0;
+                  table += `| \`${fmt}\` | ${s.sources} | ${s.lines} | ${s.clones} | ${duplicatedLines} (${percentage.toFixed(2)}%) |\n`;
                 }
                 table += `| **Total** | ${total.sources} | ${total.lines} | ${total.clones} | ${total.duplicatedLines} (${total.percentage.toFixed(2)}%) |`;
                 body += `<details>\n<summary>📊 Statistics by format</summary>\n\n${table}\n\n</details>\n\n`;
