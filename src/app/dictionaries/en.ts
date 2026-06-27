@@ -389,7 +389,7 @@ const dictionary = {
 		welcome: "Hi! I am Maurizio's virtual assistant. How can I help you today?",
 		placeholder: 'Choose a question...',
 		contactMe:
-			"I didn't find what I was looking for, I would like to write you an email.",
+			"I didn't find what I was looking for, I would like to write a personal message.",
 		backToQuestions: 'Back to questions',
 		questions: [
 			{

@@ -57,6 +57,11 @@
 				"icon": "Globe"
 			},
 			{
+				"title": "Markdown",
+				"level": 9,
+				"icon": "Globe"
+			},
+			{
 				"title": "CSS",
 				"level": 9,
 				"icon": "Palette"
@@ -177,7 +182,7 @@
 			},
 			{
 				"title": "Django",
-				"level": 6,
+				"level": 5,
 				"link": "https://www.djangoproject.com/",
 				"icon": "GanttChartSquare"
 			},
@@ -218,6 +223,18 @@
 				"level": 6,
 				"link": "https://graphql.org/",
 				"icon": "Network"
+			},
+			{
+				"title": "MariaDB",
+				"level": 6,
+				"link": "https://mariadb.org/",
+				"icon": "Database"
+			},
+			{
+				"title": "SQLite",
+				"level": 6,
+				"link": "https://www.sqlite.org/",
+				"icon": "Database"
 			}
 		],
 		"description": {
@@ -258,9 +275,33 @@
 				"icon": "Container"
 			},
 			{
-				"title": "Llama",
+				"title": "Ollama",
 				"level": 8,
-				"link": "https://www.llama.ai/",
+				"link": "https://ollama.com/",
+				"icon": "Box"
+			},
+			{
+				"title": "Biome.js",
+				"level": 8,
+				"link": "https://biomejs.dev/",
+				"icon": "Code"
+			},
+			{
+				"title": "ESLint",
+				"level": 9,
+				"link": "https://eslint.org/",
+				"icon": "CheckCircle"
+			},
+			{
+				"title": "Prettier",
+				"level": 9,
+				"link": "https://prettier.io/",
+				"icon": "MagicWand"
+			},
+			{
+				"title": "Webpack",
+				"level": 8,
+				"link": "https://webpack.js.org/",
 				"icon": "Box"
 			}
 		],
@@ -331,6 +372,12 @@
 				"title": "Anthropic/Claude",
 				"level": 9,
 				"link": "https://platform.claude.com/docs/en/home",
+				"icon": "Bot"
+			},
+			{
+				"title": "OpenAI/GPT",
+				"level": 9,
+				"link": "https://platform.openai.com/docs/",
 				"icon": "Bot"
 			},
 			{

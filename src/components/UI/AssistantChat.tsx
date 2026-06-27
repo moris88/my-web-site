@@ -116,7 +116,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 	}
 
 	return (
-		<div className="fixed right-4 bottom-20 z-100 flex flex-col items-end sm:right-6">
+		<div className="fixed right-6 bottom-20 z-100 flex flex-col items-end">
 			<AnimatePresence mode="wait">
 				{isOpen && (
 					<motion.div
@@ -140,7 +140,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 						}}
 						className={twMerge(
 							'mb-4 flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl transition-colors duration-300 dark:border-gray-800 dark:bg-gray-950',
-							'h-[80vh] w-[90vw] sm:h-150 sm:w-100',
+							'h-[75vh] w-[90vw] sm:h-150 sm:w-100',
 						)}
 					>
 						{/* Header */}
@@ -387,7 +387,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 				whileTap={{ scale: 0.95 }}
 				onClick={() => setIsOpen(!isOpen)}
 				className={twMerge(
-					'flex h-14 w-14 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300',
+					'flex h-12 w-12 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300 md:h-14 md:w-14',
 					isOpen
 						? 'rotate-90 bg-white text-primary dark:bg-gray-800 dark:text-primary'
 						: 'bg-primary text-white shadow-primary/30',

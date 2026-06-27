@@ -382,7 +382,7 @@ const dictionary = {
 		welcome:
 			"Ciao! Sono l'assistente virtuale di Maurizio. Come posso aiutarti oggi?",
 		placeholder: 'Scegli una domanda...',
-		contactMe: "Non ho trovato quello che cercavo, vorrei scriverti un'email.",
+		contactMe: "Non ho trovato quello che cercavo, vorrei scriverti un messaggio personale.",
 		backToQuestions: 'Torna alle domande',
 		questions: [
 			{
