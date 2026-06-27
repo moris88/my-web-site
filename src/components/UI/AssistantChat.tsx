@@ -228,8 +228,6 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		setError(null)
 	}
 
-	console.log('Current chat history:', history) // Log della cronologia corrente
-
 	return (
 		<div className="fixed right-6 bottom-20 z-100 flex flex-col items-end">
 			<AnimatePresence mode="wait">

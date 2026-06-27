@@ -277,6 +277,22 @@
 				]
 			},
 			"hidden": true
+		},
+		{
+			"id": "hidden-skills",
+			"text": {
+				"it": "",
+				"en": ""
+			},
+			"answer": {
+				"it": "Maurizio possiede un ampio set di competenze: Hard Skills:- Linguaggi: JavaScript, TypeScript, React (Web & Native), Next.js, Node.js, SQL, ecc.- Frontend: TailwindCSS, MaterialUI, ShadcnUI.- Backend & Database: Node.js, Express.js, PostgreSQL, MySQL, MongoDB.- Tools & Dev: Docker, Git, Vite.js, Biome.js, Figma, Cloud (AWS/GCP).- AI: Esperienza con modelli avanzati (Gemini, Claude, GPT, Qwen). Soft Skills:Maurizio valorizza molto responsabilità, dedizione, curiosità e autodisciplina. È orientato al problem solving, al lavoro di squadra e possiede attitudine al team leadership.",
+				"en": "Maurizio possesses a wide range of skills: Hard Skills:- Languages: JavaScript, TypeScript, React (Web & Native), Next.js, Node.js, SQL, etc.- Frontend: TailwindCSS, MaterialUI, ShadcnUI.- Backend & Database: Node.js, Express.js, PostgreSQL, MySQL, MongoDB.- Tools & Dev: Docker, Git, Vite.js, Biome.js, Figma, Cloud (AWS/GCP).- AI: Experience with advanced models (Gemini, Claude, GPT, Qwen). Soft Skills:Maurizio highly values responsibility, dedication, curiosity, and self-discipline. He is focused on problem-solving, teamwork, and has an aptitude for team leadership."
+			},
+			"keywords": {
+				"it": ["competenze", "skills", "hard skills", "soft skills"],
+				"en": ["skills", "competencies", "hard skills", "soft skills"]
+			},
+			"hidden": true
 		}
 	]
 }
