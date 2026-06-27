@@ -16,44 +16,69 @@ import { twMerge } from 'tailwind-merge'
 
 import type { Dictionary } from '@/app/dictionaries'
 import { Button, FormContact } from '@/components'
+import questionsData from '@/data/questions.json'
 
 interface AssistantChatProps {
 	dict: Dictionary
+}
+
+interface Question {
+	keywords: string[]
+	question: {
+		id: string
+		text: string
+		answer: string
+	}
 }
 
 interface Message {
 	id: string
 	text: string
 	sender: 'assistant' | 'user'
+	questionId?: string
+	quotedMessageId?: string
+	quotedMessageText?: string
 }
 
 const STORAGE_KEY = 'assistant_chat_history'
 
+const getKeywordMap: (lang: 'it' | 'en') => Question[] = (lang: 'it' | 'en') =>
+	questionsData.questions.map((q) => ({
+		keywords: q.keywords[lang],
+		question: {
+			id: q.id,
+			text: q.text[lang],
+			answer: q.answer[lang],
+		},
+	}))
+
 export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 	const [isOpen, setIsOpen] = React.useState(false)
-	const [history, setHistory] = React.useState<Message[]>([
-		{ id: 'welcome', text: dict.assistant.welcome, sender: 'assistant' },
-	])
+	const [isAssistantThinking, setIsAssistantThinking] = React.useState(false)
+	const [inputValue, setInputValue] = React.useState('')
+	const [history, setHistory] = React.useState<Message[]>(() => {
+		if (typeof window !== 'undefined') {
+			const saved = localStorage.getItem(STORAGE_KEY)
+			if (saved) {
+				try {
+					const parsed = JSON.parse(saved)
+					if (Array.isArray(parsed) && parsed.length > 0) {
+						return parsed
+					}
+				} catch (e) {
+					console.error('Failed to parse chat history', e)
+				}
+			}
+		}
+		return [
+			{ id: 'welcome', text: dict.assistant.welcome, sender: 'assistant' },
+		]
+	})
 	const [showForm, setShowForm] = React.useState(false)
 	const [showQuestions, setShowQuestions] = React.useState(false) // Inizia chiuso
 	const [success, setSuccess] = React.useState(false)
 	const [error, setError] = React.useState<string | null>(null)
 	const scrollRef = React.useRef<HTMLDivElement>(null)
-
-	// Carica la cronologia dal localStorage all'avvio
-	React.useEffect(() => {
-		const saved = localStorage.getItem(STORAGE_KEY)
-		if (saved) {
-			try {
-				const parsed = JSON.parse(saved)
-				if (Array.isArray(parsed) && parsed.length > 0) {
-					setHistory(parsed)
-				}
-			} catch (e) {
-				console.error('Failed to parse chat history', e)
-			}
-		}
-	}, [])
 
 	// Salva la cronologia al cambiamento
 	React.useEffect(() => {
@@ -78,23 +103,111 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		}
 	}, [isOpen, scrollToBottom])
 
-	const handleQuestionClick = (question: {
-		id: string
-		text: string
-		answer: string
-	}) => {
+	const scrollToMessage = (messageId: string) => {
+		const element = document.getElementById(`msg-${messageId}`)
+		if (element && scrollRef.current) {
+			const container = scrollRef.current
+			container.scrollTo({
+				top: element.offsetTop - container.offsetTop - 20,
+				behavior: 'smooth',
+			})
+		}
+	}
+
+	const handleSendMessage = () => {
+		if (!inputValue.trim()) return
+
 		const userMsg: Message = {
 			id: `user-${Date.now()}`,
-			text: question.text,
+			text: inputValue,
 			sender: 'user',
 		}
-		const assistantMsg: Message = {
-			id: `assistant-${Date.now()}`,
-			text: question.answer,
-			sender: 'assistant',
-		}
+		setHistory((prev) => [...prev, userMsg])
+		setInputValue('')
+		setIsAssistantThinking(true)
 
-		setHistory((prev) => [...prev, userMsg, assistantMsg])
+		setTimeout(() => {
+			const normalizedInput = inputValue.toLowerCase().trim()
+			const keywordMap = getKeywordMap(dict.lang as 'it' | 'en')
+			const match = keywordMap.find((m) =>
+				m.keywords.some((k) => normalizedInput.includes(k.toLowerCase())),
+			)
+
+			if (match) {
+				handleQuestionClick(match.question, true)
+			} else if (
+				normalizedInput.includes('contatto') ||
+				normalizedInput.includes('contact')
+			) {
+				handleContactClick()
+			} else {
+				const fallbackMsg: Message = {
+					id: `assistant-${Date.now()}`,
+					text: questionsData.fallback[dict.lang as 'it' | 'en'],
+					sender: 'assistant',
+				}
+				setHistory((prev) => [...prev, fallbackMsg])
+			}
+			setIsAssistantThinking(false)
+			scrollToBottom()
+		}, 800)
+	}
+
+	const handleQuestionClick = (
+		question: {
+			id: string
+			text: string
+			answer: string
+		},
+		skipUserMessage = false,
+	) => {
+		const existingAssistantMsg = history.find(
+			(msg) => msg.questionId === question.id && msg.sender === 'assistant',
+		)
+
+		if (existingAssistantMsg) {
+			const showLink = history.length > 5
+			const repeatMsg: Message = {
+				id: `assistant-${Date.now()}`,
+				text:
+					showLink && dict.lang === 'it'
+						? 'Ti ho già risposto a questa domanda! [Clicca qui](chat:scroll) per rileggerla.'
+						: showLink && dict.lang === 'en'
+							? 'I have already answered this question! [Click here](chat:scroll) to read it again.'
+							: !showLink && dict.lang === 'it'
+								? 'Ti ho già risposto a questa domanda!'
+								: 'I have already answered this question!',
+				sender: 'assistant',
+				quotedMessageId: existingAssistantMsg.id,
+				quotedMessageText: existingAssistantMsg.text,
+			}
+			setHistory((prev) => [...prev, repeatMsg])
+			setTimeout(scrollToBottom, 50)
+		} else {
+			const assistantMsg: Message = {
+				id: `assistant-${Date.now()}`,
+				text: question.answer,
+				sender: 'assistant',
+				questionId: question.id,
+			}
+
+			if (!skipUserMessage) {
+				const userMsg: Message = {
+					id: `user-${Date.now()}`,
+					text: question.text,
+					sender: 'user',
+					questionId: question.id,
+				}
+				setHistory((prev) => [...prev, userMsg])
+			}
+
+			setIsAssistantThinking(true)
+			setTimeout(() => {
+				setHistory((prev) => [...prev, assistantMsg])
+				setIsAssistantThinking(false)
+				scrollToBottom()
+			}, 800)
+		}
 		setShowQuestions(false)
 	}
 
@@ -114,6 +227,8 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		setSuccess(false)
 		setError(null)
 	}
+
+	console.log('Current chat history:', history) // Log della cronologia corrente
 
 	return (
 		<div className="fixed right-6 bottom-20 z-100 flex flex-col items-end">
@@ -140,7 +255,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 						}}
 						className={twMerge(
 							'mb-4 flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl transition-colors duration-300 dark:border-gray-800 dark:bg-gray-950',
-							'h-[75vh] w-[90vw] sm:h-150 sm:w-100',
+							'h-[75vh] w-[90vw] sm:h-150 sm:w-100 md:h-[80vh]',
 						)}
 					>
 						{/* Header */}
@@ -189,6 +304,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 									initial={{ opacity: 0, y: 10 }}
 									animate={{ opacity: 1, y: 0 }}
 									key={msg.id}
+									id={`msg-${msg.id}`}
 									className={twMerge(
 										'flex items-end gap-2',
 										msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row',
@@ -212,53 +328,105 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 										className={twMerge(
 											'max-w-[85%] rounded-2xl px-4 py-2 text-sm shadow-sm',
 											msg.sender === 'assistant'
-												? 'rounded-bl-none border border-gray-100 bg-white text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200'
-												: 'rounded-br-none bg-primary text-white',
+												? 'rounded-bl-none bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200'
+												: 'rounded-br-none bg-primary/35 text-white',
 										)}
 									>
-										{msg.text.split(/(\[.*?\]\(.*?\))/g).map((part, index) => {
-											const match = part.match(/\[(.*?)\]\((.*?)\)/)
-											if (match) {
-												const isChatAction = match[2].startsWith('chat:')
-												if (isChatAction) {
+										{msg.quotedMessageText && (
+											<button
+												type="button"
+												onClick={() =>
+													msg.quotedMessageId &&
+													scrollToMessage(msg.quotedMessageId)
+												}
+												className="mb-2 block w-full cursor-pointer rounded-lg border-primary border-l-4 bg-gray-100 p-2 text-left text-gray-600 text-xs dark:bg-gray-700 dark:text-gray-300"
+											>
+												<span className="block font-bold text-primary">
+													Bot
+												</span>
+												<span className="line-clamp-2 italic">
+													{msg.quotedMessageText}
+												</span>
+											</button>
+										)}
+										{msg.text
+											.split(/(\[.*?\]\(chat:.*?\))/g)
+											.map((part, index) => {
+												const match = part.match(/\[(.*?)\]\((.*?)\)/)
+												if (match) {
+													const link = match[2]
+													if (link.startsWith('chat:')) {
+														return (
+															<button
+																key={index}
+																type="button"
+																onClick={() => {
+																	if (link === 'chat:contact') {
+																		handleContactClick()
+																	} else if (link === 'chat:scroll') {
+																		msg.quotedMessageId &&
+																			scrollToMessage(msg.quotedMessageId)
+																	}
+																}}
+																className="cursor-pointer font-bold underline transition-colors hover:text-primary dark:hover:text-blue-400"
+															>
+																{match[1]}
+															</button>
+														)
+													}
+													const splitText = part.split(/\[(.*?)\]\((.*?)\)/)
 													return (
-														<button
-															key={index}
-															type="button"
-															onClick={() => {
-																if (match[2] === 'chat:contact') {
-																	handleContactClick()
+														<span key={index}>
+															{splitText.map((textPart, textIndex) => {
+																if (textIndex === 1) {
+																	return (
+																		<a
+																			key={textIndex}
+																			href={link}
+																			target={
+																				link.startsWith('http')
+																					? '_blank'
+																					: undefined
+																			}
+																			rel={
+																				link.startsWith('http')
+																					? 'noopener noreferrer'
+																					: undefined
+																			}
+																			className="font-bold underline transition-colors hover:text-primary dark:hover:text-blue-400"
+																		>
+																			{textPart}
+																		</a>
+																	)
+																} else if (textIndex === 2) {
+																	// Ignora la parte del link, poiché è già gestita
+																	return null
 																}
-															}}
-															className="cursor-pointer font-bold underline transition-colors hover:text-primary dark:hover:text-blue-400"
-														>
-															{match[1]}
-														</button>
+																return <span key={textIndex}>{textPart}</span>
+															})}
+														</span>
 													)
 												}
-												return (
-													<a
-														key={index}
-														href={match[2]}
-														target={
-															match[2].startsWith('http') ? '_blank' : undefined
-														}
-														rel={
-															match[2].startsWith('http')
-																? 'noopener noreferrer'
-																: undefined
-														}
-														className="font-bold underline transition-colors hover:text-primary dark:hover:text-blue-400"
-													>
-														{match[1]}
-													</a>
-												)
-											}
-											return part
-										})}
+												return <span key={index}>{part}</span>
+											})}
 									</div>
 								</motion.div>
 							))}
+
+							{isAssistantThinking && (
+								<motion.div
+									initial={{ opacity: 0, y: 10 }}
+									animate={{ opacity: 1, y: 0 }}
+									className="flex flex-row items-end gap-2"
+								>
+									<div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-200 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+										<Bot className="h-3 w-3" />
+									</div>
+									<div className="rounded-2xl rounded-bl-none border border-gray-100 bg-white px-4 py-2 text-gray-400 text-sm shadow-sm dark:border-gray-700 dark:bg-gray-800">
+										<span className="animate-pulse">...</span>
+									</div>
+								</motion.div>
+							)}
 
 							{showForm && (
 								<motion.div
@@ -294,7 +462,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 													}}
 													className="cursor-pointer rounded-full p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
 												>
-													<ChevronLeft className="h-4 w-4" />
+													<ChevronLeft className="h-4 w-4 text-primary" />
 												</button>
 												<span className="font-bold text-gray-500 text-xs uppercase tracking-wider">
 													{dict.contacts.modal.title}
@@ -324,6 +492,23 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 						{/* Questions Area (Accordion) */}
 						{!showForm && !success && (
 							<div className="border-t bg-white p-2 dark:border-gray-800 dark:bg-gray-950">
+								<div className="flex items-center gap-2 p-2">
+									<input
+										type="text"
+										value={inputValue}
+										onChange={(e) => setInputValue(e.target.value)}
+										onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+										placeholder="Scrivi qui..."
+										className="flex-1 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm outline-none focus:border-primary dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
+									/>
+									<button
+										type="button"
+										onClick={handleSendMessage}
+										className="rounded-full bg-primary p-2 text-white transition-colors hover:bg-primary/90"
+									>
+										<Send className="h-4 w-4" />
+									</button>
+								</div>
 								<button
 									type="button"
 									onClick={() => setShowQuestions(!showQuestions)}
@@ -354,16 +539,27 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 											className="overflow-hidden"
 										>
 											<div className="scrollbar-hide grid max-h-75 gap-2 overflow-y-auto p-2">
-												{dict.assistant.questions.map((q) => (
-													<button
-														type="button"
-														key={q.id}
-														onClick={() => handleQuestionClick(q)}
-														className="w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-3 text-left font-medium text-gray-700 text-sm shadow-sm transition-all hover:border-primary hover:text-primary hover:shadow-md dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary"
-													>
-														{q.text}
-													</button>
-												))}
+												{questionsData.questions
+													.filter((q) => !q.hidden)
+													.map((q) => {
+														const text = q.text[dict.lang as 'it' | 'en']
+														return (
+															<button
+																type="button"
+																key={q.id}
+																onClick={() =>
+																	handleQuestionClick({
+																		id: q.id,
+																		text: q.text[dict.lang as 'it' | 'en'],
+																		answer: q.answer[dict.lang as 'it' | 'en'],
+																	})
+																}
+																className="w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-3 text-left font-medium text-gray-700 text-sm shadow-sm transition-all hover:border-primary hover:text-primary hover:shadow-md dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary"
+															>
+																{text}
+															</button>
+														)
+													})}
 												<button
 													type="button"
 													onClick={handleContactClick}
