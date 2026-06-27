@@ -420,7 +420,7 @@ const dictionary = {
 				id: '5',
 				text: 'What is the secret to finding the first job?',
 				answer:
-					'A solid portfolio and a polished [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) profile are essential. Join communities and contribute to open source.',
+					'A solid portfolio and a polished [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) profile are essential. Join communities, contribute to open source, and send targeted resumes and cover letters.',
 			},
 			{
 				id: '6',
@@ -440,14 +440,21 @@ const dictionary = {
 				answer:
 					'Yes, Maurizio has experience in cross-platform app development using React Native.',
 			},
+
 			{
 				id: '9',
-				text: 'How do you handle testing in your code?',
+				text: 'Do you also work with desktop applications?',
 				answer:
-					'He uses tools like Vitest and Testing Library to ensure the code is solid, reliable, and regression-free.',
+					'Yes, Maurizio has experience in developing desktop applications using technologies like Electron.',
 			},
 			{
 				id: '10',
+				text: 'How do you handle testing in your code?',
+				answer:
+					'He uses tools like Vitest and Testing Library to ensure the code is solid, reliable, and regression-free, with the help of AI to generate unit and integration tests.',
+			},
+			{
+				id: '11',
 				text: 'What are your hobbies outside of coding?',
 				answer:
 					'Maurizio is a music lover, enjoys programming (yes, coding is a hobby too!), and likes to spend his free time playing video games.',

@@ -382,7 +382,8 @@ const dictionary = {
 		welcome:
 			"Ciao! Sono l'assistente virtuale di Maurizio. Come posso aiutarti oggi?",
 		placeholder: 'Scegli una domanda...',
-		contactMe: "Non ho trovato quello che cercavo, vorrei scriverti un messaggio personale.",
+		contactMe:
+			'Non ho trovato quello che cercavo, vorrei scriverti un messaggio personale.',
 		backToQuestions: 'Torna alle domande',
 		questions: [
 			{
@@ -413,7 +414,7 @@ const dictionary = {
 				id: '5',
 				text: 'Come trovare il primo lavoro come dev?',
 				answer:
-					"Un portfolio solido e un profilo [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) curato sono essenziali. Partecipa a community e contribuisci all'open source.",
+					"Un portfolio solido e un profilo [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) curato sono essenziali. Partecipa a community, contribuisci all'open source e manda curriculum e lettere di presentazione mirate.",
 			},
 			{
 				id: '6',
@@ -435,12 +436,18 @@ const dictionary = {
 			},
 			{
 				id: '9',
-				text: 'Come gestisci i test nel codice?',
+				text: 'Lavori anche con applicazioni desktop?',
 				answer:
-					'Utilizza strumenti come Vitest e Testing Library per garantire che il codice sia solido, affidabile e privo di regressioni.',
+					'Sì, Maurizio ha esperienza nello sviluppo di applicazioni desktop utilizzando tecnologie come Electron.',
 			},
 			{
 				id: '10',
+				text: 'Come gestisci i test nel codice?',
+				answer:
+					"Utilizza strumenti come Vitest e Testing Library per garantire che il codice sia solido, affidabile e privo di regressioni, con l'aiuto dell'AI per generare test unitari e di integrazione.",
+			},
+			{
+				id: '11',
 				text: 'Quali sono i tuoi hobby fuori dal codice?',
 				answer:
 					'Maurizio è un appassionato di musica, adora programmare (sì, il codice è anche un hobby!) e nel tempo libero si diverte con i videogiochi.',
