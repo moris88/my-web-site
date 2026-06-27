@@ -79,6 +79,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 	const [success, setSuccess] = React.useState(false)
 	const [error, setError] = React.useState<string | null>(null)
 	const scrollRef = React.useRef<HTMLDivElement>(null)
+	const [_indexAnswer, setIndexAnswer] = React.useState<number | null>(null)
 
 	// Salva la cronologia al cambiamento
 	React.useEffect(() => {
@@ -496,6 +497,52 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 										value={inputValue}
 										onChange={(e) => setInputValue(e.target.value)}
 										onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+										onKeyDown={(e) => {
+											if (e.key === 'Enter') {
+												handleSendMessage()
+											} else if (e.key === 'ArrowUp' && history.length > 0) {
+												setIndexAnswer((prevIndex) => {
+													if (prevIndex === null) {
+														const lastUserMessageIndex = history
+															.map((msg, index) => ({ msg, index }))
+															.filter(({ msg }) => msg.sender === 'user')
+															.map(({ index }) => index)
+															.pop()
+														if (lastUserMessageIndex !== undefined) {
+															setInputValue(history[lastUserMessageIndex].text)
+															return lastUserMessageIndex
+														}
+														return null
+													} else {
+														const prevUserMessageIndex = history
+															.map((msg, index) => ({ msg, index }))
+															.filter(({ msg }) => msg.sender === 'user')
+															.map(({ index }) => index)
+															.reverse()
+															.find((index) => index < prevIndex)
+														if (prevUserMessageIndex !== undefined) {
+															setInputValue(history[prevUserMessageIndex].text)
+															return prevUserMessageIndex
+														}
+														return null
+													}
+												})
+											} else if (e.key === 'ArrowDown') {
+												setIndexAnswer((prevIndex) => {
+													if (prevIndex === null) return null
+													const nextUserMessageIndex = history
+														.map((msg, index) => ({ msg, index }))
+														.filter(({ msg }) => msg.sender === 'user')
+														.map(({ index }) => index)
+														.find((index) => index > prevIndex)
+													if (nextUserMessageIndex !== undefined) {
+														setInputValue(history[nextUserMessageIndex].text)
+														return nextUserMessageIndex
+													}
+													return null
+												})
+											}
+										}}
 										placeholder="Scrivi qui..."
 										className="flex-1 rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm outline-none focus:border-primary dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
 									/>
