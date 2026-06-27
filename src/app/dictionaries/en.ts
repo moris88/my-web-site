@@ -389,70 +389,8 @@ const dictionary = {
 		welcome: "Hi! I am Maurizio's virtual assistant. How can I help you today?",
 		placeholder: 'Choose a question...',
 		contactMe:
-			"I didn't find what I was looking for, I would like to write you an email.",
+			"I didn't find what I was looking for, I would like to write a personal message.",
 		backToQuestions: 'Back to questions',
-		questions: [
-			{
-				id: '1',
-				text: 'What technologies do you mainly use?',
-				answer:
-					'Maurizio specializes in React, Next.js, TypeScript, and Tailwind CSS for frontend development. For the backend, he mainly uses Node.js and SQL.',
-			},
-			{
-				id: '2',
-				text: 'Are you available for freelance collaborations?',
-				answer:
-					'Yes, Maurizio is always open to interesting new opportunities. You can write to him directly via the [contact form](chat:contact)!',
-			},
-			{
-				id: '3',
-				text: 'How can I start in the programming world?',
-				answer:
-					"Maurizio's advice: focus on the basics (HTML/CSS/JS), build real projects, and don't be afraid to fail. Consistency beats talent!",
-			},
-			{
-				id: '4',
-				text: 'Do you offer support or mentorship?',
-				answer:
-					'Absolutely! Maurizio loves sharing his experience. If you need advice on how to navigate the job market, feel free to write to him via the [contact form](chat:contact) or follow him on [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/).',
-			},
-			{
-				id: '5',
-				text: 'What is the secret to finding the first job?',
-				answer:
-					'A solid portfolio and a polished [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) profile are essential. Join communities and contribute to open source.',
-			},
-			{
-				id: '6',
-				text: 'Where can I see your work?',
-				answer:
-					'You can explore the [Projects](/projects) section of this site to see a selection of the most significant works.',
-			},
-			{
-				id: '7',
-				text: 'What is your approach to design?',
-				answer:
-					'Maurizio prefers a clean, minimalist, and accessible design, always putting the user at the center of the experience.',
-			},
-			{
-				id: '8',
-				text: 'Do you also work with mobile applications?',
-				answer:
-					'Yes, Maurizio has experience in cross-platform app development using React Native.',
-			},
-			{
-				id: '9',
-				text: 'How do you handle testing in your code?',
-				answer:
-					'He uses tools like Vitest and Testing Library to ensure the code is solid, reliable, and regression-free.',
-			},
-			{
-				id: '10',
-				text: 'What are your hobbies outside of coding?',
-				answer:
-					'Maurizio is a music lover, enjoys programming (yes, coding is a hobby too!), and likes to spend his free time playing video games.',
-			},
-		],
 	},
 }
 
