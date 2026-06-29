@@ -450,17 +450,8 @@
 				]
 			},
 			"keywords": {
-				"it": [
-					"contatto",
-					"email",
-					"messaggio",
-					"scrivere"
-				],
-				"en": [
-					"email",
-					"message",
-					"write"
-				]
+				"it": ["contatto", "email", "messaggio", "scrivere"],
+				"en": ["email", "message", "write"]
 			},
 			"hidden": true
 		}
