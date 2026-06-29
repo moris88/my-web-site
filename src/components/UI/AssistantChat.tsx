@@ -5,6 +5,7 @@ import {
 	Bot,
 	ChevronDown,
 	ChevronLeft,
+	Clipboard,
 	MessageCircle,
 	RotateCcw,
 	Send,
@@ -357,12 +358,33 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 									</div>
 									<div
 										className={twMerge(
-											'max-w-[85%] rounded-2xl px-4 py-2 text-sm shadow-sm',
+											'group relative max-w-[85%] rounded-2xl px-4 py-2 text-sm shadow-sm',
 											msg.sender === 'assistant'
 												? 'rounded-bl-none bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200'
 												: 'rounded-br-none bg-primary/35 text-white',
 										)}
 									>
+										<button
+											onClick={(e) => {
+												const btn = e.currentTarget
+												navigator.clipboard.writeText(msg.text)
+												const originalContent = btn.innerHTML
+												btn.innerHTML =
+													'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+												setTimeout(() => {
+													btn.innerHTML = originalContent
+												}, 2000)
+											}}
+											className={twMerge(
+												'absolute top-2 p-1 opacity-100 md:opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100',
+												msg.sender === 'assistant' ? '-right-8' : '-left-8',
+											)}
+											type="button"
+											aria-label="Copy to clipboard"
+											title="Copy to clipboard"
+										>
+											<Clipboard className="h-4 w-4 text-gray-400" />
+										</button>
 										{msg.quotedMessageText && (
 											<button
 												type="button"
