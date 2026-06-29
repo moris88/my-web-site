@@ -5,6 +5,7 @@ import {
 	Bot,
 	ChevronDown,
 	ChevronLeft,
+	Clipboard,
 	MessageCircle,
 	RotateCcw,
 	Send,
@@ -22,12 +23,16 @@ interface AssistantChatProps {
 	dict: Dictionary
 }
 
+const getRandomAnswer = (answers: string[]) => {
+	return answers[Math.floor(Math.random() * answers.length)]
+}
+
 interface Question {
 	keywords: string[]
 	question: {
 		id: string
 		text: string
-		answer: string
+		answers: string[]
 	}
 }
 
@@ -48,7 +53,7 @@ const getKeywordMap: (lang: 'it' | 'en') => Question[] = (lang: 'it' | 'en') =>
 		question: {
 			id: q.id,
 			text: q.text[lang],
-			answer: q.answer[lang],
+			answers: (q as any).answers[lang],
 		},
 	}))
 
@@ -130,12 +135,40 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		setTimeout(() => {
 			const normalizedInput = inputValue.toLowerCase().trim()
 			const keywordMap = getKeywordMap(dict.lang as 'it' | 'en')
-			const match = keywordMap.find((m) =>
-				m.keywords.some((k) => normalizedInput.includes(k.toLowerCase())),
-			)
+			let bestMatch: Question | null = null
+			let highestScore = 0
+			let bestMatchTotalKeywords = Infinity
 
-			if (match) {
-				handleQuestionClick(match.question, true)
+			keywordMap.forEach((m) => {
+				let currentScore = 0
+				m.keywords.forEach((k) => {
+					const regex = new RegExp(`\\b${k.toLowerCase()}\\b`, 'i')
+					if (regex.test(normalizedInput)) {
+						currentScore++
+					}
+				})
+
+				if (
+					currentScore > 0 &&
+					(currentScore > highestScore ||
+						(currentScore === highestScore &&
+							m.keywords.length < bestMatchTotalKeywords))
+				) {
+					highestScore = currentScore
+					bestMatchTotalKeywords = m.keywords.length
+					bestMatch = m
+				}
+			})
+
+			if (bestMatch) {
+				handleQuestionClick(
+					{
+						id: (bestMatch as Question).question.id,
+						text: (bestMatch as Question).question.text,
+						answers: (bestMatch as Question).question.answers,
+					},
+					true,
+				)
 			} else if (
 				normalizedInput.includes('contatto') ||
 				normalizedInput.includes('contact')
@@ -158,7 +191,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		question: {
 			id: string
 			text: string
-			answer: string
+			answers: string[]
 		},
 		skipUserMessage = false,
 	) => {
@@ -187,7 +220,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 		} else {
 			const assistantMsg: Message = {
 				id: `assistant-${Date.now()}`,
-				text: question.answer,
+				text: getRandomAnswer(question.answers),
 				sender: 'assistant',
 				questionId: question.id,
 			}
@@ -325,12 +358,33 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 									</div>
 									<div
 										className={twMerge(
-											'max-w-[85%] rounded-2xl px-4 py-2 text-sm shadow-sm',
+											'group relative max-w-[85%] rounded-2xl px-4 py-2 text-sm shadow-sm',
 											msg.sender === 'assistant'
 												? 'rounded-bl-none bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200'
 												: 'rounded-br-none bg-primary/35 text-white',
 										)}
 									>
+										<button
+											onClick={(e) => {
+												const btn = e.currentTarget
+												navigator.clipboard.writeText(msg.text)
+												const originalContent = btn.innerHTML
+												btn.innerHTML =
+													'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+												setTimeout(() => {
+													btn.innerHTML = originalContent
+												}, 2000)
+											}}
+											className={twMerge(
+												'absolute top-2 p-1 opacity-100 transition-opacity hover:opacity-100 group-hover:opacity-100 md:opacity-0',
+												msg.sender === 'assistant' ? '-right-8' : '-left-8',
+											)}
+											type="button"
+											aria-label="Copy to clipboard"
+											title="Copy to clipboard"
+										>
+											<Clipboard className="h-4 w-4 text-gray-400" />
+										</button>
 										{msg.quotedMessageText && (
 											<button
 												type="button"
@@ -596,7 +650,9 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 																	handleQuestionClick({
 																		id: q.id,
 																		text: q.text[dict.lang as 'it' | 'en'],
-																		answer: q.answer[dict.lang as 'it' | 'en'],
+																		answers: (q as any).answers[
+																			dict.lang as 'it' | 'en'
+																		],
 																	})
 																}
 																className="w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-3 text-left font-medium text-gray-700 text-sm shadow-sm transition-all hover:border-primary hover:text-primary hover:shadow-md dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary"

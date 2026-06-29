@@ -148,5 +148,44 @@
 			},
 			"icon": "Paintbrush"
 		}
+	],
+	"quotes": [
+		{
+			"it": "Il miglior codice è quello che non devi scrivere.",
+			"en": "The best code is the one you don't have to write."
+		},
+		{
+			"it": "La complessità è il nemico dell'usabilità.",
+			"en": "Complexity is the enemy of usability."
+		},
+		{
+			"it": "Il design non è solo ciò che vedi, ma come funziona.",
+			"en": "Design is not just what you see, but how it works."
+		},
+		{
+			"it": "Non costruire mai qualcosa che non vorresti usare tu stesso.",
+			"en": "Never build something you wouldn't want to use yourself."
+		},
+		{
+			"it": "Un'interfaccia è come una barzelletta: se la devi spiegare, non è venuta bene.",
+			"en": "An interface is like a joke: if you have to explain it, it's not a good one."
+		},
+		{
+			"it": "Il frontend è l'arte di rendere il complesso semplice per l'utente.",
+			"en": "Frontend is the art of making the complex simple for the user."
+		},
+		{ "it": "Codice pulito, mente lucida.", "en": "Clean code, clear mind." },
+		{
+			"it": "L'accessibilità è una funzionalità, non un'opzione.",
+			"en": "Accessibility is a feature, not an option."
+		},
+		{
+			"it": "Innovare nel frontend significa anticipare i bisogni dell'utente.",
+			"en": "Innovating in the frontend means anticipating the user's needs."
+		},
+		{
+			"it": "La perfezione si ottiene non quando non c'è più nulla da aggiungere, ma quando non c'è più nulla da togliere.",
+			"en": "Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."
+		}
 	]
 }

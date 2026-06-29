@@ -36,6 +36,10 @@ export interface Info {
 		}
 		icon: string
 	}[]
+	quotes: {
+		it: string
+		en: string
+	}[]
 }
 
 export interface StoreLink {

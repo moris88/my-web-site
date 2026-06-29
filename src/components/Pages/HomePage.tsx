@@ -20,6 +20,10 @@ import {
 import { useScrollReveal } from '@/hooks'
 import type { Info, Language } from '@/types'
 
+const getRandomQuote = (quotes: { it: string; en: string }[]) => {
+	return quotes[Math.floor(Math.random() * quotes.length)]
+}
+
 interface HomePageProps {
 	dict: Dictionary
 	info: Info
@@ -28,9 +32,19 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
 	const [startSubTitle, setStartSubtitle] = React.useState(false)
+	const [randomQuote, setRandomQuote] = React.useState<{
+		it: string
+		en: string
+	} | null>(null)
 	const router = useRouter()
 
 	useScrollReveal()
+
+	React.useEffect(() => {
+		if (info.quotes) {
+			setRandomQuote(getRandomQuote(info.quotes))
+		}
+	}, [info.quotes])
 
 	return (
 		<>
@@ -313,6 +327,26 @@ function HomePage({ dict, info, language }: HomePageProps) {
 			</section>
 
 			<SectionCardLink id="links" dict={dict} />
+
+			{randomQuote && (
+				<section className="w-full bg-gray-50 py-16 dark:bg-slate-950">
+					<div className="container mx-auto px-4">
+						<div className="mx-auto max-w-2xl rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+							<div className="mb-4 text-4xl text-primary/30">"</div>
+							<blockquote className="font-medium text-2xl text-gray-800 italic leading-relaxed dark:text-gray-200">
+								{randomQuote[language]}
+							</blockquote>
+							<div className="mt-6 flex items-center justify-center gap-4">
+								<div className="h-px w-12 bg-primary/30" />
+								<p className="font-semibold text-primary tracking-wide">
+									Maurizio
+								</p>
+								<div className="h-px w-12 bg-primary/30" />
+							</div>
+						</div>
+					</div>
+				</section>
+			)}
 		</>
 	)
 }
