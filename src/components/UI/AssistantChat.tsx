@@ -376,7 +376,7 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 												}, 2000)
 											}}
 											className={twMerge(
-												'absolute top-2 p-1 opacity-100 md:opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100',
+												'absolute top-2 p-1 opacity-100 transition-opacity hover:opacity-100 group-hover:opacity-100 md:opacity-0',
 												msg.sender === 'assistant' ? '-right-8' : '-left-8',
 											)}
 											type="button"
