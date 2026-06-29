@@ -430,6 +430,39 @@
 				"en": ["skills", "competencies", "hard skills", "soft skills"]
 			},
 			"hidden": true
+		},
+		{
+			"id": "hidden-contact-email",
+			"text": {
+				"it": "",
+				"en": ""
+			},
+			"answers": {
+				"it": [
+					"Puoi contattare Maurizio via email all'indirizzo: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)",
+					"Per informazioni o collaborazioni, scrivi a Maurizio all'email: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)",
+					"Se desideri metterti in contatto con Maurizio, invia un'email a: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)"
+				],
+				"en": [
+					"You can contact Maurizio via email at: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)",
+					"For information or collaborations, write to Maurizio at: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)",
+					"If you want to get in touch with Maurizio, send an email to: [maurizio.tolomeo@outlook.it](mailto:maurizio.tolomeo@outlook.it)"
+				]
+			},
+			"keywords": {
+				"it": [
+					"contatto",
+					"email",
+					"messaggio",
+					"scrivere"
+				],
+				"en": [
+					"email",
+					"message",
+					"write"
+				]
+			},
+			"hidden": true
 		}
 	]
 }
