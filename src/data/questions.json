@@ -6,7 +6,10 @@
 	"questions": [
 		{
 			"id": "1",
-			"text": { "it": "Quali tecnologie utilizzi principalmente?", "en": "What technologies do you mainly use?" },
+			"text": {
+				"it": "Quali tecnologie utilizzi principalmente?",
+				"en": "What technologies do you mainly use?"
+			},
 			"answers": {
 				"it": [
 					"Maurizio è specializzato in React, Next.js, TypeScript e Tailwind CSS per lo sviluppo frontend. Per il backend utilizza principalmente Node.js e SQL.",
@@ -19,11 +22,17 @@
 					"Regarding development, Maurizio relies heavily on React, Next.js, and TypeScript. For server-side, Node.js and SQL databases are his tools of choice."
 				]
 			},
-			"keywords": { "it": ["tecnologie", "stack", "linguaggi"], "en": ["technologies", "stack", "skills"] }
+			"keywords": {
+				"it": ["tecnologie", "stack", "linguaggi"],
+				"en": ["technologies", "stack", "skills"]
+			}
 		},
 		{
 			"id": "2",
-			"text": { "it": "Sei disponibile per collaborazioni freelance?", "en": "Are you available for freelance collaborations?" },
+			"text": {
+				"it": "Sei disponibile per collaborazioni freelance?",
+				"en": "Are you available for freelance collaborations?"
+			},
 			"answers": {
 				"it": [
 					"Sì, Maurizio valuta sempre nuove opportunità interessanti. Puoi scrivergli direttamente tramite il [modulo di contatto](chat:contact)!",
@@ -36,11 +45,17 @@
 					"Yes, I accept new proposals. If you have a project in mind, the best way to discuss it is through the [contact form](chat:contact)."
 				]
 			},
-			"keywords": { "it": ["freelance", "collaborazione", "lavoro"], "en": ["freelance", "collaboration", "work", "job"] }
+			"keywords": {
+				"it": ["freelance", "collaborazione", "lavoro"],
+				"en": ["freelance", "collaboration", "work", "job"]
+			}
 		},
 		{
 			"id": "3",
-			"text": { "it": "Come posso muovermi nel mondo della programmazione?", "en": "How can I start in the programming world?" },
+			"text": {
+				"it": "Come posso muovermi nel mondo della programmazione?",
+				"en": "How can I start in the programming world?"
+			},
 			"answers": {
 				"it": [
 					"Il consiglio di Maurizio è: focalizzati sulle basi (HTML/CSS/JS), costruisci progetti reali e non aver paura di fallire. La costanza batte il talento!",
@@ -53,11 +68,17 @@
 					"Don't take shortcuts: the basics are everything. Build, break things, and learn from your mistakes. Consistency is your best weapon."
 				]
 			},
-			"keywords": { "it": ["iniziato", "imparare", "coding"], "en": ["start", "learn", "coding"] }
+			"keywords": {
+				"it": ["iniziato", "imparare", "coding"],
+				"en": ["start", "learn", "coding"]
+			}
 		},
 		{
 			"id": "4",
-			"text": { "it": "Offri supporto o mentorship?", "en": "Do you offer support or mentorship?" },
+			"text": {
+				"it": "Offri supporto o mentorship?",
+				"en": "Do you offer support or mentorship?"
+			},
 			"answers": {
 				"it": [
 					"Certamente! Maurizio ama condividere la sua esperienza. Se hai bisogno di consigli su come orientarti nel mercato del lavoro, scrivigli pure tramite il [modulo di contatto](chat:contact) o seguilo su [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/).",
@@ -70,11 +91,17 @@
 					"Sharing knowledge is fundamental to Maurizio. He is happy to offer support. Get in touch via the [dedicated form](chat:contact)."
 				]
 			},
-			"keywords": { "it": ["supporto", "mentorship"], "en": ["support", "mentorship", "mentor"] }
+			"keywords": {
+				"it": ["supporto", "mentorship"],
+				"en": ["support", "mentorship", "mentor"]
+			}
 		},
 		{
 			"id": "5",
-			"text": { "it": "Come trovare il primo lavoro come dev?", "en": "How to find the first job as a dev?" },
+			"text": {
+				"it": "Come trovare il primo lavoro come dev?",
+				"en": "How to find the first job as a dev?"
+			},
 			"answers": {
 				"it": [
 					"Un portfolio solido e un profilo [LinkedIn](https://www.linkedin.com/in/maurizio-tolomeo/) curato sono essenziali. Partecipa a community, contribuisci all'open source e manda curriculum e lettere di presentazione mirate.",
@@ -87,11 +114,17 @@
 					"Polish your portfolio, contribute to open source, and make your LinkedIn profile professional. Strategy is key: don't send resumes randomly, be targeted."
 				]
 			},
-			"keywords": { "it": ["primo lavoro", "carriera"], "en": ["first job", "career"] }
+			"keywords": {
+				"it": ["primo lavoro", "carriera"],
+				"en": ["first job", "career"]
+			}
 		},
 		{
 			"id": "6",
-			"text": { "it": "Dove posso vedere i tuoi lavori?", "en": "Where can I see your work?" },
+			"text": {
+				"it": "Dove posso vedere i tuoi lavori?",
+				"en": "Where can I see your work?"
+			},
 			"answers": {
 				"it": [
 					"Puoi esplorare la sezione [Progetti](/projects) di questo sito per vedere una selezione dei lavori più significativi.",
@@ -104,11 +137,17 @@
 					"My project showcase is available in the [Projects](/projects) section. You'll find a selection of my work."
 				]
 			},
-			"keywords": { "it": ["progetti", "lavori", "portfolio"], "en": ["projects", "work", "portfolio"] }
+			"keywords": {
+				"it": ["progetti", "lavori", "portfolio"],
+				"en": ["projects", "work", "portfolio"]
+			}
 		},
 		{
 			"id": "7",
-			"text": { "it": "Qual è il tuo approccio al design?", "en": "What is your approach to design?" },
+			"text": {
+				"it": "Qual è il tuo approccio al design?",
+				"en": "What is your approach to design?"
+			},
 			"answers": {
 				"it": [
 					"Maurizio predilige un design pulito, minimalista e accessibile, mettendo sempre l'utente al centro dell'esperienza.",
@@ -121,11 +160,17 @@
 					"The user comes first. Maurizio focuses on clean, minimalist interfaces designed to be accessible to everyone."
 				]
 			},
-			"keywords": { "it": ["design", "approccio", "creatività"], "en": ["design", "approach", "style"] }
+			"keywords": {
+				"it": ["design", "approccio", "creatività"],
+				"en": ["design", "approach", "style"]
+			}
 		},
 		{
 			"id": "8",
-			"text": { "it": "Lavori anche con applicazioni mobile?", "en": "Do you also work with mobile applications?" },
+			"text": {
+				"it": "Lavori anche con applicazioni mobile?",
+				"en": "Do you also work with mobile applications?"
+			},
 			"answers": {
 				"it": [
 					"Sì, Maurizio ha esperienza nello sviluppo di app cross-platform utilizzando React Native.",
@@ -138,11 +183,17 @@
 					"Yes, mobile development is part of Maurizio's skillset, with a special focus on React Native."
 				]
 			},
-			"keywords": { "it": ["mobile", "app", "react native"], "en": ["mobile", "app", "react native"] }
+			"keywords": {
+				"it": ["mobile", "app", "react native"],
+				"en": ["mobile", "app", "react native"]
+			}
 		},
 		{
 			"id": "9",
-			"text": { "it": "Lavori anche con applicazioni desktop?", "en": "Do you also work with desktop applications?" },
+			"text": {
+				"it": "Lavori anche con applicazioni desktop?",
+				"en": "Do you also work with desktop applications?"
+			},
 			"answers": {
 				"it": [
 					"Sì, Maurizio ha esperienza nello sviluppo di applicazioni desktop utilizzando tecnologie come Electron.",
@@ -155,11 +206,17 @@
 					"Yes, desktop application development is among Maurizio's skills, using technologies like Electron."
 				]
 			},
-			"keywords": { "it": ["desktop", "electron"], "en": ["desktop", "electron"] }
+			"keywords": {
+				"it": ["desktop", "electron"],
+				"en": ["desktop", "electron"]
+			}
 		},
 		{
 			"id": "10",
-			"text": { "it": "Come gestisci i test nel codice?", "en": "How do you handle testing in your code?" },
+			"text": {
+				"it": "Come gestisci i test nel codice?",
+				"en": "How do you handle testing in your code?"
+			},
 			"answers": {
 				"it": [
 					"Utilizza strumenti come Vitest e Testing Library per garantire che il codice sia solido, affidabile e privo di regressioni, con l'aiuto dell'AI per generare test unitari e di integrazione.",
@@ -172,11 +229,17 @@
 					"No code without tests! Maurizio relies on Vitest and Testing Library, optimizing the process thanks to AI."
 				]
 			},
-			"keywords": { "it": ["test", "vitest", "qualità"], "en": ["test", "vitest", "quality"] }
+			"keywords": {
+				"it": ["test", "vitest", "qualità"],
+				"en": ["test", "vitest", "quality"]
+			}
 		},
 		{
 			"id": "11",
-			"text": { "it": "Quali sono i tuoi hobby fuori dal codice?", "en": "What are your hobbies outside of coding?" },
+			"text": {
+				"it": "Quali sono i tuoi hobby fuori dal codice?",
+				"en": "What are your hobbies outside of coding?"
+			},
 			"answers": {
 				"it": [
 					"Maurizio è un appassionato di musica, adora programmare (sì, il codice è anche un hobby!) e nel tempo libero si diverte con i videogiochi.",
@@ -189,7 +252,10 @@
 					"Maurizio loves music and video games, but his true love remains programming, even in his free time!"
 				]
 			},
-			"keywords": { "it": ["hobby", "passioni", "musica", "videogiochi"], "en": ["hobbies", "passions", "music", "videogames"] }
+			"keywords": {
+				"it": ["hobby", "passioni", "musica", "videogiochi"],
+				"en": ["hobbies", "passions", "music", "videogames"]
+			}
 		},
 		{
 			"id": "hidden-prompt-eng",
@@ -206,7 +272,10 @@
 					"Maurizio specializes in prompt optimization and the development of workflows based on generative artificial intelligence."
 				]
 			},
-			"keywords": { "it": ["prompt", "generativa", "automatizzando", "workflow"], "en": ["prompt", "generative", "automating", "workflows"] },
+			"keywords": {
+				"it": ["prompt", "generativa", "automatizzando", "workflow"],
+				"en": ["prompt", "generative", "automating", "workflows"]
+			},
 			"hidden": true
 		},
 		{
@@ -224,7 +293,10 @@
 					"Maurizio's focus on UI/UX turns every project into a fluid, user-centered digital experience."
 				]
 			},
-			"keywords": { "it": ["ui", "ux", "design", "interfaccia", "usabilità"], "en": ["ui", "ux", "design", "interface", "usability"] },
+			"keywords": {
+				"it": ["ui", "ux", "design", "interfaccia", "usabilità"],
+				"en": ["ui", "ux", "design", "interface", "usability"]
+			},
 			"hidden": true
 		},
 		{
@@ -242,7 +314,10 @@
 					"To take a look at Maurizio's past experiences, visit the [Curriculum](/curriculum) section."
 				]
 			},
-			"keywords": { "it": ["cv", "curriculum", "resume", "curriculum vitae"], "en": ["cv", "curriculum", "resume", "curriculum vitae"] },
+			"keywords": {
+				"it": ["cv", "curriculum", "resume", "curriculum vitae"],
+				"en": ["cv", "curriculum", "resume", "curriculum vitae"]
+			},
 			"hidden": true
 		},
 		{
@@ -260,7 +335,24 @@
 					"No, I am not an LLM. I am a preconfigured assistant designed by Maurizio to guide you through his site."
 				]
 			},
-			"keywords": { "it": ["chatgpt", "gpt", "llm", "intelligenza artificiale", "ai", "modello"], "en": ["chatgpt", "gpt", "llm", "artificial intelligence", "ai", "model"] },
+			"keywords": {
+				"it": [
+					"chatgpt",
+					"gpt",
+					"llm",
+					"intelligenza artificiale",
+					"ai",
+					"modello"
+				],
+				"en": [
+					"chatgpt",
+					"gpt",
+					"llm",
+					"artificial intelligence",
+					"ai",
+					"model"
+				]
+			},
 			"hidden": true
 		},
 		{
@@ -278,7 +370,10 @@
 					"I'm sorry, but I cannot write code. My task is that of an informational assistant about Maurizio's projects."
 				]
 			},
-			"keywords": { "it": ["scrivi codice", "scrivi", "codice", "storia", "programmare"], "en": ["write code", "write a story", "code", "programming"] },
+			"keywords": {
+				"it": ["scrivi codice", "scrivi", "codice", "storia", "programmare"],
+				"en": ["write code", "write a story", "code", "programming"]
+			},
 			"hidden": true
 		},
 		{
@@ -296,7 +391,23 @@
 					"My role is that of a preconfigured assistant to help you navigate the information about Maurizio's projects."
 				]
 			},
-			"keywords": { "it": ["sei una ai", "cosa sai fare","cosa puoi fare", "chi sei", "cosa sei", "assistente virtuale"], "en": ["are you an ai", "what can you do", "who are you", "what are you", "virtual assistant"] },
+			"keywords": {
+				"it": [
+					"sei una ai",
+					"cosa sai fare",
+					"cosa puoi fare",
+					"chi sei",
+					"cosa sei",
+					"assistente virtuale"
+				],
+				"en": [
+					"are you an ai",
+					"what can you do",
+					"who are you",
+					"what are you",
+					"virtual assistant"
+				]
+			},
 			"hidden": true
 		},
 		{
@@ -314,7 +425,10 @@
 					"Maurizio is a versatile professional with skills in frontend, backend, databases, and advanced DevOps tools."
 				]
 			},
-			"keywords": { "it": ["competenze", "skills", "hard skills", "soft skills"], "en": ["skills", "competencies", "hard skills", "soft skills"] },
+			"keywords": {
+				"it": ["competenze", "skills", "hard skills", "soft skills"],
+				"en": ["skills", "competencies", "hard skills", "soft skills"]
+			},
 			"hidden": true
 		}
 	]

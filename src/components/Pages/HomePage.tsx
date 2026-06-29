@@ -32,7 +32,10 @@ interface HomePageProps {
 
 function HomePage({ dict, info, language }: HomePageProps) {
 	const [startSubTitle, setStartSubtitle] = React.useState(false)
-	const [randomQuote, setRandomQuote] = React.useState<{ it: string; en: string } | null>(null)
+	const [randomQuote, setRandomQuote] = React.useState<{
+		it: string
+		en: string
+	} | null>(null)
 	const router = useRouter()
 
 	useScrollReveal()
@@ -335,7 +338,9 @@ function HomePage({ dict, info, language }: HomePageProps) {
 							</blockquote>
 							<div className="mt-6 flex items-center justify-center gap-4">
 								<div className="h-px w-12 bg-primary/30" />
-								<p className="font-semibold text-primary tracking-wide">Maurizio</p>
+								<p className="font-semibold text-primary tracking-wide">
+									Maurizio
+								</p>
 								<div className="h-px w-12 bg-primary/30" />
 							</div>
 						</div>

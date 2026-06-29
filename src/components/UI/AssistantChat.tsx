@@ -650,7 +650,9 @@ export default function AssistantChat({ dict }: Readonly<AssistantChatProps>) {
 																	handleQuestionClick({
 																		id: q.id,
 																		text: q.text[dict.lang as 'it' | 'en'],
-																		answers: (q as any).answers[dict.lang as 'it' | 'en'],
+																		answers: (q as any).answers[
+																			dict.lang as 'it' | 'en'
+																		],
 																	})
 																}
 																className="w-full cursor-pointer rounded-xl border border-gray-200 bg-white p-3 text-left font-medium text-gray-700 text-sm shadow-sm transition-all hover:border-primary hover:text-primary hover:shadow-md dark:border-gray-800 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-primary"
