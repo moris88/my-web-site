@@ -1,6 +1,7 @@
 'use client'
 
 import { createStore, Provider } from 'jotai'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import type { Dictionary } from '@/app/dictionaries'
@@ -23,6 +24,7 @@ export default function UIWrapper({
 	links,
 }: Readonly<UIWrapperProps>) {
 	const [inizializate, setInizializate] = React.useState<boolean>(false)
+	const pathname = usePathname()
 
 	React.useEffect(() => {
 		if (!inizializate) {
@@ -36,11 +38,15 @@ export default function UIWrapper({
 
 	if (!inizializate) return null
 
+	const isSocialsPage = pathname === '/socials'
+
 	return (
 		<Provider store={atomStore}>
-			<Header dict={dict} />
-			<main className="min-h-[calc(100vh-144px)]">{children}</main>
-			<Footer links={links} />
+			{!isSocialsPage && <Header dict={dict} />}
+			<main className={isSocialsPage ? '' : 'min-h-[calc(100vh-144px)]'}>
+				{children}
+			</main>
+			{!isSocialsPage && <Footer links={links} />}
 			<AssistantChat dict={dict} />
 		</Provider>
 	)
