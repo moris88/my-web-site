@@ -34,7 +34,7 @@ jobs:
         run: pnpm check
 
       - name: 'TypeScript type check'
-        run: pnpm tsc --noEmit
+        run: pnpm typecheck
 
       - name: 'Security audit'
         run: pnpm audit --audit-level=high
