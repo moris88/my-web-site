@@ -1,7 +1,7 @@
+import { Facebook, Github, Gitlab, Home, Linkedin } from 'lucide-react'
 import { buttonVariants } from '@/components/UI/Button'
 import links from '@/data/links.json'
 import { cn } from '@/lib/utils'
-import { Facebook, Github, Gitlab, Linkedin, Home } from 'lucide-react'
 
 const iconMap: Record<string, React.ReactNode> = {
 	linkedin: <Linkedin className="h-5 w-5" />,
@@ -23,7 +23,10 @@ export default function SocialsPage() {
 						href={link.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className={cn(buttonVariants({ variant: 'secondary', size: 'lg' }), 'w-full gap-3')}
+						className={cn(
+							buttonVariants({ variant: 'secondary', size: 'lg' }),
+							'w-full gap-3',
+						)}
 					>
 						{iconMap[link.name]}
 						{link.label}
@@ -31,7 +34,10 @@ export default function SocialsPage() {
 				))}
 				<a
 					href="/"
-					className={cn(buttonVariants({ variant: 'default', size: 'lg' }), 'w-full gap-3')}
+					className={cn(
+						buttonVariants({ variant: 'default', size: 'lg' }),
+						'w-full gap-3',
+					)}
 				>
 					<Home className="h-5 w-5" />
 					My Web Site
@@ -40,4 +46,3 @@ export default function SocialsPage() {
 		</div>
 	)
 }
-
