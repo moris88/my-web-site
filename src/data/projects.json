@@ -192,6 +192,19 @@
 				"url": "https://json-formatter.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/json-formatter",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 14,
+				"title": "Snake Game",
+				"description": "Un classico gioco Snake sviluppato come applicazione web moderna. Sviluppata con le tecnologie più recenti per offrire un'esperienza fluida e reattiva.",
+				"image": {
+					"src": "/projects/14.webp",
+					"alt": "Snake Game"
+				},
+				"public": true,
+				"url": "https://snake.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/snake-game",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		],
 		"en": [
@@ -371,11 +384,24 @@
 				"description": "A modern web application for validating, formatting, and navigating complex JSON structures with ease. Developed using the latest technologies to provide a smooth and responsive experience.",
 				"image": {
 					"src": "/projects/13.webp",
-					"alt": "AI Project Estimator"
+					"alt": "JSON Formatter"
 				},
 				"public": true,
 				"url": "https://json-formatter.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/json-formatter",
+				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 14,
+				"title": "Snake Game",
+				"description": "A classic Snake game developed as a modern web application. Built with the latest technologies to provide a smooth and responsive experience.",
+				"image": {
+					"src": "/projects/14.webp",
+					"alt": "Snake Game"
+				},
+				"public": true,
+				"url": "https://snake.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/snake-game",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
 			}
 		]
