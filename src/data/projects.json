@@ -205,6 +205,19 @@
 				"url": "https://snake.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/snake-game",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 15,
+				"title": "SentAI",
+				"description": "SentAI è un assistente per la gestione e la redazione delle email basato sull'intelligenza artificiale, progettato per semplificare il flusso di lavoro delle email. Sviluppato con moderne tecnologie web, integra modelli di intelligenza artificiale leader nel settore per aiutarti a comporre, perfezionare e gestire le tue email in modo efficiente.",
+				"image": {
+					"src": "/projects/15.webp",
+					"alt": "SentAI"
+				},
+				"public": true,
+				"url": "https://sentai.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/sent-ai",
+				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs", "Electron"]
 			}
 		],
 		"en": [
@@ -403,6 +416,19 @@
 				"url": "https://snake.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/snake-game",
 				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+			},
+			{
+				"id": 15,
+				"title": "SentAI",
+				"description": "SentAI is an AI-powered email management and drafting assistant designed to streamline your email workflow. Built with modern web technologies, it integrates leading AI models to help you compose, refine, and manage your emails efficiently.",
+				"image": {
+					"src": "/projects/15.webp",
+					"alt": "SentAI"
+				},
+				"public": true,
+				"url": "https://sentai.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/sent-ai",
+				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs", "Electron"]
 			}
 		]
 	}
