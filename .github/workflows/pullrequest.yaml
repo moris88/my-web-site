@@ -26,22 +26,16 @@ jobs:
         with:
           node-version: "24"
           cache: "pnpm"
-
       - name: "Installazione dipendenze"
         run: pnpm install
-
+      - name: "Security audit"
+        run: pnpm audit --audit-level=critical
       - name: "Check qualità codice"
         run: pnpm check
-
       - name: "TypeScript type check"
         run: pnpm typecheck
-
-      - name: "Security audit"
-        run: pnpm audit --audit-level=high
-
       - name: "Test con coverage"
         run: pnpm test:coverage
-
       - name: "Commento coverage sulla PR"
         uses: actions/github-script@v7
         if: always()
