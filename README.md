@@ -64,8 +64,8 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 
 ### Prerequisites
 
-- **Node.js** (v22.x or later)
-- **npm** or **pnpm**
+- **Node.js** (v24.x or later)
+- **pnpm**
 
 ### Installation
 
@@ -79,20 +79,20 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 2. **Install dependencies**:
 
     ```bash
-    npm install
+    pnpm install
     ```
 
 3. **Run the development server**:
 
     ```bash
-    npm run dev
+    pnpm dev
     ```
 
 4. **Linting & Formatting**:
 
     ```bash
-    npm run lint     # Check for linting issues
-    npm run format   # Format the codebase with Biome
+    pnpm lint     # Check for linting issues
+    pnpm format   # Format the codebase with Biome
     ```
 
 ---

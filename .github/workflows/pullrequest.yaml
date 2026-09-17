@@ -3,7 +3,7 @@ name: "Pull Request Checks"
 on:
   pull_request:
     branches:
-      - '**'
+      - "**"
     types: [opened, synchronize, reopened]
 permissions: {}
 
@@ -16,33 +16,27 @@ jobs:
       packages: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - name: Setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '24'
-          cache: 'pnpm'
-
-      - name: 'Installazione dipendenze'
+          node-version: "24"
+          cache: "pnpm"
+      - name: "Installazione dipendenze"
         run: pnpm install
-
-      - name: 'Check qualità codice'
+      - name: "Security audit"
+        run: pnpm audit --audit-level=critical
+      - name: "Check qualità codice"
         run: pnpm check
-
-      - name: 'TypeScript type check'
+      - name: "TypeScript type check"
         run: pnpm typecheck
-
-      - name: 'Security audit'
-        run: pnpm audit --audit-level=high
-
-      - name: 'Test con coverage'
+      - name: "Test con coverage"
         run: pnpm test:coverage
-
-      - name: 'Commento coverage sulla PR'
+      - name: "Commento coverage sulla PR"
         uses: actions/github-script@v7
         if: always()
         with:
@@ -118,12 +112,12 @@ jobs:
               body,
             })
 
-      - name: 'Upload coverage report'
+      - name: "Upload coverage report"
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coverage-report
           path: coverage/
 
-      - name: 'Build test'
+      - name: "Build test"
         run: pnpm build

@@ -2,6 +2,7 @@
 	"name": "my-web-site",
 	"version": "0.1.0",
 	"private": true,
+	"packageManager": "pnpm@11.25.0",
 	"description": "My personal portfolio website built with Next.js, React, and Tailwind CSS. It features a blog, a project showcase, and a contact form. The site is designed to be modern, responsive, and performant.",
 	"keywords": [
 		"nextjs",
@@ -28,7 +29,6 @@
 		"url": "https://github.com/moris88/my-web-site/issues"
 	},
 	"homepage": "https://github.com/moris88/my-web-site#readme",
-	"packageManager": "pnpm@10.33.0",
 	"type": "module",
 	"scripts": {
 		"dev": "next dev  --turbo",
@@ -53,24 +53,12 @@
 		"jotai": "^2.20.1",
 		"lucide-react": "^0.575.0",
 		"moment": "^2.30.1",
-		"next": "16.2.6",
-		"nodemailer": "^9.0.1",
+		"next": "16.3.5",
+		"nodemailer": "^9.1.1",
 		"react": "19.2.6",
 		"react-dom": "19.2.6",
 		"react-hook-form": "^7.80.0",
 		"typewriter-effect": "^2.22.0"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"better-sqlite3",
-			"sharp"
-		],
-		"overrides": {
-			"postcss": ">=8.5.10",
-			"vite": ">=8.0.16",
-			"nodemailer": ">=8.0.9",
-			"serialize-javascript": ">=7.0.5"
-		}
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
@@ -87,11 +75,11 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"jsdom": "^29.1.1",
-		"postcss": "^8.5.16",
+		"postcss": "^8.5.28",
 		"tailwind-merge": "^3.6.0",
 		"tailwindcss": "^4.3.2",
 		"typescript": "^5.9.3",
 		"vite-tsconfig-paths": "^6.1.1",
-		"vitest": "^4.1.9"
+		"vitest": "^4.1.11"
 	}
 }
