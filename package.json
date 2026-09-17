@@ -2,6 +2,7 @@
 	"name": "my-web-site",
 	"version": "0.1.0",
 	"private": true,
+	"packageManager": "pnpm@11.25.0",
 	"description": "My personal portfolio website built with Next.js, React, and Tailwind CSS. It features a blog, a project showcase, and a contact form. The site is designed to be modern, responsive, and performant.",
 	"keywords": [
 		"nextjs",
