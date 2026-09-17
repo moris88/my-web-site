@@ -217,7 +217,14 @@
 				"public": true,
 				"url": "https://sentai.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/sent-ai",
-				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs", "Electron"]
+				"tags": [
+					"AI",
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"Electron"
+				]
 			}
 		],
 		"en": [
@@ -428,7 +435,14 @@
 				"public": true,
 				"url": "https://sentai.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/sent-ai",
-				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs", "Electron"]
+				"tags": [
+					"AI",
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"Electron"
+				]
 			}
 		]
 	}
