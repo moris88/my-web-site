@@ -1,6 +1,6 @@
 'use client'
 
-import { Facebook, Github, Gitlab, Linkedin } from 'lucide-react'
+import { Facebook, Github, Gitlab, Instagram, Linkedin } from '@/components'
 import Link from 'next/link'
 import type { StoreLink } from '@/types'
 
@@ -38,6 +38,9 @@ function MyFooter({ links }: Readonly<MyFooterProps>) {
 						)}
 						{link.name === 'linkedin' && (
 							<Linkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
+						)}
+						{link.name === 'instagram' && (
+							<Instagram className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 						)}
 					</Link>
 				))}
