@@ -8,10 +8,14 @@ import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
 	ButtonsGroupSocial,
+	Facebook,
+	Github,
+	Gitlab,
+	Instagram,
 	InteractiveAvatar,
+	Linkedin,
 	ModalMessage,
 	SectionHero,
-	Facebook, Github, Gitlab, Instagram, Linkedin
 } from '@/components'
 import type { Contact, StoreLink } from '@/types'
 
@@ -32,7 +36,7 @@ export default function PageContacts({
 		github: <Github className="h-6 w-6" />,
 		linkedin: <Linkedin className="h-6 w-6" />,
 		gitlab: <Gitlab className="h-6 w-6" />,
-		instagram: <Instagram className="h-6 w-6" />
+		instagram: <Instagram className="h-6 w-6" />,
 	}
 
 	const linkMap = links.reduce(
@@ -98,7 +102,7 @@ export default function PageContacts({
 														{iconMap[buttonLower]}
 														{
 															dict.contacts.buttons[
-															button as keyof typeof dict.contacts.buttons
+																button as keyof typeof dict.contacts.buttons
 															] as string
 														}
 													</span>

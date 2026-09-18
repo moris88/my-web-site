@@ -1,15 +1,15 @@
 'use client'
 
+import { useStore } from 'jotai'
 import { Home } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import React from 'react'
+import { themeAtom } from '@/atoms'
+import { Facebook, Github, Gitlab, Instagram, Linkedin } from '@/components'
 import { buttonVariants } from '@/components/UI/Button'
 import links from '@/data/links.json'
 import { cn } from '@/lib/utils'
-import { useSearchParams } from 'next/navigation';
-import { useStore } from 'jotai'
-import { themeAtom } from '@/atoms'
-import React from 'react'
 import { setThemeDocument } from '@/utils'
-import { Facebook, Github, Gitlab, Instagram, Linkedin } from '@/components'
 
 const iconMap: Record<string, React.ReactNode> = {
 	linkedin: <Linkedin className="h-5 w-5" />,
@@ -20,8 +20,8 @@ const iconMap: Record<string, React.ReactNode> = {
 }
 
 export default function SocialsPage() {
-	const searchParams = useSearchParams();
-	const darkTheme = searchParams.get('dark');
+	const searchParams = useSearchParams()
+	const darkTheme = searchParams.get('dark')
 	const atomStore = useStore()
 
 	React.useEffect(() => {
@@ -39,7 +39,9 @@ export default function SocialsPage() {
 			<h1 className="my-3 font-bold text-3xl text-slate-900 dark:text-white">
 				Maurizio Tolomeo
 			</h1>
-			<p className="mb-4 text-slate-900 italic dark:text-white">Connettiti con me</p>
+			<p className="mb-4 text-slate-900 italic dark:text-white">
+				Connettiti con me
+			</p>
 			<div className="flex w-full max-w-sm flex-col gap-4">
 				{links.map((link) => (
 					<a

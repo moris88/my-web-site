@@ -1,7 +1,7 @@
 'use client'
 
-import { Facebook, Github, Gitlab, Instagram, Linkedin } from '@/components'
 import Link from 'next/link'
+import { Facebook, Github, Gitlab, Instagram, Linkedin } from '@/components'
 import type { StoreLink } from '@/types'
 
 interface MyFooterProps {
