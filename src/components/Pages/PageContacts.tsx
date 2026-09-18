@@ -1,14 +1,19 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Facebook, Github, Gitlab, IdCard, Linkedin } from 'lucide-react'
+import { IdCard } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 import type { Dictionary } from '@/app/dictionaries'
 import {
 	Button,
 	ButtonsGroupSocial,
+	Facebook,
+	Github,
+	Gitlab,
+	Instagram,
 	InteractiveAvatar,
+	Linkedin,
 	ModalMessage,
 	SectionHero,
 } from '@/components'
@@ -31,6 +36,7 @@ export default function PageContacts({
 		github: <Github className="h-6 w-6" />,
 		linkedin: <Linkedin className="h-6 w-6" />,
 		gitlab: <Gitlab className="h-6 w-6" />,
+		instagram: <Instagram className="h-6 w-6" />,
 	}
 
 	const linkMap = links.reduce(

@@ -1,14 +1,8 @@
 'use client'
 
-import {
-	Facebook,
-	Linkedin,
-	MessageCircle,
-	MessageSquare,
-	Send,
-	Twitter,
-} from 'lucide-react'
+import { MessageCircle, MessageSquare, Send } from 'lucide-react'
 import Link from 'next/link'
+import { Facebook, Linkedin, Twitter } from '@/components'
 import type { Article } from '@/types'
 import Tooltip from './Tooltip'
 
