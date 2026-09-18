@@ -55,7 +55,7 @@ const dictionary = {
 					gitlab:
 						'Verrai reindirizzato su GitLab sul mio profilo pubblico. Non puoi mandarmi un messaggio ma puoi visionare le mie repository pubbliche e cliccare su "Follow".',
 					instagram:
-						'Verrai reindirizzato su Instagram sul mio profilo privato. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l\'amicizia.',
+						"Verrai reindirizzato su Instagram sul mio profilo privato. Puoi mandarmi un messaggio solamente se sei mio amico, quindi dovrai chiedere l'amicizia.",
 				},
 			},
 		},
