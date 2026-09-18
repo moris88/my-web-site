@@ -89,22 +89,17 @@ export default function PageContacts({
 								<div className="w-full">
 									<div className="flex flex-col flex-wrap justify-center gap-3 md:flex-row">
 										{contacts.links.map((button) => {
-											console.log('button', button)
 											const buttonLower = button.toLowerCase()
 											const storeLink = linkMap[buttonLower]
 											return (
 												<Button
+													title={storeLink?.label ?? ''}
 													variant="secondary"
 													key={buttonLower}
 													onClick={() => storeLink && setStoreLink(storeLink)}
 												>
 													<span className="flex items-center gap-2">
 														{iconMap[buttonLower]}
-														{
-															dict.contacts.buttons[
-																button as keyof typeof dict.contacts.buttons
-															] as string
-														}
 													</span>
 												</Button>
 											)

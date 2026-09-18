@@ -33,7 +33,7 @@ export default function SocialsPage() {
 		<div className="flex min-h-screen flex-col items-center justify-center p-6">
 			<img
 				alt="avatar"
-				className="block h-40 w-40 rounded-full drop-shadow-xl md:h-60 md:w-60"
+				className="block h-40 w-40 rounded-full object-cover drop-shadow-xl md:h-60 md:w-60"
 				src="/avatar_2.webp"
 			/>
 			<h1 className="my-3 font-bold text-3xl text-slate-900 dark:text-white">
