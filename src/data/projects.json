@@ -225,6 +225,24 @@
 					"Vitejs",
 					"Electron"
 				]
+			},
+			{
+				"id": 16,
+				"title": "Password Generator",
+				"description": "Applicazione web per generare password e passphrase sicure, valutare la loro entropia e tenere traccia delle ultime creazioni locali.",
+				"image": {
+					"src": "/projects/16.webp",
+					"alt": "Password Generator"
+				},
+				"public": true,
+				"url": "https://password-generator.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/password-generator",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			}
 		],
 		"en": [
@@ -442,6 +460,24 @@
 					"TailwindCSS",
 					"Vitejs",
 					"Electron"
+				]
+			},
+			{
+				"id": 16,
+				"title": "Password Generator",
+				"description": "A web application for generating secure passwords and passphrases, evaluating their entropy, and keeping track of recent local creations.",
+				"image": {
+					"src": "/projects/16.webp",
+					"alt": "Password Generator"
+				},
+				"public": true,
+				"url": "https://password-generator.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/password-generator",
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
 				]
 			}
 		]
