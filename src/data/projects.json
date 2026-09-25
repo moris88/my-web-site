@@ -42,20 +42,20 @@
 			},
 			{
 				"id": 3,
-				"title": "Git Commit Helper IT",
-				"description": "Git Commit Helper IT è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che sfrutta l'intelligenza artificiale per assistere gli sviluppatori nella scrittura di messaggi di commit chiari e significativi. Utilizzando modelli di linguaggio avanzati, l'applicazione analizza le modifiche apportate al codice e suggerisce messaggi di commit appropriati, migliorando la comunicazione all'interno del team di sviluppo e facilitando la gestione del versionamento del codice.",
+				"title": "CLI Backup Script",
+				"description": "CLI Backup Script è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che consente agli utenti di eseguire rapidamente e facilmente il backup dei propri file. L'applicazione offre un'interfaccia intuitiva per selezionare i file da includere nel backup e avviare il processo con un solo comando. Utilizzando librerie JavaScript avanzate per la gestione del file system, l'app garantisce un processo di backup efficiente e affidabile, ideale per chiunque abbia bisogno di proteggere i propri dati in modo rapido e senza complicazioni.",
 				"image": {
 					"src": "/projects/3.webp",
-					"alt": "Git Commit Helper IT CLI"
+					"alt": "CLI Backup Script"
 				},
 				"public": true,
-				"url": "https://www.npmjs.com/package/git-commit-helper-it",
-				"github": "https://github.com/moris88/git-commit-helper",
+				"url": "https://www.npmjs.com/package/backup-script-cli",
+				"github": "https://github.com/moris88/backup-cli",
 				"tags": [
 					"Javascript",
-					"AI",
-					"Git",
-					"CLI"
+					"Node.js",
+					"CLI",
+					"File System"
 				]
 			},
 			{
@@ -345,20 +345,20 @@
 			},
 			{
 				"id": 3,
-				"title": "Git Commit Helper IT",
-				"description": "Git Commit Helper IT is a Command Line Interface (CLI) application developed in JavaScript that leverages artificial intelligence to assist developers in writing clear and meaningful commit messages. By utilizing advanced language models, the application analyzes code changes and suggests appropriate commit messages, enhancing communication within the development team and facilitating code version management.",
+				"title": "CLI Backup Script",
+				"description": "CLI Backup Script is a Command Line Interface (CLI) application developed in JavaScript that allows users to perform backups of their files quickly and easily. The application provides an intuitive interface for selecting files to include in the backup and starting the process with a single command. By utilizing advanced JavaScript libraries for file system management, the app ensures an efficient and reliable backup process, ideal for anyone needing to protect their data quickly and without complications.",
 				"image": {
 					"src": "/projects/3.webp",
-					"alt": "Git Commit Helper IT CLI"
+					"alt": "CLI Backup Script"
 				},
 				"public": true,
-				"url": "https://www.npmjs.com/package/git-commit-helper-it",
-				"github": "https://github.com/moris88/git-commit-helper",
+				"url": "https://www.npmjs.com/package/backup-script-cli",
+				"github": "https://github.com/moris88/backup-cli",
 				"tags": [
 					"Javascript",
-					"AI",
-					"Git",
-					"CLI"
+					"Node.js",
+					"CLI",
+					"File System"
 				]
 			},
 			{
