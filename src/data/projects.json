@@ -137,20 +137,20 @@
 			},
 			{
 				"id": 8,
-				"title": "CLI Backup Script",
-				"description": "CLI Backup Script è un'applicazione Command Line Interface (CLI) sviluppata in JavaScript che consente agli utenti di eseguire backup dei propri file in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di selezionare i file da includere nel backup e avviare il processo con un solo comando. Utilizzando librerie JavaScript avanzate per la gestione del file system, l'app garantisce un processo di backup efficiente e affidabile, ideale per chiunque abbia bisogno di proteggere i propri dati in modo rapido e senza complicazioni.",
+				"title": "Deluge Editor",
+				"description": "Deluge Editor è un editor essenziale per gestire ed eseguire script Deluge in modo efficiente.",
 				"image": {
 					"src": "/projects/8.webp",
-					"alt": "CLI Backup Script"
+					"alt": "Deluge Editor"
 				},
 				"public": true,
-				"url": "https://www.npmjs.com/package/backup-script-cli",
-				"github": "https://github.com/moris88/backup-cli",
+				"url": "https://deluge-editor.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/deluge-editor",
 				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
 				]
 			},
 			{
@@ -439,20 +439,20 @@
 			},
 			{
 				"id": 8,
-				"title": "CLI Backup Script",
-				"description": "CLI Backup Script is a Command Line Interface (CLI) application developed in JavaScript that allows users to perform backups of their files quickly and easily. The application provides an intuitive interface for selecting files to include in the backup and starting the process with a single command. By utilizing advanced JavaScript libraries for file system management, the app ensures an efficient and reliable backup process, ideal for anyone needing to protect their data quickly and without complications.",
+				"title": "Deluge Editor",
+				"description": "Deluge Editor is a minimalistic editor for managing and executing Deluge scripts efficiently.",
 				"image": {
 					"src": "/projects/8.webp",
-					"alt": "CLI Backup Script"
+					"alt": "Deluge Editor"
 				},
 				"public": true,
-				"url": "https://www.npmjs.com/package/backup-script-cli",
-				"github": "https://github.com/moris88/backup-cli",
+				"url": "https://deluge-editor.mauriziotolomeo.it/",
+				"github": "https://github.com/moris88/deluge-editor",
 				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
 				]
 			},
 			{
