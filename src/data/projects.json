@@ -33,7 +33,12 @@
 				"public": true,
 				"url": "https://condominium.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -46,7 +51,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -59,7 +69,13 @@
 				"public": true,
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -93,7 +109,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -105,7 +127,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -118,7 +146,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -131,7 +164,13 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 10,
@@ -165,7 +204,12 @@
 				"public": true,
 				"url": "https://wedding-gift-planner.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/gift-planner",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 12,
@@ -178,7 +222,13 @@
 				"public": true,
 				"url": "https://ai-estimator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/AI-Project-Estimator",
-				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"AI",
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 13,
@@ -191,7 +241,12 @@
 				"public": true,
 				"url": "https://json-formatter.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/json-formatter",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 14,
@@ -204,7 +259,12 @@
 				"public": true,
 				"url": "https://snake.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/snake-game",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 15,
@@ -257,7 +317,13 @@
 				"public": true,
 				"url": "https://todolist.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/project-todolist",
-				"tags": ["React", "Typescript", "HeroUI", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"HeroUI",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 2,
@@ -270,7 +336,12 @@
 				"public": true,
 				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 3,
@@ -283,7 +354,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/git-commit-helper-it",
 				"github": "https://github.com/moris88/git-commit-helper",
-				"tags": ["Javascript", "AI", "Git", "CLI"]
+				"tags": [
+					"Javascript",
+					"AI",
+					"Git",
+					"CLI"
+				]
 			},
 			{
 				"id": 4,
@@ -295,7 +371,13 @@
 				},
 				"url": "https://pdf-merged.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/pdf-merged",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 5,
@@ -329,7 +411,13 @@
 				},
 				"public": false,
 				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": ["Nextjs", "Typescript", "TailwindCSS", "React", "creditsafe"]
+				"tags": [
+					"Nextjs",
+					"Typescript",
+					"TailwindCSS",
+					"React",
+					"creditsafe"
+				]
 			},
 			{
 				"id": 7,
@@ -341,7 +429,13 @@
 				},
 				"public": false,
 				"url": "https://alumni.unitn.it/",
-				"tags": ["PHP", "Drupal", "HTML", "CSS", "JavaScript"]
+				"tags": [
+					"PHP",
+					"Drupal",
+					"HTML",
+					"CSS",
+					"JavaScript"
+				]
 			},
 			{
 				"id": 8,
@@ -354,7 +448,12 @@
 				"public": true,
 				"url": "https://www.npmjs.com/package/backup-script-cli",
 				"github": "https://github.com/moris88/backup-cli",
-				"tags": ["Javascript", "Node.js", "CLI", "File System"]
+				"tags": [
+					"Javascript",
+					"Node.js",
+					"CLI",
+					"File System"
+				]
 			},
 			{
 				"id": 9,
@@ -367,7 +466,13 @@
 				"public": true,
 				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs", "pdf-lib"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs",
+					"pdf-lib"
+				]
 			},
 			{
 				"id": 10,
@@ -401,7 +506,12 @@
 				"public": true,
 				"url": "https://wedding-gift-planner.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/gift-planner",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 12,
@@ -414,7 +524,13 @@
 				"public": true,
 				"url": "https://ai-estimator.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/AI-Project-Estimator",
-				"tags": ["AI", "React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"AI",
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 13,
@@ -427,7 +543,12 @@
 				"public": true,
 				"url": "https://json-formatter.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/json-formatter",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 14,
@@ -440,7 +561,12 @@
 				"public": true,
 				"url": "https://snake.mauriziotolomeo.it/",
 				"github": "https://github.com/moris88/snake-game",
-				"tags": ["React", "Typescript", "TailwindCSS", "Vitejs"]
+				"tags": [
+					"React",
+					"Typescript",
+					"TailwindCSS",
+					"Vitejs"
+				]
 			},
 			{
 				"id": 15,
