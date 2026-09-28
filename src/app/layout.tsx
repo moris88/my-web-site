@@ -72,9 +72,6 @@ export const metadata: Metadata = {
 		apple: '/apple-touch-icon.png',
 	},
 	manifest: '/manifest.json',
-	verification: {
-		google: process.env.GOOGLE_VERIFICATION_CODE,
-	},
 }
 
 export default async function RootLayout({
