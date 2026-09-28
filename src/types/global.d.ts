@@ -206,9 +206,7 @@ declare global {
 			EMAIL_USER: string
 			EMAIL_PASS: string
 			EMAIL_TO: string
-			NEXT_PUBLIC_SERVER_API_KEY: string
 			NEXT_PUBLIC_SITE_MAINTENANCE: string
-			GOOGLE_VERIFICATION_CODE: string
 		}
 	}
 }
