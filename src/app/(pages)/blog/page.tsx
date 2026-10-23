@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getDictionary } from '@/app/dictionaries'
 import { PageBlog } from '@/components'
+import { getArticles } from '@/lib/articles'
 
 export async function generateMetadata(): Promise<Metadata> {
 	const dict = await getDictionary()
@@ -28,5 +29,5 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BlogsPage() {
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
-	return <PageBlog dict={dict} language={language} />
+	return <PageBlog dict={dict} articles={getArticles(language)} />
 }

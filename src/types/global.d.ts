@@ -102,7 +102,7 @@ export interface Article {
 	created_at: string
 	updated_at: string
 	published_at: string
-	published: 'true' | 'false'
+	published: boolean
 	link?: string
 	image?: string
 	alt?: string

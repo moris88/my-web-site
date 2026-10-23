@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { PageArticle } from '@/components'
 import { getArticle } from '@/lib/articles'
 import { getDictionary } from '../../../dictionaries'
@@ -11,7 +12,7 @@ export async function generateMetadata({
 	const { id } = await params // Unwrapping asincrono obbligatorio
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
-	const article = await getArticle(Number(id), language)
+	const article = getArticle(id, language)
 
 	if (!article) {
 		return {
@@ -20,7 +21,7 @@ export async function generateMetadata({
 	}
 
 	const description =
-		article.summary || article.content.replace(/<[^>]*>/g, '').substring(0, 150)
+		article.summary || article.content.replace(/[#*_`>|[\]]/g, '').substring(0, 150)
 
 	return {
 		title: article.title,
@@ -62,5 +63,11 @@ export default async function BlogPage({
 	const { id } = await params
 	const dict = await getDictionary()
 	const language = dict.language === 'Italiano' ? 'it' : 'en'
-	return <PageArticle language={language} id={id} dict={dict} />
+	const article = getArticle(id, language)
+
+	if (!article) {
+		notFound()
+	}
+
+	return <PageArticle article={article} dict={dict} />
 }
