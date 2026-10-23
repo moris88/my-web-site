@@ -2,6 +2,7 @@
 
 import { MessageCircle, MessageSquare, Send } from 'lucide-react'
 import Link from 'next/link'
+import React from 'react'
 import { Facebook, Linkedin, Twitter } from '@/components'
 import type { Article } from '@/types'
 import Tooltip from './Tooltip'
@@ -12,6 +13,12 @@ interface MyFooterProps {
 }
 
 function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
+	const [pageUrl, setPageUrl] = React.useState('')
+
+	React.useEffect(() => {
+		setPageUrl(window.location.href)
+	}, [])
+
 	const links = [
 		{
 			name: 'facebook',
@@ -19,7 +26,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<Facebook className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-				window.location.href,
+				pageUrl,
 			)}`,
 		},
 		{
@@ -28,7 +35,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<Linkedin className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-				window.location.href,
+				pageUrl,
 			)}&title=${encodeURIComponent(article.title)}`,
 		},
 		{
@@ -37,7 +44,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<Twitter className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-				window.location.href,
+				pageUrl,
 			)}&text=${encodeURIComponent(article.title)}`,
 		},
 		{
@@ -46,7 +53,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<MessageSquare className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://www.reddit.com/submit?url=${encodeURIComponent(
-				window.location.href,
+				pageUrl,
 			)}&title=${encodeURIComponent(article.title)}`,
 		},
 		{
@@ -55,7 +62,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<Send className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://t.me/share/url?url=${encodeURIComponent(
-				window.location.href,
+				pageUrl,
 			)}&text=${encodeURIComponent(article.title)}`,
 		},
 		{
@@ -64,7 +71,7 @@ function ShareSocial({ article, title }: Readonly<MyFooterProps>) {
 				<MessageCircle className="h-6 w-6 text-primary hover:text-primary/50 dark:text-white dark:hover:text-gray-200" />
 			),
 			url: `https://api.whatsapp.com/send?text=${encodeURIComponent(
-				`${article.title} ${window.location.href}`,
+				`${article.title} ${pageUrl}`,
 			)}`,
 		},
 	]

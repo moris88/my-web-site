@@ -13,7 +13,6 @@ import {
 	ScrollToTop,
 	SectionHero,
 	Select,
-	Skeleton,
 } from '@/components'
 import { CardArticle, FeaturedArticle } from '@/components/UI/Cards'
 import { useScrollTop } from '@/hooks'
@@ -21,13 +20,32 @@ import type { Article } from '@/types'
 
 interface PageBlogProps {
 	dict: Dictionary
-	language: 'it' | 'en'
+	articles: Article[]
 }
 
-function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
-	const [articles, setArticles] = React.useState<Article[]>()
-	const [isPending, startTransition] = React.useTransition()
-	const [error, setError] = React.useState<string | null>(null)
+interface Filters {
+	title: string
+	author: string | null
+	date: string
+}
+
+const EMPTY_FILTERS: Filters = { title: '', author: null, date: '' }
+
+function filterArticles(articles: Article[], filters: Filters): Article[] {
+	const title = filters.title.toLowerCase()
+	const author = filters.author?.toLowerCase()
+	return articles.filter(
+		(article) =>
+			(!title || article.title.toLowerCase().includes(title)) &&
+			(!author || (article.author ?? '').toLowerCase().includes(author)) &&
+			(!filters.date ||
+				moment(article.published_at).format('YYYY-MM-DD') === filters.date),
+	)
+}
+
+function PageBlog({ dict, articles: allArticles }: Readonly<PageBlogProps>) {
+	const [appliedFilters, setAppliedFilters] =
+		React.useState<Filters>(EMPTY_FILTERS)
 	const router = useRouter()
 
 	// 🔍 FILTRI
@@ -41,82 +59,34 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 	// 🖱️ Gestione Scroll Pulsante (Soglia più bassa per evitare che sparisca sopra)
 	const { showScrollTop: isScrolled } = useScrollTop(200)
 
-	// 🔄 Funzione fetch con filtri
-	const fetchArticlesWithFilters = React.useCallback(() => {
-		startTransition(async () => {
-			const params = new URLSearchParams({ language })
-
-			if (title) params.set('title', title)
-			if (author) params.set('author', author)
-			if (date) params.set('date', date)
-
-			await fetch(`/api/blog?${params.toString()}`)
-				.then((res) => {
-					if (!res.ok) {
-						throw new Error(`${res.status} ${res.statusText}`)
-					}
-					return res.json()
-				})
-				.then((res) => setArticles(res.data))
-				.catch((err) => {
-					console.error('Error fetching articles with filters:', err)
-					setError(err.message || 'Unknown error fetching!')
-					setArticles([])
-				})
-		})
-	}, [language, title, author, date])
-
-	// 🔄 Funzione fetch senza filtri
-	const fetchArticles = React.useCallback(() => {
-		startTransition(async () => {
-			const params = new URLSearchParams({ language })
-
-			await fetch(`/api/blog?${params.toString()}`)
-				.then((res) => {
-					if (!res.ok) {
-						throw new Error(`${res.status} ${res.statusText}`)
-					}
-					return res.json()
-				})
-				.then((res) => setArticles(res.data))
-				.catch((err) => {
-					console.error('Error fetching articles:', err)
-					setError(err.message || 'Unknown error fetching!')
-					setArticles([])
-				})
-		})
-	}, [language])
-
-	// ⏱️ Fetch iniziale
-	React.useEffect(() => {
-		fetchArticles()
-	}, [fetchArticles])
+	// 🔍 Applica filtri
+	const handleApply = () => {
+		setAppliedFilters({ title, author, date })
+	}
 
 	// ♻️ Reset filtri
 	const handleReset = () => {
 		setTitle('')
 		setAuthor(null)
 		setDate('')
-		fetchArticles()
+		setAppliedFilters(EMPTY_FILTERS)
 	}
 
-	// 📊 Articoli ordinati
-	const sortedArticles = React.useMemo(() => {
-		return (articles ?? []).toSorted((a: Article, b: Article) =>
-			moment(b.published_at).diff(moment(a.published_at)),
-		)
-	}, [articles])
+	// 📊 Articoli filtrati (già ordinati per data di pubblicazione)
+	const articles = React.useMemo(
+		() => filterArticles(allArticles, appliedFilters),
+		[allArticles, appliedFilters],
+	)
 
 	// 🎯 Articolo in evidenza (il più recente)
-	const featuredArticle = sortedArticles[0]
-	const remainingArticles = sortedArticles.slice(1)
+	const featuredArticle = articles[0]
+	const remainingArticles = articles.slice(1)
 
 	// 🔍 Controllo se i filtri sono attivi
-	const isFiltering = title !== '' || author !== null || date !== ''
-
-	if (error) {
-		throw new Error(error)
-	}
+	const isFiltering =
+		appliedFilters.title !== '' ||
+		appliedFilters.author !== null ||
+		appliedFilters.date !== ''
 
 	return (
 		<SectionHero
@@ -126,7 +96,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 		>
 			<div className="flex flex-col gap-12">
 				{/* 🌟 FEATURED ARTICLE */}
-				{!isPending && featuredArticle && !isFiltering && (
+				{featuredArticle && !isFiltering && (
 					<div className="relative">
 						<FeaturedArticle
 							article={featuredArticle}
@@ -225,7 +195,7 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 								<div className="flex w-full items-center gap-2 md:w-auto">
 									<Button
 										className="flex-1 gap-2 rounded-xl md:flex-none"
-										onClick={fetchArticlesWithFilters}
+										onClick={handleApply}
 									>
 										{dict.blog.filters.buttons.apply}
 									</Button>
@@ -244,29 +214,20 @@ function PageBlog({ dict, language }: Readonly<PageBlogProps>) {
 
 				{/* GRID ARTICOLI */}
 				<div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 xl:grid-cols-4">
-					{!articles && <p className="col-span-full">{''}</p>}
-					{articles?.length === 0 && (
+					{articles.length === 0 && (
 						<p className="col-span-full py-20 text-center font-bold text-slate-400 text-xl">
 							{dict.blog.empty}
 						</p>
 					)}
 
-					{isPending &&
-						[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-							<Skeleton key={i} className="h-100 rounded-3xl" />
-						))}
-
-					{!isPending &&
-						(isFiltering ? sortedArticles : remainingArticles).map(
-							(article) => (
-								<CardArticle
-									key={`article-${article.id}`}
-									article={article}
-									dict={dict}
-									onClick={() => router.push(`/blog/${article.id}`)}
-								/>
-							),
-						)}
+					{(isFiltering ? articles : remainingArticles).map((article) => (
+						<CardArticle
+							key={`article-${article.id}`}
+							article={article}
+							dict={dict}
+							onClick={() => router.push(`/blog/${article.id}`)}
+						/>
+					))}
 				</div>
 			</div>
 		</SectionHero>

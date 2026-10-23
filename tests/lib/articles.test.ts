@@ -1,91 +1,96 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
-vi.mock('@/lib/database', () => ({
-	default: {
-		prepare: vi.fn(),
-	},
-}))
+const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-'))
 
-import { getArticle } from '@/lib/articles'
-import db from '@/lib/database'
+function writeArticle(language: string, id: string, frontmatter: string) {
+	const dir = path.join(tmpDir, 'content', 'blog', language)
+	fs.mkdirSync(dir, { recursive: true })
+	fs.writeFileSync(
+		path.join(dir, `${id}.md`),
+		`---\n${frontmatter}\n---\n\n## Heading\n\nBody text\n`,
+	)
+}
 
-const mockGet = vi.fn()
+let getArticle: typeof import('@/lib/articles').getArticle
+let getArticles: typeof import('@/lib/articles').getArticles
+
+beforeAll(async () => {
+	writeArticle(
+		'it',
+		'old',
+		"title: Vecchio\nsummary: Sommario\nauthor: Maurizio Tolomeo\npublished_at: '2024-01-01T10:00:00'\npublished: true",
+	)
+	writeArticle(
+		'it',
+		'new',
+		"title: Nuovo\nsummary: Sommario\npublished_at: '2025-01-01T10:00:00'\npublished: true",
+	)
+	writeArticle(
+		'it',
+		'draft',
+		"title: Bozza\nsummary: Sommario\npublished_at: '2025-06-01T10:00:00'\npublished: false",
+	)
+	writeArticle(
+		'en',
+		'english',
+		'title: English\nsummary: Summary\npublished_at: 2024-02-01\npublished: true',
+	)
+
+	vi.spyOn(process, 'cwd').mockReturnValue(tmpDir)
+	vi.resetModules()
+	;({ getArticle, getArticles } = await import('@/lib/articles'))
+})
+
+afterAll(() => {
+	vi.restoreAllMocks()
+	fs.rmSync(tmpDir, { recursive: true, force: true })
+})
+
+describe('getArticles', () => {
+	it('returns only published articles sorted by date desc', () => {
+		expect(getArticles('it').map((a) => a.id)).toEqual(['new', 'old'])
+	})
+
+	it('returns articles for the requested language only', () => {
+		expect(getArticles('en').map((a) => a.id)).toEqual(['english'])
+	})
+
+	it('normalizes unquoted YAML dates to strings', () => {
+		const [article] = getArticles('en')
+		expect(typeof article.published_at).toBe('string')
+		expect(article.created_at).toBe(article.published_at)
+	})
+})
 
 describe('getArticle', () => {
-	beforeEach(() => {
-		vi.clearAllMocks()
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		vi.mocked((db as any).prepare).mockReturnValue({ get: mockGet })
-	})
-
-	it('returns null when id is 0', async () => {
-		expect(await getArticle(0, 'it')).toBeNull()
-	})
-
-	it('returns null when id is negative', async () => {
-		expect(await getArticle(-5, 'en')).toBeNull()
-	})
-
-	it('returns null when id is NaN', async () => {
-		expect(await getArticle(Number.NaN, 'it')).toBeNull()
-	})
-
-	it('returns null when article is not found in the DB', async () => {
-		mockGet.mockReturnValue(undefined)
-		expect(await getArticle(999, 'it')).toBeNull()
-	})
-
-	it('returns null when stmt.get returns null', async () => {
-		mockGet.mockReturnValue(null)
-		expect(await getArticle(1, 'en')).toBeNull()
-	})
-
-	it('returns the article when found', async () => {
-		const article = {
-			id: '1',
-			title: 'Test Article',
-			summary: 'A short summary',
-			content: '<p>Content</p>',
-			created_at: '2024-01-01',
-			updated_at: '2024-01-01',
-			published_at: '2024-01-01',
-			published: 'true' as const,
-		}
-		mockGet.mockReturnValue(article)
-		const result = await getArticle(1, 'it')
-		expect(result).toEqual(article)
-	})
-
-	it('returns the article for English language', async () => {
-		const article = {
-			id: '2',
-			title: 'English Article',
-			summary: 'Summary',
-			content: 'Content',
-			created_at: '2024-02-01',
-			updated_at: '2024-02-01',
-			published_at: '2024-02-01',
-			published: 'true' as const,
-		}
-		mockGet.mockReturnValue(article)
-		const result = await getArticle(2, 'en')
-		expect(result).toEqual(article)
-	})
-
-	it('returns null when prepare throws an error', async () => {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		vi.mocked((db as any).prepare).mockImplementation(() => {
-			throw new Error('DB connection lost')
+	it('returns the article with frontmatter and markdown content', () => {
+		const article = getArticle('old', 'it')
+		expect(article).toMatchObject({
+			id: 'old',
+			title: 'Vecchio',
+			summary: 'Sommario',
+			author: 'Maurizio Tolomeo',
+			published: true,
 		})
-		const result = await getArticle(1, 'it')
-		expect(result).toBeNull()
+		expect(article?.content).toBe('## Heading\n\nBody text')
 	})
 
-	it('returns null when db is null', async () => {
-		vi.resetModules()
-		vi.doMock('@/lib/database', () => ({ default: null }))
-		const { getArticle: getArticleNullDb } = await import('@/lib/articles')
-		const result = await getArticleNullDb(1, 'it')
-		expect(result).toBeNull()
+	it('returns null for a missing article', () => {
+		expect(getArticle('missing', 'it')).toBeNull()
+	})
+
+	it('returns null for an article in another language', () => {
+		expect(getArticle('old', 'en')).toBeNull()
+	})
+
+	it('returns null for unpublished articles', () => {
+		expect(getArticle('draft', 'it')).toBeNull()
+	})
+
+	it('rejects ids that could escape the blog folder', () => {
+		expect(getArticle('../../package', 'it')).toBeNull()
 	})
 })

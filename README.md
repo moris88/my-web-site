@@ -14,7 +14,7 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 ## ✨ Key Features
 
 - **🌍 Multi-language Support (i18n)**: Full support for English and Italian, dynamically handled via dictionaries and cookies.
-- **📝 Dynamic Blog**: A full-featured blog with articles stored in a local SQLite database, supporting filtering and pagination.
+- **📝 Dynamic Blog**: A full-featured blog with articles written as Markdown files in `content/blog`, supporting filtering.
 - **💼 Portfolio Showcase**: A detailed view of my projects, including tech stacks and descriptions.
 - **📊 Skills & Experience**: Interactive curriculum vitae, professional experience timeline, and an infinite-scrolling skills section.
 - **🎮 Interactive Quiz**: A built-in quiz system to engage visitors.
@@ -30,7 +30,7 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **Library**: [React 19](https://react.dev/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Database**: [SQLite](https://www.sqlite.org/) (via [better-sqlite3](https://github.com/WiseLibs/node-better-sqlite3))
+- **Blog**: Markdown with frontmatter (via [gray-matter](https://github.com/jonschlinkert/gray-matter) and [react-markdown](https://github.com/remarkjs/react-markdown))
 - **State Management**: [Jotai](https://jotai.org/)
 - **Forms**: [React Hook Form](https://react-hook-form.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
@@ -44,17 +44,19 @@ Welcome to my personal website! I'm **Maurizio Tolomeo** (aka **MORIS**), a Fron
 
 ```text
 ├── .github/             # CI/CD Workflows
-├── public/              # Static assets & SQLite database
-│   └── database.db      # Local SQLite database
+├── content/blog/        # Blog articles (one Markdown file per article)
+│   ├── it/              # Italian articles
+│   └── en/              # English articles
+├── public/              # Static assets
 ├── src/
 │   ├── app/             # Next.js App Router (Pages & API)
-│   │   ├── api/         # Backend routes (Blog, Contacts)
+│   │   ├── api/         # Backend routes (Contacts)
 │   │   ├── dictionaries/# i18n translation files (EN/IT)
 │   │   └── (pages)/     # Application routes
 │   ├── components/      # UI & Page-specific components
 │   ├── data/            # Static JSON data (Skills, Projects, etc.)
 │   ├── hooks/           # Custom React hooks
-│   ├── lib/             # Core logic & Database configuration
+│   ├── lib/             # Core logic (articles loader, email, utils)
 │   └── types/           # TypeScript declarations
 ```
 
@@ -115,3 +117,28 @@ This project is distributed under the **MIT License**. See `LICENSE` for more in
 ---
 
 Built with ❤️ by [Maurizio Tolomeo](https://github.com/moris88)
+
+---
+
+## ✍️ Writing a blog article
+
+Create a Markdown file in `content/blog/it/` or `content/blog/en/`. The file name is the article id used in the URL (`content/blog/it/my-post.md` → `/blog/my-post`).
+
+```markdown
+---
+title: My article
+summary: Short description shown in cards and meta tags
+author: Maurizio Tolomeo
+created_at: '2026-10-23T10:00:00'
+updated_at: '2026-10-23T10:00:00'
+published_at: '2026-10-23T10:00:00'
+published: true        # false keeps it as a draft
+image: preview.webp    # optional, relative to /public
+alt: preview           # optional
+link: https://...      # optional external link
+---
+
+## Heading
+
+Article content in **Markdown** (GFM: tables, task lists, strikethrough…).
+```

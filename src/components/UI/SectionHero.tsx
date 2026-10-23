@@ -1,10 +1,10 @@
 import { cn } from '@/lib/utils'
-import HtmlRenderer from './HTMLRender'
+import MarkdownRenderer from './MarkdownRender'
 
 interface SectionHeroProps {
 	title: string
 	subtitle?: string
-	html?: string
+	markdown?: string
 	image?: {
 		src: string
 		alt?: string
@@ -19,7 +19,7 @@ function SectionHero({
 	subtitle,
 	children,
 	content,
-	html,
+	markdown,
 	image,
 	icon,
 }: Readonly<SectionHeroProps>) {
@@ -42,7 +42,7 @@ function SectionHero({
 					src={`/${image.src}`}
 				/>
 			)}
-			{html && <HtmlRenderer html={html} />}
+			{markdown && <MarkdownRenderer markdown={markdown} />}
 			{content ?? children}
 		</section>
 	)
