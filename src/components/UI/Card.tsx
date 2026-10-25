@@ -45,22 +45,29 @@ const CardContent = ({
 	icon,
 	title,
 	subtitle,
+	titleClassName = '',
 	children,
 }: {
 	icon?: React.ReactNode
 	title?: string
+	titleClassName?: string
 	subtitle?: string
 	children?: React.ReactNode
 }) => (
 	<div className="flex-1 p-6">
 		<div className="flex items-center gap-4">
 			{icon && (
-				<div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 text-primary">
+				<div className="flex shrink-0 items-center justify-center rounded-lg bg-primary/10 p-3 text-primary">
 					{icon}
 				</div>
 			)}
 			{title && (
-				<h3 className="line-clamp-1 font-bold text-slate-900 text-xl tracking-tight dark:text-white">
+				<h3
+					className={twMerge(
+						'line-clamp-1 font-bold text-slate-900 text-xl tracking-tight dark:text-white',
+						titleClassName,
+					)}
+				>
 					{title}
 				</h3>
 			)}

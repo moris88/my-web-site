@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card, CardContent, CardFooter, CardImage, Chip } from '@/components'
+import { Card, CardContent, CardFooter, CardImage, Chip, ProjectBadges } from '@/components'
 import type { Project } from '@/types'
 
 interface CardProjectProps {
@@ -10,7 +10,7 @@ interface CardProjectProps {
 }
 
 function CardProject({ project, onClick }: CardProjectProps) {
-	const { title, image, tags, description } = project
+	const { title, image, tags, description, badges } = project
 	const handleOnClick = () => {
 		onClick?.(project)
 	}
@@ -23,7 +23,13 @@ function CardProject({ project, onClick }: CardProjectProps) {
 			onClick={handleOnClick}
 		>
 			<Card>
-				<CardImage src={image?.src ?? ''} alt={image?.alt ?? ''} />
+				<div className="relative">
+					<CardImage src={image?.src ?? ''} alt={image?.alt ?? ''} />
+					<ProjectBadges
+						badges={badges}
+						className="pointer-events-none absolute top-2 left-2 right-2"
+					/>
+				</div>
 				<CardContent title={title}>
 					<p className="line-clamp-4 text-gray-500 text-sm dark:text-gray-400">
 						{description}

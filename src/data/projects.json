@@ -1,609 +1,811 @@
 {
-	"projects": {
-		"it": [
-			{
-				"id": 1,
-				"title": "Todo App",
-				"description": "ToDo Manager è un'applicazione web per la gestione di attività personali e di team, costruita interamente in React e progettata per funzionare senza backend: tutti i dati vengono salvati nel browser, senza account né server. Ogni task può essere arricchito con priorità, stati del ciclo di vita, sottotask, tag, date di scadenza e note in Markdown. Le attività si organizzano in progetti e sprint, con una vista calendario per tenere d'occhio le scadenze e una sezione statistiche con grafici e metriche sui progressi. Il soft-delete protegge da eliminazioni accidentali, i dati si esportano e importano in CSV, e l'interfaccia è disponibile in italiano e inglese con supporto al tema scuro.",
-				"image": {
-					"src": "/projects/1.webp",
-					"alt": "Todo App"
-				},
-				"public": true,
-				"url": "https://todolist.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/project-todolist",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"React-icons",
-					"Recharts",
-					"Remark-gfm"
-				]
+	"projects": [
+		{
+			"id": 1,
+			"title": "Todo App",
+			"description": {
+				"it": "ToDo Manager è un'applicazione web per la gestione di attività personali e di team, costruita in React 19 e TypeScript e progettata per funzionare senza backend: tutti i dati restano nel browser, senza account né server. Ogni task può avere sottotask, tag, scadenze, note in Markdown con anteprima, quattro livelli di priorità (da Urgente a Bassa) e un ciclo di vita completo che va da Backlog a Done, passando per Review, Testing e Blocked. Le attività si organizzano in progetti e sprint con colori, date e stati propri, e si consultano tramite filtri avanzati, ordinamento, paginazione, una vista calendario e una sezione statistiche con grafici Recharts. Il cestino con soft-delete permette di ripristinare task, progetti e sprint eliminati per errore, mentre notifiche in-app avvisano dei task in scadenza. Sono disponibili export/import CSV per singolo modulo e backup completo in JSON, limiti configurabili sui task attivi, interfaccia in italiano e inglese, tema scuro e animazioni con Framer Motion. Lo stato è gestito con Jotai e il codice è coperto da test con Vitest e React Testing Library.",
+				"en": "ToDo Manager is a web application for managing personal and team tasks, built with React 19 and TypeScript and designed to work without a backend: all data stays in the browser, with no accounts or servers. Each task can have subtasks, tags, due dates, Markdown notes with live preview, four priority levels (from Urgent to Low) and a full lifecycle from Backlog to Done, including Review, Testing and Blocked. Tasks are organized into projects and sprints with their own colors, dates and statuses, and can be explored through advanced filters, sorting, pagination, a calendar view and a statistics section with Recharts charts. A soft-delete trash lets you restore tasks, projects and sprints deleted by mistake, while in-app notifications warn about upcoming deadlines. It offers per-module CSV import/export and full JSON backups, configurable limits on active tasks, an Italian and English interface, dark mode and Framer Motion animations. State is managed with Jotai and the code is tested with Vitest and React Testing Library."
 			},
-			{
-				"id": 2,
-				"title": "Conteggio Consumo Condominio",
-				"description": "Questa applicazione è stata sviluppata per semplificare la gestione del consumo di acqua e luce in un condominio. Consente di registrare e monitorare i consumi di acqua e luce per ogni appartamento, facilitando la suddivisione delle spese tra i condomini. L'applicazione è realizzata con React, TypeScript, Vite.js e Tailwind CSS, garantendo un'interfaccia utente moderna e reattiva.",
-				"image": {
-					"src": "/projects/2.webp",
-					"alt": "Conteggio Consumo Condominio App"
-				},
-				"public": true,
-				"url": "https://condominium.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"image": {
+				"src": "/projects/1.webp",
+				"alt": "Todo App"
 			},
-			{
-				"id": 3,
-				"title": "CLI Backup Script",
-				"description": "CLI Backup Script è un'applicazione CLI (Command Line Interface) sviluppata in JavaScript che consente agli utenti di eseguire rapidamente e facilmente il backup dei propri file. L'applicazione offre un'interfaccia intuitiva per selezionare i file da includere nel backup e avviare il processo con un solo comando. Utilizzando librerie JavaScript avanzate per la gestione del file system, l'app garantisce un processo di backup efficiente e affidabile, ideale per chiunque abbia bisogno di proteggere i propri dati in modo rapido e senza complicazioni. Usabile solo localmente.",
-				"image": {
-					"src": "/projects/3.webp",
-					"alt": "CLI Backup Script"
-				},
-				"public": true,
-				"github": "https://github.com/moris88/backup-cli",
-				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
-				]
+			"public": true,
+			"url": "https://todolist.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/project-todolist",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"React-icons",
+				"Recharts",
+				"Remark-gfm"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"title": {
+				"it": "Conteggio Consumo Condominio",
+				"en": "Consumption Tracking App"
 			},
-			{
-				"id": 4,
-				"title": "PDF Merged IT",
-				"description": "PDF Merged IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di unire più file PDF in un unico documento. L'applicazione offre un'interfaccia intuitiva e facile da usare, permettendo agli utenti di caricare i loro file PDF, organizzarli nell'ordine desiderato e scaricare il file PDF risultante. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di fusione rapido ed efficiente, ideale per chiunque abbia bisogno di combinare documenti PDF per lavoro, studio o uso personale.",
-				"image": {
-					"src": "/projects/4.webp",
-					"alt": "PDF Merged IT App"
-				},
-				"public": true,
-				"url": "https://pdf-merged.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/pdf-merged",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+			"description": {
+				"it": "Conteggio Consumo Condominio è una web app interamente client-side per calcolare e ripartire in modo equo e trasparente i costi delle bollette di un condominio. Offre due modalità: per la bolletta dell'acqua (pensata per AQP - Acquedotto Pugliese o fornitori simili, con un contatore per ogni condomino) calcola il consumo effettivo dalla differenza tra le letture, ripartisce le voci variabili in proporzione al consumo reale, distingue automaticamente residenti e non residenti e segnala eventuali discrepanze tra il contatore generale e la somma dei singoli; per la luce delle scale divide in parti uguali il totale della bolletta, incluse commissioni postali e spese di gestione. I risultati si esportano in PDF o CSV. È realizzata con React 19, TypeScript, Vite e Tailwind CSS v4, con stato gestito da Zustand e salvato nel localStorage, e test con Vitest (coverage minima del 70%).",
+				"en": "Consumption Tracking App is a fully client-side web app for splitting a condominium's utility bills fairly and transparently. It has two modes: for the water bill (designed for AQP - Acquedotto Pugliese or similar providers, where each resident has their own meter) it computes actual consumption from meter readings, splits the variable items in proportion to real usage, automatically handles residents and non-residents differently and flags discrepancies between the main meter and the sum of the individual ones; for stairway lighting it divides the bill total equally, including postal fees and management costs. Results can be exported to PDF or CSV. It is built with React 19, TypeScript, Vite and Tailwind CSS v4, with state managed by Zustand and persisted in localStorage, and tested with Vitest (70% minimum coverage)."
 			},
-			{
-				"id": 5,
-				"title": "Generatore di Fattura IT",
-				"description": "Generatore di Fattura IT è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare e personalizzare fatture professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dettagli del cliente, gli articoli o servizi forniti, le quantità, i prezzi e le tasse applicabili. Una volta completata la fattura, gli utenti possono scaricarla in formato PDF. Utilizzando librerie JavaScript avanzate per la generazione di PDF, l'app garantisce un processo efficiente e professionale.",
-				"image": {
-					"src": "/projects/5.webp",
-					"alt": "Invoice Generator IT App"
-				},
-				"public": true,
-				"url": "https://invoice-generator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/generatore-di-fattura",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib",
-					"react-signature-canvas",
-					"jspdf",
-					"html2canvas"
-				]
+			"image": {
+				"src": "/projects/2.webp",
+				"alt": {
+					"it": "Conteggio Consumo Condominio App",
+					"en": "Consumption Tracking App"
+				}
 			},
-			{
-				"id": 6,
-				"title": "Creditsafe Business Report for Zoho CRM",
-				"description": "Creditsafe Business Report for Zoho CRM è un'applicazione web sviluppata in Typescript e Nextjs che consente agli utenti di creare e personalizzare report aziendali professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di ricercare e analizzare i dati aziendali in modo efficiente. Una volta completato il report, gli utenti possono scaricarlo in formato PDF.",
-				"image": {
-					"src": "/projects/6.webp",
-					"alt": "Creditsafe for Zoho CRM App"
-				},
-				"public": false,
-				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": [
-					"Nextjs",
-					"Typescript",
-					"TailwindCSS",
-					"React",
-					"creditsafe"
-				]
+			"public": true,
+			"url": "https://condominium.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/conteggio-consumo-condominio",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 3,
+			"title": "CLI Backup Script",
+			"description": {
+				"it": "CLI Backup Script è un'utilità a riga di comando scritta in TypeScript per creare ed estrarre rapidamente archivi ZIP di backup di un progetto. Da un menu iniziale si sceglie se comprimere o decomprimere; in fase di backup si selezionano in modo interattivo i file e le cartelle da includere, mentre cartelle pesanti o inutili come node_modules, dist, .git e i backup precedenti vengono escluse automaticamente. L'archivio viene protetto con una password sicura di 14 caratteri generata automaticamente e compresso al livello massimo, con un nome suggerito in base alla data (backup_YYYY-MM-DD.zip), conferma prima di sovrascrivere file esistenti e avanzamento in tempo reale. Può essere usato come pacchetto locale o installato globalmente. È sviluppato con Inquirer, archiver e adm-zip, compilato con esbuild, testato con Jest e verificato a ogni push tramite GitHub Actions.",
+				"en": "CLI Backup Script is a TypeScript command-line utility for quickly creating and extracting ZIP backup archives of a project. An initial menu lets you choose between compressing and extracting; when backing up, you interactively select the files and folders to include, while heavy or unnecessary folders such as node_modules, dist, .git and previous backups are excluded automatically. The archive is protected with an automatically generated 14-character password and compressed at the maximum level, with a date-based suggested name (backup_YYYY-MM-DD.zip), confirmation before overwriting existing files and real-time progress. It can be used as a local package or installed globally. It is built with Inquirer, archiver and adm-zip, bundled with esbuild, tested with Jest and checked on every push through GitHub Actions."
 			},
-			{
-				"id": 7,
-				"title": "Portale ex-alumni dell'università di Trento",
-				"description": "Il portale web degli ex-alumni dell'università di Trento è una piattaforma online sviluppata in PHP e Drupal che consente agli ex studenti dell'università di connettersi, condividere esperienze e accedere a risorse esclusive. La parte di frontend è stata realizzata con HTML, CSS e JavaScript, mentre il backend è stato sviluppato con PHP e Drupal, garantendo un'esperienza utente fluida e un'efficace gestione dei contenuti. Il sito offre funzionalità di visualizzare news ed eventi, l'accesso a eventi e opportunità di networking.",
-				"image": {
-					"src": "/projects/7.webp",
-					"alt": "Alumni Website University of Trento"
-				},
-				"public": false,
-				"url": "https://alumni.unitn.it/",
-				"tags": [
-					"PHP",
-					"Drupal",
-					"HTML",
-					"CSS",
-					"JavaScript"
-				]
+			"image": {
+				"src": "/projects/3.webp",
+				"alt": "CLI Backup Script"
 			},
-			{
-				"id": 8,
-				"title": "Deluge Editor",
-				"description": "Deluge Editor è un editor essenziale per gestire ed eseguire script Deluge in modo efficiente.",
-				"image": {
-					"src": "/projects/8.webp",
-					"alt": "Deluge Editor"
-				},
-				"public": true,
-				"url": "https://deluge-editor.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/deluge-editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"public": true,
+			"github": "https://github.com/moris88/backup-cli",
+			"tags": [
+				"Javascript",
+				"Node.js",
+				"CLI",
+				"File System"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 4,
+			"title": "PDF Merged IT",
+			"description": {
+				"it": "PDF Merged IT è un'applicazione web che permette di unire più file PDF in un unico documento direttamente nel browser, senza caricare nulla su un server. Basta selezionare i PDF dal proprio dispositivo (anche più file contemporaneamente), scegliere facoltativamente il nome del file finale e avviare l'unione: l'app mostra un'anteprima del documento risultante, che può poi essere scaricato con un clic, e consente di ripartire subito con una nuova unione. È sviluppata con React, TypeScript e Vite, usa la libreria pdf-lib per la manipolazione dei PDF e Tailwind CSS con le icone Iconoir per un'interfaccia semplice e intuitiva.",
+				"en": "PDF Merged IT is a web application that merges multiple PDF files into a single document directly in the browser, without uploading anything to a server. Just select the PDFs from your device (several at once if you like), optionally choose the name of the output file and start the merge: the app shows a preview of the resulting document, which can then be downloaded with one click, and lets you immediately start a new merge. It is built with React, TypeScript and Vite, uses the pdf-lib library for PDF manipulation and Tailwind CSS with Iconoir icons for a simple and intuitive interface."
 			},
-			{
-				"id": 9,
-				"title": "React-PDF-Editor",
-				"description": "React-PDF-Editor è un'applicazione web sviluppata in JavaScript che consente agli utenti di creare file PDF in modo semplice e veloce, con l'uso di placeholder. L'applicazione offre un'interfaccia intuitiva che permette di inserire i dati nei placeholder e generare un file PDF personalizzato. Utilizzando librerie JavaScript avanzate per la manipolazione dei PDF, l'app garantisce un processo di creazione efficiente e professionale, ideale per chiunque abbia bisogno di generare documenti PDF in modo rapido e senza complicazioni. E' una applicazione in modalità alpha, quindi è in fase di sviluppo e potrebbe essere soggetta a modifiche e miglioramenti futuri.",
-				"image": {
-					"src": "/projects/9.webp",
-					"alt": "React-PDF-Editor"
-				},
-				"public": true,
-				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+			"image": {
+				"src": "/projects/4.webp",
+				"alt": "PDF Merged IT App"
 			},
-			{
-				"id": 10,
-				"title": "Journaling App",
-				"description": "Questa web app è una piattaforma di journaling quotidiano progettata per coniugare l'essenzialità del testo con le più moderne tecnologie digitali. L'interfaccia si focalizza su un editor minimale basato sul formato Markdown nativo, che permette all'utente di redigere una singola nota al giorno, organizzarla con una sintassi pulita ed esportabile, e arricchirla visivamente tramite il caricamento diretto di fotografie. Per massimizzare la flessibilità di inserimento, il sistema integra un modulo di trascrizione vocale avanzato in grado di convertire fedelmente i pensieri parlati in testo formattato, mentre un motore di intelligenza artificiale analizza costantemente i contenuti scritti per offrire prompt di scrittura personalizzati per stimolare la riflessione quotidiana.",
-				"image": {
-					"src": "/projects/10.webp",
-					"alt": "Journaling App"
-				},
-				"public": true,
-				"url": "https://journaling.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/journaling-dev",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"AI",
-					"Speech-to-Text",
-					"Markdown"
-				]
+			"public": true,
+			"url": "https://pdf-merged.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/pdf-merged",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"pdf-lib"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 5,
+			"title": {
+				"it": "Generatore di Fattura IT",
+				"en": "Invoice Generator IT"
 			},
-			{
-				"id": 11,
-				"title": "Wedding Gift Planner App",
-				"description": "Wedding Gift Planner è un'applicazione web interattiva, realizzata con React e TypeScript, progettata per aiutare gli invitati a calcolare la cifra ideale per un regalo di nozze in base al contesto italiano. Grazie a un algoritmo personalizzabile che analizza variabili come il legame affettivo, la composizione del nucleo familiare, la tipologia di ricevimento e le spese logistiche sostenute, lo strumento fornisce stime accurate e trasparenti, semplificando la gestione del budget e garantendo il rispetto del galateo moderno in ogni situazione.",
-				"image": {
-					"src": "/projects/11.webp",
-					"alt": "Wedding Gift Planner App"
-				},
-				"public": true,
-				"url": "https://wedding-gift-planner.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/gift-planner",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"description": {
+				"it": "Generatore di Fattura IT è un'applicazione web per creare fatture e scaricarle in formato PDF in pochi passaggi. Si compila un modulo interattivo con i dati della fattura, si aggiunge una firma disegnata a mano in un apposito riquadro (una firma grafica, non legalmente vincolante) e con un clic su \"Genera Fattura\" si ottiene il PDF pronto da scaricare, con la possibilità di visualizzarne un'anteprima. È sviluppata con React, TypeScript, Vite e Tailwind CSS; per la generazione del documento usa jsPDF, pdf-lib e html2canvas, mentre la firma è gestita con react-signature-canvas.",
+				"en": "Invoice Generator IT is a web application for creating invoices and downloading them as PDF in a few steps. You fill in an interactive form with the invoice details, add a hand-drawn signature in a dedicated box (a graphic signature, not legally binding) and with one click on \"Generate Invoice\" you get a PDF ready to download, with a preview available. It is built with React, TypeScript, Vite and Tailwind CSS; it uses jsPDF, pdf-lib and html2canvas to generate the document, while the signature is handled with react-signature-canvas."
 			},
-			{
-				"id": 12,
-				"title": "AI Project Estimator",
-				"description": "AI Project Estimator è uno strumento moderno basato sull'intelligenza artificiale progettato per aiutare gli sviluppatori e i project manager a generare stime di progetto accurate e dettagliate in pochi secondi. Utilizzando modelli linguistici avanzati (LLM), l'applicazione analizza lo stack tecnologico, l'ambito del progetto e i requisiti specifici per fornire una suddivisione dei compiti, le tempistiche stimate e le note tecniche.",
-				"image": {
-					"src": "/projects/12.webp",
-					"alt": "AI Project Estimator"
-				},
-				"public": true,
-				"url": "https://ai-estimator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/AI-Project-Estimator",
-				"tags": [
-					"AI",
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"image": {
+				"src": "/projects/5.webp",
+				"alt": "Invoice Generator IT App"
 			},
-			{
-				"id": 13,
-				"title": "JSON Formatter",
-				"description": "Una moderna applicazione web per validare, formattare e navigare strutture JSON complesse con facilità. Sviluppata con le tecnologie più recenti per offrire un'esperienza fluida e reattiva.",
-				"image": {
-					"src": "/projects/13.webp",
-					"alt": "JSON Formatter"
-				},
-				"public": true,
-				"url": "https://json-formatter.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/json-formatter",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"public": true,
+			"url": "https://invoice-generator.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/generatore-di-fattura",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"pdf-lib",
+				"react-signature-canvas",
+				"jspdf",
+				"html2canvas"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 6,
+			"title": {
+				"it": "Creditsafe Business Report per Zoho CRM",
+				"en": "Creditsafe Business Report for Zoho CRM"
 			},
-			{
-				"id": 14,
-				"title": "Snake Game",
-				"description": "Un classico gioco Snake sviluppato come applicazione web moderna. Sviluppata con le tecnologie più recenti per offrire un'esperienza fluida e reattiva.",
-				"image": {
-					"src": "/projects/14.webp",
-					"alt": "Snake Game"
-				},
-				"public": true,
-				"url": "https://snake.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/snake-game",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"description": {
+				"it": "Creditsafe Business Report for Zoho CRM è un'applicazione web sviluppata in Typescript e Nextjs che consente agli utenti di creare e personalizzare report aziendali professionali in modo semplice e veloce. L'applicazione offre un'interfaccia intuitiva che permette di ricercare e analizzare i dati aziendali in modo efficiente. Una volta completato il report, gli utenti possono scaricarlo in formato PDF.",
+				"en": "Creditsafe Business Report per Zoho CRM is a web application developed in TypeScript and Next.js that allows users to create and customize professional business reports quickly and easily. The application provides an intuitive interface for searching and analyzing business data efficiently. Once the report is completed, users can download it in PDF format."
 			},
-			{
-				"id": 15,
-				"title": "SentAI",
-				"description": "SentAI è un assistente per la gestione e la redazione delle email basato sull'intelligenza artificiale, progettato per semplificare il flusso di lavoro delle email. Sviluppato con moderne tecnologie web, integra modelli di intelligenza artificiale leader nel settore per aiutarti a comporre, perfezionare e gestire le tue email in modo efficiente.",
-				"image": {
-					"src": "/projects/15.webp",
-					"alt": "SentAI"
-				},
-				"public": true,
-				"url": "https://sentai.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/sent-ai",
-				"tags": [
-					"AI",
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"Electron"
-				]
+			"image": {
+				"src": "/projects/6.webp",
+				"alt": {
+					"it": "Creditsafe per Zoho CRM App",
+					"en": "Creditsafe for Zoho CRM App"
+				}
 			},
-			{
-				"id": 16,
-				"title": "Password Generator",
-				"description": "Applicazione web per generare password e passphrase sicure, valutare la loro entropia e tenere traccia delle ultime creazioni locali.",
-				"image": {
-					"src": "/projects/16.webp",
-					"alt": "Password Generator"
-				},
-				"public": true,
-				"url": "https://password-generator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/password-generator",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
-			}
-		],
-		"en": [
-			{
-				"id": 1,
-				"title": "Todo App",
-				"description": "ToDo Manager is a web application built with React, TypeScript, Vite.js, and Tailwind CSS, designed to simplify daily task management. Key Features: 1. Advanced task management – Create, edit, and update your to-dos with detailed descriptions. 2. Custom categories – Organize tasks into three states: To-Do, In Progress, and Done. 3. Task prioritization – Set priority levels to focus on what matters most. 4. Deadline notifications – Receive alerts to keep track of upcoming tasks. 5. Edit task descriptions without losing progress. By leveraging React and Vite.js, the app ensures high performance and a smooth user experience, while Tailwind CSS provides a modern and responsive interface. Perfect for those who want to stay organized with an intuitive and powerful interface!",
-				"image": {
-					"src": "/projects/1.webp",
-					"alt": "Todo App"
-				},
-				"public": true,
-				"url": "https://todolist.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/project-todolist",
-				"tags": [
-					"React",
-					"Typescript",
-					"HeroUI",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"public": true,
+			"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
+			"tags": [
+				"Nextjs",
+				"Typescript",
+				"TailwindCSS",
+				"React",
+				"creditsafe"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Plugin Zoho",
+						"en": "Zoho Plugin"
+					}
+				}
+			]
+		},
+		{
+			"id": 7,
+			"title": {
+				"it": "Portale ex-alumni dell'università di Trento",
+				"en": "Alumni Portal of the University of Trento"
 			},
-			{
-				"id": 2,
-				"title": "Consumption Tracking App",
-				"description": "This application was developed to simplify the management of water and electricity consumption in a condominium. It allows users to record and monitor water and electricity usage for each apartment, facilitating the division of expenses among residents. The app is built with React, TypeScript, Vite.js, and Tailwind CSS, ensuring a modern and responsive user interface.",
-				"image": {
-					"src": "/projects/2.webp",
-					"alt": "Consumption Tracking App"
-				},
-				"public": true,
-				"url": "https://counting-condominium-water.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/conteggio-consumo-condominio",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"description": {
+				"it": "Il portale web degli ex-alumni dell'università di Trento è una piattaforma online sviluppata in PHP e Drupal che consente agli ex studenti dell'università di connettersi, condividere esperienze e accedere a risorse esclusive. La parte di frontend è stata realizzata con HTML, CSS e JavaScript, mentre il backend è stato sviluppato con PHP e Drupal, garantendo un'esperienza utente fluida e un'efficace gestione dei contenuti. Il sito offre funzionalità di visualizzare news ed eventi, l'accesso a eventi e opportunità di networking.",
+				"en": "The alumni portal of the University of Trento is an online platform developed in PHP and Drupal that allows former students to connect, share experiences, and access exclusive resources. The frontend is built with HTML, CSS, and JavaScript, while the backend is developed with PHP and Drupal, ensuring a smooth user experience and effective content management. The site offers features such as viewing news and events, and accessing networking opportunities."
 			},
-			{
-				"id": 3,
-				"title": "CLI Backup Script",
-				"description": "CLI Backup Script is a Command Line Interface (CLI) application developed in JavaScript that allows users to perform backups of their files quickly and easily. The application provides an intuitive interface for selecting files to include in the backup and starting the process with a single command. By utilizing advanced JavaScript libraries for file system management, the app ensures an efficient and reliable backup process, ideal for anyone needing to protect their data quickly and without complications. Usable only locally.",
-				"image": {
-					"src": "/projects/3.webp",
-					"alt": "CLI Backup Script"
-				},
-				"public": true,
-				"github": "https://github.com/moris88/backup-cli",
-				"tags": [
-					"Javascript",
-					"Node.js",
-					"CLI",
-					"File System"
-				]
+			"image": {
+				"src": "/projects/7.webp",
+				"alt": "Alumni Website University of Trento"
 			},
-			{
-				"id": 4,
-				"title": "PDF Merged IT",
-				"description": "PDF Merged IT is a web application developed in JavaScript that allows users to merge multiple PDF files into a single document. The application offers an intuitive and user-friendly interface, enabling users to upload their PDF files, arrange them in the desired order, and download the resulting merged PDF file. By utilizing advanced JavaScript libraries for PDF manipulation, the app ensures a fast and efficient merging process, ideal for anyone needing to combine PDF documents for work, study, or personal use.",
-				"image": {
-					"src": "/projects/4.webp",
-					"alt": "PDF Merged IT App"
-				},
-				"url": "https://pdf-merged.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/pdf-merged",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+			"public": true,
+			"url": "https://alumni.unitn.it/",
+			"tags": [
+				"PHP",
+				"Drupal",
+				"HTML",
+				"CSS",
+				"JavaScript"
+			],
+			"badges": [
+				{
+					"icon": "🌐",
+					"label": {
+						"it": "Portale Web",
+						"en": "Web Portal"
+					}
+				}
+			]
+		},
+		{
+			"id": 8,
+			"title": "Deluge Editor",
+			"description": {
+				"it": "Deluge Editor è un editor web minimale per scrivere, gestire ed eseguire script Deluge, il linguaggio di scripting della piattaforma Zoho. Offre un'interfaccia essenziale basata su Monaco Editor (lo stesso motore di VS Code) con pannelli ridimensionabili, permette di inserire facilmente i valori degli argomenti richiesti dallo script, valida l'input e gestisce gli errori, ed esegue lo script con un solo clic. È sviluppato con React e TypeScript.",
+				"en": "Deluge Editor is a minimal web editor for writing, managing and running Deluge scripts, the scripting language of the Zoho platform. It offers a clean interface built on Monaco Editor (the same engine as VS Code) with resizable panels, makes it easy to enter the argument values the script requires, validates input and handles errors, and runs the script with a single click. It is built with React and TypeScript."
 			},
-			{
-				"id": 5,
-				"title": "Invoice Generator IT",
-				"description": "Invoice Generator IT is a web application developed in JavaScript that allows users to create and customize professional invoices quickly and easily. The application provides an intuitive interface for entering client details, items or services provided, quantities, prices, and applicable taxes. Once the invoice is completed, users can download it in PDF format. By utilizing advanced JavaScript libraries for PDF generation, the app ensures an efficient and professional process.",
-				"image": {
-					"src": "/projects/5.webp",
-					"alt": "Invoice Generator IT App"
-				},
-				"public": true,
-				"url": "https://invoice-generator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/generatore-di-fattura",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib",
-					"react-signature-canvas",
-					"jspdf",
-					"html2canvas"
-				]
+			"image": {
+				"src": "/projects/8.webp",
+				"alt": "Deluge Editor"
 			},
-			{
-				"id": 6,
-				"title": "Creditsafe Business Report per Zoho CRM",
-				"description": "Creditsafe Business Report per Zoho CRM is a web application developed in TypeScript and Next.js that allows users to create and customize professional business reports quickly and easily. The application provides an intuitive interface for searching and analyzing business data efficiently. Once the report is completed, users can download it in PDF format.",
-				"image": {
-					"src": "/projects/6.webp",
-					"alt": "Creditsafe per Zoho CRM App"
+			"public": true,
+			"url": "https://deluge-editor.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/deluge-editor",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
 				},
-				"public": false,
-				"url": "http://marketplace.zoho.com/app/crm/creditsafe-for-zoho-crm#overview",
-				"tags": [
-					"Nextjs",
-					"Typescript",
-					"TailwindCSS",
-					"React",
-					"creditsafe"
-				]
+				{
+					"icon": "🚧",
+					"label": {
+						"it": "Work in Progress",
+						"en": "Work in Progress"
+					}
+				}
+			]
+		},
+		{
+			"id": 9,
+			"title": "React-PDF-Editor",
+			"description": {
+				"it": "React-PDF-Editor è un'applicazione web per creare documenti PDF a partire da template con placeholder. Il contenuto del documento si scrive in un editor rich text basato su Tiptap, con supporto a immagini, link e tabelle, e i dati con cui riempire i placeholder si inseriscono tramite un editor JSON dedicato; l'app unisce template e dati e genera il PDF personalizzato con @react-pdf/renderer, convertendo l'HTML con react-pdf-html. Include anche un editor di codice con evidenziazione della sintassi per modificare direttamente il sorgente del template. È sviluppata con React, TypeScript e Vite ed è in fase alpha: le funzionalità sono ancora in evoluzione.",
+				"en": "React-PDF-Editor is a web application for creating PDF documents from templates with placeholders. The document content is written in a Tiptap-based rich text editor, with support for images, links and tables, and the data used to fill the placeholders is entered through a dedicated JSON editor; the app merges template and data and generates the customized PDF with @react-pdf/renderer, converting the HTML with react-pdf-html. It also includes a code editor with syntax highlighting for editing the template source directly. It is built with React, TypeScript and Vite and is in alpha: its features are still evolving."
 			},
-			{
-				"id": 7,
-				"title": "Alumni Portal of the University of Trento",
-				"description": "The alumni portal of the University of Trento is an online platform developed in PHP and Drupal that allows former students to connect, share experiences, and access exclusive resources. The frontend is built with HTML, CSS, and JavaScript, while the backend is developed with PHP and Drupal, ensuring a smooth user experience and effective content management. The site offers features such as viewing news and events, and accessing networking opportunities.",
-				"image": {
-					"src": "/projects/7.webp",
-					"alt": "Alumni Website University of Trento"
-				},
-				"public": false,
-				"url": "https://alumni.unitn.it/",
-				"tags": [
-					"PHP",
-					"Drupal",
-					"HTML",
-					"CSS",
-					"JavaScript"
-				]
+			"image": {
+				"src": "/projects/9.webp",
+				"alt": "React-PDF-Editor"
 			},
-			{
-				"id": 8,
-				"title": "Deluge Editor",
-				"description": "Deluge Editor is a minimalistic editor for managing and executing Deluge scripts efficiently.",
-				"image": {
-					"src": "/projects/8.webp",
-					"alt": "Deluge Editor"
-				},
-				"public": true,
-				"url": "https://deluge-editor.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/deluge-editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"public": true,
+			"url": "https://react-pdf-editor.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/React-PDF-Editor",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"pdf-lib"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 10,
+			"title": "Journaling App",
+			"description": {
+				"it": "DevJournal è un diario quotidiano in Markdown, local-first, pensato in particolare per gli sviluppatori. L'editor supporta il Markdown completo con anteprima live ed evidenziazione della sintassi nei blocchi di codice, e permette di arricchire le note con immagini e trascrizioni vocali grazie a un motore di riconoscimento ottimizzato anche per mobile. L'intelligenza artificiale (a scelta tra Google Gemini, Anthropic Claude e OpenAI, con modelli personalizzabili) rielabora le note con un clic mantenendone l'intento originale, e una chat permette di interrogare il proprio diario per riassumere i progressi o fare brainstorming. Le note hanno una cronologia delle revisioni con annullamento, si sfogliano da una vista calendario e si esportano o importano come unico file JSON. Note e chiavi API restano nel browser. L'interfaccia è responsive, in italiano e inglese, con tema scuro. È sviluppata con React 19, TypeScript, Tailwind CSS 4 e Zustand.",
+				"en": "DevJournal is a local-first Markdown daily journal designed especially for developers. The editor supports full Markdown with live preview and syntax highlighting in code blocks, and lets you enrich notes with images and voice transcriptions thanks to a speech recognition engine that is also optimized for mobile. AI (your choice of Google Gemini, Anthropic Claude or OpenAI, with customizable models) reworks your notes with one click while keeping their original intent, and a chat lets you query your journal to summarize progress or brainstorm ideas. Notes have a revision history with undo, can be browsed from a calendar view and exported or imported as a single JSON file. Notes and API keys stay in the browser. The interface is responsive, in Italian and English, with dark mode. It is built with React 19, TypeScript, Tailwind CSS 4 and Zustand."
 			},
-			{
-				"id": 9,
-				"title": "React-PDF-Editor",
-				"description": "React-PDF-Editor is a JavaScript-based web application designed to enable users to create PDF files quickly and easily through the use of placeholders. The application offers an intuitive interface that allows for simple data input into designated placeholders to generate customized PDF documents. By leveraging advanced JavaScript libraries for PDF manipulation, the app ensures an efficient and professional creation process, making it an ideal solution for anyone needing to generate PDF documents rapidly and without complications. Currently in its alpha stage, the application is under active development and may be subject to future changes and improvements.",
-				"image": {
-					"src": "/projects/9.webp",
-					"alt": "React-PDF-Editor"
-				},
-				"public": true,
-				"url": "https://react-pdf-editor.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/React-PDF-Editor",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"pdf-lib"
-				]
+			"image": {
+				"src": "/projects/10.webp",
+				"alt": "Journaling App"
 			},
-			{
-				"id": 10,
-				"title": "Journaling App",
-				"description": "This web app is a daily journaling platform designed to combine text essentiality with the most modern digital technologies. The interface focuses on a minimal editor based on native Markdown format, which allows users to write a single note per day, organize it with clean, exportable syntax, and visually enrich it through direct photo uploads. To maximize input flexibility, the system integrates an advanced voice transcription module capable of faithfully converting spoken thoughts into formatted text, while an artificial intelligence engine constantly analyzes the written content to offer personalized writing prompts that stimulate daily reflection.",
-				"image": {
-					"src": "/projects/10.webp",
-					"alt": "Journaling App"
-				},
-				"public": true,
-				"url": "https://journaling.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/journaling-dev",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"AI",
-					"Speech-to-Text",
-					"Markdown"
-				]
+			"public": true,
+			"url": "https://journaling.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/journaling-dev",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"AI",
+				"Speech-to-Text",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 11,
+			"title": "Wedding Gift Planner App",
+			"description": {
+				"it": "Wedding Gift Planner è un'applicazione web interattiva che aiuta gli invitati a calcolare la cifra ideale per un regalo di nozze secondo le consuetudini italiane. L'algoritmo combina più fattori, come la tipologia di ricevimento, il ruolo dell'invitato e l'anzianità del legame con gli sposi, e riduce automaticamente l'importo in base alle spese di viaggio e di alloggio sostenute per la trasferta. È possibile anche calcolare il regalo in base a quanto ricevuto in passato dagli sposi, attualizzandone il valore. I risultati si aggiornano in tempo reale e tutti i dati restano esclusivamente nel localStorage del browser. È sviluppata con React 19, TypeScript, Tailwind CSS v4, Vite e Biome.",
+				"en": "Wedding Gift Planner is an interactive web application that helps guests work out the ideal amount for a wedding gift according to Italian customs. The algorithm combines several factors, such as the type of reception, the guest's role and how long they have known the couple, and automatically lowers the amount based on the travel and accommodation costs of attending. You can also base the gift on what the couple gave you in the past, adjusted to today's value. Results update in real time and all data stays only in the browser's localStorage. It is built with React 19, TypeScript, Tailwind CSS v4, Vite and Biome."
 			},
-			{
-				"id": 11,
-				"title": "Wedding Gift Planner App",
-				"description": "Wedding Gift Planner is an interactive web application built with React and TypeScript, designed to help guests determine the ideal wedding gift amount within the Italian context. Using a customizable algorithm that factors in variables such as the closeness of the relationship, family size, type of reception, and travel expenses, the tool provides accurate and transparent estimates, simplifying budget planning while ensuring modern etiquette is followed for every occasion.",
-				"image": {
-					"src": "/projects/11.webp",
-					"alt": "Wedding Gift Planner App"
-				},
-				"public": true,
-				"url": "https://wedding-gift-planner.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/gift-planner",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"image": {
+				"src": "/projects/11.webp",
+				"alt": "Wedding Gift Planner App"
 			},
-			{
-				"id": 12,
-				"title": "AI Project Estimator",
-				"description": "AI Project Estimator is a modern, AI-powered tool designed to help developers and project managers generate accurate and detailed project estimates in seconds. Using advanced language models (LLM), the application analyzes the technology stack, project scope, and specific requirements to provide a breakdown of tasks, estimated timelines, and technical notes.",
-				"image": {
-					"src": "/projects/12.webp",
-					"alt": "AI Project Estimator"
-				},
-				"public": true,
-				"url": "https://ai-estimator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/AI-Project-Estimator",
-				"tags": [
-					"AI",
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"public": true,
+			"url": "https://wedding-gift-planner.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/gift-planner",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 12,
+			"title": "AI Project Estimator",
+			"description": {
+				"it": "AI Project Estimator è uno strumento basato sull'intelligenza artificiale che aiuta sviluppatori e project manager a generare in pochi secondi stime di progetto dettagliate. Si sceglie lo stack tecnologico tramite un selettore interattivo, si definisce l'ambito (Frontend, Backend, Fullstack o Mobile) e si descrivono i requisiti: un modello linguistico, a scelta tra Google Gemini, OpenAI e Anthropic Claude, restituisce la suddivisione dei compiti, le tempistiche stimate e le note tecniche. La stima può essere esportata in un PDF professionale da condividere con i clienti. Le chiavi API sono salvate solo localmente e non passano da server intermedi. Funziona sia nel browser sia come app desktop Electron per Windows e Linux, ed è sviluppato con React 19, TypeScript, Vite, Tailwind CSS e Biome.",
+				"en": "AI Project Estimator is an AI-powered tool that helps developers and project managers generate detailed project estimates in seconds. You pick the tech stack with an interactive selector, define the scope (Frontend, Backend, Fullstack or Mobile) and describe the requirements: a language model of your choice among Google Gemini, OpenAI and Anthropic Claude returns a task breakdown, estimated timelines and technical notes. The estimate can be exported to a professional PDF to share with clients. API keys are stored locally only and never go through intermediate servers. It runs both in the browser and as an Electron desktop app for Windows and Linux, and is built with React 19, TypeScript, Vite, Tailwind CSS and Biome."
 			},
-			{
-				"id": 13,
-				"title": "JSON Formatter",
-				"description": "A modern web application for validating, formatting, and navigating complex JSON structures with ease. Developed using the latest technologies to provide a smooth and responsive experience.",
-				"image": {
-					"src": "/projects/13.webp",
-					"alt": "JSON Formatter"
-				},
-				"public": true,
-				"url": "https://json-formatter.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/json-formatter",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+			"image": {
+				"src": "/projects/12.webp",
+				"alt": "AI Project Estimator"
 			},
-			{
-				"id": 14,
-				"title": "Snake Game",
-				"description": "A classic Snake game developed as a modern web application. Built with the latest technologies to provide a smooth and responsive experience.",
-				"image": {
-					"src": "/projects/14.webp",
-					"alt": "Snake Game"
+			"public": true,
+			"url": "https://ai-estimator.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/AI-Project-Estimator",
+			"tags": [
+				"AI",
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🤖",
+					"label": {
+						"it": "AI",
+						"en": "AI"
+					}
 				},
-				"public": true,
-				"url": "https://snake.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/snake-game",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 13,
+			"title": "JSON Formatter",
+			"description": {
+				"it": "JSON Formatter è un'applicazione web per validare, formattare e navigare strutture JSON complesse. Il JSON viene validato in tempo reale con un feedback immediato sugli errori di sintassi, e il risultato si esplora in una vista ad albero collassabile con colori distinti per chiavi, stringhe, numeri e booleani. Pulsanti rapidi permettono di incollare il testo grezzo e copiare la versione formattata, mentre gli ultimi 5 JSON elaborati vengono salvati automaticamente nel localStorage. Il layout è ottimizzato per desktop e mobile, con un editor a comparsa. È sviluppata con React 19, TypeScript, Vite 8, Tailwind CSS 4 e Biome, senza dipendenze esterne oltre a React.",
+				"en": "JSON Formatter is a web application for validating, formatting and navigating complex JSON structures. JSON is validated in real time with instant feedback on syntax errors, and the result can be explored in a collapsible tree view with distinct colors for keys, strings, numbers and booleans. Quick buttons let you paste raw text and copy the formatted version, while the last 5 processed JSON documents are saved automatically in localStorage. The layout is optimized for desktop and mobile, with a slide-in editor. It is built with React 19, TypeScript, Vite 8, Tailwind CSS 4 and Biome, with no external dependencies beyond React."
 			},
-			{
-				"id": 15,
-				"title": "SentAI",
-				"description": "SentAI is an AI-powered email management and drafting assistant designed to streamline your email workflow. Built with modern web technologies, it integrates leading AI models to help you compose, refine, and manage your emails efficiently.",
-				"image": {
-					"src": "/projects/15.webp",
-					"alt": "SentAI"
-				},
-				"public": true,
-				"url": "https://sentai.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/sent-ai",
-				"tags": [
-					"AI",
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs",
-					"Electron"
-				]
+			"image": {
+				"src": "/projects/13.webp",
+				"alt": "JSON Formatter"
 			},
-			{
-				"id": 16,
-				"title": "Password Generator",
-				"description": "A web application for generating secure passwords and passphrases, evaluating their entropy, and keeping track of recent local creations.",
-				"image": {
-					"src": "/projects/16.webp",
-					"alt": "Password Generator"
+			"public": true,
+			"url": "https://json-formatter.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/json-formatter",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 14,
+			"title": "Snake Game",
+			"description": {
+				"it": "Snake Game è una versione moderna del classico gioco Snake, giocabile direttamente nel browser. Su desktop il serpente si controlla con le frecce direzionali o con i tasti WASD, mentre su smartphone e tablet compare un D-Pad virtuale a schermo. È sviluppato con React, TypeScript, Tailwind CSS e Vite, senza librerie esterne oltre a React, e usa Biome per la qualità del codice.",
+				"en": "Snake Game is a modern take on the classic Snake game, playable right in the browser. On desktop the snake is controlled with the arrow keys or WASD, while on smartphones and tablets an on-screen virtual D-pad appears. It is built with React, TypeScript, Tailwind CSS and Vite, with no external libraries beyond React, and uses Biome for code quality."
+			},
+			"image": {
+				"src": "/projects/14.webp",
+				"alt": "Snake Game"
+			},
+			"public": true,
+			"url": "https://snake.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/snake-game",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🎮",
+					"label": {
+						"it": "Gioco",
+						"en": "Game"
+					}
+				}
+			]
+		},
+		{
+			"id": 15,
+			"title": "SentAI",
+			"description": {
+				"it": "SentAI è un assistente basato sull'intelligenza artificiale per scrivere e gestire le email. Partendo da una bozza e da istruzioni personalizzate, crea, riscrive e perfeziona i messaggi adattandoli a tono, lingua, struttura e contesto. Le email e le conversazioni si possono salvare, modificare, eliminare e organizzare, e le versioni finali si esportano in PDF. Supporta più provider (Google Gemini, OpenAI, Anthropic e modelli locali tramite LM Studio) e le chiavi API si inseriscono direttamente dalle impostazioni dell'app. Si usa nel browser oppure come applicazione desktop Electron per Windows e Linux, ed è sviluppato con React, TypeScript, Tailwind CSS, Vite ed Electron Vite.",
+				"en": "SentAI is an AI-powered assistant for writing and managing emails. Starting from a draft and custom instructions, it creates, rewrites and refines messages, adapting them to tone, language, structure and context. Emails and conversations can be saved, edited, deleted and organized, and final versions can be exported to PDF. It supports multiple providers (Google Gemini, OpenAI, Anthropic and local models via LM Studio), and API keys are entered directly in the app settings. It runs in the browser or as an Electron desktop app for Windows and Linux, and is built with React, TypeScript, Tailwind CSS, Vite and Electron Vite."
+			},
+			"image": {
+				"src": "/projects/15.webp",
+				"alt": "SentAI"
+			},
+			"public": true,
+			"url": "https://sentai.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/sent-ai",
+			"tags": [
+				"AI",
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"Electron"
+			],
+			"badges": [
+				{
+					"icon": "🤖",
+					"label": {
+						"it": "AI",
+						"en": "AI"
+					}
 				},
-				"public": true,
-				"url": "https://password-generator.mauriziotolomeo.it/",
-				"github": "https://github.com/moris88/password-generator",
-				"tags": [
-					"React",
-					"Typescript",
-					"TailwindCSS",
-					"Vitejs"
-				]
-			}
-		]
-	}
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 16,
+			"title": "Password Generator",
+			"description": {
+				"it": "Password Generator è un piccolo tool di sicurezza per creare credenziali robuste in modo semplice e veloce. Il generatore di password permette di scegliere una lunghezza da 8 a 32 caratteri e i set da includere (minuscole, maiuscole, numeri e simboli), usando crypto.getRandomValues() per una generazione sicura. Il generatore di passphrase compone parole casuali da un dizionario italiano di oltre 94.000 voci (derivato dal dizionario Hunspell di LibreOffice e caricato solo al primo utilizzo), con separatore configurabile e opzioni come iniziale maiuscola, numeri, parole invertite e simbolo finale. Per ogni credenziale l'app calcola l'entropia in bit e stima il tempo necessario per un attacco brute-force, e tiene una cronologia delle ultime generazioni nel localStorage, svuotabile con un clic. È sviluppata con React 19, TypeScript, Vite, Tailwind CSS, Jotai e react-hook-form.",
+				"en": "Password Generator is a small security tool for creating strong credentials quickly and easily. The password generator lets you choose a length from 8 to 32 characters and the character sets to include (lowercase, uppercase, numbers and symbols), using crypto.getRandomValues() for secure generation. The passphrase generator combines random words from an Italian dictionary of over 94,000 entries (derived from LibreOffice's Hunspell dictionary and loaded only on first use), with a configurable separator and options such as capitalized initials, numbers, reversed words and a trailing symbol. For each credential the app calculates entropy in bits and estimates the time a brute-force attack would take, and keeps a history of recent generations in localStorage that can be cleared with one click. It is built with React 19, TypeScript, Vite, Tailwind CSS, Jotai and react-hook-form."
+			},
+			"image": {
+				"src": "/projects/16.webp",
+				"alt": "Password Generator"
+			},
+			"public": true,
+			"url": "https://password-generator.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/password-generator",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
+		},
+		{
+			"id": 17,
+			"title": "Schedule Week Work",
+			"description": {
+				"it": "Schedule Week Work è un planner settimanale che organizza in automatico la settimana lavorativa a partire da orari, impegni e priorità. Si configurano giorni e orari di lavoro, pausa pranzo, giornate con uscita anticipata, festivi e blocchi fissi ricorrenti, poi si inseriscono i progetti della settimana con priorità P1, P2 o P3 e un budget di ore: il motore di pianificazione distribuisce gli slot negli spazi liberi rispettando limiti giornalieri e settimanali. Meeting, emergenze (al massimo una al giorno), permessi e ferie hanno la precedenza: quando vengono aggiunti, il piano sposta solo gli slot che si sovrappongono e segnala i conflitti. Gli slot si aggiungono cliccando su uno spazio libero e si spostano trascinandoli nel calendario, con stato di avanzamento per ogni attività. A fine settimana un report riepiloga il carico per tipo e per progetto, e una retrospettiva permette di lasciare una nota che viene riproposta il lunedì successivo. I dati restano nel browser e le settimane passate vengono archiviate in automatico. È sviluppato con React, TypeScript, Vite, Tailwind CSS e Jotai.",
+				"en": "Schedule Week Work is a weekly planner that automatically organizes your working week based on hours, commitments and priorities. You configure working days and hours, lunch break, days with an early finish, holidays and recurring fixed blocks, then add the week's projects with P1, P2 or P3 priority and an hour budget: the scheduling engine distributes slots into free time while respecting daily and weekly limits. Meetings, emergencies (at most one per day), leave and vacation take precedence: when they are added, the plan moves only the overlapping slots and flags conflicts. Slots are added by clicking a free space and moved by dragging them on the calendar, with a progress status for each activity. At the end of the week a report summarizes the workload by type and by project, and a retrospective lets you leave a note that is shown again the following Monday. Data stays in the browser and past weeks are cleaned up automatically. It is built with React, TypeScript, Vite, Tailwind CSS and Jotai."
+			},
+			"image": {
+				"src": "/projects/17.webp",
+				"alt": "Schedule Week Dev"
+			},
+			"public": true,
+			"url": "https://schedule-week.mauriziotolomeo.it/",
+			"github": "https://github.com/moris88/schedule-week-dev",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Vitejs",
+				"Jotai"
+			],
+			"badges": [
+				{
+					"icon": "✨",
+					"label": {
+						"it": "Nuovo",
+						"en": "New"
+					}
+				},
+				{
+					"icon": "🚧",
+					"label": {
+						"it": "Work in Progress",
+						"en": "Work in Progress"
+					}
+				}
+			]
+		},
+		{
+			"id": 18,
+			"title": "Randlotto",
+			"description": {
+				"it": "RandLotto è un'applicazione desktop per consultare l'archivio delle estrazioni del SuperEnalotto, calcolare statistiche, generare sestine e verificare le vincite. L'archivio parte dal 1997 e si aggiorna automaticamente (con una fonte di riserva), mostrando per ogni concorso quote e vincitori, insieme al jackpot e al conto alla rovescia per la prossima estrazione. La sezione statistiche analizza frequenze, ritardi, coppie, terzine e quartine, Jolly e SuperStar, con una scheda per ogni numero, il confronto tra distribuzioni osservate e teoriche, il test del chi-quadro, il confronto tra periodi ed export in CSV e PNG. I generatori animati creano sestine casuali, basate su ritardatari, numeri frequenti, Fibonacci o fasce, e supportano i sistemi integrali. Le giocate si verificano con gli importi in euro, un simulatore calcola quanto si sarebbe speso e vinto, e un bilancio di gioco responsabile tiene traccia di spese e vincite mensili con un budget e relativo avviso. Completano l'app notifiche di sistema per nuove estrazioni e vincite, backup automatici con ripristino e interfaccia in italiano e inglese. Le statistiche hanno scopo informativo: le estrazioni sono indipendenti e nessun metodo aumenta le probabilità di vincita. È la versione 2 del progetto, riscritta da Java/Swing a Electron, React, TypeScript e SQLite con Drizzle ORM, Zustand e Recharts, testata con Vitest e distribuita per Windows e Linux tramite GitHub Actions.",
+				"en": "RandLotto is a desktop application for browsing the SuperEnalotto draw archive, computing statistics, generating number combinations and checking winnings. The archive goes back to 1997 and updates automatically (with a fallback source), showing prize amounts and winners for every draw, along with the jackpot and a countdown to the next draw. The statistics section analyzes frequencies, delays, pairs, triples and quadruples, Jolly and SuperStar numbers, with a detail sheet for every number, observed vs theoretical distributions, the chi-squared test, period comparisons and CSV and PNG export. Animated generators create combinations at random or based on overdue numbers, frequent numbers, Fibonacci or number ranges, and support full wheeling systems. Tickets are checked with winnings in euros, a simulator shows how much you would have spent and won, and a responsible gaming balance tracks monthly spending and winnings with a budget and warning. The app also offers system notifications for new draws and wins, automatic backups with restore, and an Italian and English interface. Statistics are for information only: draws are independent and no method increases the odds of winning. This is version 2 of the project, rewritten from Java/Swing to Electron, React, TypeScript and SQLite with Drizzle ORM, Zustand and Recharts, tested with Vitest and released for Windows and Linux through GitHub Actions."
+			},
+			"image": {
+				"src": "/projects/18.webp",
+				"alt": "Randlotto"
+			},
+			"public": true,
+			"github": "https://github.com/moris88/randlotto",
+			"tags": [
+				"React",
+				"Typescript",
+				"TailwindCSS",
+				"Electron",
+				"SQLite",
+				"Drizzle-ORM",
+				"Zustand",
+				"Recharts",
+				"Vitest"
+			],
+			"badges": [
+				{
+					"icon": "✨",
+					"label": {
+						"it": "Nuovo",
+						"en": "New"
+					}
+				}
+			]
+		},
+		{
+			"id": 19,
+			"title": "Zoho Auth",
+			"description": {
+				"it": "Zoho Auth è uno strumento web per generare i refresh token OAuth di Zoho e testare le chiamate alle sue API, senza dover costruire a mano URL e richieste. Una procedura guidata in cinque passaggi accompagna dall'inserimento di Client ID e Client Secret (creati come Server-based Application nella Zoho API Console) alla scelta degli scope, da un catalogo ricercabile che copre oltre 50 prodotti Zoho tra cui CRM, Books, Desk, Creator e Analytics, fino all'autorizzazione e allo scambio del codice per i token. Il data center viene rilevato automaticamente, quindi funziona anche con gli account europei, indiani, australiani e degli altri domini Zoho. Chi ha già un refresh token può importarlo e passare direttamente all'API tester, che permette di comporre richieste con metodo, header e parametri personalizzati e di visualizzarne la risposta, rinnovando l'access token in automatico quando scade o viene rifiutato. Lo stato della sessione è salvato in un cookie httpOnly cifrato con AES-256-GCM, così l'app funziona anche su hosting serverless come Vercel, e un'autenticazione HTTP Basic opzionale protegge le istanze pubbliche. È un singolo server Express 5 su Node.js, senza build e senza framework frontend: le pagine sono generate lato server e arricchite con JavaScript vanilla.",
+				"en": "Zoho Auth is a web tool for generating Zoho OAuth refresh tokens and testing calls to its APIs, without building URLs and requests by hand. A five-step wizard takes you from entering the Client ID and Client Secret (created as a Server-based Application in the Zoho API Console) to choosing scopes, from a searchable catalog covering more than 50 Zoho products including CRM, Books, Desk, Creator and Analytics, through to authorization and exchanging the code for tokens. The data center is detected automatically, so it also works with European, Indian, Australian and other Zoho domains. If you already have a refresh token you can import it and go straight to the API tester, which lets you compose requests with a custom method, headers and parameters and inspect the response, renewing the access token automatically when it expires or is rejected. Session state is stored in an httpOnly cookie encrypted with AES-256-GCM, so the app also runs on serverless hosting such as Vercel, and optional HTTP Basic authentication protects public instances. It is a single Express 5 server on Node.js, with no build step and no frontend framework: pages are rendered on the server and enhanced with vanilla JavaScript."
+			},
+			"image": {
+				"src": "/projects/19.webp",
+				"alt": "Zoho Auth"
+			},
+			"public": true,
+			"url": "https://zoho-auth.mauriziotolomeo.it",
+			"github": "https://github.com/moris88/zoho-oauth",
+			"tags": [
+				"Javascript",
+				"Node.js",
+				"Express",
+				"OAuth 2.0",
+				"Zoho",
+				"Vercel"
+			],
+			"badges": [
+				{
+					"icon": "🔒",
+					"label": {
+						"it": "Accesso Privato",
+						"en": "Private Access"
+					}
+				},
+				{
+					"icon": "🚧",
+					"label": {
+						"it": "Work in Progress",
+						"en": "Work in Progress"
+					}
+				}
+			]
+		},
+		{
+			"id": 20,
+			"title": "Corsi Anthropic",
+			"description": {
+				"it": "Corsi Anthropic è un sito di preparazione alla certificazione Claude Certified Architect – Foundations (CCA-F) di Anthropic, che riunisce teoria e pratica in un unico punto di accesso. La sezione Studio raccoglie la guida d'esame e i materiali di riferimento sui cinque domini della certificazione, consultabili in un lettore Markdown integrato, insieme alla guida ufficiale in PDF. La sezione Allenamento offre una simulazione d'esame di 120 minuti con quesiti a scelta multipla e revisione delle risposte, per verificare il proprio livello di preparazione. Il progetto è in continua evoluzione e i materiali vengono aggiornati man mano.",
+				"en": "Corsi Anthropic is a study site for Anthropic's Claude Certified Architect – Foundations (CCA-F) certification, bringing theory and practice together in a single place. The Study section collects the exam guide and reference materials on the certification's five domains, readable in a built-in Markdown viewer, along with the official PDF guide. The Practice section offers a 120-minute exam simulation with multiple-choice questions and answer review, so you can check how ready you are. The project is a work in progress and the materials are updated over time."
+			},
+			"image": {
+				"src": "/projects/default.webp",
+				"alt": "Corsi Anthropic"
+			},
+			"public": true,
+			"url": "https://ccaf.mauriziotolomeo.it",
+			"github": "https://github.com/moris88/corsi-anthropic",
+			"tags": [
+				"Claude",
+				"Anthropic",
+				"AI",
+				"HTML",
+				"CSS",
+				"Javascript",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "📖",
+					"label": {
+						"it": "Formazione",
+						"en": "Training"
+					}
+				},
+				{
+					"icon": "🚧",
+					"label": {
+						"it": "Work in Progress",
+						"en": "Work in Progress"
+					}
+				}
+			]
+		},
+		{
+			"id": 21,
+			"title": "Formazione Git",
+			"description": {
+				"it": "Formazione Git è un corso in italiano per imparare a usare Git, il sistema di controllo di versione distribuito, partendo da zero. Le 14 lezioni sono organizzate in tre parti: un'introduzione su cos'è Git, come funziona e come si installa e configura; la gestione dei repository, con stato dei file, staging, operazioni sui file, annullamento delle modifiche e cronologia, repository remoti, tag e alias; infine branching e merging, fino al rebase. Il corso è completato da una guida di riferimento con i comandi Git più comuni ed è consultabile direttamente online.",
+				"en": "Formazione Git is an Italian-language course for learning Git, the distributed version control system, from scratch. Its 14 lessons are organized in three parts: an introduction to what Git is, how it works and how to install and configure it; repository management, covering file status, staging, file operations, undoing changes and history, remote repositories, tags and aliases; and finally branching and merging, up to rebasing. The course comes with a reference guide to the most common Git commands and can be read online."
+			},
+			"image": {
+				"src": "/projects/default.webp",
+				"alt": "Formazione Git"
+			},
+			"public": true,
+			"url": "https://moris88.github.io/formazione-git/",
+			"github": "https://github.com/moris88/formazione-git",
+			"tags": [
+				"Git",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "📖",
+					"label": {
+						"it": "Formazione",
+						"en": "Training"
+					}
+				}
+			]
+		},
+		{
+			"id": 22,
+			"title": "Formazione Python",
+			"description": {
+				"it": "Formazione Python è un corso in italiano sul linguaggio Python, strutturato in lezioni teoriche ed esercizi svolti. Le 24 lezioni accompagnano dalle basi (sintassi, variabili, tipi di dati, casting, input/output, condizioni, cicli e funzioni) ai concetti più avanzati come classi e oggetti, eccezioni, moduli e pacchetti, gestione dei file, decoratori e generatori, context manager, type hints, enumerazioni, richieste HTTP, JSON e programmazione asincrona. Una serie di approfondimenti esplora l'ecosistema Python: interprete, strutture dati e virtual environment, analisi dei dati con Pandas, NumPy e Matplotlib, database con SQLAlchemy e MongoDB, sviluppo web con Flask, FastAPI e Streamlit, machine learning e le API di OpenAI. Gli esercizi svolti, inclusi esempi con database e Flask, permettono di mettere subito in pratica quanto imparato.",
+				"en": "Formazione Python is an Italian-language course on the Python language, structured as theory lessons and solved exercises. Its 24 lessons take you from the basics (syntax, variables, data types, casting, input/output, conditionals, loops and functions) to more advanced topics such as classes and objects, exceptions, modules and packages, file handling, decorators and generators, context managers, type hints, enums, HTTP requests, JSON and asynchronous programming. A set of in-depth guides explores the Python ecosystem: the interpreter, data structures and virtual environments, data analysis with Pandas, NumPy and Matplotlib, databases with SQLAlchemy and MongoDB, web development with Flask, FastAPI and Streamlit, machine learning and the OpenAI APIs. Solved exercises, including database and Flask examples, let you put what you learn into practice right away."
+			},
+			"image": {
+				"src": "/projects/default.webp",
+				"alt": "Formazione Python"
+			},
+			"public": true,
+			"url": "https://moris88.github.io/formazione-python/",
+			"github": "https://github.com/moris88/formazione-python",
+			"tags": [
+				"Python",
+				"Pandas",
+				"NumPy",
+				"Flask",
+				"FastAPI",
+				"SQLAlchemy",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "📖",
+					"label": {
+						"it": "Formazione",
+						"en": "Training"
+					}
+				}
+			]
+		},
+		{
+			"id": 23,
+			"title": "Formazione JavaScript",
+			"description": {
+				"it": "Formazione JavaScript è un corso in italiano che copre l'intero percorso di apprendimento di JavaScript in 85 lezioni, accompagnate da esercizi svolti. Il programma è diviso in sette parti: le basi del linguaggio (variabili, tipi, operatori, cicli, funzioni, closure, oggetti, classi, gestione degli errori, Promise e async/await, moduli); il browser, con DOM, eventi e interfacce; JavaScript avanzato; Node.js, fino all'uso di database come MySQL; la tipizzazione con TypeScript, dai tipi di base a generici e utility types; la libreria jQuery, con selezione e manipolazione degli elementi, eventi, effetti e AJAX; infine React, con JSX e TSX, componenti, props, stato, hooks, eventi e form. È consultabile direttamente online.",
+				"en": "Formazione JavaScript is an Italian-language course covering the whole JavaScript learning path in 85 lessons, along with solved exercises. The program is split into seven parts: the language basics (variables, types, operators, loops, functions, closures, objects, classes, error handling, Promises and async/await, modules); the browser, with the DOM, events and interfaces; advanced JavaScript; Node.js, up to using databases such as MySQL; typing with TypeScript, from basic types to generics and utility types; the jQuery library, with element selection and manipulation, events, effects and AJAX; and finally React, with JSX and TSX, components, props, state, hooks, events and forms. It can be read online."
+			},
+			"image": {
+				"src": "/projects/default.webp",
+				"alt": "Formazione JavaScript"
+			},
+			"public": true,
+			"url": "https://moris88.github.io/formazione-javascript/",
+			"github": "https://github.com/moris88/formazione-javascript",
+			"tags": [
+				"Javascript",
+				"Typescript",
+				"Node.js",
+				"React",
+				"jQuery",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "📖",
+					"label": {
+						"it": "Formazione",
+						"en": "Training"
+					}
+				}
+			]
+		},
+		{
+			"id": 24,
+			"title": "Formazione Next.js",
+			"description": {
+				"it": "Formazione Next.js è una raccolta di appunti in italiano su Next.js con App Router, pensata come percorso di studio progressivo dalle basi del framework fino al deploy in produzione, con un'attenzione particolare alle novità di Next.js 15 e 16 e React 19. Le sei lezioni trattano: introduzione al framework, Server e Client Components e differenze tra SSR e SSG; routing e navigazione, con rotte dinamiche, Route Groups e Parallel Routes; data fetching, caching e revalidation, con ISR e Cache Components; API e integrazione con il backend tramite Route Handlers, Proxy (ex Middleware), autenticazione e Server Actions; ottimizzazione e performance con next/image, next/font, Metadata API e SEO; infine deploy e produzione, con variabili d'ambiente, Turbopack, self-hosting con Docker e Vercel. Ogni lezione è autonoma, con esempi in TypeScript e JavaScript basati sulla documentazione ufficiale.",
+				"en": "Formazione Next.js is a collection of Italian-language notes on Next.js with the App Router, designed as a progressive study path from the framework basics to production deployment, with a particular focus on what is new in Next.js 15 and 16 and React 19. The six lessons cover: an introduction to the framework, Server and Client Components and the differences between SSR and SSG; routing and navigation, with dynamic routes, Route Groups and Parallel Routes; data fetching, caching and revalidation, with ISR and Cache Components; APIs and backend integration through Route Handlers, Proxy (formerly Middleware), authentication and Server Actions; optimization and performance with next/image, next/font, the Metadata API and SEO; and finally deployment and production, with environment variables, Turbopack, self-hosting with Docker and Vercel. Each lesson stands on its own, with TypeScript and JavaScript examples based on the official documentation."
+			},
+			"image": {
+				"src": "/projects/default.webp",
+				"alt": "Formazione Next.js"
+			},
+			"public": true,
+			"url": "https://moris88.github.io/formazione-next.js/",
+			"github": "https://github.com/moris88/formazione-next.js",
+			"tags": [
+				"Next.js",
+				"React",
+				"Typescript",
+				"Markdown"
+			],
+			"badges": [
+				{
+					"icon": "📖",
+					"label": {
+						"it": "Formazione",
+						"en": "Training"
+					}
+				}
+			]
+		}
+	]
 }

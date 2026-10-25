@@ -44,8 +44,22 @@ export async function getHistory() {
 	return jsonHistory.history as History
 }
 
-export async function getProjects(language: Language) {
-	return jsonProjects.projects[language] as Project[]
+// Campi testuali: stringa unica (uguale per tutte le lingue) o oggetto { it, en }
+type Localized = string | Record<Language, string>
+
+const localize = (value: Localized, language: Language) =>
+	typeof value === 'string' ? value : value[language]
+
+export async function getProjects(language: Language): Promise<Project[]> {
+	return jsonProjects.projects.map((p) => ({
+		...p,
+		title: localize(p.title as Localized, language),
+		description: localize(p.description as Localized, language),
+		image: { ...p.image, alt: localize(p.image.alt as Localized, language) },
+		badges: (p as { badges?: { icon: string; label: Localized }[] }).badges?.map(
+			(b) => ({ icon: b.icon, label: localize(b.label, language) }),
+		),
+	})) as Project[]
 }
 
 export async function getQuiz() {

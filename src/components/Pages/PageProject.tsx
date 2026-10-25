@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import type { Dictionary } from '@/app/dictionaries'
-import { Button, Chip, SectionHero } from '@/components'
+import { Button, Chip, ProjectBadges, SectionHero } from '@/components'
 import type { Project } from '@/types'
 
 interface PageProjectProps {
@@ -51,6 +51,7 @@ function PageProject({ dict, project }: PageProjectProps) {
 									</Chip>
 								))}
 							</div>
+							<ProjectBadges badges={project.badges} />
 							<p className="text-black dark:text-white">
 								{project.description}
 							</p>

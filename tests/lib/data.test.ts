@@ -162,6 +162,32 @@ describe('getProjects', () => {
 			expect(Array.isArray(p.tags)).toBe(true)
 		}
 	})
+
+	it('localizes text fields to plain strings', async () => {
+		const it = await getProjects('it')
+		const en = await getProjects('en')
+		expect(it.length).toBe(en.length)
+		for (const p of [...it, ...en]) {
+			expect(typeof p.title).toBe('string')
+			expect(typeof p.description).toBe('string')
+			expect(typeof p.image.alt).toBe('string')
+		}
+		expect(it[0].description).not.toBe(en[0].description)
+	})
+
+	it('localizes badge labels and leaves them undefined when absent', async () => {
+		const projects = await getProjects('en')
+		for (const p of projects) {
+			for (const b of p.badges ?? []) {
+				expect(typeof b.icon).toBe('string')
+				expect(typeof b.label).toBe('string')
+			}
+		}
+		const raw = (await import('@/data/projects.json')).default.projects
+		projects.forEach((p, i) => {
+			if (!('badges' in raw[i])) expect(p.badges).toBeUndefined()
+		})
+	})
 })
 
 describe('getQuiz', () => {

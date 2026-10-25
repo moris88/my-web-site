@@ -84,6 +84,10 @@ export default function PageSkills({
 		10: 'secondary',
 	}
 
+	// Titoli lunghi (es. "Anthropic/Claude", "Fiducia in se stessi") vanno a capo invece di essere troncati
+	const skillTitleClassName =
+		'line-clamp-none min-w-0 text-left text-lg leading-tight wrap-break-word'
+
 	const renderIcon = (iconName?: string) => {
 		if (!iconName) return null
 		const IconComponent = (
@@ -150,6 +154,7 @@ export default function PageSkills({
 																					<Card className="bg-gray-300">
 																						<CardContent
 																							icon={renderIcon(skill.icon)}
+											titleClassName={skillTitleClassName}
 																							title={skill.title as string}
 																						>
 																							<ProgressBar
@@ -198,6 +203,7 @@ export default function PageSkills({
 																	<Card className="bg-gray-100">
 																		<CardContent
 																			icon={renderIcon(skill.icon)}
+											titleClassName={skillTitleClassName}
 																			title={
 																				typeof skill.title === 'string'
 																					? skill.title

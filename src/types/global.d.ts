@@ -168,6 +168,12 @@ export interface Project {
 	}
 	public: boolean
 	tags: string[]
+	badges?: ProjectBadge[]
+}
+
+export interface ProjectBadge {
+	icon: string
+	label: string
 }
 
 export type DeveloperCategory =
