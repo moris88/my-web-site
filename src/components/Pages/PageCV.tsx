@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import {
+	Award,
 	Book,
 	Briefcase,
 	Building2,
@@ -172,6 +173,59 @@ function PageCV({ curriculum, dict }: PageCVProps) {
 									'education',
 								),
 							)}
+						</div>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5, delay: 0.4 }}
+					>
+						<h2 className="mb-8 flex items-center gap-3 font-bold text-2xl text-gray-900 dark:text-white">
+							<span className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
+								<Award />
+							</span>
+							{dict.curriculum.certifications}
+						</h2>
+						<div className="grid gap-6 sm:grid-cols-2">
+							{curriculum.certifications.map((cert) => (
+								<div
+									key={cert.name}
+									className="flex flex-col items-center gap-4 rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-gray-200/50 shadow-xl dark:border-gray-800 dark:bg-slate-900/50 dark:shadow-none"
+								>
+									{/* Sfondo neutro dietro il badge PNG trasparente: in dark mode evita che i bordi si perdano sullo sfondo scuro. mix-blend-multiply fa sparire lo sfondo bianco dei PNG non trasparenti (es. freshworks.png) */}
+									<div className="flex h-44 w-44 items-center justify-center rounded-full bg-gray-50 p-4 ring-1 ring-gray-200 dark:bg-slate-200 dark:ring-slate-600">
+										<img
+											src={cert.image}
+											alt={cert.name}
+											loading="lazy"
+											className="h-full w-full object-contain mix-blend-multiply"
+										/>
+									</div>
+									<div className="flex flex-col gap-1">
+										<h3 className="font-bold text-gray-900 text-lg dark:text-gray-100">
+											{cert.link ? (
+												<a
+													href={cert.link}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="hover:text-primary hover:underline dark:hover:text-blue-400"
+												>
+													{cert.name}
+												</a>
+											) : (
+												cert.name
+											)}
+										</h3>
+										<p className="text-gray-500 text-sm dark:text-gray-400">
+											<span className="font-medium text-gray-700 dark:text-gray-300">
+												{cert.issuer}
+											</span>{' '}
+											· {cert.date}
+										</p>
+									</div>
+								</div>
+							))}
 						</div>
 					</motion.div>
 				</div>

@@ -51,6 +51,22 @@
 				"description": "Indirizzo informatico / elettronica / telecomunicazione; Stack: pascal, c; Materie Principali: elettronica, elettrotecnica, informatica, telecomunicazioni, sistemi elettronici, sistemi informatici, sistemi di telecomunicazione, Statistica e Probabilità",
 				"link": null
 			}
+		],
+		"certifications": [
+			{
+				"name": "Claude Certified Architect – Foundations (CCA-F)",
+				"issuer": "Anthropic",
+				"date": "29/10/2026",
+				"image": "/blob.png",
+				"link": "https://www.credly.com/badges/83b5e306-6420-4375-9554-fda2637d786b/public_url"
+			},
+			{
+				"name": "Freshworks Certified App Developer – Foundations",
+				"issuer": "Freshworks",
+				"date": "11/2023",
+				"image": "/freshworks.png",
+				"link": "https://www.credly.com/badges/fb0d7ace-08ba-43f7-94a3-6bf89be944cc/public_url"
+			}
 		]
 	},
 	"en": {
@@ -104,6 +120,22 @@
 				"end": "31/07/2007",
 				"description": "Computer / electronics / telecommunications address; Stack: pascal, c; Main Subjects: electronics, electrical engineering, computer science, telecommunications, electronic systems, computer systems, telecommunication systems, Statistics and Probability",
 				"link": null
+			}
+		],
+		"certifications": [
+			{
+				"name": "Claude Certified Architect – Foundations (CCA-F)",
+				"issuer": "Anthropic",
+				"date": "29/10/2026",
+				"image": "/blob.png",
+				"link": "https://www.credly.com/badges/83b5e306-6420-4375-9554-fda2637d786b/public_url"
+			},
+			{
+				"name": "Freshworks Certified App Developer – Foundations",
+				"issuer": "Freshworks",
+				"date": "11/2023",
+				"image": "/freshworks.png",
+				"link": "https://www.credly.com/badges/fb0d7ace-08ba-43f7-94a3-6bf89be944cc/public_url"
 			}
 		]
 	}
