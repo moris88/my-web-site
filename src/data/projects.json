@@ -646,18 +646,18 @@
 		},
 		{
 			"id": 20,
-			"title": "Corsi Anthropic",
+			"title": "Corsi di Formazione",
 			"description": {
-				"it": "Corsi Anthropic è un sito di preparazione alla certificazione Claude Certified Architect – Foundations (CCA-F) di Anthropic, che riunisce teoria e pratica in un unico punto di accesso. La sezione Studio raccoglie la guida d'esame e i materiali di riferimento sui cinque domini della certificazione, consultabili in un lettore Markdown integrato, insieme alla guida ufficiale in PDF. La sezione Allenamento offre una simulazione d'esame di 120 minuti con quesiti a scelta multipla e revisione delle risposte, per verificare il proprio livello di preparazione. Il progetto è in continua evoluzione e i materiali vengono aggiornati man mano.",
-				"en": "Corsi Anthropic is a study site for Anthropic's Claude Certified Architect – Foundations (CCA-F) certification, bringing theory and practice together in a single place. The Study section collects the exam guide and reference materials on the certification's five domains, readable in a built-in Markdown viewer, along with the official PDF guide. The Practice section offers a 120-minute exam simulation with multiple-choice questions and answer review, so you can check how ready you are. The project is a work in progress and the materials are updated over time."
+				"it": "Corsi di Formazione è una raccolta di materiali di studio non ufficiali, in italiano, per prepararsi alle certificazioni Claude di Anthropic. Il primo percorso disponibile è quello per il Claude Certified Architect – Foundations (CCA-F), aggiornato a ottobre 2026: copre i cinque domini e i sei scenari d'esame, con oltre 600 domande. È organizzato in tre sezioni: Studio, con la guida d'esame, i domini e i materiali di riferimento consultabili in un lettore Markdown integrato; Allenamento, con domande estratte a caso da tutti i test, correzione immediata e spiegazione di ogni risposta, senza limiti di tempo; Simulazione, una prova d'esame di 120 minuti a scelta multipla con revisione finale delle risposte. È disponibile anche la guida ufficiale all'esame in PDF. Il catalogo è pensato per accogliere altre certificazioni in futuro.",
+				"en": "Corsi di Formazione is a collection of unofficial, Italian-language study materials for preparing for Anthropic's Claude certifications. The first available track covers the Claude Certified Architect – Foundations (CCA-F), updated in October 2026: it spans the five exam domains and six exam scenarios, with more than 600 questions. It is organized in three sections: Study, with the exam guide, the domains and reference materials readable in a built-in Markdown viewer; Practice, with questions drawn at random from all the tests, instant feedback and an explanation for every answer, with no time limit; and Simulation, a 120-minute multiple-choice mock exam with a final answer review. The official exam guide is also available as a PDF. The catalog is designed to host more certifications in the future."
 			},
 			"image": {
-				"src": "/projects/default.webp",
-				"alt": "Corsi Anthropic"
+				"src": "/projects/20.webp",
+				"alt": "Corsi di Formazione"
 			},
 			"public": true,
-			"url": "https://ccaf.mauriziotolomeo.it",
-			"github": "https://github.com/moris88/corsi-anthropic",
+			"url": "https://corsi.mauriziotolomeo.it",
+			"github": "https://github.com/moris88/corsi-di-formazione",
 			"tags": [
 				"Claude",
 				"Anthropic",
@@ -665,6 +665,9 @@
 				"HTML",
 				"CSS",
 				"Javascript",
+				"Git",
+				"Next.js",
+				"React",
 				"Markdown"
 			],
 			"badges": [
@@ -680,129 +683,6 @@
 					"label": {
 						"it": "Work in Progress",
 						"en": "Work in Progress"
-					}
-				}
-			]
-		},
-		{
-			"id": 21,
-			"title": "Formazione Git",
-			"description": {
-				"it": "Formazione Git è un corso in italiano per imparare a usare Git, il sistema di controllo di versione distribuito, partendo da zero. Le 14 lezioni sono organizzate in tre parti: un'introduzione su cos'è Git, come funziona e come si installa e configura; la gestione dei repository, con stato dei file, staging, operazioni sui file, annullamento delle modifiche e cronologia, repository remoti, tag e alias; infine branching e merging, fino al rebase. Il corso è completato da una guida di riferimento con i comandi Git più comuni ed è consultabile direttamente online.",
-				"en": "Formazione Git is an Italian-language course for learning Git, the distributed version control system, from scratch. Its 14 lessons are organized in three parts: an introduction to what Git is, how it works and how to install and configure it; repository management, covering file status, staging, file operations, undoing changes and history, remote repositories, tags and aliases; and finally branching and merging, up to rebasing. The course comes with a reference guide to the most common Git commands and can be read online."
-			},
-			"image": {
-				"src": "/projects/default.webp",
-				"alt": "Formazione Git"
-			},
-			"public": true,
-			"url": "https://moris88.github.io/formazione-git/",
-			"github": "https://github.com/moris88/formazione-git",
-			"tags": [
-				"Git",
-				"Markdown"
-			],
-			"badges": [
-				{
-					"icon": "📖",
-					"label": {
-						"it": "Formazione",
-						"en": "Training"
-					}
-				}
-			]
-		},
-		{
-			"id": 22,
-			"title": "Formazione Python",
-			"description": {
-				"it": "Formazione Python è un corso in italiano sul linguaggio Python, strutturato in lezioni teoriche ed esercizi svolti. Le 24 lezioni accompagnano dalle basi (sintassi, variabili, tipi di dati, casting, input/output, condizioni, cicli e funzioni) ai concetti più avanzati come classi e oggetti, eccezioni, moduli e pacchetti, gestione dei file, decoratori e generatori, context manager, type hints, enumerazioni, richieste HTTP, JSON e programmazione asincrona. Una serie di approfondimenti esplora l'ecosistema Python: interprete, strutture dati e virtual environment, analisi dei dati con Pandas, NumPy e Matplotlib, database con SQLAlchemy e MongoDB, sviluppo web con Flask, FastAPI e Streamlit, machine learning e le API di OpenAI. Gli esercizi svolti, inclusi esempi con database e Flask, permettono di mettere subito in pratica quanto imparato.",
-				"en": "Formazione Python is an Italian-language course on the Python language, structured as theory lessons and solved exercises. Its 24 lessons take you from the basics (syntax, variables, data types, casting, input/output, conditionals, loops and functions) to more advanced topics such as classes and objects, exceptions, modules and packages, file handling, decorators and generators, context managers, type hints, enums, HTTP requests, JSON and asynchronous programming. A set of in-depth guides explores the Python ecosystem: the interpreter, data structures and virtual environments, data analysis with Pandas, NumPy and Matplotlib, databases with SQLAlchemy and MongoDB, web development with Flask, FastAPI and Streamlit, machine learning and the OpenAI APIs. Solved exercises, including database and Flask examples, let you put what you learn into practice right away."
-			},
-			"image": {
-				"src": "/projects/default.webp",
-				"alt": "Formazione Python"
-			},
-			"public": true,
-			"url": "https://moris88.github.io/formazione-python/",
-			"github": "https://github.com/moris88/formazione-python",
-			"tags": [
-				"Python",
-				"Pandas",
-				"NumPy",
-				"Flask",
-				"FastAPI",
-				"SQLAlchemy",
-				"Markdown"
-			],
-			"badges": [
-				{
-					"icon": "📖",
-					"label": {
-						"it": "Formazione",
-						"en": "Training"
-					}
-				}
-			]
-		},
-		{
-			"id": 23,
-			"title": "Formazione JavaScript",
-			"description": {
-				"it": "Formazione JavaScript è un corso in italiano che copre l'intero percorso di apprendimento di JavaScript in 85 lezioni, accompagnate da esercizi svolti. Il programma è diviso in sette parti: le basi del linguaggio (variabili, tipi, operatori, cicli, funzioni, closure, oggetti, classi, gestione degli errori, Promise e async/await, moduli); il browser, con DOM, eventi e interfacce; JavaScript avanzato; Node.js, fino all'uso di database come MySQL; la tipizzazione con TypeScript, dai tipi di base a generici e utility types; la libreria jQuery, con selezione e manipolazione degli elementi, eventi, effetti e AJAX; infine React, con JSX e TSX, componenti, props, stato, hooks, eventi e form. È consultabile direttamente online.",
-				"en": "Formazione JavaScript is an Italian-language course covering the whole JavaScript learning path in 85 lessons, along with solved exercises. The program is split into seven parts: the language basics (variables, types, operators, loops, functions, closures, objects, classes, error handling, Promises and async/await, modules); the browser, with the DOM, events and interfaces; advanced JavaScript; Node.js, up to using databases such as MySQL; typing with TypeScript, from basic types to generics and utility types; the jQuery library, with element selection and manipulation, events, effects and AJAX; and finally React, with JSX and TSX, components, props, state, hooks, events and forms. It can be read online."
-			},
-			"image": {
-				"src": "/projects/default.webp",
-				"alt": "Formazione JavaScript"
-			},
-			"public": true,
-			"url": "https://moris88.github.io/formazione-javascript/",
-			"github": "https://github.com/moris88/formazione-javascript",
-			"tags": [
-				"Javascript",
-				"Typescript",
-				"Node.js",
-				"React",
-				"jQuery",
-				"Markdown"
-			],
-			"badges": [
-				{
-					"icon": "📖",
-					"label": {
-						"it": "Formazione",
-						"en": "Training"
-					}
-				}
-			]
-		},
-		{
-			"id": 24,
-			"title": "Formazione Next.js",
-			"description": {
-				"it": "Formazione Next.js è una raccolta di appunti in italiano su Next.js con App Router, pensata come percorso di studio progressivo dalle basi del framework fino al deploy in produzione, con un'attenzione particolare alle novità di Next.js 15 e 16 e React 19. Le sei lezioni trattano: introduzione al framework, Server e Client Components e differenze tra SSR e SSG; routing e navigazione, con rotte dinamiche, Route Groups e Parallel Routes; data fetching, caching e revalidation, con ISR e Cache Components; API e integrazione con il backend tramite Route Handlers, Proxy (ex Middleware), autenticazione e Server Actions; ottimizzazione e performance con next/image, next/font, Metadata API e SEO; infine deploy e produzione, con variabili d'ambiente, Turbopack, self-hosting con Docker e Vercel. Ogni lezione è autonoma, con esempi in TypeScript e JavaScript basati sulla documentazione ufficiale.",
-				"en": "Formazione Next.js is a collection of Italian-language notes on Next.js with the App Router, designed as a progressive study path from the framework basics to production deployment, with a particular focus on what is new in Next.js 15 and 16 and React 19. The six lessons cover: an introduction to the framework, Server and Client Components and the differences between SSR and SSG; routing and navigation, with dynamic routes, Route Groups and Parallel Routes; data fetching, caching and revalidation, with ISR and Cache Components; APIs and backend integration through Route Handlers, Proxy (formerly Middleware), authentication and Server Actions; optimization and performance with next/image, next/font, the Metadata API and SEO; and finally deployment and production, with environment variables, Turbopack, self-hosting with Docker and Vercel. Each lesson stands on its own, with TypeScript and JavaScript examples based on the official documentation."
-			},
-			"image": {
-				"src": "/projects/default.webp",
-				"alt": "Formazione Next.js"
-			},
-			"public": true,
-			"url": "https://moris88.github.io/formazione-next.js/",
-			"github": "https://github.com/moris88/formazione-next.js",
-			"tags": [
-				"Next.js",
-				"React",
-				"Typescript",
-				"Markdown"
-			],
-			"badges": [
-				{
-					"icon": "📖",
-					"label": {
-						"it": "Formazione",
-						"en": "Training"
 					}
 				}
 			]

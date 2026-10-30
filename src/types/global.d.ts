@@ -112,6 +112,15 @@ export interface Article {
 export interface Curriculum {
 	educations: Education[]
 	experiences: Experience[]
+	certifications: Certification[]
+}
+
+export interface Certification {
+	name: string
+	issuer: string
+	date: string
+	image: string
+	link?: string
 }
 
 export interface Experience {
