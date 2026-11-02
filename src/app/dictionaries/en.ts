@@ -237,7 +237,7 @@ const dictionary = {
       },
     },
     project: {
-      link: "Link webapp/package",
+      link: "Link webapp",
       github: "Link at github repository",
       buttons: {
         back: "Done",

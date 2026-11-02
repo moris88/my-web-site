@@ -95,6 +95,13 @@
 						"it": "Tool",
 						"en": "Tool"
 					}
+				},
+				{
+					"icon": "💤",
+					"label": {
+						"it": "Inattivo",
+						"en": "Inactive"
+					}
 				}
 			]
 		},
@@ -556,10 +563,10 @@
 			],
 			"badges": [
 				{
-					"icon": "✨",
+					"icon": "🛠",
 					"label": {
-						"it": "Nuovo",
-						"en": "New"
+						"it": "Tool",
+						"en": "Tool"
 					}
 				},
 				{
@@ -567,6 +574,13 @@
 					"label": {
 						"it": "Work in Progress",
 						"en": "Work in Progress"
+					}
+				},
+				{
+					"icon": "✨",
+					"label": {
+						"it": "Nuovo",
+						"en": "New"
 					}
 				}
 			]
@@ -597,6 +611,13 @@
 			],
 			"badges": [
 				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				},
+				{
 					"icon": "✨",
 					"label": {
 						"it": "Nuovo",
@@ -617,7 +638,7 @@
 				"alt": "Zoho Auth"
 			},
 			"public": true,
-			"url": "https://zoho-auth.mauriziotolomeo.it",
+			"url": "https://zoho-oauth.mauriziotolomeo.it/",
 			"github": "https://github.com/moris88/zoho-oauth",
 			"tags": [
 				"Javascript",
@@ -629,17 +650,17 @@
 			],
 			"badges": [
 				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				},
+				{
 					"icon": "🔒",
 					"label": {
 						"it": "Accesso Privato",
 						"en": "Private Access"
-					}
-				},
-				{
-					"icon": "🚧",
-					"label": {
-						"it": "Work in Progress",
-						"en": "Work in Progress"
 					}
 				}
 			]
@@ -672,17 +693,17 @@
 			],
 			"badges": [
 				{
+					"icon": "🌐",
+					"label": {
+						"it": "Portale Web",
+						"en": "Web Portal"
+					}
+				},
+				{
 					"icon": "📖",
 					"label": {
 						"it": "Formazione",
 						"en": "Training"
-					}
-				},
-				{
-					"icon": "🚧",
-					"label": {
-						"it": "Work in Progress",
-						"en": "Work in Progress"
 					}
 				}
 			]

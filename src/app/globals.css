@@ -16,6 +16,26 @@
 			transform: translateX(-50%);
 		}
 	}
+
+	/* Oscillazione "cantiere" per i badge Work in Progress */
+	--animate-wip: wip 1.6s ease-in-out infinite;
+
+	@keyframes wip {
+		0%,
+		60%,
+		100% {
+			transform: rotate(0deg);
+		}
+		10%,
+		30%,
+		50% {
+			transform: rotate(-15deg);
+		}
+		20%,
+		40% {
+			transform: rotate(15deg);
+		}
+	}
 }
 
 body {

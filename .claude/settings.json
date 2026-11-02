@@ -21,7 +21,6 @@
       "Read(./**/private/**)",
       "Edit(./.git/**)",
       "Edit(./node_modules/**)",
-      "Edit(./app/**)",
       "Edit(./dist/**)",
       "Edit(./coverage/**)"
     ]
