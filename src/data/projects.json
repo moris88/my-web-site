@@ -707,6 +707,35 @@
 					}
 				}
 			]
+		},
+		{
+			"id": 21,
+			"title": "Sticky Notes",
+			"description": {
+				"it": "Note adesive è un’app desktop per Windows che porta i post-it direttamente sullo schermo, con una dashboard per gestire tutte le note in un unico elenco, una sezione dedicata alle note fissate e una vista calendario per seguire le scadenze, mentre ogni nota può diventare un post-it sempre in primo piano che si può ridurre al solo titolo, espandere o chiudere quando serve. Le note si scrivono in Markdown con anteprima formattata, risaltano visivamente se hanno una scadenza o dei tag, e vengono salvate come semplici file .md in una cartella scelta dall’utente, così restano leggibili anche fuori dall’app. Il tema può essere chiaro o scuro, con uno stile “carta e inchiostro” sobrio e leggibile.",
+				"en": "Sticky Notes is a Windows desktop app that brings post-it notes directly to the screen, with a dashboard to manage all notes in a single list, a section for pinned notes, and a calendar view to track deadlines, while each note can become a post-it always on top that can be minimized to the title only, expanded, or closed as needed. Notes are written in Markdown with formatted preview, visually stand out if they have a deadline or tags, and are saved as simple .md files in a user-chosen folder, so they remain readable even outside the app. The theme can be light or dark, with a sober and readable 'paper and ink' style."
+			},
+			"image": {
+				"src": "/projects/21.webp",
+				"alt": "Sticky Notes"
+			},
+			"public": true,
+			"github": "https://github.com/moris88/sticky-notes",
+			"tags": [
+				"Typescript",
+				"React",
+				"Markdown",
+				"Electron"
+			],
+			"badges": [
+				{
+					"icon": "🛠",
+					"label": {
+						"it": "Tool",
+						"en": "Tool"
+					}
+				}
+			]
 		}
 	]
 }
