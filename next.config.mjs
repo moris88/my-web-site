@@ -15,6 +15,9 @@ const withPWA = withPWAInit({
 const nextConfig = {
 	allowedDevOrigins: ['http://localhost:3000', 'http://192.168.56.1:3000'],
 	turbopack: {},
+	experimental: {
+		agentUpgrade: 'security',
+	},
 	// Gli articoli del blog vengono letti dal filesystem a runtime
 	outputFileTracingIncludes: {
 		'/blog': ['./content/blog/**/*'],
