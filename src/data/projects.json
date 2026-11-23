@@ -736,6 +736,35 @@
 					}
 				}
 			]
+		},
+		{
+			"id": 22,
+			"title": "Cards Games",
+			"description": {
+				"it": "Raccolta di giochi di carte e da tavolo italiani da giocare nel browser contro avversari controllati dal computer. Funziona anche su telefono e tablet.",
+				"en": "Collection of Italian card and board games to play in the browser against computer-controlled opponents. Works also on phone and tablet."
+			},
+			"image": {
+				"src": "/projects/22.webp",
+				"alt": "Cards Games"
+			},
+			"public": true,
+			"url": "https://cards-games.mauriziotolomeo.it",
+			"github": "https://github.com/moris88/cards-games",
+			"tags": [
+				"Typescript",
+				"React",
+				"TailwindCSS"
+			],
+			"badges": [
+				{
+					"icon": "🎮",
+					"label": {
+						"it": "Gioco",
+						"en": "Game"
+					}
+				}
+			]
 		}
 	]
 }
